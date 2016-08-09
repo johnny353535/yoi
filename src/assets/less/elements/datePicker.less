@@ -1,0 +1,137 @@
+/** datePicker.less */
+
+// block
+// =====
+
+.datePicker {
+    .mixin-shadow-3;
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-20 1px solid;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+}
+
+// elements
+// ========
+
+.datePicker__wrapper {
+
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+        .mixin-icon;
+        color: @color-main-12;
+        content: '\f017';
+        line-height: 2rem;
+        vertical-align: middle;
+    }
+
+    &:hover::after {
+        color: @color-main-8;
+    }
+
+}
+
+.datePicker__header {
+    font-family: @font-sansserif;
+    font-weight: normal;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+}
+
+.datePicker__days {
+
+    background: @color-main-25;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    width: 100%;
+
+    th,
+    td {
+        border: 0;
+    }
+
+    td {
+        cursor: pointer;
+        text-align: center;
+    }
+
+    tr:last-child td:first-child,
+    tr:last-child td:last-child {
+        border-radius: 0;
+    }
+
+    td:hover {
+
+        background: @color-main-23;
+        color: @color-main-8;
+
+        &::after {
+            background: @color-main-10;
+        }
+
+    }
+
+}
+
+// modifiers
+// =========
+
+.datePicker__days .datePicker--today {
+
+    background: @color-attention-22;
+    color: @color-attention-8;
+    font-weight: bold;
+    position: relative;
+
+    &::after {
+        background: @color-attention-10;
+        border-radius: 50%;
+        content: ' ';
+        height: .4rem;
+        position: absolute;
+        right: .5rem;
+        bottom: .5rem;
+        width: .4rem;
+    }
+
+}
+
+.datePicker__days .datePicker--selectedDay {
+
+    background: @color-positive-12;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+
+        color: #fff;
+        background: @color-positive-10;
+
+        &::after {
+            background: @color-positive-20;
+        }
+
+    }
+
+    &::after {
+        background: @color-positive-20;
+    }
+
+}
+
+.datePicker__days .datePicker--emptyDay {
+
+    &:hover {
+        background: transparent;
+    }
+
+}

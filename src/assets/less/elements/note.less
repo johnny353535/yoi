@@ -1,0 +1,261 @@
+/** note.less */
+
+// block
+// =====
+
+.note {
+
+    .mixin-clearfix;
+    .noteColorTheme;
+    .mixin-defaultBorderRadius;
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    font-family: @font-sansserif;
+    padding: 1rem;
+    position: relative;
+
+    // dismiss/close button
+
+    > .btn {
+        top: 0;
+        right: 0;
+        position: absolute;
+        opacity: .6;
+        color: inherit;
+    }
+
+    > .btn:hover {
+        background: transparent;
+        opacity: 1;
+    }
+
+    // icons inside notes
+
+    &[class*="note--icon"] {
+
+        min-height: 2rem;
+        padding-left: 5.5rem;
+
+        &.note--fullwidth .center::before,
+        &:not(.note--fullwidth)::before {
+            .mixin-icon;
+            position: absolute;
+        }
+
+        &.note--fullwidth .center::before {
+            top: -.7rem;
+            left: 1rem;
+        }
+
+        &:not(.note--fullwidth)::before {
+            top: .5rem;
+            left: 1rem;
+        }
+
+    }
+
+    .generate_noteicons (@i) when (@i > -1) {
+
+        .generate_noteicons((@i - 1));
+        @paddedIndex: ~`(function(j) { return ('000' + j).slice(-3) })("@{i}")`;
+
+        &.note--icon@{paddedIndex}.note--fullwidth .center::before,
+        &.note--icon@{paddedIndex}:not(.note--fullwidth)::before {
+            content: '\e@{paddedIndex}';
+        }
+
+    }
+    .generate_noteicons(85);
+
+}
+
+// elements
+// ========
+
+// note headline
+
+.note__headline {
+    @h4();
+    margin: 0 0 5px 0;
+}
+
+// note body
+
+.note__body {
+
+    // typography
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+
+    ul {
+
+        padding-left: 2rem;
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+    }
+
+    // visually seperate multiple bodies
+
+    & + & {
+        border-top-style: solid;
+        border-top-width: 1px;
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+
+}
+
+// modifiers
+// =========
+
+// large text
+
+.note--large .note__body {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+// "constructor" for different color themes
+
+.noteColorTheme(@borderColor: @color-main-23, @txtColor: @color-main-10, @backgroundColor: @color-main-25) {
+
+    background: @backgroundColor;
+    border-color: @borderColor;
+    color: @txtColor;
+
+    .note__headline {
+        color: @txtColor;
+    }
+
+    .note__body + .note__body {
+        border-color: @borderColor;
+    }
+
+}
+
+// different color schemes
+
+.note--attention {
+    .noteColorTheme(
+        @borderColor: @color-attention-19,
+        @txtColor: @color-attention-10,
+        @backgroundColor: @color-attention-22
+    );
+}
+
+.note--dark {
+    .noteColorTheme(
+        @borderColor: @color-transparent,
+        @txtColor: @color-main-25,
+        @backgroundColor: @color-main-10
+    );
+}
+
+.note--error,
+.note--negative {
+    .noteColorTheme(
+        @borderColor: @color-negative-22,
+        @txtColor: @color-negative-10,
+        @backgroundColor: @color-negative-24
+    );
+}
+
+.note--light {
+    .noteColorTheme(
+        @backgroundColor: #fff
+    );
+}
+
+.note--prescription {
+    .noteColorTheme(
+        @borderColor: @color-prescriptionPink-2,
+        @txtColor: @color-prescriptionPink-1,
+        @backgroundColor: @color-prescriptionPink-3
+    );
+}
+
+.note--success,
+.note--positive {
+    .noteColorTheme(
+        @borderColor: @color-positive-22,
+        @txtColor: @color-positive-10,
+        @backgroundColor: @color-positive-24
+    );
+}
+
+.note--subtle {
+    .noteColorTheme(
+        @borderColor: @color-transparent,
+        @txtColor: @gray-6,
+        @backgroundColor: @gray-23
+    );
+}
+
+// grouped notes
+
+.notes {
+
+    .note:first-child {
+        border-radius: .2rem .2rem 0 0;
+    }
+
+    .note + .note {
+        border-radius: 0;
+        border-top: 0;
+    }
+
+    .note:last-child {
+        border-radius: 0 0 .2rem .2rem;
+    }
+
+    .note:only-child {
+        .mixin-defaultBorderRadius;
+    }
+
+}
+
+// full width notes
+
+/*
+    In order to correctly attach icons to full-width notes, we need an additial
+    css-class to mark them. Because the icons should not be attached to the note itself
+    but to it's .center element inside.
+*/
+
+.note.note--fullwidth {
+
+    padding: 1rem;
+
+    .center {
+        min-width: @globalWidth - 20;
+        max-width: @globalMaxWidth - 20;
+    }
+
+    &[class*="note--icon"] .center {
+        padding-left: 5.5rem;
+    }
+
+}
+
+// no borders
+
+.note--stripped {
+    border-radius: 0;
+    border: 0;
+}
+
+// dismissable notes (see notifications.js)
+
+.note[data-option="dismissable"] {
+    padding-right: 4rem;
+}

@@ -1,0 +1,91 @@
+/** styling.less */
+
+// border
+
+.b-0   { border: 0 !important; }
+.b-t-0 { border-top: 0 !important; }
+.b-r-0 { border-right: 0 !important; }
+.b-b-0 { border-bottom: 0 !important; }
+.b-l-0 { border-left: 0 !important; }
+.b-t   { border-top: @color-main-23 1px solid !important; }
+.b-r   { border-right: @color-main-23 1px solid !important; }
+.b-b   { border-bottom: @color-main-23 1px solid !important; }
+.b-l   { border-left: @color-main-23 1px solid !important; }
+
+// border radius
+
+.br-default { .mixin-defaultBorderRadius !important; }
+.br-circle  { border-radius: 50% !important; overflow: hidden !important; }
+.br-0       { border-radius: 0 !important; }
+.br-tl-0    { border-top-left-radius: 0 !important; }
+.br-tr-0    { border-top-right-radius: 0 !important; }
+.br-br-0    { border-bottom-right-radius: 0 !important; }
+.br-bl-0    { border-bottom-left-radius: 0 !important; }
+
+// box shadows
+
+.sh-1 { .mixin-shadow-1 !important; }
+.sh-2 { .mixin-shadow-2 !important; }
+.sh-3 { .mixin-shadow-3 !important; }
+
+// text shadows
+
+.tsh-none { text-shadow: none !important; }
+.tsh      { text-shadow: 0 1px 0 @color-main-5 !important; }
+
+// text and background colors
+
+.generate_colors (@i) when (@i > 0) {
+
+    .generate_colors((@i - 1));
+
+    // background colors
+
+    .bg-attention-@{i}  { background: ~"@{color-attention-@{i}}" !important; }
+    .bg-blue-@{i}       { background: ~"@{blue-@{i}}" !important; }
+    .bg-gray-@{i}       { background: ~"@{gray-@{i}}" !important; }
+    .bg-green-@{i}      { background: ~"@{green-@{i}}" !important; }
+    .bg-main-@{i}       { background: ~"@{color-main-@{i}}" !important; }
+    .bg-negative-@{i}   { background: ~"@{color-negative-@{i}}" !important; }
+    .bg-positive-@{i}   { background: ~"@{color-positive-@{i}}" !important; }
+    .bg-purple-@{i}     { background: ~"@{purple-@{i}}" !important; }
+    .bg-red-@{i}        { background: ~"@{red-@{i}}" !important; }
+    .bg-yellow-@{i}     { background: ~"@{yellow-@{i}}" !important; }
+
+    // text colors
+
+    .tc-attention-@{i}  { color: ~"@{color-attention-@{i}}" !important; }
+    .tc-blue-@{i}       { color: ~"@{blue-@{i}}" !important; }
+    .tc-gray-@{i}       { color: ~"@{gray-@{i}}" !important; }
+    .tc-green-@{i}      { color: ~"@{green-@{i}}" !important; }
+    .tc-main-@{i}       { color: ~"@{color-main-@{i}}" !important; }
+    .tc-negative-@{i}   { color: ~"@{color-negative-@{i}}" !important; }
+    .tc-positive-@{i}   { color: ~"@{color-positive-@{i}}" !important; }
+    .tc-purple-@{i}     { color: ~"@{purple-@{i}}" !important; }
+    .tc-red-@{i}        { color: ~"@{red-@{i}}" !important; }
+    .tc-yellow-@{i}     { color: ~"@{yellow-@{i}}" !important; }
+
+}
+.generate_colors(25);
+
+// background colors
+
+.bg-transparent { background: @color-transparent !important; }
+.bg-white       { background: #fff !important; }
+
+// text colors
+
+.tc-transparent { color: @color-transparent !important; }
+.tc-white       { color: #fff !important; }
+
+// semantic text colors
+
+.tc-attention             { color: @color-attention-8 !important; }
+.tc-dark                  { color: @color-main-5 !important; }
+.tc-error, .tc-negative   { color: @color-negative-15 !important; }
+.tc-gold                  { color: @color-gold !important; }
+.tc-light                 { color: @color-main-15 !important; }
+.tc-pharmacy              { color: @color-pharmacy !important; }
+.tc-price                 { color: @color-negative-15 !important; }
+.tc-success, .tc-positive { color: @color-positive-15 !important; }
+.tc-white                 { color: #fff !important; }

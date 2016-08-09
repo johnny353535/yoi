@@ -1,0 +1,75 @@
+// ===========================================================
+//
+//		File:	less/elements/headers/header.less
+//		Descr.:	Main page headers.
+//
+// ===========================================================
+
+// headers
+
+#header,
+#header-blog,
+#header-lexicon {
+
+    border-bottom: @color-main-23 1px solid;
+    display: block;
+    position: relative;
+    z-index: 401;
+
+    > .center:first-child {
+        height: 215px;
+    }
+
+}
+
+#header {
+
+    background: #fff;
+
+    .center {
+        position: relative;
+        z-index: 402;
+    }
+
+}
+
+#header-blog #searchForm,
+#header-lexicon #searchForm {
+    right: 0;
+}
+
+// logos
+
+#logo {
+
+    display: block;
+    height: 90px;
+    left: -20px;
+    overflow: visible;
+    position: absolute;
+    top: 30px;
+    width: 240px;
+
+    h2 {
+        bottom: 0;
+        color: @color-main-10;
+        font-size: 15px;
+        left: 38px;
+        line-height: 20px;
+        position: absolute;
+    }
+
+    svg {}
+
+}
+
+#header-blog #logo,
+#header-lexicon #logo {
+
+    h2 {
+        bottom: -10px;
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+}

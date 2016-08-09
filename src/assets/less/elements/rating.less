@@ -1,0 +1,97 @@
+/** rating.less */
+
+// block
+// =====
+
+.rating {
+    display: inline-block;
+    text-align: left;
+    text-indent: -1px;
+}
+
+// elements
+// ========
+
+.rating__stars {
+
+    display: inline-block;
+    font-size: 0;
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+        .mixin-icon;
+        line-height: 20px;
+        letter-spacing: -5px;
+    }
+
+    &::before {
+        color: @color-gold;
+    }
+
+    &::after {
+        color: @color-main-23;
+    }
+
+}
+
+// modifiers
+// =========
+
+.rating--1 .rating__stars {
+    &::before { content: '\e039'; }
+    &::after  { content: '\e039 \e039 \e039 \e039'; }
+}
+
+.rating--2 .rating__stars {
+    &::before { content: '\e039 \e039'; }
+    &::after  { content: '\e039 \e039 \e039'; }
+}
+
+.rating--3 .rating__stars {
+    &::before { content: '\e039 \e039 \e039'; }
+    &::after  { content: '\e039 \e039'; }
+}
+
+.rating--4 .rating__stars {
+    &::before { content: '\e039 \e039 \e039 \e039'; }
+    &::after  { content: '\e039'; }
+}
+
+.rating--5 .rating__stars {
+    &::before { content: '\e039 \e039 \e039 \e039 \e039'; }
+}
+
+.rating--small {
+
+    text-indent: -1px;
+
+    .rating__stars {
+
+        &::before,
+        &::after {
+            font-size: 18px;
+            letter-spacing: -2px;
+        }
+
+    }
+
+}
+
+.rating--large {
+
+    line-height: 40px;
+    text-indent: -2px;
+
+    .rating__stars {
+
+        &::before,
+        &::after {
+            font-size: 48px;
+            letter-spacing: -8px;
+            line-height: 40px;
+        }
+
+    }
+
+}

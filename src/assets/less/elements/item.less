@@ -1,0 +1,154 @@
+/** item.less */
+
+// base item
+
+.article .item,
+.item {
+
+    box-sizing: border-box;
+    color: @color-main-8;
+    position: relative;
+
+    a& {
+        text-decoration: none;
+    }
+
+    // item title, packshot, description
+
+    h2 {
+
+        font-size: 15px;
+        line-height: 20px;
+
+        a, a:hover {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: @color-main-15;
+        }
+
+    }
+
+    p {
+        font-family: @font-sansserif;
+        margin: 0;
+    }
+
+    img {
+        .mixin-defaultBorderRadius;
+    }
+
+    // item details
+
+    .details {
+        // simple container to group elements
+    }
+
+    .meta,
+    .basePrice,
+    .saving,
+    .avp,
+    .uvp {
+        color: @color-main-15;
+    }
+
+    .saving,
+    .avp,
+    .uvp,
+    .pzn,
+    .isbn,
+    .basePrice {
+        white-space: nowrap;
+    }
+
+    .freeShipping {
+        color: @color-positive-15
+    }
+
+    .caption {
+        color: @color-main-10;
+        display: block;
+    }
+
+    .price {
+        color: @color-negative-15;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        white-space: nowrap;
+    }
+
+    .rating,
+    .shipping {
+        vertical-align: middle;
+    }
+
+    // other possible but unstyled bits
+    /*
+        .author {}
+        .descr {}
+        .dosageForm {}
+        .issue {}
+        .manufacturer {}
+        .newPrice {}
+        .oldPrice {}
+        .publisher {}
+    */
+
+    // controls
+
+    .controls {}
+
+}
+
+// tweaking <sup>
+
+.price sup,
+.sum sup {
+    font-size: 11px;
+    position: relative;
+    right: -3px;
+    top: -8px;
+}
+
+// item as div, span or link
+
+div.item,
+span.item,
+a.item {
+    display: block;
+    text-decoration: none;
+}
+
+a.item:hover {
+    box-shadow: 0 0 0 2px @color-main-23 inset;
+}
+
+// items (grouped)
+
+.items {
+    .mixin-clearfix;
+}
+
+// // different item widths
+//
+// .two-per-row .item {
+// 	width: 50%;
+// }
+//
+// .three-per-row .item {
+// 	width: 33.3%;
+// }
+//
+// .four-per-row .item {
+// 	width: 25%;
+// }
+//
+// .five-per-row .item {
+// 	width: 20%;
+// }
+//
+// .six-per-row .item {
+// 	width: 16.66%;
+// }

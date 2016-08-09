@@ -1,0 +1,35 @@
+/** sectionHeader.less */
+
+.sectionHeader {
+
+    font: normal 20px/30px @font-sansserif;
+    margin: 25px 0;
+    padding-left: 15px;
+    position: relative;
+
+    &::before {
+        background: @color-main-10;
+        content: ' ';
+        height: 30px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 5px;
+    }
+
+}
+
+.sectionHeader:first-child {
+    margin-top: 0;
+}
+
+.paper .sectionHeader {
+
+    padding-left: 0;
+
+    &::before {
+        border-radius: .2rem 0 0 .2rem;
+        left: -25px;
+    }
+
+}

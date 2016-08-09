@@ -1,0 +1,42 @@
+/** pageRewind.less */
+
+#pageRewind {
+
+    .mixin-shadow-3;
+    background: @color-main-24;
+    border-radius: .2rem .2rem 0 0;
+    border-bottom: 0;
+    border: @color-main-20 1px solid;
+    bottom: -5px;
+    box-sizing: border-box;
+    color: @color-main-15;
+    display: block;
+    height: 40px;
+    left: 50%;
+    margin-left: -45px;
+    padding: 10px 20px;
+    position: fixed;
+    text-align: right;
+    transition: bottom 500ms ease-out;
+    width: 90px;
+    z-index: 900;
+
+    &:hover {
+        background: @color-main-25;
+    }
+
+    &.inactive {
+        bottom: -80px;
+    }
+
+    [class^="icon--"] {
+        color: @color-main-10;
+        height: 40px;
+        left: 50%;
+        margin-left: -16px;
+        line-height: 40px;
+        position: absolute;
+        top: 0;
+    }
+
+}

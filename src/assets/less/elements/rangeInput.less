@@ -1,0 +1,175 @@
+/** rangeInput.less */
+
+// no-js fallback
+// ==============
+
+.rangeInput {
+
+    form {
+
+    }
+
+    label {
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+// js-enhanced rangeInput
+// ======================
+
+.js .rangeInput {
+
+    cursor: default;
+    height: 45px;
+    position: relative;
+    user-select: none;
+
+    // hide fallback form
+
+    form {
+        height: 1px;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 1px;
+    }
+
+    // track & range indicator
+
+    .rangeInput__track {
+        background: @color-main-24;
+        .mixin-defaultBorderRadius;
+        bottom: 10px;
+        height: 4px;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+    }
+
+    .rangeInput__range {
+        background: @color-main-10;
+        height: 4px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: left 200ms ease-out, right 200ms ease-out;
+    }
+
+    &.rangeInput--active .rangeInput__range {
+        transition: none;
+    }
+
+    // knob
+
+    .rangeInput__knob {
+        background: #fff;
+        border-radius: 50%;
+        border: @color-main-22 1px solid;
+        bottom: 1px;
+        box-sizing: border-box;
+        cursor: ew-resize;
+        height: 20px;
+        position: absolute;
+        transition: left 200ms ease-out;
+        width: 20px;
+        z-index: 2;
+    }
+
+    &.rangeInput--active .rangeInput__knob {
+        transition: none;
+    }
+
+    .rangeInput__knob:hover,
+    .rangeInput__knob--active {
+        background: @color-main-10;
+        border-color: @color-main-10;
+    }
+
+    .rangeInput__knob--topMost {
+        z-index: 3;
+    }
+
+    // label
+
+    .rangeInput__label {
+
+        background: @color-main-24;
+        .mixin-defaultBorderRadius;
+        display: block;
+        line-height: 20px;
+        padding: 0 5px;
+        position: absolute;
+        text-align: center;
+        text-overflow: ellipsis;
+        top: -30px;
+        white-space: nowrap;
+
+        &::after {
+            background: @color-main-24;
+            bottom: -3px;
+            content: ' ';
+            height: 6px;
+            left: 50%;
+            margin-left: -2px;
+            position: absolute;
+            transform: rotate(45deg);
+            width: 6px;
+        }
+
+    }
+
+    .rangeInput__knob:hover .rangeInput__label,
+    .rangeInput__knob:hover .rangeInput__label::after,
+
+    .rangeInput__knob--active .rangeInput__label,
+    .rangeInput__knob--active .rangeInput__label::after,
+
+    &.rangeInput--active .rangeInput__label--single,
+    &.rangeInput--active .rangeInput__label--single::after,
+
+    .rangeInput__knob:hover ~ .rangeInput__label--single,
+    .rangeInput__knob:hover ~ .rangeInput__label--single::after {
+
+        background: @color-main-10;
+        color: #fff;
+
+    }
+
+    // special case: if the labels "collide" because the knobs are too close,
+    // the two individual labels are replaced by a single label
+
+    .rangeInput__label--single {
+        display: none;
+        top: -5px;
+    }
+
+    &.rangeInput--mergedLabels {
+
+        .rangeInput__label--single {
+            display: block;
+        }
+
+        .rangeInput__knob--min .rangeInput__label,
+        .rangeInput__knob--max .rangeInput__label {
+            display: none;
+        }
+
+    }
+
+}

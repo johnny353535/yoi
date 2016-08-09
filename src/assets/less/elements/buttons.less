@@ -1,0 +1,816 @@
+/** buttons.less */
+
+// button types
+// ============
+
+.btn {
+
+    -webkit-font-smoothing: antialiased;
+    .mixin-clearAppearance;
+    .mixin-defaultBorderRadius;
+    background-clip: padding-box;
+    background: linear-gradient(to bottom, @color-main-24, @color-main-23);
+    border: @color-main-21 1px solid;
+    box-shadow: 0 1px 0 @color-main-25 inset;
+    box-sizing: border-box;
+    color: @color-main-8;
+    cursor: pointer;
+    display: inline-block;
+    font-family: @font-sansserif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 2.5rem;
+    line-height: 2.3rem;
+    padding: 0 1rem;
+    position: relative;
+    text-align: left;
+    text-shadow: 0 1px 0 @color-main-25;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    // <a> as button
+
+    a& {
+        color: @color-main-8;
+        text-decoration: none !important;
+    }
+
+    // interactive states
+
+    &:focus,
+    &.btn--focus {
+        animation-name: pulseOutline;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+        outline-color: @color-main-10;
+        outline-offset: 0.4rem;
+        outline-style: solid;
+        outline-width: 0.2rem;
+    }
+
+    @keyframes pulseOutline { // :focus animation
+        from {
+            outline-color: @color-main-10;
+        } to {
+            outline-color: @color-transparent;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &.btn--focus {
+        background: linear-gradient(to bottom, @color-main-23, @color-main-22);
+        border-color: @color-main-20;
+        box-shadow: 0 1px 0 @color-main-24 inset;
+        text-decoration: none;
+        text-shadow: 0 1px 0 @color-main-24;
+    }
+
+    &:active,
+    &.btn--active {
+        background: linear-gradient(to bottom, @color-main-21, @color-main-22);
+        border-color: @color-main-20;
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    &.btn--disabled,
+    &.btn--disabled:hover,
+    &.btn--disabled:active {
+        cursor: not-allowed;
+        opacity: .3;
+    }
+
+    // modifiers
+
+    &.btn--small {
+        font-size: 1.2rem;
+        line-height: 1.9rem;
+        padding: 0 0.5rem;
+        height: 2rem;
+    }
+
+    &.btn--medium {
+        font-size: 1.2rem;
+        line-height: 2.9rem;
+        height: 3rem;
+    }
+
+    &.btn--large {
+        font-size: 1.5rem;
+        height: 4rem;
+        line-height: 3.8rem;
+        padding: 0 1.9rem;
+    }
+
+    &.btn--subtle {
+
+        box-sizing: border-box;
+        background: transparent;
+        border-color: @color-transparent;
+        box-shadow: none;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-main-24;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-main-22;
+        }
+
+    }
+
+    &.btn--light {
+
+        background: linear-gradient(to bottom, @color-main-25, @color-main-24);
+        border-color: @color-main-22;
+        box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+        color: @color-main-10;
+        text-shadow: 0 1px 0 #fff;
+
+        input[type="submit"] {
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: linear-gradient(to bottom, #fff, @color-main-25);
+            border-color: @color-main-23;
+        }
+
+        &:active,
+        &.btn--active {
+            background: linear-gradient(to bottom, @color-main-23, @color-main-24);
+            border-color: @color-main-22;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+    }
+
+    &.btn--dark {
+
+        background: linear-gradient(to bottom, @color-main-12, @color-main-10);
+        border-color: @color-main-9;
+        box-shadow: 0 1px 0 @color-main-13 inset;
+        color: @color-main-25;
+        text-shadow: 0 -1px 0 @color-main-7;
+
+        input[type="submit"] {
+            text-shadow: 0 -1px 0 @color-main-7;
+        }
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: linear-gradient(to bottom, @color-main-10, @color-main-8);
+            border-color: @color-main-5;
+            text-shadow: 0 -1px 0 @color-main-4;
+        }
+
+        &:active,
+        &.btn--active {
+            background: linear-gradient(to bottom, @color-main-5, @color-main-8);
+            border-color: @color-main-5;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+    }
+
+    &.btn--attention {
+
+        background: linear-gradient(to bottom, @color-attention-21, @color-attention-19);
+        border-color: @color-attention-18;
+        box-shadow: 0 1px 0 @color-attention-22 inset;
+        color: @color-attention-8;
+        text-shadow: 0 1px 0 @color-attention-22;
+
+        input[type="submit"] {
+            text-shadow: 0 1px 0 @color-attention-22;
+        }
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: linear-gradient(to bottom, @color-attention-20, @color-attention-19);
+            border-color: @color-attention-16;
+        }
+
+        &:active,
+        &.btn--active {
+            background: linear-gradient(to bottom, @color-attention-18, @color-attention-21);
+            border-color: @color-attention-16;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+    }
+
+    &.btn--error,
+    &.btn--negative {
+
+        background: linear-gradient(to bottom, @color-negative-21, @color-negative-19);
+        border-color: @color-negative-18;
+        box-shadow: 0 1px 0 @color-negative-22 inset;
+        color: @color-negative-6;
+        text-shadow: 0 1px 0 @color-negative-22;
+
+        input[type="submit"] {
+            text-shadow: 0 1px 0 @color-negative-22;
+        }
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: linear-gradient(to bottom, @color-negative-19, @color-negative-17);
+            border-color: @color-negative-15;
+            box-shadow: 0 1px 0 @color-negative-21 inset;
+            text-shadow: 0 1px 0 @color-negative-21;
+        }
+
+        &:active,
+        &.btn--active {
+            background: linear-gradient(to bottom, @color-negative-17, @color-negative-19);
+            border-color: @color-negative-15;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+    }
+
+    &.btn--success,
+    &.btn--positive {
+
+        background: linear-gradient(to bottom, @color-positive-21, @color-positive-19);
+        border-color: @color-positive-18;
+        box-shadow: 0 1px 0 @color-positive-22 inset;
+        color: @color-positive-8;
+        text-shadow: 0 1px 0 @color-positive-23;
+
+        input[type="submit"] {
+            text-shadow: 0 1px 0 @color-positive-23;
+        }
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: linear-gradient(to bottom, @color-positive-20, @color-positive-19);
+            border-color: @color-positive-16;
+            text-shadow: 0 1px 0 @color-positive-22;
+        }
+
+        &:active,
+        &.btn--active {
+            background: linear-gradient(to bottom, @color-positive-18, @color-positive-21);
+            border-color: @color-positive-16;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+    }
+
+}
+
+.btn.btn--flat {
+
+    background: @color-main-22;
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+
+    // interactive states
+
+    &:hover,
+    &:focus,
+    &.btn--focus {
+        background: @color-main-24;
+        border-color: transparent;
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    &:active,
+    &.btn--active {
+        background: @color-main-20;
+        border-color: transparent;
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    // modifiers
+
+    &.btn--light {
+
+        background: @color-main-24;
+        color: @color-main-10;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-main-23;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-main-22;
+        }
+
+    }
+
+    &.btn--dark {
+
+        background: @color-main-10;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-main-12;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-main-8;
+        }
+
+    }
+
+    &.btn--attention {
+
+        background: @color-attention-20;
+        color:  @color-attention-8;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-attention-19;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-attention-16;
+        }
+
+    }
+
+    &.btn--error,
+    &.btn--negative {
+
+        background: @color-negative-17;
+        color: @color-negative-5;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-negative-19;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-negative-15;
+        }
+
+    }
+
+    &.btn--success,
+    &.btn--positive {
+
+        background: @color-positive-18;
+        color: @color-positive-5;
+        text-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: @color-positive-19;
+        }
+
+        &:active,
+        &.btn--active {
+            background: @color-positive-15;
+        }
+
+    }
+
+}
+
+.btn.btn--outline {
+
+    background: transparent;
+    border-width: 2px;
+    box-shadow: none;
+    color: @color-main-20;
+    line-height: 2.1rem;
+    padding: 0 0.9rem;
+    text-shadow: none;
+
+    // interactive states
+
+    &:hover,
+    &:focus,
+    &.btn--focus {
+        background: fade(@color-main-20,10%);
+        box-shadow: none;
+        text-shadow: none;
+    }
+
+    // modifiers
+
+    &.btn--small {
+        line-height: 1.7rem;
+        padding: 0 0.4rem;
+    }
+
+    &.btn--medium {
+        line-height: 2.6rem;
+    }
+
+    &.btn--large {
+        line-height: 3.6rem;
+        padding: 0 1.8rem;
+    }
+
+    &.btn--light {
+
+        background: transparent;
+        border-color: #fff;
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: fade(#fff,10%);
+        }
+
+    }
+
+    &.btn--dark {
+
+        background: transparent;
+        border-color: @color-main-9;
+        color: @color-main-9;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: fade(@color-main-18,10%);
+        }
+
+    }
+
+    &.btn--attention {
+
+        background: transparent;
+        border-color: @color-attention-15;
+        color: @color-attention-15;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: fade(@color-attention-18,10%);
+        }
+
+    }
+
+    &.btn--error,
+    &.btn--negative {
+
+        background: transparent;
+        border-color: @color-negative-18;
+        color: @color-negative-18;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: fade(@color-negative-18,10%);
+        }
+
+    }
+
+    &.btn--success,
+    &.btn--positive {
+
+        background: transparent;
+        border-color: @color-positive-15;
+        color: @color-positive-15;
+
+        &:hover,
+        &:focus,
+        &.btn--focus {
+            background: fade(@color-positive-18,10%);
+        }
+
+    }
+
+}
+
+// elements inside buttons
+// =======================
+
+.btn {
+
+    [class^="icon--"] {
+        line-height: 2.4rem;
+        vertical-align: top;
+    }
+
+    &.btn--small [class^="icon--"] {
+        font-size: 2.4rem;
+        height: 1.8rem;
+        line-height: 1.8rem;
+    }
+
+    &.btn--medium [class^="icon--"] {
+        font-size: 3.2rem;
+        line-height: 2.8rem;
+    }
+
+    &.btn--large [class^="icon--"] {
+        height: 3.8rem;
+        line-height: 3.8rem;
+    }
+
+    // large icons inside large buttons
+
+    &.btn--large [class^="icon--"] {
+        width: 5rem;
+    }
+
+    // small icons inside large buttons
+
+    &.btn--large [class^="icon--"][class*="-s"] {
+        width: 3.2rem;
+    }
+
+    // icon right, label left
+
+    [class^="icon--"]:last-child {
+        margin-right: -1rem;
+    }
+
+    &.btn--small [class^="icon--"]:last-child {
+        margin-right: -0.5rem;
+    }
+
+    &.btn--large [class^="icon--"]:last-child {
+        margin-right: -2rem;
+    }
+
+    // icon left, label right
+
+    [class^="icon--"]:first-child {
+        margin-left: -1rem;
+    }
+
+    &.btn--small [class^="icon--"]:first-child {
+        margin-left: -0.5rem;
+    }
+
+    &.btn--large [class^="icon--"]:first-child {
+        margin-left: -2rem;
+    }
+
+    // only icons, hidden or no label
+
+    .hidden + [class^="icon"],
+    [class^="icon--"]:only-child {
+        margin-left: -1.5rem;
+        width: 2.8rem;
+    }
+
+    &.btn--small .hidden + [class^="icon--"],
+    &.btn--small [class^="icon--"]:only-child {
+        margin-left: -0.8rem;
+        width: 2.1rem;
+    }
+
+    &.btn--medium .hidden + [class^="icon--"],
+    &.btn--medium [class^="icon--"]:only-child {
+        margin-left: -1.2rem;
+        width: 3rem;
+    }
+
+    &.btn--large .hidden + [class^="icon--"],
+    &.btn--large [class^="icon--"]:only-child {
+        margin-left: -2rem;
+        width: 4rem;
+    }
+
+    // outline buttons
+
+    &.btn--outline {
+
+        [class^="icon--"] {
+            height: 2.1rem;
+            line-height: 2.2rem;
+        }
+
+        &.btn--small [class^="icon--"] {
+            height: 1.6rem;
+            line-height: 1.6rem;
+        }
+
+        &.btn--medium [class^="icon--"] {
+            height: 2.6rem;
+            line-height: 2.6rem;
+        }
+
+        &.btn--large [class^="icon--"] {
+            line-height: 3.6rem;
+            height: 4rem;
+        }
+
+    }
+
+}
+
+.btn .badge {
+    position: static;
+    display: inline-block;
+}
+
+.btn input[type="submit"] {
+    text-shadow: 0 0.1rem 0 @color-main-25;
+    border: 0;
+    bottom: 0;
+    color: inherit;
+    font-family: inherit;
+    font-weight: bold;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+// modifiers
+// =========
+
+.btn--rounded {
+
+    border-radius: 1.2rem;
+
+    &.btn--small {
+        border-radius: 1rem;
+    }
+
+    &.btn--medium {
+        border-radius: 1.5rem;
+    }
+
+    &.btn--large {
+        border-radius: 2rem;
+    }
+
+}
+
+.btn--stripped {
+    border-radius: 0;
+    border: 0;
+}
+
+.btn--clip {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// grouped buttons
+// ===============
+
+.btns {
+
+    font-size: 0;
+    position: relative;
+
+    .btn {
+        border-radius: 0;
+        margin-left: -0.1rem;
+    }
+
+    .btn:first-child {
+        border-radius: 2px 0 0 2px;
+    }
+
+    .btn:last-child {
+        border-radius: 0 2px 2px 0;
+    }
+
+    // standard, rounded
+
+    .btn.btn--rounded:first-child {
+        border-radius: 12px 0 0 12px;
+    }
+
+    .btn.btn--rounded:last-child {
+        border-radius: 0 12px 12px 0;
+    }
+
+    // small, rounded
+
+    .btn.btn--small.btn--rounded:first-child {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .btn.btn--small.btn--rounded:last-child {
+        border-radius: 0 10px 10px 0;
+    }
+
+    // medium, rounded
+
+    .btn.btn--medium.btn--rounded:first-child {
+        border-radius: 15px 0 0 15px;
+    }
+
+    .btn.btn--medium.btn--rounded:last-child {
+        border-radius: 0 15px 15px 0;
+    }
+
+    // large, rounded
+
+    .btn.btn--large.btn--rounded:first-child {
+        border-radius: 20px 0 0 20px;
+    }
+
+    .btn.btn--large.btn--rounded:last-child {
+        border-radius: 0 20px 20px 0;
+    }
+
+}
+
+.btns--vertical {
+
+    .btn {
+        display: block;
+        width: 100%;
+        border-top-width: 0;
+        margin: 0;
+    }
+
+    .btn:first-child {
+        border-top-width: 1px;
+        border-radius: 2px 2px 0 0;
+    }
+
+    .btn.btn--outline:first-child {
+        border-top-width: 2px;
+    }
+
+    .btn:last-child {
+        border-radius: 0 0 2px 2px;
+    }
+
+    // standard, rounded
+
+    .btn.btn--rounded:first-child {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .btn.btn--rounded:last-child {
+        border-radius: 0 0 12px 12px;
+    }
+
+    // small, rounded
+
+    .btn.btn--small.btn--rounded:first-child {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .btn.btn--small.btn--rounded:last-child {
+        border-radius: 0 0 10px 10px;
+    }
+
+    // medium, rounded
+
+    .btn.btn--medium.btn--rounded:first-child {
+        border-radius: 15px 15px 0 0;
+    }
+
+    .btn.btn--medium.btn--rounded:last-child {
+        border-radius: 0 0 15px 15px;
+    }
+
+    // large, rounded
+
+    .btn.btn--large.btn--rounded:first-child {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .btn.btn--large.btn--rounded:last-child {
+        border-radius: 0 0 20px 20px;
+    }
+
+}

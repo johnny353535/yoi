@@ -1,0 +1,137 @@
+/** box.less */
+
+// block
+// =====
+
+.box {
+
+    .mixin-clearfix;
+    .mixin-defaultBorderRadius;
+    box-sizing: border-box;
+    display: block;
+    font-family: @font-sansserif;
+    overflow: hidden;
+    position: relative;
+
+    a& {
+        text-decoration: none;
+    }
+
+}
+
+.boxes {
+
+    .mixin-clearfix;
+
+    [class*="box-"]:first-child {
+        border-radius: .2rem .2rem 0 0;
+        margin: 0;
+    }
+
+    [class*="box-"] + [class*="box-"] {
+        border-radius: 0;
+        border-top: 0;
+    }
+
+    [class*="box-"]:last-child {
+        border-radius: 0 0 .2rem .2rem;
+    }
+
+}
+
+// elements
+// ========
+
+.box__header {
+    @h4();
+    margin: 0;
+    padding: .5rem 1rem;
+}
+
+.box__body {
+
+    padding: 10px;
+    position: relative;
+
+    p {
+        margin: 0;
+    }
+
+    p + p {
+        margin: 2rem 0 0 0;
+    }
+
+    & + & {
+        border-top: @color-main-23 1px solid;
+    }
+
+}
+
+// modifiers
+// =========
+
+.box--1 {
+    background-color: #fff;
+    border: @color-main-23 1px solid;
+}
+
+.box--2 {
+
+    background-color: #fff;
+    border: @color-main-23 1px solid;
+
+    .box__header {
+        background: @color-main-25;
+        border-bottom: @color-main-23 1px solid;
+    }
+
+}
+
+.box--3 {
+
+    background-color: @color-main-25;
+    border: @color-main-23 1px solid;
+
+    .box__header {
+        border-bottom: @color-main-23 1px solid;
+    }
+
+    .box__body + .box__body {
+        border-top: @color-main-23 1px solid;
+    }
+
+}
+
+.box--4 {
+
+    background-color: #fff;
+    border: @color-main-10 2px solid;
+
+    .box__header {
+        background: @color-main-25;
+        border-bottom: @color-main-23 1px solid;
+    }
+
+}
+
+.box--5 {
+
+    background-color: @color-main-25;
+
+    .box__header {
+        border-bottom: @color-main-24 1px solid;
+    }
+
+}
+
+.box--6 {
+
+    background-color: @color-main-7;
+    border-color: @color-main-7;
+    color: @color-main-24;
+
+    .box__header {
+        border-bottom: @color-main-8 1px solid;
+    }
+
+}

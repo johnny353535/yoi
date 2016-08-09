@@ -1,0 +1,59 @@
+/** pieChart.less */
+
+// block
+// =====
+
+.pieChart {
+    overflow: hidden;
+}
+
+// elements
+// ========
+
+// svg
+
+.pieChart svg {
+    background: @color-main-25;
+    border-radius: 50%;
+    float: left;
+    margin-right: 4rem;
+}
+
+// data & records
+
+.pieChart__data {
+    float: left;
+}
+
+.pieChart__record {
+
+    font-size: 13px;
+    line-height: 30px;
+
+    .js & {
+        cursor: pointer;
+    }
+
+    [data-piechart*="highlight:false;"] & {
+        cursor: default;
+    }
+
+}
+
+.pieChart__dot {
+    .mixin-defaultBorderRadius;
+    display: inline-block;
+    height: 2rem;
+    margin-right: .7rem;
+    vertical-align: middle;
+    width: 2rem;
+}
+
+.pieChart__value {
+    vertical-align: middle;
+}
+
+.pieChart__label {
+    font-weight: bold;
+    vertical-align: middle;
+}

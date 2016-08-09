@@ -1,0 +1,101 @@
+/** mainMenu.less */
+
+// block
+// =====
+
+.mainMenu {
+    background: #fff;
+    bottom: 0;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    z-index: 20;
+}
+
+// elements
+// ========
+
+.mainMenu__menu {
+
+    border-radius: .2rem .2rem 0 0;
+    border: @color-main-23 1px solid;
+    border-bottom: 0;
+    box-sizing: border-box;
+    height: 50px;
+    position: relative;
+    width: 960px;
+    z-index: 100;
+
+    &,
+    ul {
+        list-style: none;
+    }
+
+    li {
+        float: left;
+    }
+
+    a {
+        border-right: 1px @color-main-23 solid;
+        color: @color-main-10;
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        height: 49px;
+        line-height: 49px;
+        padding: 0 10px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a.mainMenu--active,
+    a.mainMenu--current:hover {
+        background: @color-main-25;
+    }
+
+    a:active,
+    a.mainMenu--current {
+        background: @color-main-24;
+    }
+
+    .icon--023 {
+        margin: 0 -10px;
+    }
+
+}
+
+.mainMenu .popOver a.box:hover {
+    background: #fff;
+}
+
+// positioning breadcrumbs after main menu
+
+.mainMenu + .breadcrumbs {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: translate(0, 100%);
+}
+
+// modifiers
+// =========
+
+.mainMenu--expand .mainMenu__menu {
+
+    // Sets all buttons to the same width so
+    // they fill the whole main menu width:
+
+    display: table;
+
+    li {
+        display: table-cell;
+        float: none;
+    }
+
+    li:last-child a {
+        border: 0;
+    }
+
+}

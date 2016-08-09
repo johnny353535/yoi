@@ -1,0 +1,73 @@
+/** navRow.less */
+
+.navRowGroup {
+
+    .navRow:last-child {
+        border: 0;
+    }
+
+}
+
+.navRow {
+
+    .mixin-clearfix;
+    padding-bottom: 20px;
+    border-bottom: @color-main-23 1px solid;
+    position: relative;
+
+    & + & {
+        margin-top: 20px;
+    }
+
+}
+
+// poster teaser inside .navRow
+
+.navRow .posterTeaser {
+    width: 200px;
+}
+
+// header, footer, body inside .navRow
+
+.posterTeaser ~ .navRow__header,
+.posterTeaser ~ .navRow__body,
+.posterTeaser ~ .navRow__footer {
+
+    /*
+        If these elements appear inside a .navRow
+        which also holds a .posterTeaser, some custom
+        positioning applies.
+    */
+
+    position: absolute;
+    left: 220px;
+    right: 0;
+
+}
+
+.navRow__header {
+    margin: 0 0 10px 0;
+    top: 0;
+}
+
+.navRow__body {
+    top: 35px;
+}
+
+.navRow__footer {
+
+    margin: 5px 0 0 0;
+    bottom: 20px;
+    height: 40px;
+
+    p {
+        font-size: 15px;
+        line-height: 40px;
+        float: left;
+    }
+
+    .btn {
+        float: right;
+    }
+
+}

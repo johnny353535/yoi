@@ -1,0 +1,306 @@
+{% extends 'docs/layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Slider
+Sliders are simple slide show elements that can contain images, text or both. A few options are available – like *autoplay*, *transition style* and a few more. For each `.slide`, you can chose from a few different *control elements*.
+
+|   |   |
+| - | - |
+| Less-File | [slider.less](assets/less/elements/slider.less) |
+| JS-File   | [slider.js](assets/js/modules/slider.js) |
+| Base CSS-Class | `.slider` |
+| Modifiers | `.slider--dark, .slider--super`|
+
+### JavaScript Interface
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <code class="language-markup"><pre>data-slider="
+    autoplay   : @param;
+    clickable  : @param;
+    controls   : @param;
+    swipeable  : @param;
+    transition : @param;
+"
+
+/**
+ *  @param {integer} autoplay   - interval in miliseconds to change the slides automatically
+ *  @param {bool}    clickable  - click on a slide to switch to the next side
+ *  @param {string}  controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+ *  @param {bool}    swipeable  - change the slide on swipe left/right
+ *  @param {string}  transition - keyword for slide transition ["animate" || "fade"]
+ */</pre></code>
+</div>
+
+{% markdown %}
+### Super Slider With Autoplay and Animated Transition
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider slider--super" data-slider="autoplay:5000; transition:animate;">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Super Slider With Control Element ”pageBtns“
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider slider--super" data-slider="control:pageBtns; clickable:true">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Super Slider With Control Element ”flipBtns“ and Animated Transition
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example p-lr-10" data-printcode="language:markup; print:true;">
+        <div class="slider slider--super" data-slider="control:flipBtns; transition:animate;">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Slider With Control Element ”pageBtns“ and Fade-Transition
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider" data-slider="control:pageBtns; transition:fade;">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Slider With Control Element ”flipBtns“
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example p-lr-10" data-printcode="language:markup; print:true;">
+        <div class="slider" data-slider="control:pageBtns; transition:fade;">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Slider With Control Element ”flipBtns--inset“
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider" data-slider="control:flipBtns--inset;">
+            <div class="slider__slides">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Sodbrennen</h3>
+                        <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Migräne</h3>
+                        <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                    </div>
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                    <div class="slider__caption">
+                        <h3>Chronische Venenerkrankung</h3>
+                        <p>Was tun schweren Beinen und Krampfadern?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Slider With Control Element ”pageDots“ and Fade-Transition
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider p-b-10" data-slider="control:pageDots; clickable:true; transition:fade;">
+            <div class="slider__slides m-b-2">
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/sodbrennen-700x350.jpg" alt="" />
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/kopfschmerzen-700x350.jpg" alt="" />
+                </div>
+                <div class="slider__slide">
+                    <img src="assets/img/dummy/beine-700x350.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Slider With Control Element ”pageDots“, Only Text
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider p-b-10" data-slider="control:pageDots; clickable:true; transition:fade;">
+            <div class="slider__slides m-b-2">
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c">Slide with text!</p>
+                </div>
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c">Slide with more text!</p>
+                </div>
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c"><i class="icon--039" aria-hidden="true"></i> Slide with text and Icon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Dark Slider With Control Element ”pageDots“, Only Text
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="slider slider--dark p-b-10" data-slider="control:pageDots--dark; clickable:true; transition:fade;">
+            <div class="slider__slides m-b-2">
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c">Slide with text!</p>
+                </div>
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c">Slide with more text!</p>
+                </div>
+                <div class="slider__slide">
+                    <p class="fs-20 lh-25 p-4 al-c"><i class="icon--039" aria-hidden="true"></i> Slide with text and Icon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

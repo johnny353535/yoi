@@ -1,0 +1,101 @@
+/** toolTip.less */
+
+// block
+// =====
+
+.tooltip {
+
+    .mixin-shadow-3;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: @color-main-22 1px solid;
+    color: @color-main-10;
+    display: block;
+    max-width: 250px;
+    min-width: 150px;
+    padding: 10px;
+    position: relative;
+    text-align: left;
+    white-space: normal;
+    z-index: 900;
+
+    // typography inside tooltip
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        color: @color-main-10;
+        font: normal 13px/20px @font-sansserif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+
+    li {
+        list-style: square;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+// modifiers
+// =========
+
+.tooltip--attention {
+
+    background: @color-attention-22;
+    border-color: @color-attention-17;
+    color: @color-attention-10;
+
+    &::after {
+        background: @color-attention-22;
+        border-color: @color-attention-17;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        color: @color-attention-10;
+    }
+
+}
+
+.tooltip--error,
+.tooltip--negative {
+
+    background: @color-negative-10;
+    border-color: @color-negative-10;
+    color: #fff;
+
+    &::after {
+        background: @color-negative-10;
+        border-color: @color-negative-10;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        color: #fff;
+    }
+
+}
+
+.tooltip--success,
+.tooltip--positive {
+
+    background: @color-positive-10;
+    border-color: @color-positive-10;
+    color: #fff;
+
+    &::after {
+        background: @color-positive-10;
+        border-color: @color-positive-10;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol {
+        color: #fff;
+    }
+
+}

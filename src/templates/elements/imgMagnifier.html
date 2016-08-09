@@ -1,0 +1,13 @@
+{% macro build(this) %}
+    {% set previewImgPath = this.previewImgPath or 'assets/img/dummy/womanWithIpad-400x328.jpg' %}
+    {% set zoomImgPath = this.zoomImgPath or 'assets/img/dummy/womanWithIpad-1000x820.jpg' %}
+    {% if this.modifiers %}
+        <div class="imgMagnifier {{ this.modifiers }}">
+    {% else %}
+        <div class="imgMagnifier">
+    {% endif %}
+        <a href="{{ zoomImgPath }}">
+            <img class="imgMagnifier__previewImage" src="{{ previewImgPath }}" alt="" />
+        </a>
+    </div>
+{% endmacro %}

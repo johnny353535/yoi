@@ -1,0 +1,258 @@
+/** linkList.less */
+
+// block
+// =====
+
+.linkList {
+    .mixin-defaultBorderRadius;
+    background: @color-main-25;
+    border: @color-main-23 1px solid;
+    font-size: 1.3rem;
+}
+
+// elements
+// ========
+
+.linkList__item {
+
+    border-top: @color-main-24 1px solid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+
+    &:first-child {
+        border-top: 0;
+    }
+
+}
+
+.linkList__link {
+
+    color: @color-main-8;
+    display: block;
+    font-family: @font-sansserif;
+    padding: .5rem 1rem;
+    position: relative;
+
+    a& {
+        color: @color-main-8;
+    }
+
+    &:hover {
+        background: @color-main-24;
+    }
+
+}
+
+.linkList .linkList__link {
+    text-decoration: none;
+}
+
+// icon
+
+.linkList--arrowsRight,
+.linkList--arrowsLeft,
+.linkList--arrowsRightDown,
+.linkList--arrowsRightUp {
+
+    .linkList__link::after {
+        color: @color-main-18;
+        font-size: 2.4rem;
+        margin-top: -1.6rem;
+        position: absolute;
+        top: 50%;
+    }
+
+    .linkList__link:hover::after {
+        color: @color-main-8;
+    }
+
+}
+
+// modifiers
+// =========
+
+// selected link
+
+.linkList__item--active .linkList__link {
+    background: #fff;
+}
+
+.linkList--dark .linkList__item--active .linkList__link {
+    background: @color-main-6;
+}
+
+// no border, no rounded corners
+
+.linkList--stripped {
+    border-radius: 0;
+    border: 0;
+}
+
+// transparent background
+
+.linkList--transparent,
+.linkList--dark.linkList--transparent {
+    background: transparent;
+}
+
+// dark
+
+.linkList--dark {
+
+    background-color: @color-main-10;
+    border-color: @color-main-8;
+
+    .linkList__item {
+        border-color: @color-main-9;
+    }
+
+    .linkList__link {
+
+        color: @color-main-25;
+
+        &:hover {
+            background: @color-main-11;
+            color: #fff;
+        }
+
+    }
+
+    // icon color
+
+    &.linkList--arrowsRight,
+    &.linkList--arrowsLeft,
+    &.linkList--arrowsRightDown,
+    &.linkList--arrowsRightUp {
+
+        a::after {
+            color: @color-main-15;
+        }
+
+        a:hover::after {
+            color: @color-main-25;
+        }
+
+    }
+
+}
+
+// large
+
+.linkList--large {
+
+    font-size: 1.5rem;
+
+    .linkList__link {
+        line-height: 2rem;
+        padding: 1rem 1.25rem;
+    }
+
+    // icon
+
+    &.linkList--arrowsRight,
+    &.linkList--arrowsLeft,
+    &.linkList--arrowsRightDown,
+    &.linkList--arrowsRightUp {
+
+        .linkList__link::after {
+            color: @color-main-18;
+            font-size: 3.2rem;
+        }
+
+    }
+
+}
+
+// with arrows
+
+.linkList--arrowsRight,
+.linkList--arrowsRightUp,
+.linkList--arrowsRightDown {
+
+    .linkList__link {
+        padding-right: 2.5rem;
+    }
+
+    &.linkList--large .linkList__link {
+        padding-right: 3.5rem;
+    }
+
+    // icon
+
+    .linkList__link::after {
+        .mixin-icon;
+        content: '\f007';
+        font-size: 2.4rem;
+        margin-top: -1.6rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+
+}
+
+.linkList--arrowsLeft {
+
+    .linkList__link {
+        padding-left: 2.5rem;
+    }
+
+    &.linkList--large .linkList__link {
+        padding-left: 3.5rem;
+    }
+
+    // icon
+
+    .linkList__link::after {
+        .mixin-icon;
+        content: '\f008';
+        font-size: 2.4rem;
+        left: 0;
+        margin-top: -1.6rem;
+        position: absolute;
+        top: 50%;
+    }
+
+}
+
+.linkList--arrowsRightDown {
+
+    .linkList__link {
+        padding-right: 2.5rem;
+    }
+
+    &.linkList--large .linkList__link {
+        padding-right: 3.5rem;
+    }
+
+    // icon
+
+    .linkList__link::after {
+        .mixin-icon;
+        content: '\f009';
+        font-size: 2.4rem;
+        margin-top: -1.6rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+
+}
+
+.linkList--arrowsRightUp {
+
+    .linkList__link::after {
+        content: '\f010';
+    }
+
+}
+
+.linkList--arrowsRightDown {
+
+    .linkList__link::after {
+        content: '\f009';
+    }
+
+}

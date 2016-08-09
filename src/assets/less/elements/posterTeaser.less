@@ -1,0 +1,82 @@
+/** posterTeaser.less */
+
+.posterTeaser {
+
+    /*
+        You may want to override the background color.
+        Do so by applying a global background-color modifier, eg.:
+
+        <div class="posterTeaser bg-blue-10"> ... </div>
+    */
+
+    .mixin-clearfix;
+    background: @color-main-5;
+    .mixin-defaultBorderRadius;
+    border: 0;
+    display: block;
+    font-family: @font-sansserif;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        display: block;
+        transition: opacity 200ms ease-out;
+    }
+
+    a& {
+        text-decoration: none;
+    }
+
+    a&:hover img {
+        opacity: .8;
+    }
+
+}
+
+.posterTeaser__body {
+
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);
+    top: 0;
+    z-index: 2;
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 1rem 0;
+    }
+
+    p, ul, ol {
+        font-size: 15px;
+        margin: 1rem 0;
+    }
+
+    :last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+// dark body background
+
+.posterTeaser--darkBody .posterTeaser__body {
+    background: fade(@color-main-5, 50%);
+}
+
+// light body background
+
+.posterTeaser--lightBody .posterTeaser__body {
+    color: @color-main-8;
+    background: fade(@color-main-25, 50%);
+    text-shadow: none;
+}
+
+// body sticks to bottom
+
+.posterTeaser--bottom .posterTeaser__body {
+    bottom: 0;
+    top: auto;
+}

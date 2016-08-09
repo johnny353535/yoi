@@ -1,0 +1,147 @@
+/** badge.less */
+
+// block
+// =====
+
+.badge {
+
+    background: @color-main-23;
+    .mixin-defaultBorderRadius;
+    color: @color-main-10;
+    display: inline-block;
+    font: bold 1.3rem/2rem @font-sansserif;
+    text-shadow: none;
+    padding: 0 1rem;
+    text-align: center;
+
+    // badge as link
+
+    a& {
+        text-decoration: none;
+    }
+
+    a&:hover {
+        background: @color-main-22;
+        color: @color-main-9;
+    }
+
+}
+
+// modifiers
+// =========
+
+.badge--small {
+    font: bold 1.1rem/1.5rem @font-sansserif;
+    padding: 0 .5rem;
+}
+
+.badge--medium {
+    font: bold 1.5rem/2.5rem @font-sansserif;
+}
+
+.badge--large {
+    font: bold 2rem/3rem @font-sansserif;
+    padding: 0 15px;
+}
+
+.badge--dark {
+
+    background: @color-main-10;
+    color: @color-main-25;
+
+    a&:hover {
+        background: @color-main-9;
+        color: @color-main-24;
+    }
+
+}
+
+.badge--light {
+
+    background: @color-main-25;
+    color: @color-main-10;
+
+    a&:hover {
+        background: @color-main-24;
+        color: @color-main-9;
+    }
+
+}
+
+.badge--attention {
+
+    background: @color-attention-20;
+    color: @color-attention-5;
+
+    a&:hover {
+        background: @color-attention-19;
+        color: @color-attention-4;
+    }
+
+}
+
+.badge--error,
+.badge--negative {
+
+    background: @color-negative-21;
+    color: @color-negative-8;
+
+    a&:hover {
+        background: @color-negative-20;
+        color: @color-negative-7;
+    }
+
+}
+
+.badge--success,
+.badge--positive {
+
+    background: @color-positive-12;
+    color: @color-positive-25;
+
+    a&:hover {
+        background: @color-positive-11;
+        color: @color-positive-24;
+    }
+
+}
+
+.badge--prescription {
+
+    background: @color-prescriptionPink-3;
+    color: @color-prescriptionPink-1;
+
+    a&:hover {
+        background: @color-prescriptionPink-1;
+        color: @color-prescriptionPink-3;
+    }
+
+}
+
+.badge--price {
+
+    background: @color-price;
+    color: #fff;
+
+    a&:hover {
+        background: @color-negative-14;
+        color: #fff;
+    }
+
+}
+
+.badge--rounded {
+    border-radius: 1.1rem;
+}
+
+.badge--small.badge--rounded {
+    border-radius: .7rem;
+}
+
+.badge--medium.badge--rounded {
+    border-radius: 1.2rem;
+}
+
+.badge--large.badge--rounded {
+    border-radius: 1.5rem;
+}

@@ -1,0 +1,120 @@
+/** itemPremium.less */
+
+.item.premium {
+
+    .mixin-clearfix;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: @color-main-24 1px solid;
+    box-sizing: border-box;
+    min-height: 320px;
+    min-width: 960px;
+    padding: 10px;
+
+    // title, packshot, details
+
+    h2 {
+        font-size: 25px;
+        line-height: 30px;
+        margin: 0;
+    }
+
+    img {
+        display: block;
+    }
+
+    .packshot,
+    .details {
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .packshot {
+        height: 300px;
+        width: 300px;
+    }
+
+    .details {
+        height: 300px;
+        padding-top: 20px;
+        width: 400px;
+    }
+
+    // meta, shipping, rating, pricing, ...
+
+    .meta {
+        margin-bottom: 20px;
+    }
+
+    .shipping {
+        margin-left: 10px;
+    }
+
+    .rating {
+        margin-left: -8px;
+    }
+
+    .pricing {
+
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+
+        span {
+            display: block;
+        }
+
+    }
+
+    // ribbons / badge
+
+    .ribbon + .badge {
+        bottom: 40px;
+        left: 40px;
+        position: absolute;
+    }
+
+    // controls
+
+    .controls {
+
+        bottom: 10px;
+        height: 100px;
+        position: absolute;
+        right: 10px;
+        width: 220px;
+
+        .select {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .select + .select {
+            top: 30px;
+        }
+
+        .select {
+            width: 220px;
+        }
+
+        .btn[data-action="addToList"] {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        .stepper {
+            bottom: 0;
+            left: auto;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            width: 173px;
+        }
+
+    }
+
+}

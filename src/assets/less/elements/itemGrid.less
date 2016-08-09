@@ -1,0 +1,371 @@
+/** itemGrid.less */
+
+// regular item grid
+
+.itemGrid {
+
+    .mixin-clearfix;
+
+    // item
+
+    .item {
+
+        border: @color-main-24 1px solid;
+        border-top-color: transparent;
+        box-sizing: border-box;
+        color: inherit;
+        display: block;
+        float: left;
+        height: 320px;
+        padding: 10px 10px 5px 10px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+
+        .packshot {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .meta .badge {
+            left: 10px;
+            position: absolute;
+            top: 10px;
+        }
+
+        .pricing {
+
+            bottom: 10px;
+            left: 10px;
+            position: absolute;
+            right: 10px;
+            text-align: right;
+
+            .avp, .uvp {
+                font-size: 15px;
+                left: 0;
+                position: absolute;
+                top: 6px;
+            }
+
+            .price {
+                display: block;
+            }
+
+        }
+
+        // (package-) options
+
+        .options {
+
+            margin: 5px 0 0 0;
+            overflow: hidden;
+            padding: 5px 0 0 5px;
+
+            .btnRadio {
+                float: left;
+                margin: 0 5px 5px 0;
+            }
+
+        }
+
+    }
+
+    // layout and border math
+
+    &.one-per-row {
+
+        .item {
+            display: block;
+            float: none;
+            width: 100%;
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:last-child {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    &.two-per-row {
+
+        .item {
+            width: 50%;
+        }
+
+        .item:nth-child(odd) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(even) {
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:nth-last-child(-n+2) {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    &.three-per-row {
+
+        .item {
+            width: 33.33%;
+        }
+
+        .item:nth-child(3n+1) {
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:nth-child(3n+3) {
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .item:nth-last-child(-n+3) {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    &.four-per-row {
+
+        .item {
+            width: 25%;
+        }
+
+        .item:nth-child(4n+1) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(4n+2) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(4n+3) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(4n+4) {
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:nth-last-child(-n+4) {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    &.five-per-row {
+
+        .item {
+            width: 20%;
+        }
+
+        .item:nth-child(5n+1) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(5n+2) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(5n+3) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(5n+4) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(5n+5) {
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:nth-last-child(-n+5) {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    &.six-per-row {
+
+        .item {
+            width: 16.66%;
+        }
+
+        .item:nth-child(6n+1) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(6n+2) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(6n+3) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(6n+4) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(6n+5) {
+            border-left-color: transparent;
+        }
+
+        .item:nth-child(6n+6) {
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .item:nth-last-child(-n+6) {
+            border-bottom-color: transparent;
+        }
+
+    }
+
+    // item grid directly after an item grid
+
+    & + .itemGrid {
+        border-top: @color-main-24 1px solid;
+    }
+
+}
+
+// itemgrid, without borders
+
+.itemGrid.stripped .item {
+    border-color: transparent;
+}
+
+// itemgrid, compact layout
+
+.itemGrid.compact .item {
+
+    max-height: 170px;
+
+    h2, h3 {
+        font: bold 13px/15px @font-sansserif;
+        margin: 5px 0 0 0;
+    }
+
+    .pricing {
+        position: static;
+    }
+
+    .price {
+        bottom: 10px;
+        font: bold 13px/15px @font-sansserif;
+        position: absolute;
+        right: 10px;
+    }
+
+}
+
+// itemgrid with quick buy buttons
+
+.itemGrid.quickBuy .item {
+
+    height: 340px;
+
+    // badge + shipping
+
+    .badge {
+        left: auto;
+        right: 10px;
+    }
+
+    .shipping {
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+
+    .badge + .shipping {
+        top: 40px;
+    }
+
+    // controls
+
+    .controls {
+        .mixin-shadow-2;
+        background: #fff;
+        border: @color-main-23 1px solid;
+        bottom: -5px;
+        height: 70px;
+        left: -1px;
+        opacity: 0;
+        padding: 10px;
+        position: absolute;
+        right: -1px;
+        transition: all 200ms ease-out;
+        z-index: 2;
+    }
+
+    table {
+        margin-top: 10px;
+    }
+
+    .stepper {
+        left: 55px;
+        position: absolute;
+        right: 10px;
+    }
+
+    .btn[data-action="addToList"] {
+        left: 10px;
+        position: absolute;
+    }
+
+    .select {
+        display: block;
+        margin: 0 0 5px 0;
+    }
+
+    // on hover
+
+    &:hover {
+
+        &::after {
+            background: linear-gradient(to bottom, @color-transparent, #fff);
+            bottom: 0;
+            content: ' ';
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 180px;
+            z-index: 1;
+        }
+
+        .pricing {
+            opacity: 0;
+        }
+
+        .controls {
+            opacity: 1;
+            bottom: -1px;
+        }
+
+    }
+
+}
+
+// itemgrid with package select options
+
+.itemGrid.hasOptions .item {
+
+    height: 400px;
+
+    .dosageForm {
+        display: block;
+    }
+
+}

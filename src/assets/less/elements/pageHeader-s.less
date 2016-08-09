@@ -1,0 +1,73 @@
+/** pageHeader-s.less */
+
+// block
+// =====
+
+.pageHeader-s {
+
+    background: #fff;
+    border-bottom: @color-main-23 1px solid;
+    overflow: hidden;
+    position: relative;
+
+    .center {
+        box-sizing: border-box;
+        padding: 10px 10px;
+        position: relative;
+        text-align: center;
+    }
+
+}
+
+// elements
+// ========
+
+.pageHeader-s__headline,
+.pageHeader-s__copy {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.pageHeader-s__headline {
+
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 30px;
+    margin: 10px 0;
+
+    span,
+    [class*="icon--"] {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    [class*="icon--"] {
+        line-height: 30px;
+        height: 30px;
+    }
+
+}
+
+.pageHeader-s__copy {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.pageHeader-s__bgImg {
+    display: block;
+    margin: 0 auto;
+}
+
+// modifiers
+// =========
+
+.pageHeader-s--wave {
+
+    background: @color-main-25;
+
+    .center {
+        background: ~"url(../img/bg-wave.jpg)" no-repeat 0 bottom;
+        background-size: 100% 100%;
+    }
+
+}

@@ -1,0 +1,115 @@
+/** ratingInput.less */
+
+.ratingInput {} // the (hidden) input element
+
+.ratingSelect { // the rating interface
+
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-20 1px solid;
+    box-shadow: 0 1px 0 @color-main-24 inset;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 15px;
+    margin: 0;
+    padding: 0 5px;
+
+    i {
+        color: @color-main-24;
+        display: inline-block;
+        height: 23px;
+        line-height: 23px;
+        text-indent: -5px;
+        transition: color 150ms linear;
+        width: 20px;
+    }
+
+    &.rated--1 {
+        i:nth-child(1) { color: @color-main-13; }
+    }
+
+    &.rated--2 {
+        i:nth-child(1) { color: @color-main-13; }
+        i:nth-child(2) { color: @color-main-13; }
+    }
+
+    &.rated--3 {
+        i:nth-child(1) { color: @color-main-13; }
+        i:nth-child(2) { color: @color-main-13; }
+        i:nth-child(3) { color: @color-main-13; }
+    }
+
+    &.rated--4 {
+        i:nth-child(1) { color: @color-main-13; }
+        i:nth-child(2) { color: @color-main-13; }
+        i:nth-child(3) { color: @color-main-13; }
+        i:nth-child(4) { color: @color-main-13; }
+    }
+
+    &.rated--5 {
+        i:nth-child(1) { color: @color-main-13; }
+        i:nth-child(2) { color: @color-main-13; }
+        i:nth-child(3) { color: @color-main-13; }
+        i:nth-child(4) { color: @color-main-13; }
+        i:nth-child(5) { color: @color-main-13; }
+    }
+
+    // locked state
+
+    &.locked {
+
+        box-shadow: none;
+        background: transparent;
+        border-color: transparent;
+
+        &:hover {
+            border-color: @color-main-22;
+        }
+
+        i {
+            color: transparent;
+        }
+
+        &.rated--1 {
+            i:nth-child(1) { color: @color-main-8; }
+        }
+
+        &.rated--2 {
+            i:nth-child(1) { color: @color-main-8; }
+            i:nth-child(2) { color: @color-main-8; }
+        }
+
+        &.rated--3 {
+            i:nth-child(1) { color: @color-main-8; }
+            i:nth-child(2) { color: @color-main-8; }
+            i:nth-child(3) { color: @color-main-8; }
+        }
+
+        &.rated--4 {
+            i:nth-child(1) { color: @color-main-8; }
+            i:nth-child(2) { color: @color-main-8; }
+            i:nth-child(3) { color: @color-main-8; }
+            i:nth-child(4) { color: @color-main-8; }
+        }
+
+        &.rated--5 {
+            i:nth-child(1) { color: @color-main-8; }
+            i:nth-child(2) { color: @color-main-8; }
+            i:nth-child(3) { color: @color-main-8; }
+            i:nth-child(4) { color: @color-main-8; }
+            i:nth-child(5) { color: @color-main-8; }
+        }
+
+    }
+
+}
+
+// large
+
+.large + .ratingSelect {
+    height: 40px;
+    line-height: 38px;
+    padding: 0 10px;
+}

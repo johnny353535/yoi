@@ -1,0 +1,29 @@
+{% macro build(this) %}
+    {% for i in range(0, this.totalItems or 10) %}
+        {% set rating = 4 %}
+        {% set author = 'Petra Müller' %}
+        {% set location = 'Berlin' %}
+        {% set timestamp = '01.01.2017' %}
+        {% set title = 'Einfach und schnell – so muss das sein!' %}
+        {% set content = '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>' %}
+        <div class="box p-4 b-b">
+            <div class="fl-l m-r-4">
+                <p class="rating rating--{{ rating }} pos-rel m-l-neg-2 m-b-2">
+                    <span class="rating__stars">{{ rating }} von 5 Sternen</span>
+                </p>
+                <p>
+                    <b>{{ author }}</b><br />
+                    {{ location }}<br />
+                    {{ timestamp }}
+                </p>
+            </div>
+            <blockquote class="box fs-15 lh-20">
+                <h4 class="h4 m-b-2 m-t-1">{{ title }}</h4>
+                {{ content }}
+            </blockquote>
+            <div class="m-t-4 al-r">
+                {% include 'elements/microFeedback.html' %}
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

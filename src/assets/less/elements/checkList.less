@@ -1,0 +1,56 @@
+/** checkList.less */
+
+// block
+// =====
+
+.checkList {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        list-style-type: none;
+        margin: 0 0 10px 0;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    li ul {
+        list-style: none;
+        margin-top: 10px;
+    }
+
+    li:before {
+        .mixin-icon;
+        content: '\f011';
+        position: absolute;
+        left: -10px;
+        top: -5px;
+    }
+
+}
+
+// modifiers
+// =========
+
+.checkList--small {
+
+    li {
+        padding-left: 15px;
+        margin: 0 0 5px 0;
+    }
+
+    li:before {
+        font-size: 24px;
+    }
+
+}
+
+.checkList--positive {
+
+    li:before {
+        color: @color-positive-12;
+    }
+
+}

@@ -1,0 +1,212 @@
+/** itemDisplay.less */
+
+.itemDisplay {
+
+    .mixin-clearfix;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    box-sizing: border-box;
+    position: relative;
+
+    // headline
+
+    h4 {
+        border-bottom: @color-main-23 1px solid;
+        padding: 10px;
+        margin-bottom: 0;
+    }
+
+    // items & slides
+
+    .items,
+    .slides {
+        margin: 0 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    // item
+
+    .item {
+
+        .mixin-clearfix;
+        .mixin-defaultBorderRadius;
+        float: left;
+        margin: 10px 0;
+        padding: 10px 0;
+        position: relative;
+        text-align: center;
+        transition: background-color 200ms ease-out;
+
+        h2 {
+            margin: 20px 0 0 0;
+        }
+
+        .packshot {
+            display: inline-block;
+            position: relative;
+            transition: top 200ms ease-out;
+        }
+
+        .basePrice {
+            display: block;
+        }
+
+        .rating {
+            text-align: center;
+            margin: 0;
+        }
+
+        // shadow
+
+        &::before {
+            background: radial-gradient(center, ellipse contain, @color-main-18 0%, rgba(255,255,255,0) 100%);
+            content: ' ';
+            display: block;
+            height: 150px;
+            left: 50%;
+            margin-left: -100px;
+            opacity: .5;
+            position: absolute;
+            top: 65px;
+            transform: scaleY(0.2);
+            transition: opacity 200ms ease-out;
+            width: 200px;
+        }
+
+        // hover
+
+        &:hover {
+
+            .packshot {
+                top: -5px;
+            }
+
+            // shadow
+
+            &::before {
+                opacity: .3;
+            }
+
+        }
+
+    }
+
+    // controls
+
+    .slides .pagination {
+        margin: 0 0 10px 0;
+    }
+
+    .tabBar {
+        border-radius: .2rem .2rem 0 0;
+    }
+
+    .tabBar .current {
+        border-bottom: @color-main-22 1px solid;
+        height: 30px;
+    }
+
+    // compact
+
+    &.compact {
+
+        .item {
+
+            overflow: hidden;
+            min-height: 170px;
+
+            &:hover {
+
+                .details {
+                    top: 0;
+                }
+
+                .badge,
+                .avp,
+                .uvp {
+                    opacity: 1;
+                }
+
+            }
+
+        }
+
+        .slides {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rating {
+            margin-top: -5px;
+            display: block;
+        }
+
+        .badge, .avp, .uvp {
+            opacity: 0;
+            transition: opacity 350ms ease-out;
+        }
+
+        .badge {
+            bottom: 0;
+            left: auto;
+            right: 0;
+            top: auto;
+        }
+
+        .details {
+            background: #fff;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 500px;
+            transition: top 250ms ease-out;
+        }
+
+        .price,
+        .dosageForm {
+            display: inline-block;
+        }
+
+    }
+
+    // light
+
+    &.light {
+
+        background: #fff;
+
+        .deails {
+            background: @color-main-25;
+        }
+
+        h4 {
+            border-color: transparent;
+        }
+
+        .item {
+            background: #fff;
+        }
+
+        .item::before {
+            display: none;
+        }
+
+        .items::before,
+        .slides::before {
+            display: none;
+        }
+
+    }
+
+}
+
+.box.st-1 .itemDisplay {
+    border: 0;
+}
+
+.tabs .itemDisplay {
+    border: 0;
+}

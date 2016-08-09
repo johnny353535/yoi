@@ -1,0 +1,54 @@
+{% extends 'docs/layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Filter Buttons
+Use this element to display a horizontal list of filters. Each filter should be a link, pointing to a static page with the pre-rendered, filtered content. However, `.filterBtns` are most likely to be used without page reload with the resulting content being loaded via AJAX.
+
+|   |   |
+| - | - |
+| Less-File | [filterBtns.less](assets/less/elements/filterBtns.less) |
+| JS-File   | [filterBtns.js](assets/js/modules/filterBtns.js) |
+| Base CSS-Class | `.filterBtns` |
+| Modifiers | `.filterBtns--dark, .filterBtns--removeable` |
+
+### Toggle Buttons
+Button filters can be used in **two different ways**. The **default** logic is a list of individual buttons the user can **toggle between active or inactive state**:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        {{ filterBtns.build() }}
+    </div>
+</div>
+
+{% markdown %}
+### Removeable Buttons
+By adding the modifier `.filterBtns--removeable`, the button filters turn into something like a **list of removeable tags**:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        {{ filterBtns.build({ modifiers: 'filterBtns--removeable' }) }}
+    </div>
+</div>
+
+{% markdown %}
+### Modifiers
+In addition to `.filterBtns--removeable`, a **dark styling** is available via `.filterBtns--dark`:
+{% endmarkdown %}
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            {{ filterBtns.build({ modifiers: 'filterBtns--dark' }) }}
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            {{ filterBtns.build({ modifiers: 'filterBtns--dark filterBtns--removeable' }) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

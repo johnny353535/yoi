@@ -1,0 +1,112 @@
+/** tabMenu.less */
+
+.tabMenu {
+
+    background: linear-gradient(to right,  #fff 0%, @color-main-25 100%);
+    border-right: @color-main-22 1px solid;
+    padding: 10px 0 200px 0;
+    position: relative;
+
+    &,
+    ul {
+        list-style: none;
+    }
+
+    li {
+        border-top: @color-main-24 1px solid;
+        display: block;
+        position: relative;
+    }
+
+    li:first-child {
+        border: 0;
+    }
+
+    a {
+
+        color: @color-main-10;
+        display: block;
+        font: normal 15px/20px @font-sansserif;
+        padding: 30px 50px 30px 30px;
+        position: relative;
+        text-decoration: none;
+        z-index: 2;
+
+        &:hover::after { // arrow icon on :hover
+            .mixin-icon;
+            color: @color-main-22;
+            content: '\f007';
+            margin-top: -16px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+
+    }
+
+    .current,
+    .current:first-child {
+
+        background: #fff;
+        border-radius: .2rem 0 0 .2rem;
+        border: @color-main-23 1px solid;
+        border-right: 0;
+
+        a {
+            color: @color-main-8;
+            font-weight: bold;
+        }
+
+        &::after { // thin white line -1px right
+            background: #fff;
+            bottom: 0;
+            content: ' ';
+            display: block;
+            position: absolute;
+            right: -1px;
+            top: 0;
+            width: 1px;
+        }
+
+        & + li {
+            border: 0;
+        }
+
+    }
+
+    // gradient at the bottom,
+    // fading the menu out to white
+
+    &:after {
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+        bottom: 0;
+        content: ' ';
+        display: block;
+        height: 200px;
+        position: absolute;
+        right: -1px;
+        width: 100%;
+    }
+
+    // compact
+
+    &.compact {
+
+        a {
+            font: normal 13px/20px @font-sansserif;
+            padding: 15px;
+        }
+
+        .current a {
+            font-weight: bold;
+        }
+
+    }
+
+}
+
+// tab views after tabmenu
+
+.tabMenu + .tabs {
+    border-top: 0;
+}

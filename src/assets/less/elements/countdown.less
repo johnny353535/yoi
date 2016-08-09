@@ -1,0 +1,43 @@
+/** countdown.less */
+
+.countdown {
+    width: 318px;
+    background: ~"url(../img/bg-countdown.png)" no-repeat center center;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+}
+
+.countdown__clock {
+
+    text-shadow: 0 -1px 0 @color-main-6;
+
+    strong {
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        letter-spacing: 22px;
+        line-height: 70px;
+        margin: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    span {
+        color: #fff;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0;
+        position: absolute;
+        text-transform: uppercase;
+    }
+
+}
+
+.countdown__label__1 { left: 12px; top: 25px; }
+.countdown__label__2 { left: 141px; top: 30px; }
+.countdown__label__3 { left: 273px; top: 30px;}
+
+.countdown__hours    { left: 60px; }
+.countdown__minutes  { left: 180px; }

@@ -1,0 +1,28 @@
+/** specialLinks.less */
+
+a[class*="link--"]::before,
+a[class*="link--"]::after {
+    .mixin-icon;
+    font-size: 24px;
+    line-height: inherit;
+    position: relative;
+    top: -1px;
+}
+
+// reference link
+
+.link--ref::after {
+    content: '\f070';
+}
+
+// link to document (PDF)
+
+.link--doc::before {
+    content: '\f013';
+}
+
+// external link
+
+.link--ext::before {
+    content: '\f070';
+}

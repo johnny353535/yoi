@@ -1,0 +1,69 @@
+/** debug.less */
+
+// grid
+// ====
+
+[class*="w-"] when (@debugGrid = true) {
+    outline: @red-15 1px solid;
+}
+
+// BEM
+// ===
+
+[class*="__"] when (@debugBemElements = true) {
+    outline: @green-15 1px dashed !important;
+}
+
+[class*="--"] when (@debugBemModifiers = true) {
+    outline: @yellow-15 1px dashed !important;
+}
+
+// media queries
+// =============
+
+// "broadcast" the active mediaquery to JavaScript
+// --> helpers.js / currentBreakpoint()
+
+body::after when (@broadCastActiveMediaqueryToJs = true) {
+
+    bottom: 0;
+    content: 'none';
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+
+    .mixin-smallScreen({  content: 'small';  });
+    .mixin-mediumScreen({ content: 'medium'; });
+    .mixin-largeScreen({  content: 'large';  });
+    .mixin-xLargeScreen({ content: 'xlarge'; });
+
+}
+
+// display the active media query for debugging
+
+body::after when (@debugMediaquery = true) {
+
+    background: @red-10;
+    .mixin-defaultBorderRadius;
+    bottom: 1rem;
+    color: #fff;
+    content: 'none';
+    font-size: 1.5rem;
+    height: auto;
+    left: 1rem;
+    line-height: 2rem;
+    opacity: 1;
+    padding: 1rem;
+    position: fixed;
+    width: auto;
+    z-index: 1000;
+
+    .mixin-smallScreen({  content: 'small';  });
+    .mixin-mediumScreen({ content: 'medium'; });
+    .mixin-largeScreen({  content: 'large';  });
+    .mixin-xLargeScreen({ content: 'xlarge'; });
+
+}

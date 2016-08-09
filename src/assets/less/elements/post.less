@@ -1,0 +1,328 @@
+/** post.less */
+
+// post
+
+.post {
+
+    .mixin-clearfix;
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    display: block;
+    margin: 10px 0;
+    padding: 20px;
+    position: relative;
+
+    a& {
+        text-decoration: none;
+    }
+
+    // post meta
+
+    .postMeta {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    // post header
+
+    .header {
+        position: relative;
+    }
+
+    // post body
+
+    .body {
+        overflow: hidden;
+        position: relative;
+    }
+
+    // post footer
+
+    .footer {}
+
+    // other elements
+
+    h2, h3, h4 {
+        color: @color-main-7;
+        margin-bottom: 10px;
+        margin-right: 100px;
+    }
+
+    img {
+        float: left;
+        margin: 0 20px 0 0;
+    }
+
+}
+
+// posts, grouped
+
+.posts {
+
+    .post.lead,
+    .post:first-child {
+        border-bottom: 0;
+        border-radius: .2rem .2rem 0 0;
+        margin: 0;
+    }
+
+    .post {
+        margin: 0;
+    }
+
+    .post + .post {
+        border-bottom: 0;
+        border-radius: 0;
+    }
+
+    .post:last-child {
+        border-bottom: @color-main-23 1px solid;
+        border-radius: 0 0 .2rem .2rem;
+    }
+
+}
+
+// different positioning when fixed height
+
+.post[class*="h-"] {
+
+    .postMeta {
+        right: 20px;
+        top: 20px;
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .body {
+        position: static;
+    }
+
+}
+
+// mouse over
+
+a.post:hover,
+a.post.blockImg:hover,
+a.post.stripped:hover {
+    background: fade(@color-main-25,50%);
+}
+
+// post with block image
+
+.post.blockImg {
+
+    .postMeta {
+        margin-bottom: 5px;
+        position: static;
+    }
+
+    img {
+        display: block;
+        float: none;
+        margin-bottom: 15px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-right: 0;
+    }
+
+    &:hover {
+        background: #fff;
+    }
+
+}
+
+// post without frame
+
+.post.stripped {
+
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+
+    &:last-child {
+        border: 0;
+    }
+
+}
+
+// lead post
+
+.post.lead {
+
+    background: #fff;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 0;
+
+    // post meta
+
+    .postMeta {
+        right: 20px;
+        top: 20px;
+    }
+
+    // post header
+
+    .header {}
+
+    // post body
+
+    .body {
+        padding-top: 20px;
+    }
+
+    // post footer
+
+    .footer {}
+
+    // other elements
+
+    h1, p {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    h1 {
+        margin-right: 90px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 25px;
+        margin-top: 10px;
+    }
+
+    img {
+        display: block;
+        float: none;
+        margin-bottom: 0;
+    }
+
+    .btn {
+        float: right;
+        margin: 20px;
+    }
+
+}
+
+// compact post list (no image)
+
+.postList{
+
+    border: @color-main-22 1px solid;
+    margin-bottom: 10px;
+    padding: 20px;
+
+    h1 {
+        border-bottom: @color-main-24 1px solid;
+        margin: 0;
+        padding-bottom: 10px;
+
+        a {
+            text-decoration: none;
+        }
+
+    }
+
+    .post {
+        border: 0;
+        margin: 0 -10px;
+        padding: 10px;
+    }
+
+    .post + .post {
+
+        border-radius: 0;
+        border-top: @color-main-24 1px solid;
+
+        h3 {
+            margin: 0 40px 0 0;
+        }
+
+        &::before {
+            .mixin-icon;
+            color: @color-main-22;
+            content: '\f007';
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            right: 6px;
+            top: 0;
+            width: 40px;
+        }
+
+        &:hover::before {
+            color: @color-main-10;
+        }
+
+    }
+
+    .post:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+// post tags
+
+.postTags {
+
+    color: @color-main-15;
+    line-height: 30px;
+
+    a {
+
+        background: @color-main-24;
+        border-radius: 0 .2rem .2rem 0;
+        color: @color-main-10;
+        display: inline-block;
+        line-height: 20px;
+        margin-left: 10px;
+        padding: 0 5px 0 10px;
+        position: relative;
+        text-decoration: none;
+
+        &::before {
+            transform: rotate(-45deg);
+            background: @color-main-24;
+            content: ' ';
+            display: block;
+            height: 14px;
+            left: -7px;
+            position: absolute;
+            top: 3px;
+            width: 14px;
+        }
+
+        &::after {
+            background: #fff;
+            .mixin-defaultBorderRadius;
+            content: ' ';
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            top: 8px;
+            width: 4px;
+        }
+
+    }
+
+    a:hover,
+    a:hover::before {
+        background: @color-main-10;
+        color: #fff;
+    }
+
+}

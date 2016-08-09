@@ -1,0 +1,63 @@
+/** stageMenu.less */
+
+.stageMenu {
+
+    ul {
+
+        border-top: @color-main-23 1px solid;
+        margin: 0 20px 20px 0;
+        list-style: none;
+
+        li {
+            border-bottom: @color-main-23 1px solid;
+            position: relative;
+        }
+
+        a {
+            color: @color-main-10;
+            display: block;
+            font-size: 20px;
+            padding: 20px 15px 20px 50px;
+            text-decoration: none;
+        }
+
+        [class^="icon--"] {
+            color: @color-main-22;
+            left: 10px;
+            position: absolute;
+            top: 15px;
+        }
+
+        // hover
+
+        li:hover {
+
+            a {
+                background: fade(@color-main-24, 50%);
+            }
+
+        }
+
+        // current
+
+        .current {
+
+            a {
+                background: @color-main-24;
+                color: @color-main-8;
+            }
+
+            [class^="icon--"] {
+                color: @color-main-8;
+            }
+
+        }
+
+    }
+
+    .badge {
+        position: absolute;
+        right: 10px;
+    }
+
+}

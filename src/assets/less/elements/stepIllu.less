@@ -1,0 +1,113 @@
+/** stepIllu.less */
+
+.stepIllu {
+
+    margin: 0;
+    position: relative;
+    text-align: center;
+    counter-reset: i;
+
+    &::after { // connecting line
+        background: transparent;
+        border-left: @color-main-23 5px solid;
+        bottom: 90px;
+        content: ' ';
+        display: block;
+        left: 50%;
+        margin-left: -2px;
+        position: absolute;
+        top: 90px;
+        width: 0;
+        z-index: 1;
+    }
+
+    .step {
+
+        .mixin-defaultBorderRadius;
+        border: @color-main-23 1px solid;
+        list-style: none;
+        margin: 40px auto;
+        position: relative;
+        text-align: left;
+        width: 600px;
+        z-index: 2;
+
+        &::after { // counter
+            border-radius: 50%;
+            background: @color-main-5;
+            color: #fff;
+            content: counter(i);
+            counter-increment: i;
+            font-size: 30px;
+            font-weight: bold;
+            height: 70px;
+            left: 10px;
+            line-height: 70px;
+            padding: 0;
+            position: absolute;
+            text-align: center;
+            top: 10px;
+            width: 70px;
+            z-index: 4;
+        }
+
+    }
+
+    img {
+        border-radius: .2rem .2rem 0 0;
+        display: block;
+        width: 100%;
+    }
+
+    p {
+        border-radius: 0 0 .2rem .2rem;
+        background: @color-main-25;
+        color: @color-main-10;
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .stepCount {
+        background: @color-main-5;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        height: 100px;
+        left: -55px;
+        line-height: 100px;
+        margin-right: 20px;
+        margin-top: -50px;
+        padding: 0;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 100px;
+        z-index: 4;
+    }
+
+}
+
+// small version
+
+.stepIllu.small {
+
+    .step {
+        margin: 10px 10px 20px 10px;
+        width: auto;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 20px;
+        padding: 10px;
+    }
+
+    .step::after { // counter
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+    }
+
+}

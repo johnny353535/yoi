@@ -1,0 +1,57 @@
+/** imgMagnifier.less */
+
+// block
+// =====
+
+.imgMagnifier {
+
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+
+    a {
+        display: block;
+    }
+
+    // do not show pointer cursor
+    // when JS is enabled
+
+    .js& a {
+        cursor: default;
+    }
+
+}
+
+// elements
+// ========
+
+.imgMagnifier__previewImage {
+    display: block;
+}
+
+.imgMagnifier__viewer {
+    .mixin-shadow-2;
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 400;
+}
+
+.imgMagnifier__zoomImage {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.imgMagnifier__cursor {
+    background: fade(@color-main-10, 20%);
+    .mixin-defaultBorderRadius;
+    border: rgba(255,255,255,.3) 1px solid;
+    box-sizing: border-box;
+    left: 0;
+    position: absolute;
+    top: 0;
+}

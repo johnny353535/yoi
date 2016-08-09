@@ -1,0 +1,30 @@
+/** quotation.less */
+
+.quotation {
+
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    display: block;
+    padding: 2rem 2rem 2rem 7rem;
+    position: relative;
+    font-style: italic;
+
+    p {
+        margin: 0;
+    }
+
+    &:after {
+        color: @color-main-22;
+        content: '”';
+        display: block;
+        font-size: 10rem;
+        font-style: normal;
+        height: 5rem;
+        left: 1.5rem;
+        line-height: 8.5rem;
+        position: absolute;
+        top: 1.5rem;
+        width: 5rem;
+    }
+
+}

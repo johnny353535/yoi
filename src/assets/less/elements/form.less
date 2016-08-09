@@ -1,0 +1,488 @@
+/** form.less */
+
+// form
+// ====
+
+form {
+    padding: 0;
+}
+
+.form__header,
+.form__body,
+.form__footer {
+    .mixin-clearfix;
+    overflow: auto;
+}
+
+.form__header {
+    border-bottom: @color-main-22 1px solid;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.form__body {
+
+    .mixin-clearfix;
+    border: 0;
+    margin-bottom: 10px;
+    padding: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+.form__footer {
+    border-top: @color-main-22 1px solid;
+    margin-top: 10px;
+    overflow: auto;
+    padding-top: 10px;
+}
+
+// fieldset
+// ========
+
+fieldset {
+    &:extend(.form__body all);
+}
+
+// legend
+// ======
+
+legend,
+.legend {
+    color: @color-main-7;
+    display: block;
+    font-size: 15px;
+    font: bold 15px/25px @font-sansserif;
+    line-height: 20px;
+    padding: 0 0 10px 0;
+}
+
+// label
+// =====
+
+label,
+.label {
+
+    font: normal 13px/20px @font-sansserif;
+    display: block;
+    position: relative;
+    cursor: pointer;
+
+    i,
+    em {
+        color: @color-main-15;
+        font-style: normal;
+    }
+
+    // input elements inside a label
+
+    input,
+    textarea,
+    .select {
+        margin-top: 5px;
+    }
+
+    // input elements following a label
+
+    & + input,
+    & + textarea,
+    & + .select {
+        margin-top: 10px;
+    }
+
+}
+
+// text inputs
+// ===========
+
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+
+    .mixin-clearAppearance;
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-20 1px solid;
+    box-shadow: 0 1px 0 @color-main-24 inset;
+    box-sizing: border-box;
+    color: @color-main-8;
+    font: normal 13px/25px @font-sansserif;
+    height: 25px;
+    padding: 0 5px;
+    width: 100%;
+
+    // interactive states
+
+    &:focus {
+        border-color: @color-main-15;
+        border-width: 2px;
+        outline: none;
+        padding: 0 4px;
+    }
+
+    &[disabled],
+    &[readonly] {
+        background: @color-main-25;
+        border: @color-main-22 1px solid;
+        color: @color-main-8;
+        outline: none;
+        padding: 0 5px;
+    }
+
+    &[readonly] {
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+}
+
+// large input
+
+input.input--large {
+    font-size: 15px;
+    line-height: 40px;
+    height: 40px;
+}
+
+textarea {
+
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    line-height: 20px;
+    max-width: 100%;
+    min-height: 100px;
+    padding: 5px;
+    resize: vertical;
+
+    &:focus {
+        padding: 4px;
+    }
+
+}
+
+// large textarea
+
+textarea.input--large {
+    font-size: 15px;
+    height: auto;
+    line-height: 20px;
+}
+
+// placeholders
+// ============
+
+::-webkit-input-placeholder                { color: @color-main-8; }
+.input--error::-webkit-input-placeholder   { color: @color-negative-8; }
+.input--success::-webkit-input-placeholder { color: @color-positive-8; }
+
+:-moz-placeholder                          { color: @color-main-8; }
+.input--error::-moz-input-placeholder      { color: @color-negative-8; }
+.input--success::-moz-input-placeholder    { color: @color-positive-8; }
+
+// date inputs
+// ===========
+
+[data-environment="desktop"] {
+
+    // disable native date pickers
+    // on desktop browsers
+
+    ::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+
+}
+
+// form elements error / success
+// =============================
+
+.checkbox,
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+
+    // error
+
+    &.input--error,
+    &.input--error:hover,
+    .input--error & {
+        background: @color-negative-24;
+        border-color: @color-negative-15;
+        box-shadow: 0 1px 0 @color-negative-21 inset;
+        color: @color-negative-8;
+    }
+
+    &.input--error:focus,
+    .input--error &:focus {
+        background: @color-negative-23;
+        border-color: @color-negative-15;
+    }
+
+    // success
+
+    &.input--success,
+    &.input--success:hover,
+    .input--success & {
+        background: @color-positive-24;
+        border-color: @color-positive-15;
+        box-shadow: 0 1px 0 @color-positive-21 inset;
+        color: @color-positive-8;
+    }
+
+    &.input--success:focus,
+    .input--success &:focus {
+        background: @color-positive-23;
+        border-color: @color-positive-15;
+    }
+
+}
+
+// required inputs
+// ===============
+
+input[required] {
+
+}
+
+label.input--required,
+.label.input--required {
+
+    font-weight: bold;
+
+    i,
+    a {
+        font-weight: normal;
+        font-style: normal;
+    }
+
+}
+
+// checkbox & radio button
+// =======================
+
+.checkbox,
+.radio {
+
+    .mixin-clearAppearance;
+    background: #fff;
+    border: @color-main-20 1px solid;
+    box-shadow: 0 1px 0 @color-main-24 inset;
+    cursor: pointer;
+    display: inline-block;
+    height: 12px;
+    margin: 0 5px 0 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+    width: 12px;
+
+    input {
+        position: absolute;
+        left: -50px;
+    }
+
+    &.input--focus {
+        border: @color-main-15 2px solid;
+        width: 10px;
+        height: 10px;
+    }
+
+}
+
+.checkbox {
+
+    .mixin-defaultBorderRadius;
+
+    &.input--checked,
+    &.input--error.input--checked,
+    .input--error &.input--checked {
+        box-shadow: none;
+        background: @color-main-10;
+        border: none;
+        height: 14px;
+        width: 14px;
+    }
+
+    &.input--checked:after,
+    &.input--error.input--checked:after,
+    .input--error &.input--checked:after {
+        .mixin-icon;
+        color: @color-main-24;
+        content: '\f011';
+        font-size: 24px;
+        height: 15px;
+        left: -5px;
+        line-height: 15px;
+        position: absolute;
+        top: 0;
+    }
+
+}
+
+.radio {
+
+    border-radius: 50%;
+
+    &.input--checked,
+    &.input--error.input--checked,
+    .input--error &.input--checked {
+        background: @color-main-22;
+        border: @color-main-10 5px solid;
+        height: 4px;
+        width: 4px;
+    }
+
+}
+
+// submit button
+// =============
+
+// ---> see buttons.less
+
+// selects
+// =======
+
+.btn[role="customSelect"] {
+
+    // reset padding
+
+    &,
+    &.btn--small,
+    &.btn--medium,
+    &.btn--large,
+    &.btn--outline {
+        padding: 0;
+    }
+
+    // make select look like a button label
+
+    select {
+
+        .mixin-clearAppearance;
+        background: transparent;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        text-shadow: inherit;
+        z-index: 2;
+
+        &:active,
+        &:focus,
+        &.btn--active,
+        &.btn--focus {
+            border: 0;
+            outline: 0;
+        }
+
+    }
+
+    // adjust icon
+
+    select + [class*="icon--"] {
+        font-size: 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    // adjust icon position
+
+    select                                                  { padding: 0 29px 0 5px; }
+    &.btn--small select                                     { padding: 0 29px 0 5px; }
+    &.btn--medium select                                    { padding: 0 26px 0 10px; }
+    &.btn--large select                                     { padding: 0 35px 0 19px; }
+    select + [class*="icon--"]                              { margin: 0 0 0 -24px; }
+    &.btn--large select + [class*="icon--"]                 { margin: 0 0 0 -32px; }
+
+    &.btn--outline select                                   { padding: 0 28px 0 4px; }
+    &.btn--outline.btn--small select                        { padding: 0 28px 0 4px; }
+    &.btn--outline.btn--medium select                       { padding: 0 25px 0 9px; }
+    &.btn--outline.btn--large select                        { padding: 0 34px 0 18px; }
+    &.btn--outline select + [class*="icon--"]               { margin: 0 -1px 0 -23px; }
+    &.btn--outline.btn--large select + [class*="icon--"]    { margin: 0 -1px 0 -31px; }
+
+}
+
+// hints / tooltips
+// ================
+
+form .tooltip__wrapper {
+
+    position: relative;
+    display: block;
+    width: 100%;
+
+    .hint {
+
+        border-radius: 0;
+        bottom: 1px;
+        height: 23px;
+        position: absolute;
+        right: 1px;
+        width: 23px;
+
+        [class*="icon"] {
+            line-height: 22px;
+        }
+
+    }
+
+    :focus + .hint {
+
+        bottom: 2px;
+        height: 21px;
+        right: 2px;
+        width: 22px;
+
+        [class*="icon"] {
+            line-height: 21px;
+        }
+
+    }
+
+    // large inputs
+
+    .input--large {
+
+        & + .hint {
+
+            border-radius: .2rem 0 0 0;
+            height: 20px;
+            width: 20px;
+
+            [class*="icon"] {
+                line-height: 20px;
+            }
+
+        }
+
+        &:focus + .hint {
+
+            height: 19px;
+            width: 19px;
+
+            [class*="icon"] {
+                line-height: 20px;
+            }
+
+        }
+
+    }
+
+}

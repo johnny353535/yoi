@@ -1,0 +1,78 @@
+/** pageHeader.less */
+
+// block
+// =====
+
+.pageHeader {
+
+    background-color: @color-main-25;
+    border-bottom: @color-main-23 1px solid;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+
+    .center {
+        box-sizing: border-box;
+        height: 100%;
+        padding: 4rem 0;
+        position: relative;
+    }
+
+    * {
+        position: relative;
+        z-index: 2;
+    }
+
+    img {
+        display: block;
+    }
+
+}
+
+// elements
+// ========
+
+.pageHeader__headline,
+.pageHeader__subHeadline,
+.pageHeader__copy {
+    margin: 10px;
+}
+
+.pageHeader__headline {
+    @h1();
+    line-height: 5rem;
+}
+
+.pageHeader__subHeadline {
+    @h3();
+}
+
+.pageHeader__headline + .pageHeader__subHeadline,
+.pageHeader__subHeadline + .pageHeader__headline {
+    margin-top: -1rem;
+}
+
+.pageHeader__copy {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+// optional logo
+
+.pageHeader__logo {
+    direction: ltr;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: -9999px;
+    top: 4rem;
+}
+
+// optional background-image
+
+.pageHeader__bgImg {
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}

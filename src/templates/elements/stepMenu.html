@@ -1,0 +1,64 @@
+{% macro build(this) %}
+    {% set step = this.step or 1 %}
+    {% set context = this.context %}
+    <ol class="stepMenu step-{{ step }}">
+        {% if context == 'order' %}
+            <li>
+                {% if step <= 1 %}
+                    <span>Adressen</span>
+                {% else %}
+                    <a href="bestellen_schritt_1.html">Adressen</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if step <= 2 %}
+                    <span>Versandart</span>
+                {% else %}
+                    <a href="bestellen_schritt_2.html">Versandart</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if step <= 3 %}
+                    <span>Bezahlung</span>
+                {% else %}
+                    <a href="bestellen_schritt_3.html">Bezahlung</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if step <= 4 %}
+                    <span>Bestätigung</span>
+                {% else %}
+                    <a href="bestellen_schritt_4.html">Bestätigung</a>
+                {% endif %}
+            </li>
+            <li>
+                <span>Fertig</span>
+            </li>
+        {% elif context == 'signUp' %}
+            <li>
+                {% if step <= 1 %}
+                    <span>Anmeldedaten</span>
+                {% else %}
+                    <a href="konto_anlegen_schritt_1.html">Anmeldedaten</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if step <= 2 %}
+                    <span>Kontaktdaten</span>
+                {% else %}
+                    <a href="konto_anlegen_schritt_2_privat.html">Kontaktdaten</a>
+                {% endif %}
+            </li>
+            <li>
+                {% if step <= 3 %}
+                    <span>Rechnungsadresse</span>
+                {% else %}
+                    <a href="konto_anlegen_schritt_3.html">Rechnungsadresse</a>
+                {% endif %}
+            </li>
+            <li>
+                <span>Fertig</span>
+            </li>
+        {% endif %}
+    </ol>
+{% endmacro %}

@@ -1,0 +1,76 @@
+/** ribbon.less */
+
+// block
+// =====
+
+.ribbon {
+    display: block;
+    pointer-events: none;
+    width: 50rem;
+}
+
+// elements
+// ========
+
+.ribbon__label {
+
+    background: @color-main-15;
+    color: #fff;
+    display: block;
+    font: bold 1.5rem/3rem @font-sansserif;
+    text-align: center;
+    white-space: nowrap;
+
+    .ribbon--left & {
+        transform-origin: 50% 50%;
+        transform: rotate(-45deg);
+    }
+
+    .ribbon--right & {
+        transform-origin: 50% 50%;
+        transform: rotate(45deg);
+    }
+
+}
+
+// modifiers
+// =========
+
+.ribbon--left,
+.ribbon--right {
+    position: absolute;
+    top: 3rem;
+}
+
+.ribbon--left {
+    left: -20rem;
+}
+
+.ribbon--right {
+    right: -20rem;
+}
+
+.ribbon--attention .ribbon__label {
+    background: @color-attention-22;
+    color: @color-attention-8;
+}
+
+.ribbon--dark .ribbon__label {
+    background: @color-main-10;
+    color: #fff;
+}
+
+.ribbon--light .ribbon__label {
+    background: @color-main-24;
+    color: @color-main-10;
+}
+
+.ribbon--negative .ribbon__label {
+    background: @color-negative-15;
+    color: #fff;
+}
+
+.ribbon--positive .ribbon__label {
+    background: @color-positive-13;
+    color: #fff;
+}

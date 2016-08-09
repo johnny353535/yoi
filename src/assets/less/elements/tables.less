@@ -1,0 +1,238 @@
+/** tables.less */
+
+// base
+// ====
+
+table {
+    border-collapse: separate;
+    .mixin-defaultBorderRadius;
+    border-spacing: 0;
+    border: @color-main-23 1px solid;
+    box-sizing: border-box;
+    font-family: @font-sansserif;
+    width: 100%;
+}
+
+caption {
+    background: @color-main-25;
+    border-radius: .2rem .2rem 0 0;
+    border: @color-main-23 1px solid;
+    border-bottom: 0;
+    box-sizing: border-box;
+    font-family: @font-sansserif;
+    padding: 5px 0;
+    width: 100%;
+}
+
+thead {}
+tbody {}
+tfoot {}
+
+tr:first-child td,
+tr:first-child th {
+    border-top: 0;
+}
+
+caption + tr td,
+tfoot tr:first-child td {
+    border-top: 1px solid @color-main-23;
+}
+
+td,
+th {
+    border-top: 1px solid @color-main-23;
+    padding: 5px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+td + td,
+th + th {
+    border-left: 1px solid @color-main-23;
+}
+
+th {
+    background: @color-main-25;
+    font-family: @font-sansserif;
+    font-weight: bold;
+}
+
+th:first-child               { border-radius: .2rem 0 0 0; }
+th:last-child                { border-radius: 0 2px 0 0; }
+th:only-child                { border-radius: .2rem .2rem 0 0; }
+tr:last-child td:first-child { border-radius: 0 0 0 .2rem; }
+tr:last-child td:last-child  { border-radius: 0 0 2px 0; }
+
+// special col for controls (e.g. buttons)
+
+.table__controls {
+
+    background: @color-main-25;
+    width: 20px;
+
+    .btn {
+        display: block;
+        margin: 5px 0;
+    }
+
+}
+
+// modifiers
+// =========
+
+// muted table header
+
+.table--simpleHeader th {
+    background: transparent;
+}
+
+// table with all <th>s in col instead of row
+
+.table--colHeader {
+
+    th {
+        border-radius: 0;
+        border-top: @color-main-23 1px solid;
+    }
+
+    tr:first-child th {
+        border-top: 0;
+    }
+
+}
+
+// fixed width table layout
+
+.table--fixed {
+    table-layout: fixed;
+}
+
+// alternating table row colors
+
+.table--zebra tr:nth-child(odd) td {
+    background: fade(@color-main-25,40%);
+}
+
+// table without outer borders
+
+.table--stripped {
+
+    border: 0;
+
+    caption {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    th {
+        background: transparent;
+    }
+
+}
+
+// table without any borders
+
+.table--borderless {
+
+    &, th, td {
+        border: 0;
+    }
+
+    th {
+        background: transparent;
+    }
+
+}
+
+// table without outer paddings
+
+.table--compressed {
+
+    th, td {
+        padding: 0 5px;
+    }
+
+}
+
+// table which is both stripped & compressed
+
+.table--stripped.table--compressed {
+
+    tr th:only-child {
+        padding-bottom: 0;
+    }
+
+}
+
+// interactive tables
+// ==================
+
+// selectable table rows
+
+.js table[data-table*="selectable"] {
+
+    // mouseover on row
+
+    tr:hover td {
+
+        background: @color-main-25;
+        color: @color-main-8;
+        cursor: pointer;
+
+        &::before {
+            color: @color-main-23;
+        }
+
+    }
+
+    // col for checkboxes
+
+    .table__checkbox {
+
+        padding: 0;
+        text-align: center;
+        vertical-align: middle;
+        width: 30px;
+
+        // square icon => empty checkbox
+
+        &::before {
+            .mixin-icon;
+            color: @color-main-24;
+            content: '\f063';
+            height: 15px;
+            line-height: 15px;
+        }
+
+    }
+
+    // selected row
+
+    .tr--active {
+
+        td {
+            background: @color-attention-22;
+            border-color: @color-attention-19;
+            color: @color-attention-8;
+        }
+
+        & + tr td {
+            border-top-color: @color-attention-19;
+        }
+
+        &:hover td {
+            background: @color-attention-21;
+            color: @color-attention-8;
+        }
+
+        // checkmark icon => ticked checkbox
+
+        .table__checkbox::before {
+            color: @color-attention-8;
+            content: '\f011';
+        }
+
+    }
+
+}

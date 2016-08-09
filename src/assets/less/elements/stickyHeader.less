@@ -1,0 +1,63 @@
+/** stickyHeader.less */
+
+#stickyHeader {
+
+    top: -90px;
+    transition: top 200ms ease-out;
+
+    > button {
+        display: none;
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+
+    &.active {
+
+        .mixin-shadow-3;
+        background: #fff;
+        border-radius: 0 0 .2rem .2rem;
+        height: 70px;
+        left: 50%;
+        margin-left: -490px;
+        position: fixed;
+        top: 0;
+        width: 980px;
+        z-index: 40;
+
+        > button {
+            display: block;
+        }
+
+        #shoppingWidgets {
+            bottom: auto;
+            right: 10px;
+            top: 10px;
+        }
+
+        .searchForm {
+            bottom: auto;
+            right: 340px;
+            top: 10px;
+            width: 520px;
+        }
+
+        #mainMenu {
+
+            top: 70px;
+            left: 10px;
+
+            > ul {
+                .mixin-defaultBorderRadius;
+                border: @color-main-23 1px solid;
+            }
+
+        }
+
+    }
+
+    &.extended {
+        height: 130px;
+    }
+
+}

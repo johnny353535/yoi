@@ -1,0 +1,75 @@
+/** typography.less */
+
+// root typography
+// ===============
+
+@rootFontSize: 10px;
+
+@rootType: {
+    -webkit-font-smoothing: antialiased;
+    font-family: @font-sansserif;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2rem;
+};
+
+// vertical rhythm
+// ===============
+
+@verticalRhythm: {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+};
+
+// fonts
+// =====
+
+// web font imports
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext';
+
+// font families
+
+@font-mono:      'Courier', monospace;
+@font-sansserif: 'Open Sans', sans-serif;
+@font-serif:     'Georgia', serif;
+
+// headings
+// ========
+
+@h1: {
+    font-weight: normal;
+    font-family: @font-serif;
+    font-size: 4rem;
+    line-height: 4rem;
+};
+
+@h2: {
+    font-weight: normal;
+    font-family: @font-serif;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+};
+
+@h3: {
+    font-weight: normal;
+    font-family: @font-serif;
+    font-size: 2rem;
+    line-height: 2.25rem;
+};
+
+@h4: {
+    font-family: @font-sansserif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.75rem;
+};
+
+@h5: {
+    @h4();
+};
+
+@h6: {
+    @h4();
+};

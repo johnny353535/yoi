@@ -1,0 +1,281 @@
+/** stepper.less */
+
+// block
+// =====
+
+.stepper {
+
+    background: linear-gradient(to bottom, @color-main-12, @color-main-10);
+    .mixin-defaultBorderRadius;
+    border: @color-main-8 1px solid;
+    box-shadow: 0 1px 0 @color-main-13 inset;
+    box-sizing: border-box;
+    color: @color-main-25;
+    display: inline-block;
+    font-size: 0;
+    height: 4rem;
+    margin: 0;
+    position: relative;
+    user-select: none;
+
+    &:hover {
+        background: linear-gradient(to bottom, @color-main-10, @color-main-8);
+        border-color: @color-main-5;
+    }
+
+    > [class^="icon--"] {
+        line-height: 3.8rem;
+        margin: 0 .5rem;
+        vertical-align: top;
+    }
+
+}
+
+// elements
+// ========
+
+.stepper__input {
+
+    &[type="text"] {
+
+        border: 0;
+        display: inline-block;
+        font-size: 2rem;
+        height: 3.2rem;
+        margin: .3rem;
+        outline: 0;
+        padding: 0;
+        text-align: center;
+        vertical-align: top;
+        width: 6rem;
+
+        &.input--error {
+            background: @color-negative-24;
+            color: @color-negative-8;
+        }
+
+    }
+
+    // hidden label, js enabled (btnPlus/btnMinus injected)
+
+    .stepper__btnMinus ~ & {
+        margin-left: 3rem
+    }
+
+}
+
+.stepper__submit {
+
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    color: @color-main-25;
+    cursor: pointer;
+    display: inline-block;
+    font: bold 1.5rem/3.8rem @font-sansserif;
+    outline: 0;
+    padding: 0 1.5rem 0 1rem;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 -1px 0 @color-main-7;
+    vertical-align: top;
+    z-index: 2;
+
+    // hidden label
+
+    &.stepper__submit--hidden {
+        background: transparent;
+        left: 6.6rem;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+    }
+
+    // hidden label, js enabled (btnPlus/btnMinus injected)
+
+    .stepper__btnMinus ~ &.stepper__submit--hidden {
+        left: 9.3rem;
+    }
+
+}
+
+.stepper__btnPlus,
+.stepper__btnMinus {
+
+    background: linear-gradient(to bottom, @color-main-17, @color-main-14);
+    border: 0;
+    box-shadow: 0 1px 0 @color-main-20 inset;
+    cursor: pointer;
+    height: 1.9rem;
+    left: 0;
+    position: absolute;
+    width: 2.5rem;
+    z-index: 2;
+
+    [class^="icon--"] {
+        color: @color-main-23;
+        height: 2rem;
+        line-height: 2rem;
+        margin: 0;
+        overflow: hidden;
+        position: absolute;
+        left: -.3rem;
+        text-shadow: 0 -1px 0 @color-main-12;
+        top: 0;
+        width: 2.5rem;
+    }
+
+    &:hover [class^="icon--"] {
+        color: #fff;
+    }
+
+    &:active {
+        background: linear-gradient(to bottom, @color-main-11, @color-main-14);
+        box-shadow: none;
+    }
+
+    &:focus {
+        background: linear-gradient(to bottom, @color-main-15, @color-main-12);
+        box-shadow: 0 1px 0 @color-main-18 inset;
+        outline: 0;
+    }
+
+}
+
+.stepper__btnPlus {
+    border-radius: .2rem 0 0 0;
+    top: 0;
+}
+
+.stepper__btnMinus {
+    border-radius: 0 0 0 .2rem;
+    bottom: 0;
+}
+
+// modifiers
+// =========
+
+.stepper--light {
+
+    background: #fff;
+    border-color: @color-main-23;
+    box-shadow: none;
+
+    &:hover {
+        background: #fff;
+        border-color: @color-main-22;
+    }
+
+    > [class^="icon--"] {
+        color: @color-main-8;
+        text-shadow: none;
+    }
+
+    .stepper__input {
+
+        &[type="text"] {
+
+            background: @color-main-25;
+            box-shadow: none;
+
+            &:focus,
+            &:hover {
+                background: @color-main-23;
+                box-shadow: none;
+            }
+
+            &.input--error {
+                background: @color-negative-24;
+            }
+
+            &.input--error:focus {
+                background: @color-negative-10;
+                color: @color-negative-24;
+            }
+
+        }
+
+    }
+
+    .stepper__submit {
+        text-shadow: none;
+        color: @color-main-8;
+    }
+
+    .stepper__btnPlus,
+    .stepper__btnMinus {
+
+        background: transparent;
+        box-shadow: none;
+
+        [class^="icon--"] {
+            color: @color-main-10;
+            text-shadow: none;
+        }
+
+        &:hover {
+
+            background: @color-main-25;
+
+            [class^="icon--"] {
+                color: @color-main-5;
+                text-shadow: none;
+            }
+
+        }
+
+        &:focus {
+            background: @color-main-24;
+            outline: 0;
+        }
+
+    }
+
+}
+
+.stepper--stripped {
+    border-color: transparent;
+    background: transparent;
+}
+
+.stepper--touch {
+
+    .stepper__input[type="text"] {
+        width: 45px;
+        height: 32px;
+    }
+
+    .stepper__btnMinus ~ .stepper__input {
+        margin-left: 86px;
+    }
+
+    .stepper__btnMinus ~ .stepper__submit--hidden {
+        left: 134px;
+    }
+
+    .stepper__btnPlus,
+    .stepper__btnMinus {
+
+        border-radius: 0;
+        height: 38px;
+        top: 0px;
+        width: 40px;
+
+        [class^="icon--"] {
+            left: 0;
+            top: 10px;
+            width: 40px;
+        }
+
+    }
+
+    .stepper__btnPlus {
+        left: 0;
+    }
+
+    .stepper__btnMinus {
+        left: 41px;
+    }
+
+}

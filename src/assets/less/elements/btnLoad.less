@@ -1,0 +1,42 @@
+/** btnLoad.less */
+
+.btnLoad {
+
+    .mixin-clearAppearance;
+    background-clip: padding-box;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: 0;
+    box-sizing: border-box;
+    clear: both;
+    color: @color-main-10;
+    cursor: pointer;
+    display: inline-block;
+    font-family: @font-sansserif;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    text-overflow: clip;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    a& {
+
+        text-decoration: none;
+
+        &:hover {
+            background: @color-main-24;
+        }
+
+        &:active {
+            background: @color-main-23;
+        }
+
+    }
+
+}

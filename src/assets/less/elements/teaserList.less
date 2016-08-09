@@ -1,0 +1,89 @@
+/** teaserList.less */
+
+// block
+// =====
+
+.teaserList {
+
+    .mixin-clearfix;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+
+    a {
+        text-decoration: none;
+    }
+
+}
+
+// elements
+// ========
+
+.teaserList__title {
+    @h4();
+    margin: 1rem 11rem 1rem 1rem;
+}
+
+.teaserList__logo {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.teaserList__teasers {
+    overflow: hidden;
+    position: relative;
+}
+
+.teaserList__teaserMedia {
+    float: left;
+    margin: 0 1rem 0 0;
+}
+
+.teaserList__teaser {
+
+    overflow: hidden;
+    display: block;
+    padding: 1rem 3rem 1rem 1rem;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+        background: @color-main-24;
+    }
+
+    &::after {
+        .mixin-icon;
+        color: @color-main-23;
+        content: '\e007';
+        position: absolute;
+        right: .5rem;
+        top: 50%;
+        margin-top: -1.3rem;
+    }
+
+    &:hover::after {
+        color: @color-main-15;
+    }
+
+    & + & {
+        border-top: @color-main-23 1px solid;
+    }
+
+}
+
+.teaserList__teaserBody {
+    overflow: hidden;
+}
+
+// modifiers
+// =========
+
+.teaserList--stripped {
+    background: transparent;
+    border: 0;
+    padding: 0;
+}

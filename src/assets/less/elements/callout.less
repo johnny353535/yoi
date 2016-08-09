@@ -1,0 +1,70 @@
+/** callout.less */
+
+// block
+// =====
+
+.callout {
+    background: #fff;
+    border-radius: 50%;
+    color: @color-main-10;
+    display: table;
+    font: bold 1.3rem/1.5rem @font-sansserif;
+    height: 13rem;
+    margin: 0;
+    text-align: center;
+    text-shadow: none;
+    width: 13rem;
+    z-index: 5;
+}
+
+// elements
+// ========
+
+.callout__body {
+    display: table-cell;
+    padding: 1.5rem;
+    vertical-align: middle;
+}
+
+// modifiers
+// =========
+
+// large
+
+.callout--large {
+    font: bold 1.5rem/2rem @font-sansserif;
+    height: 17rem;
+    width: 17rem;
+}
+
+// rotation
+
+.callout--rot-l { transform: rotate(-10deg); }
+.callout--rot-r { transform: rotate(10deg);  }
+
+// other color schemes
+
+.callout--dark {
+    background: @color-main-10;
+    color: #fff;
+}
+
+.callout--attention {
+    background: @color-attention-22;
+    color: @color-attention-10;
+}
+
+.callout--positive {
+    background: @color-positive-23;
+    color: @color-positive-10;
+}
+
+.callout--negative {
+    background: @color-negative-24;
+    color: @color-negative-10;
+}
+
+.callout--prescription {
+    background: @color-prescriptionPink-3;
+    color: @color-prescriptionPink-1;
+}

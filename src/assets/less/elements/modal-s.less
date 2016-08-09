@@ -1,0 +1,90 @@
+/** modal-s.less */
+
+.modal-s {
+    background: @color-main-25;
+    border-radius: .2rem .2rem 0 0;
+    box-shadow: 0 0 2rem @color-main-5;
+    left: 50%;
+    margin-bottom: 1rem;
+    margin-left: -15rem;
+    padding: 1rem;
+    position: absolute;
+    text-align: left;
+    top: 1rem;
+    width: 28rem;
+}
+
+#modalContainer .modal-s {
+    z-index: 601;
+}
+
+.modal-s__header {
+
+    border-bottom: @color-main-23 1px solid;
+    border-radius: .2rem .2rem 0 0;
+    margin: -1rem -1rem 1rem -1rem;
+    padding: 0 4.5rem 0 1rem;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: @color-main-8;
+        font-family: @font-sansserif;
+        font-weight: bold;
+        line-height: 2.5rem;
+        padding: 1rem 0;
+    }
+
+    .btn {
+
+        background: @color-transparent;
+        position: absolute;
+        right: 0;
+        top: 2px;
+        color: @color-main-12;
+
+        &:hover {
+            color: @color-main-8;
+        }
+    }
+
+}
+
+.modal-s__body {}
+
+.modal-s__footer {
+    border-top: @color-main-22 1px solid;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+// modifiers
+
+.modal-s--small {
+    .mixin-defaultBorderRadius;
+}
+
+// modals may be displayed as indiviual pages
+
+.modalPage-s {
+
+    background: @color-main-8;
+
+    .modal-s {
+        .mixin-defaultBorderRadius;
+        margin: 0 1rem 1rem 1rem;
+        overflow: hidden;
+        position: static;
+        width: auto;
+    }
+
+    > .btn.dark {
+        left: 0;
+        margin: 1rem;
+        position: absolute;
+        top: 0;
+    }
+
+    [data-action="modalClose"] {
+        display: none;
+    }
+
+}

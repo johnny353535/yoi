@@ -1,0 +1,169 @@
+/** slideTeaser.less */
+
+.slideTeaser {
+
+    background: @color-main-5;
+    .mixin-defaultBorderRadius;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    padding-top: 100px;
+    position: relative;
+    transform: translate3d(0,0,0);
+    z-index: 10;
+
+    h1, h2, h3, h4, h5, h6,
+    p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    p {
+        font-family: @font-sansserif
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .descr {
+        bottom: 0;
+        box-sizing: border-box;
+        color: #fff;
+        padding: 15px;
+        position: absolute;
+        transform: translate3d(0, 100%, 0);
+        transition: all 300ms ease-out;
+        width: 100%;
+        z-index: 3;
+    }
+
+    img {
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translate3d(0, 0, 0);
+        transition: all 200ms ease-out;
+        z-index: 1;
+    }
+
+    // hover
+
+    &:hover {
+
+        img {
+            transform: translate3d(0, -50px, 0);
+        }
+
+        .descr {
+            transform: translate3d(0, 0, 0);
+            bottom: 0;
+        }
+
+    }
+
+}
+
+// gradient and full overlays
+
+.slideTeaser[data-options*="addGradient"],
+.slideTeaser[data-options*="addOverlay"] {
+
+    &::after,
+    &::before {
+        bottom: 0;
+        content: ' ';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    p {
+        text-shadow: 0 1px 0 rgba(0,0,0,.3);
+    }
+
+}
+
+// show gradient overlay, bottom only
+
+.slideTeaser[data-options*="addGradient"] {
+
+    &::after {
+        background: linear-gradient(to bottom, @color-transparent, @color-main-8);
+    }
+
+}
+
+// show transparent dark overlay, full height & width
+
+.slideTeaser[data-options*="addOverlay"] {
+
+    &::before {
+        background: fade(@color-main-5,30%);
+        transition: background 300ms ease-out;
+    }
+
+    &:hover::before {
+        background: transparent;
+    }
+
+}
+
+
+// shows headline before mouseover
+
+.slideTeaser[data-options*="showHeadline"] {
+
+    h1, h2, h3, h4, h5, h6 {
+        position: relative;
+        top: -25px;
+        transform: translate3d(0, -100%, 0);
+        transition: all 300ms ease-out;
+    }
+
+    &:hover {
+
+        h1, h2, h3, h4, h5, h6 {
+            transform: translate3d(0,0,0);
+            top: 0;
+        }
+
+    }
+
+}
+
+// image fades out on mouseover
+
+.slideTeaser[data-options*="fadeImg"] {
+
+    &:hover img {
+        opacity: .4;
+    }
+
+}
+
+// image blurs on mouse over
+
+.slideTeaser[data-options*="blurImg"] {
+
+    &:hover img {
+        filter: blur(5px);
+        transform: scale3d(1.1, 1.1, 1) translate3d(0, 0, 0);
+    }
+
+}
+
+// different sizes
+
+.w-1-3 .slideTeaser {
+    height: 300px;
+}
+
+.w-1-4 .slideTeaser {
+    height: 250px;
+}

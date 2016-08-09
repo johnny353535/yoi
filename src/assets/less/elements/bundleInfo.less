@@ -1,0 +1,59 @@
+/** bundleInfo.less */
+
+.bundleInfo {
+
+    box-sizing: border-box;
+    left: -80px;
+    position: absolute;
+    top: 0;
+    transition: all;
+    width: 120px;
+    z-index: 2;
+
+    a& {
+        text-decoration: none;
+    }
+
+    a&:hover {
+        left: -85px;
+    }
+
+    .body {
+        background: #fff;
+        .mixin-defaultBorderRadius;
+        padding: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    h4 {
+        color: @color-positive-15;
+    }
+
+    img {
+        display: block;
+    }
+
+    [class^="icon--"] {
+        margin-top: -15px;
+        position: absolute;
+        right: -16px;
+        top: 50%;
+    }
+
+    // shadow
+
+    &::after {
+        .mixin-shadow-2;
+        .mixin-defaultBorderRadius;
+        bottom: 0;
+        content: ' ';
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        z-index: 1;
+    }
+
+}

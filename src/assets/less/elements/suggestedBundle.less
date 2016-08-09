@@ -1,0 +1,110 @@
+/** suggestedBundle.less */
+
+.suggestedBundle {
+
+    .mixin-defaultBorderRadius;
+    border: @color-main-24 1px solid;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+
+    // headline
+
+    h4 {
+        color: @color-main-10;
+        left: 15px;
+        position: absolute;
+        top: 10px;
+    }
+
+    // packshots
+
+    .packshots {
+
+        float: left;
+        overflow: hidden;
+        padding: 40px 10px 10px 10px;
+
+        &,
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            margin: 0 40px 0 0;
+            position: relative;
+        }
+
+        img {
+            display: block;
+        }
+
+        li::after {
+            .mixin-icon;
+            content: '\f004';
+            left: -35px;
+            margin-top: -16px;
+            position: absolute;
+            top: 50%;
+        }
+
+        li:first-child::after {
+            content: '';
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+        }
+
+        a:hover {
+            background: @color-main-25;
+        }
+
+    }
+
+    // form
+
+    form {
+
+        float: left;
+        padding: 40px 10px 10px 10px;
+
+        label {
+            border-top: @color-main-24 1px solid;
+            padding: 5px 0;
+        }
+
+        label .price {
+            float: right;
+        }
+
+        label:first-child {
+            border: 0;
+        }
+
+        .sum {
+            border-top: @color-main-15 1px solid;
+            padding: 10px 0;
+            text-align: right;
+        }
+
+        .price {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .sum .price {
+            color: @color-negative-15;
+        }
+
+    }
+
+    // inactive
+
+    .inactive {
+        opacity: .5;
+    }
+
+}

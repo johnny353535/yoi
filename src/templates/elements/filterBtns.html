@@ -1,0 +1,29 @@
+{% macro build(this) %}
+    {% if this.modifiers %}
+        <ul class="filterBtns {{ this.modifiers }}">
+    {% else %}
+        <ul class="filterBtns">
+    {% endif %}
+        <li class="filterBtns__btn">
+            <a href="#">Kopfschmerzen</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Übelkeit</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Schwindelgefühl</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Muskelschmerzen</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Herzrasen</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Krämpfe</a>
+        </li>
+        <li class="filterBtns__btn">
+            <a href="#">Reizhusten</a>
+        </li>
+    </ul>
+{% endmacro %}

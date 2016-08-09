@@ -1,0 +1,45 @@
+/** imgContainer.less */
+
+.article .imgContainer,
+.imgContainer {
+
+    .mixin-clearfix;
+    background: fade(@color-main-25,50%);
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+    .caption {
+        display: block;
+        font-size: 13px;
+        line-height: 20px;
+        margin: 10px;
+    }
+
+    &.w-auto img {
+        width: auto;
+    }
+
+    // rounded
+
+    &.rounded {
+
+        border: 0;
+        background: transparent;
+
+        img {
+            border: @color-main-23 1px solid;
+            border-radius: 50%;
+            width: auto;
+        }
+
+    }
+
+}

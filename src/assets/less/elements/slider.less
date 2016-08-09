@@ -1,0 +1,133 @@
+/** slider.less */
+
+// block
+// =====
+
+.slider {
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    user-select: none;
+}
+
+// elements
+// ========
+
+.slider__slides {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider__slide {
+
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-align: left;
+
+    img {
+        display: block;
+    }
+
+    [data-slider*="clickable"] & {
+        cursor: pointer;
+    }
+
+    [data-slider*="animate"] & {
+        background: inherit;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+}
+
+.slider__caption {
+
+    border-top: @color-main-23 1px solid;
+    padding: 10px;
+    margin: 0;
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+
+    p {
+        font-family: @font-sansserif;
+        margin: 0;
+    }
+
+}
+
+// modifiers
+// =========
+
+.slider--stripped {
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+}
+
+.slider--dark {
+
+    background: @color-main-10;
+    border-color: @color-main-8;
+    color: @color-main-25;
+
+    .slider__caption {
+        border-color: @color-main-8;
+        color: @color-main-24;
+    }
+
+}
+
+.slider--super {
+
+    .slider__caption {
+
+        box-sizing: border-box;
+        background: fade(@color-main-8,70%);
+        border: 0;
+        bottom: 0;
+        color: #fff;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 280px;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: @font-sansserif;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            line-height: 25px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 25px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+    }
+
+    .pageBtns {
+        border-radius: 0;
+        width: 260px;
+        bottom: 10px;
+        top: auto;
+        background: transparent;
+        position: absolute;
+        right: 10px;
+        z-index: 2;
+    }
+
+}

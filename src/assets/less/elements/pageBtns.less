@@ -1,0 +1,69 @@
+/** pageBtns.less */
+
+// block
+// =====
+
+.pageBtns {
+
+    background: fade(@color-main-8,70%);
+    border-radius: 0 0 0 .2rem;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 fade(@color-main-5,30%);
+    top: 0;
+    user-select: none;
+    z-index: 20;
+
+}
+
+// elements
+// ========
+
+.pageBtns__btnPrev,
+.pageBtns__btnNext {
+
+    background: transparent;
+    .mixin-defaultBorderRadius;
+    border: 0;
+    color: @color-main-25;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    vertical-align: top;
+    width: 40px;
+
+    &:hover {
+        background: @color-main-10;
+    }
+
+    &::after {
+        .mixin-icon;
+        height: 40px;
+        line-height: 40px;
+    }
+
+}
+
+.pageBtns__btnPrev::after {
+    content: '\f008';
+}
+
+.pageBtns__btnNext::after {
+    content: '\f007';
+}
+
+.pageBtns__indicator {
+    color: @color-main-25;
+    display: inline-block;
+    font: bold 15px/40px @font-sansserif;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 20px;
+    vertical-align: top;
+
+}

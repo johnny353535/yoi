@@ -1,0 +1,374 @@
+/** itemCards.less */
+
+.itemCards {
+
+    .mixin-clearfix;
+
+    // items
+
+    .item {
+
+        .mixin-shadow-1;
+        background: #fff;
+        .mixin-defaultBorderRadius;
+        border: @color-main-23 1px solid;
+        margin: 10px;
+
+        a& {
+            text-decoration: none;
+        }
+
+        // headline
+
+        h2 {
+            font-family: @font-sansserif;
+            font-weight: bold;
+            margin: 0 5px 5px 0;
+            overflow: hidden;
+        }
+
+        // item meta
+
+        p {
+            line-height: 15px;
+        }
+
+        .meta {}
+
+        .veterinary {
+            margin: 5px 0;
+            position: relative;
+            top: auto;
+        }
+
+        .descr {
+
+            background: @color-main-25;
+            .mixin-defaultBorderRadius;
+            margin: 10px 0;
+            overflow: hidden;
+            padding: 10px 10px 5px 25px;
+
+            &,
+            ul {
+                list-style: none;
+            }
+
+            li {
+                line-height: 15px;
+                list-style: square;
+                margin-bottom: 5px;
+            }
+
+        }
+
+        .pricing {
+
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-align: right;
+
+            .avp,
+            .uvp,
+            .price {
+                display: block;
+                line-height: 20px;
+                margin: 0;
+            }
+
+        }
+
+        .rating {
+            left: 20px;
+            position: absolute;
+            top: 110px;
+        }
+
+        .basePrice,
+        .avp, .uvp, .pzn,
+        .dosageForm {
+            font-size: 11px;
+            margin: 0;
+        }
+
+        // footer
+
+        .footer {
+
+            clear: both;
+            overflow: hidden;
+            padding: 5px;
+
+            .controls {
+                float: left;
+                height: 40px;
+                padding: 0;
+            }
+
+            .pricing {
+                color: @color-main-15;
+                float: right;
+                line-height: 20px;
+                margin: 0;
+                padding: 0 !important;
+                text-align: left;
+                width: 135px;
+            }
+
+            strong {
+                float: right;
+            }
+
+            .total {
+                color: @color-negative-15;
+                font-size: 15px;
+            }
+
+        }
+
+    }
+
+    // body
+
+    .item > .body {
+        display: block;
+        float: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 15px 10px 5px 10px;
+        position: relative;
+        width: auto;
+        text-decoration: none;
+    }
+
+    // drawer menu after list item
+
+    .item .drawerMenu {
+        margin: 5px;
+    }
+
+    // load-button & pagination
+
+    .btnLoad,
+    .pagination {
+        display: block;
+        margin: 10px;
+        overflow: hidden;
+        width: @globalWidth;
+    }
+
+    // remove-button
+
+    // .btnRemove {
+    //
+    //     position: absolute;
+    //     right: 0;
+    //     top: 0;
+    //     z-index: 2;
+    //
+    //     &:hover {
+    //         color: @color-main-5;
+    //     }
+    //
+    // }
+
+}
+
+// different packshot sizes
+
+.itemCards {
+
+    .img-60 .packshot,
+    .img-100 .packshot {
+        left: 10px;
+        position: absolute;
+    }
+
+    .img-60 .packshot  { top: 15px; }
+    .img-100 .packshot { top: 10px; }
+
+    .img-60 > .body {
+        min-height: 80px;
+        padding-left: 80px;
+    }
+
+    .img-100 > .body {
+        min-height: 140px;
+        padding-left: 120px;
+    }
+
+}
+
+// grouped itemCards
+
+.itemCards.grouped {
+
+    .mixin-shadow-1;
+    background: #fff;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+
+    .item {
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    .item + .item,
+    .note.stripped + .item {
+        border-top: @color-main-23 1px solid;
+    }
+
+    .btnLoad,
+    .pagination {
+        border-radius: 0;
+        border-top: @color-main-23 1px solid;
+        margin: 0;
+        width: 100%;
+    }
+
+    .hidden + .btnLoad,
+    .hidden + .pagination {
+        border-top: 0;
+    }
+
+}
+
+// grouped itemCards, no borders, shadows, rounded corners
+
+.itemCards.grouped.stripped {
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+// fixed item cards grid grid,
+// 2 items per row
+
+.itemCards.grid {
+
+    .mixin-clearfix;
+    margin-bottom: -5px;
+    margin-top: -5px;
+    padding: 5px;
+
+    .item {
+
+        float: left;
+        height: 220px;
+        margin: 5px;
+        overflow: hidden;
+        padding: 10px;
+        text-align: center;
+        width: @globalWidth / 2 - 15;
+
+        h2 {
+            min-height: 40px;
+        }
+
+        img {
+            display: block;
+            margin: -5px auto 0 auto;
+            position: static;
+        }
+
+        .rating {
+            position: static;
+            text-align: center;
+        }
+
+        .pricing {
+            margin-top: 0;
+            text-align: center;
+        }
+
+    }
+
+}
+
+// fixed grouped item cards grid grid,
+// 2 items per row
+
+.itemCards.grouped.grid {
+
+    margin: 0;
+    padding: 0;
+
+    .item {
+        border: 0;
+        border-bottom: @color-main-23 1px solid;
+        margin: 0;
+        width: 50%;
+    }
+
+    .item:nth-child(even) {
+        border-left: @color-main-23 1px solid;
+    }
+
+    .item:nth-last-of-type(1),
+    .item:nth-last-of-type(2) {
+        border-bottom: 0;
+    }
+
+}
+
+// ordered item cards (eg. ranking, top-products, etc.)
+
+.itemCards.ordered {
+
+    counter-reset: i;
+
+    .item {
+
+        padding-top: 25px;
+
+        // index number
+
+        &::before {
+            box-sizing: border-box;
+            background: @color-main-10;
+            color: #fff;
+            content: counter(i);
+            counter-increment: i;
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            height: 25px;
+            left: 0;
+            line-height: 25px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 25px;
+            z-index: 2;
+        }
+
+        // background
+
+        &::after {
+            background: linear-gradient(to right, @color-main-25 0%, #fff 100%);
+            content: ' ';
+            height: 25px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+    }
+
+    // top-item index number
+
+    .item:first-child::before {
+        background: #b79706;
+    }
+
+    // top-item background
+
+    .item:first-child::after {
+        background: linear-gradient(to right, #dfc449 0%, #fff 100%);
+    }
+
+}

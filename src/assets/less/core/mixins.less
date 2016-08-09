@@ -1,0 +1,64 @@
+/** mixins.less */
+
+// helpers
+// =======
+
+.mixin-clearfix() {
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+}
+
+.mixin-hidden() {
+    display: block;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+.mixin-clearAppearance() {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+// mediaqueries
+// ============
+
+// small screen
+
+.mixin-smallScreen(@rules) {
+    @media @bpSmall {
+        @rules();
+    }
+}
+
+// medium screen
+
+.mixin-mediumScreen(@rules) {
+    @media @bpMedium {
+        @rules();
+    }
+}
+
+// large screen
+
+.mixin-largeScreen(@rules) {
+    @media @bpLarge {
+        @rules();
+    }
+}
+
+// x-large screen
+
+.mixin-xLargeScreen(@rules) {
+    @media @bpXLarge {
+        @rules();
+    }
+}

@@ -1,0 +1,112 @@
+/** radioBtn.less */
+
+// block
+// =====
+
+.radioBtn {
+
+    .mixin-clearAppearance;
+    background: @color-main-25;
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    box-sizing: border-box;
+    color: @color-main-10;
+    cursor: pointer;
+    display: inline-block;
+    height: 3rem;
+    min-width: 3.4rem;
+    padding: 0 1rem;
+    position: relative;
+    text-align: left;
+    text-overflow: clip;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    a& {
+        text-decoration: none;
+    }
+
+    &:hover {
+        background: @color-main-24;
+        border-color: @color-main-24;
+    }
+
+    input {
+        margin-right: .5rem;
+    }
+
+}
+
+// elements
+// ========
+
+.radioBtn__label,
+.radioBtn__toggleLabel {
+    display: inline-block;
+    font: bold 1.2rem/2.8rem @font-sansserif;
+}
+
+.radioBtn__label,
+.radioBtn [class*="icon--"] {
+    vertical-align: top;
+}
+
+.radioBtn [class*="icon--"] {
+    display: none;
+    line-height: 2.8rem;
+    margin-left: -1rem;
+}
+
+.radioBtn__label + .radioBtn__toggleLabel {
+    border-left: @color-main-23 1px dashed;
+    margin-left: .5rem;
+    padding-left: .5rem;
+}
+
+// modifiers
+// =========
+
+.js .radioBtn--active,
+.js .radioBtn--active:hover {
+
+    background: @color-positive-10;
+    border-color: @color-positive-10;
+    color: #fff;
+
+    .radioBtn__toggleLabel {
+        display: none;
+    }
+
+    [class*="icon--"] {
+        display: inline-block;
+    }
+
+}
+
+.radioBtn--circle {
+
+    border-radius: 50%;
+    border: @color-main-23 1px solid;
+    height: 3.4rem;
+    padding: 0;
+    width: 3.4rem;
+
+    [class*="icon--"] {
+        height: 3.4rem;
+        width: 3.4rem;
+        line-height: 3.4rem;
+        margin: 0;
+    }
+
+    label,
+    .radioBtn__label {
+        .mixin-hidden;
+    }
+
+    &.radioBtn--active,
+    &.radioBtn--active:hover {
+        border-color: transparent;
+    }
+
+}

@@ -1,0 +1,116 @@
+/** pageDots.less */
+
+// block
+// =====
+
+.pageDots {
+    background: #fff;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 0;
+    height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    user-select: none;
+    z-index: 20;
+}
+
+// elements
+// ========
+
+.pageDots__dot,
+.pageDots__btnPrev,
+.pageDots__btnNext {
+
+    color: @color-main-21;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+
+    &:hover {
+        color: @color-main-15;
+    }
+
+    &.pageDots--active {
+        color: @color-main-7;
+    }
+
+    &::after {
+        .mixin-icon;
+        content: '\f079';
+        font-size: 24px;
+        height: 25px;
+        line-height: 24px;
+        text-indent: -2px;
+        width: 20px;
+    }
+
+}
+
+.pageDots__btnPrev,
+.pageDots__btnNext {
+    width: 30px;
+    line-height: 20px;
+}
+
+.pageDots__btnPrev::after {
+    content: '\f008';
+}
+
+.pageDots__btnNext::after {
+    text-indent: -1px;
+    content: '\f007';
+}
+
+// modifiers
+// =========
+
+.pageDots--dark {
+
+    background: @color-main-8;
+
+    .pageDots__btnPrev,
+    .pageDots__btnNext,
+    .pageDots__dot {
+
+        color: @color-main-12;
+
+        &:hover {
+            color: @color-main-18;
+        }
+
+        &.pageDots--active {
+            color: #fff;
+        }
+
+    }
+
+}
+
+.pageDots--subtle {
+
+    background: transparent;
+
+    .pageDots__btnPrev,
+    .pageDots__btnNext,
+    .pageDots__dot {
+
+        color: fade(@color-main-5,30%);
+
+        &:hover {
+            color: fade(@color-main-5,70%);
+        }
+
+        &.pageDots--active {
+
+            &::after {
+                color: @color-main-5;
+            }
+
+            color: #fff;
+        }
+
+    }
+
+}

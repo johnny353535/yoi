@@ -1,0 +1,109 @@
+/** stepMenu.less */
+
+.stepMenu {
+
+    margin: 0 0 0 20px;
+    padding: 0;
+
+    &,
+    ul {
+        list-style: none;
+    }
+
+    li {
+        position: relative;
+    }
+
+    span,
+    a {
+        color: @color-main-15;
+        display: block;
+        font-size: 20px;
+        padding: 15px 0 15px 40px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: @color-main-8;
+    }
+
+    li:first-child a,
+    li:first-child span {
+        padding-top: 0;
+    }
+
+    // lines & dots
+
+    li::after,
+    li::before {
+        content: ' ';
+        position: absolute;
+        display: block;
+    }
+
+    // lines
+
+    li + li::before {
+        background: @color-main-22;
+        bottom: 50%;
+        height: 100%;
+        left: 10px;
+        width: 2px;
+    }
+
+    // dots
+
+    li:after {
+        background: @color-main-22;
+        border-radius: 10px;
+        height: 20px;
+        left: 0;
+        margin-top: -10px;
+        top: 50%;
+        width: 20px;
+        z-index: 3;
+    }
+
+    li:first-child::after {
+        margin: 0;
+        top: 0;
+    }
+
+    // path highlighting
+
+    &.step-1 li:nth-child(1),
+    &.step-2 li:nth-child(1), &.step-2 li:nth-child(2),
+    &.step-3 li:nth-child(1), &.step-3 li:nth-child(2), &.step-3 li:nth-child(3),
+    &.step-4 li:nth-child(1), &.step-4 li:nth-child(2), &.step-4 li:nth-child(3), &.step-4 li:nth-child(4),
+    &.step-5 li:nth-child(1), &.step-5 li:nth-child(2), &.step-5 li:nth-child(3), &.step-5 li:nth-child(4), &.step-5 li:nth-child(5) {
+
+        &::after,
+        &::before {
+            background: @color-main-15;
+        }
+
+    }
+
+    // current step
+
+    &.step-1 li:nth-child(1),
+    &.step-2 li:nth-child(2),
+    &.step-3 li:nth-child(3),
+    &.step-4 li:nth-child(4),
+    &.step-5 li:nth-child(5) {
+
+        a {
+            color: @color-main-8;
+            font-weight: bold;
+        }
+
+        &::after {
+            width: 10px;
+            height: 10px;
+            border: @color-main-8 5px solid;
+            background: #fff;
+        }
+
+    }
+
+}

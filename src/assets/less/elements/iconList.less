@@ -1,0 +1,38 @@
+// ===========================================================
+//
+//		File:	less/elements/iconList.less
+//		Descr.:	Simple element to display
+//				a list with custom bullets/icons.
+//
+// ===========================================================
+
+.iconList {
+
+    color: @color-main-15;
+    list-style: none;
+
+    li {
+
+        border-bottom: @color-main-9 1px solid;
+        font-size: 0;
+
+        &:last-child {
+            border: 0;
+        }
+
+    }
+
+    [class*="icon--"] {
+        line-height: 40px;
+        margin-right: 10px;
+        vertical-align: top;
+    }
+
+    span {
+        display: inline-block;
+        font-size: 15px;
+        line-height: 40px;
+        vertical-align: top;
+    }
+
+}

@@ -1,0 +1,76 @@
+/** hint.less */
+
+// block
+// =====
+
+.hint {
+
+    font: bold 1.3rem/2rem @font-sansserif;
+    background: @color-main-24;
+    border-radius: 50%;
+    color: @color-main-13;
+    cursor: pointer;
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    position: relative;
+    text-align: center;
+    width: 2rem;
+
+    &:hover {
+        background: @color-main-20;
+        color: #fff;
+    }
+
+    [class*="icon--"] {
+        height: 2rem;
+        left: 0;
+        line-height: 2rem;
+        position: absolute;
+        text-indent: -.5rem;
+        top: 0;
+        width: 2rem;
+    }
+
+}
+
+// modifiers
+// =========
+
+.hint--attention {
+
+    background: @color-attention-19;
+    color: @color-attention-10;
+
+    &:hover {
+        background: @color-attention-5;
+        color: @color-attention-21;
+    }
+
+}
+
+.hint--error,
+.hint--negative {
+
+    background: @color-negative-22;
+    color: @color-negative-10;
+
+    &:hover {
+        background: @color-negative-10;
+        color: #fff;
+    }
+
+}
+
+.hint--success,
+.hint--positive {
+
+    background: @color-positive-21;
+    color: @color-positive-5;
+
+    &:hover {
+        background: @color-positive-10;
+        color: #fff;
+    }
+
+}

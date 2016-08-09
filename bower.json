@@ -1,0 +1,21 @@
+{
+  "name": "yoshino-ui-core",
+  "description": "The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.",
+  "authors": [
+    "yoshino.digital dev team"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/yoshino-digital/ui-core",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src/templates",
+    "src/assets/less/theme",
+    "src/assets/less/yoshino-ui-core.less",
+    "src/assets/js/yoshino-ui-core.json"
+  ]
+}

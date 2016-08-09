@@ -1,0 +1,396 @@
+/** drawerMenu.less */
+
+.drawerMenu {
+
+    user-select: none;
+
+    // headings
+
+    h1, h2, h3, h4, h5, h6 {
+        font: bold 15px/20px @font-sansserif;
+        margin-bottom: 10px;
+    }
+
+    // all levels
+
+    ul {
+        list-style: none;
+    }
+
+    // level 1
+
+    > ul {
+
+        background: #fff;
+        .mixin-defaultBorderRadius;
+        border: @color-main-22 1px solid;
+        color: @color-main-8;
+        list-style: none;
+        overflow: hidden;
+
+        li:last-child {
+            border: 0;
+        }
+
+        > li:hover,
+        .active {
+            background: @color-main-25;
+        }
+
+    }
+
+    li {
+        border-bottom: @color-main-23 1px solid;
+        font-size: 15px;
+        line-height: 40px;
+    }
+
+    // level 2
+
+    ul ul {
+        background: @color-main-24;
+        border-top: @color-main-23 1px solid;
+    }
+
+    // level 3
+
+    ul ul ul {
+        background: @color-main-23;
+        border-top: @color-main-22 1px solid;
+    }
+
+    // all list items
+
+    li span,
+    li a {
+        display: block;
+        padding: 0 40px 0 10px;
+        position: relative;
+        border: 0;
+        background: transparent;
+    }
+
+    .handle,
+    li a {
+
+        cursor: pointer;
+        overflow: hidden;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        // icon right (default)
+
+        &::after {
+            .mixin-icon;
+            height: 40px;
+            left: auto;
+            line-height: 40px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+        }
+
+        &:hover::after {
+            color: @color-main-10;
+        }
+
+        // optional inline-icons
+
+        [class*="icon--"] {
+            height: 20px;
+            line-height: 20px;
+        }
+
+    }
+
+    // radio and checkbox-icon left
+
+    .ltr {
+
+        li a {
+
+            padding: 0 10px 0 40px;
+
+            &::after {
+                left: 10px;
+                right: auto;
+            }
+
+        }
+
+    }
+
+    // data bits in radio-btn elements
+
+    .dataBit {
+        display: inline-block;
+        padding: 0;
+    }
+
+    // open-handle icon
+
+    .handle::after {
+        color: @color-main-22;
+        content: '\f002';
+    }
+
+    // link icon
+
+    li a::after {
+        color: @color-main-15;
+        content: '\f007';
+    }
+
+    // catLink icon
+
+    li a.catLink::after {
+        content: '\f067';
+    }
+
+    // checkbox & radio button icons
+
+    li.checkbox-off a::after,
+    li.radiobtn-off a::after,
+    li.checkbox-on a::after,
+    li.radiobtn-on a::after {
+        .mixin-defaultBorderRadius;
+        height: 20px;
+        line-height: 20px;
+        right: 10px;
+        text-indent: -6px;
+        top: 10px;
+        width: 20px;
+    }
+
+    li.checkbox-off a::after,
+    li.radiobtn-off a::after {
+        color: @color-main-23;
+        background: @color-main-21;
+        content: ' ';
+    }
+
+    li.checkbox-on a::after,
+    li.radiobtn-on a::after {
+        background: @color-positive-10;
+        color: #fff;
+        content: '\f011';
+    }
+
+    // radio button icon
+
+    li.radiobtn-off a::after,
+    li.radiobtn-on a::after {
+        border-radius: 50%;
+        content: '\f079';
+    }
+
+    li.radiobtn-on a::after {
+        color: @color-positive-17;
+        background: @color-positive-10;
+    }
+
+    // button to show all menu items
+
+    .btnLoad {
+        border-radius: 0;
+        display: block;
+        width: 100%;
+    }
+
+    // other buttons
+
+    li .btn {
+
+        border-radius: 0;
+        display: block;
+
+        &::after {
+            display: none;
+        }
+
+        span {
+            display: inline;
+            padding: 0;
+        }
+
+    }
+
+    // open
+
+    ul .open {
+
+        background: @color-main-25;
+
+        button {
+            background: @color-main-24;
+        }
+
+    }
+
+    ul ul .open {
+
+        background: @color-main-23;
+
+        span::after {
+            color: @color-main-20;
+        }
+
+        &:hover span::after {
+            color: inherit;
+        }
+
+        button {
+            background: @color-main-22;
+        }
+
+    }
+
+    ul ul .open li {
+        background: @color-main-22;
+        border-color: @color-main-21;
+    }
+
+    .open {
+
+        > span::after {
+            content: '\f003';
+        }
+
+    }
+
+}
+
+.drawerMenu.dark {
+
+    // level 1
+
+    > ul {
+
+        background: @color-main-10;
+        border-color: @color-main-6;
+
+        > li:hover {
+            background: @color-main-9;
+        }
+
+    }
+
+    li {
+        border-bottom-color: @color-main-7;
+        color: @color-main-25;
+    }
+
+    // level 2
+
+    ul ul {
+        background: @color-main-8;
+        border-top-color: @color-main-7;
+        color: @color-main-24;
+    }
+
+    ul ul li {
+        background: @color-main-8;
+    }
+
+    // level 3
+
+    ul ul ul {
+        background: @color-main-8;
+    }
+
+    // open-handle & link icons
+
+    li span,
+    li a {
+
+        &::after {
+            color: @color-main-15;
+        }
+
+        &:hover::after {
+            color: @color-main-23;
+        }
+
+    }
+
+    // checkbox & radio button icons
+
+    .checkbox-off a::after,
+    .radiobtn-off a::after {
+        background: @color-main-10;
+    }
+
+    .checkbox-on a::after,
+    .radiobtn-on a::after {
+        background: @color-positive-15;
+        color: #fff;
+    }
+
+    // button to show all menu items
+
+    .btnLoad {
+
+        background: @color-main-8;
+        color: @color-main-22;
+
+        &:hover {
+            background: @color-main-10;
+        }
+
+    }
+
+    // open
+
+    ul .open {
+
+        background: @color-main-9;
+
+        button {
+            background: @color-main-8;
+        }
+
+    }
+
+    ul ul .open {
+
+        background: @color-main-7;
+
+        button {
+            background: @color-main-6;
+        }
+
+        span::after {
+            color: @color-main-20;
+        }
+
+        &:hover span::after {
+            color: inherit;
+        }
+
+    }
+
+    ul ul .open li {
+        background: @color-main-6;
+        border-color: @color-main-5;
+    }
+
+}
+
+.drawerMenu.stripped > ul {
+    border-radius: 0;
+    border: 0;
+}
+
+.drawerMenu.borderless > ul {
+    border: 0;
+}
+
+.drawerMenu.transparent {
+
+    ul, li {
+        background: transparent;
+    }
+
+}

@@ -1,0 +1,126 @@
+/** flyout.less */
+
+// block
+// =====
+
+.flyout {
+    background: @color-main-24;
+    .mixin-defaultBorderRadius;
+    border: @color-main-20 1px solid;
+    box-sizing: border-box;
+    color: @color-main-8;
+    padding: 2rem;
+    position: relative;
+    text-align: left;
+    transition: right 100ms ease-out, left 100ms ease-out;
+    width: 30rem;
+}
+
+// hide if JS is disabled
+
+// .noJs .flyout {
+//     display: none;
+// }
+
+// elements
+// ========
+
+.flyout__handle {
+
+    background: @color-main-24;
+    border: @color-main-20 1px solid;
+    border-top: 0;
+    cursor: pointer;
+    display: block;
+    font: normal 2rem/3rem @font-sansserif;
+    padding: 0 1rem;
+    position: absolute;
+    top: 3rem;
+
+    &::after {
+        .mixin-icon;
+        margin-left: .5rem;
+    }
+
+    .flyout--left & {
+        transform-origin: right top;
+        transform: rotate(270deg);
+        border-radius: .2rem 0 0 .2rem;
+        right: 0;
+    }
+
+    .flyout--right & {
+        transform-origin: left top;
+        transform: rotate(90deg);
+        border-radius: 0 0 .2rem .2rem;
+        left: 0;
+    }
+
+}
+
+// hide handly if js is disabled
+
+.noJs .flyout__handle {
+    display: none;
+}
+
+.flyout__body {}
+
+// modifiers
+// =========
+
+.js {
+
+    // the whole positioning only makes sense,
+    // if JS is available
+
+    .flyout--left,
+    .flyout--right {
+        position: fixed;
+        top: 25.5rem;
+        z-index: 301;
+    }
+
+    .flyout--left {
+        border-radius: 0 .2rem .2rem 0;
+    }
+
+    .flyout--right {
+        border-radius: .2rem 0 0 .2rem;
+    }
+
+    .flyout--hidden {
+
+        .flyout__handle::after {
+            content: '\f002';
+        }
+
+        &.flyout--left {
+            left: -30rem;
+        }
+
+        &.flyout--right {
+            right: -30rem;
+        }
+
+    }
+
+    .flyout--visible {
+
+        .mixin-shadow-3;
+
+        .flyout__handle::after {
+            content: '\f003';
+        }
+
+        &.flyout--left {
+            left: 0;
+        }
+
+        &.flyout--right {
+            right: 0;
+        }
+
+    }
+
+}

@@ -1,0 +1,158 @@
+/** switch.less */
+
+// block (JS only)
+// ===============
+
+.js .switch {
+
+    .mixin-clearAppearance;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    width: 60px;
+
+    input {
+        visibility: hidden;
+    }
+
+}
+
+// elements (injected via JS)
+// ==========================
+
+.switch__knob {
+    background: @color-main-25;
+    border-radius: 50%;
+    content: ' ';
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -999px;
+    top: 2px;
+    transition: left 60ms ease-in;
+    width: 16px;
+}
+
+.switch__labelOn,
+.switch__labelOff {
+    display: block;
+    font: bold 11px/19px @font-sansserif;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+}
+
+.switch__labelOn {
+    color: @color-positive-25;
+    left: 8px;
+}
+
+.switch__labelOff {
+    color: @color-main-25;
+    right: 8px;
+}
+
+// modifiers
+// =========
+
+.js  .switch--on {
+
+    background: @color-positive-15;
+
+    .switch__knob {
+        background: @color-positive-21;
+        left: 42px;
+    }
+
+    &:hover .switch__knob {
+        background: #fff;
+    }
+
+    &:focus {
+        background: @color-positive-10;
+    }
+
+    .switch__labelOn  { display: block }
+    .switch__labelOff { display: none; }
+
+}
+
+.js .switch--off {
+
+    background: @color-main-16;
+
+    .switch__knob {
+        left: 2px;
+    }
+
+    &:hover .switch__knob {
+        background: #fff;
+    }
+
+    &:focus {
+        background: @color-main-10;
+    }
+
+    .switch__labelOn  { display: none; }
+    .switch__labelOff { display: block; }
+
+}
+
+.js .switch--focus {
+    // todo
+}
+
+.js .switch--large {
+
+    border-radius: 15px;
+    height: 30px;
+    width: 75px;
+
+    // knob
+
+    .switch__knob {
+        height: 26px;
+        top: 2px;
+        width: 26px;
+    }
+
+    // labels
+
+    .switch__labelOn,
+    .switch__labelOff {
+        line-height: 30px
+    }
+
+    .switch__labelOn {
+        left: 12px;
+    }
+
+    .switch__labelOff {
+        right: 12px;
+    }
+
+    // on
+
+    &.switch--on .switch__knob {
+        left: 47px;
+    }
+
+    // off
+
+    &.switch--off .switch__knob {
+        left: 2px;
+    }
+
+    // focus
+
+    &.switch--focus {
+        // todo
+    }
+
+}

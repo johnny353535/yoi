@@ -1,0 +1,72 @@
+/** priceSticker.less */
+
+.priceSticker {
+
+    background: @color-negative-15;
+    .mixin-defaultBorderRadius;
+    box-shadow: 0 1px 0 rgba(0,0,0,.1);
+    color: #fff;
+    display: inline-block;
+    font-size: 30px;
+    line-height: 40px;
+    padding: 0 5px;
+    position: relative;
+    text-shadow: none;
+    white-space: nowrap;
+
+    // decoration
+
+    &:before,
+    &:after {
+        background: @color-negative-15;
+        border-radius: 15px;
+        content: ' ';
+        display: block;
+        height: 70%;
+        position: absolute;
+        top: 15%;
+        transform: scaleX(0.5);
+        width: 40px;
+    }
+
+    &:before {
+        left: -17px;
+    }
+
+    &:after {
+        right: -17px;
+    }
+
+    // content
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    small {
+        display: block;
+        font-size: 15px;
+        line-height: 15px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    sup {
+        font-size: 10px;
+        line-height: 10px;
+        position: relative;
+        top: -15px;
+    }
+
+    // rotation
+
+    &.rot-r {
+        transform: rotate(5deg);
+    }
+
+    &.rot-l {
+        transform: rotate(-5deg);
+    }
+
+}

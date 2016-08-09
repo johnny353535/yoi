@@ -1,0 +1,140 @@
+/** filterBtns.less */
+
+// block
+// =====
+
+.filterBtns {
+    display: block;
+    font-size: 0;
+}
+
+// elements
+// ========
+
+.filterBtns__btn {
+
+    background: @color-main-24;
+    border-radius: 1.3rem;
+    box-sizing: border-box;
+    color: @color-main-8;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 2.7rem;
+    line-height: 2.7rem;
+    margin: 0 .5rem .5rem 0;
+    padding: 0 1rem;
+
+    &:hover {
+        background: @color-main-23;
+    }
+
+    a {
+        color: @color-main-8;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+}
+
+// modifiers
+// =========
+
+// dark buttons
+
+.filterBtns--dark {
+
+    .filterBtns__btn {
+
+        background: @color-main-11;
+        color: #fff;
+
+        a {
+            color: #fff;
+        }
+
+    }
+
+    .filterBtns__btn:hover {
+        background: @color-main-9;
+    }
+
+    .filterBtns__btn a::after {
+        color: @color-main-18;
+    }
+
+    .filterBtns__btn a:hover::after {
+        color: #fff;
+    }
+
+}
+
+// removeable buttons
+
+.filterBtns--removeable .filterBtns__btn {
+
+    a::after {
+        content: '\f006';
+    }
+
+}
+
+// status
+// ======
+
+// icons inside buttons
+
+.filterBtns__btn {
+
+    a::after {
+        .mixin-icon;
+        color: @color-main-18;
+        content: '\f004';
+        content: '\f004';
+        display: inline-block;
+        line-height: 2.7rem;
+        margin-left: -1.5rem;
+        position: relative;
+        right: -1rem;
+        vertical-align: top;
+    }
+
+    a:hover::after {
+        color: @color-main-8;
+    }
+
+}
+
+// active button
+
+.filterBtns__btn.filterBtns__btn--active {
+
+    background: @color-positive-10;
+    color: #fff;
+
+    a::after {
+        color: #fff;
+        content: '\f011';
+    }
+
+    &:hover {
+        background: @color-negative-10;
+    }
+
+    &:hover a::after {
+        content: '\f006';
+    }
+
+}
+
+// debouce button class
+
+.filterBtns__btn.filterBtns__btn--debounce:hover {
+
+    background: @color-positive-10;
+
+    a::after {
+        content: '\f011';
+    }
+
+}

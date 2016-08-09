@@ -1,0 +1,82 @@
+/** flipBtns.less */
+
+.flipBtns {
+    max-height: 1px;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+.flipBtns__btnPrev,
+.flipBtns__btnNext {
+
+    box-sizing: border-box;
+    background: @color-main-24;
+    border: @color-main-23 1px solid;
+    color: @color-main-8;
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    margin-top: -25px;
+    position: absolute;
+    text-shadow: 0 1px 0 @color-main-25;
+    width: 30px;
+
+    &:hover {
+        background: @color-main-23;
+    }
+
+    &::after {
+        .mixin-icon;
+        height: 50px;
+        line-height: 48px;
+    }
+
+}
+
+.flipBtns__btnPrev {
+
+    border-radius: .2rem 0 0 .2rem;
+    border-right: 0;
+    left: -30px;
+
+    &::after {
+        content: '\f008';
+    }
+
+}
+
+.flipBtns__btnNext {
+
+    border-radius: 0 .2rem .2rem 0;
+    border-left: 0;
+    right: -30px;
+
+    &::after {
+        content: '\f007';
+    }
+
+}
+
+// modifiers
+
+&.flipBtns--inset {
+
+    .flipBtns__btnPrev {
+        border-radius: 0 .2rem .2rem 0;
+        border: @color-main-23 1px solid;
+        border-left: 0;
+        left: 0;
+    }
+
+    .flipBtns__btnNext {
+        border: @color-main-23 1px solid;
+        border-radius: .2rem 0 0 .2rem;
+        border-right: 0;
+        right: 0;
+    }
+
+}

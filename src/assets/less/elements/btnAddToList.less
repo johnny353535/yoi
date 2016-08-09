@@ -1,0 +1,62 @@
+/** btnAddToList.less */
+
+.btn[data-action="addToList"] {
+
+    overflow: visible;
+    position: relative;
+
+    // "coin"
+
+    .icon--004-s {
+        background: @color-positive-19;
+        border-radius: 50%;
+        color: @color-positive-8;
+        display: none;
+        height: 32px;
+        left: 6px;
+        line-height: 32px;
+        position: absolute;
+        text-shadow: none;
+    }
+
+    // added to cart
+
+    &.btn--success {
+
+        .icon--014::before {
+            content: '\e015';
+        }
+
+        .icon--014-s::before {
+            content: '\f015';
+        }
+
+        .icon--004-s {
+            animation-name: pop;
+            animation-duration: 600ms;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+            display: block;
+            opacity: 0;
+            top: 0;
+            z-index: 600;
+        }
+
+    }
+
+    // animation
+
+    @keyframes pop {
+        0% {
+            opacity: 1;
+            top: 0;
+        } 75% {
+            opacity: 1;
+            top: -45px;
+        } 100% {
+            opacity: 0;
+            top: -45px;
+        }
+    }
+
+}
