@@ -16,6 +16,8 @@
     "src/templates",
     "src/assets/less/theme",
     "src/assets/less/yoshino-ui-core.less",
-    "src/assets/js/yoshino-ui-core.json"
+    "src/assets/js/yoshino-ui-core.json",
+    "gulpfile.js",
+    "package.json"
   ]
 }
