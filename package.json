@@ -4,7 +4,7 @@
   "description": "The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.",
   "main": "gulpfile.js",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
