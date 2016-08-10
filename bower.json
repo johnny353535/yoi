@@ -19,5 +19,13 @@
     "src/assets/js/yoshino-ui-core.json",
     "gulpfile.js",
     "package.json"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "jquery-ui": "^1.12.0"
+  },
+  "devDependencies": {
+    "prism": "^1.5.1",
+    "js-beautify": "^1.6.3"
+  }
 }

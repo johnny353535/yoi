@@ -3,6 +3,8 @@
 // require modules
 // ===============
 
+// npm modules
+
 var browsersync = require('browser-sync');
 var concat      = require('gulp-concat');
 var cssnano     = require('gulp-cssnano');
@@ -23,12 +25,29 @@ var slack       = require('node-slack');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
 
-// globals
-// =======
+// "private" modules
 
-var PRODUCTION  = false;
-var BASEPATH    = '/';
-var CREDENTIALS = require('./credentials.json');
+var printError  = require('./src/dev/gulp-helpers.js').printError;
+
+// environment variables / flags
+// =============================
+
+var writeSourceMaps = true;
+var compressStyles  = false;
+var compressImages  = false;
+var compressScripts = false;
+
+if (gutil.env.prod === true) {
+
+    // if the environment variable "--prod" is added to any task call,
+    // change these flags to "production mode"
+
+    writeSourceMaps = false;
+    compressStyles  = true;
+    compressImages  = true;
+    compressScripts = true;
+
+}
 
 // tasks
 // =====
@@ -77,26 +96,24 @@ gulp.task('codeformat', function() {
 gulp.task('less', function() {
 
     /**
-     *  Compile less files:
-     *
-     *  PRODUCTION  --> without sourcemaps, with compression, with autoprefixer
-     *  !PRODUCTION --> with sourcemaps, without compression, without autoprefixer
+     *  Compile less files with optional compression (cssnano),
+     *  auto-prefixer and sourcemaps.
      */
 
     var coreCss = gulp.src([
             './src/assets/less/yoshino-ui-core.less'
         ])
-        .pipe(PRODUCTION ? gutil.noop() : sourcemaps.init())
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.init())
             .pipe(less().on('error', printError))
-            .pipe(PRODUCTION ?
+            .pipe(compressStyles ?
                 cssnano({
-                    autoprefixer: {
-                        browsers: ['last 2 versions'],
-                        add: true
+                    autoprefixer : {
+                        browsers : ['last 2 versions'],
+                        add      : true
                     }
                 }) : gutil.noop()
             )
-        .pipe(PRODUCTION ? gutil.noop() : sourcemaps.write('.'))
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/assets/css'));
 
     return coreCss;
@@ -106,38 +123,44 @@ gulp.task('less', function() {
 gulp.task('js', function() {
 
     /**
-     *  Process javascript.
-     *
-     *  PRODUCTION  --> without sourcemaps, with uglify
-     *  !PRODUCTION --> with sourcemaps, without uglify
-     *
-     *  Javascript from the "libs" directory (eg. jQuery)
-     *  simply get copied to ./dist
+     *  Process javascript with optional compression (uglify) and sourcemaps.
      */
     
     var scripts = require('./src/assets/js/yoshino-ui-core.json');
+    var libs    = require('./src/assets/js/libs.json');
     
-    var uiCoreJs = gulp.src(scripts.src)
-        .pipe(PRODUCTION ? gutil.noop() : sourcemaps.init())
+    var yoshinoUiCore = gulp.src(scripts.src)
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.init())
             .pipe(concat('yoshino-ui-core.js'))
-            .pipe(PRODUCTION ? uglify().on('error', printError) : gutil.noop())
-        .pipe(PRODUCTION ? gutil.noop() : sourcemaps.write('.'))
+            .pipe(compressScripts ? uglify().on('error', printError) : gutil.noop())
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/assets/js/'));
 
-    var libsJs = gulp.src('./src/assets/js/libs/**/*.js')
+    var jQuery = gulp.src(libs.jQuery)
+        .pipe(concat('jquery.js'))
         .pipe(gulp.dest('./dist/assets/js/libs'));
 
-    return merge(uiCoreJs, libsJs);
+    var jQueryUiCustom = gulp.src(libs.jQueryUi)
+        .pipe(concat('jquery-ui.js'))
+        .pipe(gulp.dest('./dist/assets/js/libs'));
+        
+    var prism = gulp.src(libs.prism)
+        .pipe(concat('prism.js'))
+        .pipe(gulp.dest('./dist/assets/js/libs'));
+    
+    var beautify = gulp.src(libs.beautify)
+        .pipe(concat('beautify.js'))
+        .pipe(gulp.dest('./dist/assets/js/libs'));
+
+    return merge(yoshinoUiCore, jQuery, jQueryUiCustom, prism, beautify);
 
 });
 
 gulp.task('copy', function() {
 
     /**
-     *  Copy other files from ./src to ./dist (favIcon, fonts, images, ...).
-     *
-     *  PRODUCTION  --> without imagemin
-     *  !PRODUCTION --> with imagemin
+     *  Copy other assets from ./src to ./dist (favIcon, fonts, images, ...).
+     *  Optional image compression.
      */
 
     var copyFavicon = gulp.src('./src/assets/img/favicon.ico')
@@ -150,50 +173,10 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('./dist/assets/fonts'));
         
     var copyImages = gulp.src('./src/assets/img/**/*')
-        .pipe(PRODUCTION ? imagemin() : gutil.noop())
+        .pipe(compressImages ? imagemin() : gutil.noop())
         .pipe(gulp.dest('./dist/assets/img'));
 
     return merge(copyFavicon, copyAudio, copyFonts, copyImages);
-
-});
-
-gulp.task('upload', function() {
-    
-    /**
-     *  Upload the production files to the preview-server.
-     *  Passwords are stored in a seperate file, excluded from git.
-     *  Once the upload is complete, a message gets send to #slack
-     *  via a simple webhook.
-     */
-
-    var conn = ftp.create({
-        host:           CREDENTIALS.devServer.hostName,
-        user:           CREDENTIALS.devServer.ftpUser,
-        password:       CREDENTIALS.devServer.ftpPass,
-        maxConnections: 10,
-        log:            gutil.log
-    });
-
-    return gulp.src('./dist/**', {
-            base: './dist/',
-            buffer: false
-        })
-        .pipe(conn.dest('html/').on('end', function() {
-            
-            var slackMsg = new slack(CREDENTIALS.slackWebhook.updateOnDevserver);
-    
-            slackMsg.send({
-                'text'        : 'Update on dev server by *' + CREDENTIALS.teamMember + '*:',
-                'mrkdwn'      : true,
-                'attachments' : [{
-                    'text'  : CREDENTIALS.devServer.url          + '\n' +
-                              CREDENTIALS.devServer.htaccessUser + '\n' +
-                              CREDENTIALS.devServer.htaccessPass + '\n',
-                    'color' : '#2afd8f'
-                }]
-            });
-            
-        }));
 
 });
 
@@ -201,7 +184,11 @@ gulp.task('templates', function() {
 
     /**
      *  Render nunjuck templates to static HTML files.
+     *  Additional searchpath for assets to include SVGs with nunjucks.
      */
+    
+    var nunjucksGenerateMenu = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
+    var nunjucksPad = require('./src/dev/nunjucks-filters.js').nunjucksPad;
     
     return gulp.src([
             '!./src/templates/**/layouts/**/*',
@@ -210,30 +197,27 @@ gulp.task('templates', function() {
         ])
         .pipe(nunjucks({
             searchPaths: ['./src/templates/', './src/assets/'],
-            locals: {
-                BASEPATH: BASEPATH
-            },
             setUp: function(env) {
                 
                 // configure markdown
     
                 marked.setOptions({
                     renderer: new marked.Renderer(),
-                    gfm: true,
-                    tables: true,
-                    breaks: false,
-                    pendantic: false,
-                    sanitize: false,
-                    smartLists: true,
-                    smartypants: true
+                    gfm         : true,
+                    tables      : true,
+                    breaks      : false,
+                    pendantic   : false,
+                    sanitize    : false,
+                    smartLists  : true,
+                    smartypants : true
                 });
                 
                 markdown.register(env, marked);
                 
                 // add filters and extensions
                 
-                env.addFilter('pad', nunjucksFilter_pad);
-                env.addExtension('menu', new nunjucksExtention_menu(), true);
+                env.addFilter('pad', nunjucksPad);
+                env.addExtension('menu', new nunjucksGenerateMenu(), true);
                 
                 // return
                 
@@ -248,8 +232,8 @@ gulp.task('templates', function() {
 gulp.task('serve', function() {
 
     /**
-     *  Run a local web server and some watch tasks
-     *  which trigger a refresh when files get changed.
+     *  Run a local web server and some watch tasks which trigger a
+     *  refresh when files get changed.
      */
 
     runsequence('clean', 'codeformat', ['templates', 'less', 'js', 'copy'], function() {
@@ -260,13 +244,55 @@ gulp.task('serve', function() {
         gulp.watch('./src/assets/img/**/*', ['copy']);
 
         browsersync.init({
-            server      : ['./dist', './src'],
+            server      : ['./dist', './src', './bower_components'],
             baseDir     : './dist',
             index       : 'docs/index.html',
             notify      : false
         });
 
     });
+
+});
+
+gulp.task('upload', function() {
+    
+    /**
+     *  Upload the production files to the preview-server.
+     *  Passwords are stored in a seperate file, excluded from git.
+     *  Once the upload is complete, a message gets send to #slack
+     *  via a simple webhook.
+     */
+    
+    var credentials  = require('./credentials.json');
+
+    var conn = ftp.create({
+        host:           credentials.devServer.hostName,
+        user:           credentials.devServer.ftpUser,
+        password:       credentials.devServer.ftpPass,
+        maxConnections: 10,
+        log:            gutil.log
+    });
+
+    return gulp.src('./dist/**', {
+            base: './dist/',
+            buffer: false
+        })
+        .pipe(conn.dest('html/').on('end', function() {
+            
+            var slackMsg = new slack(credentials.slackWebhook.updateOnDevserver);
+    
+            slackMsg.send({
+                'text'        : 'Update on ' + credentials.devServer.hostName + ' by *' + credentials.teamMember + '*:',
+                'mrkdwn'      : true,
+                'attachments' : [{
+                    'text'  : credentials.devServer.url          + '\n' +
+                              credentials.devServer.htaccessUser + '\n' +
+                              credentials.devServer.htaccessPass + '\n',
+                    'color' : '#2afd8f'
+                }]
+            });
+            
+        }));
 
 });
 
@@ -277,101 +303,6 @@ gulp.task('deploy', function() {
      *  the upload task at the end of the task chain.
      */
 
-    PRODUCTION = true;
-    BASEPATH = '/';
-
     runsequence('clean', 'codeformat', ['templates', 'less', 'js', 'copy'], 'upload');
 
 });
-
-// helpers
-// =======
-
-var printError = function(err) {
-
-    /**
-     *  simple formatted error log
-     */
-
-    gutil.log(gutil.colors.white.bgRed.bold(err.message));
-    this.emit('end');
-
-};
-
-// custom nunjucks filters & extentions
-// ====================================
-
-var nunjucksFilter_pad = function(num, digits) {
-    
-    /**
-     *  Custom filter for our nunjucks template environment.
-     *  Creates padded numbers (leading zeros, e.g. 001)
-     *  rather simple, no error handling, no negative number conversion etc.
-     */
-    
-    var num = Math.abs(num);
-    var digits = digits !== undefined ? digits : 1;
-    var i = 1;
-    var leadingZeros = '0';
-
-    while (i < digits) {
-        i++;
-        leadingZeros += '0';
-    }
-
-    return (leadingZeros + num).slice(-digits-1);
-
-};
-
-var nunjucksExtention_menu = function() {
-    
-    /**
-     *  Custom nunjuck extention, reads templates from a given directory
-     *  and returns an unordered list with links for each template (= page).
-     *  Used to automagically create menus.
-     */
-    
-    this.tags = ['menu'];
-
-    this.parse = function(parser, nodes, lexer) {
-
-        var tok  = parser.nextToken();
-        var args = parser.parseSignature(null, true);
-
-        parser.advanceAfterBlockEnd(tok.value);
-
-        return new nodes.CallExtensionAsync(this, 'run', args);
-
-    };
-
-    this.run = function(context, args) {
-
-        var args = args.split(' + ');
-
-        if (args.length > 1) {
-            var pagePath  = args[0];
-            var globPath  = args[1];
-            var modifiers = ' ' + args[2]
-        } else {
-            var pagePath  = '';
-            var globPath  = args[0];
-            var modifiers = '';
-        }
-
-        var callback = arguments[arguments.length - 1];
-        var menuList = '<ul class="linkList' + modifiers + '">';
-        var menuGlob = new glob('**/*.html', { cwd: globPath });
-
-        menuGlob
-            .on('match', function(match) {
-                var pageName = match.split('.html')[0].replace(/_/g, ' ');
-                menuList += '<li class="linkList__item"><a class="linkList__link" href="' + pagePath + match + '">' + pageName + '</a></li>';
-            })
-            .on('end', function() {
-                menuList += '</ul>';
-                callback('', menuList);
-            });
-            
-    };
-
-};

@@ -1,0 +1,19 @@
+{
+    "jQuery" : [
+        "./bower_components/jquery/dist/jquery.js"
+    ],
+    "jQueryUi" : [
+        "./bower_components/jquery-ui/ui/data.js",
+        "./bower_components/jquery-ui/ui/scroll-parent.js",
+        "./bower_components/jquery-ui/ui/widget.js",
+        "./bower_components/jquery-ui/ui/widgets/mouse.js"
+    ],
+    "beautify" : [
+        "./bower_components/js-beautify/js/lib/beautify.js",
+        "./bower_components/js-beautify/js/lib/beautify-css.js",
+        "./bower_components/js-beautify/js/lib/beautify-html.js"
+    ],
+    "prism" : [
+        "./bower_components/prism/prism.js"
+    ]
+}

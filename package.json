@@ -4,6 +4,7 @@
   "description": "The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.",
   "main": "gulpfile.js",
   "scripts": {
+    "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/yoshino-digital/ui-core#readme",
   "devDependencies": {
+    "bower": "^1.7.9",
     "browser-sync": "^2.11.0",
     "del": "^2.2.0",
     "eclint": "^1.1.5",
