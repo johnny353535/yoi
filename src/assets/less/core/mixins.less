@@ -39,10 +39,22 @@
     }
 }
 
+.mixin-smallScreenOverlap(@rules) {
+    @media @bpSmall-overlap {
+        @rules();
+    }
+}
+
 // medium screen
 
 .mixin-mediumScreen(@rules) {
     @media @bpMedium {
+        @rules();
+    }
+}
+
+.mixin-mediumScreenOverlap(@rules) {
+    @media @bpMedium-overlap {
         @rules();
     }
 }
@@ -55,10 +67,22 @@
     }
 }
 
+.mixin-largeScreenOverlap(@rules) {
+    @media @bpLarge-overlap {
+        @rules();
+    }
+}
+
 // x-large screen
 
 .mixin-xLargeScreen(@rules) {
     @media @bpXLarge {
+        @rules();
+    }
+}
+
+.mixin-xLargeScreenOverlap(@rules) {
+    @media @bpXLarge-overlap {
         @rules();
     }
 }
