@@ -114,7 +114,7 @@ gulp.task('less', function() {
                 }) : gutil.noop()
             )
         .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/assets/css'));
+        .pipe(gulp.dest('./dist/assets/css/'));
 
     return coreCss;
 
@@ -138,19 +138,19 @@ gulp.task('js', function() {
 
     var jQuery = gulp.src(libs.jQuery)
         .pipe(concat('jquery.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs'));
+        .pipe(gulp.dest('./dist/assets/js/libs/'));
 
     var jQueryUiCustom = gulp.src(libs.jQueryUi)
         .pipe(concat('jquery-ui.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs'));
+        .pipe(gulp.dest('./dist/assets/js/libs/'));
         
     var prism = gulp.src(libs.prism)
         .pipe(concat('prism.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs'));
+        .pipe(gulp.dest('./dist/assets/js/libs/'));
     
     var beautify = gulp.src(libs.beautify)
         .pipe(concat('beautify.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs'));
+        .pipe(gulp.dest('./dist/assets/js/libs/'));
 
     return merge(yoshinoUiCore, jQuery, jQueryUiCustom, prism, beautify);
 
@@ -164,19 +164,22 @@ gulp.task('copy', function() {
      */
 
     var copyFavicon = gulp.src('./src/assets/img/favicon.ico')
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/'));
         
     var copyAudio = gulp.src('./src/assets/audio/**/*')
-        .pipe(gulp.dest('./dist/assets/audio'));
+        .pipe(gulp.dest('./dist/assets/audio/'));
         
-    var copyFonts = gulp.src('./src/assets/fonts/**/*')
-        .pipe(gulp.dest('./dist/assets/fonts'));
+    var copyIconFont = gulp.src('./bower_components/yoshino-icons/webfont/**/*')
+        .pipe(gulp.dest('./dist/assets/fonts/icons/'));
+        
+    var copyIconSvgs = gulp.src('./bower_components/yoshino-icons/svg/**/*.svg')
+        .pipe(gulp.dest('./dist/assets/img/icons/'));
         
     var copyImages = gulp.src('./src/assets/img/**/*')
         .pipe(compressImages ? imagemin() : gutil.noop())
-        .pipe(gulp.dest('./dist/assets/img'));
+        .pipe(gulp.dest('./dist/assets/img/'));
 
-    return merge(copyFavicon, copyAudio, copyFonts, copyImages);
+    return merge(copyFavicon, copyAudio, copyIconFont, copyImages, copyIconSvgs);
 
 });
 
@@ -225,7 +228,7 @@ gulp.task('templates', function() {
             }
         })
         .on('error', printError))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./dist/'));
 
 });
 
@@ -244,8 +247,8 @@ gulp.task('serve', function() {
         gulp.watch('./src/assets/img/**/*', ['copy']);
 
         browsersync.init({
-            server      : ['./dist', './src', './bower_components'],
-            baseDir     : './dist',
+            server      : ['./dist/', './src/'],
+            baseDir     : './dist/',
             index       : 'docs/index.html',
             notify      : false
         });
