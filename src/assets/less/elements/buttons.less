@@ -31,9 +31,11 @@
 
     // <a> as button
 
-    a& {
+    a&,
+    a:link&,
+    a:visited& {
         color: @color-main-8;
-        text-decoration: none !important;
+        text-decoration: none;
     }
 
     // interactive states
