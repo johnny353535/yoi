@@ -17,40 +17,7 @@ Use this mixin to add the popular [micro clearfix hack](http://cssmojo.com/the-v
 #### .mixin-hidden
 Use this mixin to _visually_ hide elements. These elements are still accessible by screenreaders.
 
-### Media Query Mixins
-
-| Mixin               | Media Query                                       |
-| -                   | -                                                 |
-| .mixin-smallScreen  | @bpSmall = "only screen and (max-width: 800px)"   |
-| .mixin-mediumScreen | @bpMedium = "only screen and (min-width: 801px)"  |
-| .mixin-largeScreen  | @bpLarge = "only screen and (min-width: 960px)"   |
-| .mixin-xLargeScreen | @bpXLarge = "only screen and (min-width: 1220px)" |
-
-If you create a new element, you migh want to add __different styling depending on the screen size__ and therefore active media query. You can do so by using the pre-defined _media query mixins_. These mixins **use breakpoint variables** which were defined in [variables/breakpoints.less](assets/less/variables/breakpoints.less)
-{% endmarkdown %}
-
-<div class="documentation__block"><code class="language-less"><pre>
-.myElement {
-
-    width: 100%;
-
-    .mixin-xLargeScreen({
-        width: auto;
-        max-width: 120rem;
-    });
-
-}
-</pre></code></div>
-
-{% markdown %}
-The breakpoint mixins __accept rulesets as parameter__. This is a Less language feature: [Passing Rulesets to Mixins](http://lesscss.org/features/#detached-rulesets-feature).
-{% endmarkdown %}
-
-<div class="note note--negative note--large note--icon085 m-t-8">
-    <h3 class="note__headline">Semicolon!</h3>
-    <div class="note__body">
-        <p>Always add a semicolon right after the breakpoint mixin to avoid syntax errors from the Less parser.</p>
-    </div>
-</div>
+#### .mixin-clearAppearance
+Use this mixin to disable the default browser styling for certain elements – especially input elements. [Learn more about the appearance rule](https://css-tricks.com/almanac/properties/a/appearance/).
 
 {% endblock %}
