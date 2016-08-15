@@ -30,7 +30,6 @@
         "./src/assets/js/modules/slider.js",
         "./src/assets/js/modules/stepper.js",
         "./src/assets/js/modules/stickyElements.js",
-        "./src/assets/js/modules/stickyHeader.js",
         "./src/assets/js/modules/stickyTeasers.js",
         "./src/assets/js/modules/suggestedBundle.js",
         "./src/assets/js/modules/tables.js",
