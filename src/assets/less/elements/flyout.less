@@ -45,14 +45,14 @@
     .flyout--left & {
         transform-origin: right top;
         transform: rotate(270deg);
-        border-radius: .2rem 0 0 .2rem;
+        border-radius: (@borderRadius * 1px) 0 0 (@borderRadius * 1px);
         right: 0;
     }
 
     .flyout--right & {
         transform-origin: left top;
         transform: rotate(90deg);
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
         left: 0;
     }
 
@@ -82,11 +82,11 @@
     }
 
     .flyout--left {
-        border-radius: 0 .2rem .2rem 0;
+        border-radius: 0 (@borderRadius * 1px) (@borderRadius * 1px) 0;
     }
 
     .flyout--right {
-        border-radius: .2rem 0 0 .2rem;
+        border-radius: (@borderRadius * 1px) 0 0 (@borderRadius * 1px);
     }
 
     .flyout--hidden {

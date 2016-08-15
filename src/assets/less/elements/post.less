@@ -5,8 +5,8 @@
 .post {
 
     .mixin-clearfix;
-    background: #fff;
     .mixin-defaultBorderRadius;
+    background: #fff;
     border: @color-main-23 1px solid;
     display: block;
     margin: 10px 0;
@@ -64,7 +64,7 @@
     .post.lead,
     .post:first-child {
         border-bottom: 0;
-        border-radius: .2rem .2rem 0 0;
+        border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
         margin: 0;
     }
 
@@ -79,7 +79,7 @@
 
     .post:last-child {
         border-bottom: @color-main-23 1px solid;
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
     }
 
 }
@@ -284,7 +284,7 @@ a.post.stripped:hover {
     a {
 
         background: @color-main-24;
-        border-radius: 0 .2rem .2rem 0;
+        border-radius: 0 (@borderRadius * 1px) (@borderRadius * 1px) 0;
         color: @color-main-10;
         display: inline-block;
         line-height: 20px;

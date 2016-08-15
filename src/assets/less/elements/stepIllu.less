@@ -54,13 +54,13 @@
     }
 
     img {
-        border-radius: .2rem .2rem 0 0;
+        border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
         display: block;
         width: 100%;
     }
 
     p {
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
         background: @color-main-25;
         color: @color-main-10;
         font-size: 20px;

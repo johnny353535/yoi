@@ -242,7 +242,7 @@
     transition: border 200ms ease-in;
 
     .documentation__block:first-of-type {
-        border-radius: 2px 2px 0 0;
+        border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
     }
 
     .documentation__block + .documentation__block {
@@ -256,7 +256,7 @@
     }
 
     .documentation__block:last-of-type {
-        border-radius: 0 0 2px 2px;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
     }
 
 }

@@ -801,51 +801,51 @@
     }
 
     .btn:first-child {
-        border-radius: 2px 0 0 2px;
+        border-radius: @borderRadius 0 0 @borderRadius;
     }
 
     .btn:last-child {
-        border-radius: 0 2px 2px 0;
+        border-radius: 0 @borderRadius @borderRadius 0;
     }
 
     // standard, rounded
 
     .btn.btn--rounded:first-child {
-        border-radius: 12px 0 0 12px;
+        border-radius: (@borderRadius * 6px) 0 0 (@borderRadius * 6px);
     }
 
     .btn.btn--rounded:last-child {
-        border-radius: 0 12px 12px 0;
+        border-radius: 0 (@borderRadius * 6px) (@borderRadius * 6px) 0;
     }
 
     // small, rounded
 
     .btn.btn--small.btn--rounded:first-child {
-        border-radius: 10px 0 0 10px;
+        border-radius: (@borderRadius * 5px) 0 0 (@borderRadius * 5px);
     }
 
     .btn.btn--small.btn--rounded:last-child {
-        border-radius: 0 10px 10px 0;
+        border-radius: 0 (@borderRadius * 5px) (@borderRadius * 5px) 0;
     }
 
     // medium, rounded
 
     .btn.btn--medium.btn--rounded:first-child {
-        border-radius: 15px 0 0 15px;
+        border-radius: (@borderRadius * 7.5px) 0 0 (@borderRadius * 7.5px);
     }
 
     .btn.btn--medium.btn--rounded:last-child {
-        border-radius: 0 15px 15px 0;
+        border-radius: 0 (@borderRadius * 7.5px) (@borderRadius * 7.5px) 0;
     }
 
     // large, rounded
 
     .btn.btn--large.btn--rounded:first-child {
-        border-radius: 20px 0 0 20px;
+        border-radius: (@borderRadius * 10px) 0 0 (@borderRadius * 10px);
     }
 
     .btn.btn--large.btn--rounded:last-child {
-        border-radius: 0 20px 20px 0;
+        border-radius: 0 (@borderRadius * 10px) (@borderRadius * 10px) 0;
     }
 
 }

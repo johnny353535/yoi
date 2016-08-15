@@ -206,7 +206,7 @@
 .notes {
 
     .note:first-child {
-        border-radius: .2rem .2rem 0 0;
+        border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
     }
 
     .note + .note {
@@ -215,7 +215,7 @@
     }
 
     .note:last-child {
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
     }
 
     .note:only-child {

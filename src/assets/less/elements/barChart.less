@@ -66,7 +66,7 @@
 .generate_barChartX (@i) when (@i > 0) {
     .generate_barChartX((@i - 1));
     .barChart--x@{i}::before {
-        border-radius: .2rem 0 0 .2rem;
+        border-radius: (@borderRadius * 1px) 0 0 (@borderRadius * 1px);
         width: unit(@i,%);
     }
 }
@@ -86,7 +86,7 @@
 .generate_barChartY (@i) when (@i > 0) {
     .generate_barChartY((@i - 1));
     .barChart--y@{i}::before {
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
         height: unit(@i,%);
     }
 }

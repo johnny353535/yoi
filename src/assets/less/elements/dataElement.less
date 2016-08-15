@@ -34,11 +34,11 @@
 
         &.pos-tr {
             border-bottom: @color-main-23 1px solid;
-            border-radius: 0 0 0 .2rem;
+            border-radius: 0 0 0 (@borderRadius * 1px);
         }
 
         &.pos-br {
-            border-radius: .2rem 0 0 0;
+            border-radius: (@borderRadius * 1px) 0 0 0;
             border-top: @color-main-23 1px solid;
         }
 
@@ -115,11 +115,11 @@
     }
 
     [class*="ataElement"]:first-child {
-        border-radius: .2rem .2rem 0 0;
+        border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
     }
 
     [class*="ataElement"]:last-child {
-        border-radius: 0 0 .2rem .2rem;
+        border-radius: 0 0 (@borderRadius * 1px) (@borderRadius * 1px);
     }
 
     // if there is no preceding dataElement
