@@ -1,0 +1,63 @@
+/** interaction.less */
+
+// mouseover / hover
+// =================
+
+// colors
+
+.generate_hvrStyles (@i) when (@i > 0) {
+
+    .generate_colors((@i - 1));
+
+    // background colors
+
+    .hrv-bg-attention-@{i}:hover { background: ~"@{color-attention-@{i}}" !important; }
+    .hrv-bg-blue-@{i}:hover      { background: ~"@{blue-@{i}}" !important; }
+    .hrv-bg-gray-@{i}:hover      { background: ~"@{gray-@{i}}" !important; }
+    .hrv-bg-green-@{i}:hover     { background: ~"@{green-@{i}}" !important; }
+    .hrv-bg-main-@{i}:hover      { background: ~"@{color-main-@{i}}" !important; }
+    .hrv-bg-negative-@{i}:hover  { background: ~"@{color-negative-@{i}}" !important; }
+    .hrv-bg-positive-@{i}:hover  { background: ~"@{color-positive-@{i}}" !important; }
+    .hrv-bg-purple-@{i}:hover    { background: ~"@{purple-@{i}}" !important; }
+    .hrv-bg-red-@{i}:hover       { background: ~"@{red-@{i}}" !important; }
+    .hrv-bg-yellow-@{i}:hover    { background: ~"@{yellow-@{i}}" !important; }
+
+    // text colors
+
+    .hvr-tc-attention-@{i}:hover  { color: ~"@{color-attention-@{i}}" !important; }
+    .hvr-tc-blue-@{i}:hover       { color: ~"@{blue-@{i}}" !important; }
+    .hvr-tc-gray-@{i}:hover       { color: ~"@{gray-@{i}}" !important; }
+    .hvr-tc-green-@{i}:hover      { color: ~"@{green-@{i}}" !important; }
+    .hvr-tc-main-@{i}:hover       { color: ~"@{color-main-@{i}}" !important; }
+    .hvr-tc-negative-@{i}:hover   { color: ~"@{color-negative-@{i}}" !important; }
+    .hvr-tc-positive-@{i}:hover   { color: ~"@{color-positive-@{i}}" !important; }
+    .hvr-tc-purple-@{i}:hover     { color: ~"@{purple-@{i}}" !important; }
+    .hvr-tc-red-@{i}:hover        { color: ~"@{red-@{i}}" !important; }
+    .hvr-tc-yellow-@{i}:hover     { color: ~"@{yellow-@{i}}" !important; }
+
+}
+.generate_hvrStyles(25);
+
+// text decoration
+
+.hvr-tdcr-none:hover { text-decoration: none !important; }
+.hvr-tdcr-undl:hover { text-decoration: underline !important; }
+
+// opacity
+
+.hvr-opacity-full:hover { opacity: 1 !important; }
+.hvr-opacity-9:hover    { opacity: .9 !important; }
+.hvr-opacity-8:hover    { opacity: .8 !important; }
+.hvr-opacity-7:hover    { opacity: .7 !important; }
+.hvr-opacity-6:hover    { opacity: .6 !important; }
+.hvr-opacity-5:hover    { opacity: .5 !important; }
+.hvr-opacity-4:hover    { opacity: .4 !important; }
+.hvr-opacity-3:hover    { opacity: .3 !important; }
+.hvr-opacity-2:hover    { opacity: .2 !important; }
+.hvr-opacity-1:hover    { opacity: .1 !important; }
+
+// transitions
+// ===========
+
+.tween-fast { transition: all 100ms ease-out !important; }
+.tween-slow { transition: all 100ms ease-out !important; }
