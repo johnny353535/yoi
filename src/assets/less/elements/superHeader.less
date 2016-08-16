@@ -1,6 +1,6 @@
 /** superHeader.less */
 
-@superHeader-minHeight: 400px;
+@superHeader-height: 400px;
 
 // block
 // =====
@@ -8,20 +8,14 @@
 .superHeader {
 
     background: @color-main-10;
-    border-bottom: @color-main-22 1px solid;
+    border-bottom: @color-main-10 1px solid;
+    box-sizing: border-box;
     display: block;
-    min-height: @superHeader-minHeight;
+    min-height: @superHeader-height;
     position: relative;
-    user-select: none;
-
-    .center {
-        min-height: @superHeader-minHeight;
-    }
-
-    img {
-        position: absolute;
-        right: 0;
-        top: 0;
+    
+    * {
+        user-select: none !important;
     }
 
 }
@@ -29,81 +23,50 @@
 // elements
 // ========
 
+.superHeader__center {
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-height: @superHeader-height;
+    padding: 4rem 0;
+    position: relative;
+    width: @globalWidth;
+}
+
 .superHeader__body {
-
     color: #fff;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    text-shadow: 0 1px 0 rgba(0,0,0,.1);
-    width: 100%;
+    position: relative;
     z-index: 2;
+}
 
-    h1 {
-        font-size: 40px;
-        line-height: 50px;
-        margin-bottom: 10px;
-        margin-top: 50px;
-    }
-
-    p {
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    ul {
-        margin-top: 20px;
-    }
-
-    li {
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-
-    .btn {
-        margin-top: 20px;
-    }
-
-    .btn.outline {
-        box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 1px 0 rgba(0,0,0,.1) inset;
-        text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    }
-
+.superHeader__image {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: @globalWidth;
+    z-index: 1;
 }
 
 .superHeader__legal {
-    bottom: 10px;
-    font-size: 13px;
-    line-height: 20px;
-    margin: 0;
+    bottom: 2rem;
     position: absolute;
     right: 0;
-    text-shadow: none;
-    z-index: 3;
+    z-index: 2;
 }
 
 // superHeader as slider
+// =====================
 
 .superHeader.slider {
-
-    background: @color-main-8;
     border-radius: 0;
     border: 0;
     margin: 0;
     position: relative;
-
-    .center {
-        height: @superHeader-minHeight;
-    }
-
-    .pageDots {
-        bottom: 10px;
-        left: 50%;
-        margin-left: @globalWidth / -2;
-        position: absolute;
-        z-index: 10;
-    }
-
 }
 
+.superHeader .pageDots {
+    bottom: 10px;
+    left: 50%;
+    margin-left: @globalWidth / -2;
+    position: absolute;
+    z-index: 10;
+}
