@@ -5,6 +5,8 @@ var Documentation = (function() {
     // private vars
     // ============
 
+  console.log('yo');
+
     var initialized = false;
 
     var languages = {
@@ -79,9 +81,9 @@ var Documentation = (function() {
                 });
 
             } else {
-                
+
                 printCode($thisExampleBlock);
-                
+
             }
 
         });
@@ -157,20 +159,20 @@ var Documentation = (function() {
 
             var $thisAnchor  = $(this);
             var thisFilePath = $thisAnchor.attr('href');
-            
+
             // check the path
-            
+
             var validFilePath = thisFilePath === undefined || thisFilePath === '#' || thisFilePath === '' ? false : true;
 
             // get the file extention
-            
+
             if (validFilePath) {
 
                 var thisFileExtention = thisFilePath.split('.')[1];
                 var thisLanguage      = languages[thisFileExtention];
-                
+
                 // attach events to this link
-                
+
                 if (languages[thisFileExtention] !== undefined) {
 
                     $thisAnchor.on('click', function(e) {
@@ -179,9 +181,9 @@ var Documentation = (function() {
                     });
 
                 }
-                
+
             }
-            
+
         });
 
         // attach event to close button
@@ -264,12 +266,12 @@ var Documentation = (function() {
         // http://stackoverflow.com/questions/16369642
 
         var cleanedCode = code.replace(/^\s*[\n\r]/gm, '');
-        
+
         // beautify
         // https://github.com/beautify-web/js-beautify
-        
+
         var beautifiedCode;
-        
+
         switch (language) {
             case 'markup':
                 beautifiedCode = html_beautify(cleanedCode, {
@@ -286,7 +288,7 @@ var Documentation = (function() {
                 break;
             default:
                 beautifiedCode = cleanedCode;
-            
+
         }
 
         // re-assign code variable
@@ -298,9 +300,9 @@ var Documentation = (function() {
         return formattedCode;
 
     }
-    
+
     function highlightCode(code, language) {
-        
+
         /**
          *  Add syntax highlighting to code.
          *
@@ -308,16 +310,16 @@ var Documentation = (function() {
          *  @param  {string}      language        - a look-up key to select the language
          *  @return {string/html} highLightedCode - the highlighted code
          */
-        
+
         // run syntax highlighter "prism"
         // http://prismjs.com
 
         var highLightedCode = Prism.highlight(code, Prism.languages[language]);
-        
+
         // return the highlighted code
 
         return highLightedCode;
-        
+
     }
 
     function printCode($thisExampleBlock) {
@@ -332,46 +334,46 @@ var Documentation = (function() {
         var $thisDocBlock = $thisExampleBlock.first().closest('.documentation__block');
 
         $thisExampleBlock.each(function() {
-            
+
             var $thisExampleBlock = $(this);
             var $thisCodeBlock    = $codeBlock.clone();
             var $thisPreBlock     = $preBlock.clone();
-            
+
             var options           = Helper.toObject($thisExampleBlock.data('printcode'));
             var content           = decodeEntities($thisExampleBlock.html());
             var processedCode;
-            
+
             // cast option flags to boolean
-            
+
             if (options.format    === 'false') options.format    = false;
             if (options.highlight === 'false') options.highlight = false;
-            
+
             // process the code
-            
+
             if (options.format === false && options.highlight === false) {
-                
+
                 // if format and highlight are false, don't process the code at all
                 processedCode = content;
-                
+
             } else if (options.format === false) {
-                
+
                 // if format is false, only highlight the code
                 processedCode = highlightCode(content, options.language);
-                
+
             } else if (options.highlight === false) {
-                
+
                 // if highlight is false, only format the code
                 processedCode = formatCode(content, options.language);
-                
+
             } else {
-                
+
                 // default: format and highlight the code
                 processedCode = highlightCode(formatCode(content, options.language), options.language);
-                
+
             }
-            
+
             // print the processed code
-            
+
             $thisPreBlock.html(processedCode);
 
             // insert elements
@@ -383,18 +385,18 @@ var Documentation = (function() {
 
             if (options.print || options.printWithDelay)
                 toggleCode($thisCodeBlock, true);
-            
+
             // hide the example and only show the code
-            
+
             if (options.hideExample)
                 $thisExampleBlock.hide();
 
         });
 
     }
-    
+
     function toggleCode($thisCodeBlock, showWithoutAnimation) {
-        
+
         /**
          *  Shows or hides a code block with a jQuery slide animation.
          *
@@ -407,13 +409,13 @@ var Documentation = (function() {
          *  @param {jQuery dom object} $thisCodeBlock       - the code block
          *  @param {bool}              showWithoutAnimation - show the code block instantly
          */
-        
+
         if (showWithoutAnimation) {
-            
+
             $thisCodeBlock.css('display','block');
-            
+
         } else {
-            
+
             if ($thisCodeBlock.is(':visible')) {
                 $thisCodeBlock.slideUp('fast');
             } else {
@@ -421,9 +423,9 @@ var Documentation = (function() {
                     $thisCodeBlock.css('display','block');
                 });
             }
-            
+
         }
-    
+
     }
 
     function decodeEntities(code) {

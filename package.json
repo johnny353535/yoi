@@ -26,6 +26,7 @@
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.0",
+    "gulp-eslint": "^3.0.1",
     "gulp-imagemin": "^2.4.0",
     "gulp-less": "^3.0.5",
     "gulp-nunjucks-html": "^2.0.0",
@@ -36,7 +37,6 @@
     "merge-stream": "^1.0.0",
     "node-slack": "0.0.7",
     "nunjucks-markdown": "^2.0.0",
-    "run-sequence": "^1.1.5",
-    "vinyl-ftp": "^0.4.5"
+    "run-sequence": "^1.1.5"
   }
 }

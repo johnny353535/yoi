@@ -234,9 +234,9 @@ var Helper = (function() {
             }
 
         },
-        
+
         zeroPad : function(num, digits) {
-    
+
             /**
              *  Add leading zeros to a given number and return the result.
              *
