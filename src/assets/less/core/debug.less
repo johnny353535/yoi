@@ -18,6 +18,17 @@
     outline: @yellow-15 1px dashed !important;
 }
 
+// images
+// ======
+
+img:not([alt]) when (@debugImages = true) {
+    outline: 1px @blue-15 solid;
+}
+
+img:not([title]) when (@debugImages = true) {
+    outline: 1px @blue-15 dashed;
+}
+
 // media queries
 // =============
 
