@@ -5,8 +5,6 @@ var Documentation = (function() {
     // private vars
     // ============
 
-  console.log('yo');
-
     var initialized = false;
 
     var languages = {
@@ -273,21 +271,21 @@ var Documentation = (function() {
         var beautifiedCode;
 
         switch (language) {
-            case 'markup':
-                beautifiedCode = html_beautify(cleanedCode, {
-                    "wrap_line_length" : 0
-                });
-                break;
-            case 'less' || 'css':
-                beautifiedCode = css_beautify(cleanedCode);
-                break;
-            case 'javascript':
-                beautifiedCode = js_beautify(cleanedCode, {
-                    "wrap_line_length" : 0
-                });
-                break;
-            default:
-                beautifiedCode = cleanedCode;
+        case 'markup':
+            beautifiedCode = html_beautify(cleanedCode, {
+                'wrap_line_length' : 0
+            });
+            break;
+        case 'less' || 'css':
+            beautifiedCode = css_beautify(cleanedCode);
+            break;
+        case 'javascript':
+            beautifiedCode = js_beautify(cleanedCode, {
+                'wrap_line_length' : 0
+            });
+            break;
+        default:
+            beautifiedCode = cleanedCode;
 
         }
 
@@ -456,7 +454,7 @@ var Documentation = (function() {
          */
 
         var pattern     = code.match(/\s*\n[\t\s]*/);
-        var cleanedCode = code.replace(new RegExp(pattern, "g"),'\n');
+        var cleanedCode = code.replace(new RegExp(pattern, 'g'),'\n');
 
         return cleanedCode;
 
@@ -473,7 +471,7 @@ var Documentation = (function() {
          */
 
         var pattern     = code.match(/^\s*[\r\n]/gm);
-        var cleanedCode = input.replace(new RegExp(pattern, "g"),'\n');
+        var cleanedCode = input.replace(new RegExp(pattern, 'g'),'\n');
 
         return cleanedCode;
 

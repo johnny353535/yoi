@@ -102,7 +102,7 @@ var Slider = (function() {
             // references to dom elements
 
             var $thisSlider        = $(this);
-            var	$thisSlides        = $thisSlider.find('.slider__slide');
+            var    $thisSlides        = $thisSlider.find('.slider__slide');
             var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance
@@ -255,7 +255,7 @@ var Slider = (function() {
          *  @param {string || integer} target      - a key for the target: "next" || "prev" || any slide number
          */
 
-        var	$thisSlides        = $thisSlider.find('.slider__slide');
+        var    $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
         var totalSlides        = $thisSlider.data().totalSlides;
@@ -318,19 +318,19 @@ var Slider = (function() {
          *  @param {string}            direction      - key for the direction, "<" || ">"
          */
 
-        var	$thisSlides       = $thisSlider.find('.slider__slide');
+        var    $thisSlides       = $thisSlider.find('.slider__slide');
 
         var options           = Helper.toObject($thisSlider.data('slider'));
         var currentSlideIndex = $thisSlider.data().slideIndex;
         var leftOffset;
 
         switch (direction) {
-            case '<':
-                leftOffset = '-100%';
-                break;
-            case '>':
-                leftOffset = '100%';
-                break;
+        case '<':
+            leftOffset = '-100%';
+            break;
+        case '>':
+            leftOffset = '100%';
+            break;
         }
 
         if (options.transition === 'animate') {
@@ -422,7 +422,7 @@ var Slider = (function() {
          *  @param {jQuery dom object} $thisSlider - the slider
          */
 
-        var	$thisSlides        = $thisSlider.find('.slider__slide');
+        var    $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
         var slideHeight        = 0;
 

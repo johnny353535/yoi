@@ -101,7 +101,7 @@ gulp.task('codecheck', function() {
     */
     
     return gulp.src(['src/assets/js/**/*.js'], { base: './' })
-        .pipe(eslint({ 'rules': eslintRules }))
+        .pipe(eslint({ 'rules' : eslintRules }))
         .pipe(eslint.format())
         .pipe(eslint.failOnError());
 
@@ -123,7 +123,10 @@ gulp.task('codeformat', function() {
         .pipe(gulp.dest('.'));
 
     var scripts = gulp.src(['src/assets/js/**/*.js'], { base: './' })
-        .pipe(eslint({ fix: true }))
+        .pipe(eslint({
+            'rules': eslintRules,
+            fix: true
+        }))
         .pipe(gulp.dest('.'));
 
     var json = gulp.src(['**/*.json'], { base: './' })

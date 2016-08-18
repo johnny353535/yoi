@@ -1,8 +1,8 @@
 // ===========================================================
 //
-//		File:	js/loadCardItems.js
-//		Descr.:	Split page in subpages, load pagination
-//				after all subpages are displayed.
+//        File:    js/loadCardItems.js
+//        Descr.:    Split page in subpages, load pagination
+//                after all subpages are displayed.
 //
 // ===========================================================
 
@@ -45,8 +45,8 @@ $('.itemCards').each(function() {
                                     <span><b>' + itemsPerPage + '</b> weitere laden</span>\
                                 </a>')
                              .click(function(e) {
-                                currentPage++;
-                                loadNextPage(pages, currentPage, e.target);
+                                 currentPage++;
+                                 loadNextPage(pages, currentPage, e.target);
                              })
                              .appendTo($(this));
 

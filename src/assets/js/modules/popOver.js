@@ -54,7 +54,7 @@ var PopOver = (function() {
             // if this option is enabled, add a wrapper to aid positioning and put the
             // pop-over inside the wrapper, along with it's trigger
 
-            if (options.wrap == 'true') {
+            if (options.wrap === 'true') {
 
                 var $thisPopOver        = $thisPopOver.detach();
                 var $thisPopOverTrigger = $thisPopOverTrigger.wrap('<div class="popOver__wrapper"></div>');
@@ -93,7 +93,7 @@ var PopOver = (function() {
             $thisPopOverTrigger
                 .on(eventShow, function(e) {
 
-                    if (preventDefault != 'false') e.preventDefault();
+                    if (preventDefault !== 'false') e.preventDefault();
 
                     hideAllPopOvers();
                     showPopOver($thisPopOverTrigger, $thisPopOver);
@@ -101,7 +101,7 @@ var PopOver = (function() {
                 })
                 .on(eventHide, function(e) {
 
-                    if (preventDefault != 'false') e.preventDefault();
+                    if (preventDefault !== 'false') e.preventDefault();
 
                     Helper.clearInterval('popOverShowTimeout');
                     hidePopOver($thisPopOverTrigger, $thisPopOver);
@@ -248,59 +248,59 @@ var PopOver = (function() {
         // set pop-over position
 
         switch (pos) {
-            case 'tl':
-                $thisPopOver.css({
-                    'left': $thisPopOverTrigger.position().left + 'px',
-                    'top' : $thisPopOverTrigger.position().top  + 'px'
-                });
-                break;
-            case 'tr':
-                $thisPopOver.css({
-                    'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth() + 'px',
-                    'top' : $thisPopOverTrigger.position().top  + 'px'
-                });
-                break;
-            case 'br':
-                $thisPopOver.css({
-                    'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth()  + 'px',
-                    'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
-                });
-                break;
-            case 'bl':
-                $thisPopOver.css({
-                    'left': $thisPopOverTrigger.position().left + 'px',
-                    'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
-                });
-                break;
+        case 'tl':
+            $thisPopOver.css({
+                'left': $thisPopOverTrigger.position().left + 'px',
+                'top' : $thisPopOverTrigger.position().top  + 'px'
+            });
+            break;
+        case 'tr':
+            $thisPopOver.css({
+                'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth() + 'px',
+                'top' : $thisPopOverTrigger.position().top  + 'px'
+            });
+            break;
+        case 'br':
+            $thisPopOver.css({
+                'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth()  + 'px',
+                'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
+            });
+            break;
+        case 'bl':
+            $thisPopOver.css({
+                'left': $thisPopOverTrigger.position().left + 'px',
+                'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
+            });
+            break;
         }
 
         // set pop-over reference point
 
         switch (ref) {
-            case 'tl':
-                $thisPopOver.css({
-                    'marginLeft': 0,
-                    'marginTop': 0
-                });
-                break;
-            case 'tr':
-                $thisPopOver.css({
-                    'marginLeft': $thisPopOver.data().width * -1 + 'px',
-                    'marginTop' : 0
-                });
-                break;
-            case 'br':
-                $thisPopOver.css({
-                    'marginLeft': $thisPopOver.data().width  * -1 + 'px',
-                    'marginTop' : $thisPopOver.data().height * -1 + 'px'
-                });
-                break;
-            case 'bl':
-                $thisPopOver.css({
-                    'marginLeft': 0,
-                    'marginTop' : $thisPopOver.data().height * -1 + 'px'
-                });
-                break;
+        case 'tl':
+            $thisPopOver.css({
+                'marginLeft': 0,
+                'marginTop': 0
+            });
+            break;
+        case 'tr':
+            $thisPopOver.css({
+                'marginLeft': $thisPopOver.data().width * -1 + 'px',
+                'marginTop' : 0
+            });
+            break;
+        case 'br':
+            $thisPopOver.css({
+                'marginLeft': $thisPopOver.data().width  * -1 + 'px',
+                'marginTop' : $thisPopOver.data().height * -1 + 'px'
+            });
+            break;
+        case 'bl':
+            $thisPopOver.css({
+                'marginLeft': 0,
+                'marginTop' : $thisPopOver.data().height * -1 + 'px'
+            });
+            break;
         }
 
     }

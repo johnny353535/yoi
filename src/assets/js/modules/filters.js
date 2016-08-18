@@ -279,7 +279,7 @@ var Filters = (function() {
 
         if (!$thisFilters.find('.filters__resetBtn').length && totalActiveFilters.length) {
 
-        $resetBtn
+            $resetBtn
             .clone()
             .prependTo($thisFilters)
             .on('click', function(e) {

@@ -89,7 +89,7 @@ var Tooltip = (function() {
 
         var options            = Helper.toObject($thisTrigger.data('tooltip'));
         var icon               = options.icon !== undefined ? options.icon : false;
-        var textInputTypes     = ['email', 'password', 'tel', 'text', 'url'];
+        var textInputTypes     = [ 'email', 'password', 'tel', 'text', 'url' ];
         var triggerIsTextInput = $thisTrigger.prop('tagName') === 'INPUT' && $.inArray($thisTrigger.attr('type'), textInputTypes) > -1;
         var triggerIsTextarea  = $thisTrigger.prop('tagName') === 'TEXTAREA';
         var $thisPreparedTrigger;
@@ -220,14 +220,14 @@ var Tooltip = (function() {
          *  @param {string}            action      - keyword, "start" || "stop"
          */
 
-        if (action == 'start') {
+        if (action === 'start') {
 
             Helper.setDelay('tooltipShowDelay', showDelayDuration, function(){
                 $thisTarget.fadeIn(200);
             });
 
 
-        } else if (action == 'stop') {
+        } else if (action === 'stop') {
 
             Helper.clearDelay('tooltipShowDelay');
 
@@ -243,14 +243,14 @@ var Tooltip = (function() {
          *  @param {string} action - keyword, "start" || "stop"
          */
 
-        if (action == 'start') {
+        if (action === 'start') {
 
             Helper.setDelay('tooltipHideDelay', hideDelayDuration, function(){
                 $('.tooltip').hide()
             });
 
 
-        } else if (action == 'stop') {
+        } else if (action === 'stop') {
 
             Helper.clearDelay('tooltipHideDelay');
 

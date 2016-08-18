@@ -31,7 +31,7 @@ var PieChart = (function() {
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
-            var $thisPieChartSvg     = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
             /**
              *  Available options:
@@ -291,14 +291,14 @@ var PieChart = (function() {
 
         if (thisValue >= 100) {
 
-            $thisPieSlice = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            $thisPieSlice = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
             $thisPieSlice.setAttribute('r',  radius);
             $thisPieSlice.setAttribute('cx', radius);
             $thisPieSlice.setAttribute('cy', radius);
 
         } else {
 
-            $thisPieSlice = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            $thisPieSlice = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
             // Calculate x,y coordinates of the point on the circle to draw the arc to.
 
@@ -312,7 +312,7 @@ var PieChart = (function() {
             // "d" is a string that describes the path of the slice.
             // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d
 
-            var d = "M" + radius + "," + radius + " L" + radius + "," + 0 + ", A" + radius + "," + radius + " 0 " + longArc + ",1 " + (radius + y * radius) + "," + (radius - x * radius) + " z";
+            var d = 'M' + radius + ',' + radius + ' L' + radius + ',' + 0 + ', A' + radius + ',' + radius + ' 0 ' + longArc + ',1 ' + (radius + y * radius) + ',' + (radius - x * radius) + ' z';
             $thisPieSlice.setAttribute('d', d);
 
             // rotate the slice

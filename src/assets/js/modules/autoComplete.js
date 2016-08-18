@@ -13,7 +13,7 @@ var AutoComplete = (function() {
         autoCompleteInputFields
             .on('focus', function() {
                 inputValue = $(this)[0].value;
-                $(this)[0].value = "";
+                $(this)[0].value = '';
             })
             .on('keypress', function() {
                 $(this).closest('form').find('.autoComplete').show();

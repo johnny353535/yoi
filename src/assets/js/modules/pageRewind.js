@@ -1,7 +1,7 @@
 // ===========================================================
 //
-//		File:	js/pageRewind.js
-//		Descr.:	Scroll page back to the very top, animated.
+//        File:    js/pageRewind.js
+//        Descr.:    Scroll page back to the very top, animated.
 //
 // ===========================================================
 

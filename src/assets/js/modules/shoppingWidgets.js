@@ -1,7 +1,7 @@
 // ===========================================================
 //
-//		File:	js/shoppingWidgets.js
-//		Descr.:	Toggle shopping widgets.
+//        File:    js/shoppingWidgets.js
+//        Descr.:    Toggle shopping widgets.
 //
 // ===========================================================
 
@@ -44,14 +44,14 @@ quickList
 
 function delayShowCartWidget(action,button) {
 
-    if (action == 'start') {
+    if (action === 'start') {
 
         Helper.setInterval('delayShowCartWidgetTimeout', 500, function() {
             cartWidget.addClass('active');
             quickList.slideDown('fast');
         });
 
-    } else if (action == 'stop') {
+    } else if (action === 'stop') {
 
         Helper.clearInterval('delayShowCartWidgetTimeout');
 
@@ -61,7 +61,7 @@ function delayShowCartWidget(action,button) {
 
 function delayHideCartWidget(action,button) {
 
-    if (action == 'start') {
+    if (action === 'start') {
 
         Helper.setInterval('delayHideCartWidgetTimeout', 500, function() {
             quickList.slideUp('fast',function() {
@@ -69,7 +69,7 @@ function delayHideCartWidget(action,button) {
             });
         });
 
-    } else if (action == 'stop') {
+    } else if (action === 'stop') {
 
         Helper.clearInterval('delayHideCartWidgetTimeout');
 

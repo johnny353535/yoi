@@ -1,7 +1,7 @@
 // ===========================================================
 //
-//		File:	js/reveal.js
-//		Descr.:	Simple script to reveal hidden elements.
+//        File:    js/reveal.js
+//        Descr.:    Simple script to reveal hidden elements.
 //
 // ===========================================================
 
@@ -28,9 +28,9 @@ $('[data-reveal]').each(function(index){
     // apply event on trigger and reveal target
 
     $this.on(event, function(e) {
-        if (transition == 'fadeIn') {
+        if (transition === 'fadeIn') {
             $(target).fadeIn();
-        } else if (transition == 'slideDown') {
+        } else if (transition === 'slideDown') {
             $(target).slideDown();
         } else {
             $(target).show();

@@ -5,7 +5,7 @@ var CustomFormElements = (function() {
     // private vars
     // ============
 
-    var	$checkBoxWrapper = $('<span class="checkbox"></span>')
+    var    $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
         });
@@ -48,7 +48,7 @@ var CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var	checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
         var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
@@ -135,7 +135,7 @@ var CustomFormElements = (function() {
             var $thisSwitch = $(this);
 
             var options     = Helper.toObject($thisSwitch.data('switch'));
-            var	labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+            var    labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
             var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
 
             var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
@@ -192,7 +192,7 @@ var CustomFormElements = (function() {
             $(this).toggleClass('locked');
         });
 
-        $ratingSelect.find('i').each(function (index) {
+        $ratingSelect.find('i').each(function(index) {
 
             $(this).on('mouseover', function() {
 

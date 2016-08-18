@@ -252,7 +252,7 @@ var DatePicker = (function() {
 
         var firstDayInstance = new Date(year, month, 1);
         var firstDay         = firstDayInstance.getDay();
-            firstDayInstance = null;
+        firstDayInstance = null;
 
         // number of days in current month
 
@@ -581,7 +581,7 @@ var DatePicker = (function() {
 
             $thisCell.removeClass('datePicker--selectedDay');
 
-            if ($thisCell.text() == selectedDay) {
+            if ($thisCell.text() === selectedDay) {
                 $thisCell.addClass('datePicker--selectedDay');
             }
 
@@ -699,35 +699,35 @@ var DatePicker = (function() {
         if (language === 'en' || language === undefined) {
 
             monthNames = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
             ]
 
         } else if (language === 'de') {
 
             monthNames = [
-                "Januar",
-                "Februar",
-                "März",
-                "April",
-                "Mai",
-                "Juni",
-                "Juli",
-                "August",
-                "September",
-                "Oktober",
-                "November",
-                "Dezember",
+                'Januar',
+                'Februar',
+                'März',
+                'April',
+                'Mai',
+                'Juni',
+                'Juli',
+                'August',
+                'September',
+                'Oktober',
+                'November',
+                'Dezember'
             ]
 
         }

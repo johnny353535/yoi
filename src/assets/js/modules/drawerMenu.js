@@ -1,7 +1,7 @@
 // ===========================================================
 //
-//		File:	js/drawerMenu.js
-//		Descr.:	Three-level foldable list menu.
+//        File:    js/drawerMenu.js
+//        Descr.:    Three-level foldable list menu.
 //
 // ===========================================================
 

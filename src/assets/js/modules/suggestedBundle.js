@@ -1,7 +1,7 @@
 // ===========================================================
 //
-//		File:	js/suggestedBundle.js
-//		Descr.:	Toggle elements in .suggestedBundle.
+//        File:    js/suggestedBundle.js
+//        Descr.:    Toggle elements in .suggestedBundle.
 //
 // ===========================================================
 

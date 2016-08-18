@@ -6,7 +6,7 @@ var Dismiss = (function() {
     // ============
 
     var $btnDismiss;
-    var onMobile = $(document.body).data('environment') == 'mobile';
+    var onMobile = $(document.body).data('environment') === 'mobile';
     var btnLabelClose = Helper.locale === 'de' ? 'schliessen' : 'close';
 
     if (onMobile) {

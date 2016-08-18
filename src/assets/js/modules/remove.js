@@ -1,8 +1,8 @@
 // ===========================================================
 //
-//		File:	js/remove.js
-//		Descr.:	Remove an element from the dom.
-//		Status:	Done.
+//        File:    js/remove.js
+//        Descr.:    Remove an element from the dom.
+//        Status:    Done.
 //
 // ===========================================================
 
@@ -13,7 +13,7 @@
     $('[data-action="remove"]').each(function() {
 
         var $this = $(this);
-        var	$thisParent = $this.parents(parentElements);
+        var    $thisParent = $this.parents(parentElements);
 
         $this.on('click', function(e) {
 

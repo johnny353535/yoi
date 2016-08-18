@@ -1,8 +1,8 @@
 // ===========================================================
 //
-//		File:	js/stickyElements.js
-//		Descr.:	Stick elements to position when they reach top
-//				of viewport (through scrolling).
+//        File:    js/stickyElements.js
+//        Descr.:    Stick elements to position when they reach top
+//                of viewport (through scrolling).
 //
 // ===========================================================
 
@@ -11,12 +11,12 @@ var stickyElementsAttr = [];
 
 stickyElements.each(function() {
 
-    var	prevMargin = $(this).prev().length > 0 ? $(this).prev().css('marginBottom').split('px')[0] : 0,
+    var    prevMargin = $(this).prev().length > 0 ? $(this).prev().css('marginBottom').split('px')[0] : 0,
         itemOffset = $(this).offset().top + prevMargin * 2;
-        itemWidth = $(this).outerWidth();
-        itemHeight = $(this).outerHeight();
+    itemWidth = $(this).outerWidth();
+    itemHeight = $(this).outerHeight();
 
-    stickyElementsAttr.push([itemOffset,itemWidth,itemHeight]);
+    stickyElementsAttr.push([ itemOffset,itemWidth,itemHeight ]);
 
 });
 
@@ -30,11 +30,11 @@ function stickItems() {
 
     stickyElements.each(function(index,value) {
 
-        var	elementOffset = stickyElementsAttr[index][0],
+        var    elementOffset = stickyElementsAttr[index][0],
             elementHeight = stickyElementsAttr[index][2],
             elementWidth = stickyElementsAttr[index][1];
 
-        var	scrolledPastElementPosition = bodyOffset >= elementOffset - 140,
+        var    scrolledPastElementPosition = bodyOffset >= elementOffset - 140,
             viewportIsLargerThanMenu = bodyHeight > elementHeight;
 
         var placeHolder = $('<div>',{

@@ -6,14 +6,14 @@ var ScrollTo = (function() {
     // ============
 
     switch ($('body').data('environment')) {
-        case 'desktop':
-            var offset = 220;
-            break;
-        case 'mobile':
-            var offset = 80;
-            break;
-        default:
-            var offset = 20;
+    case 'desktop':
+        var offset = 220;
+        break;
+    case 'mobile':
+        var offset = 80;
+        break;
+    default:
+        var offset = 20;
     }
 
     // private functions
@@ -27,7 +27,7 @@ var ScrollTo = (function() {
 
         $('[data-scrollTo]').on('click', function(e) {
 
-            var	targetId = $(this)[0].hash;
+            var    targetId = $(this)[0].hash;
 
             // scroll to anchor if target element is found
 
