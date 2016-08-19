@@ -168,7 +168,7 @@ gulp.task('less', function() {
             }) : gutil.noop()
         )
     .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/css/'))
+    .pipe(gulp.dest('./dist/assets/css/'))
     .pipe(gulp.dest('./docs/assets/css/'));
 
     return coreCss;
@@ -189,27 +189,27 @@ gulp.task('js', function() {
             .pipe(concat('yoshino-ui-core.js'))
             .pipe(compressScripts ? uglify().on('error', printError) : gutil.noop())
         .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/js/'))
+        .pipe(gulp.dest('./dist/assets/js/'))
         .pipe(gulp.dest('./docs/assets/js/'));
 
     var jQuery = gulp.src(libs.jQuery)
         .pipe(concat('jquery.js'))
-        .pipe(gulp.dest('./dist/js/libs/'))
+        .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
     var jQueryUiCustom = gulp.src(libs.jQueryUi)
         .pipe(concat('jquery-ui.js'))
-        .pipe(gulp.dest('./dist/js/libs/'))
+        .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
     var prism = gulp.src(libs.prism)
         .pipe(concat('prism.js'))
-        .pipe(gulp.dest('./dist/js/libs/'))
+        .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
     var beautify = gulp.src(libs.beautify)
         .pipe(concat('beautify.js'))
-        .pipe(gulp.dest('./dist/js/libs/'))
+        .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
     return merge(yoshinoUiCore, jQuery, jQueryUiCustom, prism, beautify);
@@ -227,23 +227,26 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('./docs/'));
   
     var copyAudio = gulp.src('./src/assets/audio/**/*')
-        .pipe(gulp.dest('./dist/audio/'))
+        .pipe(gulp.dest('./dist/assets/audio/'))
         .pipe(gulp.dest('./docs/assets/audio/'));
   
     var copyIconFont = gulp.src('./bower_components/yoshino-icons/webfont/**/*')
-        .pipe(gulp.dest('./dist/fonts/icons/'))
+        .pipe(gulp.dest('./dist/assets/fonts/icons/'))
         .pipe(gulp.dest('./docs/assets/fonts/icons/'));
   
     var copyIconSvgs = gulp.src('./bower_components/yoshino-icons/svg/**/*.svg')
-        .pipe(gulp.dest('./dist/img/icons/'))
+        .pipe(gulp.dest('./dist/assets/img/icons/'))
         .pipe(gulp.dest('./docs/assets/img/icons/'));
   
     var copyImages = gulp.src('./src/assets/img/**/*')
         .pipe(compressImages ? imagemin() : gutil.noop())
-        .pipe(gulp.dest('./dist/img/'))
+        .pipe(gulp.dest('./dist/assets/img/'))
         .pipe(gulp.dest('./docs/assets/img/'));
+        
+    var copyDevScript = gulp.src('./src/dev/**/*')
+        .pipe(gulp.dest('./dist/dev/'));
 
-    return merge(copyFavicon, copyAudio, copyIconFont, copyImages, copyIconSvgs);
+    return merge(copyFavicon, copyAudio, copyIconFont, copyIconSvgs, copyImages, copyDevScript);
 
 });
 
