@@ -46,43 +46,271 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="javascript-style-guide">JavaScript Style Guide</h2>
+<p>We mostly embrace <a href="https://github.com/airbnb/javascript">Airbnb’s JavaScript coding style</a>.</p>
+<h3 id="es2015-babel">ES2015 / Babel</h3>
+<p>We plan to use <a href="https://babeljs.io">Babel</a> to write all our JavaScript in the <em>future</em> ES2015 syntax and transpile it into »old school« JavaScript. But not yet.</p>
+<h3 id="module-pattern">Module Pattern</h3>
+<p>We use the <a href="https://carldanley.com/js-revealing-module-pattern/">Revealing Module Pattern</a> for our scripts.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
-    </div>
-</div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
-    </div>
-</div>
+<div class="documentation__block"><code class="language-js"><pre>
+var MyModule = (function() {
+
+    function myMethod() {
+        alert('my method');
+    }
+
+    function myOtherMethod() {
+        alert('my other method');
+    }
+
+    // explicitly return public methods when this object is instantiated
+
+    return {
+        someMethod      : myMethod,
+        someOtherMethod : myOtherMethod
+    };
+})();
+
+// example usage
+
+MyModule.myMethod();        // undefined
+MyModule.myOtherMethod();   // undefined
+MyModule.someMethod();      // alerts "my method"
+MyModule.someOtherMethod(); // alerts "my other method"
+</pre></code></div>
+
+<h3 id="formatting">Formatting</h3>
+<h4 id="indentation-white-space-and-line-breaks">Indentation, White Space and Line Breaks</h4>
+<p>Use four spaces instead of one tab. Don’t add a line break at the end of a file. Use unix-style line breaks.</p>
+<h4 id="blocks-brackets">Blocks / Brackets</h4>
+<p>For all blocks, keep the opening curly bracket on the same line and put the closing curly bracket on a new line.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+function sayHello()
+{
+    alert('Hello!');
+}
+
+// good :)
+
+function sayHello() {
+    alert('Hello!');
+}
+</pre></code></div>
+
+<p>For control structures with a single statement, curly brackets are optional but do not add line breaks and indentation.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+if (x > y)
+    doSomething();
+
+// good :)
+
+if (x > y) doSomething();
+</pre></code></div>
+
+<h4 id="control-structures-vs-functions">Control Structures vs. Functions</h4>
+<p>Use one space between a control key word (eg. <em>if</em>) and the following curly brackets but write the curly brackets for function parameters directly after the function key word or function identifier.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+if(x > y) {
+    ...
+}
+
+doSomething ();
+
+// good :)
+
+if (x > y) {
+    ...
+}
+
+doSomething();
+</pre></code></div>
+
+<h4 id="function-and-variable-names-in-camelcase">Function and Variable Names in CamelCase</h4>
+<p>Use camelCase for function or variable names.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+var some_variable = 12;
+
+function some_function() {
+    ...
+}
+
+doSomething ();
+
+// good :)
+
+var someVariable = 12;
+
+function someFunction() {
+    ...
+}
+</pre></code></div>
+
+<h4 id="block-comments">Block Comments</h4>
+<p>Use <a href="http://usejsdoc.org/about-getting-started.html">jsDocs-Style comment blocks</a>, eg. to describe functions, their parameters and output.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+function cleanIndent(code) {
+
+    /**
+     *  Remove unnecessary indentation from input
+     *  and return the output.
+     *
+     *  @param  {string/html} code        - the input code
+     *  @return {string/html} cleanedCode - the processed output code
+     */
+
+    var pattern     = code.match(/\s*\n[\t\s]*/);
+    var cleanedCode = code.replace(new RegExp(pattern, "g"),'\n');
+
+    return cleanedCode;
+
+}
+</pre></code></div>
+
+<h4 id="be-verbose-">Be Verbose!</h4>
+<p>Use a somewhat <a href="https://en.wikipedia.org/wiki/Literate_programming"><em>literate programmming style</em></a> as much as possible. It makes the code human-readable and saves you a lot of time if you look at old code and try to figure out what you did back then.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+function formatCode(code, language) {
+
+    var cleanedCode     = code.replace(/^\s*[\n\r]/gm, '');
+    var beautifiedCode  = html_beautify(cleanedCode, { "wrap_line_length" : 0 });
+    var highLightedCode = Prism.highlight(beautifiedCode, Prism.languages[language]);
+    var formattedCode   = highLightedCode;
+
+    return formattedCode;
+
+}
+
+// good :)
+
+function formatCode(code, language) {
+
+    /**
+     *  Format and clean up the input (code) and add
+     *  language specific syntax-highlighting.
+     *
+     *  @param  {string/html} code          - the input code to format
+     *  @param  {string}      language      - a look-up key to select the language
+     *  @return {string/html} formattedCode - the formatted and highlighted code
+     */
+
+    // remove blank lines
+    // http://stackoverflow.com/questions/16369642
+
+    var cleanedCode = code.replace(/^\s*[\n\r]/gm, '');
+
+    // beautify
+    // https://github.com/beautify-web/js-beautify
+
+    var beautifiedCode = html_beautify(cleanedCode, {
+        "wrap_line_length" : 0
+    });
+
+    // run syntax highlighter "prism"
+    // http://prismjs.com
+
+    var highLightedCode = Prism.highlight(beautifiedCode, Prism.languages[language]);
+
+    // re-assign code variable
+
+    var formattedCode = highLightedCode;
+
+    // return the formatted code
+
+    return formattedCode;
+
+}
+</pre></code></div>
+
+<h4 id="use-tabular-formatting-to-boost-readability">Use Tabular Formatting to Boost Readability</h4>
+<p>If you write large blocks of variable assignment or some object notation or so on, use tabular formatting to make your code more readable.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+var someVariable = 'hey';
+var someOtherVariable = 'hello';
+var anotherVariable = 'yo';
+
+options = {
+    'someOption': 42,
+    'someOtherOption': 99,
+    'anotherOption': false
+}
+
+// good :)
+
+var someVariable      = 'hey';
+var someOtherVariable = 'hello';
+var anotherVariable   = 'yo';
+
+options = {
+    'someOption'      : 42,
+    'someOtherOption' : 99,
+    'anotherOption'   : false
+}
+</pre></code></div>
+
+<h4 id="use-single-quotes">Use Single Quotes</h4>
+<p>Use single quotes over double quotes. It does not really make any difference but since we use double quotes in our markup, you avoid escaping. However, if you need proper JSON objects, use double quotes in object notation.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+var myMarkup = "&lt;div class=\&quot;box\&quot;&gt;&lt;/div&gt;";
+
+// good :)
+
+var myMarkup = '&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;';
+</pre></code></div>
+
+<h4 id="put-large-strings-on-multiple-lines">Put Large Strings on Multiple Lines</h4>
+<p>Use multiple lines for large strings like template snippets.</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+// bad :(
+
+var myMarkup = '&lt;div class=&quot;elements&quot;&gt;&lt;h3 class=&quot;element__title&quot;&gt;Some Title&lt;/h3&gt;&lt;p class=&quot;element__copy&quot;&gt;Some copy text&lt;/p&gt;&lt;/div&gt;';
+
+// good :)
+
+var myMarkup = '\
+    &lt;div class=&quot;elements&quot;&gt;\
+        &lt;h3 class=&quot;element__title&quot;&gt;Some Title&lt;/h3&gt;\
+        &lt;p class=&quot;element__copy&quot;&gt;Some copy text&lt;/p&gt;\
+    &lt;/div&gt;\
+';
+</pre></code></div>
+
+<h4 id="use-and-over-and-">Use === and !== over == and !=</h4>
+<p>Because this is what you really want in most cases.</p>
+
 
 
             </div>

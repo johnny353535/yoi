@@ -46,41 +46,236 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="note">Note</h2>
+<p>Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be <em>dismissable</em>, they come in two text sizes and they can contain an icon.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/note.less">note.less</a></td>
+</tr>
+<tr>
+<td>JS-File</td>
+<td><a href="assets/js/modules/dismiss.js">dismiss.js</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.note</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--largeTxt, .note--light, .note--negative, .note--positive, .note--prescription, .note--stripped, .note--success</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="simple-note">Simple Note</h3>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<h3 id="basic-example">Basic Example</h3>
+<p>If you wish to make a <code>.note</code> <em>dismissable</em>, use the <code>data-dismissable</code> hook to make a close button appear in the upper right corner.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--attention" data-dismissable>
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
+</div>
+
+<h3 id="large-text">Large text</h3>
+<p>Use the modifier <code>.note--large</code> to increase the font size.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large" data-dismissable>
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
+</div>
+
+<h3 id="icons">Icons</h3>
+<p>Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the <code>.note--iconXXX</code> modifier to insert any icon from <a href="docs/pages/elements/icons.html">the Yoshino icon set</a>.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large note--icon026">
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--error note--large note--icon027">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--success note--large note--icon011">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="colors">Colors</h3>
+<p>Notes are available in <strong>different color themes</strong>. Weather you wish to display an error, a success message or just a subtle note, you can choose from the following options:</p>
+
+
+<div class="documentation__block" data-docblock="addControls:true;">
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--large">
+            <div class="note__body">
+                <p>default styling</p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--attention note--large">
+            <div class="note__body">
+                <p>.note--<strong>attention</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--dark note--large">
+            <div class="note__body">
+                <p>.note--<strong>dark</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--subtle note--large">
+            <div class="note__body">
+                <p>.note--<strong>subtle</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--error note--large">
+            <div class="note__body">
+                <p>.note--<strong>error</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--negative note--large">
+            <div class="note__body">
+                <p>.note--<strong>negative</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--light note--large">
+            <div class="note__body">
+                <p>.note--<strong>light</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--prescription note--large">
+            <div class="note__body">
+                <p>.note--<strong>prescription</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--success note--large">
+            <div class="note__body">
+                <p>.note--<strong>success</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--positive note--large">
+            <div class="note__body">
+                <p>.note--<strong>positive</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="grouped-notes">Grouped Notes</h3>
+<p><strong>Group notes</strong> inside a container element with the css class name <code>.notes</code>. For example to group validation messages.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="notes">
+            <div class="note note--positive note--large note--icon011" data-dismissable>
+                <div class="note__body">
+                    <p>The first data you supplied is <strong>valid</strong>.</p>
+                </div>
+            </div>
+            <div class="note note--negative note--large note--icon006" data-dismissable>
+                <div class="note__body">
+                    <p>The second data you supplied is <strong>not valid</strong>.</p>
+                </div>
+            </div>
+            <div class="note note--positive note--large note--icon011" data-dismissable>
+                <div class="note__body">
+                    <p>The third data you supplied is <strong>valid</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="no-borders-and-rounded-corners">No Borders and Rounded Corners</h3>
+<p>Like many elements, <code>.note</code> has a <code>--stripped</code> modifier class which <strong>removes borders and border radi</strong>.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large note--dark note--stripped">
+            <div class="note__body">
+                <p>No borders, no rounded corners.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="notes-at-full-viewport-width">Notes at Full Viewport Width</h3>
+<p>Use the modifier class <code>.note--fullWidth</code> to display a <strong>note at full viewport width</strong>, with it’s body centered and automatic margin to the left and right. A good example would be the cookie-policy at the very top of a page.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true; hideExample:true;">
+        <div id="cookieNote" class="note note--fullwidth note--attention note--large note--icon027">
+            <div class="note__body center">
+                <p>This is a note at full vieport width with centered body.</p>
+            </div>
+        </div>
     </div>
 </div>
 

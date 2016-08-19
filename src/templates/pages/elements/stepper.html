@@ -1,0 +1,177 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Stepper
+This element combines a (numeric) input-field with control buttons to de- or increase the input value and an (optional) submit-button. It’s mainly designed to add a certain amount of items to the shopping cart.
+
+|   |   |
+| - | - |
+| Less-File      | [stepper.less](assets/less/elements/stepper.less) |
+| JS-File        | [stepper.js](assets/js/modules/stepper.js) |
+| Base CSS-Class | `.stepper` |
+| Modifiers      | `.stepper--light, .stepper--stripped, .stepper--touch` |
+
+### Most Basic Example
+The most basic variant of this element is simply a `<div>` with the class name `stepper` and an input element inside with the class name `stepper__input`.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true">
+        <div class="stepper">
+            <input class="stepper__input" type="text" maxlength="3" value="1" />
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Enhanced With JavaScript
+Why not use a simple text input instead? Because this element is enhanced via JavaScript. The script injects control buttons (de- or increase the input value) and adds basic input validation. Try entering any non-integer into the input to see the validation in action.
+
+The example below shows the **resulting code after DOM manipulation**:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; printWithDelay:true">
+        <div class="stepper">
+            <input class="stepper__input" type="text" maxlength="3" value="1" />
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Variations / Modifiers
+`stepper` may be used with icons, text labels or any combination of these elements. There a three modifiers available: `stepper--light` (renders a white variant), `stepper--stripped` (renders without outer borders and rounded corners) and `stepper--touch` (renders larger, touch-friendly buttons).
+
+**Click »code«** on the upper right border of the block below **to reveal the code for all examples**.
+{% endmarkdown %}
+
+<div class="documentation__blocks" data-docblock="addControls:true;">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <div class="stepper stepper--touch stepper--light">
+                <input class="stepper__input" type="text" maxlength="3" value="1" />
+                <i aria-hidden="true" class="icon--026"></i>
+                <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

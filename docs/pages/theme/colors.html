@@ -46,41 +46,93 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="colors">Colors</h2>
+<p>Colors.less defines all color variables used throughout the whole frontend. If you create a new project, use this file to change color variables or add new ones.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/core/colors.less">colors.less</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="color-settings">Color Settings</h3>
+<p>Use these variables to assign the rather descriptive main color-variables to variables used as project settings:</p>
+
+
+<div class="documentation__block"><code class="language-less"><pre>
+@htmlBackgroundColor:       @blue-8;
+@bodyBackgroundColor:       #fff;
+@textColor:                 @blue-8;
+</pre></code></div>
+
+<h3 id="main-color-variables">Main Color Variables</h3>
+<p>The Yoshino default theme includes four main colors: blue, green, red and yellow. These main colors are available in 25 different shades, through 25 different variables. The following example illustrates how to use the <code>@blue-</code> color variables (but of course the same logic applies to the other main colors):</p>
+
+
+<div class="documentation__block"><code class="language-less"><pre>
+/*
+    @blue-base              // the "base" shade of blue
+    @blue-1                 // the darkest shade of blue
+    ...
+    @blue-25                // the lightest shade of blue
+*/
+
+.myElement {
+    background: @blue-25;   // very light blue background
+    color: @blue-8;         // dark blue text color
+}
+</pre></code></div>
+
+<p>These variables are a <em>Less language feature</em>. See the <a href="http://lesscss.org/features/#variables-feature">Less documentation</a> to learn more about Less variables.</p>
 
 
 <div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Color Tool</h3>
     <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+        <p>Use the <a href="pages/tools/color_tool.html">Color Tool</a> to see all avaiable color shades or to create color gradients and variables for your own code.</p>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<h3 id="other-color-variables">Other Color Variables</h3>
+<p>Apart from the four base colors, there are some more color variables for special purpose:</p>
+
+
+<div class="documentation__block"><code class="language-less"><pre>
+@color-transparent:        rgba(255,255,255,0);
+@color-gold:               #eac310;
+@color-price:              @red-15;
+@color-pharmacy:        #fe0011;
+@color-prescriptionPink-1: #bb4473;
+@color-prescriptionPink-2: #e7aac0;
+@color-prescriptionPink-3: #f6d5e2;
+</pre></code></div>
+
+<h3 id="color-utility-classes">Color Utility Classes</h3>
+<p>In addition to the Less color variables (which can only be used in Less style sheets), there are <strong>color utility classes</strong> which can be used in any template / markup. <a href="docs/pages/css-interface/utilities.html">Learn more about utilities</a>.</p>
+
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <span class="bg-yellow-22 tc-red-10 p-2">Medium red on light yellow</span>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <span class="bg-green-10 tc-yellow-22 p-2">Bright yellow on medium green</span>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <span class="bg-main-10 tc-white p-2">White on dark blue</span>
+        </div>
     </div>
 </div>
 

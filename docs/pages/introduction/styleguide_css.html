@@ -46,43 +46,197 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="css-less-style-guide">CSS / Less Style Guide</h2>
+<p>We mostly embrace <a href="https://github.com/airbnb/css">Airbnb’s CSS coding style</a>.</p>
+<h3 id="formating">Formating</h3>
+<p>Borrowed and slightly modified from Airbnb:</p>
+<ul>
+<li>Use soft tabs (4 spaces) for indentation.</li>
+<li>When using multiple selectors in a rule declaration, give each selector its own line.</li>
+<li>Put a space before the opening brace { in rule declarations.</li>
+<li>In properties, put a space after, but not before, the : character.</li>
+<li>Put closing braces } of rule declarations on a new line.</li>
+<li>Put blank lines between rule declarations.</li>
+</ul>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
-    </div>
-</div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
-    </div>
-</div>
+<div class="documentation__block"><code class="language-css"><pre>
+/* bad :( */
+
+.some-element{
+  border-radius:50%;
+  border:2px solid white; }
+.selectorOne, .selectorTwo, .selectorThree {
+  ...
+}
+#someIdSelector {
+  ...
+}
+
+/* good :) */
+
+.someElement {
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.selectorOne,
+.selectorTwo,
+.selectorThree {
+    ...
+}
+</pre></code></div>
+
+<h4 id="bem">BEM</h4>
+<p>Use the BEM convention! If you are not sure what this means, read the <a href="https://css-tricks.com/bem-101/">great introduction for beginners on CSS-tricks</a>.</p>
+
+
+<div class="documentation__block"><code class="language-css"><pre>
+/* bad :( */
+
+.myElement {
+    ...
+}
+
+.myElement .title {
+    ...
+}
+
+.myElement .copy {
+    ...
+}
+
+.myElement.active {
+    ...
+}
+
+/* good :) */
+
+.myElement {
+    ...
+}
+
+.myElement__title {
+    ...
+}
+
+.myElement__copy {
+    ...
+}
+
+.myElement--active {
+    ...
+}
+</pre></code></div>
+
+<h4 id="selectors">Selectors</h4>
+<ul>
+<li>Do not use id-selectors!</li>
+<li>Do not combine tag with class-selectors!</li>
+</ul>
+<p>You <strong>really do not need id-selectors for styling</strong>. Apart from the fact that id-selectors are not reusable, they introduce an unnecessarily high level of specificity.</p>
+<h4 id="comments">Comments</h4>
+<ul>
+<li>Only use Less-style <a href="http://lesscss.org/features/#features-overview-feature-comments">single-line comments</a>.</li>
+<li>Prefer comments on their own line. Avoid end-of-line comments.</li>
+<li>Write detailed comments for code that isn’t self-documenting (uses of z-index, compatibility or browser-specific hacks)</li>
+</ul>
+<h4 id="ordering-of-property-declarations">Ordering of Property Declarations</h4>
+<p>This topic can cause religious conflicts. We think it simply does not make sense to use any <em>creative</em> ordering method. But ordering makes a lot of sense in order to spot duplicated declarations. The solution: <strong>order by alphabet</strong>. Most text editors let you select a block of code and order the lines alphabetically. This is what you should do.</p>
+<h3 id="less-features-nesting-mixins-extends">LESS-Features: Nesting, Mixins, Extends</h3>
+<ul>
+<li>If you need to, use nesting. <strong>Never go beyond two levels of nesting!</strong></li>
+<li>We only have very few mixins. Avoid to add more mixins.</li>
+<li><strong>Never use the extend feature!</strong> It causes more problems than benefits.</li>
+<li>Use the <a href="http://lesscss.org/features/#parent-selectors-feature">parent selector</a> wisely!</li>
+</ul>
+
+
+<div class="documentation__block"><code class="language-css"><pre>
+/* bad :( */
+
+div.myElement {
+    &__title {
+        color: red;
+    }
+    &__copy {
+        border-bottom: red 2px solid;
+        a {
+            text-decoration: underline;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+/* good :) */
+
+.myElement {
+    ...
+}
+
+.myElement__title {
+    ...
+}
+
+.myElement__copy {
+
+    ...
+
+    a {
+        ...
+    }
+
+    span {
+        ...
+    }
+
+}
+</pre></code></div>
+
+<h3 id="example-of-proper-formatting">Example of Proper Formatting</h3>
+
+
+<div class="documentation__block"><code class="language-css"><pre>
+/** myElement.less */
+
+// block
+// =====
+
+.myElement {
+    .mixin-clearfix;
+    background: #fff;
+    border-radius: 2px;
+    color: @blue-10;
+    height: 14rem;
+    width: 14rem;
+}
+
+// elements
+// ========
+
+.myElement__body {
+    padding: 1.5rem;
+}
+
+// modifiers
+// =========
+
+// large
+
+.myElement--large {
+    height: 17rem;
+    width: 17rem;
+}
+
+// small
+
+.myElement--small {
+    height: 10rem;
+    width: 10rem;
+}
+</pre></code></div>
 
 
             </div>

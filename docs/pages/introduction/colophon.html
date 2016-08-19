@@ -46,43 +46,35 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="colophon">Colophon</h2>
+<p>This page provides an overview of the different technologies, tools and frameworks used throughout the project. It assumes you understand at least the fundamentals of modern web technology – HTML, JavaScript, CSS.</p>
+<h3 id="node-js">Node.js</h3>
+<p><a href="https://nodejs.org/en/">Node.js</a> is JavaScript that runs on a server. This could be a remote web server but in our case it is your computer. Node.js is the technology that runs the task runner we use (Gulp) and the templating system for this project (Nunjucks).</p>
+<p>From the official website:</p>
+<blockquote>
+<p>Node.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</p>
+</blockquote>
+<h3 id="gulp">Gulp</h3>
+<p><a href="http://http://gulpjs.com">Gulp</a> is a so-called <em>task runner</em>. During development, Gulp runs some scripts (»<em>tasks</em>« in Gulp lingo) to manipulate the files you are working on. Gulp searches for a special JavaScript file named <code>gulpfile.js</code> – this is where all Gulp-tasks are defined.</p>
+<p>This project already has a number of gulp tasks implemented and you should not modify them or add new tasks even if Gulp lets you do so. So what do the Gulp tasks do and how do you run them?</p>
+<p>Gulp tasks get called from the console. On a Mac, this would be the Terminal app. By typing <code>gulp serve</code> for example, the whole source code from <em>/src</em> gets processed and rendered into a static site, copied to the <em>/dist</em> directory. During this process, a lot of stuff happens. Less files are rendered into CSS files, the individual JavaScript files get merged into a single file as well as compressed, and so on.</p>
+<h3 id="nunjucks">Nunjucks</h3>
+<p>We use the <a href="https://github.com/mozilla/nunjucks">Nunjucks template engine</a> to render the templates of this project. Like many modern template engines, Nunjucks features <a href="https://mozilla.github.io/nunjucks/templating.html#template-inheritance">template inheritance</a> and <a href="https://mozilla.github.io/nunjucks/templating.html#macro">partials with parameters</a> (called <em>macros</em>) in addition to plain page templates. Official description:</p>
+<blockquote>
+<p>A powerful templating engine with inheritance, asynchronous control, and more (jinja2 inspired).</p>
+</blockquote>
+<h3 id="less">Less</h3>
+<p><a href="http://lesscss.org">Less</a> is a so-called <em>pre-processor</em> for CSS. It looks like CSS but enhances it with lost of useful features like <a href="http://lesscss.org/features/#variables-feature">variables</a>, <a href="http://lesscss.org/features/#mixins-feature">mixins</a>, <a href="http://lesscss.org/features/#loops-feature">loops</a> and more. There are other excellent pre-processors available but we stick to Less since a port to <a href="http://sass-lang.com">Sass</a> for example would simply not be worth the time – Less provides all the features and stability we need for this project.</p>
+<p>From the official website:</p>
+<blockquote>
+<p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themeable and extendable.</p>
+</blockquote>
+<h3 id="jquery">jQuery</h3>
+<p>We use the JavaScript <a href="https://jquery.com">jQuery</a> for our client-side JavaScript. In case you are not familiar with jQuery (excerpt from the official jQuery website):</p>
+<blockquote>
+<p>jQuery makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+</blockquote>
 
-
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
-    </div>
-</div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
-    </div>
-</div>
 
 
             </div>

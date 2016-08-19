@@ -46,41 +46,78 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="togglegroup">toggleGroup</h2>
+<p>This script provides simple hooks you can use to logically group elements anywhere inside a document and make them <em>toggleable</em>. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an <em>activeClassName</em> to highlight an active trigger element and you can even define the event <em>per trigger</em>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hooks</strong></td>
+<td>data-toggle, data-toggle-fallback</td>
+</tr>
+<tr>
+<td><strong>Options</strong> (data-togge)</td>
+<td>target, group, event (optional), activeClassName (optional)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-with-mouseover-and-fall-back-element">Example with mouseover and Fall Back Element</h3>
+<p>If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a <em>fall back element</em> after some delay. You can set it up by providing such element and mark it with <code>data-toggle-fallback=&quot;$&quot;</code> where <code>$</code> is the toggle group name.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="box box--3 w-14" data-toggle-fallback="toggleGroup-1">
+            <div class="box__body h-10">
+                Move your cursor over the buttons below to show different packshots.
+            </div>
+        </div>
+        <div class="box box--3 w-14" id="toggleElement-1">
+            <div class="box__body">
+                <img class="d-blk" src="assets/img/packshots/2-100x100.png" />
+            </div>
+        </div>
+        <div class="box box--3 w-14" id="toggleElement-2">
+            <div class="box__body">
+                <img class="d-blk" src="assets/img/packshots/3-100x100.png" />
+            </div>
+        </div>
+        <div class="box box--3 w-14" id="toggleElement-3">
+            <div class="box__body">
+                <img class="d-blk" src="assets/img/packshots/4-100x100.png" />
+            </div>
+        </div>
+        <div class="btns m-t-4">
+            <button class="btn btn--large" data-toggle="target:#toggleElement-1; group:toggleGroup-1;">1</button>
+            <button class="btn btn--large" data-toggle="target:#toggleElement-2; group:toggleGroup-1;">2</button>
+            <button class="btn btn--large" data-toggle="target:#toggleElement-3; group:toggleGroup-1;">3</button>
+        </div>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+
+<h3 id="example-with-click-event">Example with click event</h3>
+<p>This is basically the same thing like a <a href="docs/pages/components/tabs.html"><code>.tab</code></a>, only you can define other events then <code>click</code> and chose any trigger element you wish. In the following example we use <a href="docs/pages/components/buttons.html"><code>.btn</code></a> and provide an <em>activeClassName</em> to mark them as active once pressed.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="box box--1">
+            <div class="box__body">
+                <div class="btns">
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:active;">Panel One</button>
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:active;">Panel Two</button>
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:active;">Panel Three</button>
+                </div>
+            </div>
+            <div class="box__body" id="toggleElement-4">Panel One</div>
+            <div class="box__body" id="toggleElement-5">Panel Two</div>
+            <div class="box__body" id="toggleElement-6">Panel Three</div>
+        </div>
     </div>
 </div>
 

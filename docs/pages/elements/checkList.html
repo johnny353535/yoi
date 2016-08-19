@@ -46,41 +46,64 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="checklist">CheckList</h2>
+<p>Use <code>.checkList</code> to format an unordered list and add check-icons to each list item without the need of additional markup.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/checkList.less">checkList.less</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.checkList</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.checkList--small, .checkList--positive</code></td>
+</tr>
+</tbody>
+</table>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <ul class="checkList">
+            <li>Aspirin</li>
+            <li>Ibuprofen</li>
+            <li>Valium</li>
+        </ul>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<h3 id="modifiers">Modifiers</h3>
+<p>There are two simple modifiers: <code>.checkList--small</code> and <code>.checkList--positive</code>. <code>.checkList--small</code> renders a smaller icon, <code>.checkList--positive</code> renders the check marks green.</p>
+
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <ul class="checkList checkList--small">
+                <li>Aspirin</li>
+                <li>Ibuprofen</li>
+                <li>Valium</li>
+            </ul>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <ul class="checkList checkList--positive">
+                <li>Aspirin</li>
+                <li>Ibuprofen</li>
+                <li>Valium</li>
+            </ul>
+        </div>
     </div>
 </div>
 

@@ -1,0 +1,87 @@
+{# register all macros #}
+
+{% import 'elements/filterBtns.html'   as filterBtns %}
+{% import 'elements/filters.html'      as filters %}
+{% import 'elements/imgMagnifier.html' as imgMagnifier %}
+{% import 'elements/pagination.html'   as pagination %}
+{% import 'elements/reviews.html'      as reviews %}
+{% import 'elements/stepMenu.html'     as stepMenu %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Yoshino Frontend Documentation</title>
+        <base href="/" />
+        <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        {% block customStyles %}{% endblock %}
+    </head>
+    <body class="noJs" data-environment="desktop">
+        <script>document.body.className='js';</script>
+        <div class="documentation">
+            <div class="documentation__header">
+                <div class="center p-tb-10">
+                    <h1 class="m-tb-5">Yoshino UI Core</h1>
+                </div>
+            </div>
+            <div id="menu" class="dock dock--right" data-dock="autohide:true">
+                <h4>Introduction</h4>
+                {% menu 'pages/introduction/ + ./src/templates/pages/introduction + linkList--stripped' %}
+                <h4>Core</h4>
+                {% menu 'pages/core/ + ./src/templates/pages/core + linkList--stripped' %}
+                <h4>Theme</h4>
+                {% menu 'pages/theme/ + ./src/templates/pages/theme + linkList--stripped' %}
+                <h4>Utilities</h4>
+                {% menu 'pages/utilities/ + ./src/templates/pages/utilities + linkList--stripped' %}
+                <h4>Elements</h4>
+                {% menu 'pages/elements/ + ./src/templates/pages/elements + linkList--stripped' %}
+                <h4>JS Interface</h4>
+                {% menu 'pages/js-interface/ + ./src/templates/pages/js-interface + linkList--stripped' %}
+                <h4>Tools</h4>
+                {% menu 'pages/tools/ + ./src/templates/pages/tools + linkList--stripped' %}
+                <h4>Workflows / Tutorials</h4>
+                {% menu 'pages/workflows/ + ./src/templates/pages/workflows + linkList--stripped' %}
+            </div>
+            <div class="documentation__body">
+                {% block main %}
+                    <div class="note note--attention note--large m-b-4">
+                        <div class="note__body">
+                            <p>No content yet.</p>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+            <footer class="documentation__footer">
+                <div class="center">
+                    &copy; 2016 Yoshino.
+                </div>
+            </footer>
+        </div>
+        <script src="assets/js/libs/jquery.js"></script>
+        <script src="assets/js/libs/jquery-ui.js"></script>
+        <script src="assets/js/libs/beautify.js"></script>
+        <script src="assets/js/libs/prism.js" data-manual></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
+        <script>
+            (function() {
+
+                var $menu           = $('#menu');
+                var $menuItems      = $menu.find('.linkList__item');
+                var currentPagePath = window.location.pathname;
+
+                $menuItems.each(function() {
+
+                    var $this    = $(this);
+                    var thisHref = $this.find('a').attr('href');
+
+                    if (Helper.stringContains(currentPagePath, thisHref))
+                        $this.addClass('linkList__item--active');
+
+                });
+
+            })();
+        </script>
+        {% block customScripts %}{% endblock %}
+    </body>
+</html>

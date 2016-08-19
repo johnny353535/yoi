@@ -46,41 +46,122 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="callout">Callout</h2>
+<p>Use this element to render a small portion of text into a prominent circular callout. Superimpose it upon images or banners, for example to make a special offer visually stand out.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/callout.less">callout.less</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.callout</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--attention, .callout--positive, .callout--negative, .callout--prescription</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-example">Basic Example</h3>
+<p>The default <code>.callout</code> has dark text on a plain white background. In order to reliably center the text inside – both horizontally and vertically – make sure you wrap the text inside with the <code>.callout__body</code> element.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block documentation__block--dark">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <p class="callout">
+            <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+        </p>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<h3 id="modifiers">Modifiers</h3>
+<p>You have a lot of modifiers available to slightly rotate the <code>.callout</code> or to render it in different colors.</p>
+
+
+<div class="documentation__blocks">
+    <div class="documentation__block documentation__block--dark">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--rot-l">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
+   <div class="documentation__block documentation__block--dark">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--rot-r">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--dark">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--attention">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--positive">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--negative">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout callout--prescription">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<h3 id="shadows">Shadows</h3>
+<p>If you wish, you can use the <a href="pages/css-core/utilities.html">shadow utility classes</a> in combination with this element.</p>
+
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout sh-1 m-b-4">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout sh-2 m-b-4">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
+    </div><div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <p class="callout sh-3 m-b-4">
+                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
+            </p>
+        </div>
     </div>
 </div>
 

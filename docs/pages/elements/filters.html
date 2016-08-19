@@ -46,41 +46,173 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="filters">Filters</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/filters.less">filters.less</a></td>
+</tr>
+<tr>
+<td>JS-File</td>
+<td><a href="assets/js/modules/filters.js">filters.js</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.filters</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.filters--disabled</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-example">Basic Example</h3>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="w-40">
+            
+    
+    
+        <div class="filters" data-searchdisplay="#searchDisplay">
+    
+        <div class="filters__header">Ergebnis filtern nach …</div>
+        <div class="filterGroup">
+            <div class="filterGroup__header">
+                <h4>Preis</h4>
+            </div>
+            <div class="filterGroup__body">
+                <div class="filter filter__range">
+                    <div class="rangeInput m-tb-4" data-rangeinput="min:20; max:400; absMin:20; absMax:400;">
+                        <form>
+                            <label for="min">Mindestpreis</label>
+                            <input type="text" value="10" name="min" />
+                            <label for="max">Höchstpreis</label>
+                            <input type="text" value="500" name="max" />
+                            <input class="btn" type="submit" value="Anwenden">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filterGroup">
+            <div class="filterGroup__header">
+                <h4>Darreichungsform</h4>
+            </div>
+            <div class="filterGroup__body">
+                <a class="filter filter--multi" href="#">
+                    Augen- und Nasensalbe
+                    <span class="filter__counter">2</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Brausetabletten
+                    <span class="filter__counter">11</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Granulat
+                    <span class="filter__counter">33</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Granulat zur Herstellung einer Suspension zum Einnehmen
+                    <span class="filter__counter">888</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Kautabletten
+                    <span class="filter__counter">22</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Pulver zur Herstellung einer Infusionslösung
+                    <span class="filter__counter">22</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Tabletten
+                    <span class="filter__counter">22</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Tabletten magensaftresistent
+                    <span class="filter__counter">22</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Überzogene Tabletten
+                    <span class="filter__counter">22</span>
+                </a>
+            </div>
+        </div>
+        <div class="filterGroup filterGroup--collapsed">
+            <div class="filterGroup__header">
+                <h4>Hersteller</h4>
+            </div>
+            <div class="filterGroup__body">
+                <a class="filter filter--multi" href="#">
+                    Novartis
+                    <span class="filter__counter">99</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Ratiopharm
+                    <span class="filter__counter">7</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Bayer
+                    <span class="filter__counter">13</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Trommsdorf
+                    <span class="filter__counter">55</span>
+                </a>
+            </div>
+        </div>
+        <div class="filterGroup filterGroup--collapsed">
+            <div class="filterGroup__header">
+                <h4>Bewertung</h4>
+            </div>
+            <div class="filterGroup__body">
+                <a class="filter filter--multi" href="#">
+                    <span class="rating rating--small rating--5">
+                        <span class="rating__stars">5 von 5 Sternen</span>
+                    </span>
+                    <span class="filter__counter">8</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    <span class="rating rating--small rating--4">
+                        <span class="rating__stars">4 von 5 Sternen</span>
+                    </span>
+                    <span class="filter__counter">2</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    <span class="rating rating--small rating--3">
+                        <span class="rating__stars">3 von 5 Sternen</span>
+                    </span>
+                    <span class="filter__counter">12</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    <span class="rating rating--small rating--2">
+                        <span class="rating__stars">2 von 5 Sternen</span>
+                    </span>
+                    <span class="filter__counter">2</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    <span class="rating rating--small rating--1">
+                        <span class="rating__stars">1 von 5 Sternen</span>
+                    </span>
+                    <span class="filter__counter">9</span>
+                </a>
+            </div>
+        </div>
+
+        
+
     </div>
-</div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+
+        </div>
+        <div class="box box--2 m-t-4 pos-rel h-30 w-40 p-4" id="#searchDisplay">Search Result</div>
     </div>
 </div>
 

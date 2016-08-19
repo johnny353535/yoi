@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Filters
+
+|                |                                                                |
+| -              | -                                                              |
+| Less-File      | [filters.less](assets/less/elements/filters.less)              |
+| JS-File        | [filters.js](assets/js/modules/filters.js)                     |
+| Base CSS-Class | `.filters`                                                     |
+| Modifiers      | `.filters--disabled`                                           |
+
+### Basic Example
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="w-40">
+            {{ filters.build({ searchDisplay: '#searchDisplay' }) }}
+        </div>
+        <div class="box box--2 m-t-4 pos-rel h-30 w-40 p-4" id="#searchDisplay">Search Result</div>
+    </div>
+</div>
+
+{% endblock %}

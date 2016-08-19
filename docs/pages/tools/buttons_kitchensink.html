@@ -1,0 +1,1737 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Yoshino Frontend Documentation</title>
+        <base href="/" />
+        <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        
+    </head>
+    <body class="noJs" data-environment="desktop">
+        <script>document.body.className='js';</script>
+        <div class="documentation">
+            <div class="documentation__header">
+                <div class="center p-tb-10">
+                    <h1 class="m-tb-5">Yoshino UI Core</h1>
+                </div>
+            </div>
+            <div id="menu" class="dock dock--right" data-dock="autohide:true">
+                <h4>Introduction</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
+                <h4>Core</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
+                <h4>Theme</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
+                <h4>Utilities</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/utilities/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/grid.html">grid</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/interface.html">interface</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/js_fallback.html">js fallback</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/layout.html">layout</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/spacing.html">spacing</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/typography.html">typography</a></li><li class="linkList__item"><a class="linkList__link" href="pages/utilities/visibility.html">visibility</a></li></ul>
+                <h4>Elements</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/elements/_blank.html"> blank</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/badge.html">badge</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/barChart.html">barChart</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/box.html">box</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/breadcrumbs.html">breadcrumbs</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/buttons.html">buttons</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/callout.html">callout</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/checkList.html">checkList</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/datePicker.html">datePicker</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/filterBtn.html">filterBtn</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/filters.html">filters</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/flyout.html">flyout</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/icons.html">icons</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/imgMagnifier.html">imgMagnifier</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/linkList.html">linkList</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/modal.html">modal</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/note.html">note</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/pagination.html">pagination</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/pieChart.html">pieChart</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/popOver.html">popOver</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/radioBtn.html">radioBtn</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/ribbon.html">ribbon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/slider.html">slider</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/stepper.html">stepper</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/tables.html">tables</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/tabs.html">tabs</a></li><li class="linkList__item"><a class="linkList__link" href="pages/elements/tooltip.html">tooltip</a></li></ul>
+                <h4>JS Interface</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/toggleGroup.html">toggleGroup</a></li></ul>
+                <h4>Tools</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/tools/article_kitchensink.html">article kitchensink</a></li><li class="linkList__item"><a class="linkList__link" href="pages/tools/buttons_kitchensink.html">buttons kitchensink</a></li><li class="linkList__item"><a class="linkList__link" href="pages/tools/color_tool.html">color tool</a></li></ul>
+                <h4>Workflows / Tutorials</h4>
+                <ul class="linkList linkList--stripped"><li class="linkList__item"><a class="linkList__link" href="pages/workflows/adding_elements.html">adding elements</a></li><li class="linkList__item"><a class="linkList__link" href="pages/workflows/adding_icons.html">adding icons</a></li><li class="linkList__item"><a class="linkList__link" href="pages/workflows/adding_to_the_documentation.html">adding to the documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/workflows/custom_branding.html">custom branding</a></li></ul>
+            </div>
+            <div class="documentation__body">
+                
+
+<h2 id="buttons-kitchensink">Buttons Kitchensink</h2>
+<h3 id="single-buttons">Single Buttons</h3>
+
+
+<form class="m-tb-4">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--light">light</option>
+            <option value="btn--dark">dark</option>
+            <option value="btn--attention">attention</option>
+            <option value="btn--negative">error, negative</option>
+            <option value="btn--positive">success, positive</option>
+            <option value="btn--subtle">subtle</option>
+        </select>
+    </span>
+    <b class="p-lr-1">+</b>
+    <span data-modifier="btn--rounded btn--flat btn--outline">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--rounded">rounded</option>
+            <option value="btn--flat">flat</option>
+            <option value="btn--flat btn--rounded">flat rounded</option>
+            <option value="btn--outline btn--outline">outline</option>
+            <option value="btn--rounded btn--outline">rounded outline</option>
+        </select>
+    </span>
+    <b class="p-lr-1">+</b>
+    <span data-modifier="btn--small btn--medium btn--large">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--small">small</option>
+            <option value="btn--medium">medium</option>
+            <option value="btn--large">large</option>
+        </select>
+    </span>
+</form>
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-controls>
+            <button class="btn" style="margin-bottom: 3px;">
+                <span>Button</span>
+            </button>
+            <hr class="m-tb-4" />
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--001-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--002-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--003-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--004-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--005-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--006-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--007-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--008-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--009-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--010-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--011-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--012-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--013-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--014-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--015-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--016-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--017-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--018-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--019-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--020-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--021-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--022-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--023-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--024-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--025-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--026-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--027-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--028-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--029-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--030-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--031-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--032-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--033-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--034-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--035-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--036-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--037-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--038-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--039-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--040-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--041-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--042-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--043-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--044-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--045-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--046-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--047-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--048-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--049-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--050-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--051-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--052-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--053-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--054-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--055-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--056-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--057-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--058-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--059-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--062-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--065-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--066-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--067-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--068-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--069-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--070-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--071-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--072-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--073-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--074-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--075-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--076-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--077-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--078-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--079-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--080-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--081-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--082-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--083-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--084-s"></i>
+                    <span>Button</span>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <i aria-hidden="true" class="icon--085-s"></i>
+                    <span>Button</span>
+                </button>
+            
+            <hr class="m-tb-4" />
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--001-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--002-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--003-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--004-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--005-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--006-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--007-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--008-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--009-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--010-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--011-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--012-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--013-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--014-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--015-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--016-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--017-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--018-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--019-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--020-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--021-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--022-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--023-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--024-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--025-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--026-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--027-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--028-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--029-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--030-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--031-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--032-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--033-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--034-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--035-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--036-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--037-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--038-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--039-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--040-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--041-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--042-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--043-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--044-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--045-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--046-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--047-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--048-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--049-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--050-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--051-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--052-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--053-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--054-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--055-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--056-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--057-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--058-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--059-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--062-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--065-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--066-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--067-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--068-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--069-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--070-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--071-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--072-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--073-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--074-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--075-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--076-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--077-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--078-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--079-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--080-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--081-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--082-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--083-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--084-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span>Button</span>
+                    <i aria-hidden="true" class="icon--085-s"></i>
+                </button>
+            
+            <hr class="m-tb-4" />
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--001-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--002-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--003-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--004-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--005-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--006-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--007-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--008-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--009-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--010-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--011-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--012-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--013-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--014-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--015-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--016-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--017-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--018-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--019-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--020-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--021-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--022-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--023-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--024-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--025-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--026-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--027-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--028-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--029-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--030-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--031-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--032-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--033-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--034-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--035-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--036-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--037-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--038-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--039-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--040-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--041-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--042-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--043-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--044-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--045-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--046-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--047-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--048-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--049-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--050-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--051-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--052-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--053-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--054-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--055-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--056-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--057-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--058-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--059-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--062-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--065-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--066-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--067-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--068-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--069-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--070-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--071-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--072-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--073-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--074-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--075-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--076-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--077-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--078-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--079-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--080-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--081-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--082-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--083-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--084-s"></i>
+                </button>
+            
+                <button class="btn" style="margin-bottom: 3px;">
+                    <span class="hidden">Button</span>
+                    <i aria-hidden="true" class="icon--085-s"></i>
+                </button>
+            
+        </div>
+    </div>
+</div>
+
+<h3 id="large-icons-inside-large-buttons">Large Icons Inside Large Buttons</h3>
+
+
+<form class="m-tb-4">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--light">light</option>
+            <option value="btn--dark">dark</option>
+            <option value="btn--attention">attention</option>
+            <option value="btn--negative">error, negative</option>
+            <option value="btn--positive">success, positive</option>
+            <option value="btn--subtle">subtle</option>
+        </select>
+    </span>
+    <b class="p-lr-1">+</b>
+    <span data-modifier="btn--rounded btn--flat btn--outline">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--rounded">rounded</option>
+            <option value="btn--flat">flat</option>
+            <option value="btn--flat btn--rounded">flat rounded</option>
+            <option value="btn--outline btn--outline">outline</option>
+            <option value="btn--rounded btn--outline">rounded outline</option>
+        </select>
+    </span>
+</form>
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example">
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <i class="icon--022"></i>
+                <span>Large Icon</span>
+            </button>
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <span>Large Icon</span>
+                <i class="icon--022"></i>
+            </button>
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <span class="hidden">Large Icon</span>
+                <i class="icon--022"></i>
+            </button>
+            <hr class="m-tb-4" />
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <i class="icon--026"></i>
+                <span>Large Icon</span>
+            </button>
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <span>Large Icon</span>
+                <i class="icon--026"></i>
+            </button>
+            <button class="btn btn--large" style="margin-bottom: 3px;">
+                <span class="hidden">Large Icon</span>
+                <i class="icon--026"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<h3 id="light-outline-button-on-top-of-an-image">Light Outline Button on top of an Image</h3>
+
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example">
+            <div class="posterTeaser posterTeaser--bottom w-24">
+                <img src="assets/img/teasers/durex-240x240.jpg" alt="" />
+                <p class="posterTeaser__body al-c m-b-2">
+                    <a href="#" class="btn btn--light btn--large btn--outline">
+                        <span>Learn more</span>
+                        <i aria-hidden="true" class="icon--007-s"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="button-groups">Button Groups</h3>
+
+
+<form class="m-tb-4">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--light">light</option>
+            <option value="btn--dark">dark</option>
+            <option value="btn--attention">attention</option>
+            <option value="btn--negative">error, negative</option>
+            <option value="btn--positive">success, positive</option>
+            <option value="btn--subtle">subtle</option>
+        </select>
+    </span>
+    <b class="p-lr-1">+</b>
+    <span data-modifier="btn--rounded btn--flat btn--outline">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--rounded">rounded</option>
+            <option value="btn--flat">flat</option>
+            <option value="btn--flat btn--rounded">flat rounded</option>
+            <option value="btn--outline btn--outline">outline</option>
+            <option value="btn--rounded btn--outline">rounded outline</option>
+        </select>
+    </span>
+    <b class="p-lr-1">+</b>
+    <span data-modifier="btn--small btn--medium btn--large">
+        <select class="btn--large btn--light">
+            <option value="">none</option>
+            <option value="btn--small">small</option>
+            <option value="btn--medium">medium</option>
+            <option value="btn--large">large</option>
+        </select>
+    </span>
+</form>
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example">
+            <div class="btns m-b-2">
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+            </div>
+            <div class="btns m-b-2">
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span>Play</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span>Stop</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span>Pause</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span>Rewind</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span>Forward</span>
+                </button>
+            </div>
+            <div class="btns m-b-2">
+                <button class="btn">
+                    <span>Play</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Stop</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Pause</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Rewind</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Forward</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            </div>
+            <div class="btns m-b-2">
+                <button class="btn">
+                    <span class="hidden">Play</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Stop</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Pause</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Rewind</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Forward</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example">
+            <div class="btns btns--vertical m-b-2">
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+            </div>
+            <div class="btns btns--vertical m-b-2">
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span>Play</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span>Stop</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span>Pause</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span>Rewind</span>
+                </button>
+                <button class="btn">
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span>Forward</span>
+                </button>
+            </div>
+            <div class="btns btns--vertical m-b-2">
+                <button class="btn">
+                    <span>Play</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Stop</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Pause</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Rewind</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+                <button class="btn">
+                    <span>Forward</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            </div>
+            <div class="btns btns--vertical m-b-2">
+                <button class="btn">
+                    <span class="hidden">Play</span>
+                    <i aria-hidden="true" class="icon--000-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Stop</span>
+                    <i aria-hidden="true" class="icon--063-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Pause</span>
+                    <i aria-hidden="true" class="icon--064-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Rewind</span>
+                    <i aria-hidden="true" class="icon--061-s"></i>
+                </button>
+                <button class="btn">
+                    <span class="hidden">Forward</span>
+                    <i aria-hidden="true" class="icon--060-s"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+            <footer class="documentation__footer">
+                <div class="center">
+                    &copy; 2016 Yoshino.
+                </div>
+            </footer>
+        </div>
+        <script src="assets/js/libs/jquery.js"></script>
+        <script src="assets/js/libs/jquery-ui.js"></script>
+        <script src="assets/js/libs/beautify.js"></script>
+        <script src="assets/js/libs/prism.js" data-manual></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
+        <script>
+            (function() {
+
+                var $menu           = $('#menu');
+                var $menuItems      = $menu.find('.linkList__item');
+                var currentPagePath = window.location.pathname;
+
+                $menuItems.each(function() {
+
+                    var $this    = $(this);
+                    var thisHref = $this.find('a').attr('href');
+
+                    if (Helper.stringContains(currentPagePath, thisHref))
+                        $this.addClass('linkList__item--active');
+
+                });
+
+            })();
+        </script>
+        
+    <script>
+        (function() {
+
+            function initKitchensink() {
+
+                $('[data-modifier]').on('change', function() {
+
+                    var $this = $(this);
+
+                    var allButtons       = $this.parent().next('.documentation__blocks').find('.btn');
+                    var modifierClasses  = $this.data('modifier');
+                    var selectedModifier = $this.find('option:selected').val();
+                    var dependendSelect  = $this.nextAll('span').first().find('[role="customSelect"]');
+
+                    allButtons.each(function() {
+
+                        var $this = $(this);
+
+                        $this.removeClass(modifierClasses);
+                        $this.addClass(selectedModifier);
+
+                        // special case because of flat/subtle depedency
+
+                        if (selectedModifier === 'btn--subtle') {
+                            dependendSelect.addClass('btn--disabled');
+                            dependendSelect.find('select').prop('disabled', true);
+                            dependendSelect.find('option').prop('selected', false);
+                            $this.removeClass('btn--rounded btn--flat btn--outline');
+                        } else {
+                            dependendSelect.removeClass('btn--disabled');
+                            dependendSelect.find('select').prop('disabled', false);
+                        }
+
+                    });
+
+                });
+
+            }
+
+            $(window).on('load', initKitchensink);
+
+        })();
+    </script>
+
+    </body>
+</html>

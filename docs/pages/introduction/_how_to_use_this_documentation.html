@@ -46,41 +46,58 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="how-to-use-this-documentation">How to Use This Documentation</h2>
+<p>This documentation was thoughtfully written and structured to make it easy to read and understand. It’s written in English – like all inline comments inside the code files.</p>
+<h3 id="navigation">Navigation</h3>
+<p>The documentation feature two menus. First, there is a large scrollable menu on the very right edge of the screen. It slides into view on mouse over. This is the main menu: it let’s you navigate all the pages of the documentation. A second menu can be found in the header. There are two prominent buttons that lead to the templates for the desktop and mobile version of the site.</p>
+<h3 id="examples">Examples</h3>
+<p>Examples can be found on most pages. They can display both the rendered element and it’s markup. The code featues syntax-hightlighting for better readability.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <span class="elementClassname">element</span>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<p>Some examples have options to <strong>toggle the code block</strong> and to <strong>toggle the example background</strong> between light (default) and dark.</p>
+
+
+<div class="documentation__block" data-docblock="addControls:true;">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <span class="elementClassname">element</span>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
+</div>
+
+<h3 id="links-to-source-files">Links to Source Files</h3>
+<p>Most element pages start with a tabular overview (e.g. <a href="docs/pages/elements/pieChart.html">Pie Chart</a>). These tables contain basic information about the very element and links to it’s associated JavaScript and Less files. On click, the file content is displayed in a full-size pop over with syntax highlighting.</p>
+
+
+<a href="assets/js/modules/pieChart.js" class="btn btn--dark btn--large">Open Example Code</span></a>
+
+<p>Use the button above to open the source code of the pie chart script as an example.</p>
+<h3 id="notes">Notes</h3>
+<p>Notes display important information – restrictions, possible browser quirks, best practices, etc.</p>
+
+
+<div class="note note--error note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Warning!</h3>
+    <div class="note__body">
+        <p>This information is extremely important! Don’t miss it.</p>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
+</div>
+
+<div class="note note--attention note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Attention!</h3>
+    <div class="note__body">
+        <p>This information provides better understanding or offers a hint.</p>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+</div>
+
+<div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Good to Know</h3>
+    <div class="note__body">
+        <p>Some additional information.</p>
     </div>
 </div>
 

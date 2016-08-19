@@ -1,0 +1,115 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Modal
+Modals are simple, regular pages, referenced by either `href`-attributes or a path via a `data-options`-attribute. Any element may reference a modal. Modals are loaded asynchronically (ajax) and injected into the dom.
+
+|   |   |
+| - | - |
+| Less-File | [modal.less](assets/less/elements/modal.less) |
+| JS-File   | [modal.js](assets/js/modules/modal.js) |
+| Base CSS-Class | `.modal` |
+| Modifiers | `.modal--small` |
+
+### Modal Page
+Modal pages must at least have an element with the CSS-class `.modal`. Everything else is optional. There is only one modifier available: `.modal--small`. It affects the modal width.
+The following is an example for a simple (small) modal page. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a>.
+{% endmarkdown %}
+
+<div class="documentation__block documentation__block--darkMainColor">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="h-33">
+            <div class="modal modal--small m-t-6">
+                <div class="modal__header">
+                    <h3>Demo Modal</h3>
+                </div>
+                <div class="modal__body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn btn--large btn--dark fl-r">OK</button>
+                    <button class="btn btn--large btn--subtle fl-r m-r-1" data-action="closeModal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Referencing a Modal Page (the most simple case)
+If you wish to reference to a modal page to show it as a modal, you need to apply the `data-modal` atribute to the trigger element (most likely a link).
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="demos/modal.html" data-modal>Show Demo Modal</a>
+    </div>
+</div>
+
+{% markdown %}
+In this most simple example, only two things are necessary: a valid link to a correctly formatted modal page and the `data-modal`-atribute.
+### Options
+Modal-links can have options. In fact, you may use any element to refer to a modal, as long as you provide a valid modal path:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <span data-modal="path:desktop/pages/modal_demo.html;">Show Demo Modal</span>
+    </div>
+</div>
+
+{% markdown %}
+Option are written as **semicolon-seperated key/value pairs**>:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <code><pre>path:desktop/pages/modal_demo.html; cache:true; …</pre></code>
+</div>
+
+{% markdown %}
+Available options:
+
+| Key | Value | Description |
+| - | - | - |
+| id    | id-selector as *string*, eg. `#modal-test`| To reference modals internally, this script uses generated ids, which may be overridden by this option. |
+| path  | valid path to modal page as *string*, eg. `pages/modal_test.html` | Any element can be linked to a modal. If it's not a link or a link with a href that does not link to a modal, the modal path may be overridden by this option. |
+| cache | *boolean* true/false | If set to true, the referenced modal will preload in the background. |
+
+### Modals on Mobile Pages
+It’s possible to use modals on mobile pages as well, although it’s probably not the best idea. Everything is the same, only the CSS-classes are postfixed with "-s":
+{% endmarkdown %}
+
+<div class="documentation__block documentation__block--darkMainColor">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="h-31">
+            <div class="modal-s m-t-6">
+                <div class="modal-s__header">
+                    <h3>Demo Modal</h3>
+                </div>
+                <div class="modal-s__body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Modals to External Pages
+{% endmarkdown %}
+
+<div class="note note--error note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Modals Must Not Load External Pages</h3>
+    <div class="note__body">
+        <p>The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>
+    </div>
+</div>
+
+{% markdown %}
+### Errors / Fallback
+If you reference a modal page that is either ill-formatted, isn’t a modal page or simply does not exist, the modal won’t be shown.
+Instead, if the trigger element is a link, it will fall back to it’s default behaviour (open the location provided via `href`-attribute, even if the page does not exist). If the trigger element is not a link (modal path via `data-options`-attribute), nothing will happen on click.
+{% endmarkdown %}
+
+{% endblock %}

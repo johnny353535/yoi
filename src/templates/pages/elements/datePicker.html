@@ -1,0 +1,157 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Date Picker
+Use this element to provide an easy and comfortable way to enter dates into input fields. It was **designed for use on desktop browsers only**. On mobile browsers it makes more sense to use the native input widgets.
+
+|   |   |
+| - | - |
+| Less-File | [datePicker.less](assets/less/elements/datePicker.less) |
+| JS-File   | [datePicker.js](assets/js/modules/datePicker.js) |
+| Base CSS-Class | `.datePicker` |
+| Modifiers | `none` |
+
+### Basic Example
+Add the data-attribute "datepicker" to any (date-)input field that you would like to use the date picker. A little icon on the right side will appear to indicate that the field invokes a date picker on focus. *If you do not supply any more data, the date picker will start with the current date*.
+{% endmarkdown %}
+
+<div id="calendar"></div>
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <form>
+            <input class="w-20" type="date" data-datepicker />
+        </form>
+    </div>
+</div>
+
+{% markdown %}
+### Set an Initial Date
+You can add a date to the input field via markup. **Make sure you use the date picker data-attribute. Do not use the value-attribute.**
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <form>
+            <input class="w-20" type="date" data-datepicker="year:2010; month:10; day:5;" />
+        </form>
+    </div>
+</div>
+
+{% markdown %}
+If you leave out a parameter, it will **fall back to the current date**. Eg. if you leave out the year, the date picker will assume you wish to initialize it with the current year. Same for month and day, of course.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <form>
+            <input class="w-20" type="date" data-datepicker="month:10; day:10;" />
+        </form>
+    </div>
+</div>
+
+{% markdown %}
+### Positioning
+By default, the date picker appears below the date input field. However, if the available space in viewport below the input is too low, the date picker appears above the input field. Try it out by scrolling the page before you focus on the input field.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <form>
+            <input class="input w-20" type="date" data-datepicker />
+        </form>
+    </div>
+</div>
+
+{% markdown %}
+### Large Input Fields
+The date picker works perfectly fine with both large and small input fields.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <form>
+            <input class="input--large w-20" type="date" data-datepicker />
+        </form>
+    </div>
+</div>
+
+{% markdown %}
+### Markup
+These date pickers were created to be used as progressive enhancement. Without JavaScript, the input still works fine, with JavaScript enabled, the experience gets enhanced. Therefore, **you do not need to write additional markup** since it’s all dynamically generated. However, this is an **example of the generated markup**:
+{% endmarkdown %}
+
+<div class="documentation__block documentation__block--dark">
+    <div class="documentation__example h-23" data-printcode="language:markup; print:true;">
+        <div class="datePicker">
+            <a class="btn btn--subtle btn--large btn--stripped pos-tl" data-action="prevMonth">
+                <i aria-hidden="true" class="icon--008-s"></i>
+            </a>
+            <a class="btn btn--subtle btn--large btn--stripped pos-tr" data-action="nextMonth">
+                <i aria-hidden="true" class="icon--007-s"></i>
+            </a>
+            <h3 class="datePicker__header">July 2016</h3>
+            <table class="datePicker__days">
+                <tbody>
+                    <tr>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                    <tr>
+                        <td class="datePicker--emptyDay"></td>
+                        <td class="datePicker--emptyDay"></td>
+                        <td class="datePicker--emptyDay"></td>
+                        <td class="datePicker--emptyDay"></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td class="datePicker--today">12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td>31</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

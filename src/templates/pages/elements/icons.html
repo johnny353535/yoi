@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Icons
+The icons are stored as individual characters inside an icon font. They are vector-based but for really crisp and pixel-perfect rendering, you are restricted to the specified font sizes.
+
+|   |   |
+| - | - |
+| Less-File | [icons.less](assets/less/core-elements/icons.less) |
+| Base CSS-Class | `.icon / .icon--*` |
+| Modifiers | `.x2, .x3, .x4, *-s` |
+
+### Modifiers
+Modifiers are used to define the icon size. The initial size is 32px. `.x2` produces icons in 64px, `.x3` = 96px, `.x4` = 128px. In fact, every font-size as a multiple of 8px is possible for perfect rendering. For 16px, there a optimized versions with reduced detail. Simply use the postfix `*-s`.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <i class="icon--057-s" aria-hidden="true"></i>
+        <i class="icon--057" aria-hidden="true"></i>
+        <i class="icon--057 icon--x2" aria-hidden="true"></i>
+        <i class="icon--057 icon--x3" aria-hidden="true"></i>
+        <i class="icon--057 icon--x4" aria-hidden="true"></i>
+    </div>
+</div>
+
+{% markdown %}
+Always use the `<i>`-tag since there is no more semantically solution. By adding the aria-attribute "hidden", we make sure a screen reader ignores the otherwise meaningless/empty tag.
+### Adding new icons
+See [worflows / adding icons](docs/pages/workflows/adding_icons.html).
+### List of Available Icons
+{% endmarkdown %}
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>*-s</th>
+            <th></th>
+            <th>.x2</th>
+            <th>.x3</th>
+            <th>.x4</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in range(0, 86) %}
+            <tr>
+                <td style="vertical-align: middle;"><code contenteditable>.icon--{{ i|pad(2) }}</code></td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}-s"></i>
+                </td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}"></i>
+                </td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}  icon--x2"></i>
+                </td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}  icon--x3"></i>
+                </td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}  icon--x4"></i>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

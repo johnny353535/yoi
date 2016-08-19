@@ -46,43 +46,65 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="flyout">Flyout</h2>
+<p>Use this element to display a small tab and text label that is pinned to either the left or right side of the screen and displays a small panel on click. You should <strong>use only one flyout per page</strong> and <strong>only for important information</strong> (such as feedback / help / contact links) since the sticky labels on the side of the screen appera rather prominent to the user. This element was <strong>designed for large screens only</strong> and should not be used on mobile pages.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/flyout.less">flyout.less</a></td>
+</tr>
+<tr>
+<td>JS-File</td>
+<td><a href="assets/js/modules/flyout.js">flyout.js</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.flyout</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.flyout--left, .flyout--right</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-example">Basic Example</h3>
+<p>A flyout <strong>can contain any content</strong>. Since it’s a very prominent element on any page, use it very sparely and only where it makes sense. A perfectly valid scenario would be a flyout as a contact or feedback panel.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="flyout">
+            <h2 class="flyout__handle">Click Me</h2>
+            <div class="flyout__body">
+                <h3 class="ff-ss">This is an Example Flyout</h3>
+                <p class="fs-15 lh-20 m-tb-4">Use this element to display relevant information like contact links or such.</p>
+                <a href="#" class="btn btn--large d-blk w-1-1 m-b-2">
+                    <i aria-hidden="true" class="icon--021"></i>
+                    <span>Call-Back</span>
+                </a>
+                <a href="#" class="btn btn--large d-blk w-1-1">
+                    <i aria-hidden="true" class="icon--038"></i>
+                    <span>E-Mail</span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
-    </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
-    </div>
-</div>
+
+<h3 id="modifiers">Modifiers</h3>
+<p>There are two modifiers available (<code>.flyout--left, .flyout--right</code>) to either <strong>stick the flyout to the left or to the right side of the screen</strong>. In the example above, neither <code>.flyout--left</code> nor <code>flyout--right</code> was used, still the flyout sits on the left side of the screen. <strong>Left is the default position</strong>, the modifier class got added since no position was defined.</p>
+<h3 id="position-in-dom">Position in DOM</h3>
+<p>To correctly position the flyout (to »pin« it while scrolling), <code>position:fixed</code> is applied. Since unexpected positioning are likely to occur due to the flyout’s position in the DOM, each flyout gets removed from it’s current position an re-injected at the end of the <code>body</code>. This means <strong>you do not have to care where in your markup you put the flyout</strong>.</p>
+<h3 id="noscript-fall-back">NoScript / Fall Back</h3>
+<p>If JavaScript is not available, the flyout is a simple box and remains at it’s position in the DOM.</p>
+
 
 
             </div>

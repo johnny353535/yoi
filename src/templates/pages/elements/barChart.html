@@ -1,0 +1,100 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Bar Chart
+Use this element to visualize data, formatted into *very basic* bar charts. Two options are available: *vertical* and *horizontal* bars. If you need to display more complex pie charts, see: <a href="pages/elements/pieChart.html">Pie Chart</a>.
+
+|   |   |
+| - | - |
+| Less-File | [barChart.less](assets/less/elements/barChart.less) |
+| Base CSS-Class | `.barChart` |
+| Modifiers | `.barChart--x0 – .barChart--x100, .barChart--y0 – .barChart--y100` |
+
+### Basic Usage
+Bar charts are just HTML elements (»tracks«) with pseudo-elements inside (»bars«). **Use the modifier classes to assign percentage values** (max. 100%), either horizontally (`.barChart--x...`) or vertically (`.barChart--y...`).
+
+These are two very simple bar charts, the first horizontal with a 50% value, the second vertical, with a 50% value:
+{% endmarkdown %}
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <span class="barChart barChart--x50"></span>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <span class="barChart barChart--y50"></span>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### More Meaningful Markup
+Since the bar chart element does not provide any meaningful semantics, so use them accordingly or in combination with more meaningful markup.
+{% endmarkdown %}
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <dl>
+                <dt class="fs-15 lh-20 m-b-1">Protein</dt>
+                <dd class="barChart barChart--x50 m-b-2">
+                    <span class="fs-15 pos-tr m-r-neg-10">50%</span>
+                </dd>
+                <dt class="fs-15 lh-20 m-b-1">Sugars</dt>
+                <dd class="barChart barChart--x23 m-b-2">
+                    <span class="fs-15 pos-tr m-r-neg-10">23%</span>
+                </dd>
+                <dt class="fs-15 lh-20 m-b-1">Fat</dt>
+                <dd class="barChart barChart--x3">
+                    <span class="fs-15 pos-tr m-r-neg-10">3%</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <table class="table--stripped w-35">
+                <caption>Ingredients per 100ml</caption>
+                <tr>
+                    <th class="al-c">H</th>
+                    <th class="al-c">Al</th>
+                    <th class="al-c">Na</th>
+                    <th class="al-c">Mg</th>
+                    <th class="al-c">O</th>
+                </tr>
+                <tr>
+                    <td class="al-c p-4">
+                        <p class="barChart barChart--y22 m-b-3">
+                            <span class="pos-bl m-b-neg-5">22%</span>
+                        </p>
+                    </td>
+                    <td class="al-c p-4">
+                        <p class="barChart barChart--y59 m-b-3">
+                            <span class="pos-bl m-b-neg-5">59%</span>
+                        </p>
+                    </td>
+                    <td class="al-c p-4">
+                        <p class="barChart barChart--y12 m-b-3">
+                            <span class="pos-bl m-b-neg-5">12%</span>
+                        </p>
+                    </td>
+                    <td class="al-c p-4">
+                        <p class="barChart barChart--y5 m-b-3">
+                            <span class="pos-bl m-b-neg-5">5%</span>
+                        </p>
+                    </td>
+                    <td class="al-c p-4">
+                        <p class="barChart barChart--y2 m-b-3">
+                            <span class="pos-bl m-b-neg-5">2%</span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

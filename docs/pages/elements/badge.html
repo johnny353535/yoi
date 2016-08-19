@@ -46,41 +46,124 @@
             <div class="documentation__body">
                 
 
-<h2 id="introduction">Introduction</h2>
-<p>This is the Yoshino frontend foundation. During the following months, this code will get a major overhaul. A yet-to-be-written middleware will connect the frontend with a our massive restful content API which is almost finished at this point.</p>
-<h3 id="getting-started">Getting Started</h3>
+<h2 id="badge">Badge</h2>
+<p>Use <code>.badge</code> to display small bits of data, eg. inside a button. It’s perfect to create one-word labels (eg. <em>Special Offer!</em>) or counters (You have <em>12</em> unread messages*).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Less-File</td>
+<td><a href="assets/less/elements/badge.less">badge.less</a></td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.badge</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>.badge--small, .badge--medium, .badge--large, .badge--dark, .badge--light, .badge--attention, .badge--error, .badge--negative, .badge--success, .badge--positive, .badge--prescription, .badge--price, .badge--rounded</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="available-sizes">Available Sizes</h3>
+<p>Badges are available in four different sizes.</p>
 
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <div class="note__body">
-        <p>If you are new to this project, we recommend to read the following pages to learn more about the project, the workflows, the technology we chose and how to use this documentation.</p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <span class="badge badge--small">21</span>
+        <span class="badge">22</span>
+        <span class="badge badge--medium">23</span>
+        <span class="badge badge--large">24</span>
     </div>
 </div>
-<div class="m-lr-neg-2 tc-documentation grid-float">
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/_how_to_use_this_documentation.html">
-            How to Use this Documentation
-        </a>
+
+<h3 id="rounded-badges">Rounded Badges</h3>
+<p>Use the modifier <code>.badge--rounded</code> to render pill-shaped badges.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <span class="badge badge--small badge--rounded">21</span>
+        <span class="badge badge--rounded">22</span>
+        <span class="badge badge--medium badge--rounded">23</span>
+        <span class="badge badge--large badge--rounded">24</span>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/colophon.html">
-            Colophon
-        </a>
+</div>
+
+<h3 id="badges-in-different-colors">Badges in Different Colors</h3>
+<p>All <a href="docs/pages/css-interface/colors.html">color modifiers</a> are available for badges.</p>
+
+
+<div class="documentation__blocks" data-docblock="addControls:true;">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--light badge--small badge--rounded">21</span>
+            <span class="badge badge--light badge--rounded">22</span>
+            <span class="badge badge--light badge--medium badge--rounded">23</span>
+            <span class="badge badge--light badge--large badge--rounded">24</span>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/project_structure.html">
-            Project Structure
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--small badge--rounded">21</span>
+            <span class="badge badge--rounded">22</span>
+            <span class="badge badge--medium badge--rounded">23</span>
+            <span class="badge badge--large badge--rounded">24</span>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_css.html">
-            CSS Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--dark badge--small badge--rounded">21</span>
+            <span class="badge badge--dark badge--rounded">22</span>
+            <span class="badge badge--dark badge--medium badge--rounded">23</span>
+            <span class="badge badge--dark badge--large badge--rounded">24</span>
+        </div>
     </div>
-    <div class="w-1-3 p-lr-2">
-        <a class="documentation__block fs-20 lh-25 p-4 h-20 tdcr-none" href="pages/introduction/styleguide_js.html">
-            JavaScript Style Guide
-        </a>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--attention badge--small badge--rounded">21</span>
+            <span class="badge badge--attention badge--rounded">22</span>
+            <span class="badge badge--attention badge--medium badge--rounded">23</span>
+            <span class="badge badge--attention badge--large badge--rounded">24</span>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--negative badge--small badge--rounded">21</span>
+            <span class="badge badge--negative badge--rounded">22</span>
+            <span class="badge badge--negative badge--medium badge--rounded">23</span>
+            <span class="badge badge--negative badge--large badge--rounded">24</span>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--positive badge--small badge--rounded">21</span>
+            <span class="badge badge--positive badge--rounded">22</span>
+            <span class="badge badge--positive badge--medium badge--rounded">23</span>
+            <span class="badge badge--positive badge--large badge--rounded">24</span>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--prescription badge--small badge--rounded">21</span>
+            <span class="badge badge--prescription badge--rounded">22</span>
+            <span class="badge badge--prescription badge--medium badge--rounded">23</span>
+            <span class="badge badge--prescription badge--large badge--rounded">24</span>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <span class="badge badge--price badge--small badge--rounded">21</span>
+            <span class="badge badge--price badge--rounded">22</span>
+            <span class="badge badge--price badge--medium badge--rounded">23</span>
+            <span class="badge badge--price badge--large badge--rounded">24</span>
+        </div>
     </div>
 </div>
 

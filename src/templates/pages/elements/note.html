@@ -1,0 +1,227 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Note
+Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be *dismissable*, they come in two text sizes and they can contain an icon.
+
+|                |                                             |
+| -              | -                                           |
+| Less-File      | [note.less](assets/less/elements/note.less) |
+| JS-File        | [dismiss.js](assets/js/modules/dismiss.js)  |
+| Base CSS-Class | `.note`                                     |
+| Modifiers      | `.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--largeTxt, .note--light, .note--negative, .note--positive, .note--prescription, .note--stripped, .note--success` |
+
+### Simple Note
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Basic Example
+If you wish to make a `.note` *dismissable*, use the `data-dismissable` hook to make a close button appear in the upper right corner.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--attention" data-dismissable>
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Large text
+Use the modifier `.note--large` to increase the font size.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large" data-dismissable>
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Icons
+Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the `.note--iconXXX` modifier to insert any icon from [the Yoshino icon set](docs/pages/elements/icons.html).
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large note--icon026">
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--error note--large note--icon027">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--success note--large note--icon011">
+            <h3 class="note__headline">Headline</h3>
+            <div class="note__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Colors
+Notes are available in **different color themes**. Weather you wish to display an error, a success message or just a subtle note, you can choose from the following options:
+{% endmarkdown %}
+
+<div class="documentation__block" data-docblock="addControls:true;">
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--large">
+            <div class="note__body">
+                <p>default styling</p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--attention note--large">
+            <div class="note__body">
+                <p>.note--<strong>attention</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--dark note--large">
+            <div class="note__body">
+                <p>.note--<strong>dark</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--subtle note--large">
+            <div class="note__body">
+                <p>.note--<strong>subtle</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--error note--large">
+            <div class="note__body">
+                <p>.note--<strong>error</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--negative note--large">
+            <div class="note__body">
+                <p>.note--<strong>negative</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--light note--large">
+            <div class="note__body">
+                <p>.note--<strong>light</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--prescription note--large">
+            <div class="note__body">
+                <p>.note--<strong>prescription</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--success note--large">
+            <div class="note__body">
+                <p>.note--<strong>success</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation__example" data-printcode="language:markup;">
+        <div class="note note--positive note--large">
+            <div class="note__body">
+                <p>.note--<strong>positive</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Grouped Notes
+**Group notes** inside a container element with the css class name `.notes`. For example to group validation messages.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="notes">
+            <div class="note note--positive note--large note--icon011" data-dismissable>
+                <div class="note__body">
+                    <p>The first data you supplied is <strong>valid</strong>.</p>
+                </div>
+            </div>
+            <div class="note note--negative note--large note--icon006" data-dismissable>
+                <div class="note__body">
+                    <p>The second data you supplied is <strong>not valid</strong>.</p>
+                </div>
+            </div>
+            <div class="note note--positive note--large note--icon011" data-dismissable>
+                <div class="note__body">
+                    <p>The third data you supplied is <strong>valid</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### No Borders and Rounded Corners
+Like many elements, `.note` has a `--stripped` modifier class which **removes borders and border radi**.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="note note--large note--dark note--stripped">
+            <div class="note__body">
+                <p>No borders, no rounded corners.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Notes at Full Viewport Width
+Use the modifier class `.note--fullWidth` to display a **note at full viewport width**, with it’s body centered and automatic margin to the left and right. A good example would be the cookie-policy at the very top of a page.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true; hideExample:true;">
+        <div id="cookieNote" class="note note--fullwidth note--attention note--large note--icon027">
+            <div class="note__body center">
+                <p>This is a note at full vieport width with centered body.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
