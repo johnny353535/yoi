@@ -5,12 +5,12 @@
 ## Flyout
 Use this element to display a small tab and text label that is pinned to either the left or right side of the screen and displays a small panel on click. You should **use only one flyout per page** and **only for important information** (such as feedback / help / contact links) since the sticky labels on the side of the screen appera rather prominent to the user. This element was **designed for large screens only** and should not be used on mobile pages.
 
-|                |                                                 |
-| -              | -                                               |
-| Less-File      | [flyout.less](assets/less/elements/flyout.less) |
-| JS-File        | [flyout.js](assets/js/modules/flyout.js)        |
-| Base CSS-Class | `.flyout`                                       |
-| Modifiers      | `.flyout--left, .flyout--right`                 |
+|                |                                                                                                         |
+| -              | -                                                                                                       |
+| Less-File      | {% if basePath == '/' %}[flyout.less](assets/less/elements/flyout.less){% else %}flyout.less{% endif %} |
+| JS-File        | {% if basePath == '/' %}[flyout.js](assets/js/modules/flyout.js){% else %}flyout.js{% endif %}          |
+| Base CSS-Class | `.flyout`                                                                                               |
+| Modifiers      | `.flyout--left, .flyout--right`                                                                         |
 
 ### Basic Example
 A flyout **can contain any content**. Since it’s a very prominent element on any page, use it very sparely and only where it makes sense. A perfectly valid scenario would be a flyout as a contact or feedback panel.

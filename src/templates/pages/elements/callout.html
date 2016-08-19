@@ -5,11 +5,11 @@
 ## Callout
 Use this element to render a small portion of text into a prominent circular callout. Superimpose it upon images or banners, for example to make a special offer visually stand out.
 
-|   |   |
-| - | - |
-| Less-File | [callout.less](assets/less/elements/callout.less) |
-| Base CSS-Class | `.callout` |
-| Modifiers | `.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--attention, .callout--positive, .callout--negative, .callout--prescription` |
+|                |                                                                                                                                                          |
+| -              | -                                                                                                                                                        |
+| Less-File      | {% if basePath == '/' %}[callout.less](assets/less/elements/callout.less){% else %}callout.less{% endif %}                                               |
+| Base CSS-Class | `.callout`                                                                                                                                               |
+| Modifiers      | `.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--attention, .callout--positive, .callout--negative, .callout--prescription` |
 
 ### Basic Example
 The default `.callout` has dark text on a plain white background. In order to reliably center the text inside – both horizontally and vertically – make sure you wrap the text inside with the `.callout__body` element.

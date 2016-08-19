@@ -5,11 +5,11 @@
 ## Ribbon
 Use this element to display to display a 45° rotated ribbon in the the upper left or right corner of any container element. Since it is a very prominent element, use it wisely. It’s best suited to display a »Special Offer« badge.
 
-|                |                                                                                           |
-| -              | -                                                                                         |
-| Less-File      | [ribbon.less](assets/less/elements/ribbon.less)                                           |
-| Base CSS-Class | `.ribbon`                                                                                 |
-| Modifiers      | `.ribbon--attention, .ribbon--dark, .ribbon--light, .ribbon--negative, .ribbon--positive` |
+|                |                                                                                                         |
+| -              | -                                                                                                       |
+| Less-File      | {% if basePath == '/' %}[ribbon.less](assets/less/elements/ribbon.less){% else %}ribbon.less{% endif %} |
+| Base CSS-Class | `.ribbon`                                                                                               |
+| Modifiers      | `.ribbon--attention, .ribbon--dark, .ribbon--light, .ribbon--negative, .ribbon--positive`               |
 
 ### Basic Example
 Ribbons are limited to display a **maximum of approx. 15 characters**. This limitation is due to poor browser support of CSS level 3 calc() functions. However, make sure your text stays within the limitation.

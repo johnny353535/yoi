@@ -6,9 +6,10 @@
 
 Colors.less defines all color variables used throughout the whole frontend. If you create a new project, use this file to change color variables or add new ones.
 
-|                |                                             |
-| -              | -                                           |
-| Less-File      | [colors.less](assets/less/core/colors.less) |
+|                |                                                                                                      |
+| -              | -                                                                                                    |
+| Less-File      | {% if basePath == '/' %}[colors.less](assets/less/theme/colors.less){% else %}colors.less{% endif %} |
+
 
 ### Color Settings
 
@@ -62,7 +63,7 @@ Apart from the four base colors, there are some more color variables for special
 @color-transparent:        rgba(255,255,255,0);
 @color-gold:               #eac310;
 @color-price:              @red-15;
-@color-pharmacy:        #fe0011;
+@color-pharmacy:           #fe0011;
 @color-prescriptionPink-1: #bb4473;
 @color-prescriptionPink-2: #e7aac0;
 @color-prescriptionPink-3: #f6d5e2;

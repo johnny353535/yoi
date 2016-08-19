@@ -5,12 +5,12 @@
 ## Stepper
 This element combines a (numeric) input-field with control buttons to de- or increase the input value and an (optional) submit-button. It’s mainly designed to add a certain amount of items to the shopping cart.
 
-|   |   |
-| - | - |
-| Less-File      | [stepper.less](assets/less/elements/stepper.less) |
-| JS-File        | [stepper.js](assets/js/modules/stepper.js) |
-| Base CSS-Class | `.stepper` |
-| Modifiers      | `.stepper--light, .stepper--stripped, .stepper--touch` |
+|                |                                                                                                            |
+| -              | -                                                                                                          |
+| Less-File      | {% if basePath == '/' %}[stepper.less](assets/less/elements/stepper.less){% else %}stepper.less{% endif %} |
+| JS-File        | {% if basePath == '/' %}[stepper.js](assets/js/modules/stepper.js){% else %}stepper.js{% endif %}          |
+| Base CSS-Class | `.stepper`                                                                                                 |
+| Modifiers      | `.stepper--light, .stepper--stripped, .stepper--touch`                                                     |
 
 ### Most Basic Example
 The most basic variant of this element is simply a `<div>` with the class name `stepper` and an input element inside with the class name `stepper__input`.

@@ -5,12 +5,12 @@
 ## Pop-Over
 Use this element to link any trigger (eg. a button) to a _pop-over_ which appears on mouse over.
 
-|                |                                                   |
-| -              | -                                                 |
-| Less-File      | [popOver.less](assets/less/elements/popOver.less) |
-| JS-File        | [popOver.js](assets/js/modules/popOver.js)        |
-| Base CSS-Class | `.popOver`                                        |
-| Modifiers      | `-`                                               |
+|                |                                                                                                            |
+| -              | -                                                                                                          |
+| Less-File      | {% if basePath == '/' %}[popOver.less](assets/less/elements/popOver.less){% else %}popOver.less{% endif %} |
+| JS-File        | {% if basePath == '/' %}[popOver.js](assets/js/modules/popOver.js){% else %}popOver.js{% endif %}          |
+| Base CSS-Class | `.popOver`                                                                                                 |
+| Modifiers      | `-`                                                                                                        |
 
 ### Basic Example
 To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `data-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
@@ -44,8 +44,8 @@ The pop-over hook accepts some parameters as options. Use **semicolon seperated 
 | pos            | *string*, `'tl','tr','br','bl'`                                                                                          | Pop-over position relative to trigger. The default is _tr_.                             |
 | ref            | *string*, `'tl','tr','br','bl'`                                                                                          | Pop-over reference point. The default is _tl_.                                          |
 | toggleClass    | *string*, css class name                                                                                                 | Css class name added to trigger if pop-over is currently shown.                         |
-| eventShow      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to show the pop-over. The default is _mouseenter_.                     |
-| eventHide      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to hide the pop-over. The default is _mouseleave_.                      |
+| eventShow      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to show the pop-over. The default is _mouseenter_.                    |
+| eventHide      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to hide the pop-over. The default is _mouseleave_.                    |
 | preventDefault | *bool*, `true/false`                                                                                                     | If true, the trigger’s default event (eg. click) gets prevented. The default is _true_. |
 | wrap           | *bool*, `true/false`                                                                                                     | If true, take the pop-over and the trigger and put them inside .popOver__wrapper.       |
 

@@ -16936,7 +16936,7 @@ dl dd {
 }
 .documentation__body > h2:first-child + p {
   font-size: 1.7rem;
-  line-height: 2.5rem;
+  line-height: 2.75rem;
   margin-bottom: 5rem;
 }
 .documentation__body > h3 {
@@ -17762,7 +17762,9 @@ dl dd {
 .filterBtns__btn:hover {
   background: #ecebea;
 }
-.filterBtns__btn a {
+.filterBtns__btn a,
+.filterBtns__btn a:link,
+.filterBtns__btn a:visited {
   color: #535251;
   display: inline-block;
   text-decoration: none;
@@ -17771,7 +17773,9 @@ dl dd {
   background: #71706f;
   color: #fff;
 }
-.filterBtns--dark .filterBtns__btn a {
+.filterBtns--dark .filterBtns__btn a,
+.filterBtns--dark .filterBtns__btn a:link,
+.filterBtns--dark .filterBtns__btn a:visited {
   color: #fff;
 }
 .filterBtns--dark .filterBtns__btn:hover {
@@ -17820,6 +17824,8 @@ dl dd {
 }
 .filterBtns__btn.filterBtns__btn--active {
   background: #4e7e64;
+}
+.filterBtns__btn.filterBtns__btn--active a {
   color: #fff;
 }
 .filterBtns__btn.filterBtns__btn--active a::after {

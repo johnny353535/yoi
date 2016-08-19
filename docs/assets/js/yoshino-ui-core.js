@@ -488,7 +488,7 @@ var Documentation = (function() {
             if (Helper.foundModule('Prism')) {
 
                 // highlight with prism.js if available
-
+                
                 highLightedCode = Prism.highlight(responseData, Prism.languages[thisLanguage]);
                 $pre.html(highLightedCode);
 
@@ -536,22 +536,21 @@ var Documentation = (function() {
         var beautifiedCode;
 
         switch (language) {
-        case 'markup':
-            beautifiedCode = html_beautify(cleanedCode, {
-                'wrap_line_length' : 0
-            });
-            break;
-        case 'less' || 'css':
-            beautifiedCode = css_beautify(cleanedCode);
-            break;
-        case 'javascript':
-            beautifiedCode = js_beautify(cleanedCode, {
-                'wrap_line_length' : 0
-            });
-            break;
-        default:
-            beautifiedCode = cleanedCode;
-
+            case 'markup':
+                beautifiedCode = html_beautify(cleanedCode, {
+                    'wrap_line_length' : 0
+                });
+                break;
+            case 'less' || 'css':
+                beautifiedCode = css_beautify(cleanedCode);
+                break;
+            case 'javascript':
+                beautifiedCode = js_beautify(cleanedCode, {
+                    'wrap_line_length' : 0
+                });
+                break;
+            default:
+                beautifiedCode = cleanedCode;
         }
 
         // re-assign code variable
@@ -3804,14 +3803,14 @@ var PieChart = (function() {
     var $colorDot = $('<span class="pieChart__dot"></span>');
 
     var fixedPalette = [
-        '#dad496',
-        '#ff8456',
-        '#8bbba1',
-        '#609cd2',
-        '#928c4e',
-        '#df3d00',
-        '#58886e',
-        '#2d699f'
+        '#f69d29',
+        '#ec4534',
+        '#66579f',
+        '#2988cb',
+        '#7f9b3d',
+        '#fff398',
+        '#dc48c2',
+        '#0d5964'
     ];
 
     // private functions
@@ -3854,7 +3853,7 @@ var PieChart = (function() {
                 rotation  : 0,
                 index     : 0,
                 records   : $thisPieChartRecords.length,
-                baseColor : options.baseColor !== undefined ? options.baseColor : '[208,50,60]',
+                baseColor : options.baseColor !== undefined ? options.baseColor : '[252,45,65]',
                 palette   : options.palette !== undefined ? options.palette : 'shades',
                 size      : options.size !== undefined ? options.size : 200,
                 highlight : options.highlight !== undefined ? options.highlight : true

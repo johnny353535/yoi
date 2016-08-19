@@ -5,12 +5,12 @@
 ## Modal
 Modals are simple, regular pages, referenced by either `href`-attributes or a path via a `data-options`-attribute. Any element may reference a modal. Modals are loaded asynchronically (ajax) and injected into the dom.
 
-|   |   |
-| - | - |
-| Less-File | [modal.less](assets/less/elements/modal.less) |
-| JS-File   | [modal.js](assets/js/modules/modal.js) |
-| Base CSS-Class | `.modal` |
-| Modifiers | `.modal--small` |
+|                |                                                                                                      |
+| -              | -                                                                                                    |
+| Less-File      | {% if basePath == '/' %}[modal.less](assets/less/elements/modal.less){% else %}modal.less{% endif %} |
+| JS-File        | {% if basePath == '/' %}[modal.js](assets/js/modules/modal.js){% else %}modal.js{% endif %}          |
+| Base CSS-Class | `.modal`                                                                                             |
+| Modifiers      | `.modal--small`                                                                                      |
 
 ### Modal Page
 Modal pages must at least have an element with the CSS-class `.modal`. Everything else is optional. There is only one modifier available: `.modal--small`. It affects the modal width.

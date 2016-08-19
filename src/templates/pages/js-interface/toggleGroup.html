@@ -5,9 +5,9 @@
 ## toggleGroup
 This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.
 
-|   |   |
-| - | - |
-| **Hooks**   | data-toggle, data-toggle-fallback |
+|                          |                                                             |
+| -                        | -                                                           |
+| **Hooks**                | data-toggle, data-toggle-fallback                           |
 | **Options** (data-togge) | target, group, event (optional), activeClassName (optional) |
 
 ### Example with mouseover and Fall Back Element
@@ -16,24 +16,24 @@ If you provide no event in the options JSON, the default event to trigger a togg
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--3 w-14" data-toggle-fallback="toggleGroup-1">
+        <div class="box box--3 w-20 h-20" data-toggle-fallback="toggleGroup-1">
             <div class="box__body h-10">
-                Move your cursor over the buttons below to show different packshots.
+                Move your cursor over the buttons below to show different images.
             </div>
         </div>
-        <div class="box box--3 w-14" id="toggleElement-1">
+        <div class="box box--3 w-20 h-20" id="toggleElement-1">
             <div class="box__body">
-                <img class="d-blk" src="assets/img/packshots/2-100x100.png" />
+                <img class="d-blk" src="https://unsplash.it/180/180?image=16" />
             </div>
         </div>
-        <div class="box box--3 w-14" id="toggleElement-2">
+        <div class="box box--3 w-20 h-20" id="toggleElement-2">
             <div class="box__body">
-                <img class="d-blk" src="assets/img/packshots/3-100x100.png" />
+                <img class="d-blk" src="https://unsplash.it/180/180?image=17" />
             </div>
         </div>
-        <div class="box box--3 w-14" id="toggleElement-3">
+        <div class="box box--3 w-20 h-20" id="toggleElement-3">
             <div class="box__body">
-                <img class="d-blk" src="assets/img/packshots/4-100x100.png" />
+                <img class="d-blk" src="https://unsplash.it/180/180?image=18" />
             </div>
         </div>
         <div class="btns m-t-4">

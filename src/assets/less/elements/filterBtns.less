@@ -29,7 +29,9 @@
         background: @color-main-23;
     }
 
-    a {
+    a,
+    a:link,
+    a:visited {
         color: @color-main-8;
         display: inline-block;
         text-decoration: none;
@@ -49,7 +51,9 @@
         background: @color-main-11;
         color: #fff;
 
-        a {
+        a,
+        a:link,
+        a:visited {
             color: #fff;
         }
 
@@ -110,7 +114,10 @@
 .filterBtns__btn.filterBtns__btn--active {
 
     background: @color-positive-10;
-    color: #fff;
+    
+    a {
+        color: #fff;
+    }
 
     a::after {
         color: #fff;

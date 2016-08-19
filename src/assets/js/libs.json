@@ -14,6 +14,7 @@
         "./bower_components/js-beautify/js/lib/beautify-html.js"
     ],
     "prism" : [
-        "./bower_components/prism/prism.js"
+        "./bower_components/prism/prism.js",
+        "./bower_components/prism/components/prism-less.js"
     ]
 }

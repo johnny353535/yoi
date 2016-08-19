@@ -5,12 +5,12 @@
 ## Tool Tip
 Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the data-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
 
-|   |   |
-| - | - |
-| Less-File | [toolTip.less](assets/less/elements/toolTip.less) |
-| JS-File   | [toolTip.js](assets/js/modules/toolTip.js) |
-| Base CSS-Class | `.tooltip--attention` |
-| Modifiers | `.tooltip--error, .tooltip--negative, .tooltip--success, .tooltip--positive` |
+|                |                                                                                                            |
+| -              | -                                                                                                          |
+| Less-File      | {% if basePath == '/' %}[toolTip.less](assets/less/elements/toolTip.less){% else %}toolTip.less{% endif %} |
+| JS-File        | {% if basePath == '/' %}[toolTip.js](assets/js/modules/toolTip.js){% else %}toolTip.js{% endif %}          |
+| Base CSS-Class | `.tooltip--attention`                                                                                      |
+| Modifiers      | `.tooltip--error, .tooltip--negative, .tooltip--success, .tooltip--positive`                               |
 
 ### Setting up a tooltip
 The following might be the element you wish to turn into a tooltip:

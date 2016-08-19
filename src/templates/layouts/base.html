@@ -67,17 +67,18 @@
             (function() {
 
                 var $menu           = $('#menu');
-                var $menuItems      = $menu.find('.linkList__item');
+                var $menuLinks      = $menu.find('.linkList__link');
                 var currentPagePath = window.location.pathname;
 
-                $menuItems.each(function() {
+                $menuLinks.each(function() {
+                    
+                    var $this          = $(this);
+                    var thisHref       = $this.attr('href').slice(1);
 
-                    var $this    = $(this);
-                    var thisHref = $this.find('a').attr('href');
-
-                    if (Helper.stringContains(currentPagePath, thisHref))
-                        $this.addClass('linkList__item--active');
-
+                    if (Helper.stringContains(currentPagePath, thisHref)) {
+                        $this.parent().addClass('linkList__item--active');
+                    }
+                    
                 });
 
             })();

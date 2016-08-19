@@ -5,9 +5,11 @@
 ## Layout and Grid
 This framework does not implement a traditional layout grid. Instead, it contains utility classes for fractional widths as well as utility classes for absolute widths and heighs. These classes are simple yet powerful enough to compose almost every desired layouts.
 
-|                |                                             |
-| -              | -                                           |
-| Less-File      | [layout.less](assets/less/core/layout.less) |
+|                |                                                                                                                                        |
+| -              | -                                                                                                                                      |
+| Less-File      | {% if basePath == '/' %}[grid.less](assets/less/utilities/grid.less){% else %}grid.less{% endif %}                                     |
+| Less-File      | {% if basePath == '/' %}[layout.less](assets/less/utilities/layout.less){% else %}layout.less{% endif %}                                  |
+| Less-File      | {% if basePath == '/' %}[responsive-layout.less](assets/less/utilities/responsive-layout.less){% else %}responsive-layout.less{% endif %} |
 
 ### Center
 Use the `.center` utility class to vertically center a container and set it to the pre-defined [global width](/pages/css-variables/dimensions.html).
@@ -16,19 +18,19 @@ Use the `.center` utility class to vertically center a container and set it to t
 
 Use fractional width utility classes to create layout containers. By default, these containers render as _display:block_. Read further to learn how to create grids with fractional layout containers.
 
-| CSS Class Name | Description                     |
-| -              | -                               |
-| `w-1-1`  | container at 100% width (full)        |
-| `w-1-2`  | container at 50% width (half)         |
-| `w-1-3`  | container at 33.3% width (one third)  |
-| `w-1-4`  | container at 25% width (one quarter)  |
-| `w-1-5`  | container at 20% width (one fifth)    |
-| `w-2-3`  | container at 66.6% width (two thirds) |
-| `w-2-5`  | container at 40% width (two fifths)   |
-| `w-3-4`  | container at 75% width (three thrids) |
-| `w-3-5`  | container at 60% width (three fifths) |
-| `w-4-5`  | container at 80% width (four fifths)  |
-| `w-auto` | container at `width:auto`             |
+| CSS Class Name | Description                           |
+| -              | -                                     |
+| `w-1-1`        | container at 100% width (full)        |
+| `w-1-2`        | container at 50% width (half)         |
+| `w-1-3`        | container at 33.3% width (one third)  |
+| `w-1-4`        | container at 25% width (one quarter)  |
+| `w-1-5`        | container at 20% width (one fifth)    |
+| `w-2-3`        | container at 66.6% width (two thirds) |
+| `w-2-5`        | container at 40% width (two fifths)   |
+| `w-3-4`        | container at 75% width (three thrids) |
+| `w-3-5`        | container at 60% width (three fifths) |
+| `w-4-5`        | container at 80% width (four fifths)  |
+| `w-auto`       | container at `width:auto`             |
 
 {% endmarkdown %}
 

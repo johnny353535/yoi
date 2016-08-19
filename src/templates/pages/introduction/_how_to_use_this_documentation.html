@@ -28,16 +28,18 @@ Some examples have options to **toggle the code block** and to **toggle the exam
     </div>
 </div>
 
+{% if basePath == '/' %}
+    {% markdown %}
+    ### Links to Source Files
+    Most element pages start with a tabular overview (e.g. [Pie Chart](/pages/elements/pieChart.html)). These tables contain basic information about the very element and links to it’s associated JavaScript and Less files. On click, the file content is displayed in a full-size pop over with syntax highlighting.
+    {% endmarkdown %}
+    <a href="assets/js/modules/pieChart.js" class="btn btn--dark btn--large">Open Example Code</span></a>
+    {% markdown %}
+    Use the button above to open the source code of the pie chart script as an example.
+    {% endmarkdown %}
+{% endif %}
+
 {% markdown %}
-### Links to Source Files
-Most element pages start with a tabular overview (e.g. [Pie Chart](/pages/elements/pieChart.html)). These tables contain basic information about the very element and links to it’s associated JavaScript and Less files. On click, the file content is displayed in a full-size pop over with syntax highlighting.
-{% endmarkdown %}
-
-<a href="assets/js/modules/pieChart.js" class="btn btn--dark btn--large">Open Example Code</span></a>
-
-{% markdown %}
-Use the button above to open the source code of the pie chart script as an example.
-
 ### Notes
 Notes display important information – restrictions, possible browser quirks, best practices, etc.
 {% endmarkdown %}

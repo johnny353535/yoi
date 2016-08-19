@@ -7,7 +7,7 @@ Use this element to create a vertical menu-like list of links. Modifiers add opt
 
 |                |                                                                                                                                                                                        |
 | -              | -                                                                                                                                                                                      |
-| Less-File      | [linkList.less](assets/less/elements/linkList.less)                                                                                                                                    |
+| Less-File      | {% if basePath == '/' %}[linkList.less](assets/less/elements/linkList.less){% else %}linkList.less{% endif %}                                                                          |
 | Base CSS-Class | `.linkList`                                                                                                                                                                            |
 | Modifiers      | `.linkList__item--active, .linkList--large, .linkList--dark, .linkList--stripped, .linkList--transparent, .linkList--arrowsLeft, .linkList--arrowsRightUp, .linkList--arrowsRightDown` |
 

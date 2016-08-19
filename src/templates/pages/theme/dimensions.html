@@ -4,9 +4,10 @@
 {% markdown %}
 ## Dimensions
 
-|                |                                                          |
-| -              | -                                                        |
-| Less-File      | [dimensions.less](assets/less/variables/dimensions.less) |
+|                |                                                                                                                  |
+| -              | -                                                                                                                |
+| Less-File      | {% if basePath == '/' %}[dimensions.less](assets/less/theme/dimensions.less){% else %}dimensions.less{% endif %} |
+
 {% endmarkdown %}
 
 <div class="note note--subtle note--large note--icon085 m-t-8">

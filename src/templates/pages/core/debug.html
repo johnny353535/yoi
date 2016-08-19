@@ -5,10 +5,11 @@
 ## Visual Debugging
 Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.
 
-|                |                                              |
-| -              | -                                            |
-| Less-File      | [debug.less](assets/less/core/debug.less)    |
-| Less-File      | [debug.less](assets/less/theme/options.less) |
+|                |                                                                                                         |
+| -              | -                                                                                                       |
+| Less-File      | {% if basePath == '/' %}[debug.less](assets/less/core/debug.less){% else %}debug.less{% endif %}        |
+| Less-File      | {% if basePath == '/' %}[options.less](assets/less/theme/options.less){% else %}options.less{% endif %} |
+
 {% endmarkdown %}
 
 {% endblock %}

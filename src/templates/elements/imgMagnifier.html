@@ -1,6 +1,6 @@
 {% macro build(this) %}
-    {% set previewImgPath = this.previewImgPath or 'assets/img/dummy/womanWithIpad-400x328.jpg' %}
-    {% set zoomImgPath = this.zoomImgPath or 'assets/img/dummy/womanWithIpad-1000x820.jpg' %}
+    {% set previewImgPath = this.previewImgPath or 'https://unsplash.it/450/450?image=15' %}
+    {% set zoomImgPath = this.zoomImgPath or 'https://unsplash.it/1000/1000?image=15' %}
     {% if this.modifiers %}
         <div class="imgMagnifier {{ this.modifiers }}">
     {% else %}

@@ -223,7 +223,7 @@ var Documentation = (function() {
             if (Helper.foundModule('Prism')) {
 
                 // highlight with prism.js if available
-
+                
                 highLightedCode = Prism.highlight(responseData, Prism.languages[thisLanguage]);
                 $pre.html(highLightedCode);
 
@@ -271,22 +271,21 @@ var Documentation = (function() {
         var beautifiedCode;
 
         switch (language) {
-        case 'markup':
-            beautifiedCode = html_beautify(cleanedCode, {
-                'wrap_line_length' : 0
-            });
-            break;
-        case 'less' || 'css':
-            beautifiedCode = css_beautify(cleanedCode);
-            break;
-        case 'javascript':
-            beautifiedCode = js_beautify(cleanedCode, {
-                'wrap_line_length' : 0
-            });
-            break;
-        default:
-            beautifiedCode = cleanedCode;
-
+            case 'markup':
+                beautifiedCode = html_beautify(cleanedCode, {
+                    'wrap_line_length' : 0
+                });
+                break;
+            case 'less' || 'css':
+                beautifiedCode = css_beautify(cleanedCode);
+                break;
+            case 'javascript':
+                beautifiedCode = js_beautify(cleanedCode, {
+                    'wrap_line_length' : 0
+                });
+                break;
+            default:
+                beautifiedCode = cleanedCode;
         }
 
         // re-assign code variable
