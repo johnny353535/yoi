@@ -239,7 +239,7 @@ gulp.task('templates', function() {
 
     return gulp.src([
         '!./src/templates/**/layouts/**/*',
-        '!./src/templates/partials/**/*',
+        '!./src/templates/elements/**/*',
         './src/templates/**/*.html'
     ])
     .pipe(nunjucks({

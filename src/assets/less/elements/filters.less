@@ -57,8 +57,10 @@
         cursor: pointer;
         position: relative;
         user-select: none;
+        height: 35px;
 
         h4 {
+            line-height: 25px;
             padding: 5px 10px;
             text-transform: none;
         }
@@ -116,7 +118,7 @@
 
     &.filterGroup--hasShadow .filterGroup__body::before {
         background: linear-gradient(to bottom, fade(@color-main-15, 30%), @color-transparent);
-        top: 32px;
+        top: 35px;
     }
 
     // shadow on bottom
@@ -226,11 +228,10 @@
     }
 
     // rating
-
-    .stars::after,
-    .stars::before {
-        height: 15px;
-        line-height: 15px;
+    
+    .rating {
+        position: relative;
+        top: -2px;
     }
 
 }
