@@ -36,6 +36,7 @@ var writeSourceMaps = true;
 var compressStyles  = false;
 var compressImages  = false;
 var compressScripts = false;
+var basePath        = '/';
 
 if (gutil.env.prod === true) {
 
@@ -46,6 +47,15 @@ if (gutil.env.prod === true) {
     compressStyles  = true;
     compressImages  = true;
     compressScripts = true;
+
+}
+
+if (gutil.env.github === true) {
+    
+    // if the environment variable "--github" is added to the build task call,
+    // change the base path so the site works on github pages
+    
+    var basePath = '/ui-core/';
 
 }
 
@@ -245,7 +255,7 @@ gulp.task('templates', function() {
     */
 
     var nunjucksGenerateMenu = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
-    var nunjucksPad = require('./src/dev/nunjucks-filters.js').nunjucksPad;
+    var nunjucksPad          = require('./src/dev/nunjucks-filters.js').nunjucksPad;
 
     return gulp.src([
         '!./src/templates/**/layouts/**/*',
@@ -253,7 +263,9 @@ gulp.task('templates', function() {
         './src/templates/**/*.html'
     ])
     .pipe(nunjucks({
+        
         searchPaths: ['./src/templates/', './src/assets/'],
+        locals: { basePath: basePath },
         setUp: function(env) {
 
             // configure markdown
@@ -287,6 +299,16 @@ gulp.task('templates', function() {
 
 });
 
+gulp.task('build', function(callback) {
+
+    /**
+    *  Build a static page for documentation.
+    */
+    
+    runsequence('clean', ['templates', 'less', 'js', 'copy'], callback);
+
+});
+
 gulp.task('serve', function() {
 
     /**
@@ -294,7 +316,7 @@ gulp.task('serve', function() {
     *  refresh when files get changed.
     */
 
-    runsequence('clean', ['templates', 'less', 'js', 'copy'], function() {
+    runsequence('build', function() {
 
         gulp.watch('./src/assets/js/**/*.js', ['js']);
         gulp.watch('./src/assets/less/**/*.less', ['less']);
@@ -304,7 +326,6 @@ gulp.task('serve', function() {
         browsersync.init({
             server      : ['./docs/', './src/'],
             baseDir     : './docs/',
-            // index       : './docs/index.html',
             notify      : false
         });
 
