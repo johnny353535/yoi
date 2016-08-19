@@ -12,9 +12,8 @@
     <head>
         <meta charset="utf-8">
         <title>Yoshino Frontend Documentation</title>
-        <base href="/" />
-        <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
-        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="/assets/css/yoshino-ui-core.css" rel="stylesheet" />
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         {% block customStyles %}{% endblock %}
     </head>
     <body class="noJs" data-environment="desktop">
@@ -27,21 +26,21 @@
             </div>
             <div id="menu" class="dock dock--right" data-dock="autohide:true">
                 <h4>Introduction</h4>
-                {% menu 'pages/introduction/ + ./src/templates/pages/introduction + linkList--stripped' %}
+                {% menu '/pages/introduction/ + ./src/templates/pages/introduction + linkList--stripped' %}
                 <h4>Core</h4>
-                {% menu 'pages/core/ + ./src/templates/pages/core + linkList--stripped' %}
+                {% menu '/pages/core/ + ./src/templates/pages/core + linkList--stripped' %}
                 <h4>Theme</h4>
-                {% menu 'pages/theme/ + ./src/templates/pages/theme + linkList--stripped' %}
+                {% menu '/pages/theme/ + ./src/templates/pages/theme + linkList--stripped' %}
                 <h4>Utilities</h4>
-                {% menu 'pages/utilities/ + ./src/templates/pages/utilities + linkList--stripped' %}
+                {% menu '/pages/utilities/ + ./src/templates/pages/utilities + linkList--stripped' %}
                 <h4>Elements</h4>
-                {% menu 'pages/elements/ + ./src/templates/pages/elements + linkList--stripped' %}
+                {% menu '/pages/elements/ + ./src/templates/pages/elements + linkList--stripped' %}
                 <h4>JS Interface</h4>
-                {% menu 'pages/js-interface/ + ./src/templates/pages/js-interface + linkList--stripped' %}
+                {% menu '/pages/js-interface/ + ./src/templates/pages/js-interface + linkList--stripped' %}
                 <h4>Tools</h4>
-                {% menu 'pages/tools/ + ./src/templates/pages/tools + linkList--stripped' %}
+                {% menu '/pages/tools/ + ./src/templates/pages/tools + linkList--stripped' %}
                 <h4>Workflows / Tutorials</h4>
-                {% menu 'pages/workflows/ + ./src/templates/pages/workflows + linkList--stripped' %}
+                {% menu '/pages/workflows/ + ./src/templates/pages/workflows + linkList--stripped' %}
             </div>
             <div class="documentation__body">
                 {% block main %}
@@ -58,11 +57,11 @@
                 </div>
             </footer>
         </div>
-        <script src="assets/js/libs/jquery.js"></script>
-        <script src="assets/js/libs/jquery-ui.js"></script>
-        <script src="assets/js/libs/beautify.js"></script>
-        <script src="assets/js/libs/prism.js" data-manual></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
+        <script src="/assets/js/libs/jquery.js"></script>
+        <script src="/assets/js/libs/jquery-ui.js"></script>
+        <script src="/assets/js/libs/beautify.js"></script>
+        <script src="/assets/js/libs/prism.js" data-manual></script>
+        <script src="/assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
 

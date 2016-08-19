@@ -87,10 +87,10 @@ gulp.task('default', function() {
 gulp.task('clean', function() {
 
     /**
-    *  Delete all files from ./dist
+    *  Delete all files from ./dist and ./docs
     */
 
-    return del(['dist/**/*']);
+    return del(['dist/**/*', 'docs/**/*']);
 
 });
 
