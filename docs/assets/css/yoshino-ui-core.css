@@ -12321,7 +12321,7 @@ body {
   text-shadow: none !important;
 }
 .tsh {
-  text-shadow: 0 1px 0 #343332 !important;
+  text-shadow: 0 1px 0 rgba(32, 31, 30, 0.5) !important;
 }
 .bg-attention-1 {
   background: #282400 !important;
@@ -23929,33 +23929,6 @@ hr {
   right: 10px;
   top: 0;
 }
-/** section.less */
-.sect-0 {
-  background-color: #fff;
-  border-top: #f6f5f4 1px solid;
-}
-.sect-1 {
-  background-color: #faf9f7;
-  border-top: #f6f5f4 1px solid;
-}
-.sect-2 {
-  background: #f6f5f4;
-  border-top: #ecebea 1px solid;
-}
-.sect-3 {
-  background: #ecebea;
-  border-top: #e1e0df 1px solid;
-}
-.sect-4 {
-  background: #676665;
-  border-top: #535251 1px solid;
-}
-.sect-5 {
-  background: #535251;
-}
-.sect-6 {
-  background: #343332;
-}
 /** sectionHeader.less */
 .sectionHeader {
   font: normal 20px/30px 'Open Sans', sans-serif;
@@ -25516,21 +25489,7 @@ tr:last-child td:last-child {
 /** tabs.less */
 .tabs {
   border-radius: 2px;
-  box-sizing: border-box;
-  display: block;
-  font-family: 'Open Sans', sans-serif;
-  overflow: hidden;
-  position: relative;
-  background-color: #fff;
   border: #ecebea 1px solid;
-}
-.tabs::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-a.tabs {
-  text-decoration: none;
 }
 .tabs__page {
   background: #fff;
@@ -25538,30 +25497,28 @@ a.tabs {
 }
 .tabs__menu {
   background: #faf9f7;
-  border: #e1e0df 1px solid;
+  border-radius: 2px;
+  border: #ecebea 1px solid;
+  color: #535251;
   display: table;
   position: relative;
   table-layout: fixed;
   width: 100%;
 }
-.tabs__menu ul {
+.tabs__items {
   display: table-row;
-  margin: 0 3.4rem;
   list-style: none;
 }
-.tabs__menu ul:first-child {
-  margin: 0;
-}
-.tabs__menu li {
-  border-right: #e1e0df 1px solid;
+.tabs__item {
+  border-right: #ecebea 1px solid;
   display: table-cell;
   position: relative;
   vertical-align: bottom;
 }
-.tabs__menu li:last-child {
+.tabs__item:last-child {
   border-right: 0;
 }
-.tabs__menu a {
+.tabs__link {
   color: #676665;
   display: block;
   font-family: 'Open Sans', sans-serif;
@@ -25570,36 +25527,40 @@ a.tabs {
   line-height: 1.5rem;
   padding: 1rem;
   text-align: center;
+}
+.tabs__link:active,
+.tabs__link:link,
+.tabs__link:visited {
   text-decoration: none;
 }
-.tabs__menu a:hover {
-  background: #fff;
+.tabs__link:hover {
+  background-color: #fff;
 }
-.tabs__menu svg {
+.tabs__link svg {
   border: transparent 2px solid;
   display: block;
   height: 56px;
   margin: 0 auto 5px auto;
   width: 56px;
 }
-.tabs__menu svg * {
+.tabs__link svg * {
   fill: #676665;
 }
-.tabs__menu .badge {
+.tabs__link .badge {
   font-weight: normal;
   margin-left: .5rem;
 }
-.tabs__link--active {
+.tabs__item--active {
   background: #fff;
 }
 .box .tabs__menu,
 .tabs .tabs__menu {
   border: 0;
-  border-bottom: #e1e0df 1px solid;
+  border-bottom: #ecebea 1px solid;
   border-radius: 0;
 }
-.box .tabs__menu .tabs__link--active::after,
-.tabs .tabs__menu .tabs__link--active::after {
+.box .tabs__menu .tabs__item--active::after,
+.tabs .tabs__menu .tabs__item--active::after {
   background: #fff;
   bottom: -1px;
   content: ' ';
@@ -25609,7 +25570,34 @@ a.tabs {
   right: 0;
   z-index: 10;
 }
-.js .tabs__menu--checkmarks .tabs__link--active a:before {
+.tabs__menu--large .tabs__link {
+  font-size: 1.5rem;
+  padding: 1.5rem 1rem;
+}
+.tabs__menu--subtle {
+  background: transparent;
+  border: 0;
+  color: #7b7a79;
+}
+.tabs__menu--subtle .tabs__item {
+  background-color: transparent;
+  border-right: 0;
+  box-shadow: 0 -1px 0 #ecebea inset;
+}
+.tabs__menu--subtle .tabs__link:hover {
+  color: #535251;
+  background-color: transparent;
+}
+.tabs__menu--subtle .tabs__item--active {
+  border-left: #ecebea 1px solid;
+  border-right: #ecebea 1px solid;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-top: #ecebea 1px solid;
+  box-shadow: none;
+  color: #535251;
+}
+.js .tabs__menu--checkmarks .tabs__item--active .tabs__link:before {
   -moz-osx-font-smoothing: grayscale !important;
   -o-transform: scale(1) !important;
   -webkit-font-smoothing: antialiased !important;
@@ -25627,58 +25615,51 @@ a.tabs {
   content: '\f011';
   margin: -1.5rem 0;
 }
-.js .tabs__menu--checkmarks .tabs__link--active a:before::before {
+.js .tabs__menu--checkmarks .tabs__item--active .tabs__link:before::before {
   height: inherit;
   line-height: inherit;
   overflow: hidden;
   position: relative;
   width: inherit;
 }
-.tabs__menu--large a {
-  font-size: 1.5rem;
-  padding: 1.5rem 1rem;
-}
 .tabs__menu--arrows {
   background: #fff;
   border-radius: 0;
   border: 0;
 }
-.tabs__menu--arrows li {
+.tabs__menu--arrows .tabs__item {
   border: 0;
   border-bottom: #f6f5f4 2px solid;
 }
-.tabs__menu--arrows li:hover {
+.tabs__menu--arrows .tabs__item:hover {
   border-bottom-color: #b9b8b7;
 }
-.tabs__menu--arrows li a {
+.tabs__menu--arrows .tabs__link {
   color: #868584;
 }
-.tabs__menu--arrows li a polygon,
-.tabs__menu--arrows li a path,
-.tabs__menu--arrows li a circle {
+.tabs__menu--arrows .tabs__link polygon,
+.tabs__menu--arrows .tabs__link path,
+.tabs__menu--arrows .tabs__link circle {
   fill: #868584;
 }
-.tabs__menu--arrows .tabs__link {
-  color: #908f8e;
-}
-.tabs__menu--arrows .tabs__link--active,
-.tabs__menu--arrows .tabs__link--active:hover {
+.tabs__menu--arrows .tabs__item--active,
+.tabs__menu--arrows .tabs__item--active:hover {
   background: transparent;
   border-bottom-color: #676665;
 }
-.tabs__menu--arrows .tabs__link--active a,
-.tabs__menu--arrows .tabs__link--active:hover a {
+.tabs__menu--arrows .tabs__item--active .tabs__link,
+.tabs__menu--arrows .tabs__item--active:hover .tabs__link {
   color: #535251;
 }
-.tabs__menu--arrows .tabs__link--active polygon,
-.tabs__menu--arrows .tabs__link--active:hover polygon,
-.tabs__menu--arrows .tabs__link--active path,
-.tabs__menu--arrows .tabs__link--active:hover path,
-.tabs__menu--arrows .tabs__link--active circle,
-.tabs__menu--arrows .tabs__link--active:hover circle {
+.tabs__menu--arrows .tabs__item--active polygon,
+.tabs__menu--arrows .tabs__item--active:hover polygon,
+.tabs__menu--arrows .tabs__item--active path,
+.tabs__menu--arrows .tabs__item--active:hover path,
+.tabs__menu--arrows .tabs__item--active circle,
+.tabs__menu--arrows .tabs__item--active:hover circle {
   fill: #535251;
 }
-.tabs__menu--arrows .tabs__link--active::after {
+.tabs__menu--arrows .tabs__item--active::after {
   background: transparent;
   border-color: transparent transparent #676665 transparent;
   border-style: solid;

@@ -4,8 +4,8 @@
 // =====
 
 .tabs {
-    .box;
-    .box--1;
+    border-radius: 1px * @borderRadius;
+    border: @color-main-23 1px solid;
 }
 
 // elements
@@ -17,51 +17,55 @@
 }
 
 .tabs__menu {
-
     background: @color-main-25;
-    border: @color-main-22 1px solid;
+    border-radius: 1px * @borderRadius;
+    border: @color-main-23 1px solid;
+    color: @color-main-8;
     display: table;
     position: relative;
     table-layout: fixed;
     width: 100%;
+}
 
-    ul {
-        display: table-row;
-        margin: 0 3.4rem;
-        list-style: none;
-    }
+.tabs__items {
+    display: table-row;
+    list-style: none;
+}
 
-    ul:first-child {
-        margin: 0;
-    }
-
-    li {
-        border-right: @color-main-22 1px solid;
-        display: table-cell;
-        position: relative;
-        vertical-align: bottom;
-    }
-
-    li:last-child {
+.tabs__item {
+    
+    border-right: @color-main-23 1px solid;
+    display: table-cell;
+    position: relative;
+    vertical-align: bottom;
+    
+    &:last-child {
         border-right: 0;
     }
+    
+}
 
-    a {
-        color: @color-main-10;
-        display: block;
-        font-family: @font-sansserif;
-        font-size: 1.3rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-        padding: 1rem;
-        text-align: center;
+.tabs__link {
+    
+    color: @color-main-10;
+    display: block;
+    font-family: @font-sansserif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    
+    &:active,
+    &:link,
+    &:visited {
         text-decoration: none;
     }
-
-    a:hover {
-        background: #fff;
+    
+    &:hover {
+        background-color: #fff;
     }
-
+    
     // svg images inside tabs link
 
     svg {
@@ -84,12 +88,10 @@
         font-weight: normal;
         margin-left: .5rem;
     }
-
+    
 }
 
-.tabs__link {}
-
-.tabs__link--active {
+.tabs__item--active {
     background: #fff;
 }
 
@@ -99,13 +101,13 @@
 .tabs .tabs__menu {
 
     border: 0;
-    border-bottom: @color-main-22 1px solid;
+    border-bottom: @color-main-23 1px solid;
     border-radius: 0;
 
     // add a white line to cover up the
     // bottom border
 
-    .tabs__link--active::after {
+    .tabs__item--active::after {
         background: #fff;
         bottom: -1px;
         content: ' ';
@@ -121,26 +123,53 @@
 // modifiers
 // =========
 
-// checkmark for highlighting active tabs links
+// large tabs menu
 
-.js .tabs__menu--checkmarks {
+.tabs__menu--large .tabs__link {
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+}
 
-    .tabs__link--active a:before {
-        .mixin-icon;
-        color: @color-positive-15;
-        content: '\f011';
-        margin: -1.5rem 0;
+// subtle tabs menu
+
+.tabs__menu--subtle {
+    
+    background: transparent;
+    border: 0;
+    color: @color-main-12;
+    
+    .tabs__item {
+        background-color: transparent;
+        border-right: 0;
+        box-shadow: 0 -1px 0 @color-main-23 inset;
+    }
+    
+    .tabs__link:hover {
+        color: @color-main-8;
+        background-color: transparent;
+    }
+   
+    .tabs__item--active {
+        border-left: @color-main-23 1px solid;
+        border-right: @color-main-23 1px solid;
+        border-top-left-radius: 1px * @borderRadius;
+        border-top-right-radius: 1px * @borderRadius;
+        border-top: @color-main-23 1px solid;
+        box-shadow: none;
+        color: @color-main-8;
     }
 
 }
 
-// large tabs menu
+// checkmark for highlighting active tabs links
 
-.tabs__menu--large {
+.js .tabs__menu--checkmarks {
 
-    a {
-        font-size: 1.5rem;
-        padding: 1.5rem 1rem;
+    .tabs__item--active .tabs__link:before {
+        .mixin-icon;
+        color: @color-positive-15;
+        content: '\f011';
+        margin: -1.5rem 0;
     }
 
 }
@@ -152,18 +181,20 @@
     background: #fff;
     border-radius: 0;
     border: 0;
-
-    li {
+    
+    .tabs__item {
+        
         border: 0;
         border-bottom: @color-main-24 2px solid;
+        
+        &:hover {
+            border-bottom-color: @color-main-18;
+        }
+        
     }
 
-    li:hover {
-        border-bottom-color: @color-main-18;
-    }
-
-    li a {
-
+    .tabs__link {
+        
         color: @color-main-13;
 
         polygon, path, circle {
@@ -172,17 +203,13 @@
 
     }
 
-    .tabs__link {
-        color: @color-main-14;
-    }
-
-    .tabs__link--active,
-    .tabs__link--active:hover {
+    .tabs__item--active,
+    .tabs__item--active:hover {
 
         background: transparent;
         border-bottom-color: @color-main-10;
 
-        a {
+        .tabs__link {
             color: @color-main-8;
         }
 
@@ -192,7 +219,7 @@
 
     }
 
-    .tabs__link--active::after {
+    .tabs__item--active::after {
         background: transparent;
         border-color: transparent transparent @color-main-10 transparent;
         border-style: solid;

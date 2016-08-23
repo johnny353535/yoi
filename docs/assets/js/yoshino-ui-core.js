@@ -6317,7 +6317,7 @@ var Tabs = (function() {
          *
          *  For each .tabs__menu:
          *
-         *  - An initial .tabs__page can be referred to by adding the class .tabs__link--active
+         *  - An initial .tabs__page can be referred to by adding the class .tabs__item--active
          *    to a menu item. If no such class name was found, the tabs page referred to by
          *    the first tab menu item is shown.
          *
@@ -6330,7 +6330,7 @@ var Tabs = (function() {
 
             // read start tab from markup ...
 
-            var thisStartTabId = $(this).find('.tabs__link--active').length ? $(this).find('.tabs__link--active a')[0].hash : $(this).find('a').first()[0].hash;
+            var thisStartTabId = $(this).find('.tabs__item--active').length ? $(this).find('.tabs__item--active a')[0].hash : $(this).find('a').first()[0].hash;
 
             // read start tab from url ...
 
@@ -6375,21 +6375,21 @@ var Tabs = (function() {
         var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
 
-        // remove 'tabs__link--active' from all related menu items,
+        // remove 'tabs__item--active' from all related menu items,
         // hide all related tabs
 
         $thisRelatedTabsMenuItems.each(function() {
 
             var tabId = $(this).find('a')[0].hash;
 
-            $(this).removeClass('tabs__link--active');
+            $(this).removeClass('tabs__item--active');
             $(tabId).hide();
 
         });
 
-        // add 'tabs__link--active' and switch to target tab
+        // add 'tabs__item--active' and switch to target tab
 
-        $thisTabsMenuItem.addClass('tabs__link--active');
+        $thisTabsMenuItem.addClass('tabs__item--active');
         $(thisTargetTabId).show();
 
     }
