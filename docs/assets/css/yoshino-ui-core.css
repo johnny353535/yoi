@@ -17916,13 +17916,13 @@ dl dd {
 /** filters.less */
 .filters {
   border-radius: 2px;
-  border: #e1e0df 1px solid;
+  border: #ecebea 1px solid;
   position: relative;
 }
 .filters .filters__header {
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px;
+  padding: 1rem;
 }
 .filters > .btn {
   width: 100%;
@@ -17953,14 +17953,15 @@ dl dd {
 .filterGroup .filterGroup__header {
   background: #faf9f7;
   border-top: #ecebea 1px solid;
+  box-sizing: border-box;
   cursor: pointer;
+  height: 3.5rem;
   position: relative;
   user-select: none;
-  height: 35px;
 }
 .filterGroup .filterGroup__header h4 {
-  line-height: 25px;
-  padding: 5px 10px;
+  line-height: 2.5rem;
+  padding: .5rem 1rem;
   text-transform: none;
 }
 .filterGroup:not(.filterGroup--collapsed) .filterGroup__header,
@@ -17972,7 +17973,7 @@ dl dd {
             Applied via JS. Adds an overflow and native scrollbars
             if content is larger than max-height.
         */
-  max-height: 185px;
+  max-height: 18.5rem;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -17994,20 +17995,20 @@ dl dd {
 .filterGroup.filterGroup--hasShadow .filterGroup__body::after,
 .filterGroup.filterGroup--hasShadow .filterGroup__body::before {
   opacity: 1;
-  height: 10px;
+  height: 1rem;
 }
 .filterGroup.filterGroup--hasShadow .filterGroup__body::before {
-  background: linear-gradient(to bottom, rgba(154, 153, 152, 0.3), rgba(255, 255, 255, 0));
-  top: 35px;
+  background: linear-gradient(to bottom, rgba(174, 173, 172, 0.3), rgba(255, 255, 255, 0));
+  top: 3.5rem;
 }
 .filterGroup.filterGroup--hasShadow .filterGroup__body::after {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(154, 153, 152, 0.3));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(174, 173, 172, 0.3));
   bottom: 0;
 }
 .filter {
   display: block;
   margin: 0;
-  padding: 5px 30px;
+  padding: .5rem 3rem;
   position: relative;
 }
 .filter:link {
@@ -18021,8 +18022,8 @@ dl dd {
 }
 .filter .filter__counter {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: .5rem;
+  top: .5rem;
 }
 .filter::before {
   box-sizing: border-box;
@@ -18035,10 +18036,10 @@ dl dd {
 }
 .filter.filter--multi::before {
   border: #e1e0df 1px solid;
-  height: 10px;
-  left: 10px;
-  top: 10px;
-  width: 10px;
+  height: 1rem;
+  left: 1rem;
+  top: 1rem;
+  width: 1rem;
 }
 .filter.filter--multi.filter--active::before {
   -moz-osx-font-smoothing: grayscale !important;
@@ -18057,11 +18058,11 @@ dl dd {
   background: transparent;
   border: 0;
   content: '\f011';
-  height: 30px;
+  height: 3rem;
   left: 0;
-  line-height: 30px;
+  line-height: 3rem;
   top: 0;
-  width: 30px;
+  width: 3rem;
 }
 .filter.filter--multi.filter--active::before::before {
   height: inherit;
@@ -18078,12 +18079,12 @@ dl dd {
   content: '\f006';
 }
 .filter.filter--single::before {
-  border-radius: 5px;
+  border-radius: .5rem;
   border: #e1e0df 1px solid;
-  height: 10px;
-  left: 10px;
-  top: 10px;
-  width: 10px;
+  height: 1rem;
+  left: 1rem;
+  top: 1rem;
+  width: 1rem;
 }
 .filter.filter--single.filter--active::before {
   background: #343332;

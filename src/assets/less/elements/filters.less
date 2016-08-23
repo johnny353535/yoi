@@ -3,15 +3,15 @@
 .filters {
 
     .mixin-defaultBorderRadius;
-    border: @color-main-22 1px solid;
+    border: @color-main-23 1px solid;
     position: relative;
 
     // header
 
     .filters__header {
-        font-size: 15px;
+        font-size: 1.5rem;
         font-weight: bold;
-        padding: 10px;
+        padding: 1rem;
     }
 
     // reset button (injected via JS)
@@ -54,14 +54,15 @@
 
         background: @color-main-25;
         border-top: @color-main-23 1px solid;
+        box-sizing: border-box;
         cursor: pointer;
+        height: 3.5rem;
         position: relative;
         user-select: none;
-        height: 35px;
 
         h4 {
-            line-height: 25px;
-            padding: 5px 10px;
+            line-height: 2.5rem;
+            padding: .5rem 1rem;
             text-transform: none;
         }
 
@@ -81,7 +82,7 @@
             if content is larger than max-height.
         */
 
-        max-height: 185px;
+        max-height: 18.5rem;
         overflow: hidden;
         overflow-y: scroll;
 
@@ -111,20 +112,20 @@
     &.filterGroup--hasShadow .filterGroup__body::after,
     &.filterGroup--hasShadow .filterGroup__body::before {
         opacity: 1;
-        height: 10px;
+        height: 1rem;
     }
 
     // shadow on top
 
     &.filterGroup--hasShadow .filterGroup__body::before {
-        background: linear-gradient(to bottom, fade(@color-main-15, 30%), @color-transparent);
-        top: 35px;
+        background: linear-gradient(to bottom, fade(@color-main-17, 30%), @color-transparent);
+        top: 3.5rem;
     }
 
     // shadow on bottom
 
     &.filterGroup--hasShadow .filterGroup__body::after {
-        background: linear-gradient(to bottom, @color-transparent, fade(@color-main-15, 30%));
+        background: linear-gradient(to bottom, @color-transparent, fade(@color-main-17, 30%));
         bottom: 0;
     }
 
@@ -136,7 +137,7 @@
 
     display: block;
     margin: 0;
-    padding: 5px 30px;
+    padding: .5rem 3rem;
     position: relative;
 
     &:link {
@@ -155,8 +156,8 @@
 
     .filter__counter {
         position: absolute;
-        right: 5px;
-        top: 5px;
+        right: .5rem;
+        top: .5rem;
     }
 
     // pseudo input elements
@@ -178,10 +179,10 @@
 
         &::before {
             border: @color-main-22 1px solid;
-            height: 10px;
-            left: 10px;
-            top: 10px;
-            width: 10px;
+            height: 1rem;
+            left: 1rem;
+            top: 1rem;
+            width: 1rem;
         }
 
         &.filter--active::before {
@@ -189,11 +190,11 @@
             background: transparent;
             border: 0;
             content: '\f011';
-            height: 30px;
+            height: 3rem;
             left: 0;
-            line-height: 30px;
+            line-height: 3rem;
             top: 0;
-            width: 30px;
+            width: 3rem;
         }
 
         &.filter--active:hover {
@@ -212,12 +213,12 @@
     &.filter--single {
 
         &::before {
-            border-radius: 5px;
+            border-radius: .5rem;
             border: @color-main-22 1px solid;
-            height: 10px;
-            left: 10px;
-            top: 10px;
-            width: 10px;
+            height: 1rem;
+            left: 1rem;
+            top: 1rem;
+            width: 1rem;
         }
 
         &.filter--active::before {
