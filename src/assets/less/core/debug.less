@@ -5,16 +5,19 @@
 
 [class*="w-"] when (@debugGrid = true) {
     outline: @red-20 1px solid;
+    outline-style: inset;
 }
 
 // floats
 
 .fl-l when (@debugFloats = true) {
     outline: @green-15 1px dotted;
+    outline-style: inset;
 }
 
 .fl-r when (@debugFloats = true) {
     outline: @yellow-15 1px dotted;
+    outline-style: inset;
 }
 
 // BEM
@@ -22,10 +25,12 @@
 
 [class*="__"] when (@debugBemElements = true) {
     outline: @green-15 1px dashed !important;
+    outline-style: inset;
 }
 
 [class*="--"] when (@debugBemModifiers = true) {
     outline: @yellow-15 1px dashed !important;
+    outline-style: inset;
 }
 
 // images
@@ -33,10 +38,22 @@
 
 img:not([alt]) when (@debugImages = true) {
     outline: 2px @red-15 solid;
+    outline-style: inset;
+}
+
+img[alt=""] when (@debugImages = true) {
+    outline: 2px @red-15 solid;
+    outline-style: inset;
 }
 
 img:not([title]) when (@debugImages = true) {
     outline: 2px @red-15 solid;
+    outline-style: inset;
+}
+
+img[title=""] when (@debugImages = true) {
+    outline: 2px @red-15 solid;
+    outline-style: inset;
 }
 
 // media queries
