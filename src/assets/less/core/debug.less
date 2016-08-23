@@ -4,7 +4,17 @@
 // ====
 
 [class*="w-"] when (@debugGrid = true) {
-    outline: @red-15 1px solid;
+    outline: @red-20 1px solid;
+}
+
+// floats
+
+.fl-l when (@debugFloats = true) {
+    outline: @green-15 1px dotted;
+}
+
+.fl-r when (@debugFloats = true) {
+    outline: @yellow-15 1px dotted;
 }
 
 // BEM
@@ -22,11 +32,11 @@
 // ======
 
 img:not([alt]) when (@debugImages = true) {
-    outline: 1px @blue-15 solid;
+    outline: 2px @red-15 solid;
 }
 
 img:not([title]) when (@debugImages = true) {
-    outline: 1px @blue-15 dashed;
+    outline: 2px @red-15 solid;
 }
 
 // media queries
