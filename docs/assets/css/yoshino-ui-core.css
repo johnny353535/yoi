@@ -21179,14 +21179,17 @@ a:visited:hover {
   padding: .5rem 1rem;
   position: relative;
 }
-a.linkList__link {
+.linkList__link:active,
+.linkList__link:link,
+.linkList__link:visited {
   color: #535251;
+  text-decoration: none;
 }
 .linkList__link:hover {
   background: #f6f5f4;
 }
-.linkList .linkList__link {
-  text-decoration: none;
+.linkList__item--active .linkList__link {
+  background: #ecebea;
 }
 .linkList--arrowsRight .linkList__link::after,
 .linkList--arrowsLeft .linkList__link::after,
@@ -21203,12 +21206,6 @@ a.linkList__link {
 .linkList--arrowsRightDown .linkList__link:hover::after,
 .linkList--arrowsRightUp .linkList__link:hover::after {
   color: #535251;
-}
-.linkList__item--active .linkList__link {
-  background: #fff;
-}
-.linkList--dark .linkList__item--active .linkList__link {
-  background: #3e3d3c;
 }
 .linkList--stripped {
   border-radius: 0;
@@ -21231,6 +21228,9 @@ a.linkList__link {
 .linkList--dark .linkList__link:hover {
   background: #71706f;
   color: #fff;
+}
+.linkList--dark .linkList__item--active .linkList__link {
+  background: #535251;
 }
 .linkList--dark.linkList--arrowsRight a::after,
 .linkList--dark.linkList--arrowsLeft a::after,
@@ -21255,7 +21255,6 @@ a.linkList__link {
 .linkList--large.linkList--arrowsLeft .linkList__link::after,
 .linkList--large.linkList--arrowsRightDown .linkList__link::after,
 .linkList--large.linkList--arrowsRightUp .linkList__link::after {
-  color: #b9b8b7;
   font-size: 3.2rem;
 }
 .linkList--arrowsRight .linkList__link,
@@ -21284,6 +21283,7 @@ a.linkList__link {
   text-rendering: optimizeLegibility !important;
   vertical-align: middle;
   text-align: center;
+  color: #d7d6d5;
   content: '\f007';
   font-size: 2.4rem;
   margin-top: -1.6rem;
@@ -21320,6 +21320,7 @@ a.linkList__link {
   text-rendering: optimizeLegibility !important;
   vertical-align: middle;
   text-align: center;
+  color: #d7d6d5;
   content: '\f008';
   font-size: 2.4rem;
   left: 0;

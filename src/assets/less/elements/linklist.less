@@ -35,18 +35,21 @@
     padding: .5rem 1rem;
     position: relative;
 
-    a& {
+    &:active,
+    &:link,
+    &:visited {
         color: @color-main-8;
+        text-decoration: none;
     }
 
     &:hover {
         background: @color-main-24;
     }
+    
+    .linkList__item--active & {
+        background: @color-main-23;
+    }
 
-}
-
-.linkList .linkList__link {
-    text-decoration: none;
 }
 
 // icon
@@ -75,13 +78,14 @@
 
 // selected link
 
-.linkList__item--active .linkList__link {
-    background: #fff;
-}
+// .linkList__item--active .linkList__link,
+// .linkList--transparent .linkList__item--active .linkList__link {
+//     background: @color-main-23;
+// }
 
-.linkList--dark .linkList__item--active .linkList__link {
-    background: @color-main-6;
-}
+// .linkList--dark .linkList__item--active .linkList__link {
+//     background: @color-main-8;
+// }
 
 // no border, no rounded corners
 
@@ -117,6 +121,10 @@
             color: #fff;
         }
 
+    }
+    
+    .linkList__item--active .linkList__link {
+        background: @color-main-8;
     }
 
     // icon color
@@ -157,7 +165,6 @@
     &.linkList--arrowsRightUp {
 
         .linkList__link::after {
-            color: @color-main-18;
             font-size: 3.2rem;
         }
 
@@ -183,6 +190,7 @@
 
     .linkList__link::after {
         .mixin-icon;
+        color: @color-main-21;
         content: '\f007';
         font-size: 2.4rem;
         margin-top: -1.6rem;
@@ -207,6 +215,7 @@
 
     .linkList__link::after {
         .mixin-icon;
+        color: @color-main-21;
         content: '\f008';
         font-size: 2.4rem;
         left: 0;
