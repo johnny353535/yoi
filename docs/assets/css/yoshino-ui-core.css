@@ -12283,12 +12283,24 @@ body {
 .b-l {
   border-left: #ecebea 1px solid !important;
 }
-.br-default {
+.br {
   border-radius: 2px !important;
 }
 .br-circle {
   border-radius: 50% !important;
   overflow: hidden !important;
+}
+.br-tl {
+  border-top-left-radius: 2px !important;
+}
+.br-tr {
+  border-top-right-radius: 2px !important;
+}
+.br-br {
+  border-bottom-right-radius: 2px !important;
+}
+.br-bl {
+  border-bottom-left-radius: 2px !important;
 }
 .br-0 {
   border-radius: 0 !important;
@@ -25805,10 +25817,9 @@ tr:last-child td:last-child {
   color: #fff;
 }
 /** veterinary.less */
-.item .veterinary,
-.itemTeaser .veterinary {
-  background: #fffbd0;
+.veterinary {
   border-radius: 2px;
+  background: #fffbd0;
   border: #bbb577 1px solid;
   display: block;
   height: 30px;
@@ -25816,21 +25827,16 @@ tr:last-child td:last-child {
   position: absolute;
   width: 30px;
 }
-.item .veterinary span,
-.itemTeaser .veterinary span {
+.veterinary span {
   display: none;
 }
-.item .veterinary.expanded,
-.item .veterinary:hover,
-.itemTeaser .veterinary.expanded,
-.itemTeaser .veterinary:hover {
+.veterinary.veterinary--expanded,
+.veterinary:hover {
   width: auto;
   z-index: 100;
 }
-.item .veterinary.expanded span,
-.item .veterinary:hover span,
-.itemTeaser .veterinary.expanded span,
-.itemTeaser .veterinary:hover span {
+.veterinary.veterinary--expanded span,
+.veterinary:hover span {
   border-left: #c5bf81 1px solid;
   color: #888244;
   display: inline-block;
@@ -25838,8 +25844,7 @@ tr:last-child td:last-child {
   margin-left: 30px;
   padding: 0 10px;
 }
-.item .veterinary [class^="icon--"],
-.itemTeaser .veterinary [class^="icon--"] {
+.veterinary [class^="icon--"] {
   color: #888244;
   display: block;
   left: -4px;
@@ -25848,24 +25853,19 @@ tr:last-child td:last-child {
   top: -6px;
   width: 40px;
 }
-.item .veterinary .icon--056,
-.itemTeaser .veterinary .icon--056 {
+.veterinary .icon--056 {
   left: -1px;
 }
-.item .veterinary .icon--053,
-.itemTeaser .veterinary .icon--053 {
+.veterinary .icon--053 {
   left: -8px;
 }
-.item .veterinary .icon--070,
-.itemTeaser .veterinary .icon--070 {
+.veterinary .icon--070 {
   left: -8px;
 }
-.item .veterinary .icon--054,
-.itemTeaser .veterinary .icon--054 {
+.veterinary .icon--054 {
   left: -2px;
 }
-.item .veterinary .icon--055,
-.itemTeaser .veterinary .icon--055 {
+.veterinary .icon--055 {
   left: 1px;
 }
 /** videoPlayer.less */
