@@ -258,6 +258,7 @@ gulp.task('templates', function() {
     */
 
     var nunjucksGenerateMenu = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
+    var nunjucksFixed        = require('./src/dev/nunjucks-filters.js').nunjucksFixed;
     var nunjucksPad          = require('./src/dev/nunjucks-filters.js').nunjucksPad;
     var nunjucksRandom       = require('./src/dev/nunjucks-filters.js').nunjucksRandom;
     
@@ -287,10 +288,14 @@ gulp.task('templates', function() {
 
             markdown.register(env, marked);
 
-            // add filters and extensions
+            // add filters
   
+            env.addFilter('fixed', nunjucksFixed);
             env.addFilter('pad', nunjucksPad);
             env.addFilter('rnd', nunjucksRandom);
+            
+            // add extensions
+            
             env.addExtension('menu', new nunjucksGenerateMenu(), true);
 
             // return

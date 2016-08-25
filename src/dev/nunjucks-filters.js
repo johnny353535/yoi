@@ -24,6 +24,20 @@ exports.nunjucksPad = function(num, pad) {
 
 };
 
+exports.nunjucksFixed = function(num, digits) {
+
+    /**
+     *  Custom filter to set floating numbers to fixed digits.
+     *  
+     *  @param  {number} num    - the filter input (eg "2" if "2|fixed(4)")
+     *  @param  {number} digits - the amount of fixed digits after the decimal point
+     *  @return {string}        - the fixed number as string
+     */
+  
+   return num.toFixed(digits);
+
+};
+
 exports.nunjucksRandom = function(num, max) {
     
     /**
