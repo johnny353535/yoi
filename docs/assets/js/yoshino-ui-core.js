@@ -5050,7 +5050,7 @@ $('[data-reveal]').each(function(index){
     var target     = $data.target !== undefined ? $data.target : false;
     var event      = $data.event !== undefined ? $data.event : 'click';
     var transition = $data.transition !== undefined ? $data.transition : false;
-    var hidetarget = $data.hidetarget !== undefined ? $data.hidetarget : true;
+    var hideTarget = $data.hideTarget !== undefined ? $data.hideTarget : true;
 
     // cancel if no target was defined
 
@@ -5058,7 +5058,7 @@ $('[data-reveal]').each(function(index){
 
     // hide target elements first
 
-    if (hidetarget) $(target).hide();
+    if (hideTarget) $(target).hide();
 
     // apply event on trigger and reveal target
 
@@ -6444,7 +6444,7 @@ var ToggleGroup = (function() {
              *  Available options:
              *
              *  @option {string} target          - Selector for target element.
-             *  @option {string} group           - A unique id to group toggle elements.
+             *  @option {string} group           - A unique string to group toggle elements.
              *  @option {string} activeClassName - To highlight an "active" trigger, this
              *                                     CSS class name is added to the trigger.
              */
