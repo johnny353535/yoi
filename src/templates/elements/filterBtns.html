@@ -1,6 +1,8 @@
-{% macro build(this) %}
-    {% if this.modifiers %}
-        <ul class="filterBtns {{ this.modifiers }}">
+<!-- filterBtns.html -->
+
+{% macro render(modifiers=false) %}
+    {% if modifiers %}
+        <ul class="filterBtns {{ modifiers }}">
     {% else %}
         <ul class="filterBtns">
     {% endif %}
@@ -27,3 +29,5 @@
         </li>
     </ul>
 {% endmacro %}
+
+<!-- /filterBtns.html -->

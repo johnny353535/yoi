@@ -146,14 +146,14 @@ var RangeInput = (function() {
          */
 
         var $thisRangeInput = $rangeInput;
-        var $thisMinKnob = $thisRangeInput.find('.rangeInput__knob--min');
-        var $thisMaxKnob = $thisRangeInput.find('.rangeInput__knob--max');
+        var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
+        var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
 
         $thisRangeInput.data({
             absMin : absMin,
             absMax : absMax,
-            min : min,
-            max : max
+            min    : min,
+            max    : max
         });
 
         moveKnob($thisRangeInput, $thisMinKnob);
@@ -171,8 +171,8 @@ var RangeInput = (function() {
          */
 
         var $thisRangeInput = $rangeInput;
-        var $thisMinKnob = $thisRangeInput.find('.rangeInput__knob--min');
-        var $thisMaxKnob = $thisRangeInput.find('.rangeInput__knob--max');
+        var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
+        var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
 
         var thisAbsMin = $thisRangeInput.data().absMin;
         var thisAbsMax = $thisRangeInput.data().absMax;
@@ -197,10 +197,10 @@ var RangeInput = (function() {
          *  @param {jQuery dom object} $rangeInput - the range input
          */
 
-        var $thisRangeInput = $rangeInput;
-        var data = $thisRangeInput.data();
-        var $thisMinLabel = $thisRangeInput.find('.rangeInput__knob--min .rangeInput__label');
-        var $thisMaxLabel = $thisRangeInput.find('.rangeInput__knob--max .rangeInput__label');
+        var $thisRangeInput  = $rangeInput;
+        var data             = $thisRangeInput.data();
+        var $thisMinLabel    = $thisRangeInput.find('.rangeInput__knob--min .rangeInput__label');
+        var $thisMaxLabel    = $thisRangeInput.find('.rangeInput__knob--max .rangeInput__label');
         var $thisSingleLabel = $thisRangeInput.find('.rangeInput__label--single');
 
         // center labels
@@ -215,7 +215,7 @@ var RangeInput = (function() {
         if (data.minPosX === null || data.maxPosX === null) return;
 
         var minKnobRightEdge = data.minPosX + $thisMinLabel.outerWidth() / 2;
-        var maxKnobLeftEdge = data.maxPosX - $thisMaxLabel.outerWidth() / 2;
+        var maxKnobLeftEdge  = data.maxPosX - $thisMaxLabel.outerWidth() / 2;
 
         if (minKnobRightEdge >= maxKnobLeftEdge) {
             $thisRangeInput.addClass('rangeInput--mergedLabels');
@@ -288,8 +288,8 @@ var RangeInput = (function() {
 
             // set position & value if knob is beeing dragged
 
-            posX = Math.floor(Math.min(Math.max(0, (e.pageX - data.offsetX)), data.width));
-            var factor = Math.floor((posX / data.width) * 100);
+            posX          = Math.floor(Math.min(Math.max(0, (e.pageX - data.offsetX)), data.width));
+            var factor    = Math.floor((posX / data.width) * 100);
             thisKnobValue = Math.floor(((data.absMax - data.absMin) / 100) * factor + (data.absMin * 1));
 
         } else {

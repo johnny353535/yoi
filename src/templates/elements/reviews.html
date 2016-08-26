@@ -1,5 +1,7 @@
-{% macro build(this) %}
-    {% for i in range(0, this.totalItems or 10) %}
+<!-- reviews.html -->
+
+{% macro render(totalItems=10) %}
+    {% for i in range(0, totalItems) %}
         {% set rating = 4 %}
         {% set author = 'Petra Müller' %}
         {% set location = 'Berlin' %}
@@ -27,3 +29,5 @@
         </div>
     {% endfor %}
 {% endmacro %}
+
+<!-- /reviews.html -->

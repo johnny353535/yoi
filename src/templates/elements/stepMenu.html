@@ -1,6 +1,6 @@
-{% macro build(this) %}
-    {% set step = this.step or 1 %}
-    {% set context = this.context %}
+<!-- stepMenu.html -->
+
+{% macro render(step=1, context=false) %}
     <ol class="stepMenu step-{{ step }}">
         {% if context == 'order' %}
             <li>
@@ -62,3 +62,5 @@
         {% endif %}
     </ol>
 {% endmacro %}
+
+<!-- /stepMenu.html -->

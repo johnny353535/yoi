@@ -16,7 +16,7 @@ Straightforward pagination element with page- and browse links.
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        {{ pagination.build({ currentPage: 2, totalPages: 4 }) }}
+        {{ pagination.render(currentPage=2, totalPages=4) }}
     </div>
 </div>
 
@@ -27,7 +27,7 @@ There is only one modifier available: `.pagination--stripped`. Use it to remove 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        {{ pagination.build({ modifiers: 'pagination--stripped', currentPage: 2, totalPages: 4 }) }}
+        {{ pagination.render(modifiers='pagination--stripped', currentPage=2, totalPages=4) }}
     </div>
 </div>
 

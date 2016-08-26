@@ -1,8 +1,9 @@
-{% macro build(this) %}
-    {% set previewImgPath = this.previewImgPath or 'https://unsplash.it/450/450?image=15' %}
-    {% set zoomImgPath = this.zoomImgPath or 'https://unsplash.it/1000/1000?image=15' %}
-    {% if this.modifiers %}
-        <div class="imgMagnifier {{ this.modifiers }}">
+<!-- imgMagnifier.html -->
+
+{% macro render(modifiers=false, previewImgPath='https://unsplash.it/450/450?image=15', zoomImgPath='https://unsplash.it/1000/1000?image=15') %}
+
+    {% if modifiers %}
+        <div class="imgMagnifier {{ modifiers }}">
     {% else %}
         <div class="imgMagnifier">
     {% endif %}
@@ -11,3 +12,5 @@
         </a>
     </div>
 {% endmacro %}
+
+<!-- /imgMagnifier.html -->

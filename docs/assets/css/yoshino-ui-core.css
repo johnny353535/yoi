@@ -24236,18 +24236,9 @@ a.radioBtn {
   position: relative;
   user-select: none;
 }
-.js .rangeInput form {
-  height: 1px;
-  left: 0;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 1px;
-}
 .js .rangeInput .rangeInput__track {
-  background: #f6f5f4;
   border-radius: 2px;
+  background: #f6f5f4;
   bottom: 10px;
   height: 4px;
   left: 0;

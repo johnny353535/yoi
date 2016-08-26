@@ -1,8 +1,8 @@
-{% macro build(this) %}
-    {% set currentPage = this.currentPage or 1 %}
-    {% set totalPages = this.totalPages or 10 %}
-    {% if this.modifiers %}
-        <ul class="pagination {{ this.modifiers }}">
+<!-- pagination.html -->
+
+{% macro render(modifiers=false, currentPage=1, totalPages=10) %}
+    {% if modifiers %}
+        <ul class="pagination {{ modifiers }}">
     {% else %}
         <ul class="pagination">
     {% endif %}
@@ -33,3 +33,5 @@
         {% endif %}
     </ul>
 {% endmacro %}
+
+<!-- /pagination.html -->

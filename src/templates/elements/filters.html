@@ -1,30 +1,31 @@
-{% macro build(this) %}
-    {% set searchDisplay = this.searchDisplay or "undefinded" %}
-    {% if this.modifiers %}
-        <div class="filters {{ this.modifiers }}" data-searchdisplay="{{ searchDisplay }}">
+<!-- filters.html -->
+
+{% macro render(modifiers=false, searchDisplay='undefined') %}
+    {% if modifiers %}
+        <div class="filters {{ modifiers }}" data-searchdisplay="{{ searchDisplay }}">
     {% else %}
         <div class="filters" data-searchdisplay="{{ searchDisplay }}">
     {% endif %}
-        <div class="filters__header">Ergebnis filtern nach …</div>
+        <div class="filters__header">Filtern nach …</div>
         <div class="filterGroup">
             <div class="filterGroup__header">
                 <h4>Preis</h4>
             </div>
             <div class="filterGroup__body">
                 <div class="filter filter__range">
-                    <div class="rangeInput m-tb-4" data-rangeinput="min:20; max:400; absMin:20; absMax:400;">
-                        <form>
+                    <div class="rangeInput m-tb-4" data-rangeinput="min:1; max:100; absMin:1; absMax:100;">
+                        <div class="js-fallback">
                             <label for="min">Mindestpreis</label>
                             <input type="text" value="10" name="min" />
                             <label for="max">Höchstpreis</label>
                             <input type="text" value="500" name="max" />
-                            <input class="btn" type="submit" value="Anwenden">
-                        </form>
+                            <input class="btn" type="submit" value="Anwenden" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="filterGroup">
+        <div class="filterGroup filterGroup--collapsed">
             <div class="filterGroup__header">
                 <h4>Darreichungsform</h4>
             </div>
@@ -127,36 +128,7 @@
                 </a>
             </div>
         </div>
-
-        {#
-            <div class="filterGroup">
-                <div class="filterGroup__header">
-                    <h4>Preis</h4>
-                </div>
-                <div class="filterGroup__body">
-                    <a class="filter filter--single" href="#">
-                        unter € 5,00
-                        <span class="filter__counter">99</span>
-                    </a>
-                    <a class="filter filter--single" href="#">
-                        bis € 10,00
-                        <span class="filter__counter">7</span>
-                    </a>
-                    <a class="filter filter--single" href="#">
-                        bis € 15,00
-                        <span class="filter__counter">13</span>
-                    </a>
-                    <a class="filter filter--single" href="#">
-                        bis € 50,00
-                        <span class="filter__counter">55</span>
-                    </a>
-                    <a class="filter filter--single" href="#">
-                        über € 60,00
-                        <span class="filter__counter">55</span>
-                    </a>
-                </div>
-            </div>
-        #}
-
     </div>
 {% endmacro %}
+
+<!-- /filters.html -->
