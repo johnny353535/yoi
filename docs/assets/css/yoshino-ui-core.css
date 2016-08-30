@@ -3043,6 +3043,126 @@ body {
   position: absolute !important;
   left: 50% !important;
 }
+.push-t-1 {
+  top: 1px !important;
+}
+.push-t-2 {
+  top: 2px !important;
+}
+.push-t-3 {
+  top: 3px !important;
+}
+.push-t-4 {
+  top: 4px !important;
+}
+.push-t-5 {
+  top: 5px !important;
+}
+.push-t-6 {
+  top: 6px !important;
+}
+.push-t-7 {
+  top: 7px !important;
+}
+.push-t-8 {
+  top: 8px !important;
+}
+.push-t-9 {
+  top: 9px !important;
+}
+.push-t-10 {
+  top: 10px !important;
+}
+.push-r-1 {
+  right: 1px !important;
+}
+.push-r-2 {
+  right: 2px !important;
+}
+.push-r-3 {
+  right: 3px !important;
+}
+.push-r-4 {
+  right: 4px !important;
+}
+.push-r-5 {
+  right: 5px !important;
+}
+.push-r-6 {
+  right: 6px !important;
+}
+.push-r-7 {
+  right: 7px !important;
+}
+.push-r-8 {
+  right: 8px !important;
+}
+.push-r-9 {
+  right: 9px !important;
+}
+.push-r-10 {
+  right: 10px !important;
+}
+.push-b-1 {
+  bottom: 1px !important;
+}
+.push-b-2 {
+  bottom: 2px !important;
+}
+.push-b-3 {
+  bottom: 3px !important;
+}
+.push-b-4 {
+  bottom: 4px !important;
+}
+.push-b-5 {
+  bottom: 5px !important;
+}
+.push-b-6 {
+  bottom: 6px !important;
+}
+.push-b-7 {
+  bottom: 7px !important;
+}
+.push-b-8 {
+  bottom: 8px !important;
+}
+.push-b-9 {
+  bottom: 9px !important;
+}
+.push-b-10 {
+  bottom: 10px !important;
+}
+.push-l-1 {
+  left: 1px !important;
+}
+.push-l-2 {
+  left: 2px !important;
+}
+.push-l-3 {
+  left: 3px !important;
+}
+.push-l-4 {
+  left: 4px !important;
+}
+.push-l-5 {
+  left: 5px !important;
+}
+.push-l-6 {
+  left: 6px !important;
+}
+.push-l-7 {
+  left: 7px !important;
+}
+.push-l-8 {
+  left: 8px !important;
+}
+.push-l-9 {
+  left: 9px !important;
+}
+.push-l-10 {
+  left: 10px !important;
+}
 .center {
   box-sizing: border-box;
   margin: 0 auto;
