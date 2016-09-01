@@ -35,7 +35,7 @@ var PopOver = (function() {
 
         $('[data-popover]').each(function() {
 
-            // gather some dom elements
+            // reference the popover trigger
 
             var $thisPopOverTrigger = $(this);
 
@@ -96,6 +96,7 @@ var PopOver = (function() {
                     if (preventDefault !== 'false') e.preventDefault();
 
                     hideAllPopOvers();
+                    removeToggleClassFromPopOverTriggers();
                     showPopOver($thisPopOverTrigger, $thisPopOver);
 
                 })
@@ -154,9 +155,7 @@ var PopOver = (function() {
             var options = Helper.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
-                var cssClassName = options.toggleClass;
-                $('.' + cssClassName).removeClass(cssClassName);
-                $thisPopOverTrigger.addClass(cssClassName);
+                $thisPopOverTrigger.addClass(options.toggleClass);
             }
 
             // set the pop-over postion, then show it
@@ -178,21 +177,18 @@ var PopOver = (function() {
          */
 
         Helper.setDelay('popOverHideTimeout', 500, function() {
-
-            // if this option is set, remove the provided css class name
-            // from the trigger element
-
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
-
-            if (options.toggleClass !== undefined) {
-                var cssClassName = options.toggleClass;
-                $thisPopOverTrigger.removeClass(cssClassName);
-            }
-
-            // hide the pop-over
-
+            
             $thisPopOver.hide();
-
+            removeToggleClassFromPopOverTriggers();
+            // // if this option is set, remove the provided css class name
+            // // from the trigger element
+            //
+            // var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            //
+            // if (options.toggleClass !== undefined) {
+            //     $thisPopOverTrigger.removeClass(options.toggleClass);
+            // }
+            
         });
 
     }
@@ -303,6 +299,31 @@ var PopOver = (function() {
             break;
         }
 
+    }
+    
+    function removeToggleClassFromPopOverTriggers() {
+        
+        $('[data-popover]').each(function() {
+            
+            // reference the popover trigger
+
+            var $thisPopOverTrigger = $(this);
+
+            // read the options
+
+            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            
+            // if this option is set, remove the provided css class name
+            // from the trigger element
+
+            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+
+            if (options.toggleClass !== undefined) {
+                $thisPopOverTrigger.removeClass(options.toggleClass);
+            }
+            
+        });
+        
     }
 
     // initialize
