@@ -1,43 +1,82 @@
 /** countdown.less */
 
-.countdown {
-    width: 318px;
-    background: ~"url(../img/bg-countdown.png)" no-repeat center center;
-    height: 70px;
-    position: absolute;
-    bottom: 0;
+// block
+// =====
+
+.countdown-x {
+    background: @color-main-8;
+    border-radius: 6px;
+    box-shadow: @color-main-6 0 1px 0 inset;
+    display: inline-block;
+    overflow: hidden;
+    padding: .2rem;
+    position: relative;
 }
 
-.countdown__clock {
+// elements
+// ========
 
-    text-shadow: 0 -1px 0 @color-main-6;
-
-    strong {
-        color: #fff;
-        font-size: 40px;
-        font-weight: bold;
-        letter-spacing: 22px;
-        line-height: 70px;
-        margin: 0;
-        position: absolute;
-        top: 0;
-    }
-
-    span {
-        color: #fff;
-        font-size: 10px;
-        font-weight: bold;
-        line-height: 1;
-        margin: 0;
-        position: absolute;
-        text-transform: uppercase;
-    }
-
+.countdown__title {
+    clear: both;
+    color: @color-main-25;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: .5rem;
+    text-shadow: @color-main-5 0 -1px 0;
 }
 
-.countdown__label__1 { left: 12px; top: 25px; }
-.countdown__label__2 { left: 141px; top: 30px; }
-.countdown__label__3 { left: 273px; top: 30px;}
+.countdown__days,
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+    
+    background: linear-gradient(to bottom, @color-main-11 0%, @color-main-10 49%, @color-main-8 50%, @color-main-8 51%, @color-main-15 52%, @color-main-11 52%, @color-main-10 100%);
+    border-radius: 4px;
+    box-shadow: @color-main-6 0 1px 0, @color-main-12 0 1px 0 inset;
+    float: left;
+    height: 9rem;
+    margin: .2rem;
+    position: relative;
+    text-align: center;
+    width: 6rem;
+    
+    // divider
+    
+    &::after {
+        background: @color-main-8;
+        box-shadow: 0 -1px 0 fade(@color-main-10,50%);
+        content: ' ';
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        z-index: 2;
+    }
+    
+}
 
-.countdown__hours    { left: 60px; }
-.countdown__minutes  { left: 180px; }
+.countdown__days {}
+.countdown__hours {}
+.countdown__minutes {}
+.countdown__seconds {}
+
+.countdown__digit {
+    color: white;
+    font-size: 4rem;
+    line-height: 4rem;
+    position: relative;
+    text-shadow: @color-main-5 0 -1px 0;
+    top: 2rem;
+}
+
+.countdown__label {
+    color: @color-main-20;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    text-shadow: @color-main-5 0 -1px 0;
+    top: 2rem;
+}

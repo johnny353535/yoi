@@ -14735,24 +14735,12 @@ body {
 .tc-attention {
   color: #746e30 !important;
 }
-.tc-dark {
-  color: #343332 !important;
-}
 .tc-error,
 .tc-negative {
   color: #ff6830 !important;
 }
 .tc-gold {
   color: #eac310 !important;
-}
-.tc-light {
-  color: #9a9998 !important;
-}
-.tc-pharmacy {
-  color: #fe0011 !important;
-}
-.tc-price {
-  color: #ff6830 !important;
 }
 .tc-success,
 .tc-positive {
@@ -17380,71 +17368,68 @@ a:visited.btn.btn--outline.btn--positive {
   color: #629278;
 }
 /** countdown.less */
-.countdown {
-  width: 318px;
-  background: url(../img/bg-countdown.png) no-repeat center center;
-  height: 70px;
-  position: absolute;
-  bottom: 0;
-}
-.countdown__clock {
-  text-shadow: 0 -1px 0 #3e3d3c;
-}
-.countdown__clock strong {
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: 22px;
-  line-height: 70px;
-  margin: 0;
-  position: absolute;
-  top: 0;
-}
-.countdown__clock span {
-  color: #fff;
-  font-size: 10px;
-  font-weight: bold;
-  line-height: 1;
-  margin: 0;
-  position: absolute;
-  text-transform: uppercase;
-}
-.countdown__label__1 {
-  left: 12px;
-  top: 25px;
-}
-.countdown__label__2 {
-  left: 141px;
-  top: 30px;
-}
-.countdown__label__3 {
-  left: 273px;
-  top: 30px;
-}
-.countdown__hours {
-  left: 60px;
-}
-.countdown__minutes {
-  left: 180px;
-}
-/** countdownBanner.less */
-.countdownBanner {
-  background: #676665;
-  border-radius: 2px;
-  height: 70px;
+.countdown-x {
+  background: #535251;
+  border-radius: 6px;
+  box-shadow: #3e3d3c 0 1px 0 inset;
+  display: inline-block;
+  overflow: hidden;
+  padding: .2rem;
   position: relative;
 }
-.countdownBanner h2 {
-  color: #fff;
-  left: 340px;
-  line-height: 70px;
-  position: absolute;
-  top: 0;
+.countdown__title {
+  clear: both;
+  color: #faf9f7;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: .5rem;
+  text-shadow: #343332 0 -1px 0;
 }
-.countdownBanner .btn {
+.countdown__days,
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+  background: linear-gradient(to bottom, #71706f 0%, #676665 49%, #535251 50%, #535251 51%, #9a9998 52%, #71706f 52%, #676665 100%);
+  border-radius: 4px;
+  box-shadow: #3e3d3c 0 1px 0, #7b7a79 0 1px 0 inset;
+  float: left;
+  height: 9rem;
+  margin: .2rem;
+  position: relative;
+  text-align: center;
+  width: 6rem;
+}
+.countdown__days::after,
+.countdown__hours::after,
+.countdown__minutes::after,
+.countdown__seconds::after {
+  background: #535251;
+  box-shadow: 0 -1px 0 rgba(103, 102, 101, 0.5);
+  content: ' ';
+  display: block;
+  height: 1px;
+  left: 0;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+}
+.countdown__digit {
+  color: white;
+  font-size: 4rem;
+  line-height: 4rem;
+  position: relative;
+  text-shadow: #343332 0 -1px 0;
+  top: 2rem;
+}
+.countdown__label {
+  color: #cdcccb;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  text-shadow: #343332 0 -1px 0;
+  top: 2rem;
 }
 /** dataElement.less */
 .dataElement,
