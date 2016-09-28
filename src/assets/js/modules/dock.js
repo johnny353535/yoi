@@ -15,7 +15,7 @@ var Dock = (function() {
         $('[data-dock]').each(function() {
 
             var $thisDock = $(this);
-            var options = Helper.toObject($thisDock.data('dock'));
+            var options   = Helper.toObject($thisDock.data('dock'));
 
             // auto hide
 

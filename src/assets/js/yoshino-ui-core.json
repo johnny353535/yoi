@@ -4,6 +4,7 @@
         "./src/assets/js/core/documentation.js",
         "./src/assets/js/modules/autoComplete.js",
         "./src/assets/js/modules/browserHistory.js",
+        "./src/assets/js/modules/countdown.js",
         "./src/assets/js/modules/datePicker.js",
         "./src/assets/js/modules/dismiss.js",
         "./src/assets/js/modules/dock.js",

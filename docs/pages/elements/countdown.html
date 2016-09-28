@@ -46,8 +46,8 @@
             <div class="documentation__body">
                 
 
-<h2 id="visual-debugging">Visual Debugging</h2>
-<p>Use the <a href="/pages/theme/options.html">option variables</a> of your <a href="/pages/theme/_introduction.html">theme</a> to include styles that are only applied if certain <em>debug flags</em> were set. You can highlight BEM-style elements (__elements, –modifiers), certain utility classes or even display the currently active media query.</p>
+<h2 id="countdown">Countdown</h2>
+<p>Use this element to create a countdown to a date, less than a year ahead. The countdown is rendered as a lcd-style clock, yet fully accessible via screen readers.</p>
 <table>
 <thead>
 <tr>
@@ -58,15 +58,82 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td>debug.less</td>
+<td>countdown.less</td>
 </tr>
 <tr>
-<td>Less-File</td>
-<td>options.less</td>
+<td>JS-File</td>
+<td>countdown.js</td>
+</tr>
+<tr>
+<td>Base CSS-Class</td>
+<td><code>.countdown</code></td>
+</tr>
+<tr>
+<td>Modifiers</td>
+<td><code>-</code></td>
 </tr>
 </tbody>
 </table>
+<h3 id="basic-example">Basic Example</h3>
+<p>Create an element with the css class name <code>countdown</code>. One parameter is needed, supplied via the custom data-attribute: the date of the deadline, <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString">ISO 8601 formatted</a>. </p>
 
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002"></div>
+    </div>
+</div>
+<div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Limitations</h3>
+    <div class="note__body">
+        <p>Please notice that while the countdown can process deadline more than a year in the future, it was <i>designed to count down to an event less than 12 months in the future</i>.</p>
+    </div>
+</div>
+
+<h3 id="countdown-with-optional-title">Countdown With Optional Title</h3>
+<p>Add an element with the css class name <code>countdown__title</code> to add an optional title.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="countdown" data-countdown="December 31 2016 15:00:00 GMT-0005">
+            <p class="countdown__title">Time Until Takeoff:</p>
+        </div>
+    </div>
+</div>
+
+<h3 id="expired-countdown">Expired Countdown</h3>
+<p>Once the countdown expired, the display will reset and the <strong>custom event</strong> <code>countdown:expired</code> <strong>will fire</strong>.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="countdown" data-countdown="January 1 2016 18:18:00 GMT+0002"></div>
+    </div>
+</div>
+
+<h3 id="progressive-enhancement-accessibility-fallback">Progressive Enhancement, Accessibility &amp; Fallback</h3>
+<p>Each lcd-style digit is an svg graphic. To make the countdown more accessible by default, the script inserts a visually hidden label with a well-readable string, representing the remaining time. However, it’s a good idea to always include this label to provide a meaningful noScript-fallback:</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true">
+        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002">
+            <p class="hidden">Expires on December 31st 2016 at 15:00 GMT+0002.</p>
+        </div>
+    </div>
+</div>
+
+<p>Once the script is executed, the label gets replaced and updates every second:</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; printWithDelay:true">
+        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002">
+            <p class="hidden">Expires on January 1st, 2020 at 15:00 GMT+0002</p>
+        </div>
+    </div>
+</div>
 
 
             </div>

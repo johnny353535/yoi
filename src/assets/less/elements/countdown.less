@@ -4,13 +4,20 @@
 // =====
 
 .countdown {
+    
     background: @color-main-8;
     border-radius: 6px;
     box-shadow: @color-main-6 0 1px 0 inset;
     display: inline-block;
-    overflow: hidden;
-    padding: .2rem;
     position: relative;
+    padding: .2rem;
+    
+    .jsFallback {
+        text-shadow: @color-main-5 0 -1px 0;
+        padding: 1rem;
+        color: @color-main-25;
+    }
+    
 }
 
 // elements
@@ -22,40 +29,31 @@
     display: block;
     font-size: 1.5rem;
     font-weight: bold;
-    padding: .5rem;
+    padding: .5rem 1rem;
     text-shadow: @color-main-5 0 -1px 0;
+}
+
+.countdown__clock {
+    overflow: hidden;
 }
 
 .countdown__days,
 .countdown__hours,
 .countdown__minutes,
 .countdown__seconds {
-    
-    background: linear-gradient(to bottom, @color-main-11 0%, @color-main-10 49%, @color-main-8 50%, @color-main-8 51%, @color-main-15 52%, @color-main-11 52%, @color-main-10 100%);
+    background: @color-main-6;
     border-radius: 4px;
-    box-shadow: @color-main-6 0 1px 0, @color-main-12 0 1px 0 inset;
+    box-shadow: @color-main-6 0 1px 0, @color-main-11 0 1px 0 inset;
     float: left;
-    height: 9rem;
-    margin: .2rem;
+    padding: .2rem;
     position: relative;
     text-align: center;
-    width: 6rem;
-    
-    // divider
-    
-    &::after {
-        background: @color-main-8;
-        box-shadow: 0 -1px 0 fade(@color-main-10,50%);
-        content: ' ';
-        display: block;
-        height: 1px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        z-index: 2;
-    }
-    
+}
+
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+    margin-left: .2rem
 }
 
 .countdown__days {}
@@ -63,20 +61,145 @@
 .countdown__minutes {}
 .countdown__seconds {}
 
-.countdown__digit {
-    color: white;
-    font-size: 4rem;
-    line-height: 4rem;
-    position: relative;
-    text-shadow: @color-main-5 0 -1px 0;
-    top: 2rem;
-}
-
 .countdown__label {
     color: @color-main-20;
-    font-size: 1.5rem;
+    display: block;
+    font-size: 1.3rem;
     font-weight: bold;
     position: relative;
     text-shadow: @color-main-5 0 -1px 0;
-    top: 2rem;
+}
+
+.countdown__character {
+
+    margin: .1rem;
+
+    path,
+    polygon {
+        fill: @color-main-7;
+        transition: all 100ms ease-out;
+    }
+
+}
+
+// modifiers
+// =========
+
+// "lcd" character
+
+.countdown--0 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-bl { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--1 {
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--2 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-bl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--3 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--4 {
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--5 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--6 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-bl { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--7 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--8 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-bl { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--9 {
+    .countdown__character__segment-t  { fill: @color-main-24; }
+    .countdown__character__segment-tr { fill: @color-main-24; }
+    .countdown__character__segment-br { fill: @color-main-24; }
+    .countdown__character__segment-b  { fill: @color-main-24; }
+    .countdown__character__segment-tl { fill: @color-main-24; }
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+.countdown--dots {
+    .countdown__character__segment-t  { fill: transparent; }
+    .countdown__character__segment-tr { fill: transparent; }
+    .countdown__character__segment-br { fill: transparent; }
+    .countdown__character__segment-b  { fill: transparent; }
+    .countdown__character__segment-bl { fill: transparent; }
+    .countdown__character__segment-tl { fill: transparent; }
+    .countdown__character__segment-m  { fill: transparent; }
+    .countdown__character__dots       { fill: @color-main-24; }
+}
+
+.countdown--empty {
+    .countdown__character__segment-m  { fill: @color-main-24; }
+    .countdown__character__dots       { fill: transparent; }
+}
+
+// to boost legibility, make leading zeros in "00" invisible
+
+.countdown--0:first-child {
+    .countdown__character__segment-t  { fill: @color-main-7; }
+    .countdown__character__segment-tr { fill: @color-main-7; }
+    .countdown__character__segment-br { fill: @color-main-7; }
+    .countdown__character__segment-b  { fill: @color-main-7; }
+    .countdown__character__segment-bl { fill: @color-main-7; }
+    .countdown__character__segment-tl { fill: @color-main-7; }
+    .countdown__character__dots       { fill: transparent; }
 }

@@ -17373,9 +17373,13 @@ a:visited.btn.btn--outline.btn--positive {
   border-radius: 6px;
   box-shadow: #3e3d3c 0 1px 0 inset;
   display: inline-block;
-  overflow: hidden;
-  padding: .2rem;
   position: relative;
+  padding: .2rem;
+}
+.countdown .jsFallback {
+  text-shadow: #343332 0 -1px 0;
+  padding: 1rem;
+  color: #faf9f7;
 }
 .countdown__title {
   clear: both;
@@ -17383,53 +17387,272 @@ a:visited.btn.btn--outline.btn--positive {
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: .5rem;
+  padding: .5rem 1rem;
   text-shadow: #343332 0 -1px 0;
+}
+.countdown__clock {
+  overflow: hidden;
 }
 .countdown__days,
 .countdown__hours,
 .countdown__minutes,
 .countdown__seconds {
-  background: linear-gradient(to bottom, #71706f 0%, #676665 49%, #535251 50%, #535251 51%, #9a9998 52%, #71706f 52%, #676665 100%);
+  background: #3e3d3c;
   border-radius: 4px;
-  box-shadow: #3e3d3c 0 1px 0, #7b7a79 0 1px 0 inset;
+  box-shadow: #3e3d3c 0 1px 0, #71706f 0 1px 0 inset;
   float: left;
-  height: 9rem;
-  margin: .2rem;
+  padding: .2rem;
   position: relative;
   text-align: center;
-  width: 6rem;
 }
-.countdown__days::after,
-.countdown__hours::after,
-.countdown__minutes::after,
-.countdown__seconds::after {
-  background: #535251;
-  box-shadow: 0 -1px 0 rgba(103, 102, 101, 0.5);
-  content: ' ';
-  display: block;
-  height: 1px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  z-index: 2;
-}
-.countdown__digit {
-  color: white;
-  font-size: 4rem;
-  line-height: 4rem;
-  position: relative;
-  text-shadow: #343332 0 -1px 0;
-  top: 2rem;
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+  margin-left: 0.2rem;
 }
 .countdown__label {
   color: #cdcccb;
-  font-size: 1.5rem;
+  display: block;
+  font-size: 1.3rem;
   font-weight: bold;
   position: relative;
   text-shadow: #343332 0 -1px 0;
-  top: 2rem;
+}
+.countdown__character {
+  margin: .1rem;
+}
+.countdown__character path,
+.countdown__character polygon {
+  fill: #484746;
+  transition: all 100ms ease-out;
+}
+.countdown--0 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__segment-bl {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--0 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--1 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--1 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--1 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--2 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--2 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--2 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--2 .countdown__character__segment-bl {
+  fill: #f6f5f4;
+}
+.countdown--2 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--2 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--3 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--3 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--3 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--3 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--3 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--3 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--4 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--4 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--4 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--4 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--4 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--5 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--5 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--5 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--5 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--5 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--5 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--6 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__segment-bl {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--6 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--7 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--7 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--7 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--7 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--8 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-bl {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--8 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--9 .countdown__character__segment-t {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__segment-tr {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__segment-br {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__segment-b {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__segment-tl {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--9 .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-t {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-tr {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-br {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-b {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-bl {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-tl {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__segment-m {
+  fill: transparent;
+}
+.countdown--dots .countdown__character__dots {
+  fill: #f6f5f4;
+}
+.countdown--empty .countdown__character__segment-m {
+  fill: #f6f5f4;
+}
+.countdown--empty .countdown__character__dots {
+  fill: transparent;
+}
+.countdown--0:first-child .countdown__character__segment-t {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__segment-tr {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__segment-br {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__segment-b {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__segment-bl {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__segment-tl {
+  fill: #484746;
+}
+.countdown--0:first-child .countdown__character__dots {
+  fill: transparent;
 }
 /** dataElement.less */
 .dataElement,
