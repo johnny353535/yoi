@@ -4,81 +4,73 @@
 // =====
 
 .breadcrumbs {
-
-    background: @color-main-25;
     .mixin-defaultBorderRadius;
+    background: @color-main-25;
     border: @color-main-23 1px solid;
     line-height: 2.5rem;
     overflow: hidden;
     padding: 0 1.5rem 0 0;
+}
 
-    ul {
-        float: left;
-        list-style: none;
+// elements
+// ========
+
+.breadcrumbs__item {
+    
+    display: inline-block;
+    position: relative;
+    z-index: 4;
+    
+    // hover
+    
+    &:hover {
+        z-index: 3;
     }
-
-    li a {
-        color: @color-main-8;
-        display: inline-block;
-        padding: 0 3rem 0 0;
-        position: relative;
-        text-decoration: none;
-    }
-
-    li span {
-        display: inline-block;
-        line-height: 2.5rem;
-        padding: 0 0 0 2rem;
-        position: relative;
+    
+    &:hover + .breadcrumbs__item {
         z-index: 2;
     }
-
-    // breadcrumb
-
-    li {
-
-        display: inline-block;
-        position: relative;
-        z-index: 4;
-
-        &:hover {
-            z-index: 3;
-        }
-
-        &:hover + li {
-            z-index: 2;
-        }
-
-        &:hover a span {
-            background: @color-main-24;
-        }
-
-        &:hover a::after {
-            background: @color-main-24;
-        }
-
+    
+    &:hover .breadcrumbs__label {
+        background: @color-main-24;
     }
-
-    li + li {
+    
+    &:hover .breadcrumbs__link::after {
+        background: @color-main-24;
+    }
+    
+    // spacing
+    
+    & + .breadcrumbs__item {
         margin-left: -2.5rem;
     }
-
+    
     // first breadcrumb
-
-    li:first-child span {
+    
+    &:first-child .breadcrumbs__label {
         padding-left: 1.5rem;
     }
-
+    
     // last breadcrumb (= current page)
-
-    li:last-child {
+    
+    &:last-child {
         z-index: 1;
         font-weight: bold;
     }
+    
+}
 
+.breadcrumbs__link {
+    
+    color: @color-main-8;
+    display: inline-block;
+    padding: 0 3rem 0 0;
+    position: relative;
+    text-decoration: none;
+    
     // pointy right edge
 
-    li a::after {
+    &::after {
         background: @color-main-25;
         border-right: @color-main-22 1px solid;
         border-top: @color-main-22 1px solid;
@@ -94,5 +86,13 @@
         width: 3em;
         z-index: 1;
     }
+    
+}
 
+.breadcrumbs__label {
+    display: inline-block;
+    line-height: 2.5rem;
+    padding: 0 0 0 2rem;
+    position: relative;
+    z-index: 2;
 }

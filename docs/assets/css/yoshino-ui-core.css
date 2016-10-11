@@ -16361,59 +16361,48 @@ a.box {
 }
 /** breadcrumbs.less */
 .breadcrumbs {
-  background: #faf9f7;
   border-radius: 2px;
+  background: #faf9f7;
   border: #ecebea 1px solid;
   line-height: 2.5rem;
   overflow: hidden;
   padding: 0 1.5rem 0 0;
 }
-.breadcrumbs ul {
-  float: left;
-  list-style: none;
+.breadcrumbs__item {
+  display: inline-block;
+  position: relative;
+  z-index: 4;
 }
-.breadcrumbs li a {
+.breadcrumbs__item:hover {
+  z-index: 3;
+}
+.breadcrumbs__item:hover + .breadcrumbs__item {
+  z-index: 2;
+}
+.breadcrumbs__item:hover .breadcrumbs__label {
+  background: #f6f5f4;
+}
+.breadcrumbs__item:hover .breadcrumbs__link::after {
+  background: #f6f5f4;
+}
+.breadcrumbs__item + .breadcrumbs__item {
+  margin-left: -2.5rem;
+}
+.breadcrumbs__item:first-child .breadcrumbs__label {
+  padding-left: 1.5rem;
+}
+.breadcrumbs__item:last-child {
+  z-index: 1;
+  font-weight: bold;
+}
+.breadcrumbs__link {
   color: #535251;
   display: inline-block;
   padding: 0 3rem 0 0;
   position: relative;
   text-decoration: none;
 }
-.breadcrumbs li span {
-  display: inline-block;
-  line-height: 2.5rem;
-  padding: 0 0 0 2rem;
-  position: relative;
-  z-index: 2;
-}
-.breadcrumbs li {
-  display: inline-block;
-  position: relative;
-  z-index: 4;
-}
-.breadcrumbs li:hover {
-  z-index: 3;
-}
-.breadcrumbs li:hover + li {
-  z-index: 2;
-}
-.breadcrumbs li:hover a span {
-  background: #f6f5f4;
-}
-.breadcrumbs li:hover a::after {
-  background: #f6f5f4;
-}
-.breadcrumbs li + li {
-  margin-left: -2.5rem;
-}
-.breadcrumbs li:first-child span {
-  padding-left: 1.5rem;
-}
-.breadcrumbs li:last-child {
-  z-index: 1;
-  font-weight: bold;
-}
-.breadcrumbs li a::after {
+.breadcrumbs__link::after {
   background: #faf9f7;
   border-right: #e1e0df 1px solid;
   border-top: #e1e0df 1px solid;
@@ -16428,6 +16417,13 @@ a.box {
   transform: rotate(45deg);
   width: 3em;
   z-index: 1;
+}
+.breadcrumbs__label {
+  display: inline-block;
+  line-height: 2.5rem;
+  padding: 0 0 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 /** btnAddToList.less */
 .btn[data-action="addToList"] {
