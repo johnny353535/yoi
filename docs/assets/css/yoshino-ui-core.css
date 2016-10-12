@@ -14761,6 +14761,12 @@ body {
 .tc-white {
   color: #fff !important;
 }
+.bc-transparent {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+.bc-white {
+  border-color: #fff !important;
+}
 .opacity-full {
   opacity: 1 !important;
 }
