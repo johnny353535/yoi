@@ -2953,6 +2953,9 @@ body {
   cursor: zoom-out !important;
 }
 .slct-none {
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-user-select: none !important;
   user-select: none !important;
 }
 .scrl-x {
@@ -16476,9 +16479,13 @@ a.box {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
+  border-radius: 2px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background-clip: padding-box;
   background: #faf9f7;
-  border-radius: 2px;
   border: 0;
   box-sizing: border-box;
   clear: both;
@@ -16494,7 +16501,6 @@ a.box {
   position: relative;
   text-align: center;
   text-overflow: clip;
-  user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -16561,6 +16567,10 @@ a.bundleInfo:hover {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 2px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background-clip: padding-box;
   background: linear-gradient(to bottom, #f6f5f4, #ecebea);
   border: #d7d6d5 1px solid;
@@ -16578,7 +16588,6 @@ a.bundleInfo:hover {
   position: relative;
   text-align: left;
   text-shadow: 0 1px 0 #faf9f7;
-  user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -18389,6 +18398,9 @@ dl dd {
 }
 /** drawerMenu.less */
 .drawerMenu {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 .drawerMenu h1,
@@ -18678,6 +18690,10 @@ dl dd {
   margin: 0;
 }
 .drawers .drawer .header {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background: #fff;
   border-bottom: #e1e0df 1px solid;
   cursor: pointer;
@@ -18685,7 +18701,6 @@ dl dd {
   min-height: 20px;
   padding: 5px 30px 5px 10px;
   position: relative;
-  user-select: none;
 }
 .drawers .drawer .header h1,
 .drawers .drawer .header h2,
@@ -19073,13 +19088,16 @@ dl dd {
   clear: both;
 }
 .filterGroup .filterGroup__header {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background: #faf9f7;
   border-top: #ecebea 1px solid;
   box-sizing: border-box;
   cursor: pointer;
   height: 3.5rem;
   position: relative;
-  user-select: none;
 }
 .filterGroup .filterGroup__header h4 {
   line-height: 2.5rem;
@@ -19255,10 +19273,13 @@ dl dd {
 }
 /** flipBtns.less */
 .flipBtns {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   max-height: 1px;
   position: absolute;
   top: 50%;
-  user-select: none;
   width: 100%;
   height: 100%;
   z-index: 20;
@@ -23616,6 +23637,10 @@ a.message:hover::after {
 }
 /** pageBtns.less */
 .pageBtns {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background: rgba(83, 82, 81, 0.7);
   border-radius: 0 0 0 2px;
   height: 40px;
@@ -23625,15 +23650,15 @@ a.message:hover::after {
   text-align: center;
   text-shadow: 0 1px 0 rgba(52, 51, 50, 0.3);
   top: 0;
-  user-select: none;
   z-index: 20;
 }
 .pageBtns__btnPrev,
 .pageBtns__btnNext {
-  background: transparent;
   border-radius: 2px;
+  background: transparent;
   border: 0;
   color: #faf9f7;
+  cursor: pointer;
   display: inline-block;
   height: 40px;
   line-height: 40px;
@@ -23689,6 +23714,10 @@ a.message:hover::after {
 }
 /** pageDots.less */
 .pageDots {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   background: #fff;
   border-radius: 12px;
   display: inline-block;
@@ -23696,7 +23725,6 @@ a.message:hover::after {
   height: 25px;
   margin: 0 auto;
   text-align: center;
-  user-select: none;
   z-index: 20;
 }
 .pageDots__dot,
@@ -24423,8 +24451,12 @@ a.posterTeaser:hover img {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background: #faf9f7;
   border-radius: 2px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: #faf9f7;
   border: #ecebea 1px solid;
   box-sizing: border-box;
   color: #676665;
@@ -24436,7 +24468,6 @@ a.posterTeaser:hover img {
   position: relative;
   text-align: left;
   text-overflow: clip;
-  user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -24522,10 +24553,13 @@ a.radioBtn {
   width: 100%;
 }
 .js .rangeInput {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   cursor: default;
   height: 45px;
   position: relative;
-  user-select: none;
 }
 .js .rangeInput .rangeInput__track {
   border-radius: 2px;
@@ -25087,6 +25121,12 @@ hr {
   padding: 0;
   position: relative;
   text-align: center;
+}
+.slider,
+.slider * {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 .slider__slides {
@@ -25634,8 +25674,12 @@ a[class*="link--"]::after::before {
 }
 /** stepper.less */
 .stepper {
-  background: linear-gradient(to bottom, #7b7a79, #676665);
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   border-radius: 2px;
+  background: linear-gradient(to bottom, #7b7a79, #676665);
   border: #535251 1px solid;
   box-shadow: 0 1px 0 #868584 inset;
   box-sizing: border-box;
@@ -25645,7 +25689,6 @@ a[class*="link--"]::after::before {
   height: 4rem;
   margin: 0;
   position: relative;
-  user-select: none;
 }
 .stepper:hover {
   background: linear-gradient(to bottom, #676665, #535251);
@@ -25962,8 +26005,12 @@ a[class*="link--"]::after::before {
   min-height: 400px;
   position: relative;
 }
+.superHeader,
 .superHeader * {
-  user-select: none !important;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .superHeader__center {
   box-sizing: border-box;

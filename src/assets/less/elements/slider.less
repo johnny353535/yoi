@@ -4,12 +4,17 @@
 // =====
 
 .slider {
+    
     .mixin-defaultBorderRadius;
     border: @color-main-23 1px solid;
     padding: 0;
     position: relative;
     text-align: center;
-    user-select: none;
+    
+    &, * {
+        .mixin-userSelectNone;
+    }
+    
 }
 
 // elements

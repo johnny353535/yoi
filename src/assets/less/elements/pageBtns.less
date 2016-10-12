@@ -4,7 +4,7 @@
 // =====
 
 .pageBtns {
-
+    .mixin-userSelectNone;
     background: fade(@color-main-8,70%);
     border-radius: 0 0 0 (@borderRadius * 1px);
     height: 40px;
@@ -14,9 +14,7 @@
     text-align: center;
     text-shadow: 0 1px 0 fade(@color-main-5,30%);
     top: 0;
-    user-select: none;
     z-index: 20;
-
 }
 
 // elements
@@ -24,11 +22,12 @@
 
 .pageBtns__btnPrev,
 .pageBtns__btnNext {
-
-    background: transparent;
+    
     .mixin-defaultBorderRadius;
+    background: transparent;
     border: 0;
     color: @color-main-25;
+    cursor: pointer;
     display: inline-block;
     height: 40px;
     line-height: 40px;

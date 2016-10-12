@@ -5,8 +5,9 @@
 
 .stepper {
 
-    background: linear-gradient(to bottom, @color-main-12, @color-main-10);
+    .mixin-userSelectNone;
     .mixin-defaultBorderRadius;
+    background: linear-gradient(to bottom, @color-main-12, @color-main-10);
     border: @color-main-8 1px solid;
     box-shadow: 0 1px 0 @color-main-13 inset;
     box-sizing: border-box;
@@ -16,7 +17,6 @@
     height: 4rem;
     margin: 0;
     position: relative;
-    user-select: none;
 
     &:hover {
         background: linear-gradient(to bottom, @color-main-10, @color-main-8);
