@@ -1,0 +1,70 @@
+/** menu.less */
+
+// block
+// =====
+
+.menu {
+    .mixin-defaultBorderRadius;
+    border: @color-main-23 1px solid;
+    list-style: none;
+}
+
+// elements
+// ========
+
+.menu__item {
+    margin: 0;
+}
+
+.menu > .menu__item {
+    border-top: @color-main-23 1px solid;
+}
+
+.menu > .menu__item:first-child {
+    border: 0;
+}
+
+.menu__link {
+    
+    display: block;
+    font-weight: bold;
+    padding: 5px 35px 5px 10px;
+    position: relative;
+    
+    &:active,
+    &:link,
+    &:visited {
+        text-decoration: none;
+    }
+    
+    &:hover {
+        background: @color-main-25;
+    }
+    
+}
+
+// nested menus
+
+.menu .menu {
+    border: 0;
+    border-radius: 0;
+}
+
+.menu .menu .menu__item {
+    border: 0;
+}
+
+.menu .menu .menu__link {
+    font-weight: normal;
+}
+
+.menu .menu .menu .menu__link {
+    padding-left: 2em;
+}
+
+// modifiers
+// =========
+
+.menu__item--active > :first-child {
+    background: @color-main-23;
+}

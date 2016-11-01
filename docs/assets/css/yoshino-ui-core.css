@@ -18987,75 +18987,6 @@ dl dd {
 .filterBtns__btn.filterBtns__btn--debounce:hover a::after {
   content: '\f011';
 }
-/** filterMenu.less */
-.filterMenu {
-  border-radius: 2px;
-  border: #ecebea 1px solid;
-}
-.filterMenu,
-.filterMenu ul {
-  list-style: none;
-}
-.filterMenu li {
-  margin: 0;
-}
-.filterMenu li a {
-  display: block;
-  padding: 5px 35px 5px 10px;
-  position: relative;
-  text-decoration: none;
-}
-.filterMenu li a:hover {
-  background: #faf9f7;
-}
-.filterMenu ul ul li a {
-  font-weight: normal;
-  position: relative;
-}
-.filterMenu > ul > li + li {
-  border-top: #ecebea 1px solid;
-}
-.filterMenu > ul li a {
-  font-weight: bold;
-}
-.filterMenu ul ul ul li a {
-  padding-left: 25px;
-}
-.filterMenu .filterMenu--active {
-  background: #fffbd0;
-}
-.filterMenu .filterMenu--active:after {
-  -moz-osx-font-smoothing: grayscale !important;
-  -o-transform: scale(1) !important;
-  -webkit-font-smoothing: antialiased !important;
-  display: inline-block;
-  font-family: 'Yoshino-Icons' !important;
-  font-size: 32px;
-  font-style: normal !important;
-  font-weight: normal !important;
-  line-height: 32px;
-  overflow: hidden;
-  text-rendering: optimizeLegibility !important;
-  vertical-align: middle;
-  text-align: center;
-  content: '\f011';
-  line-height: 30px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.filterMenu .filterMenu--active:after::before {
-  height: inherit;
-  line-height: inherit;
-  overflow: hidden;
-  position: relative;
-  width: inherit;
-}
-.filterMenu__header {
-  padding: 10px;
-  border-bottom: #ecebea 1px solid;
-  background: #faf9f7;
-}
 /** filters.less */
 .filters {
   border-radius: 2px;
@@ -22599,6 +22530,51 @@ a:visited:hover {
 }
 .mainMenu--expand .mainMenu__menu li:last-child a {
   border: 0;
+}
+/** menu.less */
+.menu {
+  border-radius: 2px;
+  border: #ecebea 1px solid;
+  list-style: none;
+}
+.menu__item {
+  margin: 0;
+}
+.menu > .menu__item {
+  border-top: #ecebea 1px solid;
+}
+.menu > .menu__item:first-child {
+  border: 0;
+}
+.menu__link {
+  display: block;
+  font-weight: bold;
+  padding: 5px 35px 5px 10px;
+  position: relative;
+}
+.menu__link:active,
+.menu__link:link,
+.menu__link:visited {
+  text-decoration: none;
+}
+.menu__link:hover {
+  background: #faf9f7;
+}
+.menu .menu {
+  border: 0;
+  border-radius: 0;
+}
+.menu .menu .menu__item {
+  border: 0;
+}
+.menu .menu .menu__link {
+  font-weight: normal;
+}
+.menu .menu .menu .menu__link {
+  padding-left: 2em;
+}
+.menu__item--active > :first-child {
+  background: #ecebea;
 }
 /** messages.less */
 .messages {

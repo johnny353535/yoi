@@ -1,0 +1,96 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Menu
+Use this element to create a simple menu. It was designed to optionally include up to two levels of sub menus.
+
+|                |                                                                                                   |
+| -              | -                                                                                                 |
+| Less-File      | {% if basePath == '/' %}[menu.less](assets/less/elements/menu.less){% else %}menu.less{% endif %} |
+| Base CSS-Class | `.menu`                                                                                           |
+| Modifiers      | `.menu__item--active`                                                                             |
+
+### Example
+This `.menu` instance has **two levels of sub menus** and one highlighted / active `.menu__item`.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <ul class="menu">
+            <li class="menu__item">
+                <a class="menu__link" href="#">Blutzuckermessung</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Kontrollösungen</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Lanzetten</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Messgeräte &amp; Zubehör</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Stechhilfen</a>
+                    </li>
+                    <li class="menu__item menu__item--active">
+                        <a class="menu__link" href="#">Teststreifen</a>
+                        <ul class="menu">
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">kleine Teststreifen</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">große Teststreifen</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Diabetikerbedarf</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Diabetikervitamine</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Fußpflege</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Hautpflege</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Polyneuropathie</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Süßungsmittel</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Unterzuckerung</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Wundversorgung</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Insulininjektion</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Desinfektion</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Insulinpens</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Insulinspritzen</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Penkanülen</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
