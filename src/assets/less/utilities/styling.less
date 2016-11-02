@@ -47,6 +47,27 @@
 .tsh-none { text-shadow: none !important; }
 .tsh      { text-shadow: 0 1px 0 fade(@color-main-3,50%) !important; }
 
+// gradients
+
+.gradient-t::after,
+.gradient-r::after,
+.gradient-b::after,
+.gradient-l::after {
+    bottom: 0;
+    content: ' ';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.gradient-t::after { background: linear-gradient(fade(@color-main-5, 30%), @color-transparent); }
+.gradient-r::after { background: linear-gradient(270deg, fade(@color-main-5, 30%), @color-transparent); }
+.gradient-b::after { background: linear-gradient(@color-transparent, fade(@color-main-5, 30%)); }
+.gradient-l::after { background: linear-gradient(90deg, fade(@color-main-5, 30%), @color-transparent); }
 // background, border and text colors
 
 .generate_colors (@i) when (@i > 0) {

@@ -12485,6 +12485,32 @@ body {
 .tsh {
   text-shadow: 0 1px 0 rgba(32, 31, 30, 0.5) !important;
 }
+.gradient-t::after,
+.gradient-r::after,
+.gradient-b::after,
+.gradient-l::after {
+  bottom: 0;
+  content: ' ';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.gradient-t::after {
+  background: linear-gradient(rgba(52, 51, 50, 0.3), rgba(255, 255, 255, 0));
+}
+.gradient-r::after {
+  background: linear-gradient(270deg, rgba(52, 51, 50, 0.3), rgba(255, 255, 255, 0));
+}
+.gradient-b::after {
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(52, 51, 50, 0.3));
+}
+.gradient-l::after {
+  background: linear-gradient(90deg, rgba(52, 51, 50, 0.3), rgba(255, 255, 255, 0));
+}
 .bg-attention-1 {
   background: #282400 !important;
 }
