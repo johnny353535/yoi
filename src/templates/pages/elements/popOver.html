@@ -47,7 +47,6 @@ The pop-over hook accepts some parameters as options. Use **semicolon seperated 
 | eventShow      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to show the pop-over. The default is _mouseenter_.                    |
 | eventHide      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to hide the pop-over. The default is _mouseleave_.                    |
 | preventDefault | *bool*, `true/false`                                                                                                     | If true, the trigger’s default event (eg. click) gets prevented. The default is _true_. |
-| wrap           | *bool*, `true/false`                                                                                                     | If true, take the pop-over and the trigger and put them inside .popOver__wrapper.       |
 
 #### target
 To link a trigger to it’s pop-over, you must **at least supply one parameter: the target’s id selector**.
@@ -69,9 +68,6 @@ The default event for the trigger to hide the pop-over is `mouseout`. Use this o
 
 #### preventDefault
 By default, the trigger’s default event (eg. `click` if you use an anchor like `<a href="...">`) won’t fire (`event.preventDefault()`). Use this option with `true/false` to override this behaviour.
-
-#### wrap
-If set to `true`, the pop-over and the trigger are wrapped inside `.popOver__wrapper` to provide a new context for positioning.
 
 ### Positioning
 The following examples illustrate how to position the pop-overs.
@@ -99,26 +95,13 @@ The following examples illustrate how to position the pop-overs.
 </div>
 
 {% markdown %}
-### .popOver__wrapper
+### Position in DOM
 {% endmarkdown %}
 
 <div class="note note--subtle note--large note--icon085 m-t-8">
     <h3 class="note__headline">Pop-Over Position in Dom</h3>
     <div class="note__body">
-        <p>Pop-overs do not have to directly follow their triggers in the DOM. In fact, they can be put anywhere in the markup. However, in some cases the pop-over position may be off due to different position context. The following option was created to offer a fix to this particular problem.</p>
-    </div>
-</div>
-
-{% markdown %}
-To create a **new context for positioning**, set the option `wrap` to *true*. The following **example shows the markup after DOM manipulation**.
-{% endmarkdown %}
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; printWithDelay:true;">
-        <a href="#examplePopOver-5" class="btn btn--large" data-popover="target:#examplePopOver-5; wrap:true;">Wrap pop-over and trigger</a>
-        <div class="popOver" id="examplePopOver-5">
-            <p class="p-4 fs-15 lh-20">Hello.</p>
-        </div>
+        <p>Pop-overs do not have to directly follow their triggers in the DOM. In fact, they can be <em>placed anywhere in the markup</em>. Technically, each pop-over is first detached from the DOM and then re-injected into the body-tag to enable correct absolute positioning.</p>
     </div>
 </div>
 
