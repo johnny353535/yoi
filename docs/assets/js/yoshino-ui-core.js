@@ -4504,7 +4504,7 @@ var PopOver = (function() {
          *
          *  Options may be set for each trigger element via more attributes within the same
          *  options string. See the following possible key/values for reference:
-
+         *
          *      @param  {string} target         - The target pop-over id selector.
          *      @option {string} pos            - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
          *      @option {string} ref            - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
@@ -4512,11 +4512,10 @@ var PopOver = (function() {
          *      @option {string} eventShow      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
          *      @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
          *      @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
-         *      @option {bool}   wrap           - If true, take the pop-over and the trigger and put them inside .popOver__wrapper.
          *
          *  Example from markup:
          *
-         *      <a href="#" data-popover="target:#pop-overId; pos:bl; toggleClass:mainpop-over--active;">Show a pop-over</a>
+         *      <a href="#" class="btn" data-popover="target:#pop-overId; pos:bl; toggleClass:btn--active;">Show a pop-over</a>
          *
          */
 
@@ -4530,25 +4529,15 @@ var PopOver = (function() {
 
             var options = Helper.toObject($thisPopOverTrigger.data('popover'));
 
-            // cancel if target-selector does not return any element
+            // cancel if target-selector does not return any element ...
 
             if (options.target === undefined || $(options.target).length < 1) return false;
 
-            // ... or proceed, get the pop-over
-
-            var $thisPopOver = $(options.target);
-
-            // if this option is enabled, add a wrapper to aid positioning and put the
-            // pop-over inside the wrapper, along with it's trigger
-
-            if (options.wrap === 'true') {
-
-                var $thisPopOver        = $thisPopOver.detach();
-                var $thisPopOverTrigger = $thisPopOverTrigger.wrap('<div class="popOver__wrapper"></div>');
-
-                $thisPopOverTrigger.parent().append($thisPopOver);
-
-            }
+            // ... or proceed, move the popover out of it's original position in the DOM and
+            // inject it back at the end of <body> to enable correct absolute positioning
+            
+            var $thisPopOver = $(options.target).detach();
+            $('body').append($thisPopOver);
 
             // valid events
 
@@ -4664,18 +4653,8 @@ var PopOver = (function() {
          */
 
         Helper.setDelay('popOverHideTimeout', 500, function() {
-            
             $thisPopOver.hide();
             removeToggleClassFromPopOverTriggers();
-            // // if this option is set, remove the provided css class name
-            // // from the trigger element
-            //
-            // var options = Helper.toObject($thisPopOverTrigger.data('popover'));
-            //
-            // if (options.toggleClass !== undefined) {
-            //     $thisPopOverTrigger.removeClass(options.toggleClass);
-            // }
-            
         });
 
     }
@@ -4733,26 +4712,26 @@ var PopOver = (function() {
         switch (pos) {
         case 'tl':
             $thisPopOver.css({
-                'left': $thisPopOverTrigger.position().left + 'px',
-                'top' : $thisPopOverTrigger.position().top  + 'px'
+                'left': $thisPopOverTrigger.offset().left + 'px',
+                'top' : $thisPopOverTrigger.offset().top  + 'px'
             });
             break;
         case 'tr':
             $thisPopOver.css({
-                'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth() + 'px',
-                'top' : $thisPopOverTrigger.position().top  + 'px'
+                'left': $thisPopOverTrigger.offset().left + $thisPopOverTrigger.outerWidth() + 'px',
+                'top' : $thisPopOverTrigger.offset().top  + 'px'
             });
             break;
         case 'br':
             $thisPopOver.css({
-                'left': $thisPopOverTrigger.position().left + $thisPopOverTrigger.outerWidth()  + 'px',
-                'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
+                'left': $thisPopOverTrigger.offset().left + $thisPopOverTrigger.outerWidth()  + 'px',
+                'top' : $thisPopOverTrigger.offset().top  + $thisPopOverTrigger.outerHeight() + 'px'
             });
             break;
         case 'bl':
             $thisPopOver.css({
-                'left': $thisPopOverTrigger.position().left + 'px',
-                'top' : $thisPopOverTrigger.position().top  + $thisPopOverTrigger.outerHeight() + 'px'
+                'left': $thisPopOverTrigger.offset().left + 'px',
+                'top' : $thisPopOverTrigger.offset().top  + $thisPopOverTrigger.outerHeight() + 'px'
             });
             break;
         }

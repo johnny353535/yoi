@@ -17251,10 +17251,10 @@ a:visited.btn.btn--outline.btn--positive {
   margin-left: -0.1rem;
 }
 .btns .btn:first-child {
-  border-radius: 2 0 0 2;
+  border-radius: 2px 0 0 2px;
 }
 .btns .btn:last-child {
-  border-radius: 0 2 2 0;
+  border-radius: 0 2px 2px 0;
 }
 .btns .btn.btn--rounded:first-child {
   border-radius: 12px 0 0 12px;
@@ -22343,14 +22343,6 @@ a:visited:hover {
   overflow: hidden;
   position: relative;
   width: inherit;
-}
-.linkList--stripped {
-  border-radius: 0;
-  border: 0;
-}
-.linkList--transparent,
-.linkList--dark.linkList--transparent {
-  background: transparent;
 }
 .linkList--dark {
   background-color: #676665;
