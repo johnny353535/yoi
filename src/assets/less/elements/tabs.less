@@ -17,9 +17,12 @@
 }
 
 .tabs__menu {
+    
+    border: 0;
+    border-bottom: @color-main-23 1px solid;
+    border-radius: 0;
+    
     background: @color-main-25;
-    border-radius: 1px * @borderRadius;
-    border: @color-main-23 1px solid;
     color: @color-main-8;
     display: table;
     position: relative;
@@ -82,42 +85,24 @@
 
     }
 
-    // badge inside tabs link
-
-    .badge {
-        font-weight: normal;
-        margin-left: .5rem;
-    }
-    
 }
 
 .tabs__item--active {
     background: #fff;
 }
 
-// tabs menu inside .box or .tabs
+// add a white line to cover up the
+// bottom border
 
-.box .tabs__menu,
-.tabs .tabs__menu {
-
-    border: 0;
-    border-bottom: @color-main-23 1px solid;
-    border-radius: 0;
-
-    // add a white line to cover up the
-    // bottom border
-
-    .tabs__item--active::after {
-        background: #fff;
-        bottom: -1px;
-        content: ' ';
-        height: 1px;
-        left: 0;
-        position: absolute;
-        right: 0;
-        z-index: 10;
-    }
-
+.tabs__item--active::after {
+    background: #fff;
+    bottom: -1px;
+    content: ' ';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 10;
 }
 
 // modifiers

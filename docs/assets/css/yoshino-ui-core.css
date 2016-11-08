@@ -15240,10 +15240,6 @@ address {
   margin-top: 1rem;
   margin-left: 2rem;
 }
-.article__intro {
-  font-size: 1.7rem;
-  line-height: 2.5rem;
-}
 /** autoComplete.less */
 .autoComplete {
   background: #fff;
@@ -26442,9 +26438,10 @@ tr:last-child td:last-child {
   padding: 2rem;
 }
 .tabs__menu {
+  border: 0;
+  border-bottom: #ecebea 1px solid;
+  border-radius: 0;
   background: #faf9f7;
-  border-radius: 2px;
-  border: #ecebea 1px solid;
   color: #535251;
   display: table;
   position: relative;
@@ -26492,21 +26489,10 @@ tr:last-child td:last-child {
 .tabs__link svg * {
   fill: #676665;
 }
-.tabs__link .badge {
-  font-weight: normal;
-  margin-left: .5rem;
-}
 .tabs__item--active {
   background: #fff;
 }
-.box .tabs__menu,
-.tabs .tabs__menu {
-  border: 0;
-  border-bottom: #ecebea 1px solid;
-  border-radius: 0;
-}
-.box .tabs__menu .tabs__item--active::after,
-.tabs .tabs__menu .tabs__item--active::after {
+.tabs__item--active::after {
   background: #fff;
   bottom: -1px;
   content: ' ';
