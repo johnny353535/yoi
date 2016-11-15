@@ -581,7 +581,7 @@ var DatePicker = (function() {
 
             $thisCell.removeClass('datePicker--selectedDay');
 
-            if ($thisCell.text() === selectedDay) {
+            if (parseInt($thisCell.text()) === selectedDay) {
                 $thisCell.addClass('datePicker--selectedDay');
             }
 

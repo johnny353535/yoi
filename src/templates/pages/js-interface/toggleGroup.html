@@ -5,10 +5,11 @@
 ## toggleGroup
 This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.
 
-|                          |                                                             |
-| -                        | -                                                           |
-| **Hooks**                | data-toggle, data-toggle-fallback                           |
-| **Options** (data-togge) | target, group, event (optional), activeClassName (optional) |
+|                              |                                                                                                               |
+| -                            | -                                                                                                             |
+| Js-File                      | {% if basePath == '/' %}[toggleGroup.js](assets/js/modules/toggleGroup.js){% else %}toggleGroup.js{% endif %} |
+| Hooks                        | `data-toggle, data-toggle-fallback`                                                                           |
+| Options (for `data-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)                                               |
 
 ### Example with mouseover and Fall Back Element
 If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `data-toggle-fallback="$"` where `$` is the toggle group name.
@@ -54,9 +55,9 @@ This is basically the same thing like a [`.tab`](/pages/components/tabs.html), o
         <div class="box box--1">
             <div class="box__body">
                 <div class="btns">
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:active;">Panel One</button>
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:active;">Panel Two</button>
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:active;">Panel Three</button>
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel One</button>
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Two</button>
+                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Three</button>
                 </div>
             </div>
             <div class="box__body" id="toggleElement-4">Panel One</div>

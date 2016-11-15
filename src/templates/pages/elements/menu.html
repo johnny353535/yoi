@@ -3,17 +3,52 @@
 
 {% markdown %}
 ## Menu
-Use this element to create a simple menu. It was designed to optionally include up to two levels of sub menus.
+Use this element to create a simple menu. It is designed to include *up to three levels of sub menus* and features *optional pointers* on either the right or left side.
 
 |                |                                                                                                   |
 | -              | -                                                                                                 |
 | Less-File      | {% if basePath == '/' %}[menu.less](assets/less/elements/menu.less){% else %}menu.less{% endif %} |
 | Base CSS-Class | `.menu`                                                                                           |
-| Modifiers      | `.menu__item--active`                                                                             |
+| Modifiers      | `.menu--pointRight, .menu--pointLeft, .is--active`                                                |
 
-### Example
-This `.menu` instance has **two levels of sub menus** and one highlighted / active `.menu__item`.
+### Basic Example
+This is the basic example of a `.menu` instance. You are free to use any markup you like as long as you use the BEM class name provided by this example. After all, while that’s a feature, it’s a feature you might rarely need since simple lists (`<ul>` od `<ol>`) are semantically the correct choices in most scenarios.
 {% endmarkdown %}
+
+<div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Hint</h3>
+    <div class="note__body">
+        <p>Click the menu items on this example page to add the .is--active modifier class.</p>
+    </div>
+</div>
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <ul class="menu">
+            <li class="menu__item">
+                <a class="menu__link" href="#">Kontrolllösungen</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Lanzetten</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Messgeräte &amp; Zubehör</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% markdown %}
+### Sub Menus
+As mentioned above, a `.menu` instance may have up to three levels of nested sub menus. See the folowing example.
+{% endmarkdown %}
+
+<div class="note note--attention note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Limited Nesting</h3>
+    <div class="note__body">
+        <p>In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
+    </div>
+</div>
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
@@ -22,7 +57,7 @@ This `.menu` instance has **two levels of sub menus** and one highlighted / acti
                 <a class="menu__link" href="#">Blutzuckermessung</a>
                 <ul class="menu">
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Kontrollösungen</a>
+                        <a class="menu__link" href="#">Kontrolllösungen</a>
                     </li>
                     <li class="menu__item">
                         <a class="menu__link" href="#">Lanzetten</a>
@@ -33,7 +68,7 @@ This `.menu` instance has **two levels of sub menus** and one highlighted / acti
                     <li class="menu__item">
                         <a class="menu__link" href="#">Stechhilfen</a>
                     </li>
-                    <li class="menu__item menu__item--active">
+                    <li class="menu__item">
                         <a class="menu__link" href="#">Teststreifen</a>
                         <ul class="menu">
                             <li class="menu__item">
@@ -41,6 +76,14 @@ This `.menu` instance has **two levels of sub menus** and one highlighted / acti
                             </li>
                             <li class="menu__item">
                                 <a class="menu__link" href="#">große Teststreifen</a>
+                                <ul class="menu">
+                                    <li class="menu__item">
+                                        <a class="menu__link" href="#">grün</a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a class="menu__link" href="#">blau</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -93,4 +136,154 @@ This `.menu` instance has **two levels of sub menus** and one highlighted / acti
     </div>
 </div>
 
+{% markdown %}
+### Pointers
+Add optional pointers to the currently selected (`.is--active`) element. Chose from pinters to the left (`.menu--pointLeft`) and pointers to the right (`.menu--pointRight`).
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <ul class="menu menu--pointLeft">
+            <li class="menu__item">
+                <a class="menu__link" href="#">Blutzuckermessung</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Kontrolllösungen</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Stechhilfen</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Teststreifen</a>
+                        <ul class="menu">
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">kleine Teststreifen</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="#">große Teststreifen</a>
+                                <ul class="menu">
+                                    <li class="menu__item">
+                                        <a class="menu__link" href="#">grün</a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a class="menu__link" href="#">blau</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Diabetikerbedarf</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Diabetikervitamine</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Fußpflege</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Hautpflege</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Insulininjektion</a>
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Desinfektion</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Insulinpens</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% markdown %}
+### Advanced Usage
+The following example combines the `.menu` with the [toggleGroup interface](/pages/js-interface/toggleGroup.html) to create a simple, *tab-able* widget.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        
+        <div class="box box--1 grid-float">
+            <div class="w-1-3">
+                <ul class="menu menu--pointRight br-0 b-0 b-r">
+                    <li class="menu__item">
+                        <a class="menu__link" data-toggle="target:#view-1; group:toggleMenu; activeClassName:is--active;">Blutzuckermessung</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" data-toggle="target:#view-2; group:toggleMenu; activeClassName:is--active;">Diabetikerbedarf</a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" data-toggle="target:#view-3; group:toggleMenu; activeClassName:is--active;">Insulininjektion</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="w-2-3 p-6">
+                <div id="view-1">
+                    <h2>Blutzuckermessung</h2>
+                </div>
+                <div id="view-2">
+                    <h2>Diabetikerbedarf</h2>
+                </div>
+                <div id="view-3">
+                    <h2>Insulininjektion</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block customScripts %}
+    <script>
+        (function() {
+            
+            /**
+             *  Mark the active menu item on click by adding the class name ".is--active".
+             *  Depending on context, the exact target item to mark differs.
+             */
+            
+            $('.menu__item').on('click', function(e) {
+                
+                // prevent default event behaviour and event bubbling
+                
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // assign variables
+                
+                var $this          = $(this);
+                var $parentMenu    = $this.closest('.menu');
+                var $enclosedLinks = $this.find('.menu__link');
+                var $target;
+                
+                // pick the target
+                // (.menu__item if no enclosed link is found, otherwise .menu__link)
+                
+                if ($enclosedLinks.length) {
+                    target = $enclosedLinks.first();
+                } else {
+                    target = $this;
+                }
+                
+                // reset all active items
+                
+                $this.parents('.menu').find('.menu__item, .menu__link').removeClass('is--active');
+                
+                // mark the active item
+                
+                target.addClass('is--active');
+                
+            })
+            
+        })();
+    </script>
 {% endblock %}

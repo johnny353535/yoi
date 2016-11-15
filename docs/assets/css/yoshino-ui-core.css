@@ -20047,6 +20047,21 @@ h6 {
   color: #fff;
 }
 /** icons.less */
+/*
+ *   Notes
+ *   =====
+ *
+ *   We wish to replace our current icon font with SVG icons.
+ *   Therefore, we need to re-draw the icons we need in order to unify
+ *   their style. We are planning to have three versions of each
+ *   icon: small (16px), medium (32-64px) and large (above 64px).
+ *   These versions will vary in detail, with smaller icons being
+ *   simple and larger icons bein more complex. Pretty much like:
+ *
+ *   http://svgpocketguide.com/book/
+ *
+ *   We wish to work with Stefan Dziallas of iconwerk.com
+ */
 @font-face {
   font-family: 'Yoshino-Icons';
   src: url(../fonts/icons/yoshino-icons.eot);
@@ -22555,19 +22570,19 @@ a:visited:hover {
   list-style: none;
 }
 .menu__item {
-  margin: 0;
-}
-.menu > .menu__item {
   border-top: #ecebea 1px solid;
+  margin: 0;
+  font-weight: bold;
 }
-.menu > .menu__item:first-child {
+.menu__item:first-child {
   border: 0;
 }
 .menu__link {
+  cursor: pointer;
   display: block;
-  font-weight: bold;
-  padding: .5rem 3.5rem .5rem 1rem;
+  padding: .5rem 1rem;
   position: relative;
+  text-decoration: none;
 }
 .menu__link:active,
 .menu__link:link,
@@ -22583,15 +22598,48 @@ a:visited:hover {
 }
 .menu .menu .menu__item {
   border: 0;
-}
-.menu .menu .menu__link {
   font-weight: normal;
 }
-.menu .menu .menu .menu__link {
-  padding-left: 2.5rem;
+.menu .menu .menu {
+  padding-left: 2rem;
 }
-.menu__item--active > :first-child {
-  background: #ecebea;
+.menu .menu .menu .menu__link {
+  margin-left: -2rem;
+  padding-left: 3rem;
+}
+.menu .menu .menu .menu .menu__link {
+  margin-left: -4rem;
+  padding-left: 6rem;
+}
+.menu .is--active {
+  position: relative;
+}
+.menu .is--active,
+.menu .is--active .menu__link:link,
+.menu .is--active .menu__link:visited,
+.menu .is--active .menu__link:hover {
+  background: #535251;
+  color: white;
+  font-weight: bold;
+}
+.menu--pointLeft .is--active::after,
+.menu--pointRight .is--active::after {
+  background: #535251;
+  content: ' ';
+  display: block;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+  transform-origin: center;
+  width: 1rem;
+}
+.menu--pointLeft .is--active::after {
+  left: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.menu--pointRight .is--active::after {
+  right: 0;
+  transform: translate(50%, -50%) rotate(45deg);
 }
 /** messages.less */
 .messages {
@@ -26438,10 +26486,10 @@ tr:last-child td:last-child {
   padding: 2rem;
 }
 .tabs__menu {
-  border: 0;
+  background: #faf9f7;
   border-bottom: #ecebea 1px solid;
   border-radius: 0;
-  background: #faf9f7;
+  border: 0;
   color: #535251;
   display: table;
   position: relative;
@@ -26460,6 +26508,19 @@ tr:last-child td:last-child {
 }
 .tabs__item:last-child {
   border-right: 0;
+}
+.tabs__item--active {
+  background: #fff;
+}
+.tabs__item--active::after {
+  background: #fff;
+  bottom: -1px;
+  content: ' ';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 10;
 }
 .tabs__link {
   color: #676665;
@@ -26488,19 +26549,6 @@ tr:last-child td:last-child {
 }
 .tabs__link svg * {
   fill: #676665;
-}
-.tabs__item--active {
-  background: #fff;
-}
-.tabs__item--active::after {
-  background: #fff;
-  bottom: -1px;
-  content: ' ';
-  height: 1px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  z-index: 10;
 }
 .tabs__menu--large .tabs__link {
   font-size: 1.5rem;
