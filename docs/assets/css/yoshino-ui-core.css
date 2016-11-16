@@ -15344,14 +15344,14 @@ address {
 }
 /** badge.less */
 .badge {
-  background: #ecebea;
   border-radius: 2px;
+  background: #ecebea;
   color: #676665;
   display: inline-block;
   font: bold 1.3rem/2rem 'Open Sans', sans-serif;
-  text-shadow: none;
   padding: 0 1rem;
   text-align: center;
+  text-shadow: none;
 }
 a.badge {
   text-decoration: none;
@@ -15414,22 +15414,6 @@ a.badge--success:hover,
 a.badge--positive:hover {
   background: #58886e;
   color: #f5fffa;
-}
-.badge--prescription {
-  background: #f6d5e2;
-  color: #bb4473;
-}
-a.badge--prescription:hover {
-  background: #bb4473;
-  color: #f6d5e2;
-}
-.badge--price {
-  background: #ff6830;
-  color: #fff;
-}
-a.badge--price:hover {
-  background: #ff5b1d;
-  color: #fff;
 }
 .badge--rounded {
   border-radius: 1.1rem;
@@ -17361,10 +17345,6 @@ a:visited.btn.btn--outline.btn--positive {
 .callout--negative {
   background: #ffe4da;
   color: #c83700;
-}
-.callout--prescription {
-  background: #f6d5e2;
-  color: #bb4473;
 }
 /** checkList.less */
 .checkList {
@@ -23611,17 +23591,6 @@ a.message:hover::after {
 .note--light .note__body + .note__body {
   border-color: #ecebea;
 }
-.note--prescription {
-  background: #f6d5e2;
-  border-color: #e7aac0;
-  color: #bb4473;
-}
-.note--prescription .note__headline {
-  color: #bb4473;
-}
-.note--prescription .note__body + .note__body {
-  border-color: #e7aac0;
-}
 .note--success,
 .note--positive {
   background: #f5fffa;
@@ -24401,17 +24370,6 @@ a.posterTeaser:hover img {
 .posterTeaser--bottom .posterTeaser__body {
   bottom: 0;
   top: auto;
-}
-/** price.less */
-.price {
-  color: #ff6830;
-  font: bold 25px/1 'Open Sans', sans-serif;
-}
-.price--large {
-  font: bold 45px/1 'Open Sans', sans-serif;
-}
-.price--small {
-  font: bold 15px/1 'Open Sans', sans-serif;
 }
 /** priceSticker.less */
 .priceSticker {

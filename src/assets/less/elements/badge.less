@@ -5,14 +5,14 @@
 
 .badge {
 
-    background: @color-main-23;
     .mixin-defaultBorderRadius;
+    background: @color-main-23;
     color: @color-main-10;
     display: inline-block;
     font: bold 1.3rem/2rem @font-sansserif;
-    text-shadow: none;
     padding: 0 1rem;
     text-align: center;
+    text-shadow: none;
 
     // badge as link
 
@@ -102,30 +102,6 @@
     a&:hover {
         background: @color-positive-11;
         color: @color-positive-24;
-    }
-
-}
-
-.badge--prescription {
-
-    background: @color-prescriptionPink-3;
-    color: @color-prescriptionPink-1;
-
-    a&:hover {
-        background: @color-prescriptionPink-1;
-        color: @color-prescriptionPink-3;
-    }
-
-}
-
-.badge--price {
-
-    background: @color-price;
-    color: #fff;
-
-    a&:hover {
-        background: @color-negative-14;
-        color: #fff;
     }
 
 }
