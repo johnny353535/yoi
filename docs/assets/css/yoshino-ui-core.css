@@ -14482,6 +14482,12 @@ body {
 .fw-bold {
   font-weight: bold !important;
 }
+.fst-no {
+  font-style: normal !important;
+}
+.fst-it {
+  font-style: italic !important;
+}
 .tt-cp {
   text-transform: capitalize !important;
 }
