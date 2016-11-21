@@ -152,6 +152,23 @@ Layout containers can be nested. It’s possible to either use fractional widths
 </div>
 
 {% markdown %}
+### Flex Grid
+{% endmarkdown %}
+
+<div class="documentation__block" data-docblock="addControls:true;">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="grid-flex flex-alignCenter">
+            <div class="w-1-3 h-2"></div>
+            <div class="w-1-3 h-5"></div>
+            <div class="w-1-3 h-1"></div>
+            <div class="w-1-3 h-7"></div>
+            <div class="w-1-3 h-2"></div>
+            <div class="w-1-3 h-5"></div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
 ### Debugging
 Set the debug flag `@debugGrid` in [options.less](assets/less/variables/options.less) to `true` to draw outlines around any element which uses a grid-class – pretty much like in the examples on this very page.
 {% endmarkdown %}

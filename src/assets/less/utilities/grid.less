@@ -51,4 +51,244 @@
 // grid container,
 // flex layout
 
-.grid-flex {}
+.grid-flex {
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+    .w-1-1,
+    .w-1-2,
+    .w-1-3,
+    .w-1-4,
+    .w-1-5,
+    .w-1-6,
+    .w-2-3,
+    .w-2-5,
+    .w-3-4,
+    .w-3-5,
+    .w-4-5 {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    // flex layout options
+    
+    &.flex-wrap                      { flex-wrap: wrap; }
+    &.flex-noWrap                    { flex-wrap: nowrap; }
+    &.flex-wrapReverse               { flex-wrap: wrap-reverse; }
+    
+    &.flex-directionRow              { flex-direction: row; }
+    &.flex-directionRowReverse       { flex-direction: row-reverse; }
+    &.flex-directionColumn           { flex-direction: column; }
+    &.flex-directionColumnReverse    { flex-direction: column-reverse; }
+
+    &.flex-alignStart { align-items: flex-start; }
+    
+    &.flex-alignEnd { align-items: flex-end; }
+    &.flex-alignEnd {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            vertical-align: bottom;
+        }
+    }
+
+    &.flex-alignCenter { align-items: center; }
+    &.flex-alignCenter {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            vertical-align: middle;
+        }
+    }
+
+    &.flex-alignBaseline { align-items: baseline; }
+    &.flex-alignBaseline {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            vertical-align: baseline;
+        }
+    }
+
+    &.flex-aligncontentStart { align-content: flex-start; }
+    
+    &.flex-alignContentEnd { align-content: flex-end; }
+    &.flex-alignContentEnd {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            vertical-align: bottom;
+        }
+    }
+
+    &.flex-alignContentCenter        { align-content: center; }
+    &.flex-alignContentSpaceBetween  { align-content: space-between; }
+    &.flex-alignContentSpaceAround   { align-content: space-around; }
+    &.flex-alignSelfStretch          { align-self: stretch; }
+    &.flex-alignSelfStart            { align-self: flex-start; }
+
+    &.flex-alignSelfEnd {
+      align-self: flex-end;
+      vertical-align: bottom;
+    }
+
+    &.flex-alignSelfCenter {
+      align-self: center;
+      vertical-align: middle;
+    }
+
+    &.flex-alignSelfBaseline {
+      align-self: baseline;
+      vertical-align: baseline;
+    }
+
+    &.flex-justifyStart {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    &.flex-justifyEnd {
+      text-align: right;
+      text-align-last: right;
+      justify-content: flex-end;
+    }
+    
+    &.flex-justifyEnd {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            text-align: left;
+            text-align: start;
+            text-align: initial;
+            -moz-text-align-last: left;
+            -moz-text-align-last: start;
+            -moz-text-align-last: initial;
+            text-align-last: left;
+            text-align-last: start;
+            text-align-last: initial;
+        }
+    }
+    
+    &.flex-justifyCenter {
+      text-align: center;
+      text-align-last: center;
+      justify-content: center;
+    }
+    
+    &.flex-justifyCenter {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            text-align: left;
+            text-align: start;
+            text-align: initial;
+            text-align-last: left;
+            text-align-last: start;
+            text-align-last: initial;
+        }
+    }
+    
+    &.flex-justifySpaceBetween {
+      text-align: justify;
+      text-align-last: justify;
+      justify-content: space-between;
+    }
+    
+    &.flex-justifySpaceBetween {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            text-align: left;
+            text-align: start;
+            text-align: initial;
+            text-align-last: left;
+            text-align-last: start;
+            text-align-last: initial;
+        }
+    }
+    
+    &.flex-justifySpaceAround {
+      text-align: justify;
+      text-align-last: justify;
+      justify-content: space-around;
+    }
+    
+    &.flex-justifySpaceAround {
+        .w-1-1,
+        .w-1-2,
+        .w-1-3,
+        .w-1-4,
+        .w-1-5,
+        .w-1-6,
+        .w-2-3,
+        .w-2-5,
+        .w-3-4,
+        .w-3-5,
+        .w-4-5 {
+            text-align: left;
+            text-align: start;
+            text-align: initial;
+            text-align-last: left;
+            text-align-last: start;
+            text-align-last: initial;
+        }
+    }
+
+}

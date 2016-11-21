@@ -520,6 +520,241 @@ body {
 .grid-float .w-4-5 {
   float: left;
 }
+.grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid-flex .w-1-1,
+.grid-flex .w-1-2,
+.grid-flex .w-1-3,
+.grid-flex .w-1-4,
+.grid-flex .w-1-5,
+.grid-flex .w-1-6,
+.grid-flex .w-2-3,
+.grid-flex .w-2-5,
+.grid-flex .w-3-4,
+.grid-flex .w-3-5,
+.grid-flex .w-4-5 {
+  display: flex;
+  flex-direction: column;
+}
+.grid-flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.grid-flex.flex-noWrap {
+  flex-wrap: nowrap;
+}
+.grid-flex.flex-wrapReverse {
+  flex-wrap: wrap-reverse;
+}
+.grid-flex.flex-directionRow {
+  flex-direction: row;
+}
+.grid-flex.flex-directionRowReverse {
+  flex-direction: row-reverse;
+}
+.grid-flex.flex-directionColumn {
+  flex-direction: column;
+}
+.grid-flex.flex-directionColumnReverse {
+  flex-direction: column-reverse;
+}
+.grid-flex.flex-alignStart {
+  align-items: flex-start;
+}
+.grid-flex.flex-alignEnd {
+  align-items: flex-end;
+}
+.grid-flex.flex-alignEnd .w-1-1,
+.grid-flex.flex-alignEnd .w-1-2,
+.grid-flex.flex-alignEnd .w-1-3,
+.grid-flex.flex-alignEnd .w-1-4,
+.grid-flex.flex-alignEnd .w-1-5,
+.grid-flex.flex-alignEnd .w-1-6,
+.grid-flex.flex-alignEnd .w-2-3,
+.grid-flex.flex-alignEnd .w-2-5,
+.grid-flex.flex-alignEnd .w-3-4,
+.grid-flex.flex-alignEnd .w-3-5,
+.grid-flex.flex-alignEnd .w-4-5 {
+  vertical-align: bottom;
+}
+.grid-flex.flex-alignCenter {
+  align-items: center;
+}
+.grid-flex.flex-alignCenter .w-1-1,
+.grid-flex.flex-alignCenter .w-1-2,
+.grid-flex.flex-alignCenter .w-1-3,
+.grid-flex.flex-alignCenter .w-1-4,
+.grid-flex.flex-alignCenter .w-1-5,
+.grid-flex.flex-alignCenter .w-1-6,
+.grid-flex.flex-alignCenter .w-2-3,
+.grid-flex.flex-alignCenter .w-2-5,
+.grid-flex.flex-alignCenter .w-3-4,
+.grid-flex.flex-alignCenter .w-3-5,
+.grid-flex.flex-alignCenter .w-4-5 {
+  vertical-align: middle;
+}
+.grid-flex.flex-alignBaseline {
+  align-items: baseline;
+}
+.grid-flex.flex-alignBaseline .w-1-1,
+.grid-flex.flex-alignBaseline .w-1-2,
+.grid-flex.flex-alignBaseline .w-1-3,
+.grid-flex.flex-alignBaseline .w-1-4,
+.grid-flex.flex-alignBaseline .w-1-5,
+.grid-flex.flex-alignBaseline .w-1-6,
+.grid-flex.flex-alignBaseline .w-2-3,
+.grid-flex.flex-alignBaseline .w-2-5,
+.grid-flex.flex-alignBaseline .w-3-4,
+.grid-flex.flex-alignBaseline .w-3-5,
+.grid-flex.flex-alignBaseline .w-4-5 {
+  vertical-align: baseline;
+}
+.grid-flex.flex-aligncontentStart {
+  align-content: flex-start;
+}
+.grid-flex.flex-alignContentEnd {
+  align-content: flex-end;
+}
+.grid-flex.flex-alignContentEnd .w-1-1,
+.grid-flex.flex-alignContentEnd .w-1-2,
+.grid-flex.flex-alignContentEnd .w-1-3,
+.grid-flex.flex-alignContentEnd .w-1-4,
+.grid-flex.flex-alignContentEnd .w-1-5,
+.grid-flex.flex-alignContentEnd .w-1-6,
+.grid-flex.flex-alignContentEnd .w-2-3,
+.grid-flex.flex-alignContentEnd .w-2-5,
+.grid-flex.flex-alignContentEnd .w-3-4,
+.grid-flex.flex-alignContentEnd .w-3-5,
+.grid-flex.flex-alignContentEnd .w-4-5 {
+  vertical-align: bottom;
+}
+.grid-flex.flex-alignContentCenter {
+  align-content: center;
+}
+.grid-flex.flex-alignContentSpaceBetween {
+  align-content: space-between;
+}
+.grid-flex.flex-alignContentSpaceAround {
+  align-content: space-around;
+}
+.grid-flex.flex-alignSelfStretch {
+  align-self: stretch;
+}
+.grid-flex.flex-alignSelfStart {
+  align-self: flex-start;
+}
+.grid-flex.flex-alignSelfEnd {
+  align-self: flex-end;
+  vertical-align: bottom;
+}
+.grid-flex.flex-alignSelfCenter {
+  align-self: center;
+  vertical-align: middle;
+}
+.grid-flex.flex-alignSelfBaseline {
+  align-self: baseline;
+  vertical-align: baseline;
+}
+.grid-flex.flex-justifyStart {
+  text-align: left;
+  justify-content: flex-start;
+}
+.grid-flex.flex-justifyEnd {
+  text-align: right;
+  text-align-last: right;
+  justify-content: flex-end;
+}
+.grid-flex.flex-justifyEnd .w-1-1,
+.grid-flex.flex-justifyEnd .w-1-2,
+.grid-flex.flex-justifyEnd .w-1-3,
+.grid-flex.flex-justifyEnd .w-1-4,
+.grid-flex.flex-justifyEnd .w-1-5,
+.grid-flex.flex-justifyEnd .w-1-6,
+.grid-flex.flex-justifyEnd .w-2-3,
+.grid-flex.flex-justifyEnd .w-2-5,
+.grid-flex.flex-justifyEnd .w-3-4,
+.grid-flex.flex-justifyEnd .w-3-5,
+.grid-flex.flex-justifyEnd .w-4-5 {
+  text-align: left;
+  text-align: start;
+  text-align: initial;
+  -moz-text-align-last: left;
+  -moz-text-align-last: start;
+  -moz-text-align-last: initial;
+  text-align-last: left;
+  text-align-last: start;
+  text-align-last: initial;
+}
+.grid-flex.flex-justifyCenter {
+  text-align: center;
+  text-align-last: center;
+  justify-content: center;
+}
+.grid-flex.flex-justifyCenter .w-1-1,
+.grid-flex.flex-justifyCenter .w-1-2,
+.grid-flex.flex-justifyCenter .w-1-3,
+.grid-flex.flex-justifyCenter .w-1-4,
+.grid-flex.flex-justifyCenter .w-1-5,
+.grid-flex.flex-justifyCenter .w-1-6,
+.grid-flex.flex-justifyCenter .w-2-3,
+.grid-flex.flex-justifyCenter .w-2-5,
+.grid-flex.flex-justifyCenter .w-3-4,
+.grid-flex.flex-justifyCenter .w-3-5,
+.grid-flex.flex-justifyCenter .w-4-5 {
+  text-align: left;
+  text-align: start;
+  text-align: initial;
+  text-align-last: left;
+  text-align-last: start;
+  text-align-last: initial;
+}
+.grid-flex.flex-justifySpaceBetween {
+  text-align: justify;
+  text-align-last: justify;
+  justify-content: space-between;
+}
+.grid-flex.flex-justifySpaceBetween .w-1-1,
+.grid-flex.flex-justifySpaceBetween .w-1-2,
+.grid-flex.flex-justifySpaceBetween .w-1-3,
+.grid-flex.flex-justifySpaceBetween .w-1-4,
+.grid-flex.flex-justifySpaceBetween .w-1-5,
+.grid-flex.flex-justifySpaceBetween .w-1-6,
+.grid-flex.flex-justifySpaceBetween .w-2-3,
+.grid-flex.flex-justifySpaceBetween .w-2-5,
+.grid-flex.flex-justifySpaceBetween .w-3-4,
+.grid-flex.flex-justifySpaceBetween .w-3-5,
+.grid-flex.flex-justifySpaceBetween .w-4-5 {
+  text-align: left;
+  text-align: start;
+  text-align: initial;
+  text-align-last: left;
+  text-align-last: start;
+  text-align-last: initial;
+}
+.grid-flex.flex-justifySpaceAround {
+  text-align: justify;
+  text-align-last: justify;
+  justify-content: space-around;
+}
+.grid-flex.flex-justifySpaceAround .w-1-1,
+.grid-flex.flex-justifySpaceAround .w-1-2,
+.grid-flex.flex-justifySpaceAround .w-1-3,
+.grid-flex.flex-justifySpaceAround .w-1-4,
+.grid-flex.flex-justifySpaceAround .w-1-5,
+.grid-flex.flex-justifySpaceAround .w-1-6,
+.grid-flex.flex-justifySpaceAround .w-2-3,
+.grid-flex.flex-justifySpaceAround .w-2-5,
+.grid-flex.flex-justifySpaceAround .w-3-4,
+.grid-flex.flex-justifySpaceAround .w-3-5,
+.grid-flex.flex-justifySpaceAround .w-4-5 {
+  text-align: left;
+  text-align: start;
+  text-align: initial;
+  text-align-last: left;
+  text-align-last: start;
+  text-align-last: initial;
+}
 /** interaction.less */
 .hvr-bg-attention-1:hover {
   background: #282400 !important;
