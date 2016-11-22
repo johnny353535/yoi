@@ -26920,9 +26920,9 @@ tr:last-child td:last-child {
 }
 .tabs__menu {
   background: #faf9f7;
+  border: 0;
   border-bottom: #ecebea 1px solid;
   border-radius: 0;
-  border: 0;
   color: #535251;
   display: table;
   position: relative;
