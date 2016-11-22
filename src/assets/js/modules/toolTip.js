@@ -157,7 +157,7 @@ var Tooltip = (function() {
 
             for (var i = 0; i < compatibleModifiers.length; i++) {
 
-                var thisModifier = compatibleModifiers[i];
+                var thisModifier            = compatibleModifiers[i];
                 var thisTmpTargetClassnames = $thisTmpTarget.attr('class');
 
                 if (thisTmpTargetClassnames.indexOf(thisModifier) > 0) {

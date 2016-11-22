@@ -109,6 +109,28 @@ var Helper = (function() {
                 .animate({ opacity: 1 }, 100);
 
         },
+        
+        pulse : function(elem) {
+
+            /**
+             *  Pulse animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to pulse
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300)
+                .animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300);
+
+        },
 
         setDelay : function(delayName, delayTime, delayFunction) {
 

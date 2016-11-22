@@ -47,8 +47,8 @@
             <div class="documentation__body">
                 
 
-<h2 id="reset-normalize">Reset &amp; Normalize</h2>
-<p>We <em>normalize</em> and <em>reset</em> default browser stylings to provide consistent styling across different browsers and devices.</p>
+<h2 id="scrollto">scrollTo</h2>
+<p>This script provides a simple interface to set smooth automated scrolls to target anchors within the same document.</p>
 <table>
 <thead>
 <tr>
@@ -58,24 +58,79 @@
 </thead>
 <tbody>
 <tr>
-<td>Less-File</td>
-<td><a href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">normalize.css</a> via CDN</td>
+<td>Js-File</td>
+<td>scrollTo.js</td>
 </tr>
 <tr>
-<td>Less-File</td>
-<td>reset.less</td>
+<td>Hooks</td>
+<td><code>data-scrollto</code></td>
+</tr>
+<tr>
+<td>Options</td>
+<td><code>highlight: [blink / pulse]</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="normalize">Normalize</h3>
-<p>We use <em>normalize.css</em>. From the project’s <a href="https://necolas.github.io/normalize.css/">official website</a>:</p>
-<blockquote>
-<p><em>Normalize.css makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.</em></p>
-</blockquote>
-<p><a href="https://necolas.github.io/normalize.css/">Learn more about normalize.css</a>.</p>
-<h3 id="reset">Reset</h3>
-<p>Additionally, we use a very small reset stylesheet – mostly to set margin and padding to zero for all block-level elements.</p>
+<h3 id="smoothly-scroll-to-an-anchor">Smoothly Scroll to an Anchor</h3>
+<p>In order to set a smooth automated scroll (to a target element within the same document), add the data-attribute <code>data-scrollto</code> to the link.</p>
 
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-1" data-scrollto>Scroll to Target #1</a>
+    </div>
+</div>
+<div class="m-tb-20">
+    <div id="target-1" class="w-20 al-c p-8 br bg-purple-15 tc-purple-24 fs-15">Target #1</div>
+</div>
+
+<h3 id="highlighting-effects">Highlighting Effects</h3>
+<p>If you wish to highlight the target element once the autometed scroll finished, add one of the two available highlight animation types – <code>blink</code> and <code>pulse</code> to the <code>data-scrollto</code>-attribute.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-2" data-scrollto="highlight:blink">Scroll to Target #2</a>
+        <a class="btn btn--large" href="#target-3" data-scrollto="highlight:pulse">Scroll to Target #3</a>
+    </div>
+</div>
+<div class="m-tb-20">
+    <div id="target-2" class="w-20 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-15">Target #2</div>
+    <div id="target-3" class="w-20 al-c p-8 br bg-red-17 tc-red-24 fs-15">Target #3</div>
+</div>
+
+<h3 id="scroll-a-container">Scroll a Container</h3>
+<p>The target element may sit inside a container with hidden or scrollable overflow. In this case, instead of scrolling the whole page, only the container scrolls.</p>
+
+
+<div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">Positioning / Context</h3>
+    <div class="note__body">
+        <p>Please note: In order to scroll a container, the container itself must provide a context for positioning. This means it must be set to either <code>position:relative</code>, <code>position:absolute</code> or <code>position:fixed</code>.</p>
+    </div>
+</div>
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-4" data-scrollto>Scroll Container to Target #4</a>
+        <a class="btn btn--large" href="#target-5" data-scrollto>Scroll Container to Target #5</a>
+    </div>
+</div>
+<div class="m-t-4 h-40 p-4 br b-all bc-main-22 pos-rel scrl-y">
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div id="target-4" class="w-20 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-15">Target #4</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div class="w-20 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
+    <div id="target-5" class="w-20 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-15">Target #5</div>
+</div>
 
 
             </div>

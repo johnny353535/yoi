@@ -109,6 +109,28 @@ var Helper = (function() {
                 .animate({ opacity: 1 }, 100);
 
         },
+        
+        pulse : function(elem) {
+
+            /**
+             *  Pulse animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to pulse
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300)
+                .animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300);
+
+        },
 
         setDelay : function(delayName, delayTime, delayFunction) {
 
@@ -5387,52 +5409,71 @@ var ScrollTo = (function() {
          */
 
         $('[data-scrollTo]').on('click', function(e) {
-
-            var    targetId = $(this)[0].hash;
+            
+            var $thisTrigger = $(this);
+            var targetId     = $thisTrigger[0].hash;
 
             // scroll to anchor if target element is found
 
             if ($(targetId).length) {
                 e.preventDefault();
-                scrollToTarget(targetId);
+                scrollToTarget(targetId, $thisTrigger);
             }
 
         });
 
     }
 
-    function scrollToTarget(targetId) {
+    function scrollToTarget(targetId, $thisTrigger) {
 
         /**
          *  Scroll the page to a given target element.
          *
-         *  @param {string} targetId - the target element css id (e.g. "#myTarget")
+         *  @param  {string} targetId  - the target element css id (e.g. "#myTarget")
+         *  @option {string} highlight - define an optional effect to highlight the target element once
+         *                               the scrolling has stopped. chose from "blink" and "pulse".
          */
-
-        var $target = $(targetId);
-        var targetFound = $target.length > 0 ? true : false;
+        
+        var $target              = $(targetId);
+        var $scrollContext;
+        var $scrollContainer     = $target.closest('.scrl-y');
+        var targetFound          = $target.length > 0 ? true : false;
+        var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
+        var options              = Helper.toObject($thisTrigger.data('scrollto'));
 
-        // if target is a tab, swith to the tab
+        // cancel if no target was found
+        
+        if (!targetFound) return false;
+
+        // if target is a tab, switch to the tab
 
         if ($(targetId).hasClass('tabs__page') && Helper.foundModule('Tabs')) {
             Tabs.switchTo(targetId);
         }
 
-        // if target is found, set scroll position to target position,
-        // otherwise set scroll position to page top
+        // if the target is wrapped inside a container with
+        // scroll-overflow, scroll this container. otherwise,
+        // scroll the whole page.
 
-        if (targetFound) {
-            scrollPosY = $target.offset().top - offset;
+        if (scrollContainerFound) {
+            scrollPosY     = '+=' + $target.position().top;
+            $scrollContext = $target.closest('.scrl-y');
         } else {
-            scrollPosY = 0;
+            scrollPosY     = $target.offset().top - offset;
+            $scrollContext = $('body');
         }
 
-        // do the scroll animation
+        // start the scroll animation and apply optional highlight effect
 
-        $('body').stop().animate({
-            scrollTop: scrollPosY
-        }, 500);
+        $.when(
+            $scrollContext.stop().animate({
+                scrollTop: scrollPosY
+            }, 500)
+        ).done(function(){
+            if (options.highlight === "blink") Helper.blink($target);
+            if (options.highlight === "pulse") Helper.pulse($target);
+        });
 
     }
 
@@ -7036,7 +7077,7 @@ var Tooltip = (function() {
 
             for (var i = 0; i < compatibleModifiers.length; i++) {
 
-                var thisModifier = compatibleModifiers[i];
+                var thisModifier            = compatibleModifiers[i];
                 var thisTmpTargetClassnames = $thisTmpTarget.attr('class');
 
                 if (thisTmpTargetClassnames.indexOf(thisModifier) > 0) {
