@@ -4,78 +4,53 @@
 // =====
 
 .pagination {
-
     .mixin-defaultBorderRadius;
     background: @color-main-25;
     border: @color-main-23 1px solid;
-    height: 2.8rem;
+    height: 3.3rem;
     margin: 1rem 0;
     position: relative;
-    text-align: center;
-
-    [class^="icon--"] {
-        font-size: 24px;
-        height: 24px;
-        overflow: hidden;
-        line-height: 20px;
-    }
-
+    text-align: right;
+    font-size: 0;
 }
 
 // elements
 // ========
 
-.pagination__item {
+.pagination__load {
+    float: left;
+    margin: .4rem;
+}
 
+.pagination__items {
     display: inline-block;
-
-    a {
-
-       .mixin-defaultBorderRadius;
-       color: @color-main-10;
-       display: block;
-       font-weight: bold;
-       height: 2.4rem;
-       line-height: 2.4rem;
-       margin: 2px 0;
-       padding: 0 1rem;
-       text-decoration: none;
-
-       &:hover {
-           background: @color-main-23;
-       }
-
-   }
-
 }
 
-.pagination__btnPrev,
-.pagination__btnNext {
-    position: absolute;
-    height: 2.4rem;
-    line-height: 2.4rem;
-    padding: 0 1rem;
-    top: 0;
+.pagination__item,
+.pagination__nav {
+    display: inline-block;
+    margin: .4rem;
 }
 
-.pagination__btnPrev { left: 2px; }
-.pagination__btnNext { right: 2px; }
+.pagination__item .btn:hover {
+    background: @color-main-23;
+}
 
 // modifiers
 // =========
 
 // active item
 
-.pagination__item--active a,
-.pagination__item--active a:hover {
+.pagination .is--active .btn,
+.pagination .is--active .btn:hover {
     background: @color-main-10;
     color: @color-main-24;
 }
 
-// pagination with transparent background & no borders
-
-.pagination--stripped {
-    background: transparent;
-    border-radius: 0;
-    border: 0;
-}
+// // pagination with transparent background & no borders
+//
+// .pagination--stripped {
+//     background: transparent;
+//     border-radius: 0;
+//     border: 0;
+// }

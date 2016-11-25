@@ -67,7 +67,7 @@
 </tr>
 <tr>
 <td>Modifiers</td>
-<td><code>.pagination--stripped</code></td>
+<td><code>-</code></td>
 </tr>
 </tbody>
 </table>
@@ -78,106 +78,91 @@
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         
     
-        <ul class="pagination">
+        <div class="pagination">
     
         
-            <li class="pagination__item">
-                <a class="pagination__btnPrev" href="#">
-                    <span class="hidden">vorherige Seite</span>
-                    <i aria-hidden="true" class="icon--008-s"></i>
-                </a>
-            </li>
+            <div class="pagination__load">
+                <a class="btn" href="#">Mehr anzeigen</a>
+            </div>
         
+        <ul class="pagination__items">
+            
+                
+                    <li class="pagination__item is--active">
+                
+                    <a class="btn btn--subtle" href="#">1</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">2</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">3</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">4</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">5</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">6</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">7</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">8</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">9</a>
+                </li>
+            
+                
+                    <li class="pagination__item">
+                
+                    <a class="btn btn--subtle" href="#">10</a>
+                </li>
+            
+        </ul>
         
-            
-                <li class="pagination__item">
-            
-                <a href="#">1</a>
-            </li>
+            <div class="pagination__nav">
+                <div class="btns">
+                    <a class="btn btn--disabled" href="#">
+                        <span class="hidden">vorherige Seite</span>
+                        <i aria-hidden="true" class="icon--008-s"></i>
+                    </a>
+                    <a class="btn " href="#">
+                        <span class="hidden">nächste Seite</span>
+                        <i aria-hidden="true" class="icon--007-s"></i>
+                    </a>
+                </div>
+            </div>
         
-            
-                <li class="pagination__item pagination__item--active">
-            
-                <a href="#">2</a>
-            </li>
-        
-            
-                <li class="pagination__item">
-            
-                <a href="#">3</a>
-            </li>
-        
-            
-                <li class="pagination__item">
-            
-                <a href="#">4</a>
-            </li>
-        
-        
-            <li class="pagination__item">
-                <a class="pagination__btnNext" href="#">
-                    <span class="hidden">nächste Seite</span>
-                    <i aria-hidden="true" class="icon--007-s"></i>
-                </a>
-            </li>
-        
-    </ul>
-
     </div>
-</div>
-
-<h3 id="modifiers">Modifiers</h3>
-<p>There is only one modifier available: <code>.pagination--stripped</code>. Use it to remove the borders and background color:</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        
-    
-        <ul class="pagination pagination--stripped">
-    
-        
-            <li class="pagination__item">
-                <a class="pagination__btnPrev" href="#">
-                    <span class="hidden">vorherige Seite</span>
-                    <i aria-hidden="true" class="icon--008-s"></i>
-                </a>
-            </li>
-        
-        
-            
-                <li class="pagination__item">
-            
-                <a href="#">1</a>
-            </li>
-        
-            
-                <li class="pagination__item pagination__item--active">
-            
-                <a href="#">2</a>
-            </li>
-        
-            
-                <li class="pagination__item">
-            
-                <a href="#">3</a>
-            </li>
-        
-            
-                <li class="pagination__item">
-            
-                <a href="#">4</a>
-            </li>
-        
-        
-            <li class="pagination__item">
-                <a class="pagination__btnNext" href="#">
-                    <span class="hidden">nächste Seite</span>
-                    <i aria-hidden="true" class="icon--007-s"></i>
-                </a>
-            </li>
-        
-    </ul>
 
     </div>
 </div>

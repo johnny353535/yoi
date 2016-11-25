@@ -2,36 +2,41 @@
 
 {% macro render(modifiers=false, currentPage=1, totalPages=10) %}
     {% if modifiers %}
-        <ul class="pagination {{ modifiers }}">
+        <div class="pagination {{ modifiers }}">
     {% else %}
-        <ul class="pagination">
+        <div class="pagination">
     {% endif %}
-        {% if currentPage > 1 %}
-            <li class="pagination__item">
-                <a class="pagination__btnPrev" href="#">
-                    <span class="hidden">vorherige Seite</span>
-                    <i aria-hidden="true" class="icon--008-s"></i>
-                </a>
-            </li>
+        {% if totalPages > 1 %}
+            <div class="pagination__load">
+                <a class="btn" href="#">Mehr anzeigen</a>
+            </div>
         {% endif %}
-        {% for i in range(0, totalPages) %}
-            {% if currentPage == i + 1 %}
-                <li class="pagination__item pagination__item--active">
-            {% else %}
-                <li class="pagination__item">
-            {% endif %}
-                <a href="#">{{ i + 1 }}</a>
-            </li>
-        {% endfor %}
-        {% if currentPage < totalPages %}
-            <li class="pagination__item">
-                <a class="pagination__btnNext" href="#">
-                    <span class="hidden">nächste Seite</span>
-                    <i aria-hidden="true" class="icon--007-s"></i>
-                </a>
-            </li>
+        <ul class="pagination__items">
+            {% for i in range(0, totalPages) %}
+                {% if currentPage == i + 1 %}
+                    <li class="pagination__item is--active">
+                {% else %}
+                    <li class="pagination__item">
+                {% endif %}
+                    <a class="btn btn--subtle" href="#">{{ i + 1 }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if totalPages > 1 %}
+            <div class="pagination__nav">
+                <div class="btns">
+                    <a class="btn {% if currentPage == 1 %}btn--disabled{% endif %}" href="#">
+                        <span class="hidden">vorherige Seite</span>
+                        <i aria-hidden="true" class="icon--008-s"></i>
+                    </a>
+                    <a class="btn {% if currentPage == totalPages %}btn--disabled{% endif %}" href="#">
+                        <span class="hidden">nächste Seite</span>
+                        <i aria-hidden="true" class="icon--007-s"></i>
+                    </a>
+                </div>
+            </div>
         {% endif %}
-    </ul>
+    </div>
 {% endmacro %}
 
 <!-- /pagination.html -->

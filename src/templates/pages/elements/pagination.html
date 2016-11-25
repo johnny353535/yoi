@@ -9,25 +9,14 @@ Straightforward pagination element with page- and browse links.
 | -              | -                                                                                                                   |
 | Less-File      | {% if basePath == '/' %}[pagination.less](assets/less/elements/pagination.less){% else %}pagination.less{% endif %} |
 | Base CSS-Class | `.pagination`                                                                                                       |
-| Modifiers      | `.pagination--stripped`                                                                                             |
+| Modifiers      | `-`                                                                                                                 |
 
 ### Basic Example
 {% endmarkdown %}
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        {{ pagination.render(currentPage=2, totalPages=4) }}
-    </div>
-</div>
-
-{% markdown %}
-### Modifiers
-There is only one modifier available: `.pagination--stripped`. Use it to remove the borders and background color:
-{% endmarkdown %}
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        {{ pagination.render(modifiers='pagination--stripped', currentPage=2, totalPages=4) }}
+        {{ pagination.render(currentPage=1, totalPages=10) }}
     </div>
 </div>
 
