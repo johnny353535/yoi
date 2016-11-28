@@ -26894,9 +26894,9 @@ tr:last-child td:last-child {
 }
 .tabs__menu {
   background: #faf9f7;
+  border-radius: 0;
   border: 0;
   border-bottom: #ecebea 1px solid;
-  border-radius: 0;
   color: #535251;
   display: table;
   position: relative;
@@ -26904,12 +26904,12 @@ tr:last-child td:last-child {
   width: 100%;
 }
 .tabs__items {
-  display: table-row;
   list-style: none;
+  display: table-row;
 }
 .tabs__item {
-  border-right: #ecebea 1px solid;
   display: table-cell;
+  border-right: #ecebea 1px solid;
   position: relative;
   vertical-align: bottom;
 }
@@ -26956,6 +26956,16 @@ tr:last-child td:last-child {
 }
 .tabs__link svg * {
   fill: #676665;
+}
+.tabs__menu.tabs__menu--loose {
+  font-size: 0;
+}
+.tabs__menu.tabs__menu--loose .tabs__items {
+  display: block;
+}
+.tabs__menu.tabs__menu--loose .tabs__item {
+  border-right: #ecebea 1px solid;
+  display: inline-block;
 }
 .tabs__menu--large .tabs__link {
   font-size: 1.5rem;

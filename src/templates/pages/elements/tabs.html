@@ -3,7 +3,7 @@
 
 {% markdown %}
 ## Tabs
-Yoshino tabs have some powerful features. You can choose from two different layouts. You can define a start tab per tab group (by default, the first tab in the markup is the start tab). And since the JavaScript is modular, other scripts can use tab functions. For example if you use a scroll-to-anchor button and the target element is a (hidden) tab, the button will switch the target tab to visible.
+Yoshino tabs have some powerful features. You can choose from different layouts. You can define a start tab per tab group (by default, the first tab in the markup is the start tab). And since the JavaScript is modular, other scripts can use tab functions. For example if you use a scroll-to-anchor button and the target element is a (hidden) tab, the button will switch the target tab to visible.
 
 |                |                                                                                                   |
 | -              | -                                                                                                 |
@@ -12,7 +12,7 @@ Yoshino tabs have some powerful features. You can choose from two different layo
 | Base CSS-Class | `.tabs, .tabs__menu`                                                                              |
 | Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows`           |
 
-### Example Tabs
+### Basic Example
 This is a basic example. Make sure to **add an #id to each tab** that you reference via the `.tabs__menu`.
 {% endmarkdown %}
 
@@ -22,24 +22,58 @@ This is a basic example. Make sure to **add an #id to each tab** that you refere
             <div class="tabs__menu">
                 <ul class="tabs__items">
                     <li class="tabs__item tabs__item--active">
-                        <a class="tabs__link" href="#tab-1-1">Tab #1</a>
+                        <a class="tabs__link" href="#tab-1-1-a">Tab #1-a</a>
                     </li>
                     <li class="tabs__item">
-                        <a class="tabs__link" href="#tab-1-2">Tab #2</a>
+                        <a class="tabs__link" href="#tab-1-2-a">Tab #2-a</a>
                     </li>
                     <li class="tabs__item">
-                        <a class="tabs__link" href="#tab-1-3">Tab #3</a>
+                        <a class="tabs__link" href="#tab-1-3-a">Tab #3-a</a>
                     </li>
                 </ul>
             </div>
-            <div id="tab-1-1" class="tabs__page">
-                <p>Tab #1 Content</p>
+            <div id="tab-1-1-a" class="tabs__page">
+                <p>Tab #1-a Content</p>
             </div>
-            <div id="tab-1-2" class="tabs__page">
-                <p>Tab #2 Content</p>
+            <div id="tab-1-2-a" class="tabs__page">
+                <p>Tab #2-a Content</p>
             </div>
-            <div id="tab-1-3" class="tabs__page">
-                <p>Tab #3 Content</p>
+            <div id="tab-1-3-a" class="tabs__page">
+                <p>Tab #3-a Content</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+### Fixed vs. Loose Layout
+By default, all tabs take up the same with, like cells within in table row. However, if you wish the tabs to be only as wide as their content, there is a modifier for that: `.tabs__menu--loose`:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="tabs">
+            <div class="tabs__menu tabs__menu--loose">
+                <ul class="tabs__items">
+                    <li class="tabs__item tabs__item--active">
+                        <a class="tabs__link" href="#tab-1-1-b">Tab #1-b</a>
+                    </li>
+                    <li class="tabs__item">
+                        <a class="tabs__link" href="#tab-1-2-b">Tab #2-b</a>
+                    </li>
+                    <li class="tabs__item">
+                        <a class="tabs__link" href="#tab-1-3-b">Tab #3-b</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="tab-1-1-b" class="tabs__page">
+                <p>Tab #1-b Content</p>
+            </div>
+            <div id="tab-1-2-b" class="tabs__page">
+                <p>Tab #2-b Content</p>
+            </div>
+            <div id="tab-1-3-b" class="tabs__page">
+                <p>Tab #3-b Content</p>
             </div>
         </div>
     </div>

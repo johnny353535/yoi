@@ -11,6 +11,9 @@
 // elements
 // ========
 
+// by default, all tabs (= buttons) take up the same
+// width (table-layout: fixed)
+
 .tabs__page {
     background: #fff;
     padding: 2rem;
@@ -18,9 +21,9 @@
 
 .tabs__menu {
     background: @color-main-25;
+    border-radius: 0;
     border: 0;
     border-bottom: @color-main-23 1px solid;
-    border-radius: 0;
     color: @color-main-8;
     display: table;
     position: relative;
@@ -29,14 +32,15 @@
 }
 
 .tabs__items {
-    display: table-row;
     list-style: none;
+    display: table-row;
 }
+
 
 .tabs__item {
     
-    border-right: @color-main-23 1px solid;
     display: table-cell;
+    border-right: @color-main-23 1px solid;
     position: relative;
     vertical-align: bottom;
     
@@ -108,15 +112,32 @@
 // modifiers
 // =========
 
+// fixed layout: all tabs have the same width
+
+.tabs__menu.tabs__menu--loose {
+
+    font-size: 0;
+    
+    .tabs__items {
+        display: block;
+    }
+    
+    .tabs__item {
+        border-right: @color-main-23 1px solid;
+        display: inline-block;
+    }
+
+}
+
 // large tabs menu
 
 .tabs__menu--large {
-    
+
     .tabs__link {
         font-size: 1.5rem;
         padding: 1.5rem 1rem;
     }
-    
+
 }
 
 // subtle tabs menu
