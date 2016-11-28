@@ -26916,10 +26916,10 @@ tr:last-child td:last-child {
 .tabs__item:last-child {
   border-right: 0;
 }
-.tabs__item--active {
+.tabs__item.is--active {
   background: #fff;
 }
-.tabs__item--active::after {
+.tabs__item.is--active::after {
   background: #fff;
   bottom: -1px;
   content: ' ';
@@ -26957,13 +26957,13 @@ tr:last-child td:last-child {
 .tabs__link svg * {
   fill: #676665;
 }
-.tabs__menu.tabs__menu--loose {
+.tabs__menu--loose {
   font-size: 0;
 }
-.tabs__menu.tabs__menu--loose .tabs__items {
+.tabs__menu--loose .tabs__items {
   display: block;
 }
-.tabs__menu.tabs__menu--loose .tabs__item {
+.tabs__menu--loose .tabs__item {
   border-right: #ecebea 1px solid;
   display: inline-block;
 }
@@ -26985,7 +26985,7 @@ tr:last-child td:last-child {
   color: #535251;
   background-color: transparent;
 }
-.tabs__menu--subtle .tabs__item--active {
+.tabs__menu--subtle .tabs__item.is--active {
   border-left: #ecebea 1px solid;
   border-right: #ecebea 1px solid;
   border-top-left-radius: 2px;
@@ -26994,7 +26994,7 @@ tr:last-child td:last-child {
   box-shadow: none;
   color: #535251;
 }
-.js .tabs__menu--checkmarks .tabs__item--active .tabs__link:before {
+.tabs__menu--checkmarks .tabs__item.is--active .tabs__link:before {
   -moz-osx-font-smoothing: grayscale !important;
   -o-transform: scale(1) !important;
   -webkit-font-smoothing: antialiased !important;
@@ -27012,7 +27012,7 @@ tr:last-child td:last-child {
   content: '\f011';
   margin: -1.5rem 0;
 }
-.js .tabs__menu--checkmarks .tabs__item--active .tabs__link:before::before {
+.tabs__menu--checkmarks .tabs__item.is--active .tabs__link:before::before {
   height: inherit;
   line-height: inherit;
   overflow: hidden;
@@ -27039,24 +27039,24 @@ tr:last-child td:last-child {
 .tabs__menu--arrows .tabs__link circle {
   fill: #868584;
 }
-.tabs__menu--arrows .tabs__item--active,
-.tabs__menu--arrows .tabs__item--active:hover {
+.tabs__menu--arrows .tabs__item.is--active,
+.tabs__menu--arrows .tabs__item.is--active:hover {
   background: transparent;
   border-bottom-color: #676665;
 }
-.tabs__menu--arrows .tabs__item--active .tabs__link,
-.tabs__menu--arrows .tabs__item--active:hover .tabs__link {
+.tabs__menu--arrows .tabs__item.is--active .tabs__link,
+.tabs__menu--arrows .tabs__item.is--active:hover .tabs__link {
   color: #535251;
 }
-.tabs__menu--arrows .tabs__item--active polygon,
-.tabs__menu--arrows .tabs__item--active:hover polygon,
-.tabs__menu--arrows .tabs__item--active path,
-.tabs__menu--arrows .tabs__item--active:hover path,
-.tabs__menu--arrows .tabs__item--active circle,
-.tabs__menu--arrows .tabs__item--active:hover circle {
+.tabs__menu--arrows .tabs__item.is--active polygon,
+.tabs__menu--arrows .tabs__item.is--active:hover polygon,
+.tabs__menu--arrows .tabs__item.is--active path,
+.tabs__menu--arrows .tabs__item.is--active:hover path,
+.tabs__menu--arrows .tabs__item.is--active circle,
+.tabs__menu--arrows .tabs__item.is--active:hover circle {
   fill: #535251;
 }
-.tabs__menu--arrows .tabs__item--active::after {
+.tabs__menu--arrows .tabs__item.is--active::after {
   background: transparent;
   border-color: transparent transparent #676665 transparent;
   border-style: solid;
