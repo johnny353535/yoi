@@ -15913,8 +15913,8 @@ a.badge--positive:hover {
 }
 /** barChart.less */
 .barChart {
-  background: #faf9f7;
   border-radius: 2px;
+  background: #faf9f7;
   display: inline-block;
   position: relative;
   vertical-align: middle;
@@ -16929,7 +16929,6 @@ a.box {
 }
 /** buttons.less */
 .btn {
-  -webkit-font-smoothing: antialiased;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -16938,6 +16937,7 @@ a.box {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-font-smoothing: antialiased;
   background-clip: padding-box;
   background: linear-gradient(to bottom, #f6f5f4, #ecebea);
   border: #d7d6d5 1px solid;
@@ -21279,7 +21279,7 @@ a:visited:hover {
   top: 1rem;
   width: 28rem;
 }
-#modalContainer .modal-s {
+.modal__container .modal-s {
   z-index: 601;
 }
 .modal-s__header {
@@ -22460,8 +22460,8 @@ a.posterTeaser:hover img {
 }
 /** priceSticker.less */
 .priceSticker {
-  background: #ff6830;
   border-radius: 2px;
+  background: #ff6830;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   color: #fff;
   display: inline-block;
@@ -22843,8 +22843,8 @@ a.radioBtn {
 }
 /** ratingInput.less */
 .ratingSelect {
-  background: #fff;
   border-radius: 2px;
+  background: #fff;
   border: #cdcccb 1px solid;
   box-shadow: 0 1px 0 #f6f5f4 inset;
   box-sizing: border-box;
@@ -23024,7 +23024,7 @@ a.radioBtn {
   color: #fff;
 }
 /** ruler.less */
-hr {
+.ruler {
   background: #ecebea;
   border: none;
   height: 1px;
@@ -24021,8 +24021,8 @@ a[class*="link--"]::after::before {
 }
 /** tables.less */
 table {
-  border-collapse: separate;
   border-radius: 2px;
+  border-collapse: separate;
   border-spacing: 0;
   border: #ecebea 1px solid;
   box-sizing: border-box;
