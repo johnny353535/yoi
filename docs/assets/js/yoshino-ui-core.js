@@ -2883,10 +2883,9 @@ var Filters = (function() {
 
         // gather dom objects
 
-        var $thisFilters = $filter;
+        var $thisFilters       = $filter;
         var $thisSearchDisplay = $($thisFilters.data().searchdisplay);
-        var $thisSearchResults = $thisSearchDisplay.find('.searchDisplay__results');
-        var $thisRangeInput = $thisFilters.find('.rangeInput').first();
+        var $thisRangeInput    = $thisFilters.find('.rangeInput').first();
 
         // cancel if no search display was found
 
@@ -2926,9 +2925,9 @@ var Filters = (function() {
                 $thisSearchDisplay.append($loader);
                 $loader.hide().fadeIn(200);
 
-                $thisSearchResults.animate({ opacity: 0 }, 200, function() {
+                $thisSearchDisplay.animate({ opacity: 0 }, 200, function() {
 
-                    $thisSearchResults.delay(300).animate({ opacity: 1 }, 500, function() {
+                    $thisSearchDisplay.delay(300).animate({ opacity: 1 }, 500, function() {
 
                         $loader.fadeOut(200);
                         $thisFilters.removeClass('filters--disabled');
@@ -3739,11 +3738,11 @@ var Modal = (function() {
     var btnLabelClose = Helper.locale === 'de' ? 'Schließen' : 'Close';
 
     var $modalCover = $('\
-        <div id="modalCover" data-action="closeModal"></div>\
+        <div class="modal__cover" id="modalCover" data-action="closeModal"></div>\
     ');
 
     var $modalContainer = $('\
-        <div id="modalContainer"></div>\
+        <div class="modal__container" id="modalContainer"></div>\
     ');
 
     var $modalCloseBtn = $('\

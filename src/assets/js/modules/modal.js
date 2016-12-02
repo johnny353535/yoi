@@ -12,11 +12,11 @@ var Modal = (function() {
     var btnLabelClose = Helper.locale === 'de' ? 'Schließen' : 'Close';
 
     var $modalCover = $('\
-        <div id="modalCover" data-action="closeModal"></div>\
+        <div class="modal__cover" id="modalCover" data-action="closeModal"></div>\
     ');
 
     var $modalContainer = $('\
-        <div id="modalContainer"></div>\
+        <div class="modal__container" id="modalContainer"></div>\
     ');
 
     var $modalCloseBtn = $('\

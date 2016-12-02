@@ -12,10 +12,6 @@
     width: 66rem;
 }
 
-#modalContainer .modal {
-    z-index: 601;
-}
-
 .modal__header {
 
     border-bottom: @color-main-23 1px solid;
@@ -57,6 +53,20 @@
     margin-top: 1rem;
     padding: 1rem;
     overflow: hidden;
+}
+
+.modal__cover {
+    background: fade(@color-main-5,80%);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 600;
+}
+
+.modal__container .modal {
+    z-index: 601;
 }
 
 // modifiers
