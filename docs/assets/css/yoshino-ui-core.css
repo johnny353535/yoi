@@ -20200,6 +20200,43 @@ h6 {
   background: #4e7e64;
   color: #fff;
 }
+/** stageMenu.less */
+.stageMenu ul {
+  border-top: #ecebea 1px solid;
+  margin: 0 20px 20px 0;
+  list-style: none;
+}
+.stageMenu ul li {
+  border-bottom: #ecebea 1px solid;
+  position: relative;
+}
+.stageMenu ul a {
+  color: #676665;
+  display: block;
+  font-size: 20px;
+  padding: 20px 15px 20px 50px;
+  text-decoration: none;
+}
+.stageMenu ul [class^="icon--"] {
+  color: #e1e0df;
+  left: 10px;
+  position: absolute;
+  top: 15px;
+}
+.stageMenu ul li:hover a {
+  background: rgba(246, 245, 244, 0.5);
+}
+.stageMenu ul .current a {
+  background: #f6f5f4;
+  color: #535251;
+}
+.stageMenu ul .current [class^="icon--"] {
+  color: #535251;
+}
+.stageMenu .badge {
+  position: absolute;
+  right: 10px;
+}
 /** icons.less */
 /*
  *   Notes
@@ -23076,32 +23113,6 @@ hr {
   position: absolute;
   right: 10px;
   top: 0;
-}
-/** sectionHeader.less */
-.sectionHeader {
-  font: normal 20px/30px 'Open Sans', sans-serif;
-  margin: 25px 0;
-  padding-left: 15px;
-  position: relative;
-}
-.sectionHeader::before {
-  background: #676665;
-  content: ' ';
-  height: 30px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 5px;
-}
-.sectionHeader:first-child {
-  margin-top: 0;
-}
-.paper .sectionHeader {
-  padding-left: 0;
-}
-.paper .sectionHeader::before {
-  border-radius: 2px 0 0 2px;
-  left: -25px;
 }
 /** itemShelf.less */
 .itemShelf {
