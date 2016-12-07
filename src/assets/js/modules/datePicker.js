@@ -55,19 +55,27 @@ var DatePicker = (function() {
     // private functions
     // =================
 
-    function initializeDatePicker() {
-
+    function initializeDatePicker($datepicker) {
+        
         /**
-         *  Initialize the date picker.
+         *  Initialize all input[data-datepicker] found in the document (= function call without parameters)
+         *  or target one or more specific input[data-datepicker] (= function call with $datepicker).
+         *  $datepicker must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $datepicker - the date picker(s)
          */
 
         // update the current date
 
         getCurrentDate();
 
-        // initialize all date pickers
+        // initialize date picker(s)
+        
+        if (!($datepicker instanceof jQuery)) {
+            $datepicker = $('input[data-datepicker]');
+        }
 
-        $('input[data-datepicker]').each(function(index) {
+        $datepicker.each(function(index) {
 
             // get date input & date input data
 

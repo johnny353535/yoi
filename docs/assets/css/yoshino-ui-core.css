@@ -18175,7 +18175,7 @@ a:visited.btn.btn--outline.btn--positive {
   content: '\f007';
   left: -2px;
 }
-.dock--left.dock--hidden {
+.dock--left.is--hidden {
   left: -26rem;
 }
 .dock--right {
@@ -18186,10 +18186,10 @@ a:visited.btn.btn--outline.btn--positive {
   content: '\f008';
   right: -2px;
 }
-.dock--right.dock--hidden {
+.dock--right.is--hidden {
   right: -26rem;
 }
-.dock--hidden::before {
+.dock.is--hidden::before {
   -moz-osx-font-smoothing: grayscale !important;
   -o-transform: scale(1) !important;
   -webkit-font-smoothing: antialiased !important;
@@ -18208,7 +18208,7 @@ a:visited.btn.btn--outline.btn--positive {
   position: fixed;
   top: 0;
 }
-.dock--hidden::before::before {
+.dock.is--hidden::before::before {
   height: inherit;
   line-height: inherit;
   overflow: hidden;
@@ -19191,20 +19191,20 @@ a:visited.btn.btn--outline.btn--positive {
 .filterBtns__btn a:hover::after {
   color: #535251;
 }
-.filterBtns__btn.filterBtns__btn--active {
+.filterBtns__btn.is--active {
   background: #4e7e64;
 }
-.filterBtns__btn.filterBtns__btn--active a {
+.filterBtns__btn.is--active a {
   color: #fff;
 }
-.filterBtns__btn.filterBtns__btn--active a::after {
+.filterBtns__btn.is--active a::after {
   color: #fff;
   content: '\f011';
 }
-.filterBtns__btn.filterBtns__btn--active:hover {
+.filterBtns__btn.is--active:hover {
   background: #c83700;
 }
-.filterBtns__btn.filterBtns__btn--active:hover a::after {
+.filterBtns__btn.is--active:hover a::after {
   content: '\f006';
 }
 .filterBtns__btn.filterBtns__btn--debounce:hover {
@@ -19320,7 +19320,7 @@ a:visited.btn.btn--outline.btn--positive {
 .filter:hover {
   background: rgba(250, 249, 247, 0.5);
 }
-.filter.filter--active {
+.filter.is--active {
   background: #fffbd0;
 }
 .filter .filter__counter {
@@ -19345,7 +19345,7 @@ a:visited.btn.btn--outline.btn--positive {
   top: 1rem;
   width: 1rem;
 }
-.filter.filter--multi.filter--active::before {
+.filter.filter--multi.is--active::before {
   -moz-osx-font-smoothing: grayscale !important;
   -o-transform: scale(1) !important;
   -webkit-font-smoothing: antialiased !important;
@@ -19368,18 +19368,18 @@ a:visited.btn.btn--outline.btn--positive {
   top: 0;
   width: 3rem;
 }
-.filter.filter--multi.filter--active::before::before {
+.filter.filter--multi.is--active::before::before {
   height: inherit;
   line-height: inherit;
   overflow: hidden;
   position: relative;
   width: inherit;
 }
-.filter.filter--multi.filter--active:hover {
+.filter.filter--multi.is--active:hover {
   color: #5a1800;
   background: #ffe4da;
 }
-.filter.filter--multi.filter--active:hover::before {
+.filter.filter--multi.is--active:hover::before {
   content: '\f006';
 }
 .filter.filter--single::before {
@@ -19390,7 +19390,7 @@ a:visited.btn.btn--outline.btn--positive {
   top: 1rem;
   width: 1rem;
 }
-.filter.filter--single.filter--active::before {
+.filter.filter--single.is--active::before {
   background: #343332;
   border: none;
 }

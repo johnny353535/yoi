@@ -148,7 +148,7 @@
         background: fade(@color-main-25,50%);
     }
 
-    &.filter--active {
+    &.is--active {
         background: @color-attention-22;
     }
 
@@ -186,7 +186,7 @@
             width: 1rem;
         }
 
-        &.filter--active::before {
+        &.is--active::before {
             .mixin-icon;
             background: transparent;
             border: 0;
@@ -198,12 +198,12 @@
             width: 3rem;
         }
 
-        &.filter--active:hover {
+        &.is--active:hover {
             color: @color-negative-5;
             background: @color-negative-24;
         }
 
-        &.filter--active:hover::before {
+        &.is--active:hover::before {
             content: '\f006';
         }
 
@@ -222,7 +222,7 @@
             width: 1rem;
         }
 
-        &.filter--active::before {
+        &.is--active::before {
             background: @color-main-5;
             border: none;
         }

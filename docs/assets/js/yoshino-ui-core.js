@@ -784,23 +784,40 @@ var AutoComplete = (function() {
     // private functions
     // =================
 
-    function initializeAutoComplete() {
+    function initializeAutoComplete($autoCompleteInput) {
+        
+        /**
+         *  Initialize all *[data-autocomplete] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-autocomplete] (= function call with $autoCompleteInput).
+         *  $autoCompleteInput must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $autoCompleteInput - the auto complete input field
+         */
 
-        var autoCompleteInputFields = $('[data-action="autocomplete"]');
         var inputValue;
+        
+        if (!($autoCompleteInput instanceof jQuery)) {
+            $autoCompleteInput = $('[data-autocomplete]');
+        }
 
-        autoCompleteInputFields
-            .on('focus', function() {
-                inputValue = $(this)[0].value;
-                $(this)[0].value = '';
-            })
-            .on('keypress', function() {
-                $(this).closest('form').find('.autoComplete').show();
-            })
-            .on('blur', function() {
-                $(this)[0].value = inputValue;
-                $(this).closest('form').find('.autoComplete').hide();
-            });
+        $autoCompleteInput.each(function() {
+            
+            var $thisAutoCompleteInput = $(this);
+            
+            $thisAutoCompleteInput
+                .on('focus', function() {
+                    inputValue = $(this)[0].value;
+                    $(this)[0].value = '';
+                })
+                .on('keypress', function() {
+                    $(this).closest('form').find('.autoComplete').show();
+                })
+                .on('blur', function() {
+                    $(this)[0].value = inputValue;
+                    $(this).closest('form').find('.autoComplete').hide();
+                });
+            
+        });
 
     }
 
@@ -901,13 +918,21 @@ var countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown() {
+    function initializeCountdown($countdown) {
         
         /**
-         *  Initialize all countdowns found in the document.
+         *  Initialize all *[data-countdown] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-countdown] (= function call with $countdown).
+         *  $countdown must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $countdown - the countdown(s)
          */
+        
+        if (!($countdown instanceof jQuery)) {
+            $countdown = $('[data-countdown]');
+        }
 
-        $('[data-countdown]').each(function(index) {
+        $countdown.each(function(index) {
         
             var $thisCountdown = $(this);
             
@@ -1196,19 +1221,27 @@ var DatePicker = (function() {
     // private functions
     // =================
 
-    function initializeDatePicker() {
-
+    function initializeDatePicker($datepicker) {
+        
         /**
-         *  Initialize the date picker.
+         *  Initialize all input[data-datepicker] found in the document (= function call without parameters)
+         *  or target one or more specific input[data-datepicker] (= function call with $datepicker).
+         *  $datepicker must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $datepicker - the date picker(s)
          */
 
         // update the current date
 
         getCurrentDate();
 
-        // initialize all date pickers
+        // initialize date picker(s)
+        
+        if (!($datepicker instanceof jQuery)) {
+            $datepicker = $('input[data-datepicker]');
+        }
 
-        $('input[data-datepicker]').each(function(index) {
+        $datepicker.each(function(index) {
 
             // get date input & date input data
 
@@ -1960,42 +1993,37 @@ var Dismiss = (function() {
     // ============
 
     var $btnDismiss;
-    var onMobile = $(document.body).data('environment') === 'mobile';
     var btnLabelClose = Helper.locale === 'de' ? 'schliessen' : 'close';
 
-    if (onMobile) {
-
-        $btnDismiss = $('\
-            <button class="btn btn--large btn--subtle">\
-                <span class="hidden">' + btnLabelClose + '</span>\
-                <i class="icon--006-s" aria-hidden="true"></i>\
-            </button>\
-        ');
-
-    } else {
-
-        $btnDismiss = $('\
-            <button class="btn btn--subtle">\
-                <span class="hidden">' + btnLabelClose + '</span>\
-                <i class="icon--006-s" aria-hidden="true"></i>\
-            </button>\
-        ');
-
-    }
+    $btnDismiss = $('\
+        <button class="btn btn--subtle">\
+            <span class="hidden">' + btnLabelClose + '</span>\
+            <i class="icon--006-s" aria-hidden="true"></i>\
+        </button>\
+    ');
 
     // private functions
     // =================
 
-    function initializeDismissableElements() {
-
+    function initializeDismissableElement($dismissableElement) {
+        
         /**
-         *  Attaches a close-button to all elements that have
-         *  a data-dismissable flag.
+         *  Attach a close-button to dismissable elements.
+         *
+         *  Initialize all *[data-dismissable] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dismissable] (= function call with $dismissable).
+         *  $dismissableElement must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
          */
+        
+        if (!($dismissableElement instanceof jQuery)) {
+            $dismissableElement = $('input[data-dismissable]');
+        }
 
-        $('[data-dismissable]').each(function() {
+        $dismissableElement.each(function() {
 
-            var $thisTarget = $(this);
+            var $thisDismissableElement = $(this);
 
             // attach button and events
 
@@ -2003,33 +2031,34 @@ var Dismiss = (function() {
                 .clone()
                 .on('click', function(e) {
                     e.preventDefault();
-                    dismiss($thisTarget);
+                    dismiss($thisDismissableElement);
                 })
-                .appendTo($thisTarget);
+                .appendTo($thisDismissableElement);
 
         });
 
     }
 
-    function initializeDismissButtons() {
-
+    function initializeDismissButton($dismissButton) {
+        
         /**
-         *  Queries the document for buttons flagged with a
-         *  data-dismiss attribute. Reads the target element
-         *  from the data-attribute value.
+         *  Initialize all *[data-dismiss] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dismiss] (= function call with $dismissButton).
+         *  $dismissButton must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dismissButton - the dismiss button(s)
+         *  @option {string} target                   - selector for target element
          */
+        
+        if (!($dismissButton instanceof jQuery)) {
+            $dismissButton = $('[data-dismiss]');
+        }
 
-        $('[data-dismiss]').each(function() {
+        $dismissButton.each(function() {
 
             var $thisTrigger = $(this);
             var options      = Helper.toObject($(this).data('dismiss'));
             var $thisTarget  = $(options.target);
-
-            /**
-             *  Available options:
-             *
-             *  @option {string} target - selector for target element
-             */
 
             // attach events
 
@@ -2049,6 +2078,8 @@ var Dismiss = (function() {
          *
          *  @param  {jQuery dom object} $thisTarget - the target element
          */
+        
+        if (!($thisTarget instanceof jQuery)) return false;
 
         $thisTarget.fadeOut(function() {
             $thisTarget.remove();
@@ -2059,15 +2090,15 @@ var Dismiss = (function() {
     // initialize
     // ==========
 
-    initializeDismissableElements();
-    initializeDismissButtons();
+    initializeDismissableElement();
+    initializeDismissButton();
 
     // public functions
     // ================
 
     return {
-        initElements : initializeDismissableElements,
-        initBtns     : initializeDismissButtons,
+        initElements : initializeDismissableElement,
+        initBtns     : initializeDismissButton,
         apply        : dismiss
     };
 
@@ -2080,14 +2111,21 @@ var Dock = (function() {
     // private functions
     // =================
 
-    function initializeDock() {
-
+    function initializeDock($dock) {
+    
         /**
-         *  Initialite the dock by preparing the dom
-         *  and attaching events.
+         *  Initialize all *[data-dock] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dock] (= function call with $dock).
+         *  $dock must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dock - the dock(s)
          */
+        
+        if (!($dock instanceof jQuery)) {
+            $dock = $('[data-dock]');
+        }
 
-        $('[data-dock]').each(function() {
+        $dock.each(function() {
 
             var $thisDock = $(this);
             var options   = Helper.toObject($thisDock.data('dock'));
@@ -2123,7 +2161,7 @@ var Dock = (function() {
          *  @param {jQuery dom object} $thisDock - the dock
          */
 
-        $thisDock.addClass('dock--hidden');
+        $thisDock.addClass('is--hidden');
     }
 
     function showDock($thisDock) {
@@ -2134,7 +2172,7 @@ var Dock = (function() {
          *  @param {jQuery dom object} $thisDock - the dock
          */
 
-        $thisDock.removeClass('dock--hidden');
+        $thisDock.removeClass('is--hidden');
     }
 
     // initialize
@@ -2389,14 +2427,21 @@ var FilterBtns = (function() {
     // private functions
     // =================
 
-    function initializeFilterBtns() {
-
+    function initializeFilterBtns($filterBtns) {
+        
         /**
-         *  Initialize the filter buttons by preparing the dom
-         *  and attaching events.
+         *  Initialize all *[data-filterbtns] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-filterbtns] (= function call with $dock).
+         *  $filterBtns must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $filterBtns - the filterbutton group(s)
          */
+        
+        if (!($filterBtns instanceof jQuery)) {
+            $filterBtns = $('[data-filterbtns]');
+        }
 
-        $('.filterBtns').each(function() {
+        $filterBtns.each(function() {
 
             var $thisFilterBtns = $(this);
 
@@ -2459,16 +2504,13 @@ var FilterBtns = (function() {
          *  @param  {jQuery dom object} $thisBtn - the filter button
          */
 
-        if ($thisBtn.hasClass('filterBtns__btn--active')) {
-            $thisBtn.removeClass('filterBtns__btn--active');
+        if ($thisBtn.hasClass('is--active')) {
+            $thisBtn.removeClass('is--active');
             $thisBtn.removeClass('filterBtns__btn--debounce');
         } else {
-            $thisBtn.addClass('filterBtns__btn--active');
+            $thisBtn.addClass('is--active');
             $thisBtn.addClass('filterBtns__btn--debounce');
         }
-
-        if(Helper.foundModule('NavBar'))
-            NavBar.showMsg('Filter angewandt.');
 
     }
 
@@ -2480,12 +2522,7 @@ var FilterBtns = (function() {
          *  @param  {jQuery dom object} $thisBtn - the filter button
          */
 
-        $thisBtn.fadeOut('fast', function() {
-
-            if(Helper.foundModule('NavBar'))
-                NavBar.showMsg('Filter angewandt.');
-
-        });
+        $thisBtn.fadeOut('fast');
 
     }
 
@@ -2536,15 +2573,15 @@ var Filters = (function() {
     function initializeFilters($filters) {
 
         /**
-         *  Initializes filters. If "$filters" is undefined,
-         *  all found ".filters" inside the document will be initialized.
-         *  "$filters" must be a jQuery object.
+         *  Initialize all *[data-filters] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-filters] (= function call with $dock).
+         *  $filters must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $filters - the filter group(s)
          */
 
         if (!($filters instanceof jQuery) || $filters === undefined) {
-            $filters = $('.filters');
+            $filters = $('[data-filters]');
         }
 
         $filters.each(function() {
@@ -2632,7 +2669,7 @@ var Filters = (function() {
 
         // deactivate all filter buttons
 
-        $thisFiltersFilters.removeClass('filter--active');
+        $thisFiltersFilters.removeClass('is--active');
 
         // collapse filter groups
 
@@ -2652,7 +2689,7 @@ var Filters = (function() {
 
     }
 
-    function collapseFilterGroup($filterGroup) {
+    function collapseFilterGroup($thisFilterGroup) {
 
         /**
          *  Collapse a filter group by hiding all inactive filters.
@@ -2661,7 +2698,6 @@ var Filters = (function() {
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
 
-        var $thisFilterGroup     = $filterGroup;
         var $thisFilters         = $thisFilterGroup.closest('.filters');
         var $thisFilterGroupBody = $thisFilterGroup.find('.filterGroup__body');
 
@@ -2671,13 +2707,13 @@ var Filters = (function() {
 
         $thisFilterGroup.addClass('filterGroup--collapsed');
 
-        $.when($thisFilterGroup.find('.filter:not(.filter--active)').slideUp(200)).then(function() {
+        $.when($thisFilterGroup.find('.filter:not(.is--active)').slideUp(200)).then(function() {
             updateAllFilterGroups($thisFilters);
         });
 
     }
 
-    function expandFilterGroup($filterGroup) {
+    function expandFilterGroup($thisFilterGroup) {
 
         /**
          *  Expand a filter group by showing all inactive filters.
@@ -2686,18 +2722,17 @@ var Filters = (function() {
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
 
-        var $thisFilterGroup = $filterGroup;
         var $thisFilters     = $thisFilterGroup.closest('.filters');
 
         $thisFilterGroup.removeClass('filterGroup--collapsed');
 
-        $.when($thisFilterGroup.find('.filter:not(.filter--active)').slideDown(200)).then(function() {
+        $.when($thisFilterGroup.find('.filter:not(.is--active)').slideDown(200)).then(function() {
             updateAllFilterGroups($thisFilters);
         });
 
     }
 
-    function toggleFilterGroup($filterGroup) {
+    function toggleFilterGroup($thisFilterGroup) {
 
         /**
          *  Expand or collapse a filter group by showing or hiding all inactive filters.
@@ -2705,8 +2740,6 @@ var Filters = (function() {
          *
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
-
-        var $thisFilterGroup = $filterGroup;
 
         if ($thisFilterGroup.data().isCollapsed) {
             expandFilterGroup($thisFilterGroup);
@@ -2716,7 +2749,7 @@ var Filters = (function() {
 
     }
 
-    function toggleFilter($filter) {
+    function toggleFilter($thisFilter) {
 
         /**
          *  Activate or deactivate an individual filter.
@@ -2724,7 +2757,7 @@ var Filters = (function() {
          *  to update the search results and so on gets called with a certain delay.
          *  The delay helps avoiding unexpected behaviour through brute-force / rapid clicking.
          *
-         *  @param {jQuery dom object} $filter - the filter
+         *  @param {jQuery dom object} $thisFilter - the filter
          */
 
         // cancel if results update is running
@@ -2733,15 +2766,14 @@ var Filters = (function() {
             return false;
         }
 
-        var $thisFilter      = $filter;
         var $thisFilterGroup = $thisFilter.closest('.filterGroup');
         var $thisFilters     = $thisFilter.closest('.filters');
 
         if ($thisFilter.hasClass('filter--multi')) {
-            $thisFilter.toggleClass('filter--active');
+            $thisFilter.toggleClass('is--active');
         } else if ($thisFilter.hasClass('filter--single')) {
-            $thisFilterGroup.find('.filter--single').removeClass('filter--active');
-            $thisFilter.addClass('filter--active');
+            $thisFilterGroup.find('.filter--single').removeClass('is--active');
+            $thisFilter.addClass('is--active');
         }
 
         // axecute after delay
@@ -2769,18 +2801,17 @@ var Filters = (function() {
 
     }
 
-    function toggleResetBtn($filters) {
+    function toggleResetBtn($thisFilters) {
 
         /**
          *  Injects or removes a reset button per '.filters' container.
          *  The buttons calls the public reset method and deactivates
          *  all active filter buttons.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
 
-        var $thisFilters       = $filters;
-        var totalActiveFilters = $thisFilters.find('.filter--active');
+        var totalActiveFilters = $thisFilters.find('.is--active');
 
         if (!$thisFilters.find('.filters__resetBtn').length && totalActiveFilters.length) {
 
@@ -2800,17 +2831,16 @@ var Filters = (function() {
 
     }
 
-    function updateAllFilterGroups($filters) {
+    function updateAllFilterGroups($thisFilters) {
 
         /**
          *  Walk through all filter groups and update some properties.
          *  These properties are booleans like "is this filtergroup expanded or collapsed", etc.
          *  They are stored inside the jQuery data-object of each filter group.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
 
-        var $thisFilters      = $filters;
         var $thisFilterGroups = $thisFilters.find('.filterGroup');
 
         $thisFilterGroups.each(function() {
@@ -2823,7 +2853,7 @@ var Filters = (function() {
             $thisFilterGroup.data({
                 // isScroll      : defined only once on init
                 isCollapsed      : $thisFilterGroup.hasClass('filterGroup--collapsed'),
-                hasActiveFilters : $thisFilterGroup.find('.filter--active').length > 0
+                hasActiveFilters : $thisFilterGroup.find('.is--active').length > 0
             });
 
             $thisFilterGroup.data({
@@ -2848,17 +2878,17 @@ var Filters = (function() {
 
     }
 
-    function updateActiveFilters($filters) {
+    function updateActiveFilters($thisFilters) {
         /**
          *  Todo:
          *  Read all active filters and generate a search url,
          *  Something like "/s/?term=some+search+term&filter=xx".
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
     }
 
-    function updateResults($filter, withPriceRange) {
+    function updateResults($thisFilters, withPriceRange) {
 
         /**
          *  Apply the active filters by requesting the search results
@@ -2883,7 +2913,6 @@ var Filters = (function() {
 
         // gather dom objects
 
-        var $thisFilters       = $filter;
         var $thisSearchDisplay = $($thisFilters.data().searchdisplay);
         var $thisRangeInput    = $thisFilters.find('.rangeInput').first();
 
@@ -2984,14 +3013,21 @@ var Flyout = (function() {
     // private functions
     // =================
 
-    function initializeFlyout() {
-
+    function initializeFlyout($flyout) {
+        
         /**
-         *  Initialize the flyout menus by preparing the dom and
-         *  attaching events.
+         *  Initialize all *[data-flyout] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-flyout] (= function call with $dock).
+         *  $flyout must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $flyout - the flyout(s)
          */
+        
+        if (!($flyout instanceof jQuery)) {
+            $flyout = $('[data-flyout]');
+        }
 
-        $('.flyout').each(function() {
+        $flyout.each(function() {
 
             var $thisFlyout = $(this).detach();
             var $flyoutHandle = $thisFlyout.find('.flyout__handle');
@@ -3079,7 +3115,7 @@ var CustomFormElements = (function() {
     // private vars
     // ============
 
-    var    $checkBoxWrapper = $('<span class="checkbox"></span>')
+    var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
         });
@@ -3301,37 +3337,90 @@ var CustomFormElements = (function() {
 
 })();
 
-// ===========================================================
-//
-//        File:    js/hide.js
-//        Descr.:    Simple script to hide elements.
-//
-// ===========================================================
+/** hide.js */
 
-$('[data-hide]').each(function(index){
-
-    // set up vars
-
-    var $this      = $(this),
-        $data      = Helper.toObject($this.data('hide')),
-        target     = $data.target,
-        event      = $data.event !== undefined ? $data.event : 'click',
-        transition = $data.transition !== undefined ? $data.transition : false;
-
-    // apply event on trigger and hide target
-
-    $this.on(event, function(e) {
-        if (transition === 'fadeOut') {
-            $(target).fadeOut();
-        } else if (transition === 'slideUp') {
-            $(target).slideUp();
-        } else {
-            $(target).hide();
+var Hide = (function() {
+    
+    // private functions
+    // =================
+    
+    function initializeHide($hideTrigger) {
+        
+        /**
+         *  Search the Dom for trigger-elements flagged with "data-hide" and hide the
+         *  corresponding target elements on any event you wish to bind to the trigger.
+         *  Options include to chose from all standard event handlers for the trigger and
+         *  using one of two available transitions.
+         *
+         *  Initialize all *[data-hide] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-hide] (= function call with $dock).
+         *  $hideTrigger must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $hideTrigger - the hide trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button class="btn" data-hide="target:#myTarget; event:click; transition:fadeOut">Hide</button>
+         *
+         *  Available options:
+         *
+         *  @option {string} target     - A string which is used as selector for the target element
+         *                                (eg. '#myTarget' or '.myTarget', etc.)
+         *
+         *  @option {string} event      - A string which defines the event which gets bound to the
+         *                                trigger element. All standard event handlers from jQuery
+         *                                can be used.
+         *
+         *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
+         */
+        
+        if (!($hideTrigger instanceof jQuery)) {
+            $hideTrigger = $('[data-hide]');
         }
-    });
+        
+        $hideTrigger.each(function(index){
 
-});
+            // set up vars
 
+            var $thisTrigger = $(this);
+            var $data        = Helper.toObject($this.data('hide'));
+            var target       = $data.target !== undefined ? $data.target : false;
+            var event        = $data.event !== undefined ? $data.event : 'click';
+            var transition   = $data.transition !== undefined ? $data.transition : false;
+            
+            // cancel if no target was defined
+
+            if (!target) return false;
+            
+            // apply event on trigger and hide target
+            
+            $thisTrigger.on(event, function(e) {
+                if (transition === 'fadeOut') {
+                    $(target).fadeOut();
+                } else if (transition === 'slideUp') {
+                    $(target).slideUp();
+                } else {
+                    $(target).hide();
+                }
+            });
+
+        });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeHide();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializeHide
+    }
+
+})();
 /** imgMagnifier.js */
 
 var ImgMagnifier = (function(){
@@ -3346,21 +3435,21 @@ var ImgMagnifier = (function(){
 
     // private functions
 
-    function initializeImgMagnifier($imgMagnifiers) {
+    function initializeImgMagnifier($imgMagnifier) {
 
         /**
-         *  Initializes image magnifiers. If "$imgMagnifiers" is undefined,
-         *  all found ".imgMagnifier" inside the document will be initialized.
-         *  "$imgMagnifiers" must be a jQuery object.
+         *  Initialize all *[data-imgmagnifier] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-imgmagnifier] (= function call with $imgmagnifier).
+         *  $imgmagnifier must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $imgMagnifiers - the image magnifier
+         *  @param {jQuery dom object} $imgmagnifier - the image magnifier(s)
          */
 
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('[data-imgmagnifier]');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
             var $thisCursor       = $cursor.clone().hide();
@@ -3402,19 +3491,19 @@ var ImgMagnifier = (function(){
 
     }
 
-    function resetImgMagnifier($imgMagnifiers) {
+    function resetImgMagnifier($imgMagnifier) {
 
         /**
-         *  Reset all image magnifiers.
+         *  Reset one or more image magnifiers.
          *
-         *  @param {jQuery dom object} $imgMagnifiers - all image magnifiers
+         *  @param {jQuery dom object} $imgMagnifier - the image magnifier(s)
          */
-
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('[data-imgmagnifier]');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
 
@@ -3437,17 +3526,16 @@ var ImgMagnifier = (function(){
          */
 
         var thisZoomImagePath   = $thisImgMagnifier.find('a').attr('href');
-
         var $thisViewer         = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor         = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisPreviewImage   = $thisImgMagnifier.find('.imgMagnifier__previewImage');
 
         // prepare the zoom image, get size before injecting into DOM
 
-        var thisZoomImage           = new Image();
+        var thisZoomImage       = new Image();
         thisZoomImage.src       = thisZoomImagePath;
         thisZoomImage.className = 'imgMagnifier__zoomImage';
-        var $thisZoomImage          = $(thisZoomImage);
+        var $thisZoomImage      = $(thisZoomImage);
 
         $thisZoomImage
             .on('error', function() {
@@ -3496,7 +3584,6 @@ var ImgMagnifier = (function(){
 
         var $thisCursor      = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisViewer      = $thisImgMagnifier.find('.imgMagnifier__viewer');
-
         var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().xRatio;
         var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().yRatio;
 
@@ -3605,7 +3692,7 @@ var ImgMagnifier = (function(){
 
     }
 
-    function destroyImageMagnifier($imgMagnifiers) {
+    function destroyImageMagnifier($imgMagnifier) {
 
         /**
          *  Remove all injected elements and detach all events.
@@ -3614,11 +3701,11 @@ var ImgMagnifier = (function(){
          *  @return {bool false}
          */
 
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('.imgMagnifier');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
 
@@ -3641,12 +3728,10 @@ var ImgMagnifier = (function(){
             initializeImgMagnifier();
         })
         .on('resize', function() {
-
             Helper.clearDelay('imgMagnifierResetDelay');
             Helper.setDelay('imgMagnifierResetDelay', 500, function() {
                 resetImgMagnifier();
             });
-
         });
 
     // public functions
@@ -3659,9 +3744,9 @@ var ImgMagnifier = (function(){
 
 })();
 
-/** microFeeedback.js */
+/** microSubmit.js */
 
-var MicroFeedback = (function() {
+var MicroSubmit = (function() {
 
     // private vars
     // ============
@@ -3678,25 +3763,52 @@ var MicroFeedback = (function() {
     // private functions
     // =================
 
-    function initializeMicroFeedback() {
-
+    function initializeMicroSubmit($microSubmit) {
+        
         /**
-         *  Initialize by preparing the dom and attaching events.
+         *  Initialize all form[data-microsubmit] found in the document (= function call without parameters)
+         *  or target one or more specific form[data-microsubmit] (= function call with $microSubmit).
+         *  $microSubmit must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
          */
+        
+        // data:
+        // endpoint
+        // message
 
-        $('.microFeedback').each(function() {
+        if (!($microSubmit instanceof jQuery)) {
+            $microSubmit = $('[data-microsubmit]');
+        }
 
-            var $thisForm = $(this).find('form');
+        $microSubmit.each(function() {
 
+            var $thisForm  = $(this).find('form');
+            var options    = Helper.toObject($thisForm.data('microsubmit'));
+            var targetUrl  = options.url !== undefined ? options.url : false;
+            var postData   = 'foo';
+            var successMsg = options.successMsg !== undefined ? options.successMsg : false;
+            
+            // cancel if no target url (for ajax send) was found
+            
+            if (!targetUrl) return false;
+            
             // submit form, show msg
 
             $thisForm.on('submit', function(e) {
 
                 e.preventDefault();
-
-                $thisForm.fadeOut('slow', function() {
-                    $successMsg.clone().replaceAll($thisForm);
-                });
+                
+                $.post(targetUrl,
+                    {
+                        s: term
+                    }
+                )
+                .done(function( data ) {
+                    $thisForm.fadeOut('slow', function() {
+                        if ($successMsg) $successMsg.clone().replaceAll($thisForm);
+                    });
+                 });
 
             });
 
@@ -5339,47 +5451,88 @@ var RangeInput = (function() {
 
 })();
 
-// ===========================================================
-//
-//        File:    js/reveal.js
-//        Descr.:    Simple script to reveal hidden elements.
-//
-// ===========================================================
+/** reveal.js */
 
-$('[data-reveal]').each(function(index){
+var Reveal = (function() {
+    
+    // private functions
+    // =================
+    
+    function initializeReveal() {
+        
+        /**
+         *  Search the Dom for trigger-elements flagged with "data-reveal" and show the
+         *  corresponding target elements on any event you wish to bind to the trigger.
+         *  Options include to chose from all standard event handlers for the trigger and
+         *  using one of two available transitions.
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button class="btn" data-reveal="target:#myTarget; event:click; transition:fadeIn">Show</button>
+         *
+         *  Available options:
+         *
+         *  @option {string} target     - A string which is used as selector for the target element
+         *                                (eg. '#myTarget' or '.myTarget', etc.)
+         *
+         *  @option {string} event      - A string which defines the event which gets bound to the
+         *                                trigger element. All standard event handlers from jQuery
+         *                                can be used.
+         *
+         *  @option {string} transition - Chose from two jQuery animations: 'fadeIn' and 'slideDown'.
+         *
+         *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
+         */
+        
+        $('[data-hide]').each(function(index){
 
-    // set up vars
+            // set up vars
 
-    var $this      = $(this);
-    var $data      = Helper.toObject($this.data('reveal'));
+            var $this      = $(this);
+            var $data      = Helper.toObject($this.data('reveal'));
+            var target     = $data.target !== undefined ? $data.target : false;
+            var event      = $data.event !== undefined ? $data.event : 'click';
+            var transition = $data.transition !== undefined ? $data.transition : false;
+            var hideTarget = $data.hideTarget !== undefined ? $data.hideTarget : true;
 
-    var target     = $data.target !== undefined ? $data.target : false;
-    var event      = $data.event !== undefined ? $data.event : 'click';
-    var transition = $data.transition !== undefined ? $data.transition : false;
-    var hideTarget = $data.hideTarget !== undefined ? $data.hideTarget : true;
+            // cancel if no target was defined
 
-    // cancel if no target was defined
+            if (!target) return false;
 
-    if (!target) return false;
+            // hide target elements first, may be overridden
+            // by options
 
-    // hide target elements first
+            if (hideTarget) $(target).hide();
 
-    if (hideTarget) $(target).hide();
+            // apply event on trigger and hide target
 
-    // apply event on trigger and reveal target
+            $this.on(event, function(e) {
+                if (transition === 'fadeOut') {
+                    $(target).fadeOut();
+                } else if (transition === 'slideUp') {
+                    $(target).slideUp();
+                } else {
+                    $(target).hide();
+                }
+            });
 
-    $this.on(event, function(e) {
-        if (transition === 'fadeIn') {
-            $(target).fadeIn();
-        } else if (transition === 'slideDown') {
-            $(target).slideDown();
-        } else {
-            $(target).show();
-        }
-    });
+        });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeReveal();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializeReveal
+    }
 
-});
-
+})();
 /** scrollTo.js */
 
 var ScrollTo = (function() {
@@ -5490,232 +5643,6 @@ var ScrollTo = (function() {
     }
 
 })();
-
-/** shoppingList.js */
-
-var ShoppingList = (function() {
-
-    // private vars
-    // ============
-
-    var $listCounter = $('#listCounter');
-    var $coin        = $('<i aria-hidden="true" class="icon--004-s"></i>');
-    var listCounterValue;
-
-    // private functions
-    // =================
-
-    function initializeShoppingList() {
-
-        /**
-         *  Initialize the shopping list (aka "Merkzettel").
-         */
-
-        $('[data-action="addToList"]').each(function() {
-
-            var $thisBtn      = $(this);
-            var thisCoinSound = new Audio('assets/audio/coin.wav');
-
-            // Since we inject another icon, the width changes.
-            // We need to fix it simply to make sure the button
-            // keeps a square aspect ratio. Unfortunately, this
-            // is rather ugly.
-
-            var hasNoLabel = $thisBtn.has('.hidden').length > 0;
-
-            if (hasNoLabel)                                     $thisBtn.css('width','2.5rem');
-            if (hasNoLabel && $thisBtn.hasClass('btn--small'))  $thisBtn.css('width','2rem');
-            if (hasNoLabel && $thisBtn.hasClass('btn--medium')) $thisBtn.css('width','3rem');
-            if (hasNoLabel && $thisBtn.hasClass('btn--large'))  $thisBtn.css('width','4rem');
-
-            // inject the coin
-
-            $thisBtn.append($coin.clone());
-
-            // attach event
-
-            $thisBtn.on('click', function(e) {
-                e.preventDefault();
-                toggleAddToListBtn($thisBtn, thisCoinSound);
-            });
-
-        });
-
-    }
-
-    function toggleAddToListBtn($thisBtn, thisCoinSound) {
-
-        /**
-         *  Toggle the add-to-list button state.
-         *
-         *  @param {jQuery dom object} $thisBtn - the button
-         *  @param {}  -
-         */
-
-        if ($thisBtn.hasClass('btn--success')) {
-
-            thisCoinSound.pause();
-            thisCoinSound.currentTime = 0;
-            $thisBtn.removeClass('btn--success');
-            decreaseListCounter();
-
-        } else {
-
-            thisCoinSound.play();
-            $thisBtn.addClass('btn--success');
-            increaseListCounter();
-
-        }
-
-    }
-
-    function increaseListCounter() {
-
-        /**
-         *  Add 1 to item counter.
-         */
-
-        var amount = $listCounter.text() * 1;
-        ++amount;
-
-        setListCounter(amount);
-
-    }
-
-    function decreaseListCounter() {
-
-        /**
-         *  Substract 1 from item counter.
-         */
-
-        var amount = $listCounter.text() * 1;
-
-        if (amount > 0) {
-            --amount;
-            setListCounter(amount);
-        }
-
-    }
-
-    function setListCounter(amount) {
-
-        /**
-         *  Set the counter to a given amount.
-         *
-         *  @param {number}  amount - the amount
-         */
-
-        if (typeof amount === 'number' && (amount % 1) === 0) {
-
-            $listCounter.text(amount)
-            Helper.blink($listCounter);
-            listCounterValue = $listCounter.text() * 1;
-
-            if (listCounterValue > 0) {
-                $listCounter.addClass('badge--dark');
-            } else {
-                $listCounter.removeClass('badge--dark');
-            }
-
-        }
-
-    }
-
-    // initialize
-    // ==========
-
-    initializeShoppingList();
-
-    // public functions
-    // ================
-
-    return {
-        init      : initializeShoppingList,
-        setCount  : setListCounter,
-        countUp   : increaseListCounter,
-        countDown : decreaseListCounter
-    }
-
-})();
-
-// ===========================================================
-//
-//        File:    js/shoppingWidgets.js
-//        Descr.:    Toggle shopping widgets.
-//
-// ===========================================================
-
-// set up
-
-var quickListShowDelay = 150,
-    quickListHideDelay = 500;
-
-var cartWidget = $('#cartWidget').not('.status-empty'),
-    quickList = $('#cartWidget-quicklist');
-
-quickList.hide();
-
-// events
-
-cartWidget
-    .on('touchstart',function() {
-        cartWidget.off();
-    })
-    .on('mouseover',function(e) {
-        e.preventDefault();
-        delayShowCartWidget('start');
-        delayHideCartWidget('stop');
-    })
-    .on('mouseout',function(e) {
-        e.preventDefault();
-        delayShowCartWidget('stop');
-        delayHideCartWidget('start');
-    });
-
-quickList
-    .on('mouseover',function() {
-        delayHideCartWidget('stop');
-    })
-    .on('mouseout',function() {
-        delayHideCartWidget('start');
-    });
-
-// functions
-
-function delayShowCartWidget(action,button) {
-
-    if (action === 'start') {
-
-        Helper.setInterval('delayShowCartWidgetTimeout', 500, function() {
-            cartWidget.addClass('active');
-            quickList.slideDown('fast');
-        });
-
-    } else if (action === 'stop') {
-
-        Helper.clearInterval('delayShowCartWidgetTimeout');
-
-    }
-
-}
-
-function delayHideCartWidget(action,button) {
-
-    if (action === 'start') {
-
-        Helper.setInterval('delayHideCartWidgetTimeout', 500, function() {
-            quickList.slideUp('fast',function() {
-                cartWidget.removeClass('active');
-            });
-        });
-
-    } else if (action === 'stop') {
-
-        Helper.clearInterval('delayHideCartWidgetTimeout');
-
-    }
-
-}
 
 /** slider.js */
 
@@ -6396,62 +6323,6 @@ function stickItems() {
 
 $(window).scroll(function() {
     stickItems();
-});
-
-// ===========================================================
-//
-//        File:    js/stickyTeasers.js
-//        Descr.:    -
-//
-// ===========================================================
-
-var closeStickyTeaserBtn = $('<button class="btn btn--subtle pos-tr">\
-                                  <span class="hidden">schliessen</span>\
-                                  <i class="icon--006-s" aria-hidden="true"></i>\
-                              </button>');
-
-$('.stickyTeaser').each(function() {
-
-    var that = $(this);
-    var closeBtn = closeStickyTeaserBtn.clone();
-
-    closeBtn.on('click', function(e){
-        e.preventDefault();
-        that.addClass('removed');
-    });
-
-    that.append(closeBtn);
-
-});
-
-// ===========================================================
-//
-//        File:    js/suggestedBundle.js
-//        Descr.:    Toggle elements in .suggestedBundle.
-//
-// ===========================================================
-
-$('.suggestedBundle').each(function() {
-
-    $(this).find('input[type="checkbox"]').change(function() {
-
-        // manipulate list
-
-        $(this).closest('label')
-            .find('span').eq(1)
-            .toggleClass('inactive');
-
-        $(this).closest('label')
-            .find('span').eq(2)
-            .toggleClass('inactive');
-
-        // manipulate packshots
-
-        var itemIndex = $(this).parent().parent().index();
-        $('.packshots li').eq(itemIndex).fadeToggle();
-
-    })
-
 });
 
 /** tables.js */

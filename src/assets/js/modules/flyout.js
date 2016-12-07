@@ -5,14 +5,21 @@ var Flyout = (function() {
     // private functions
     // =================
 
-    function initializeFlyout() {
-
+    function initializeFlyout($flyout) {
+        
         /**
-         *  Initialize the flyout menus by preparing the dom and
-         *  attaching events.
+         *  Initialize all *[data-flyout] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-flyout] (= function call with $dock).
+         *  $flyout must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $flyout - the flyout(s)
          */
+        
+        if (!($flyout instanceof jQuery)) {
+            $flyout = $('[data-flyout]');
+        }
 
-        $('.flyout').each(function() {
+        $flyout.each(function() {
 
             var $thisFlyout = $(this).detach();
             var $flyoutHandle = $thisFlyout.find('.flyout__handle');

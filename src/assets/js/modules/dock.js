@@ -5,14 +5,21 @@ var Dock = (function() {
     // private functions
     // =================
 
-    function initializeDock() {
-
+    function initializeDock($dock) {
+    
         /**
-         *  Initialite the dock by preparing the dom
-         *  and attaching events.
+         *  Initialize all *[data-dock] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dock] (= function call with $dock).
+         *  $dock must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dock - the dock(s)
          */
+        
+        if (!($dock instanceof jQuery)) {
+            $dock = $('[data-dock]');
+        }
 
-        $('[data-dock]').each(function() {
+        $dock.each(function() {
 
             var $thisDock = $(this);
             var options   = Helper.toObject($thisDock.data('dock'));
@@ -48,7 +55,7 @@ var Dock = (function() {
          *  @param {jQuery dom object} $thisDock - the dock
          */
 
-        $thisDock.addClass('dock--hidden');
+        $thisDock.addClass('is--hidden');
     }
 
     function showDock($thisDock) {
@@ -59,7 +66,7 @@ var Dock = (function() {
          *  @param {jQuery dom object} $thisDock - the dock
          */
 
-        $thisDock.removeClass('dock--hidden');
+        $thisDock.removeClass('is--hidden');
     }
 
     // initialize

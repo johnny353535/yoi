@@ -2,9 +2,9 @@
 
 {% macro render(modifiers=false) %}
     {% if modifiers %}
-        <ul class="filterBtns {{ modifiers }}">
+        <ul class="filterBtns {{ modifiers }}" data-filterbtns>
     {% else %}
-        <ul class="filterBtns">
+        <ul class="filterBtns" data-filterbtns>
     {% endif %}
         <li class="filterBtns__btn">
             <a href="#">Kopfschmerzen</a>

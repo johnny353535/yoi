@@ -12,21 +12,21 @@ var ImgMagnifier = (function(){
 
     // private functions
 
-    function initializeImgMagnifier($imgMagnifiers) {
+    function initializeImgMagnifier($imgMagnifier) {
 
         /**
-         *  Initializes image magnifiers. If "$imgMagnifiers" is undefined,
-         *  all found ".imgMagnifier" inside the document will be initialized.
-         *  "$imgMagnifiers" must be a jQuery object.
+         *  Initialize all *[data-imgmagnifier] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-imgmagnifier] (= function call with $imgmagnifier).
+         *  $imgmagnifier must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $imgMagnifiers - the image magnifier
+         *  @param {jQuery dom object} $imgmagnifier - the image magnifier(s)
          */
 
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('[data-imgmagnifier]');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
             var $thisCursor       = $cursor.clone().hide();
@@ -68,19 +68,19 @@ var ImgMagnifier = (function(){
 
     }
 
-    function resetImgMagnifier($imgMagnifiers) {
+    function resetImgMagnifier($imgMagnifier) {
 
         /**
-         *  Reset all image magnifiers.
+         *  Reset one or more image magnifiers.
          *
-         *  @param {jQuery dom object} $imgMagnifiers - all image magnifiers
+         *  @param {jQuery dom object} $imgMagnifier - the image magnifier(s)
          */
-
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('[data-imgmagnifier]');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
 
@@ -103,17 +103,16 @@ var ImgMagnifier = (function(){
          */
 
         var thisZoomImagePath   = $thisImgMagnifier.find('a').attr('href');
-
         var $thisViewer         = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor         = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisPreviewImage   = $thisImgMagnifier.find('.imgMagnifier__previewImage');
 
         // prepare the zoom image, get size before injecting into DOM
 
-        var thisZoomImage           = new Image();
+        var thisZoomImage       = new Image();
         thisZoomImage.src       = thisZoomImagePath;
         thisZoomImage.className = 'imgMagnifier__zoomImage';
-        var $thisZoomImage          = $(thisZoomImage);
+        var $thisZoomImage      = $(thisZoomImage);
 
         $thisZoomImage
             .on('error', function() {
@@ -162,7 +161,6 @@ var ImgMagnifier = (function(){
 
         var $thisCursor      = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisViewer      = $thisImgMagnifier.find('.imgMagnifier__viewer');
-
         var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().xRatio;
         var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().yRatio;
 
@@ -271,7 +269,7 @@ var ImgMagnifier = (function(){
 
     }
 
-    function destroyImageMagnifier($imgMagnifiers) {
+    function destroyImageMagnifier($imgMagnifier) {
 
         /**
          *  Remove all injected elements and detach all events.
@@ -280,11 +278,11 @@ var ImgMagnifier = (function(){
          *  @return {bool false}
          */
 
-        if (!($imgMagnifiers instanceof jQuery)) {
-            $imgMagnifiers = $('.imgMagnifier');
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('.imgMagnifier');
         }
 
-        $imgMagnifiers.each(function() {
+        $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
 
@@ -307,12 +305,10 @@ var ImgMagnifier = (function(){
             initializeImgMagnifier();
         })
         .on('resize', function() {
-
             Helper.clearDelay('imgMagnifierResetDelay');
             Helper.setDelay('imgMagnifierResetDelay', 500, function() {
                 resetImgMagnifier();
             });
-
         });
 
     // public functions

@@ -5,14 +5,21 @@ var FilterBtns = (function() {
     // private functions
     // =================
 
-    function initializeFilterBtns() {
-
+    function initializeFilterBtns($filterBtns) {
+        
         /**
-         *  Initialize the filter buttons by preparing the dom
-         *  and attaching events.
+         *  Initialize all *[data-filterbtns] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-filterbtns] (= function call with $dock).
+         *  $filterBtns must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $filterBtns - the filterbutton group(s)
          */
+        
+        if (!($filterBtns instanceof jQuery)) {
+            $filterBtns = $('[data-filterbtns]');
+        }
 
-        $('.filterBtns').each(function() {
+        $filterBtns.each(function() {
 
             var $thisFilterBtns = $(this);
 
@@ -75,16 +82,13 @@ var FilterBtns = (function() {
          *  @param  {jQuery dom object} $thisBtn - the filter button
          */
 
-        if ($thisBtn.hasClass('filterBtns__btn--active')) {
-            $thisBtn.removeClass('filterBtns__btn--active');
+        if ($thisBtn.hasClass('is--active')) {
+            $thisBtn.removeClass('is--active');
             $thisBtn.removeClass('filterBtns__btn--debounce');
         } else {
-            $thisBtn.addClass('filterBtns__btn--active');
+            $thisBtn.addClass('is--active');
             $thisBtn.addClass('filterBtns__btn--debounce');
         }
-
-        if(Helper.foundModule('NavBar'))
-            NavBar.showMsg('Filter angewandt.');
 
     }
 
@@ -96,12 +100,7 @@ var FilterBtns = (function() {
          *  @param  {jQuery dom object} $thisBtn - the filter button
          */
 
-        $thisBtn.fadeOut('fast', function() {
-
-            if(Helper.foundModule('NavBar'))
-                NavBar.showMsg('Filter angewandt.');
-
-        });
+        $thisBtn.fadeOut('fast');
 
     }
 

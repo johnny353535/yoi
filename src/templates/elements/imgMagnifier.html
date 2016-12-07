@@ -1,11 +1,10 @@
 <!-- imgMagnifier.html -->
 
-{% macro render(modifiers=false, previewImgPath='https://unsplash.it/450/450?image=15', zoomImgPath='https://unsplash.it/1000/1000?image=15') %}
-
+{% macro render(modifiers=false, previewImgPath='https://source.unsplash.com/WLUHO9A_xik/450x450', zoomImgPath='https://source.unsplash.com/WLUHO9A_xik/1000x1000') %}
     {% if modifiers %}
-        <div class="imgMagnifier {{ modifiers }}">
+        <div class="imgMagnifier {{ modifiers }}" data-imgmagnifier>
     {% else %}
-        <div class="imgMagnifier">
+        <div class="imgMagnifier" data-imgmagnifier>
     {% endif %}
         <a href="{{ zoomImgPath }}">
             <img class="imgMagnifier__previewImage" src="{{ previewImgPath }}" alt="" />

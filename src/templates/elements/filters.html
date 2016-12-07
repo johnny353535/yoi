@@ -2,9 +2,9 @@
 
 {% macro render(modifiers=false, searchDisplay='undefined') %}
     {% if modifiers %}
-        <div class="filters {{ modifiers }}" data-searchdisplay="{{ searchDisplay }}">
+        <div class="filters {{ modifiers }}" data-filters data-searchdisplay="{{ searchDisplay }}">
     {% else %}
-        <div class="filters" data-searchdisplay="{{ searchDisplay }}">
+        <div class="filters" data-filters data-searchdisplay="{{ searchDisplay }}">
     {% endif %}
         <div class="filters__header">Filtern nach …</div>
         <div class="filterGroup">

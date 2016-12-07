@@ -45,13 +45,21 @@ var countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown() {
+    function initializeCountdown($countdown) {
         
         /**
-         *  Initialize all countdowns found in the document.
+         *  Initialize all *[data-countdown] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-countdown] (= function call with $countdown).
+         *  $countdown must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $countdown - the countdown(s)
          */
+        
+        if (!($countdown instanceof jQuery)) {
+            $countdown = $('[data-countdown]');
+        }
 
-        $('[data-countdown]').each(function(index) {
+        $countdown.each(function(index) {
         
             var $thisCountdown = $(this);
             

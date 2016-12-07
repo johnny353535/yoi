@@ -6,42 +6,37 @@ var Dismiss = (function() {
     // ============
 
     var $btnDismiss;
-    var onMobile = $(document.body).data('environment') === 'mobile';
     var btnLabelClose = Helper.locale === 'de' ? 'schliessen' : 'close';
 
-    if (onMobile) {
-
-        $btnDismiss = $('\
-            <button class="btn btn--large btn--subtle">\
-                <span class="hidden">' + btnLabelClose + '</span>\
-                <i class="icon--006-s" aria-hidden="true"></i>\
-            </button>\
-        ');
-
-    } else {
-
-        $btnDismiss = $('\
-            <button class="btn btn--subtle">\
-                <span class="hidden">' + btnLabelClose + '</span>\
-                <i class="icon--006-s" aria-hidden="true"></i>\
-            </button>\
-        ');
-
-    }
+    $btnDismiss = $('\
+        <button class="btn btn--subtle">\
+            <span class="hidden">' + btnLabelClose + '</span>\
+            <i class="icon--006-s" aria-hidden="true"></i>\
+        </button>\
+    ');
 
     // private functions
     // =================
 
-    function initializeDismissableElements() {
-
+    function initializeDismissableElement($dismissableElement) {
+        
         /**
-         *  Attaches a close-button to all elements that have
-         *  a data-dismissable flag.
+         *  Attach a close-button to dismissable elements.
+         *
+         *  Initialize all *[data-dismissable] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dismissable] (= function call with $dismissable).
+         *  $dismissableElement must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
          */
+        
+        if (!($dismissableElement instanceof jQuery)) {
+            $dismissableElement = $('input[data-dismissable]');
+        }
 
-        $('[data-dismissable]').each(function() {
+        $dismissableElement.each(function() {
 
-            var $thisTarget = $(this);
+            var $thisDismissableElement = $(this);
 
             // attach button and events
 
@@ -49,33 +44,34 @@ var Dismiss = (function() {
                 .clone()
                 .on('click', function(e) {
                     e.preventDefault();
-                    dismiss($thisTarget);
+                    dismiss($thisDismissableElement);
                 })
-                .appendTo($thisTarget);
+                .appendTo($thisDismissableElement);
 
         });
 
     }
 
-    function initializeDismissButtons() {
-
+    function initializeDismissButton($dismissButton) {
+        
         /**
-         *  Queries the document for buttons flagged with a
-         *  data-dismiss attribute. Reads the target element
-         *  from the data-attribute value.
+         *  Initialize all *[data-dismiss] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-dismiss] (= function call with $dismissButton).
+         *  $dismissButton must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $dismissButton - the dismiss button(s)
+         *  @option {string} target                   - selector for target element
          */
+        
+        if (!($dismissButton instanceof jQuery)) {
+            $dismissButton = $('[data-dismiss]');
+        }
 
-        $('[data-dismiss]').each(function() {
+        $dismissButton.each(function() {
 
             var $thisTrigger = $(this);
             var options      = Helper.toObject($(this).data('dismiss'));
             var $thisTarget  = $(options.target);
-
-            /**
-             *  Available options:
-             *
-             *  @option {string} target - selector for target element
-             */
 
             // attach events
 
@@ -95,6 +91,8 @@ var Dismiss = (function() {
          *
          *  @param  {jQuery dom object} $thisTarget - the target element
          */
+        
+        if (!($thisTarget instanceof jQuery)) return false;
 
         $thisTarget.fadeOut(function() {
             $thisTarget.remove();
@@ -105,15 +103,15 @@ var Dismiss = (function() {
     // initialize
     // ==========
 
-    initializeDismissableElements();
-    initializeDismissButtons();
+    initializeDismissableElement();
+    initializeDismissButton();
 
     // public functions
     // ================
 
     return {
-        initElements : initializeDismissableElements,
-        initBtns     : initializeDismissButtons,
+        initElements : initializeDismissableElement,
+        initBtns     : initializeDismissButton,
         apply        : dismiss
     };
 

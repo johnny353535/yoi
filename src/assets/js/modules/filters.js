@@ -31,15 +31,15 @@ var Filters = (function() {
     function initializeFilters($filters) {
 
         /**
-         *  Initializes filters. If "$filters" is undefined,
-         *  all found ".filters" inside the document will be initialized.
-         *  "$filters" must be a jQuery object.
+         *  Initialize all *[data-filters] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-filters] (= function call with $dock).
+         *  $filters must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $filters - the filter group(s)
          */
 
         if (!($filters instanceof jQuery) || $filters === undefined) {
-            $filters = $('.filters');
+            $filters = $('[data-filters]');
         }
 
         $filters.each(function() {
@@ -127,7 +127,7 @@ var Filters = (function() {
 
         // deactivate all filter buttons
 
-        $thisFiltersFilters.removeClass('filter--active');
+        $thisFiltersFilters.removeClass('is--active');
 
         // collapse filter groups
 
@@ -147,7 +147,7 @@ var Filters = (function() {
 
     }
 
-    function collapseFilterGroup($filterGroup) {
+    function collapseFilterGroup($thisFilterGroup) {
 
         /**
          *  Collapse a filter group by hiding all inactive filters.
@@ -156,7 +156,6 @@ var Filters = (function() {
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
 
-        var $thisFilterGroup     = $filterGroup;
         var $thisFilters         = $thisFilterGroup.closest('.filters');
         var $thisFilterGroupBody = $thisFilterGroup.find('.filterGroup__body');
 
@@ -166,13 +165,13 @@ var Filters = (function() {
 
         $thisFilterGroup.addClass('filterGroup--collapsed');
 
-        $.when($thisFilterGroup.find('.filter:not(.filter--active)').slideUp(200)).then(function() {
+        $.when($thisFilterGroup.find('.filter:not(.is--active)').slideUp(200)).then(function() {
             updateAllFilterGroups($thisFilters);
         });
 
     }
 
-    function expandFilterGroup($filterGroup) {
+    function expandFilterGroup($thisFilterGroup) {
 
         /**
          *  Expand a filter group by showing all inactive filters.
@@ -181,18 +180,17 @@ var Filters = (function() {
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
 
-        var $thisFilterGroup = $filterGroup;
         var $thisFilters     = $thisFilterGroup.closest('.filters');
 
         $thisFilterGroup.removeClass('filterGroup--collapsed');
 
-        $.when($thisFilterGroup.find('.filter:not(.filter--active)').slideDown(200)).then(function() {
+        $.when($thisFilterGroup.find('.filter:not(.is--active)').slideDown(200)).then(function() {
             updateAllFilterGroups($thisFilters);
         });
 
     }
 
-    function toggleFilterGroup($filterGroup) {
+    function toggleFilterGroup($thisFilterGroup) {
 
         /**
          *  Expand or collapse a filter group by showing or hiding all inactive filters.
@@ -200,8 +198,6 @@ var Filters = (function() {
          *
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
-
-        var $thisFilterGroup = $filterGroup;
 
         if ($thisFilterGroup.data().isCollapsed) {
             expandFilterGroup($thisFilterGroup);
@@ -211,7 +207,7 @@ var Filters = (function() {
 
     }
 
-    function toggleFilter($filter) {
+    function toggleFilter($thisFilter) {
 
         /**
          *  Activate or deactivate an individual filter.
@@ -219,7 +215,7 @@ var Filters = (function() {
          *  to update the search results and so on gets called with a certain delay.
          *  The delay helps avoiding unexpected behaviour through brute-force / rapid clicking.
          *
-         *  @param {jQuery dom object} $filter - the filter
+         *  @param {jQuery dom object} $thisFilter - the filter
          */
 
         // cancel if results update is running
@@ -228,15 +224,14 @@ var Filters = (function() {
             return false;
         }
 
-        var $thisFilter      = $filter;
         var $thisFilterGroup = $thisFilter.closest('.filterGroup');
         var $thisFilters     = $thisFilter.closest('.filters');
 
         if ($thisFilter.hasClass('filter--multi')) {
-            $thisFilter.toggleClass('filter--active');
+            $thisFilter.toggleClass('is--active');
         } else if ($thisFilter.hasClass('filter--single')) {
-            $thisFilterGroup.find('.filter--single').removeClass('filter--active');
-            $thisFilter.addClass('filter--active');
+            $thisFilterGroup.find('.filter--single').removeClass('is--active');
+            $thisFilter.addClass('is--active');
         }
 
         // axecute after delay
@@ -264,18 +259,17 @@ var Filters = (function() {
 
     }
 
-    function toggleResetBtn($filters) {
+    function toggleResetBtn($thisFilters) {
 
         /**
          *  Injects or removes a reset button per '.filters' container.
          *  The buttons calls the public reset method and deactivates
          *  all active filter buttons.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
 
-        var $thisFilters       = $filters;
-        var totalActiveFilters = $thisFilters.find('.filter--active');
+        var totalActiveFilters = $thisFilters.find('.is--active');
 
         if (!$thisFilters.find('.filters__resetBtn').length && totalActiveFilters.length) {
 
@@ -295,17 +289,16 @@ var Filters = (function() {
 
     }
 
-    function updateAllFilterGroups($filters) {
+    function updateAllFilterGroups($thisFilters) {
 
         /**
          *  Walk through all filter groups and update some properties.
          *  These properties are booleans like "is this filtergroup expanded or collapsed", etc.
          *  They are stored inside the jQuery data-object of each filter group.
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
 
-        var $thisFilters      = $filters;
         var $thisFilterGroups = $thisFilters.find('.filterGroup');
 
         $thisFilterGroups.each(function() {
@@ -318,7 +311,7 @@ var Filters = (function() {
             $thisFilterGroup.data({
                 // isScroll      : defined only once on init
                 isCollapsed      : $thisFilterGroup.hasClass('filterGroup--collapsed'),
-                hasActiveFilters : $thisFilterGroup.find('.filter--active').length > 0
+                hasActiveFilters : $thisFilterGroup.find('.is--active').length > 0
             });
 
             $thisFilterGroup.data({
@@ -343,17 +336,17 @@ var Filters = (function() {
 
     }
 
-    function updateActiveFilters($filters) {
+    function updateActiveFilters($thisFilters) {
         /**
          *  Todo:
          *  Read all active filters and generate a search url,
          *  Something like "/s/?term=some+search+term&filter=xx".
          *
-         *  @param {jQuery dom object} $filters - the filters
+         *  @param {jQuery dom object} $thisFilters - the filters
          */
     }
 
-    function updateResults($filter, withPriceRange) {
+    function updateResults($thisFilters, withPriceRange) {
 
         /**
          *  Apply the active filters by requesting the search results
@@ -378,7 +371,6 @@ var Filters = (function() {
 
         // gather dom objects
 
-        var $thisFilters       = $filter;
         var $thisSearchDisplay = $($thisFilters.data().searchdisplay);
         var $thisRangeInput    = $thisFilters.find('.rangeInput').first();
 

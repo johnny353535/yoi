@@ -5,7 +5,7 @@ var CustomFormElements = (function() {
     // private vars
     // ============
 
-    var    $checkBoxWrapper = $('<span class="checkbox"></span>')
+    var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
         });
