@@ -16,7 +16,7 @@
         "./src/assets/js/modules/forms.js",
         "./src/assets/js/modules/hide.js",
         "./src/assets/js/modules/imgMagnifier.js",
-        "./src/assets/js/modules/microFeedback.js",
+        "./src/assets/js/modules/microSubmit.js",
         "./src/assets/js/modules/modal.js",
         "./src/assets/js/modules/pageRewind.js",
         "./src/assets/js/modules/pieChart.js",

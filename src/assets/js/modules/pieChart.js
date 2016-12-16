@@ -21,34 +21,38 @@ var PieChart = (function() {
     // private functions
     // =================
 
-    function initializePieChart() {
+    function initializePieChart($pieChart) {
 
         /**
-         *  Initialize the pie charts by preparing the dom and attaching events.
+         *  Initialize all *[data-piechart] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-piechart] (= function call with $piechart).
+         *  $piechart must be a jQuery object or jQuery object collection.
+         *
+         *  @option {string}  baseColor          - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
+         *                                         Sets the base color, used to calculate a unique color for each
+         *                                         slice of the pie chart.
+         *
+         *  @option {bool}    highlight          - Default is true. Set to false if you wish to disable highlighting individual
+         *                                         slices on mouse over.
+         *
+         *  @option {string}  palette            - "fixed" || "random" || "shades" || "unique" - default is "shades".
+         *                                         Selects the formula used to calculate the unique color for
+         *                                         each slice of the pie chart.
+         *
+         *  @option {number}  size               - Sets the diameter of the pie chart SVG.
+         *
+         *  @param {jQuery dom object} $pieChart - the pie chart(s)
          */
+        
+        if (!($pieChart instanceof jQuery)) {
+            $pieChart = $('[data-piechart]');
+        }
 
-        $('[data-piechart]').each(function() {
+        $pieChart.each(function() {
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-            /**
-             *  Available options:
-             *
-             *  @option {string}  baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
-             *                                Sets the base color, used to calculate a unique color for each
-             *                                slice of the pie chart.
-             *
-             *  @option {bool}    highlight - Default is true. Set to false if you wish to disable highlighting individual
-             *                                slices on mouse over.
-             *
-             *  @option {string}  palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
-             *                                Selects the formula used to calculate the unique color for
-             *                                each slice of the pie chart.
-             *
-             *  @option {number}  size      - Sets the diameter of the pie chart SVG.
-             */
 
             var options = Helper.toObject($thisPieChart.data('piechart'));
 

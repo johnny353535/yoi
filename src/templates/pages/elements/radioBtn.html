@@ -19,15 +19,15 @@ The script that controls `.radioBtn` instances assumes that we use *real* `input
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <ul class="fs-0">
-            <li class="radioBtn m-r-1 radioBtn--active">
+            <li class="radioBtn m-r-1 is--active" data-radiobtn>
                 <label for="radioBtn_1" class="radioBtn__label">Brausetabletten</label>
                 <input id="radioBtn_1" type="radio" checked="checked" name="testGroup_1" />
             </li>
-            <li class="radioBtn m-r-1">
+            <li class="radioBtn m-r-1" data-radiobtn>
                 <label for="radioBtn_2" class="radioBtn__label">Lösliches Pulver</label>
                 <input id="radioBtn_2" type="radio" name="testGroup_1" />
             </li>
-            <li class="radioBtn m-r-1">
+            <li class="radioBtn m-r-1" data-radiobtn>
                 <label for="radioBtn_3" class="radioBtn__label">Kautabletten</label>
                 <input id="radioBtn_3" type="radio" name="testGroup_1" />
             </li>
@@ -50,17 +50,17 @@ Sometimes you may wish to include an additional label and hide it, once a button
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <ul class="fs-0">
-            <li class="radioBtn m-r-1 radioBtn--active">
+            <li class="radioBtn m-r-1 is--active" data-radiobtn>
                 <label for="radioBtn_4" class="radioBtn__label">50 Stk</label>
                 <span class="radioBtn__toggleLabel tc-price">€ 10,99</span>
                 <input id="radioBtn_4" type="radio" checked="checked" name="testGroup_2" />
             </li>
-            <li class="radioBtn m-r-1">
+            <li class="radioBtn m-r-1" data-radiobtn>
                 <label for="radioBtn_5" class="radioBtn__label">70 Stk</label>
                 <span class="radioBtn__toggleLabel tc-price">€ 15,99</span>
                 <input id="radioBtn_5" type="radio" name="testGroup_2" />
             </li>
-            <li class="radioBtn">
+            <li class="radioBtn" data-radiobtn>
                 <label for="radioBtn_6" class="radioBtn__label">150 Stk</label>
                 <span class="radioBtn__toggleLabel tc-price">€ 20,99</span>
                 <input id="radioBtn_6" type="radio" name="testGroup_2" />
@@ -78,21 +78,21 @@ Use this modifier to turn the `.radioBtn` into a large circular field with invis
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <ul class="p-2">
             <li class="b-b p-b-1 lst-none">
-                <p class="radioBtn radioBtn--circle radioBtn--active">
+                <p class="radioBtn radioBtn--circle is--active" data-radiobtn>
                     <label for="radioBtn_7">Hauptadresse</label>
                     <input id="radioBtn_7" type="radio" checked="checked" name="testGroup_3" />
                 </p>
                 <p class="d-inlblk m-l-2 fs-15 lh-20">Susannenstr. 24, 20357 Hamburg</p>
             </li>
             <li class="b-b p-b-1 m-t-1 lst-none">
-                <p class="radioBtn radioBtn--circle">
+                <p class="radioBtn radioBtn--circle" data-radiobtn>
                     <label for="radioBtn_8">Zweite Adresse</label>
                     <input id="radioBtn_8" type="radio" name="testGroup_3" />
                 </p>
                 <p class="d-inlblk m-l-2 fs-15 lh-20">Simon-Dach-Str. 12, 10245 Berlin</p>
             </li>
             <li class="m-t-1 lst-none">
-                <p class="radioBtn radioBtn--circle">
+                <p class="radioBtn radioBtn--circle" data-radiobtn>
                     <label for="radioBtn_9">Dritte Adresse</label>
                     <input id="radioBtn_9" type="radio" name="testGroup_3" />
                 </p>

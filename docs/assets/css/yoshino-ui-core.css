@@ -22271,34 +22271,34 @@ a:visited:hover {
   box-shadow: 0 5px 10px rgba(103, 102, 101, 0.5);
   background: #f6f5f4;
   border-radius: 2px 2px 0 0;
-  border-bottom: 0;
   border: #cdcccb 1px solid;
-  bottom: -5px;
+  border-bottom: 0;
+  bottom: -0.5rem;
   box-sizing: border-box;
   color: #9a9998;
   display: block;
-  height: 40px;
+  height: 4rem;
   left: 50%;
-  margin-left: -45px;
-  padding: 10px 20px;
+  margin-left: -4.5rem;
+  padding: 1rem 2rem;
   position: fixed;
   text-align: right;
   transition: bottom 500ms ease-out;
-  width: 90px;
+  width: 9rem;
   z-index: 900;
 }
 #pageRewind:hover {
   background: #faf9f7;
 }
-#pageRewind.inactive {
-  bottom: -80px;
+#pageRewind.is--hidden {
+  bottom: -8rem;
 }
 #pageRewind [class^="icon--"] {
   color: #676665;
-  height: 40px;
+  height: 4rem;
   left: 50%;
-  margin-left: -16px;
-  line-height: 40px;
+  line-height: 4rem;
+  margin-left: -1.6rem;
   position: absolute;
   top: 0;
 }
@@ -22592,18 +22592,18 @@ a.radioBtn {
   margin-left: .5rem;
   padding-left: .5rem;
 }
-.js .radioBtn--active,
-.js .radioBtn--active:hover {
+.js .radioBtn.is--active,
+.js .radioBtn.is--active:hover {
   background: #4e7e64;
   border-color: #4e7e64;
   color: #fff;
 }
-.js .radioBtn--active .radioBtn__toggleLabel,
-.js .radioBtn--active:hover .radioBtn__toggleLabel {
+.js .radioBtn.is--active .radioBtn__toggleLabel,
+.js .radioBtn.is--active:hover .radioBtn__toggleLabel {
   display: none;
 }
-.js .radioBtn--active [class*="icon--"],
-.js .radioBtn--active:hover [class*="icon--"] {
+.js .radioBtn.is--active [class*="icon--"],
+.js .radioBtn.is--active:hover [class*="icon--"] {
   display: inline-block;
 }
 .radioBtn--circle {
@@ -22628,8 +22628,8 @@ a.radioBtn {
   position: absolute;
   width: 1px;
 }
-.radioBtn--circle.radioBtn--active,
-.radioBtn--circle.radioBtn--active:hover {
+.radioBtn--circle.is--active,
+.radioBtn--circle.is--active:hover {
   border-color: transparent;
 }
 /** rangeInput.less */

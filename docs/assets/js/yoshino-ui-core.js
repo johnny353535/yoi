@@ -279,6 +279,75 @@ var Helper = (function() {
 
             return (leadingZeros + num).slice(-digits-1);
 
+        },
+        
+        hide : function($target) {
+            
+            /**
+             *  Hides an element which has a Yoshino UI-Core display utility class like
+             *  d-block, d-inl, d-inlblk. The script remembers the display class and
+             *  puts it back, once Helper.show() gets called.
+             *
+             *  @param {number} $target - the jQuery target dom element
+             */
+            
+            // cancel if $target is no valid jQuery onject
+            
+            if (!($target instanceof jQuery)) {
+                return false;
+            }
+            
+            // get the display utility class
+            
+            if ($target.hasClass('d-blk')) {
+                $target.data('displayUtilityClass', 'd-blk');
+            } else if ($target.hasClass('d-inl')) {
+                $target.data('displayUtilityClass', 'd-inl');
+            } else if ($target.hasClass('d-inlblk')) {
+                $target.data('displayUtilityClass', 'd-inlblk');
+            }
+            
+            // remove all display utility classes
+            
+            $target.removeClass('d-blk d-inl d-inlblk');
+
+            // hide the target
+            
+            $target.hide();
+
+        },
+
+        show : function($target) {
+
+            /**
+             *  Show an element which was previously hidden by Helper.hide().
+             *  Re-assigns the previously remembered Yoshino UI-Core display utility class.
+             *
+             *  @param {number} $target - the jQuery target dom element
+             */
+            
+            // cancel if $target is no valid jQuery onject
+            
+            if (!($target instanceof jQuery)) {
+                return false;
+            }
+            
+            if ($target.data('displayUtilityClass') === undefined) {
+                
+                // if $target's data('displayUtilityClass') is undefined,
+                // fall back to jQuery's $.show() method
+                
+                $target.show();
+                
+            } else {
+                
+                // if $target does have data('displayUtilityClass'),
+                // re-assign the stored utility class in order to show the target
+                
+                $target.addClass($target.data('displayUtilityClass'));
+                
+            }
+
         }
 
     }
@@ -3751,13 +3820,8 @@ var MicroSubmit = (function() {
     // private vars
     // ============
 
-    var msgSuccess = Helper.locale === 'de' ? 'Danke für Ihre Einschätzung.' : 'Thank you.';
-
-    var $successMsg = $('\
-        <span class="microFeedback__msg positive">\
-            <i class="icon--011-s" aria-hidden="true"></i>\
-            <b>' + msgSuccess + '</b>\
-        </span>\
+    var $response = $('\
+        <span class="tc-green-12 fw-bold">OK</span>\
     ');
 
     // private functions
@@ -3772,10 +3836,6 @@ var MicroSubmit = (function() {
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
          */
-        
-        // data:
-        // endpoint
-        // message
 
         if (!($microSubmit instanceof jQuery)) {
             $microSubmit = $('[data-microsubmit]');
@@ -3783,32 +3843,37 @@ var MicroSubmit = (function() {
 
         $microSubmit.each(function() {
 
-            var $thisForm  = $(this).find('form');
-            var options    = Helper.toObject($thisForm.data('microsubmit'));
-            var targetUrl  = options.url !== undefined ? options.url : false;
-            var postData   = 'foo';
-            var successMsg = options.successMsg !== undefined ? options.successMsg : false;
+            var $thisForm       = $(this);
+            var options         = Helper.toObject($thisForm.data('microsubmit'));
+            var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
+            var thisMessage     = $thisForm.find('input').val();
+            var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
+            
+            // hide response content first
+            
+            Helper.hide($thisResponse);
             
             // cancel if no target url (for ajax send) was found
             
-            if (!targetUrl) return false;
+            if (!receiver) return false;
             
             // submit form, show msg
 
-            $thisForm.on('submit', function(e) {
-
+            $thisForm.submit(function(e) {
+                
                 e.preventDefault();
                 
-                $.post(targetUrl,
-                    {
-                        s: term
+                $.ajax({
+                    url: receiver,
+                    type: "POST",
+                    data: {
+                        input: thisMessage
+                    },
+                    complete: function(response){
+                        $thisForm.replaceWith($thisResponse);
+                        Helper.show($thisResponse);
                     }
-                )
-                .done(function( data ) {
-                    $thisForm.fadeOut('slow', function() {
-                        if ($successMsg) $successMsg.clone().replaceAll($thisForm);
-                    });
-                 });
+                });
 
             });
 
@@ -3825,13 +3890,13 @@ var MicroSubmit = (function() {
     // initialize
     // ==========
 
-    initializeMicroFeedback();
+    initializeMicroSubmit();
 
     // public functions
     // ================
 
     return {
-        init : initializeMicroFeedback
+        init : initializeMicroSubmit
     }
 
 })();
@@ -3873,29 +3938,33 @@ var Modal = (function() {
 
     // private methods
 
-    function initializeModal(modalId) {
+    function initializeModal($modal) {
 
         /**
-         *  Prepare dom elements, target all elements with data-modal attribute,
-         *  read modal-related options to override default values/behaviour
-         *  and attach a click-event to show the related modal page.
+         *  Initialize all *[data-modal] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-modal] (= function call with $modal).
+         *  $modal must be a jQuery object or jQuery object collection.
          *
          *  Modal links may have options, provided by a key/value list inside the
          *  data-modal attribute (eg. data-modal="cache:true;").
          *
-         *  @option {string} id     - id-selector, eg. "#modal-test"
-         *                            To reference modals internally, this script uses generated ids, which
-         *                            may be overridden by this option.
+         *  @option {string} id               - id-selector, eg. "#modal-test"
+         *                                      To reference modals internally, this script uses generated ids, which
+         *                                      may be overridden by this option.
          *
-         *  @option {string} path   - Path to modal page, eg. "pages/modal_test.html".
-         *                            Any element can be linked to a modal. If it's not a link or a link
-         *                            with a href that does not link to a modal, the modal path may be
-         *                            overridden by this option.
+         *  @option {string} path             - Path to modal page, eg. "pages/modal_test.html".
+         *                                      Any element can be linked to a modal. If it's not a link or a link
+         *                                      with a href that does not link to a modal, the modal path may be
+         *                                      overridden by this option.
+         * 
+         *  @option {bool} cache              - If true, the referenced modal will preload in the background.
          *
-         *  @option {bool} cache    - If true, the referenced modal will preload in the background.
-         *
-         *  @param {string} modalId - the modal id
+         *  @param {jQuery dom object} $modal - the modal(s)
          */
+        
+        if (!($modal instanceof jQuery)) {
+            $modal = $('[data-modal]');
+        }
 
         // prepare dom
 
@@ -3904,7 +3973,7 @@ var Modal = (function() {
 
         // prepare modal links
 
-        $('[data-modal]').each(function() {
+        $modal.each(function() {
 
             var $this = $(this);
 
@@ -4185,31 +4254,57 @@ var Modal = (function() {
 
 })();
 
-// ===========================================================
-//
-//        File:    js/pageRewind.js
-//        Descr.:    Scroll page back to the very top, animated.
-//
-// ===========================================================
+/** pageRewind.js */
 
-$('#pageRewind')
-    .addClass('inactive')
-    .click(function(e) {
-        e.preventDefault();
-        $('html,body').animate({scrollTop: 0}, 500);
-    });
+var PageRewind = (function() {
 
-function pageRewind() {
-    if ($('body').scrollTop() >= 500) {
-        $('#pageRewind').removeClass('inactive');
-    } else {
-        $('#pageRewind').addClass('inactive');
+    // private vars
+    // ============
+    
+    // private functions
+    // =================
+    
+    function initializePageRewind() {
+        
+        
+        
     }
-}
+    
+    // initialize
+    // ==========
+    
+    initializePageRewind();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializePageRewind
+    }
 
-$(window).scroll(function() {
-    pageRewind();
-});
+})();
+//
+//
+//
+//
+// $('#pageRewind')
+//     .addClass('inactive')
+//     .click(function(e) {
+//         e.preventDefault();
+//         $('html,body').animate({scrollTop: 0}, 500);
+//     });
+//
+// function pageRewind() {
+//     if ($('body').scrollTop() >= 500) {
+//         $('#pageRewind').removeClass('inactive');
+//     } else {
+//         $('#pageRewind').addClass('inactive');
+//     }
+// }
+//
+// $(window).scroll(function() {
+//     pageRewind();
+// });
 
 /** pieChart.js */
 
@@ -4234,34 +4329,38 @@ var PieChart = (function() {
     // private functions
     // =================
 
-    function initializePieChart() {
+    function initializePieChart($pieChart) {
 
         /**
-         *  Initialize the pie charts by preparing the dom and attaching events.
+         *  Initialize all *[data-piechart] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-piechart] (= function call with $piechart).
+         *  $piechart must be a jQuery object or jQuery object collection.
+         *
+         *  @option {string}  baseColor          - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
+         *                                         Sets the base color, used to calculate a unique color for each
+         *                                         slice of the pie chart.
+         *
+         *  @option {bool}    highlight          - Default is true. Set to false if you wish to disable highlighting individual
+         *                                         slices on mouse over.
+         *
+         *  @option {string}  palette            - "fixed" || "random" || "shades" || "unique" - default is "shades".
+         *                                         Selects the formula used to calculate the unique color for
+         *                                         each slice of the pie chart.
+         *
+         *  @option {number}  size               - Sets the diameter of the pie chart SVG.
+         *
+         *  @param {jQuery dom object} $pieChart - the pie chart(s)
          */
+        
+        if (!($pieChart instanceof jQuery)) {
+            $pieChart = $('[data-piechart]');
+        }
 
-        $('[data-piechart]').each(function() {
+        $pieChart.each(function() {
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-            /**
-             *  Available options:
-             *
-             *  @option {string}  baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
-             *                                Sets the base color, used to calculate a unique color for each
-             *                                slice of the pie chart.
-             *
-             *  @option {bool}    highlight - Default is true. Set to false if you wish to disable highlighting individual
-             *                                slices on mouse over.
-             *
-             *  @option {string}  palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
-             *                                Selects the formula used to calculate the unique color for
-             *                                each slice of the pie chart.
-             *
-             *  @option {number}  size      - Sets the diameter of the pie chart SVG.
-             */
 
             var options = Helper.toObject($thisPieChart.data('piechart'));
 
@@ -4618,41 +4717,35 @@ var PieChart = (function() {
 
 })();
 
-/** popOvers.js */
+/** popOver.js */
 
 var PopOver = (function() {
 
     // private functions
     // =================
 
-    function initializePopOver() {
+    function initializePopOverTrigger($popOverTrigger) {
 
         /**
-         *  Initializes pop-overs by searching the document for pop-over triggers.
-         *  These triggers are identified trough the custom "data-popover" attribute.
-         *  The attribute contains a sting with key/value pairs with at least one option:
-         *  the target pop-over selector (preferably an #id). Example from markup:
+         *  Initialize all *[data-popover] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-popover] (= function call with $popover).
+         *  $popover must be a jQuery object or jQuery object collection.
          *
-         *      <a href="#" data-popover="target:#pop-overId;">Show a pop-over</a>
-         *
-         *  Options may be set for each trigger element via more attributes within the same
-         *  options string. See the following possible key/values for reference:
-         *
-         *      @param  {string} target         - The target pop-over id selector.
-         *      @option {string} pos            - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
-         *      @option {string} ref            - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
-         *      @option {string} toggleClass    - Css class name added to trigger if pop-over is currently shown.
-         *      @option {string} eventShow      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
-         *      @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
-         *      @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
-         *
-         *  Example from markup:
-         *
-         *      <a href="#" class="btn" data-popover="target:#pop-overId; pos:bl; toggleClass:btn--active;">Show a pop-over</a>
-         *
+         *  @option {string} target                     - The target pop-over id selector.
+         *  @option {string} pos                        - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
+         *  @option {string} ref                        - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
+         *  @option {string} toggleClass                - Css class name added to trigger if pop-over is currently shown.
+         *  @option {string} eventShow                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
+         *  @option {string} eventHide                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
+         *  @option {bool}   preventDefault             - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
          */
 
-        $('[data-popover]').each(function() {
+        if (!($popOverTrigger instanceof jQuery)) {
+            $popOverTrigger = $('[data-popover]');
+        }
+
+        $popOverTrigger.each(function() {
 
             // reference the popover trigger
 
@@ -4705,7 +4798,7 @@ var PopOver = (function() {
                     if (preventDefault !== 'false') e.preventDefault();
 
                     hideAllPopOvers();
-                    removeToggleClassFromPopOverTriggers();
+                    removeToggleClassFromPopOverTrigger();
                     showPopOver($thisPopOverTrigger, $thisPopOver);
 
                 })
@@ -4787,7 +4880,7 @@ var PopOver = (function() {
 
         Helper.setDelay('popOverHideTimeout', 500, function() {
             $thisPopOver.hide();
-            removeToggleClassFromPopOverTriggers();
+            removeToggleClassFromPopOverTrigger();
         });
 
     }
@@ -4900,9 +4993,21 @@ var PopOver = (function() {
 
     }
     
-    function removeToggleClassFromPopOverTriggers() {
+    function removeToggleClassFromPopOverTrigger($popOverTrigger) {
         
-        $('[data-popover]').each(function() {
+        /**
+         *  Popover triggers provide an option to add any css-class to the trigger when the
+         *  popover itself is visible. This function removes the very class name from all popover triggers
+         *  (= function call without parameters) or a specific one (= function call with $popover).
+         *
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger
+         */
+        
+        if (!($popOverTrigger instanceof jQuery)) {
+            $popOverTrigger = $('[data-popover]');
+        }
+        
+        $popOverTrigger.each(function() {
             
             // reference the popover trigger
 
@@ -4928,13 +5033,13 @@ var PopOver = (function() {
     // initialize
     // ==========
 
-    initializePopOver();
+    initializePopOverTrigger();
 
     // public functions
     // ================
 
     return {
-        init    : initializePopOver,
+        init    : initializePopOverTrigger,
         hideAll : hideAllPopOvers
     }
 
@@ -4952,59 +5057,66 @@ var RadioBtn = (function() {
     // private functions
     // =================
 
-    function initializeRadioBtns() {
+    function initializeRadioBtn($radioBtn) {
 
         /**
-         *  Initialize all radio buttons by preparing the dom
-         *  and attaching events.
+         *  Initialize all *[data-radioBtn] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-radioBtn] (= function call with $radioBtn).
+         *  $radioBtn must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $radioBtn - the radio button(s)
          */
 
-        $('.radioBtn').has('input[type="radio"]').each(function() {
+        if (!($radioBtn instanceof jQuery)) {
+            $radioBtn = $('[data-radiobtn]');
+        }
 
-            var $thisBtn = $(this);
+        $radioBtn.each(function() {
 
-            $thisBtn.find('input[type="radio"]').hide();
-            $thisBtn.prepend($icon.clone());
+            var $thisRadioBtn = $(this);
+
+            $thisRadioBtn.find('input[type="radio"]').hide();
+            $thisRadioBtn.prepend($icon.clone());
 
             // prevent default event of <label>
 
-            $thisBtn.find('label').on('click', function(e) {
+            $thisRadioBtn.find('label').on('click', function(e) {
                 e.preventDefault();
             });
 
             // bind event to button
 
-            $thisBtn.on('click', function(e) {
+            $thisRadioBtn.on('click', function(e) {
                 e.preventDefault();
-                activateRadioBtn($thisBtn);
+                activateRadioBtn($thisRadioBtn);
             });
 
         });
 
     }
 
-    function activateRadioBtn($thisBtn) {
+    function activateRadioBtn($thisRadioBtn) {
 
         /**
          *  Switch a radio button to "active".
          *
-         *  @param  {jQuery object} $thisbtn - the button
+         *  @param  {jQuery object} $thisRadioBtn - the button
          */
 
-        var $icon       = $thisBtn.find('[class^="icon"]');
-        var $radioInput = $thisBtn.find('input[type="radio"]');
+        var $icon       = $thisRadioBtn.find('[class^="icon"]');
+        var $radioInput = $thisRadioBtn.find('input[type="radio"]');
         var groupName   = $radioInput.attr('name');
 
         // reset all other buttons first
 
-        $('input[name="' + groupName + '"]').closest('.radioBtn').removeClass('radioBtn--active');
+        $('input[name="' + groupName + '"]').closest('.radioBtn').removeClass('is--active');
         $('input[name="' + groupName + '"]').removeAttr('checked');
 
         // activate this button
 
         $radioInput.prop('checked', true);
         $radioInput.attr('checked', 'checked');
-        $thisBtn.addClass('radioBtn--active');
+        $thisRadioBtn.addClass('is--active');
 
         // blink the icon
 
@@ -5015,13 +5127,13 @@ var RadioBtn = (function() {
     // initialize
     // ==========
 
-    initializeRadioBtns();
+    initializeRadioBtn();
 
     // public functions
     // ================
 
     return {
-        init : initializeRadioBtns
+        init : initializeRadioBtn
     }
 
 })();
@@ -5052,21 +5164,26 @@ var RangeInput = (function() {
     // private functions
     // =================
 
-    function initializeRangeInput($rangeInputs) {
+    function initializeRangeInput($rangeInput) {
 
         /**
-         *  Initializes range inputs. If "$rangeInputs" is undefined,
-         *  all found ".rangeInput" inside the document will be initialized.
-         *  "$rangeInputs" must be a jQuery object.
+         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
+         *  $rangeinput must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $rangeInputs - the range inputs
+         *  @option {number}  absMin               - absolut min value
+         *  @option {number}  absMax               - absolut max value
+         *  @option {number}  min                  - initial min value
+         *  @option {number}  max                  - initial max value
+         *  @option {string}  unit                 - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
+         *  @param {jQuery dom object} $rangeinput - the range input(s)
          */
 
-        if (!($rangeInputs instanceof jQuery)) {
-            $rangeInputs = $('.rangeInput');
+        if (!($rangeInput instanceof jQuery)) {
+            $rangeInput = $('[data-rangeinput]');
         }
 
-        $rangeInputs.each(function() {
+        $rangeInput.each(function() {
 
             // gather dom elements
 
@@ -5076,16 +5193,6 @@ var RangeInput = (function() {
             // options
 
             var options = Helper.toObject($thisRangeInput.data('rangeinput'));
-
-            /**
-             *  Available options:
-             *
-             *  @option {number}  absMin - absolut min value
-             *  @option {number}  absMax - absolut max value
-             *  @option {number}  min    - initial min value
-             *  @option {number}  max    - initial max value
-             *  @option {string}  unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
-            */
 
             // attach events to range knobs
 
@@ -5458,19 +5565,18 @@ var Reveal = (function() {
     // private functions
     // =================
     
-    function initializeReveal() {
+    function initializeReveal($revealTrigger) {
         
         /**
-         *  Search the Dom for trigger-elements flagged with "data-reveal" and show the
-         *  corresponding target elements on any event you wish to bind to the trigger.
+         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-rangeinput] (= function call with $radioBtn).
+         *  $rangeinput must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $revealTrigger - the reveal trigger(s)
+         *
+         *  Show the corresponding target elements on any event you wish to bind to the trigger.
          *  Options include to chose from all standard event handlers for the trigger and
          *  using one of two available transitions.
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button class="btn" data-reveal="target:#myTarget; event:click; transition:fadeIn">Show</button>
-         *
-         *  Available options:
          *
          *  @option {string} target     - A string which is used as selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
@@ -5484,7 +5590,11 @@ var Reveal = (function() {
          *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
          */
         
-        $('[data-hide]').each(function(index){
+        if (!($revealTrigger instanceof jQuery)) {
+            $revealTrigger = $('[data-reveal]');
+        }
+        
+        $revealTrigger.each(function(index){
 
             // set up vars
 
@@ -5554,23 +5664,37 @@ var ScrollTo = (function() {
     // private functions
     // =================
 
-    function initializeScrollTo() {
+    function initializeScrollTo($scrollToTrigger) {
 
         /**
-         *  Initialize by attaching events.
+         *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
+         *  or target one or more specific a[data-scrollto] (= function call with $scrollTo).
+         *  $scrollTo must be a jQuery object or jQuery object collection.
+         *
+         *  @option {string} highlight                  - Define an optional effect to highlight the target element once
+         *                                                the scrolling has stopped. Chose from "blink" and "pulse".
+         *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
          */
 
-        $('[data-scrollTo]').on('click', function(e) {
+        if (!($scrollToTrigger instanceof jQuery)) {
+            $scrollToTrigger = $('[data-scrollto]');
+        }
+
+        $scrollToTrigger.each(function() {
             
             var $thisTrigger = $(this);
             var targetId     = $thisTrigger[0].hash;
+            
+            $thisTrigger.on('click', function(e) {
+                
+                // scroll to anchor if target element is found
 
-            // scroll to anchor if target element is found
-
-            if ($(targetId).length) {
-                e.preventDefault();
-                scrollToTarget(targetId, $thisTrigger);
-            }
+                if ($(targetId).length) {
+                    e.preventDefault();
+                    scrollToTarget(targetId, $thisTrigger);
+                }
+                
+            });
 
         });
 
@@ -5581,9 +5705,8 @@ var ScrollTo = (function() {
         /**
          *  Scroll the page to a given target element.
          *
-         *  @param  {string} targetId  - the target element css id (e.g. "#myTarget")
-         *  @option {string} highlight - define an optional effect to highlight the target element once
-         *                               the scrolling has stopped. chose from "blink" and "pulse".
+         *  @param  {string} targetId     - the target element css id (e.g. "#myTarget")
+         *  @option {string} $thisTrigger - the scrollTo trigger
          */
         
         var $target              = $(targetId);
@@ -5748,7 +5871,7 @@ var Slider = (function() {
             // references to dom elements
 
             var $thisSlider        = $(this);
-            var    $thisSlides        = $thisSlider.find('.slider__slide');
+            var $thisSlides        = $thisSlider.find('.slider__slide');
             var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance

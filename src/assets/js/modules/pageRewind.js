@@ -1,25 +1,51 @@
-// ===========================================================
-//
-//        File:    js/pageRewind.js
-//        Descr.:    Scroll page back to the very top, animated.
-//
-// ===========================================================
+/** pageRewind.js */
 
-$('#pageRewind')
-    .addClass('inactive')
-    .click(function(e) {
-        e.preventDefault();
-        $('html,body').animate({scrollTop: 0}, 500);
-    });
+var PageRewind = (function() {
 
-function pageRewind() {
-    if ($('body').scrollTop() >= 500) {
-        $('#pageRewind').removeClass('inactive');
-    } else {
-        $('#pageRewind').addClass('inactive');
+    // private vars
+    // ============
+    
+    // private functions
+    // =================
+    
+    function initializePageRewind() {
+        
+        
+        
     }
-}
+    
+    // initialize
+    // ==========
+    
+    initializePageRewind();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializePageRewind
+    }
 
-$(window).scroll(function() {
-    pageRewind();
-});
+})();
+//
+//
+//
+//
+// $('#pageRewind')
+//     .addClass('inactive')
+//     .click(function(e) {
+//         e.preventDefault();
+//         $('html,body').animate({scrollTop: 0}, 500);
+//     });
+//
+// function pageRewind() {
+//     if ($('body').scrollTop() >= 500) {
+//         $('#pageRewind').removeClass('inactive');
+//     } else {
+//         $('#pageRewind').addClass('inactive');
+//     }
+// }
+//
+// $(window).scroll(function() {
+//     pageRewind();
+// });

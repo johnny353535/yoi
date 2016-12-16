@@ -1,38 +1,32 @@
-/** popOvers.js */
+/** popOver.js */
 
 var PopOver = (function() {
 
     // private functions
     // =================
 
-    function initializePopOver() {
+    function initializePopOverTrigger($popOverTrigger) {
 
         /**
-         *  Initializes pop-overs by searching the document for pop-over triggers.
-         *  These triggers are identified trough the custom "data-popover" attribute.
-         *  The attribute contains a sting with key/value pairs with at least one option:
-         *  the target pop-over selector (preferably an #id). Example from markup:
+         *  Initialize all *[data-popover] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-popover] (= function call with $popover).
+         *  $popover must be a jQuery object or jQuery object collection.
          *
-         *      <a href="#" data-popover="target:#pop-overId;">Show a pop-over</a>
-         *
-         *  Options may be set for each trigger element via more attributes within the same
-         *  options string. See the following possible key/values for reference:
-         *
-         *      @param  {string} target         - The target pop-over id selector.
-         *      @option {string} pos            - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
-         *      @option {string} ref            - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
-         *      @option {string} toggleClass    - Css class name added to trigger if pop-over is currently shown.
-         *      @option {string} eventShow      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
-         *      @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
-         *      @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
-         *
-         *  Example from markup:
-         *
-         *      <a href="#" class="btn" data-popover="target:#pop-overId; pos:bl; toggleClass:btn--active;">Show a pop-over</a>
-         *
+         *  @option {string} target                     - The target pop-over id selector.
+         *  @option {string} pos                        - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
+         *  @option {string} ref                        - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
+         *  @option {string} toggleClass                - Css class name added to trigger if pop-over is currently shown.
+         *  @option {string} eventShow                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
+         *  @option {string} eventHide                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
+         *  @option {bool}   preventDefault             - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
          */
 
-        $('[data-popover]').each(function() {
+        if (!($popOverTrigger instanceof jQuery)) {
+            $popOverTrigger = $('[data-popover]');
+        }
+
+        $popOverTrigger.each(function() {
 
             // reference the popover trigger
 
@@ -85,7 +79,7 @@ var PopOver = (function() {
                     if (preventDefault !== 'false') e.preventDefault();
 
                     hideAllPopOvers();
-                    removeToggleClassFromPopOverTriggers();
+                    removeToggleClassFromPopOverTrigger();
                     showPopOver($thisPopOverTrigger, $thisPopOver);
 
                 })
@@ -167,7 +161,7 @@ var PopOver = (function() {
 
         Helper.setDelay('popOverHideTimeout', 500, function() {
             $thisPopOver.hide();
-            removeToggleClassFromPopOverTriggers();
+            removeToggleClassFromPopOverTrigger();
         });
 
     }
@@ -280,9 +274,21 @@ var PopOver = (function() {
 
     }
     
-    function removeToggleClassFromPopOverTriggers() {
+    function removeToggleClassFromPopOverTrigger($popOverTrigger) {
         
-        $('[data-popover]').each(function() {
+        /**
+         *  Popover triggers provide an option to add any css-class to the trigger when the
+         *  popover itself is visible. This function removes the very class name from all popover triggers
+         *  (= function call without parameters) or a specific one (= function call with $popover).
+         *
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger
+         */
+        
+        if (!($popOverTrigger instanceof jQuery)) {
+            $popOverTrigger = $('[data-popover]');
+        }
+        
+        $popOverTrigger.each(function() {
             
             // reference the popover trigger
 
@@ -308,13 +314,13 @@ var PopOver = (function() {
     // initialize
     // ==========
 
-    initializePopOver();
+    initializePopOverTrigger();
 
     // public functions
     // ================
 
     return {
-        init    : initializePopOver,
+        init    : initializePopOverTrigger,
         hideAll : hideAllPopOvers
     }
 

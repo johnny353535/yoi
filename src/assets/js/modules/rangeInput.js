@@ -24,21 +24,26 @@ var RangeInput = (function() {
     // private functions
     // =================
 
-    function initializeRangeInput($rangeInputs) {
+    function initializeRangeInput($rangeInput) {
 
         /**
-         *  Initializes range inputs. If "$rangeInputs" is undefined,
-         *  all found ".rangeInput" inside the document will be initialized.
-         *  "$rangeInputs" must be a jQuery object.
+         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
+         *  $rangeinput must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $rangeInputs - the range inputs
+         *  @option {number}  absMin               - absolut min value
+         *  @option {number}  absMax               - absolut max value
+         *  @option {number}  min                  - initial min value
+         *  @option {number}  max                  - initial max value
+         *  @option {string}  unit                 - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
+         *  @param {jQuery dom object} $rangeinput - the range input(s)
          */
 
-        if (!($rangeInputs instanceof jQuery)) {
-            $rangeInputs = $('.rangeInput');
+        if (!($rangeInput instanceof jQuery)) {
+            $rangeInput = $('[data-rangeinput]');
         }
 
-        $rangeInputs.each(function() {
+        $rangeInput.each(function() {
 
             // gather dom elements
 
@@ -48,16 +53,6 @@ var RangeInput = (function() {
             // options
 
             var options = Helper.toObject($thisRangeInput.data('rangeinput'));
-
-            /**
-             *  Available options:
-             *
-             *  @option {number}  absMin - absolut min value
-             *  @option {number}  absMax - absolut max value
-             *  @option {number}  min    - initial min value
-             *  @option {number}  max    - initial max value
-             *  @option {string}  unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
-            */
 
             // attach events to range knobs
 

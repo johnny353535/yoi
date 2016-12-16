@@ -5,13 +5,8 @@ var MicroSubmit = (function() {
     // private vars
     // ============
 
-    var msgSuccess = Helper.locale === 'de' ? 'Danke für Ihre Einschätzung.' : 'Thank you.';
-
-    var $successMsg = $('\
-        <span class="microFeedback__msg positive">\
-            <i class="icon--011-s" aria-hidden="true"></i>\
-            <b>' + msgSuccess + '</b>\
-        </span>\
+    var $response = $('\
+        <span class="tc-green-12 fw-bold">OK</span>\
     ');
 
     // private functions
@@ -26,10 +21,6 @@ var MicroSubmit = (function() {
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
          */
-        
-        // data:
-        // endpoint
-        // message
 
         if (!($microSubmit instanceof jQuery)) {
             $microSubmit = $('[data-microsubmit]');
@@ -37,32 +28,37 @@ var MicroSubmit = (function() {
 
         $microSubmit.each(function() {
 
-            var $thisForm  = $(this).find('form');
-            var options    = Helper.toObject($thisForm.data('microsubmit'));
-            var targetUrl  = options.url !== undefined ? options.url : false;
-            var postData   = 'foo';
-            var successMsg = options.successMsg !== undefined ? options.successMsg : false;
+            var $thisForm       = $(this);
+            var options         = Helper.toObject($thisForm.data('microsubmit'));
+            var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
+            var thisMessage     = $thisForm.find('input').val();
+            var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
+            
+            // hide response content first
+            
+            Helper.hide($thisResponse);
             
             // cancel if no target url (for ajax send) was found
             
-            if (!targetUrl) return false;
+            if (!receiver) return false;
             
             // submit form, show msg
 
-            $thisForm.on('submit', function(e) {
-
+            $thisForm.submit(function(e) {
+                
                 e.preventDefault();
                 
-                $.post(targetUrl,
-                    {
-                        s: term
+                $.ajax({
+                    url: receiver,
+                    type: "POST",
+                    data: {
+                        input: thisMessage
+                    },
+                    complete: function(response){
+                        $thisForm.replaceWith($thisResponse);
+                        Helper.show($thisResponse);
                     }
-                )
-                .done(function( data ) {
-                    $thisForm.fadeOut('slow', function() {
-                        if ($successMsg) $successMsg.clone().replaceAll($thisForm);
-                    });
-                 });
+                });
 
             });
 
@@ -79,13 +75,13 @@ var MicroSubmit = (function() {
     // initialize
     // ==========
 
-    initializeMicroFeedback();
+    initializeMicroSubmit();
 
     // public functions
     // ================
 
     return {
-        init : initializeMicroFeedback
+        init : initializeMicroSubmit
     }
 
 })();

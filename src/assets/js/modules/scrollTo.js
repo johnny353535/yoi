@@ -19,23 +19,37 @@ var ScrollTo = (function() {
     // private functions
     // =================
 
-    function initializeScrollTo() {
+    function initializeScrollTo($scrollToTrigger) {
 
         /**
-         *  Initialize by attaching events.
+         *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
+         *  or target one or more specific a[data-scrollto] (= function call with $scrollTo).
+         *  $scrollTo must be a jQuery object or jQuery object collection.
+         *
+         *  @option {string} highlight                  - Define an optional effect to highlight the target element once
+         *                                                the scrolling has stopped. Chose from "blink" and "pulse".
+         *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
          */
 
-        $('[data-scrollTo]').on('click', function(e) {
+        if (!($scrollToTrigger instanceof jQuery)) {
+            $scrollToTrigger = $('[data-scrollto]');
+        }
+
+        $scrollToTrigger.each(function() {
             
             var $thisTrigger = $(this);
             var targetId     = $thisTrigger[0].hash;
+            
+            $thisTrigger.on('click', function(e) {
+                
+                // scroll to anchor if target element is found
 
-            // scroll to anchor if target element is found
-
-            if ($(targetId).length) {
-                e.preventDefault();
-                scrollToTarget(targetId, $thisTrigger);
-            }
+                if ($(targetId).length) {
+                    e.preventDefault();
+                    scrollToTarget(targetId, $thisTrigger);
+                }
+                
+            });
 
         });
 
@@ -46,9 +60,8 @@ var ScrollTo = (function() {
         /**
          *  Scroll the page to a given target element.
          *
-         *  @param  {string} targetId  - the target element css id (e.g. "#myTarget")
-         *  @option {string} highlight - define an optional effect to highlight the target element once
-         *                               the scrolling has stopped. chose from "blink" and "pulse".
+         *  @param  {string} targetId     - the target element css id (e.g. "#myTarget")
+         *  @option {string} $thisTrigger - the scrollTo trigger
          */
         
         var $target              = $(targetId);

@@ -102,7 +102,7 @@ var Slider = (function() {
             // references to dom elements
 
             var $thisSlider        = $(this);
-            var    $thisSlides        = $thisSlider.find('.slider__slide');
+            var $thisSlides        = $thisSlider.find('.slider__slide');
             var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance

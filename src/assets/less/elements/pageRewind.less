@@ -5,36 +5,36 @@
     .mixin-shadow-3;
     background: @color-main-24;
     border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
-    border-bottom: 0;
     border: @color-main-20 1px solid;
-    bottom: -5px;
+    border-bottom: 0;
+    bottom: -.5rem;
     box-sizing: border-box;
     color: @color-main-15;
     display: block;
-    height: 40px;
+    height: 4rem;
     left: 50%;
-    margin-left: -45px;
-    padding: 10px 20px;
+    margin-left: -4.5rem;
+    padding: 1rem 2rem;
     position: fixed;
     text-align: right;
     transition: bottom 500ms ease-out;
-    width: 90px;
+    width: 9rem;
     z-index: 900;
 
     &:hover {
         background: @color-main-25;
     }
 
-    &.inactive {
-        bottom: -80px;
+    &.is--hidden {
+        bottom: -8rem;
     }
 
     [class^="icon--"] {
         color: @color-main-10;
-        height: 40px;
+        height: 4rem;
         left: 50%;
-        margin-left: -16px;
-        line-height: 40px;
+        line-height: 4rem;
+        margin-left: -1.6rem;
         position: absolute;
         top: 0;
     }

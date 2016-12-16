@@ -35,29 +35,33 @@ var Modal = (function() {
 
     // private methods
 
-    function initializeModal(modalId) {
+    function initializeModal($modal) {
 
         /**
-         *  Prepare dom elements, target all elements with data-modal attribute,
-         *  read modal-related options to override default values/behaviour
-         *  and attach a click-event to show the related modal page.
+         *  Initialize all *[data-modal] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-modal] (= function call with $modal).
+         *  $modal must be a jQuery object or jQuery object collection.
          *
          *  Modal links may have options, provided by a key/value list inside the
          *  data-modal attribute (eg. data-modal="cache:true;").
          *
-         *  @option {string} id     - id-selector, eg. "#modal-test"
-         *                            To reference modals internally, this script uses generated ids, which
-         *                            may be overridden by this option.
+         *  @option {string} id               - id-selector, eg. "#modal-test"
+         *                                      To reference modals internally, this script uses generated ids, which
+         *                                      may be overridden by this option.
          *
-         *  @option {string} path   - Path to modal page, eg. "pages/modal_test.html".
-         *                            Any element can be linked to a modal. If it's not a link or a link
-         *                            with a href that does not link to a modal, the modal path may be
-         *                            overridden by this option.
+         *  @option {string} path             - Path to modal page, eg. "pages/modal_test.html".
+         *                                      Any element can be linked to a modal. If it's not a link or a link
+         *                                      with a href that does not link to a modal, the modal path may be
+         *                                      overridden by this option.
+         * 
+         *  @option {bool} cache              - If true, the referenced modal will preload in the background.
          *
-         *  @option {bool} cache    - If true, the referenced modal will preload in the background.
-         *
-         *  @param {string} modalId - the modal id
+         *  @param {jQuery dom object} $modal - the modal(s)
          */
+        
+        if (!($modal instanceof jQuery)) {
+            $modal = $('[data-modal]');
+        }
 
         // prepare dom
 
@@ -66,7 +70,7 @@ var Modal = (function() {
 
         // prepare modal links
 
-        $('[data-modal]').each(function() {
+        $modal.each(function() {
 
             var $this = $(this);
 
