@@ -846,60 +846,166 @@ var Documentation = (function() {
 
 })();
 
-/** autoComplete.js */
+/** accordion.js */
 
-var AutoComplete = (function() {
+var Accordion = (function() {
 
     // private functions
     // =================
 
-    function initializeAutoComplete($autoCompleteInput) {
-        
-        /**
-         *  Initialize all *[data-autocomplete] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-autocomplete] (= function call with $autoCompleteInput).
-         *  $autoCompleteInput must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $autoCompleteInput - the auto complete input field
-         */
+    function initializeAccordion($accordion) {
 
-        var inputValue;
+        /**
+         *  Initialize all *[data-accordion] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-accordion] (= function call with $accordion).
+         *  $accordion must be a jQuery object or jQuery object collection.
+         *
+         *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
+         *                                             one section can be open, the remaining sections
+         *                                             will always close
+         *  @param  {jQuery dom object} $accordion   - the accordion(s)
+         */
         
-        if (!($autoCompleteInput instanceof jQuery)) {
-            $autoCompleteInput = $('[data-autocomplete]');
+        if (!($accordion instanceof jQuery)) {
+            $accordion = $('[data-accordion]');
         }
 
-        $autoCompleteInput.each(function() {
+        $accordion.each(function() {
             
-            var $thisAutoCompleteInput = $(this);
+            var $thisAccordion = $(this);
+            var $thisSections  = $thisAccordion.find('.accordion__section');
+            var options        = Helper.toObject($thisAccordion.data('accordion'));
+
+            // define the event: tap on mobile, click on desktop
+
+            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
             
-            $thisAutoCompleteInput
-                .on('focus', function() {
-                    inputValue = $(this)[0].value;
-                    $(this)[0].value = '';
-                })
-                .on('keypress', function() {
-                    $(this).closest('form').find('.autoComplete').show();
-                })
-                .on('blur', function() {
-                    $(this)[0].value = inputValue;
-                    $(this).closest('form').find('.autoComplete').hide();
+            $thisSections.each(function() {
+                
+                var $thisSection = $(this);
+                var $thisHeader  = $thisSection.find('.accordion__header');
+                var $thisBody    = $thisSection.find('.accordion__body');
+                
+                // by default, on page load all accordion sections are closed.
+                // however, accordion sections with the class name "is--open" in markup will be open.
+            
+                if (!$thisSection.hasClass('is--open') && !$thisSection.hasClass('is--closed')) {
+                    $thisSection.addClass('is--closed');
+                    $thisBody.slideUp(0);
+                }
+            
+                // attach event
+            
+                $thisHeader.on(eventType, function(e) {
+                    e.preventDefault();
+                    toggleAccordionSection($thisSection);
                 });
             
+            });
+
         });
+
+    }
+    
+    function initializeAccordionTriggers() {
+        
+        /**
+         *  Gather all elements in DOM which are tagged with the custom
+         *  data-attributes "action". Attach events accordingly to the values
+         *  "openAllAccordions" and "closeAllAccordions".
+         */
+    
+        $('[data-action="openAllAccordions"]').on('click', function(e) {
+            e.preventDefault();
+            openAllSections();
+        });
+        
+        $('[data-action="closeAllAccordions"]').on('click', function(e) {
+            e.preventDefault();
+            closeAllSections();
+        });
+    
+    }
+    
+    function toggleAccordionSection($section) {
+        
+        /**
+         *  Opens or closes a given accordion section.
+         *
+         *  @param  {jQuery dom object} $section - the accordion section
+         */
+        
+        var $thisAccordion = $section.closest('.accordion');
+        var $thisSection   = $section;
+        var $thisBody      = $section.find('.accordion__body');
+        var options        = Helper.toObject($thisAccordion.data('accordion'));
+        
+        // in "linked" accordions, only one section can be open.
+        // all remaining sections will close.
+        
+        if (options.linked === 'true') {
+            $thisAccordion.find('.accordion__section').removeClass('is--open').addClass('is--closed');
+            $thisAccordion.find('.accordion__body').stop().slideUp('fast');
+            $thisSection.removeClass('is--closed').addClass('is--open');
+            $thisBody.stop().slideDown('fast');
+            return;
+        }
+        
+        // by default, accordions can toggle their sections
+        // individually and independently
+        
+        if ($thisSection.hasClass('is--closed')) {
+            $thisSection.removeClass('is--closed').addClass('is--open');
+            $thisBody.stop().slideDown('fast');
+            return;
+        }
+
+        if ($thisSection.hasClass('is--open')) {
+            $thisSection.removeClass('is--open').addClass('is--closed');
+            $thisBody.stop().slideUp('fast');
+            return;
+        }
+    
+    }
+    
+    function closeAllSections() {
+
+        /**
+         *  Close all accordion sections found in DOM.
+         */
+
+        $('.accordion__section')
+            .removeClass('is--open').addClass('is--closed')
+            .find('.accordion__body').slideUp('fast');
+
+    }
+
+    function openAllSections() {
+
+        /**
+         *  Open all accordion sections found in DOM.
+         */
+
+        $('.accordion__section')
+            .removeClass('is--closed').addClass('is--open')
+            .find('.accordion__body').slideDown('fast');
 
     }
 
     // initialize
     // ==========
 
-    initializeAutoComplete();
-
+    initializeAccordion();
+    initializeAccordionTriggers();
+    
     // public functions
     // ================
 
     return {
-        init : initializeAutoComplete
+        init         : initializeAccordion,
+        initTriggers : initializeAccordionTriggers,
+        closeAll     : closeAllSections,
+        openAll      : openAllSections
     }
 
 })();
@@ -2256,235 +2362,6 @@ var Dock = (function() {
         init : initializeDock,
         hide : hideDock,
         show : showDock
-    }
-
-})();
-
-// ===========================================================
-//
-//        File:    js/drawerMenu.js
-//        Descr.:    Three-level foldable list menu.
-//
-// ===========================================================
-
-// open nested elements
-
-$('.drawerMenu li:not(".open") .handle + ul').hide();
-
-$('.drawerMenu .handle').on('tap', function(e) {
-
-    if(!$(this).parent().hasClass('open')) {
-        $(this).parent().addClass('open');
-        $(this).parent().find('> ul').stop().slideDown('fast');
-    } else if( $(this).parent().hasClass('open')) {
-        $(this).parent().removeClass('open');
-        $(this).parent().find('> ul').stop().slideUp('fast');
-    }
-
-});
-
-// option to hide list items after defined max. item number
-
-$('.drawerMenu ul').each(function() {
-
-    var options = $(this).data('options');
-
-    if (options === undefined) {
-
-        return;
-
-    } else {
-
-        // read options
-
-        var threshold = options.maxItems;
-        var listItems = $(this).find('> li');
-
-        // if the menu has more items than threshold,
-        // cut off menu
-
-        if (listItems.length > threshold) {
-
-            listItems.slice(threshold).hide();
-
-            // create and insert load-button
-
-            var btnLoad = $('<button class="btnLoad">alle anzeigen</button>')
-                .on('tap', function() {
-                    $(this).parent().find('> li').show();
-                    $(this).remove();
-                })
-                .insertAfter($(this).find('> li').eq(threshold));
-
-        }
-
-    }
-
-});
-
-// toggle states for list items that
-// behave like radio buttons or checkboxes
-
-$('.drawerMenu li[class^="radiobtn-"]').on('tap', function(e) {
-
-    e.preventDefault();
-
-    var options = $(this).parent('ul').data('options');
-
-    if (options !== undefined && options.hasOwnProperty('activityMsg')) {
-        NavBar.showMsg(options.activityMsg);
-    } else {
-        NavBar.showMsg();
-    }
-
-    if ($(this).hasClass('radiobtn-off')) {
-        $(this).siblings('li.radiobtn-on').removeClass('radiobtn-on').addClass('radiobtn-off');
-        $(this).addClass('radiobtn-on');
-    } else if ($(this).hasClass('radiobtn-on')) {
-        $(this).removeClass('radiobtn-on').addClass('radiobtn-off');
-    }
-
-    // update data-bits
-
-    var dataBit = $(this).find('.dataBit');
-    var dataBitInHandle = $(this).parent().prev('.handle').find('.dataBit');
-
-    if (dataBit.length > 0) {
-        dataBitInHandle.html(dataBit.html());
-        Helper.blink(dataBitInHandle);
-    }
-
-});
-
-$('.drawerMenu li[class^="checkbox-"]').on('tap', function(e) {
-
-    e.preventDefault();
-
-    var options = $(this).parent('ul').data('options');
-    var parentDrawerMenu = $(this).parents('.drawerMenu').eq(0);
-    var btnFilter = parentDrawerMenu.next('.btnFilter').removeClass('hidden');
-
-    if (options !== undefined && options.hasOwnProperty('activityMsg')) {
-        NavBar.showMsg(options.activityMsg);
-    } else {
-        NavBar.showMsg();
-    }
-
-    // add filter
-
-    if ($(this).hasClass('checkbox-off')) {
-        $(this).removeClass('checkbox-off').addClass('checkbox-on');
-        var buttonTxt = $(this).text();
-        var button = $('<li class="removeable"><a href="#">' + buttonTxt + '</a></li>');
-        button.appendTo(btnFilter.find('ul'));
-        BtnFilters.init();
-        return false;
-    }
-
-    // remove filter
-
-    if ($(this).hasClass('checkbox-on')) {
-        $(this).removeClass('checkbox-on').addClass('checkbox-off');
-        return false;
-    }
-
-});
-
-/** drawers.js */
-
-var Drawers = (function() {
-
-    // private functions
-    // =================
-
-    function initializeDrawers() {
-
-        /**
-         *  Initialize drawers by attaching events and initially close
-         *  drawers marked as closed in markup.
-         */
-
-        // close certain drawers
-
-        $('.drawer.closed > .body, .drawer.closed > .subDrawers').slideUp(0);
-
-        // attach events to close or open all drawers
-
-        $('[data-action="closeDrawers"]').click(function(e) {
-            e.preventDefault();
-            closeDrawers();
-        });
-
-        $('[data-action="openDrawers"]').click(function(e) {
-            e.preventDefault();
-            openDrawers();
-        });
-
-        // open/close individual drawers
-
-        $('.drawer .header').each(function() {
-
-            // define the event: tap on mobile, click on desktop
-
-            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
-
-            // attach event
-
-            $(this).on(eventType, function(e) {
-
-                e.preventDefault();
-
-                var parentDrawer = $(this).parent('.drawer');
-                var hasSubdrawers = $(this).parent('.drawer').find('.subDrawers').length > 0 ? true : false;
-
-                if (parentDrawer.hasClass('closed')) {
-                    parentDrawer.removeClass('closed').addClass('open');
-                    parentDrawer.find('> .body, .subDrawers').stop().slideDown('fast');
-                    return;
-                }
-
-                if (parentDrawer.hasClass('open')) {
-                    parentDrawer.removeClass('open').addClass('closed');
-                    parentDrawer.find('> .body, .subDrawers').stop().slideUp('fast');
-                    return;
-                }
-
-            });
-
-        });
-
-    }
-
-    function closeDrawers() {
-
-        /**
-         *  Close all open drawers in document.
-         */
-
-        $('.drawer.open').removeClass('open').addClass('closed').find('.body').slideUp('fast');
-    }
-
-    function openDrawers() {
-
-        /**
-         *  Open all closed drawers in document.
-         */
-
-        $('.drawer.closed').removeClass('closed').addClass('open').find('.body').slideDown('fast');
-    }
-
-    // initialize
-    // ==========
-
-    initializeDrawers();
-
-    // public functions
-    // ================
-
-    return {
-        init  : initializeDrawers,
-        close : closeDrawers,
-        open  : openDrawers
     }
 
 })();
@@ -4261,12 +4138,64 @@ var PageRewind = (function() {
     // private vars
     // ============
     
+    var $pageRewind;
+    var $window     = $(window);
+    var $body       = $('body');
+    var threshold   = 500;
+    
     // private functions
     // =================
     
     function initializePageRewind() {
         
+        /**
+         *  Adds an anchor to the bottom of the viewport which
+         *  appears after a certain scroll-threshold and scrolls the
+         *  scrolls the page back to the very top on click.
+         */
         
+        $pageRewind = $(
+            '<a class="pageRewind" href="#">\
+                <i aria-hidden="true" class="icon--010-s"></i>\
+            </a>'
+        );
+        
+        $pageRewind
+            .addClass('is--hidden')
+            .on('click', function(e) {
+                e.preventDefault();
+                runPageRewind();
+            })
+            .appendTo($body);
+
+        $window
+            .scroll(function() {
+                togglePageRewind();
+            });
+        
+    }
+    
+    function runPageRewind() {
+        
+        /**
+         *  Scrolls the page back to the very top.
+         */
+        
+        $('html,body').animate({ scrollTop: 0 }, 500);
+        
+    }
+    
+    function togglePageRewind() {
+        
+        /**
+         *  Shows or hides .pageRewind after a certain threshold.
+         */
+        
+        if ($body.scrollTop() >= threshold) {
+            $pageRewind.removeClass('is--hidden');
+        } else {
+            $pageRewind.addClass('is--hidden');
+        }
         
     }
     
@@ -4279,33 +4208,11 @@ var PageRewind = (function() {
     // ================
     
     return {
-        init: initializePageRewind
+        init : initializePageRewind,
+        run  : runPageRewind
     }
 
 })();
-//
-//
-//
-//
-// $('#pageRewind')
-//     .addClass('inactive')
-//     .click(function(e) {
-//         e.preventDefault();
-//         $('html,body').animate({scrollTop: 0}, 500);
-//     });
-//
-// function pageRewind() {
-//     if ($('body').scrollTop() >= 500) {
-//         $('#pageRewind').removeClass('inactive');
-//     } else {
-//         $('#pageRewind').addClass('inactive');
-//     }
-// }
-//
-// $(window).scroll(function() {
-//     pageRewind();
-// });
-
 /** pieChart.js */
 
 var PieChart = (function() {
@@ -5860,15 +5767,32 @@ var Slider = (function() {
     // private functions
     // =================
 
-    function initializeSliders() {
+    function initializeSliders($slider) {
 
         /**
-         *  Initialize the sliders.
+         *  Initialize all *[data-slider] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-slider] (= function call with $slider).
+         *  $slider must be a jQuery object or jQuery object collection.
+         *
+         *  @option {number}            autoplay   - interval in miliseconds to change the slides automatically
+         *  @option {bool}              clickable  - click on a slide to switch to the next side
+         *  @option {string}            controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {bool}              swipeable  - change the slide on swipe left/right
+         *  @option {string}            transition - keyword for slide transition ["animate" || "fade"]
+         *  @param  {jQuery dom object} $slider    - the slider
          */
 
-        $('[data-slider]').each(function(sliderId) {
+        if (!($slider instanceof jQuery) || $slider === undefined) {
+            $slider = $('[data-slider]');
+        }
 
-            // references to dom elements
+        $slider.each(function(sliderIndex) {
+            
+            // Please note:
+            // 
+            // sliderIndex is provided by jQuery's each() function and used to
+            // reference the slider instances internally.
+            // http://api.jquery.com/each/
 
             var $thisSlider        = $(this);
             var $thisSlides        = $thisSlider.find('.slider__slide');
@@ -5887,16 +5811,6 @@ var Slider = (function() {
             // slider instance options
 
             var options = Helper.toObject($thisSlider.data('slider'));
-
-            /**
-             *  Available options:
-             *
-             *  @param {number}  autoplay   - interval in miliseconds to change the slides automatically
-             *  @param {bool}    clickable  - click on a slide to switch to the next side
-             *  @param {string}  controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
-             *  @param {bool}    swipeable  - change the slide on swipe left/right
-             *  @param {string}  transition - keyword for slide transition ["animate" || "fade"]
-             */
 
             // prepare slides and adjust container to fixed height for animations
 
@@ -5925,13 +5839,13 @@ var Slider = (function() {
 
                 $thisSlider.find('[class*="btnNext"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
                 $thisSlider.find('[class*="btnPrev"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -5957,7 +5871,7 @@ var Slider = (function() {
                     paginationLinks.on('click', function(e) {
 
                         e.preventDefault();
-                        stopAutoplay(sliderId);
+                        stopAutoplay(sliderIndex);
 
                         if ($(this).parent().find('.pageDots__btnPrev').length) {
                             var linkIndex = $(this).index() -1;
@@ -5979,7 +5893,7 @@ var Slider = (function() {
 
                 $thisSlides.not('a').on('tap', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
@@ -5991,13 +5905,13 @@ var Slider = (function() {
 
                 $(this).on('swipeleft', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
                 $(this).on('swiperight',function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -6006,7 +5920,7 @@ var Slider = (function() {
             // enable auto play
 
             if (options.autoplay !== undefined) {
-                slideAutoplayIntervals[sliderId] = window.setInterval(function(){
+                slideAutoplayIntervals[sliderIndex] = window.setInterval(function(){
                     showSlide($thisSlider)
                 }, options.autoplay);
             }
@@ -6024,7 +5938,7 @@ var Slider = (function() {
          *  @param {string || integer} target      - a key for the target: "next" || "prev" || any slide number
          */
 
-        var    $thisSlides        = $thisSlider.find('.slider__slide');
+        var $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
         var totalSlides        = $thisSlider.data().totalSlides;
@@ -6151,15 +6065,16 @@ var Slider = (function() {
 
     }
 
-    function stopAutoplay(sliderId) {
+    function stopAutoplay(sliderIndex) {
 
         /**
          *  Stop the auto play.
          *
-         *  @param {string} sliderId - the slider css id (e.g. "#mySlider")
+         *  @param {string} sliderIndex - the internal slider instance index number
          */
 
-        window.clearInterval(slideAutoplayIntervals[sliderId]);
+        window.clearInterval(slideAutoplayIntervals[sliderIndex]);
+        
     }
 
     function updatePagination($thisSlider, thisSlideIndex) {
@@ -6244,111 +6159,110 @@ var Stepper = (function() {
     // private functions
     // =================
 
-    function initializeStepper() {
+    function initializeStepper($stepper) {
 
         /**
-         *  Initialize by preparing the dom and attaching events.
+         *  Initialize all *[data-stepper] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-stepper] (= function call with $stepper).
+         *  $stepper must be a jQuery object or jQuery object collection.
+         *
+         *  @param  {jQuery dom object} $stepper - the stepper
          */
+        
+        if (!($stepper instanceof jQuery)) {
+            $stepper = $('[data-stepper]');
+        }
 
-        $('.stepper').each(function() {
+        $stepper.each(function() {
 
-            var $this = $(this);
+            var $thisStepper = $(this);
 
-            $this.prepend($stepperBtns.clone());
+            $thisStepper.prepend($stepperBtns.clone());
 
             // attach events
 
             var eventType = Helper.environment('mobile') ? 'tap' : 'click';
 
-            $this.find('.stepper__btnPlus').on(eventType,function(e) {
+            $thisStepper.find('.stepper__btnPlus').on(eventType, function(e) {
                 e.preventDefault();
-                increaseItemCount($this);
+                increaseItemCount($thisStepper);
             });
 
-            $this.find('.stepper__btnMinus').on(eventType,function(e) {
+            $thisStepper.find('.stepper__btnMinus').on(eventType, function(e) {
                 e.preventDefault();
-                decreaseItemCount($this);
+                decreaseItemCount($thisStepper);
             });
 
-            $this.find('.stepper__input').blur(function() {
-                checkInput($this);
+            $thisStepper.find('.stepper__input').blur(function() {
+                checkInput($thisStepper);
             });
 
-            $this
+            $thisStepper
                 .on('swipeleft', function(e) {
-                    decreaseItemCount($this);
+                    decreaseItemCount($thisStepper);
                 })
                 .on('swiperight', function(e) {
-                    increaseItemCount($this);
+                    increaseItemCount($thisStepper);
                 });
 
         });
 
     }
 
-    function increaseItemCount($targetElem) {
+    function increaseItemCount($stepper) {
 
         /**
          *  Increase the item count.
          *
-         *  @param  {jQuery dom object} $targetElem - the btn input combo element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($targetElem);
+        checkInput($stepper);
 
-        var currentValue = $targetElem.find('.stepper__input')[0].value;
+        var currentValue = $stepper.find('.stepper__input')[0].value;
 
         if (currentValue >= 0) {
             currentValue++;
-            $targetElem.find('input')[0].value = currentValue;
+            $stepper.find('input')[0].value = currentValue;
         }
-
-        return false;
 
     }
 
-    function decreaseItemCount($targetElem) {
+    function decreaseItemCount($stepper) {
 
         /**
          *  Decrease the item count
          *
-         *  @param  {jQuery dom object} $targetElem - the .stepper element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($targetElem);
+        checkInput($stepper);
 
-        var currentValue = $targetElem.find('.stepper__input')[0].value;
+        var currentValue = $stepper.find('.stepper__input')[0].value;
 
         if (currentValue > 1) {
             currentValue--;
-            $targetElem.find('input')[0].value = currentValue;
+            $stepper.find('input')[0].value = currentValue;
         }
-
-        return false;
 
     }
 
-    function checkInput($targetElem) {
+    function checkInput($stepper) {
 
         /**
          *  Check the .stepper input element.
          *
-         *  @param  {jQuery dom object} $targetElem - the .stepper element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        var $txtField = $targetElem.find('.stepper__input');
-        var $input    = $targetElem.find('.stepper__input')[0].value;
+        var $txtField = $stepper.find('.stepper__input');
+        var $input    = $stepper.find('.stepper__input')[0].value;
 
         if (!$input.match(/^[0-9]+$/)) {
             $txtField.addClass('input--error');
         } else {
             $txtField.removeClass('input--error');
         }
-
-        return false;
 
     }
 

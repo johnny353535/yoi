@@ -91,15 +91,32 @@ var Slider = (function() {
     // private functions
     // =================
 
-    function initializeSliders() {
+    function initializeSliders($slider) {
 
         /**
-         *  Initialize the sliders.
+         *  Initialize all *[data-slider] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-slider] (= function call with $slider).
+         *  $slider must be a jQuery object or jQuery object collection.
+         *
+         *  @option {number}            autoplay   - interval in miliseconds to change the slides automatically
+         *  @option {bool}              clickable  - click on a slide to switch to the next side
+         *  @option {string}            controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {bool}              swipeable  - change the slide on swipe left/right
+         *  @option {string}            transition - keyword for slide transition ["animate" || "fade"]
+         *  @param  {jQuery dom object} $slider    - the slider
          */
 
-        $('[data-slider]').each(function(sliderId) {
+        if (!($slider instanceof jQuery) || $slider === undefined) {
+            $slider = $('[data-slider]');
+        }
 
-            // references to dom elements
+        $slider.each(function(sliderIndex) {
+            
+            // Please note:
+            // 
+            // sliderIndex is provided by jQuery's each() function and used to
+            // reference the slider instances internally.
+            // http://api.jquery.com/each/
 
             var $thisSlider        = $(this);
             var $thisSlides        = $thisSlider.find('.slider__slide');
@@ -118,16 +135,6 @@ var Slider = (function() {
             // slider instance options
 
             var options = Helper.toObject($thisSlider.data('slider'));
-
-            /**
-             *  Available options:
-             *
-             *  @param {number}  autoplay   - interval in miliseconds to change the slides automatically
-             *  @param {bool}    clickable  - click on a slide to switch to the next side
-             *  @param {string}  controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
-             *  @param {bool}    swipeable  - change the slide on swipe left/right
-             *  @param {string}  transition - keyword for slide transition ["animate" || "fade"]
-             */
 
             // prepare slides and adjust container to fixed height for animations
 
@@ -156,13 +163,13 @@ var Slider = (function() {
 
                 $thisSlider.find('[class*="btnNext"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
                 $thisSlider.find('[class*="btnPrev"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -188,7 +195,7 @@ var Slider = (function() {
                     paginationLinks.on('click', function(e) {
 
                         e.preventDefault();
-                        stopAutoplay(sliderId);
+                        stopAutoplay(sliderIndex);
 
                         if ($(this).parent().find('.pageDots__btnPrev').length) {
                             var linkIndex = $(this).index() -1;
@@ -210,7 +217,7 @@ var Slider = (function() {
 
                 $thisSlides.not('a').on('tap', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
@@ -222,13 +229,13 @@ var Slider = (function() {
 
                 $(this).on('swipeleft', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
                 $(this).on('swiperight',function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderId);
+                    stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -237,7 +244,7 @@ var Slider = (function() {
             // enable auto play
 
             if (options.autoplay !== undefined) {
-                slideAutoplayIntervals[sliderId] = window.setInterval(function(){
+                slideAutoplayIntervals[sliderIndex] = window.setInterval(function(){
                     showSlide($thisSlider)
                 }, options.autoplay);
             }
@@ -255,7 +262,7 @@ var Slider = (function() {
          *  @param {string || integer} target      - a key for the target: "next" || "prev" || any slide number
          */
 
-        var    $thisSlides        = $thisSlider.find('.slider__slide');
+        var $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
         var totalSlides        = $thisSlider.data().totalSlides;
@@ -382,15 +389,16 @@ var Slider = (function() {
 
     }
 
-    function stopAutoplay(sliderId) {
+    function stopAutoplay(sliderIndex) {
 
         /**
          *  Stop the auto play.
          *
-         *  @param {string} sliderId - the slider css id (e.g. "#mySlider")
+         *  @param {string} sliderIndex - the internal slider instance index number
          */
 
-        window.clearInterval(slideAutoplayIntervals[sliderId]);
+        window.clearInterval(slideAutoplayIntervals[sliderIndex]);
+        
     }
 
     function updatePagination($thisSlider, thisSlideIndex) {

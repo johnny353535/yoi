@@ -22,111 +22,110 @@ var Stepper = (function() {
     // private functions
     // =================
 
-    function initializeStepper() {
+    function initializeStepper($stepper) {
 
         /**
-         *  Initialize by preparing the dom and attaching events.
+         *  Initialize all *[data-stepper] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-stepper] (= function call with $stepper).
+         *  $stepper must be a jQuery object or jQuery object collection.
+         *
+         *  @param  {jQuery dom object} $stepper - the stepper
          */
+        
+        if (!($stepper instanceof jQuery)) {
+            $stepper = $('[data-stepper]');
+        }
 
-        $('.stepper').each(function() {
+        $stepper.each(function() {
 
-            var $this = $(this);
+            var $thisStepper = $(this);
 
-            $this.prepend($stepperBtns.clone());
+            $thisStepper.prepend($stepperBtns.clone());
 
             // attach events
 
             var eventType = Helper.environment('mobile') ? 'tap' : 'click';
 
-            $this.find('.stepper__btnPlus').on(eventType,function(e) {
+            $thisStepper.find('.stepper__btnPlus').on(eventType, function(e) {
                 e.preventDefault();
-                increaseItemCount($this);
+                increaseItemCount($thisStepper);
             });
 
-            $this.find('.stepper__btnMinus').on(eventType,function(e) {
+            $thisStepper.find('.stepper__btnMinus').on(eventType, function(e) {
                 e.preventDefault();
-                decreaseItemCount($this);
+                decreaseItemCount($thisStepper);
             });
 
-            $this.find('.stepper__input').blur(function() {
-                checkInput($this);
+            $thisStepper.find('.stepper__input').blur(function() {
+                checkInput($thisStepper);
             });
 
-            $this
+            $thisStepper
                 .on('swipeleft', function(e) {
-                    decreaseItemCount($this);
+                    decreaseItemCount($thisStepper);
                 })
                 .on('swiperight', function(e) {
-                    increaseItemCount($this);
+                    increaseItemCount($thisStepper);
                 });
 
         });
 
     }
 
-    function increaseItemCount($targetElem) {
+    function increaseItemCount($stepper) {
 
         /**
          *  Increase the item count.
          *
-         *  @param  {jQuery dom object} $targetElem - the btn input combo element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($targetElem);
+        checkInput($stepper);
 
-        var currentValue = $targetElem.find('.stepper__input')[0].value;
+        var currentValue = $stepper.find('.stepper__input')[0].value;
 
         if (currentValue >= 0) {
             currentValue++;
-            $targetElem.find('input')[0].value = currentValue;
+            $stepper.find('input')[0].value = currentValue;
         }
-
-        return false;
 
     }
 
-    function decreaseItemCount($targetElem) {
+    function decreaseItemCount($stepper) {
 
         /**
          *  Decrease the item count
          *
-         *  @param  {jQuery dom object} $targetElem - the .stepper element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($targetElem);
+        checkInput($stepper);
 
-        var currentValue = $targetElem.find('.stepper__input')[0].value;
+        var currentValue = $stepper.find('.stepper__input')[0].value;
 
         if (currentValue > 1) {
             currentValue--;
-            $targetElem.find('input')[0].value = currentValue;
+            $stepper.find('input')[0].value = currentValue;
         }
-
-        return false;
 
     }
 
-    function checkInput($targetElem) {
+    function checkInput($stepper) {
 
         /**
          *  Check the .stepper input element.
          *
-         *  @param  {jQuery dom object} $targetElem - the .stepper element
-         *  @return {bool false}
+         *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        var $txtField = $targetElem.find('.stepper__input');
-        var $input    = $targetElem.find('.stepper__input')[0].value;
+        var $txtField = $stepper.find('.stepper__input');
+        var $input    = $stepper.find('.stepper__input')[0].value;
 
         if (!$input.match(/^[0-9]+$/)) {
             $txtField.addClass('input--error');
         } else {
             $txtField.removeClass('input--error');
         }
-
-        return false;
 
     }
 

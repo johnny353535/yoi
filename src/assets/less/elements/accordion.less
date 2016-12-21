@@ -1,0 +1,110 @@
+/** accordion.less */
+
+// block
+// =====
+
+.accordion {
+
+    .mixin-clearfix;
+    .mixin-defaultBorderRadius;
+    border: @color-main-22 1px solid;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    // reset borders
+
+    :last-child.is--closed > .accordion__header,
+    :last-child > .accordion__body {
+        border: 0;
+    }
+
+}
+
+// elements
+// ========
+
+.accordion__section {
+    margin: 0;
+}
+
+.accordion__header {
+    
+    .mixin-userSelectNone;
+    background: #fff;
+    border-bottom: @color-main-22 1px solid;
+    cursor: pointer;
+    margin: 0;
+    min-height: 2rem;
+    padding: .5rem 3rem .5rem 1rem;
+    position: relative;
+
+    &::after {
+        color: @color-main-22;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &:hover {
+        background: @color-main-25;
+    }
+
+    &:hover::after {
+        color: @color-main-10;
+    }
+
+}
+
+// icons (only if JS is enabled)
+
+.js {
+
+    .is--open .accordion__header:after {
+        .mixin-icon;
+        content: '\f003';
+    }
+
+    .is--closed .accordion__header:after {
+        .mixin-icon;
+        content: '\f002';
+    }
+
+}
+
+.accordion__body {
+    background: fade(@color-main-25,50%);
+    border-bottom: @color-main-22 1px solid;
+    margin: 0;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+// modifiers
+// =========
+
+.accordion--dark {
+
+    border-color: @color-main-5;
+
+    .accordion__header {
+
+        background: @color-main-10;
+        border-color: @color-main-7;
+        color: #fff;
+
+        &::after {
+            color: @color-main-15;
+        }
+
+        &:hover::after {
+            color: @color-main-22;
+        }
+
+    }
+
+    .accordion__body {
+        border-color: @color-main-7;
+    }
+
+}

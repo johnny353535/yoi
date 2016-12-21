@@ -47,8 +47,8 @@
             <div class="documentation__body">
                 
 
-<h2 id="flyout">Flyout</h2>
-<p>Use this element to display a small tab and text label that is pinned to either the left or right side of the screen and displays a small panel on click. You should <strong>use only one flyout per page</strong> and <strong>only for important information</strong> (such as feedback / help / contact links) since the sticky labels on the side of the screen appera rather prominent to the user. This element was <strong>designed for large screens only</strong> and should not be used on mobile pages.</p>
+<h2 id="accordion">Accordion</h2>
+<p>Use this element to create one or several grouped sections that expand or collapse content, once a section header is clicked.</p>
 <table>
 <thead>
 <tr>
@@ -59,52 +59,174 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td>flyout.less</td>
+<td>accordion.less</td>
 </tr>
 <tr>
 <td>JS-File</td>
-<td>flyout.js</td>
+<td>accordion.js</td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
-<td><code>.flyout</code></td>
+<td><code>.accordion</code></td>
 </tr>
 <tr>
 <td>Modifiers</td>
-<td><code>.flyout--left, .flyout--right</code></td>
+<td><code>.accordion--dark</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="basic-example">Basic Example</h3>
-<p>A flyout <strong>can contain any content</strong>. Since it’s a very prominent element on any page, use it very sparely and only where it makes sense. A perfectly valid scenario would be a flyout as a contact or feedback panel.</p>
+<h3 id="simple-example">Simple Example</h3>
+<p>This is the markup for the most basic example of an accordion. Don’t forget to add the custom data-attribute <code>accordion</code>.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="flyout" data-flyout>
-            <h2 class="flyout__handle">Click Me</h2>
-            <div class="flyout__body">
-                <h3 class="ff-ss">This is an Example Flyout</h3>
-                <p class="fs-15 lh-20 m-tb-4">Use this element to display relevant information like contact links or such.</p>
-                <a href="#" class="btn btn--large d-blk w-1-1 m-b-2">
-                    <i aria-hidden="true" class="icon--021"></i>
-                    <span>Call-Back</span>
-                </a>
-                <a href="#" class="btn btn--large d-blk w-1-1">
-                    <i aria-hidden="true" class="icon--038"></i>
-                    <span>E-Mail</span>
-                </a>
+        <div class="accordion" data-accordion>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Manganese</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Gold</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Calcium</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray Group 2 alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.[4] Free calcium metal is too reactive to occur in nature. Calcium is produced in supernova nucleosynthesis.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<h3 id="modifiers">Modifiers</h3>
-<p>There are two modifiers available (<code>.flyout--left, .flyout--right</code>) to either <strong>stick the flyout to the left or to the right side of the screen</strong>. In the example above, neither <code>.flyout--left</code> nor <code>flyout--right</code> was used, still the flyout sits on the left side of the screen. <strong>Left is the default position</strong>, the modifier class got added since no position was defined.</p>
-<h3 id="position-in-dom">Position in DOM</h3>
-<p>To correctly position the flyout (to »pin« it while scrolling), <code>position:fixed</code> is applied. Since unexpected positioning are likely to occur due to the flyout’s position in the DOM, each flyout gets removed from it’s current position an re-injected at the end of the <code>body</code>. This means <strong>you do not have to care where in your markup you put the flyout</strong>.</p>
-<h3 id="noscript-fall-back">NoScript / Fall Back</h3>
-<p>If JavaScript is not available, the flyout is a simple box and remains at it’s position in the DOM.</p>
+<h3 id="controlling-accordion-sections">Controlling Accordion Sections</h3>
+<p>By default, all accordion sections are closed on page load. However, you can define which section should stay expanded/open. To do so, add the modifier <code>.is--open</code> to the very <code>.accordion__section</code> element you picked.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="accordion" data-accordion>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Manganese</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
+                </div>
+            </div>
+            <div class="accordion__section is--open">
+                <div class="accordion__header">
+                    <h3>Gold</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>Another feature allows you to <strong>open or close all accordions on the page</strong>. You may call the according functions in your JavaScript:</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>
+Accordion.openAll();  // opens all accordion sections found in DOM
+Accordion.closeAll(); // closes all accordion sections found in DOM
+</pre></code></div>
+
+<p>Alternatively, you can assign the function calls to elements like buttons by tagging them with the custom data-attribute <code>data-action</code> and the according value like <code>data-action=&quot;openAllAccordions&quot;</code> or <code>data-action=&quot;closeAllAccordions&quot;</code>.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <p class="btns">
+            <button class="btn btn--large" data-action="openAllAccordions">Open All Accordions</button>
+            <button class="btn btn--large" data-action="closeAllAccordions">Close All Accordions</button>
+        </p>
+    </div>
+</div>
+
+<h3 id="linked-accordion-sections">Linked Accordion Sections</h3>
+<p>It’s a common UI pattern to close all accordion sections but the one the user wishes to open. This behaviour is optional and may be enabled by adding <code>linked:true</code> to the custom data-attribute <code>data-accordion</code>:</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="accordion" data-accordion="linked:true;">
+            <div class="accordion__section is--open">
+                <div class="accordion__header">
+                    <h3>Manganese</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Gold</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Calcium</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray Group 2 alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.[4] Free calcium metal is too reactive to occur in nature. Calcium is produced in supernova nucleosynthesis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="modifier">Modifier</h3>
+<p>There is one modifier available: <code>.accordion--dark</code>. It renders the accordion in dark colors:</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="accordion accordion--dark" data-accordion>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Manganese</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Gold</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
+                </div>
+            </div>
+            <div class="accordion__section">
+                <div class="accordion__header">
+                    <h3>Calcium</h3>
+                </div>
+                <div class="accordion__body">
+                    <p>Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray Group 2 alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.[4] Free calcium metal is too reactive to occur in nature. Calcium is produced in supernova nucleosynthesis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
