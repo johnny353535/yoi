@@ -12,23 +12,6 @@ Tables come with a few handy modifiers, eg. to render zebra-striped tables, tabl
 | Base CSS-Class | none (just the table-tag) or `.table`                                                                                            |
 | Modifiers      | `.table--borderless, .table--colHeader, .table--compressed, .table--fixed, .table--simpleHeader, .table--stripped, .table-zebra` |
 
-### JavaScript Interface
-{% endmarkdown %}
-
-<div class="documentation__block">
-   <code class="language-markup"><pre>
-data-table="
-    removeable   : @param;
-    selectable   : @param;
-    btnModifiers : @param;
-"
-/**
- *  @param {bool}           removeable   - removeable table rows
- *  @param {bool || string} selectable   - if set to true – single table rows can be selected, if set to "multi" – multiple table rows can be selected
- */</pre></code>
-</div>
-
-{% markdown %}
 ### Simple Table
 {% endmarkdown %}
 
@@ -64,7 +47,10 @@ data-table="
 </div>
 
 {% markdown %}
-### Table Without Borders
+### Modifiers
+Add one or more of the available modifier classes to change the appearance of a table.
+#### Table Without Any Borders
+Use the modifier `table--borderless`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -99,7 +85,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Table With Headers inside Rows
+#### Table With Headers Inside Rows
+Use the modifier `table--colHeader` and change the markup, so that each `<tr>` contains one `<th>`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -122,7 +109,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Compressed Table
+#### Compressed Table
+Use the modifier `table--compressed`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -157,7 +145,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Fixed Width Table
+#### Fixed-Width Table
+Use the modifier `table--fixed`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -192,7 +181,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Table With Simple Header
+#### Table With Simple Header
+Use the modifier `table--simpleHeader`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -227,7 +217,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Table Without Outer Borders
+#### Table Without Outer Borders
+Use the modifier `table--stripped`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -262,7 +253,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Zebra-Striped Table
+#### Zebra-Striped Table
+Use the modifier `table--zebra`:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -297,7 +289,9 @@ data-table="
 </div>
 
 {% markdown %}
-### Table With Selectable Rows
+### JavaScript Interface
+#### Table With Selectable Rows
+Use this option by adding `selectable:true;` as a value to the custom data-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -328,7 +322,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Table With Multiple Selectable Rows
+#### Table With Multiple Selectable Rows
+Use this option by adding `selectable:multi;` as a value to the custom data-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -359,8 +354,8 @@ data-table="
 </div>
 
 {% markdown %}
-### Table With Deleteable Rows
-Use the option `btnModifiers`to set the modifiers for the delete buttons. In this case we re using `large subtle`. Learn more about [`.btn`](/pages/elements/buttons.html) and it’s modifiers.
+#### Table With Removeable Rows
+Use this option by adding `removeable:true;` as a value to the custom data-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">

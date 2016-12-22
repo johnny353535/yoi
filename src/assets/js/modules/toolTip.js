@@ -11,24 +11,21 @@ var Tooltip = (function() {
     // private functions
     // =================
 
-    function initializeTooltip(scope) {
+    function initializeTooltip($tooltip) {
 
         /**
-         *  Initialize the tool tips.
+         *  Initialize all *[data-tooltip] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-tooltip] (= function call with $tooltip).
+         *  $tooltip must be a jQuery object or jQuery object collection.
          *
-         *  @param  {string} scope - css selector
+         *  @param {jQuery dom object} $tooltip - the tooltip(s)
          */
 
-        // set css-selector to either target all tool tip related elements
-        // or only the ones in a specified scope (e.g. #myContainer [data-tooltip="..."])
-
-        if (scope === undefined) {
-            scope = '';
-        } else {
-            scope += ' ';
+        if (!($tooltip instanceof jQuery)) {
+            $tooltip = $('[data-tooltip]');
         }
 
-        $(scope + '[data-tooltip]').each(function() {
+        $tooltip.each(function() {
 
             // set up vars
 

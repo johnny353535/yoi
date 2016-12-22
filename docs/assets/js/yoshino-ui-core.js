@@ -860,10 +860,17 @@ var Accordion = (function() {
          *  or target one or more specific *[data-accordion] (= function call with $accordion).
          *  $accordion must be a jQuery object or jQuery object collection.
          *
+         *  @param {jQuery dom object} $accordion - the accordion(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div class="accordion" data-accordion="linked:true;">
+         *
+         *  Available options:
+         *
          *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
          *                                             one section can be open, the remaining sections
          *                                             will always close
-         *  @param  {jQuery dom object} $accordion   - the accordion(s)
          */
         
         if (!($accordion instanceof jQuery)) {
@@ -2222,7 +2229,14 @@ var Dismiss = (function() {
          *  $dismissButton must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $dismissButton - the dismiss button(s)
-         *  @option {string} target                   - selector for target element
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-dismiss="target:#myTargetElement">
+         *
+         *  Available options:
+         *
+         *  @option {string} target - selector for target element
          */
         
         if (!($dismissButton instanceof jQuery)) {
@@ -3187,11 +3201,18 @@ var CustomFormElements = (function() {
         // switches
 
         $(scope + '.switch').each(function() {
+            
+           /**
+            *  How Does the Options-Interface Work?
+            *
+            *  Use the custom data-attribute to apply options. Use this notation:
+            *  data-switch="foo:bar;hello:world;"
+            */
 
             var $thisSwitch = $(this);
 
             var options     = Helper.toObject($thisSwitch.data('switch'));
-            var    labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+            var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
             var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
 
             var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
@@ -3822,21 +3843,24 @@ var Modal = (function() {
          *  or target one or more specific *[data-modal] (= function call with $modal).
          *  $modal must be a jQuery object or jQuery object collection.
          *
-         *  Modal links may have options, provided by a key/value list inside the
-         *  data-modal attribute (eg. data-modal="cache:true;").
-         *
-         *  @option {string} id               - id-selector, eg. "#modal-test"
-         *                                      To reference modals internally, this script uses generated ids, which
-         *                                      may be overridden by this option.
-         *
-         *  @option {string} path             - Path to modal page, eg. "pages/modal_test.html".
-         *                                      Any element can be linked to a modal. If it's not a link or a link
-         *                                      with a href that does not link to a modal, the modal path may be
-         *                                      overridden by this option.
-         * 
-         *  @option {bool} cache              - If true, the referenced modal will preload in the background.
-         *
          *  @param {jQuery dom object} $modal - the modal(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-modal="path:pages/modal_test.html;cache:true;">
+         *
+         *  Available options:
+         *
+         *  @option {string} id   - id-selector, eg. "#modal-test"
+         *                          To reference modals internally, this script uses generated ids, which
+         *                          may be overridden by this option.
+         *
+         *  @option {string} path - Path to modal page, eg. "pages/modal_test.html".
+         *                          Any element can be linked to a modal. If it's not a link or a link
+         *                          with a href that does not link to a modal, the modal path may be
+         *                          overridden by this option.
+         *
+         *  @option {bool} cache  - If true, the referenced modal will preload in the background.
          */
         
         if (!($modal instanceof jQuery)) {
@@ -4243,20 +4267,26 @@ var PieChart = (function() {
          *  or target one or more specific *[data-piechart] (= function call with $piechart).
          *  $piechart must be a jQuery object or jQuery object collection.
          *
-         *  @option {string}  baseColor          - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
-         *                                         Sets the base color, used to calculate a unique color for each
-         *                                         slice of the pie chart.
-         *
-         *  @option {bool}    highlight          - Default is true. Set to false if you wish to disable highlighting individual
-         *                                         slices on mouse over.
-         *
-         *  @option {string}  palette            - "fixed" || "random" || "shades" || "unique" - default is "shades".
-         *                                         Selects the formula used to calculate the unique color for
-         *                                         each slice of the pie chart.
-         *
-         *  @option {number}  size               - Sets the diameter of the pie chart SVG.
-         *
          *  @param {jQuery dom object} $pieChart - the pie chart(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-piechart="palette:fixed;size:200;">
+         *
+         *  Available options:
+         *
+         *  @option {string} baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
+         *                               Sets the base color, used to calculate a unique color for each
+         *                               slice of the pie chart.
+         *                             
+         *  @option {bool}   highlight - Default is true. Set to false if you wish to disable highlighting individual
+         *                               slices on mouse over.
+         *                             
+         *  @option {string} palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
+         *                               Selects the formula used to calculate the unique color for
+         *                               each slice of the pie chart.
+         *                             
+         *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
         
         if (!($pieChart instanceof jQuery)) {
@@ -4638,6 +4668,14 @@ var PopOver = (function() {
          *  or target one or more specific *[data-popover] (= function call with $popover).
          *  $popover must be a jQuery object or jQuery object collection.
          *
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-popover="pos:bt;eventShow:mouseover;">
+         *
+         *  Available options:
+         *
          *  @option {string} target                     - The target pop-over id selector.
          *  @option {string} pos                        - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
          *  @option {string} ref                        - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
@@ -4645,7 +4683,6 @@ var PopOver = (function() {
          *  @option {string} eventShow                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
          *  @option {string} eventHide                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
          *  @option {bool}   preventDefault             - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
-         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
          */
 
         if (!($popOverTrigger instanceof jQuery)) {
@@ -5078,12 +5115,19 @@ var RangeInput = (function() {
          *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
          *  $rangeinput must be a jQuery object or jQuery object collection.
          *
-         *  @option {number}  absMin               - absolut min value
-         *  @option {number}  absMax               - absolut max value
-         *  @option {number}  min                  - initial min value
-         *  @option {number}  max                  - initial max value
-         *  @option {string}  unit                 - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
          *  @param {jQuery dom object} $rangeinput - the range input(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-rangeinput="absMin:10;absMax:200;unit:$;">
+         *
+         *  Available options:
+         *
+         *  @option {number} absMin - absolut min value
+         *  @option {number} absMax - absolut max value
+         *  @option {number} min    - initial min value
+         *  @option {number} max    - initial max value
+         *  @option {string} unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
          */
 
         if (!($rangeInput instanceof jQuery)) {
@@ -5435,36 +5479,66 @@ var RangeInput = (function() {
 
 })();
 
-// ===========================================================
-//
-//        File:    js/remove.js
-//        Descr.:    Remove an element from the dom.
-//        Status:    Done.
-//
-// ===========================================================
+/** remove.js */
 
-(function() {
+var Remove = (function() {
+    
+    // private functions
+    // =================
+    
+    function initializeRemoveTriggers($removeTrigger) {
+        
+        /**
+         *  Initialize all *[data-remove] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-remove] (= function call with $removeTrigger).
+         *  $removeTrigger must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $removeTrigger - the remove trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-remove="target:#myTargetElement">
+         *
+         *  Available options:
+         *
+         *  @option {string, CSS selector} target - optional selector for the DOM element to remove
+         *                                          by default, the target is the trigger's first parent element
+         */
 
-    var parentElements = '.dataElement, .item';
+        if (!($removeTrigger instanceof jQuery)) {
+            $removeTrigger = $('[data-remove]');
+        }
+        
+        $removeTrigger.each(function() {
 
-    $('[data-action="remove"]').each(function() {
+            var $thisremoveTrigger = $(this);
+            var options            = Helper.toObject($thisremoveTrigger.data('remove'));
+            var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
 
-        var $this = $(this);
-        var    $thisParent = $this.parents(parentElements);
-
-        $this.on('click', function(e) {
-
-            e.preventDefault();
-            $thisParent.fadeOut(function(){
-                $thisParent.remove();
+            $thisremoveTrigger.on('click', function(e) {
+                e.preventDefault();
+                $thisTarget.fadeOut(function(){
+                    $thisTarget.remove();
+                });
             });
-
+            
         });
-
-    });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeRemoveTriggers();
+    
+    // public functions
+    // ================
+    
+    return {
+        init : initializeRemoveTriggers
+    }
 
 })();
-
 /** reveal.js */
 
 var Reveal = (function() {
@@ -5475,15 +5549,17 @@ var Reveal = (function() {
     function initializeReveal($revealTrigger) {
         
         /**
-         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-rangeinput] (= function call with $radioBtn).
-         *  $rangeinput must be a jQuery object or jQuery object collection.
+         *  Initialize all *[data-reveal] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-reveal] (= function call with $revealTrigger).
+         *  $revealTrigger must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $revealTrigger - the reveal trigger(s)
          *
-         *  Show the corresponding target elements on any event you wish to bind to the trigger.
-         *  Options include to chose from all standard event handlers for the trigger and
-         *  using one of two available transitions.
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-reveal="target:#myTargetElement">
+         *
+         *  Available options:
          *
          *  @option {string} target     - A string which is used as selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
@@ -5575,12 +5651,19 @@ var ScrollTo = (function() {
 
         /**
          *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
-         *  or target one or more specific a[data-scrollto] (= function call with $scrollTo).
-         *  $scrollTo must be a jQuery object or jQuery object collection.
+         *  or target one or more specific a[data-scrollto] (= function call with $scrollToTrigger).
+         *  $scrollToTrigger must be a jQuery object or jQuery object collection.
          *
-         *  @option {string} highlight                  - Define an optional effect to highlight the target element once
-         *                                                the scrolling has stopped. Chose from "blink" and "pulse".
          *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-scrollto="hightlight:true;">
+         *
+         *  Available options:
+         *
+         *  @option {string} highlight - Define an optional effect to highlight the target element once
+         *                               the scrolling has stopped. Chose from "blink" and "pulse".
          */
 
         if (!($scrollToTrigger instanceof jQuery)) {
@@ -5612,8 +5695,8 @@ var ScrollTo = (function() {
         /**
          *  Scroll the page to a given target element.
          *
-         *  @param  {string} targetId     - the target element css id (e.g. "#myTarget")
-         *  @option {string} $thisTrigger - the scrollTo trigger
+         *  @param {string} targetId     - the target element css id (e.g. "#myTarget")
+         *  @param {string} $thisTrigger - the scrollTo trigger element
          */
         
         var $target              = $(targetId);
@@ -5767,19 +5850,26 @@ var Slider = (function() {
     // private functions
     // =================
 
-    function initializeSliders($slider) {
+    function initializeSlider($slider) {
 
         /**
          *  Initialize all *[data-slider] found in the document (= function call without parameters)
          *  or target one or more specific *[data-slider] (= function call with $slider).
          *  $slider must be a jQuery object or jQuery object collection.
          *
-         *  @option {number}            autoplay   - interval in miliseconds to change the slides automatically
-         *  @option {bool}              clickable  - click on a slide to switch to the next side
-         *  @option {string}            controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
-         *  @option {bool}              swipeable  - change the slide on swipe left/right
-         *  @option {string}            transition - keyword for slide transition ["animate" || "fade"]
-         *  @param  {jQuery dom object} $slider    - the slider
+         *  @param {jQuery dom object} $slider - the slider(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-slider="autoplay:true;controls:pageBtns;">
+         *
+         *  Available options:
+         *
+         *  @option {number} autoplay   - interval in miliseconds to change the slides automatically
+         *  @option {bool}   clickable  - click on a slide to switch to the next side
+         *  @option {string} controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {bool}   swipeable  - change the slide on swipe left/right
+         *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
 
         if (!($slider instanceof jQuery) || $slider === undefined) {
@@ -6123,13 +6213,13 @@ var Slider = (function() {
     // initialize
     // ==========
 
-    initializeSliders();
+    initializeSlider();
 
     // public functions
     // ================
 
     return {
-        init : initializeSliders,
+        init : initializeSlider,
         show : showSlide
     };
 
@@ -6381,24 +6471,33 @@ var Table = (function() {
     // private functions
     // =================
 
-    function initializeTables() {
-
+    function initializeTable($table) {
+        
         /**
-         *  Get all tables with custom data-attribute and
-         *  enhance functionality.
+         *  Initialize all table[data-table] found in the document (= function call without parameters)
+         *  or target one or more specific table[data-table] (= function call with $table).
+         *  $table must be a jQuery object or jQuery object collection.
+         *
+         *  @param  {jQuery dom object} $table - the table(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <table data-table="removeable:true;">
+         *
+         *  Available options:
+         *
+         *  @option {string ["true"|"false"]} removeable - removeable table rows
+         *  @option {string ["true"|"false"]} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
+        
+        if (!($table instanceof jQuery)) {
+            $table = $('[data-table]');
+        }
 
-        $('[data-table]').each(function(){
+        $table.each(function(){
 
             var $thisTable = $(this);
             var options    = Helper.toObject($thisTable.data('table'));
-
-            /**
-             *  Available options:
-             *
-             *  @param {bool}           removeable   - removeable table rows
-             *  @param {bool || string} selectable   - if set to true – single table rows can be selected, if set to "multi" – multiple table rows can be selected
-             */
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -6516,13 +6615,13 @@ var Table = (function() {
     // initialize
     // ==========
 
-    initializeTables();
+    initializeTable();
 
     // public functions
     // ================
 
     return {
-        init      : initializeTables,
+        init      : initializeTable,
         selectRow : selectRow,
         removeRow : removeRow
     };
@@ -6655,32 +6754,40 @@ var ToggleGroup = (function() {
     // private functions
     // =================
 
-    function initializeToggleGroup() {
+    function initializeToggleGroup($toggleGroup) {
 
-        /*
-            Initialize.
-        */
+        /**
+         *  Initialize all *[data-toggle] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-toggle] (= function call with $toggleGroup).
+         *  $toggleGroup must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $toggleGroup - the toggle group(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-toggle="target:#myTargetElement;activeClassName:is--active;">
+         *
+         *  Available options:
+         *
+         *  @option {string} target          - Selector for target element.
+         *  @option {string} group           - A unique string to group toggle elements.
+         *  @option {string} activeClassName - To highlight an "active" trigger, this
+         *                                     CSS class name is added to the trigger.
+         */
+        
+        if (!($toggleGroup instanceof jQuery)) {
+            $toggleGroup = $('[data-toggle]');
+        }
 
-        $('[data-toggle]').each(function(index) {
+        $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-
             var options           = Helper.toObject($thisTrigger.data('toggle'));
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
             var activeClassName   = options.activeClassName;
-
             var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
-
-            /**
-             *  Available options:
-             *
-             *  @option {string} target          - Selector for target element.
-             *  @option {string} group           - A unique string to group toggle elements.
-             *  @option {string} activeClassName - To highlight an "active" trigger, this
-             *                                     CSS class name is added to the trigger.
-             */
 
             // group related toggle elements for easy dom-access
 
@@ -6838,24 +6945,21 @@ var Tooltip = (function() {
     // private functions
     // =================
 
-    function initializeTooltip(scope) {
+    function initializeTooltip($tooltip) {
 
         /**
-         *  Initialize the tool tips.
+         *  Initialize all *[data-tooltip] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-tooltip] (= function call with $tooltip).
+         *  $tooltip must be a jQuery object or jQuery object collection.
          *
-         *  @param  {string} scope - css selector
+         *  @param {jQuery dom object} $tooltip - the tooltip(s)
          */
 
-        // set css-selector to either target all tool tip related elements
-        // or only the ones in a specified scope (e.g. #myContainer [data-tooltip="..."])
-
-        if (scope === undefined) {
-            scope = '';
-        } else {
-            scope += ' ';
+        if (!($tooltip instanceof jQuery)) {
+            $tooltip = $('[data-tooltip]');
         }
 
-        $(scope + '[data-tooltip]').each(function() {
+        $tooltip.each(function() {
 
             // set up vars
 

@@ -91,19 +91,26 @@ var Slider = (function() {
     // private functions
     // =================
 
-    function initializeSliders($slider) {
+    function initializeSlider($slider) {
 
         /**
          *  Initialize all *[data-slider] found in the document (= function call without parameters)
          *  or target one or more specific *[data-slider] (= function call with $slider).
          *  $slider must be a jQuery object or jQuery object collection.
          *
-         *  @option {number}            autoplay   - interval in miliseconds to change the slides automatically
-         *  @option {bool}              clickable  - click on a slide to switch to the next side
-         *  @option {string}            controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
-         *  @option {bool}              swipeable  - change the slide on swipe left/right
-         *  @option {string}            transition - keyword for slide transition ["animate" || "fade"]
-         *  @param  {jQuery dom object} $slider    - the slider
+         *  @param {jQuery dom object} $slider - the slider(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-slider="autoplay:true;controls:pageBtns;">
+         *
+         *  Available options:
+         *
+         *  @option {number} autoplay   - interval in miliseconds to change the slides automatically
+         *  @option {bool}   clickable  - click on a slide to switch to the next side
+         *  @option {string} controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {bool}   swipeable  - change the slide on swipe left/right
+         *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
 
         if (!($slider instanceof jQuery) || $slider === undefined) {
@@ -447,13 +454,13 @@ var Slider = (function() {
     // initialize
     // ==========
 
-    initializeSliders();
+    initializeSlider();
 
     // public functions
     // ================
 
     return {
-        init : initializeSliders,
+        init : initializeSlider,
         show : showSlide
     };
 

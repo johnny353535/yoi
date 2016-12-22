@@ -11,32 +11,40 @@ var ToggleGroup = (function() {
     // private functions
     // =================
 
-    function initializeToggleGroup() {
+    function initializeToggleGroup($toggleGroup) {
 
-        /*
-            Initialize.
-        */
+        /**
+         *  Initialize all *[data-toggle] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-toggle] (= function call with $toggleGroup).
+         *  $toggleGroup must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $toggleGroup - the toggle group(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-toggle="target:#myTargetElement;activeClassName:is--active;">
+         *
+         *  Available options:
+         *
+         *  @option {string} target          - Selector for target element.
+         *  @option {string} group           - A unique string to group toggle elements.
+         *  @option {string} activeClassName - To highlight an "active" trigger, this
+         *                                     CSS class name is added to the trigger.
+         */
+        
+        if (!($toggleGroup instanceof jQuery)) {
+            $toggleGroup = $('[data-toggle]');
+        }
 
-        $('[data-toggle]').each(function(index) {
+        $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-
             var options           = Helper.toObject($thisTrigger.data('toggle'));
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
             var activeClassName   = options.activeClassName;
-
             var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
-
-            /**
-             *  Available options:
-             *
-             *  @option {string} target          - Selector for target element.
-             *  @option {string} group           - A unique string to group toggle elements.
-             *  @option {string} activeClassName - To highlight an "active" trigger, this
-             *                                     CSS class name is added to the trigger.
-             */
 
             // group related toggle elements for easy dom-access
 

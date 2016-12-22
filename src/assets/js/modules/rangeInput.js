@@ -31,12 +31,19 @@ var RangeInput = (function() {
          *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
          *  $rangeinput must be a jQuery object or jQuery object collection.
          *
-         *  @option {number}  absMin               - absolut min value
-         *  @option {number}  absMax               - absolut max value
-         *  @option {number}  min                  - initial min value
-         *  @option {number}  max                  - initial max value
-         *  @option {string}  unit                 - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
          *  @param {jQuery dom object} $rangeinput - the range input(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-rangeinput="absMin:10;absMax:200;unit:$;">
+         *
+         *  Available options:
+         *
+         *  @option {number} absMin - absolut min value
+         *  @option {number} absMax - absolut max value
+         *  @option {number} min    - initial min value
+         *  @option {number} max    - initial max value
+         *  @option {string} unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
          */
 
         if (!($rangeInput instanceof jQuery)) {

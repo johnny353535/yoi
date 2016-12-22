@@ -60,7 +60,14 @@ var Dismiss = (function() {
          *  $dismissButton must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $dismissButton - the dismiss button(s)
-         *  @option {string} target                   - selector for target element
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-dismiss="target:#myTargetElement">
+         *
+         *  Available options:
+         *
+         *  @option {string} target - selector for target element
          */
         
         if (!($dismissButton instanceof jQuery)) {

@@ -131,11 +131,18 @@ var CustomFormElements = (function() {
         // switches
 
         $(scope + '.switch').each(function() {
+            
+           /**
+            *  How Does the Options-Interface Work?
+            *
+            *  Use the custom data-attribute to apply options. Use this notation:
+            *  data-switch="foo:bar;hello:world;"
+            */
 
             var $thisSwitch = $(this);
 
             var options     = Helper.toObject($thisSwitch.data('switch'));
-            var    labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+            var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
             var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
 
             var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');

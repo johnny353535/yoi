@@ -8,15 +8,17 @@ var Reveal = (function() {
     function initializeReveal($revealTrigger) {
         
         /**
-         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-rangeinput] (= function call with $radioBtn).
-         *  $rangeinput must be a jQuery object or jQuery object collection.
+         *  Initialize all *[data-reveal] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-reveal] (= function call with $revealTrigger).
+         *  $revealTrigger must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $revealTrigger - the reveal trigger(s)
          *
-         *  Show the corresponding target elements on any event you wish to bind to the trigger.
-         *  Options include to chose from all standard event handlers for the trigger and
-         *  using one of two available transitions.
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-reveal="target:#myTargetElement">
+         *
+         *  Available options:
          *
          *  @option {string} target     - A string which is used as selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)

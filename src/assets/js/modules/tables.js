@@ -17,24 +17,33 @@ var Table = (function() {
     // private functions
     // =================
 
-    function initializeTables() {
-
+    function initializeTable($table) {
+        
         /**
-         *  Get all tables with custom data-attribute and
-         *  enhance functionality.
+         *  Initialize all table[data-table] found in the document (= function call without parameters)
+         *  or target one or more specific table[data-table] (= function call with $table).
+         *  $table must be a jQuery object or jQuery object collection.
+         *
+         *  @param  {jQuery dom object} $table - the table(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <table data-table="removeable:true;">
+         *
+         *  Available options:
+         *
+         *  @option {string ["true"|"false"]} removeable - removeable table rows
+         *  @option {string ["true"|"false"]} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
+        
+        if (!($table instanceof jQuery)) {
+            $table = $('[data-table]');
+        }
 
-        $('[data-table]').each(function(){
+        $table.each(function(){
 
             var $thisTable = $(this);
             var options    = Helper.toObject($thisTable.data('table'));
-
-            /**
-             *  Available options:
-             *
-             *  @param {bool}           removeable   - removeable table rows
-             *  @param {bool || string} selectable   - if set to true – single table rows can be selected, if set to "multi" – multiple table rows can be selected
-             */
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -152,13 +161,13 @@ var Table = (function() {
     // initialize
     // ==========
 
-    initializeTables();
+    initializeTable();
 
     // public functions
     // ================
 
     return {
-        init      : initializeTables,
+        init      : initializeTable,
         selectRow : selectRow,
         removeRow : removeRow
     };

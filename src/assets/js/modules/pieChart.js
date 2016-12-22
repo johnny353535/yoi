@@ -28,20 +28,26 @@ var PieChart = (function() {
          *  or target one or more specific *[data-piechart] (= function call with $piechart).
          *  $piechart must be a jQuery object or jQuery object collection.
          *
-         *  @option {string}  baseColor          - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
-         *                                         Sets the base color, used to calculate a unique color for each
-         *                                         slice of the pie chart.
-         *
-         *  @option {bool}    highlight          - Default is true. Set to false if you wish to disable highlighting individual
-         *                                         slices on mouse over.
-         *
-         *  @option {string}  palette            - "fixed" || "random" || "shades" || "unique" - default is "shades".
-         *                                         Selects the formula used to calculate the unique color for
-         *                                         each slice of the pie chart.
-         *
-         *  @option {number}  size               - Sets the diameter of the pie chart SVG.
-         *
          *  @param {jQuery dom object} $pieChart - the pie chart(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-piechart="palette:fixed;size:200;">
+         *
+         *  Available options:
+         *
+         *  @option {string} baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
+         *                               Sets the base color, used to calculate a unique color for each
+         *                               slice of the pie chart.
+         *                             
+         *  @option {bool}   highlight - Default is true. Set to false if you wish to disable highlighting individual
+         *                               slices on mouse over.
+         *                             
+         *  @option {string} palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
+         *                               Selects the formula used to calculate the unique color for
+         *                               each slice of the pie chart.
+         *                             
+         *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
         
         if (!($pieChart instanceof jQuery)) {

@@ -23,12 +23,19 @@ var ScrollTo = (function() {
 
         /**
          *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
-         *  or target one or more specific a[data-scrollto] (= function call with $scrollTo).
-         *  $scrollTo must be a jQuery object or jQuery object collection.
+         *  or target one or more specific a[data-scrollto] (= function call with $scrollToTrigger).
+         *  $scrollToTrigger must be a jQuery object or jQuery object collection.
          *
-         *  @option {string} highlight                  - Define an optional effect to highlight the target element once
-         *                                                the scrolling has stopped. Chose from "blink" and "pulse".
          *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-scrollto="hightlight:true;">
+         *
+         *  Available options:
+         *
+         *  @option {string} highlight - Define an optional effect to highlight the target element once
+         *                               the scrolling has stopped. Chose from "blink" and "pulse".
          */
 
         if (!($scrollToTrigger instanceof jQuery)) {
@@ -60,8 +67,8 @@ var ScrollTo = (function() {
         /**
          *  Scroll the page to a given target element.
          *
-         *  @param  {string} targetId     - the target element css id (e.g. "#myTarget")
-         *  @option {string} $thisTrigger - the scrollTo trigger
+         *  @param {string} targetId     - the target element css id (e.g. "#myTarget")
+         *  @param {string} $thisTrigger - the scrollTo trigger element
          */
         
         var $target              = $(targetId);

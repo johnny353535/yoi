@@ -47,122 +47,74 @@
             <div class="documentation__body">
                 
 
-<h2 id="callout">Callout</h2>
-<p>Use this element to render a small portion of text into a prominent circular callout. Superimpose it upon images or banners, for example to make a special offer visually stand out.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Less-File</td>
-<td>callout.less</td>
-</tr>
-<tr>
-<td>Base CSS-Class</td>
-<td><code>.callout</code></td>
-</tr>
-<tr>
-<td>Modifiers</td>
-<td><code>.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--attention, .callout--positive, .callout--negative, .callout--prescription</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="basic-example">Basic Example</h3>
-<p>The default <code>.callout</code> has dark text on a plain white background. In order to reliably center the text inside – both horizontally and vertically – make sure you wrap the text inside with the <code>.callout__body</code> element.</p>
+<h2 id="remove">Remove</h2>
+<p>Create elements (eg. buttons) that remove their parent element or any other target-element from the current document/page.</p>
+<h3 id="examples">Examples</h3>
+<p>Use any element as a trigger by adding the custom data-attribute <code>data-remove</code>. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.</p>
 
 
-<div class="documentation__block documentation__block--dark">
+<div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <p class="callout">
-            <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-        </p>
-    </div>
-</div>
-
-<h3 id="modifiers">Modifiers</h3>
-<p>You have a lot of modifiers available to slightly rotate the <code>.callout</code> or to render it in different colors.</p>
-
-
-<div class="documentation__blocks">
-    <div class="documentation__block documentation__block--dark">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--rot-l">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-   <div class="documentation__block documentation__block--dark">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--rot-r">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--dark">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--attention">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--positive">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--negative">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout callout--prescription">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
+        <div class="box box--1 w-30 h-20 p-2">
+            <button class="btn pos-tr m-2" data-remove>Remove my Parent Element</button>
         </div>
     </div>
 </div>
 
-<h3 id="shadows">Shadows</h3>
-<p>If you wish, you can use the <a href="pages/css-core/utilities.html">shadow utility classes</a> in combination with this element.</p>
+<p>If you wish to remove any other element in the dom, refer to it through the trigger element by adding the value <code>target:</code> + a CSS-selector for the target element:</p>
 
 
-<div class="documentation__blocks">
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout sh-1 m-b-4">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <!-- the trigger element: -->
+        <div class="m-b-2">
+            <button class="btn" data-remove="target:#myTargetElement">Remove my Target Element</button>
+        </div>
+        <!-- the target element: -->
+        <div id="myTargetElement" class="w-30 h-20 p-2 br bg-green-16 tc-white">
+            <p>My Target Element</p>
         </div>
     </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout sh-2 m-b-4">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
+</div>
+
+<p>If you wish to remove a collection of elements from the dom, refer to them throught the trigger element by adding the value <code>target:</code> + a CSS-selector for the target elements. You may use any valid CSS-selector – id, class name, tag name, attribute, etc. – plus any combination. Some examples:</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <!-- the trigger element: -->
+        <div class="m-b-2">
+            <button class="btn" data-remove="target:.myTargetElement">Remove My Many Target Elements</button>
         </div>
-    </div><div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <p class="callout sh-3 m-b-4">
-                <span class="callout__body">Absolutes Super-Sonderangebot!</span>
-            </p>
+        <!-- the target elements: -->
+        <div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+            <p>One of My Many Target Elements</p>
         </div>
+        <div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+            <p>One of My Many Target Elements</p>
+        </div>
+        <div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+            <p>One of My Many Target Elements</p>
+        </div>
+        <div class="myTargetElement w-30 p-2 br bg-red-16 tc-white">
+            <p>One of My Many Target Elements</p>
+        </div>
+    </div>
+</div>
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <!-- the trigger element: -->
+        <div class="m-b-2">
+            <button class="btn" data-remove="target:ul,[href*=http]">Remove All Unordered Lists and External Links</button>
+        </div>
+        <!-- the target elements: -->
+        <ul class="p-l-4 m-t-4 m-b-2">
+            <li>Manganese</li>
+            <li>Gold</li>
+            <li>Calcium</li>
+        </ul>
+        <a href="http://yoshino.digital">Yoshino Digital</a>
     </div>
 </div>
 

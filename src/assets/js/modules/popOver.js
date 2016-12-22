@@ -12,6 +12,14 @@ var PopOver = (function() {
          *  or target one or more specific *[data-popover] (= function call with $popover).
          *  $popover must be a jQuery object or jQuery object collection.
          *
+         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-popover="pos:bt;eventShow:mouseover;">
+         *
+         *  Available options:
+         *
          *  @option {string} target                     - The target pop-over id selector.
          *  @option {string} pos                        - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
          *  @option {string} ref                        - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
@@ -19,7 +27,6 @@ var PopOver = (function() {
          *  @option {string} eventShow                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
          *  @option {string} eventHide                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
          *  @option {bool}   preventDefault             - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
-         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
          */
 
         if (!($popOverTrigger instanceof jQuery)) {

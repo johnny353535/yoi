@@ -1,29 +1,60 @@
-// ===========================================================
-//
-//        File:    js/remove.js
-//        Descr.:    Remove an element from the dom.
-//        Status:    Done.
-//
-// ===========================================================
+/** remove.js */
 
-(function() {
+var Remove = (function() {
+    
+    // private functions
+    // =================
+    
+    function initializeRemoveTriggers($removeTrigger) {
+        
+        /**
+         *  Initialize all *[data-remove] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-remove] (= function call with $removeTrigger).
+         *  $removeTrigger must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $removeTrigger - the remove trigger(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <button data-remove="target:#myTargetElement">
+         *
+         *  Available options:
+         *
+         *  @option {string, CSS selector} target - optional selector for the DOM element to remove
+         *                                          by default, the target is the trigger's first parent element
+         */
 
-    var parentElements = '.dataElement, .item';
+        if (!($removeTrigger instanceof jQuery)) {
+            $removeTrigger = $('[data-remove]');
+        }
+        
+        $removeTrigger.each(function() {
 
-    $('[data-action="remove"]').each(function() {
+            var $thisremoveTrigger = $(this);
+            var options            = Helper.toObject($thisremoveTrigger.data('remove'));
+            var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
 
-        var $this = $(this);
-        var    $thisParent = $this.parents(parentElements);
-
-        $this.on('click', function(e) {
-
-            e.preventDefault();
-            $thisParent.fadeOut(function(){
-                $thisParent.remove();
+            $thisremoveTrigger.on('click', function(e) {
+                e.preventDefault();
+                $thisTarget.fadeOut(function(){
+                    $thisTarget.remove();
+                });
             });
-
+            
         });
-
-    });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeRemoveTriggers();
+    
+    // public functions
+    // ================
+    
+    return {
+        init : initializeRemoveTriggers
+    }
 
 })();

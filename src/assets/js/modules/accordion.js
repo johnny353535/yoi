@@ -12,10 +12,17 @@ var Accordion = (function() {
          *  or target one or more specific *[data-accordion] (= function call with $accordion).
          *  $accordion must be a jQuery object or jQuery object collection.
          *
+         *  @param {jQuery dom object} $accordion - the accordion(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div class="accordion" data-accordion="linked:true;">
+         *
+         *  Available options:
+         *
          *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
          *                                             one section can be open, the remaining sections
          *                                             will always close
-         *  @param  {jQuery dom object} $accordion   - the accordion(s)
          */
         
         if (!($accordion instanceof jQuery)) {
