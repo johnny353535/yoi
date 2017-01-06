@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## Sticky
+Pick elements from a page and make them **stick** while scrolling past a certain threshold which can defined per element.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="box box--1 w-30 h-50 p-2">
+            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
+        </div>
+    </div>
+</div>
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="box box--1 w-30 h-50 p-2">
+            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

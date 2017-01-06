@@ -5,7 +5,7 @@ var Accordion = (function() {
     // private functions
     // =================
 
-    function initializeAccordion($accordion) {
+    function initializeAccordion($accordion, options) {
 
         /**
          *  Initialize all *[data-accordion] found in the document (= function call without parameters)
@@ -33,7 +33,7 @@ var Accordion = (function() {
             
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
-            var options        = Helper.toObject($thisAccordion.data('accordion'));
+            var options        = options === undefined ? Helper.toObject($thisAccordion.data('accordion')) : options;
 
             // define the event: tap on mobile, click on desktop
 

@@ -1,79 +1,151 @@
-// ===========================================================
-//
-//        File:    js/stickyElements.js
-//        Descr.:    Stick elements to position when they reach top
-//                of viewport (through scrolling).
-//
-// ===========================================================
+var Sticky = (function() {
 
-var stickyElements = $('.sticky');
-var stickyElementsAttr = [];
-
-stickyElements.each(function() {
-
-    var    prevMargin = $(this).prev().length > 0 ? $(this).prev().css('marginBottom').split('px')[0] : 0,
-        itemOffset = $(this).offset().top + prevMargin * 2;
-    itemWidth = $(this).outerWidth();
-    itemHeight = $(this).outerHeight();
-
-    stickyElementsAttr.push([ itemOffset,itemWidth,itemHeight ]);
-
-});
-
-function stickItems() {
-
-    // TODO: make sure sticky item scrolls out of viewport
-    // once it reached it's parent's bottom
-
-    var bodyOffset = $('body').scrollTop(),
-        bodyHeight = $(window).height();
-
-    stickyElements.each(function(index,value) {
-
-        var    elementOffset = stickyElementsAttr[index][0],
-            elementHeight = stickyElementsAttr[index][2],
-            elementWidth = stickyElementsAttr[index][1];
-
-        var    scrolledPastElementPosition = bodyOffset >= elementOffset - 140,
-            viewportIsLargerThanMenu = bodyHeight > elementHeight;
-
-        var placeHolder = $('<div>',{
-            'class': 'stickyPlaceholder',
-            'css': {
-                'height': elementHeight,
-                'width': elementWidth,
-                'background': 'transparent'
+    // private vars
+    // ============
+    
+    var $body   = $('body');
+    var $window = $(window);
+    
+    // private functions
+    // =================
+    
+    function initializeSticky($stickyElement) {
+        
+        /**
+         *  Initialize all *[data-sticky] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
+         *  $stickyElement must be a jQuery object or jQuery object collection.
+         *
+         *  @param  {jQuery dom object} $stickyElement - the sticky element
+         */
+        
+        if (!($stickyElement instanceof jQuery)) {
+            $stickyElement = $('[data-sticky]');
+        }
+        
+        $stickyElement.each(function() {
+            
+            var $thisStickyElement      = $(this);
+            var $thisStickyElementClone = $thisStickyElement.clone();
+            var thisElementDimensions   = getElementDimensions($thisStickyElement);
+            var thisElementPosition     = getElementPosition($thisStickyElement);
+            var options                 = Helper.toObject($thisStickyElement.data('sticky'));
+            
+            // hide the original element
+            
+            $thisStickyElement.css('opacity','.2');
+            
+            // prepare the cloned element
+            
+            setElementDimensions($thisStickyElementClone, getElementDimensions($thisStickyElement));
+            setElementPosition($thisStickyElementClone, getElementPosition($thisStickyElement));
+            
+            $thisStickyElementClone.css('position','fixed');
+            $thisStickyElementClone.appendTo($body);
+            
+            // create resize & scroll observers
+            
+            createResizeObserver($thisStickyElement, $thisStickyElementClone);
+            createScrollObserver($thisStickyElement, $thisStickyElementClone);
+        
+        });
+    
+    }
+    
+    function createResizeObserver($thisStickyElement, $thisStickyElementClone) {
+        
+        $window.on('resize', function() {
+            setElementPosition($thisStickyElementClone, getElementPosition($thisStickyElement));
+        });
+        
+    }
+    
+    function createScrollObserver($thisStickyElement, $thisStickyElementClone) {
+        
+        var options                = Helper.toObject($thisStickyElement.data('sticky'));
+        var bottomLimit            = options.bottom !== undefined ? options.bottom : $thisStickyElement.parent().offset().top + $thisStickyElement.parent().height();
+        var topLimit               = options.top !== undefined ? options.top : $thisStickyElement.parent().offset().top;
+        var stickyPosY             = bottomLimit - $thisStickyElement.height();
+        var stickyElementOffsetTop = $thisStickyElement.offset().top;
+        var stickyElementheight    = $thisStickyElement.height();
+        
+        $window.on('scroll', function() {
+            
+            var bottomBoundary = $(window).scrollTop() + stickyElementOffsetTop + stickyElementheight;
+            
+            if (bottomBoundary > bottomLimit) {
+                
+                // outside boundaries
+                
+                $thisStickyElementClone.css({
+                    'position' : 'absolute',
+                    'top'      : stickyPosY
+                });
+                
+            } else {
+                
+                // inside boundaries
+                
+                $thisStickyElementClone.css({
+                    'position' : 'fixed',
+                    'top'      : stickyElementOffsetTop
+                });
+                
             }
         });
+        
+    }
+    
+    function getElementDimensions($element) {
+        
+        var thisDimensions = {};
+        
+        thisDimensions.width  = $element.outerWidth();
+        thisDimensions.height = $element.outerHeight();
+        
+        return thisDimensions;
+        
+    }
+    
+    function setElementDimensions($element, dimensions) {
+        
+        $element.css({
+            'width'  : dimensions.width,
+            'height' : dimensions.height
+        });
+        
+    }
+    
+    function getElementPosition($element) {
+        
+        var thisPosition = {};
+        
+        thisPosition.top  = $element.offset().top;
+        thisPosition.left = $element.offset().left;
+        
+        return thisPosition;
+        
+    }
+    
+    function setElementPosition($element, position) {
+        
+        $element.css({
+            'top'  : position.top,
+            'left' : position.left
+        });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeSticky();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializeSticky
+    }
 
-        if (scrolledPastElementPosition && viewportIsLargerThanMenu) {
-
-            if (!$(this).next().hasClass('stickyPlaceholder')) {
-                $(this).after(placeHolder);
-            }
-            $(this).css({
-                'width': elementWidth,
-                'position': 'fixed',
-                'top': 140,
-                'zIndex': 100
-            });
-
-        } else {
-
-            $(this).next('.stickyPlaceholder').remove();
-            $(this).css({
-                'width': '',
-                'position': '',
-                'top': '',
-                'zIndex': ''
-            });
-
-        }
-
-    });
-
-}
-
-$(window).scroll(function() {
-    stickItems();
-});
+})();
