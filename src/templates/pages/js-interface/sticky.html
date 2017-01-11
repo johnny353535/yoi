@@ -3,21 +3,29 @@
 
 {% markdown %}
 ## Sticky
-Pick elements from a page and make them **stick** while scrolling past a certain threshold which can defined per element.
+Pick elements from a page and make them **stick** while scrolling past a certain threshold which can be defined per element.
 {% endmarkdown %}
 
-<div class="documentation__block">
+<div class="documentation__block" style="margin: 400px 0 1000px 0;">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1 w-30 h-50 p-2">
-            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
-        </div>
-    </div>
-</div>
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1 w-30 h-50 p-2">
-            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
+        <div class="grid-float">
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2">
+                    <div class="w-6 h-6 p-2 bg-red-15 tc-white" data-sticky="reference:parent;"></div>
+                </div>
+            </div>
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2 pos-rel">
+                    <div class="w-1 h-20 bg-blue-20 pos-tl m-t-2"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 tc-white" data-sticky="start:10;stop:200;"></div>
+                </div>
+            </div>
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2 pos-rel">
+                    <div class="w-1 h-20 bg-blue-20 pos-tl m-t-2"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 tc-white" data-sticky="start:180;stop:200;"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

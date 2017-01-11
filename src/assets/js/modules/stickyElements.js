@@ -27,9 +27,23 @@ var Sticky = (function() {
             
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone();
-            var thisElementDimensions   = getElementDimensions($thisStickyElement);
-            var thisElementPosition     = getElementPosition($thisStickyElement);
             var options                 = Helper.toObject($thisStickyElement.data('sticky'));
+            var stickStart              = options.start !== undefined ? parseInt(options.start) : 0;
+            var stickStop               = options.stop !== undefined ? parseInt(options.stop) : 0;
+            var $referenceElement       = options.reference === 'parent' ? $thisStickyElement.parent() : $(options.reference);
+            
+            /*
+            
+            if ($referenceElement.length) {
+                stickStart = getElementPosition($referenceElement).top + parseInt($referenceElement.css('paddingTop'));
+                stickStop  = stickStart + $referenceElement.height() - (parseInt($referenceElement.css('paddingTop')) + parseInt($referenceElement.css('paddingBottom')));
+            }
+            
+            // abort if values are invalid
+            
+            if (stickStop < 1 || stickStart > stickStop || stickStart > getElementPosition($thisStickyElement).top) return false;
+            
+            */
             
             // hide the original element
             
@@ -52,6 +66,50 @@ var Sticky = (function() {
     
     }
     
+    function updateStickyElementData($stickyElement) {
+
+        var options                       = Helper.toObject($stickyElement.data('sticky'));
+        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference);
+        var stickyElementheight           = $stickyElement.height();
+        var stickyElementInitialTopPos    = getElementPosition($stickyElement).top;
+        var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
+        var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
+        var bottomOffset                  = options.stop  !== undefined ? parseInt(options.stop) : 0;
+
+        // the reference element is found in the dom
+        
+        if ($referenceElement.length) {
+            stickStart = getElementPosition($referenceElement).top - topOffset;
+            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - bottomOffset;
+        }
+        
+        // the reference element is the parent dom object of the sticky element,
+        // so count in the parent object's padding
+        
+        if ($referenceElement.length && options.reference === 'parent') {
+            stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
+            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom'));
+        }
+
+        // write data
+
+        $stickyElement.data({
+            'referenceElement'              : $referenceElement,
+            'stickyElementheight'           : stickyElementheight,
+            'stickyElementInitialTopPos'    : stickyElementInitialTopPos,
+            'stickyElementInitialBottomPos' : stickyElementInitialBottomPos,
+            'topOffset'                     : topOffset,
+            'bottomOffset'                  : bottomOffset,
+            'stickStart'                    : options.start !== undefined ? parseInt(options.start) : 0,
+            'stickStop'                     : options.stop !== undefined ? parseInt(options.stop) : 0
+        });
+
+    }
+    
+    function validInput() {
+        
+    }
+    
     function createResizeObserver($thisStickyElement, $thisStickyElementClone) {
         
         $window.on('resize', function() {
@@ -62,38 +120,81 @@ var Sticky = (function() {
     
     function createScrollObserver($thisStickyElement, $thisStickyElementClone) {
         
-        var options                = Helper.toObject($thisStickyElement.data('sticky'));
-        var bottomLimit            = options.bottom !== undefined ? options.bottom : $thisStickyElement.parent().offset().top + $thisStickyElement.parent().height();
-        var topLimit               = options.top !== undefined ? options.top : $thisStickyElement.parent().offset().top;
-        var stickyPosY             = bottomLimit - $thisStickyElement.height();
-        var stickyElementOffsetTop = $thisStickyElement.offset().top;
-        var stickyElementheight    = $thisStickyElement.height();
+        /*
+            x───────────────────────▶ options.start
+            ┌──────────────────┐────▶ stickyElementInitialTopPos
+            │                  │
+            │  sticky element  │
+            │                  │
+            └──────────────────┘────▶ stickyElementInitialBottomPos
+            x───────────────────────▶ options.stop
+        */
+        
+        var options                       = Helper.toObject($thisStickyElement.data('sticky'));
+        var stickyElementheight           = $thisStickyElement.height();
+        var stickyElementInitialTopPos    = getElementPosition($thisStickyElement).top;
+        var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
+        var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - parseInt(options.start) : stickyElementInitialTopPos;
+        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + parseInt(options.stop) - parseInt(options.start) : stickyElementInitialBottomPos;
+        var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
+        var bottomOffset                  = options.stop  !== undefined ? parseInt(options.stop) : 0;
+        var $referenceElement             = options.reference === 'parent' ? $thisStickyElement.parent() : $(options.reference);
+        
+        // the reference element is any dom object
+        
+        if ($referenceElement.length) {
+            stickStart = getElementPosition($referenceElement).top - topOffset;
+            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - bottomOffset;
+        }
+        
+        // the reference element is the parent dom object,
+        // so count in the parent element's padding
+        
+        if ($referenceElement.length && options.reference === 'parent') {
+            stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
+            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom'));
+        }
+        
+        // observe and re-position position on scroll
         
         $window.on('scroll', function() {
             
-            var bottomBoundary = $(window).scrollTop() + stickyElementOffsetTop + stickyElementheight;
+            var scrollTop = $(window).scrollTop();
+            var cssPositionValue;
+            var cssTopValue;
             
-            if (bottomBoundary > bottomLimit) {
+            if (scrollTop < stickStart) {
+            
+                // outside top boundary
+            
+                cssPositionValue = 'absolute';
+                cssTopValue      = stickyElementInitialTopPos;
+            
+            } else if (scrollTop > stickStop) {
                 
-                // outside boundaries
+                // outside bottom boundary
                 
-                $thisStickyElementClone.css({
-                    'position' : 'absolute',
-                    'top'      : stickyPosY
-                });
-                
+                cssPositionValue = 'absolute';
+                cssTopValue      = stickStop + topOffset;
+            
             } else {
                 
                 // inside boundaries
                 
-                $thisStickyElementClone.css({
-                    'position' : 'fixed',
-                    'top'      : stickyElementOffsetTop
-                });
+                cssPositionValue = 'fixed';
+                cssTopValue      = 0 + topOffset;
                 
             }
+            
+            // set the css
+            
+            $thisStickyElementClone.css({
+                'position' : cssPositionValue,
+                'top'      : cssTopValue
+            });
+            
         });
-        
+
     }
     
     function getElementDimensions($element) {
@@ -149,3 +250,13 @@ var Sticky = (function() {
     }
 
 })();
+
+/*
+    todo:
+    
+    - do not create a sticky element copy but move the original element in dom
+    x change stop from absolute value to a value relative to the original start position
+    x move getElementPosition() & setElementPosition to Helper
+    x move getElementDimensions() & setElementDimensions to Helper
+    - rename Helper prefix to YOI
+*/
