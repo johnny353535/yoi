@@ -26,7 +26,7 @@
         "./src/assets/js/modules/scrollTo.js",
         "./src/assets/js/modules/slider.js",
         "./src/assets/js/modules/stepper.js",
-        "./src/assets/js/modules/stickyElements.js",
+        "./src/assets/js/modules/sticky.js",
         "./src/assets/js/modules/tables.js",
         "./src/assets/js/modules/tabs.js",
         "./src/assets/js/modules/toggleGroup.js",

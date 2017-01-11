@@ -16,6 +16,20 @@
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
+<style type="text/css" media="screen">
+    
+    *[id*="example-"]::after {
+        border-top: #ff6830 1px dashed;
+        content: ' ';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 210px;
+        z-index: 10;
+    }
+    
+</style>
+
     </head>
     <body class="noJs" data-environment="desktop">
         <script>document.body.className='js';</script>
@@ -48,21 +62,207 @@
                 
 
 <h2 id="sticky">Sticky</h2>
-<p>Pick elements from a page and make them <strong>stick</strong> while scrolling past a certain threshold which can defined per element.</p>
+<p>Make any element on the page <strong>stick</strong> while scrolling past a certain threshold, which can be defined per element.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Js-File</td>
+<td>sticky.js</td>
+</tr>
+<tr>
+<td>Hooks</td>
+<td><code>data-sticky</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="simple-example">Simple Example</h3>
+<p>Ad the custom data-attribute <code>data-sticky</code> to any element you wish to make <em>sticky</em>. While scrolling the page down, as soon as the vieport’s top border <em>touches</em> the element, it <em>sticks</em> at the viewport top while scrolling. If no other parameter is provided, the element <em>sticks as long as the page can be scrolled</em>. However, in this first simple example, one parameter is provided: <em>stop</em>.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1 w-30 h-50 p-2">
-            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
+        <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="stop:100;"></div>
+    </div>
+</div>
+
+<p><code>data-sticky:stop:100;</code> from the example above tells the sticky element to stick as long, as it reached a position <em>100px further down from it’s initial position</em>.</p>
+<h3 id="picking-a-reference-element">Picking a Reference Element</h3>
+<p>A very useful feature of this script is the <em>reference element</em>. A valid reference element is any element on the page which is top-aligned with the sticky element and which is taller than the sticky element.</p>
+<p>You can provide a reference element by adding a CSS-selector as a value for the option <em>reference</em>:</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>data-sticky="reference:#myReferenceElement;"</pre></code></div>
+
+<p>The script selects the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element <em>sticks</em> as long as it’s bottom aligns with the reference element’s bottom.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" data-sticky="reference:#myReferenceElement;"></div>
+        <div class="box box--1 h-40 w-20 p-2" id="myReferenceElement">
+            <span class="tc-gray-15 fs-15">#myReferenceElement</span>
         </div>
     </div>
 </div>
 
+<p>Another possible value for the reference-parameter is the keyword <em>parent</em>:</p>
+
+
+<div class="documentation__block"><code class="language-js"><pre>data-sticky="reference:parent;"</pre></code></div>
+
+<p>By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks <em>inside it’s parent element</em> as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that the parent element’s bottom-padding is respected – if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.</p>
+
+
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1 w-30 h-50 p-2">
-            <div class="w-5 h-5 p-2 bg-red-15 tc-white" data-sticky></div>
+        <div class="w-1-6 p-r-4">
+            <div class="box box--1 h-30 p-2">
+                <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="reference:parent;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="note note--subtle note--large note--icon085 m-t-8">
+    <h3 class="note__headline">What Is a Valid Reference Element?</h3>
+    <div class="note__body">
+        <p>A valid reference element is any element on the page which is top-aligned with the sticky element and taller than the sticky element.</p>
+    </div>
+</div>
+
+<h3 id="the-start-and-stop-parameters">The Start And Stop Parameters</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="grid-float">
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2" id="example-1">
+                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="reference:parent; stop:200;"></div>
+                </div>
+            </div>
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2 pos-rel" id="example-2">
+                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="start:30; stop:200;"></div>
+                </div>
+            </div>
+            <div class="w-1-6 p-r-4">
+                <div class="box box--1 h-50 p-2 pos-rel" id="example-3">
+                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="start:180; stop:200;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="possible-use-cases">Possible Use Cases</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="w-1-1 m-b-4 clearfix">
+            <div class="fl-l w-4 m-r-2" data-sticky="reference:parent">
+                <div class="fs-25 p-2 bg-blue-22 tc-blue-5 br al-c">A</div>
+            </div>
+            <div class="fl-l w-1-2">
+                <table>
+                    <tr>
+                        <td>Actinium</td>
+                    </tr>
+                    <tr>
+                        <td>Aluminium</td>
+                    </tr>
+                    <tr>
+                        <td>Americium</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="w-1-1 m-b-4 clearfix">
+            <div class="fl-l w-4 m-r-2" data-sticky="reference:parent">
+                <div class="fs-25 p-2 bg-blue-22 tc-blue-5 br al-c">B</div>
+            </div>
+            <div class="fl-l w-1-2">
+                <table>
+                    <tr>
+                        <td>Barium</td>
+                    </tr>
+                    <tr>
+                        <td>Berkelium</td>
+                    </tr>
+                    <tr>
+                        <td>Beryllium</td>
+                    </tr>
+                    <tr>
+                        <td>Bismuth</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="w-1-1 m-b-4 clearfix">
+            <div class="fl-l w-4 m-r-2" data-sticky="reference:parent">
+                <div class="fs-25 p-2 bg-blue-22 tc-blue-5 br al-c">C</div>
+            </div>
+            <div class="fl-l w-1-2">
+                <table>
+                    <tr>
+                        <td>Cadmium</td>
+                    </tr>
+                    <tr>
+                        <td>Caesium</td>
+                    </tr>
+                    <tr>
+                        <td>Calcium</td>
+                    </tr>
+                    <tr>
+                        <td>Californium</td>
+                    </tr>
+                    <tr>
+                        <td>Carbon</td>
+                    </tr>
+                    <tr>
+                        <td>Cerium</td>
+                    </tr>
+                    <tr>
+                        <td>Chlorine</td>
+                    </tr>
+                    <tr>
+                        <td>Chromium</td>
+                    </tr>
+                    <tr>
+                        <td>Cobalt</td>
+                    </tr>
+                    <tr>
+                        <td>Copernicium</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="w-1-1 m-b-4 clearfix">
+            <div class="fl-l w-4 m-r-2" data-sticky="reference:parent">
+                <div class="fs-25 p-2 bg-blue-22 tc-blue-5 br al-c">D</div>
+            </div>
+            <div class="fl-l w-1-2">
+                <table>
+                    <tr>
+                        <td>Darmstadtium</td>
+                    </tr>
+                    <tr>
+                        <td>Dubnium</td>
+                    </tr>
+                    <tr>
+                        <td>Dysprosium</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
