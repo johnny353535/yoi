@@ -172,7 +172,6 @@ var Helper = (function() {
 
         setInterval : function(intervalName, intervalTime, intervalFunction) {
 
-
             /**
              *  Syntax sugar to set up an interval.
              *

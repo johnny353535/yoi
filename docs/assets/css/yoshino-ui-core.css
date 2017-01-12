@@ -18521,6 +18521,13 @@ a:visited.btn.btn--outline.btn--positive {
 .documentation pre:last-child {
   border-bottom: 0;
 }
+.documentation p > code {
+  border-radius: 2px;
+  background: #ecebea;
+  color: #343332;
+  font-size: 1.3rem;
+  padding: .1rem .5rem;
+}
 .documentation pre::-moz-selection,
 .documentation pre ::-moz-selection,
 .documentation code::-moz-selection,

@@ -172,7 +172,6 @@ var Helper = (function() {
 
         setInterval : function(intervalName, intervalTime, intervalFunction) {
 
-
             /**
              *  Syntax sugar to set up an interval.
              *
@@ -6438,10 +6437,10 @@ var Sticky = (function() {
             
             manipulateDom($thisStickyElement, $thisStickyElementClone);
 
-            // run resize & scroll observers
+            // run position & stick observers
             
-            resizeObserver($thisStickyElement, $thisStickyElementClone);
-            scrollObserver($thisStickyElement, $thisStickyElementClone);
+            positionObserver($thisStickyElement, $thisStickyElementClone);
+            stickObserver($thisStickyElement, $thisStickyElementClone);
         
         });
     
@@ -6501,23 +6500,23 @@ var Sticky = (function() {
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
         var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
         var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
-        var bottomOffset                  = options.stop !== undefined ? parseInt(options.stop) : 0;
+        var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
         var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
-        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + bottomOffset - topOffset : $body.height();
+        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
 
-        // case: the reference element is found in the dom
+        // the reference element is found in the dom
         
         if ($referenceElement.length) {
             stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - bottomOffset;
+            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - topDistance + parseInt($referenceElement.css('borderTopWidth')) + parseInt($referenceElement.css('borderBottomWidth'));
         }
         
-        // case: the reference element is the parent dom object of the sticky element,
-        // so count in the parent object's padding
+        // the reference element is the parent dom object of the sticky element,
+        // in this case, add the parent object's padding to the calculation
         
         if ($referenceElement.length && options.reference === 'parent') {
             stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
-            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom'));
+            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
 
         // write data
@@ -6529,7 +6528,7 @@ var Sticky = (function() {
             'initialTopPos'    : stickyElementInitialTopPos,
             'initialBottomPos' : stickyElementInitialBottomPos,
             'topOffset'        : topOffset,
-            'bottomOffset'     : bottomOffset,
+            'topDistance'      : topDistance,
             'stickStart'       : stickStart,
             'stickStop'        : stickStop
         });
@@ -6559,7 +6558,7 @@ var Sticky = (function() {
 
     }
     
-    function resizeObserver($stickyElement, $stickyElementClone) {
+    function positionObserver($stickyElement, $stickyElementClone) {
         
         /**
          *  Listens to the window resize event. If the event is fired, this function
@@ -6579,7 +6578,7 @@ var Sticky = (function() {
         
     }
     
-    function scrollObserver($stickyElement, $stickyElementClone) {
+    function stickObserver($stickyElement, $stickyElementClone) {
         
         /**
          *  Listens to the window scroll event. If the event is fired, this function
@@ -6598,9 +6597,9 @@ var Sticky = (function() {
         var stickStart                    = $stickyElement.data().stickStart;
         var stickStop                     = $stickyElement.data().stickStop;
         var topOffset                     = $stickyElement.data().topOffset;
-        var bottomOffset                  = $stickyElement.data().bottomOffset;
+        var topDistance                   = $stickyElement.data().topDistance;
         var $referenceElement             = $stickyElement.data().referenceElement;
-
+        
         // observe and re-position on scroll
         
         $window.on('scroll', function() {
@@ -6640,9 +6639,9 @@ var Sticky = (function() {
             });
             
         });
-
+        
     }
-
+    
     // initialize
     // ==========
     

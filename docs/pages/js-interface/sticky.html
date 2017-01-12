@@ -24,8 +24,12 @@
         left: 0;
         position: absolute;
         right: 0;
-        top: 210px;
+        top: 200px;
         z-index: 10;
+    }
+    
+    #example-4::after {
+        top: 350px;
     }
     
 </style>
@@ -105,24 +109,26 @@
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" data-sticky="reference:#myReferenceElement;"></div>
-        <div class="box box--1 h-40 w-20 p-2" id="myReferenceElement">
-            <span class="tc-gray-15 fs-15">#myReferenceElement</span>
+        <div class="box box--1 h-40 w-20 p-1" id="myReferenceElement">
+            <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement</span>
         </div>
     </div>
 </div>
 
-<p>Another possible value for the reference-parameter is the keyword <em>parent</em>:</p>
+<h4 id="the-parent-keyword">The Parent Keyword</h4>
+<p>Another possible value for the reference-parameter is the keyword <code>parent</code>:</p>
 
 
 <div class="documentation__block"><code class="language-js"><pre>data-sticky="reference:parent;"</pre></code></div>
 
-<p>By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks <em>inside it’s parent element</em> as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that the parent element’s bottom-padding is respected – if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.</p>
+<p>By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks <em>inside it’s parent element</em> as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="w-1-6 p-r-4">
+        <div class="w-30 p-r-4">
             <div class="box box--1 h-30 p-2">
+                <span class="tc-gray-15 fs-15 pos-tr m-t-1 m-r-2">parent element</span>
                 <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="reference:parent;"></div>
             </div>
         </div>
@@ -136,26 +142,48 @@
     </div>
 </div>
 
+<div class="note note--negative note--large note--icon085 m-t-8 b-0">
+    <h3 class="note__headline">Stop & Reference Elements</h3>
+    <div class="note__body">
+        <p>If you use a reference element, you use it because you can define the position at which the sticky element stops to stick. Therefore, the stop parameter will be ignored if you use a reference element.</p>
+    </div>
+</div>
+
 <h3 id="the-start-and-stop-parameters">The Start And Stop Parameters</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>If you don not define any values for start and stop, the sticky element will start to stick as soon as it <em>touches</em> the upper viewport border. It will stick as long as the page can be scrolled. By providing values for the start and stop parameters, you can control this behaviour.</p>
+<h4 id="start">Start</h4>
+<p><code>start</code> defines the offset to the upper viewport border. For example if you set <code>start:20;</code>, the element starts to stick when it is 20px below the upper viewport border.</p>
+<h4 id="stop">Stop</h4>
+<p><code>stop</code> defines the distance between the sticky element’s initial top position and the position when it stops sticking. For example if you set <code>stop:300</code>, the sticky element will stick for 300px while scrolling the page.</p>
+<h4 id="default-values">Default Values</h4>
+<p>The default value for <code>start</code> is 0. The default value for <code>stop</code> is the body height – in this case the element sticks as long as the page can be scrolled.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <div class="grid-float">
-            <div class="w-1-6 p-r-4">
-                <div class="box box--1 h-50 p-2" id="example-1">
-                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="reference:parent; stop:200;"></div>
+            <div class="w-1-4 p-r-4">
+                <p class="tc-gray-15 fs-15 m-b-4">stop: 200;</p>
+                <div class="h-40 pos-rel" id="example-1">
+                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="stop:200;"></div>
                 </div>
             </div>
-            <div class="w-1-6 p-r-4">
-                <div class="box box--1 h-50 p-2 pos-rel" id="example-2">
+            <div class="w-1-4 p-r-4">
+                <p class="tc-gray-15 fs-15 m-b-4">start: 30; stop: 200;</p>
+                <div class="h-40 pos-rel" id="example-2">
                     <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="start:30; stop:200;"></div>
                 </div>
             </div>
-            <div class="w-1-6 p-r-4">
-                <div class="box box--1 h-50 p-2 pos-rel" id="example-3">
+            <div class="w-1-4 p-r-4">
+                <p class="tc-gray-15 fs-15 m-b-4">start: 180; stop: 200;</p>
+                <div class="h-40 pos-rel" id="example-3">
                     <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="start:180; stop:200;"></div>
+                </div>
+            </div>
+            <div class="w-1-4 p-r-4">
+                <p class="tc-gray-15 fs-15 m-b-4">start: 30; stop: 350;</p>
+                <div class="h-40 pos-rel" id="example-4">
+                    <div class="w-6 h-6 p-2 bg-red-15 br" data-sticky="start:30; stop:350;"></div>
                 </div>
             </div>
         </div>
@@ -163,7 +191,7 @@
 </div>
 
 <h3 id="possible-use-cases">Possible Use Cases</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>The most obvious use case for this script might be a menu that sticks while scrolling past the content area. However, it is flexible enough to use it for many other scenarios, too. Maybe stick the letter-labels on a large alphabetically ordered list while scrolling:</p>
 
 
 <div class="documentation__block">

@@ -408,6 +408,16 @@
     pre:last-child {
         border-bottom: 0;
     }
+    
+    // code inside documentation blocks
+    
+    p > code {
+        .mixin-defaultBorderRadius;
+        background: @gray-23;
+        color: @gray-5;
+        font-size: 1.3rem;
+        padding: .1rem .5rem;
+    }
 
     // code highlighting (based on default prism.js theme)
     // http://prismjs.com/
