@@ -7,8 +7,8 @@ Use notes to display system messages, eg. for form validation, status messages (
 
 |                |                                                                                                                                                                                                                           |
 | -              | -                                                                                                                                                                                                                         |
-| Less-File      | {% if basePath == '/' %}[note.less](assets/less/elements/note.less){% else %}note.less{% endif %}                                                                                                                         |
-| JS-File        | {% if basePath == '/' %}[dismiss.js](assets/js/modules/dismiss.js){% else %}dismiss.js{% endif %}                                                                                                                         |
+| Less-File      | [note.less]({{ pathToSourceFile }}assets/less/elements/note.less)                                                                                                                                                         |
+| JS-File        | [dismiss.js]({{ pathToSourceFile }}assets/js/modules/dismiss.js)                                                                                                                                                          |
 | Base CSS-Class | `.note`                                                                                                                                                                                                                   |
 | Modifiers      | `.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--largeTxt, .note--light, .note--negative, .note--positive, .note--prescription, .note--stripped, .note--success` |
 

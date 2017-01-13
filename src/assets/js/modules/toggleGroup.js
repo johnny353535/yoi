@@ -11,7 +11,7 @@ var ToggleGroup = (function() {
     // private functions
     // =================
 
-    function initializeToggleGroup($toggleGroup) {
+    function initializeToggleGroup($toggleGroup, options) {
 
         /**
          *  Initialize all *[data-toggle] found in the document (= function call without parameters)
@@ -39,7 +39,7 @@ var ToggleGroup = (function() {
         $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-            var options           = YOI.toObject($thisTrigger.data('toggle'));
+            var options           = options === undefined ? YOI.toObject($thisTrigger.data('toggle')) : options;
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';

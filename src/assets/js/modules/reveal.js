@@ -5,7 +5,7 @@ var Reveal = (function() {
     // private functions
     // =================
     
-    function initializeReveal($revealTrigger) {
+    function initializeReveal($revealTrigger, options) {
         
         /**
          *  Initialize all *[data-reveal] found in the document (= function call without parameters)
@@ -40,12 +40,12 @@ var Reveal = (function() {
 
             // set up vars
 
-            var $this      = $(this);
-            var $data      = YOI.toObject($this.data('reveal'));
-            var target     = $data.target !== undefined ? $data.target : false;
-            var event      = $data.event !== undefined ? $data.event : 'click';
-            var transition = $data.transition !== undefined ? $data.transition : false;
-            var hideTarget = $data.hideTarget !== undefined ? $data.hideTarget : true;
+            var $thisRevealTrigger = $(this);
+            var options            = options === undefined ? YOI.toObject($thisRevealTrigger.data('reveal')) : options;
+            var target             = options.target !== undefined ? options.target : false;
+            var event              = options.event !== undefined ? options.event : 'click';
+            var transition         = options.transition !== undefined ? options.transition : false;
+            var hideTarget         = options.hideTarget !== undefined ? options.hideTarget : true;
 
             // cancel if no target was defined
 
@@ -58,7 +58,7 @@ var Reveal = (function() {
 
             // apply event on trigger and hide target
 
-            $this.on(event, function(e) {
+            $thisRevealTrigger.on(event, function(e) {
                 if (transition === 'fadeOut') {
                     $(target).fadeOut();
                 } else if (transition === 'slideUp') {

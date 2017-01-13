@@ -5,7 +5,7 @@ var PopOver = (function() {
     // private functions
     // =================
 
-    function initializePopOverTrigger($popOverTrigger) {
+    function initializePopOverTrigger($popOverTrigger, options) {
 
         /**
          *  Initialize all *[data-popover] found in the document (= function call without parameters)
@@ -41,7 +41,7 @@ var PopOver = (function() {
 
             // read the options
 
-            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
+            var options = options === undefined ? YOI.toObject($thisPopOverTrigger.data('popover')) : options;
 
             // cancel if target-selector does not return any element ...
 
@@ -186,7 +186,7 @@ var PopOver = (function() {
         $('[data-popover]').each(function() {
 
             var $thisPopOverTrigger = $(this);
-            var options = $thisPopOverTrigger.data('popover');
+            var options             = $thisPopOverTrigger.data('popover');
 
             if (options.toggleClass !== undefined) {
                 var cssClassName = options.toggleClass;

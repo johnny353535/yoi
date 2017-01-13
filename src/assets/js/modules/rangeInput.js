@@ -24,7 +24,7 @@ var RangeInput = (function() {
     // private functions
     // =================
 
-    function initializeRangeInput($rangeInput) {
+    function initializeRangeInput($rangeInput, options) {
 
         /**
          *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
@@ -59,7 +59,7 @@ var RangeInput = (function() {
 
             // options
 
-            var options = YOI.toObject($thisRangeInput.data('rangeinput'));
+            var options = options === undefined ? YOI.toObject($thisRangeInput.data('rangeinput')) : options;
 
             // attach events to range knobs
 

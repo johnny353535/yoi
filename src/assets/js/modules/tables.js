@@ -17,7 +17,7 @@ var Table = (function() {
     // private functions
     // =================
 
-    function initializeTable($table) {
+    function initializeTable($table, options) {
         
         /**
          *  Initialize all table[data-table] found in the document (= function call without parameters)
@@ -43,7 +43,7 @@ var Table = (function() {
         $table.each(function(){
 
             var $thisTable = $(this);
-            var options    = YOI.toObject($thisTable.data('table'));
+            var options    = options === undefined ? YOI.toObject($thisTable.data('table')) : options;
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -114,20 +114,15 @@ var Table = (function() {
         var $thisTable = $thisTr.closest('table');
         var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
-
         var options    = YOI.toObject($thisTable.data('table'));
 
         // select rows, either multiple or single
 
         if (options.selectable === 'multi') {
-
             $thisTr.toggleClass('tr--active');
-
         } else {
-
             $thisAllTr.removeClass('tr--active');
             $thisTr.addClass('tr--active');
-
         }
 
     }

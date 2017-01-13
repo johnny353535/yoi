@@ -62,7 +62,7 @@ var DatePicker = (function() {
          *  or target one or more specific input[data-datepicker] (= function call with $datepicker).
          *  $datepicker must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $datepicker - the date picker(s)
+         *  @param {jQuery dom object} $datepickers - the date picker(s)
          */
 
         // update the current date
@@ -87,7 +87,7 @@ var DatePicker = (function() {
 
                 // get and format date input data
 
-                thisDateInputData = YOI.toObject($thisDateInput.data('datepicker'));
+                var thisDateInputData = YOI.toObject($thisDateInput.data('datepicker'));
 
                 // if a field is undefined, fall back to the current time value for the field,
                 // eg. if year is undefined, use the current year

@@ -109,10 +109,10 @@ var ImgMagnifier = (function(){
 
         // prepare the zoom image, get size before injecting into DOM
 
-        var thisZoomImage       = new Image();
-        thisZoomImage.src       = thisZoomImagePath;
-        thisZoomImage.className = 'imgMagnifier__zoomImage';
-        var $thisZoomImage      = $(thisZoomImage);
+        var thisZoomImage           = new Image();
+            thisZoomImage.src       = thisZoomImagePath;
+            thisZoomImage.className = 'imgMagnifier__zoomImage';
+        var $thisZoomImage          = $(thisZoomImage);
 
         $thisZoomImage
             .on('error', function() {

@@ -45,7 +45,7 @@ var Countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown($countdown) {
+    function initializeCountdown($countdown, endTime) {
         
         /**
          *  Initialize all *[data-countdown] found in the document (= function call without parameters)
@@ -65,19 +65,19 @@ var Countdown = (function() {
             
             // render the countdown
             
-            renderCountdown($thisCountdown, index);
+            renderCountdown($thisCountdown, endTime, index);
             
             // update the clock every second
             
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
-                renderCountdown($thisCountdown, index)
+                renderCountdown($thisCountdown, endTime, index)
             });
         
         });
 
     }
     
-    function renderCountdown($thisCountdown, index) {
+    function renderCountdown($thisCountdown, endTime, index) {
         
         /**
          *  Render the lcd-style countdown, also include a label for screen readers.
@@ -88,7 +88,7 @@ var Countdown = (function() {
         
         // read end time and get remaining time
         
-        var endTime       = $thisCountdown.data('countdown');
+        var endTime       = endTime === undefined ? $thisCountdown.data('countdown') : endTime;
         var timeRemaining = getTimeRemaining(endTime);
         
         // if countdown is expired, clear countdown interval and fire custom event

@@ -9,14 +9,14 @@ var Sticky = (function() {
     // private functions
     // =================
     
-    function initializeSticky($stickyElements) {
+    function initializeSticky($stickyElement) {
         
         /**
          *  Initialize all *[data-sticky] found in the document (= function call without parameters)
          *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
          *  $stickyElement must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
+         *  @param {jQuery dom object} $stickyElement - the sticky element(s)
          *
          *  Options are passed to the script as custom data values, eg:
          *
@@ -43,11 +43,11 @@ var Sticky = (function() {
          *                                             the reference element's bottom.
          */
         
-        if (!($stickyElements instanceof jQuery)) {
-            $stickyElements = $('[data-sticky]');
+        if (!($stickyElement instanceof jQuery)) {
+            $stickyElement = $('[data-sticky]');
         }
         
-        $stickyElements.each(function(index) {
+        $stickyElement.each(function(index) {
             
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
@@ -64,8 +64,8 @@ var Sticky = (function() {
         
         // start position & stick observers
         
-        positionObserver($stickyElements);
-        stickObserver($stickyElements);
+        positionObserver($stickyElement);
+        stickObserver($stickyElement);
     
     }
     

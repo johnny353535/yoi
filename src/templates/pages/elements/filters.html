@@ -4,12 +4,12 @@
 {% markdown %}
 ## Filters
 
-|                |                                                                                                            |
-| -              | -                                                                                                          |
-| Less-File      | {% if basePath == '/' %}[filters.less](assets/less/elements/filters.less){% else %}filters.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[filters.js](assets/js/modules/filters.js){% else %}filters.js{% endif %}          |
-| Base CSS-Class | `.filters`                                                                                                 |
-| Modifiers      | `.filters--disabled`                                                                                       |
+|                |                                                                         |
+| -              | -                                                                       |
+| Less-File      | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
+| JS-File        | [filters.js]({{ pathToSourceFile }}assets/js/modules/filters.js)        |
+| Base CSS-Class | `.filters`                                                              |
+| Modifiers      | `.filters--disabled`                                                    |
 
 ### Basic Example
 {% endmarkdown %}

@@ -5,12 +5,12 @@
 ## Radio Button
 Use this element to create prominent radio buttons. It’s basically a visual candy wrapper around a `<label>` and an `input[type="radio"]`.
 
-|                |                                                                                                               |
-| -              | -                                                                                                             |
-| Less-File      | {% if basePath == '/' %}[radioBtn.less](assets/less/elements/radioBtn.less){% else %}radioBtn.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[radioBtn.js](assets/js/modules/radioBtn.js){% else %}radioBtn.js{% endif %}          |
-| Base CSS-Class | `.radioBtn`                                                                                                   |
-| Modifiers      | `-`                                                                                                           |
+|                |                                                                           |
+| -              | -                                                                         |
+| Less-File      | [radioBtn.less]({{ pathToSourceFile }}assets/less/elements/radioBtn.less) |
+| JS-File        | [radioBtn.js]({{ pathToSourceFile }}assets/js/modules/radioBtn.js)        |
+| Base CSS-Class | `.radioBtn`                                                               |
+| Modifiers      | `-`                                                                       |
 
 ### Basic Example
 The script that controls `.radioBtn` instances assumes that we use *real* `input[type="radio"]` elements inside each `.radioBtn`. Once a button is active, the script activates the radio input inside, so you can work with it like you would expect working with a regular radio input.

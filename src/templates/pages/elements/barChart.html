@@ -5,11 +5,11 @@
 ## Bar Chart
 Use this element to visualize data, formatted into *very basic* bar charts. Two options are available: *vertical* and *horizontal* bars. If you need to display more complex pie charts, see: <a href="pages/elements/pieChart.html">Pie Chart</a>.
 
-|                |                                                                                                               |
-| -              | -                                                                                                             |
-| Less-File      | {% if basePath == '/' %}[barChart.less](assets/less/elements/barChart.less){% else %}barChart.less{% endif %} |
-| Base CSS-Class | `.barChart`                                                                                                   |
-| Modifiers      | `.barChart--x0 – .barChart--x100, .barChart--y0 – .barChart--y100`                                            |
+|                |                                                                           |
+| -              | -                                                                         |
+| Less-File      | [barChart.less]({{ pathToSourceFile }}assets/less/elements/barChart.less) |
+| Base CSS-Class | `.barChart`                                                               |
+| Modifiers      | `.barChart--x0 – .barChart--x100, .barChart--y0 – .barChart--y100`        |
 
 ### Basic Usage
 Bar charts are just HTML elements (»tracks«) with pseudo-elements inside (»bars«). **Use the modifier classes to assign percentage values** (max. 100%), either horizontally (`.barChart--x...`) or vertically (`.barChart--y...`).

@@ -5,10 +5,10 @@
 ## Sticky
 Make any element on the page **stick** while scrolling past a certain threshold, which can be defined per element.
 
-|                              |                                                                                                |
-| -                            | -                                                                                              |
-| Js-File                      | {% if basePath == '/' %}[sticky.js](assets/js/modules/sticky.js){% else %}sticky.js{% endif %} |
-| Hooks                        | `data-sticky`                                                                                  |
+|         |                                                                |
+| -       | -                                                              |
+| Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/modules/sticky.js) |
+| Hooks   | `data-sticky`                                                  |
 
 ### Simple Example
 Ad the custom data-attribute `data-sticky` to any element you wish to make *sticky*. While scrolling the page down, as soon as the vieport’s top border *touches* the element, it *sticks* at the viewport top while scrolling. If no other parameter is provided, the element *sticks as long as the page can be scrolled*. However, in this first simple example, one parameter is provided: *stop*.

@@ -91,7 +91,7 @@ var Slider = (function() {
     // private functions
     // =================
 
-    function initializeSlider($slider) {
+    function initializeSlider($slider, options) {
 
         /**
          *  Initialize all *[data-slider] found in the document (= function call without parameters)
@@ -141,7 +141,7 @@ var Slider = (function() {
 
             // slider instance options
 
-            var options = YOI.toObject($thisSlider.data('slider'));
+            var options = options === undefined ? YOI.toObject($thisSlider.data('slider')) : options;
 
             // prepare slides and adjust container to fixed height for animations
 
@@ -332,8 +332,7 @@ var Slider = (function() {
          *  @param {string}            direction      - key for the direction, "<" || ">"
          */
 
-        var    $thisSlides       = $thisSlider.find('.slider__slide');
-
+        var $thisSlides       = $thisSlider.find('.slider__slide');
         var options           = YOI.toObject($thisSlider.data('slider'));
         var currentSlideIndex = $thisSlider.data().slideIndex;
         var leftOffset;
@@ -437,7 +436,7 @@ var Slider = (function() {
          *  @param {jQuery dom object} $thisSlider - the slider
          */
 
-        var    $thisSlides        = $thisSlider.find('.slider__slide');
+        var $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
         var slideHeight        = 0;
 

@@ -5,12 +5,12 @@
 ## Pop-Over
 Use this element to link any trigger (eg. a button) to a _pop-over_ which appears on mouse over.
 
-|                |                                                                                                            |
-| -              | -                                                                                                          |
-| Less-File      | {% if basePath == '/' %}[popOver.less](assets/less/elements/popOver.less){% else %}popOver.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[popOver.js](assets/js/modules/popOver.js){% else %}popOver.js{% endif %}          |
-| Base CSS-Class | `.popOver`                                                                                                 |
-| Modifiers      | `-`                                                                                                        |
+|                |                                                                         |
+| -              | -                                                                       |
+| Less-File      | [popOver.less]({{ pathToSourceFile }}assets/less/elements/popOver.less) |
+| JS-File        | [popOver.js]({{ pathToSourceFile }}assets/js/modules/popOver.js)        |
+| Base CSS-Class | `.popOver`                                                              |
+| Modifiers      | `-`                                                                     |
 
 ### Basic Example
 To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `data-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
@@ -27,14 +27,14 @@ This example uses the pop-over to display a small menu:
     </div>
 </div>
 
-<div class="note note--positive note--large note--icon085 m-t-8 b-0">
+<div class="note note--subtle note--large note--icon085 m-t-8">
     <h3 class="note__headline">Use Any Element You Wish</h3>
     <div class="note__body">
         <p><em>Any element in the DOM</em> can be a trigger for a pop-over. <em>Any element in the DOM</em> can be a pop-over.</p>
     </div>
 </div>
 
-<div class="note note--positive note--large note--icon085 m-t-8 b-0">
+<div class="note note--subtle note--large note--icon085 m-t-8">
     <h3 class="note__headline">Reference the Same Pop-Over Multiple Times</h3>
     <div class="note__body">
         <p>It is absolutely possible (and recommended) to reference exactly the same pop-over through as many pop-over-triggers as you wish.</p>
@@ -140,7 +140,7 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 ### Changing the Default Events to Show or Hide the Pop-over
 {% endmarkdown %}
 
-<div class="note note--attention note--large note--icon085 m-t-8 b-0">
+<div class="note note--negative note--large note--icon085 m-t-8 b-0">
     <h3 class="note__headline">Attention</h3>
     <div class="note__body">
         <p>If you change the events to show/hide the pop-over, there is no internal test that prevents you from using illogical event-combinations. If you provide an invalid event (one not listet in the options-overview further above), the default event gets used.</p>

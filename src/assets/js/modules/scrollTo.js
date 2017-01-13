@@ -62,7 +62,7 @@ var ScrollTo = (function() {
 
     }
 
-    function scrollToTarget(targetId, $thisTrigger) {
+    function scrollToTarget(targetId, $thisTrigger, options) {
 
         /**
          *  Scroll the page to a given target element.
@@ -77,7 +77,7 @@ var ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = YOI.toObject($thisTrigger.data('scrollto'));
+        var options              = options === undefined ? YOI.toObject($thisTrigger.data('scrollto')) : options;
 
         // cancel if no target was found
         

@@ -5,11 +5,11 @@
 ## Icons
 The icons are stored as individual characters inside an icon font. They are vector-based but for really crisp and pixel-perfect rendering, you are restricted to the specified font sizes.
 
-|                |                                                                                                      |
-| -              | -                                                                                                    |
-| Less-File      | {% if basePath == '/' %}[icons.less](assets/less/elements/icons.less){% else %}icons.less{% endif %} |
-| Base CSS-Class | `.icon / .icon--*`                                                                                   |
-| Modifiers      | `.x2, .x3, .x4, *-s`                                                                                 |
+|                |                                                                     |
+| -              | -                                                                   |
+| Less-File      | [icons.less]({{ pathToSourceFile }}assets/less/elements/icons.less) |
+| Base CSS-Class | `.icon / .icon--*`                                                  |
+| Modifiers      | `.x2, .x3, .x4, *-s`                                                |
 
 ### Modifiers
 Modifiers are used to define the icon size. The initial size is 32px. `.x2` produces icons in 64px, `.x3` = 96px, `.x4` = 128px. In fact, every font-size as a multiple of 8px is possible for perfect rendering. For 16px, there a optimized versions with reduced detail. Simply use the postfix `*-s`.

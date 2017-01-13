@@ -5,12 +5,12 @@
 ## Tabs
 Yoshino tabs have some powerful features. You can choose from different layouts. You can define a start tab per tab group (by default, the first tab in the markup is the start tab). And since the JavaScript is modular, other scripts can use tab functions. For example if you use a scroll-to-anchor button and the target element is a (hidden) tab, the button will switch the target tab to visible.
 
-|                |                                                                                                   |
-| -              | -                                                                                                 |
-| Less-File      | {% if basePath == '/' %}[tabs.less](assets/less/elements/tabs.less){% else %}tabs.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[tabs.js](assets/js/modules/tabs.js){% else %}tabs.js{% endif %}          |
-| Base CSS-Class | `.tabs, .tabs__menu`                                                                              |
-| Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows`           |
+|                |                                                                                         |
+| -              | -                                                                                       |
+| Less-File      | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
+| JS-File        | [tabs.js]({{ pathToSourceFile }}assets/js/modules/tabs.js)                              |
+| Base CSS-Class | `.tabs, .tabs__menu`                                                                    |
+| Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows` |
 
 ### Basic Example
 This is a basic example. Make sure to **add an #id to each tab** that you reference via the `.tabs__menu`.

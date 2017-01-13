@@ -35,7 +35,7 @@ var Modal = (function() {
 
     // private methods
 
-    function initializeModal($modal) {
+    function initializeModal($modal, options) {
 
         /**
          *  Initialize all *[data-modal] found in the document (= function call without parameters)
@@ -77,7 +77,7 @@ var Modal = (function() {
 
             var $this = $(this);
 
-            var options        = YOI.toObject($this.data('modal'));
+            var options        = options === undefined ? YOI.toObject($this.data('modal')) : options;
             var thisModalId    = options !== undefined && options.id    !== undefined ? options.id    : generateModalId();
             var thisModalPath  = options !== undefined && options.path  !== undefined ? options.path  : $this.attr('href');
             var thisModalCache = options !== undefined && options.cache !== undefined ? options.cache : false;

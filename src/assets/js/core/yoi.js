@@ -215,12 +215,14 @@ var YOI = (function() {
              *
              *  Examples of valid input:
              *
-             *  "foo:something"
-             *  "foo: something"
-             *  "foo:something;"
-             *  "foo:'anything'"
-             *  "foo:something; bar:somethingelse"
-             *  "foo:something; bar:somethingelse;"
+             *  foo:something
+             *  foo: something
+             *  foo : something
+             *  foo:something;
+             *  foo:something; bar:somethingelse
+             *  foo:something; bar:somethingelse;
+             *  foo :something; bar:   somethingelse;
+             *  foo:something;bar:somethingelse;
              *
              *  @param  {string} input                      - the input to process, see example above
              *  @return {object || bool false} properObject - a proper JS object notation
@@ -231,18 +233,22 @@ var YOI = (function() {
 
             if (YOI.stringContains(input, ':')) {
 
-                // clean up input
+                // clean up input, replace multiple whitespace characters with a single white space
+                // eg. "    " is turned into " "
 
-                input = (input || '').replace(/\s/g,'').split(';');
+                input = (input || '').replace(/\s+/g,' ').split(';');
 
-                // turn input into a proper object
+                // turn input into a proper object by creating key/value
+                // pairs by splitting the input at any occurance of a colon (:),
+                // remove leading and trailing white space (JS native trim function)
+                // and finally turning the resulting strings into a simple JS object notation
 
                 for (var i = 0; i < input.length; i++) {
-
+                    
                     keyValuePair = input[i].split(':');
 
                     if (keyValuePair[1] !== undefined)
-                        properObject[keyValuePair[0]] = keyValuePair[1];
+                        properObject[keyValuePair[0].trim()] = keyValuePair[1].trim();
 
                 }
 
@@ -261,9 +267,9 @@ var YOI = (function() {
             /**
              *  Add leading zeros to a given number and return the result.
              *
-             *  @param  {number}  num    - the number
-             *  @param  {number}  digits - the number of leading zeros
-             *  @return {string}         - the padded number
+             *  @param  {number} num    - the number
+             *  @param  {number} digits - the number of leading zeros
+             *  @return {string}        - the padded number
              */
 
             var num = Math.abs(num);

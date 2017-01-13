@@ -5,7 +5,7 @@ var Remove = (function() {
     // private functions
     // =================
     
-    function initializeRemoveTriggers($removeTrigger) {
+    function initializeRemoveTriggers($removeTrigger, options) {
         
         /**
          *  Initialize all *[data-remove] found in the document (= function call without parameters)
@@ -31,7 +31,7 @@ var Remove = (function() {
         $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
-            var options            = YOI.toObject($thisremoveTrigger.data('remove'));
+            var options            = options === undefined ? YOI.toObject($thisremoveTrigger.data('remove')) : options;
             var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
 
             $thisremoveTrigger.on('click', function(e) {

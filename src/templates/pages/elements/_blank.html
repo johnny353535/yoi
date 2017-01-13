@@ -7,8 +7,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 |                |                                                                                                            |
 | -              | -                                                                                                          |
-| Less-File      | {% if basePath == '/' %}[element.less](assets/less/elements/element.less){% else %}element.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[element.js](assets/js/modules/element.js){% else %}element.js{% endif %}          |
+| Less-File      | [element.less]({{ pathToSourceFile }}assets/less/elements/element.less)                                    |
+| JS-File        | [element.js]({{ pathToSourceFile }}assets/js/modules/element.js)                                           |
 | Base CSS-Class | `.elementClassname`                                                                                        |
 | Modifiers      | `.elementClassname--x`                                                                                     |
 

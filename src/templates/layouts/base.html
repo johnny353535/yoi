@@ -7,6 +7,14 @@
 {% import 'elements/reviews.html'      as reviews %}
 {% import 'elements/stepMenu.html'     as stepMenu %}
 
+{# set the path to source files #}
+
+{% if basePath == '/' %}
+    {% set pathToSourceFile = "" %}
+{% else %}
+    {% set pathToSourceFile = "https://github.com/yoshino-digital/ui-core/blob/master/src/" %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

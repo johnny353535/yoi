@@ -5,12 +5,12 @@
 ## Countdown
 Use this element to create a countdown to a date, less than a year ahead. The countdown is rendered as a lcd-style clock, yet fully accessible via screen readers.
 
-|                |                                                                                                                  |
-| -              | -                                                                                                                |
-| Less-File      | {% if basePath == '/' %}[countdown.less](assets/less/elements/countdown.less){% else %}countdown.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[countdown.js](assets/js/modules/countdown.js){% else %}countdown.js{% endif %}          |
-| Base CSS-Class | `.countdown`                                                                                                     |
-| Modifiers      | `-`                                                                                                              |
+|                |                                                                             |
+| -              | -                                                                           |
+| Less-File      | [countdown.less]({{ pathToSourceFile }}assets/less/elements/countdown.less) |
+| JS-File        | [countdown.js]({{ pathToSourceFile }}assets/js/modules/countdown.js)        |
+| Base CSS-Class | `.countdown`                                                                |
+| Modifiers      | `-`                                                                         |
 
 ### Basic Example
 Create an element with the css class name `countdown`. One parameter is needed, supplied via the custom data-attribute: the date of the deadline, [ISO 8601 formatted](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString). 
@@ -18,7 +18,7 @@ Create an element with the css class name `countdown`. One parameter is needed, 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002"></div>
+        <div class="countdown" data-countdown="December 31 2020 15:50:00 GMT+0002"></div>
     </div>
 </div>
 <div class="note note--subtle note--large note--icon085 m-t-8">
@@ -35,7 +35,7 @@ Add an element with the css class name `countdown__title` to add an optional tit
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="countdown" data-countdown="December 31 2016 15:00:00 GMT-0005">
+        <div class="countdown" data-countdown="December 31 2020 15:00:00 GMT-0005">
             <p class="countdown__title">Time Until Takeoff:</p>
         </div>
     </div>
@@ -48,7 +48,7 @@ Once the countdown expired, the display will reset and the **custom event** `cou
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="countdown" data-countdown="January 1 2016 18:18:00 GMT+0002"></div>
+        <div class="countdown" data-countdown="January 1 2020 18:18:00 GMT+0002"></div>
     </div>
 </div>
 
@@ -59,8 +59,8 @@ Each lcd-style digit is an svg graphic. To make the countdown more accessible by
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true">
-        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002">
-            <p class="hidden">Expires on December 31st 2016 at 15:00 GMT+0002.</p>
+        <div class="countdown" data-countdown="December 31 2020 15:50:00 GMT+0002">
+            <p class="hidden">Expires on December 31st 2020 at 15:00 GMT+0002.</p>
         </div>
     </div>
 </div>
@@ -71,7 +71,7 @@ Once the script is executed, the label gets replaced and updates every second:
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; printWithDelay:true">
-        <div class="countdown" data-countdown="December 31 2016 15:50:00 GMT+0002">
+        <div class="countdown" data-countdown="December 31 2020 15:50:00 GMT+0002">
             <p class="hidden">Expires on January 1st, 2020 at 15:00 GMT+0002</p>
         </div>
     </div>

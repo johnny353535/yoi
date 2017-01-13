@@ -5,11 +5,11 @@
 ## Layout and Grid
 This framework does not implement a traditional layout grid. Instead, it contains utility classes for fractional widths as well as utility classes for absolute widths and heighs. These classes are simple yet powerful enough to compose almost every desired layouts.
 
-|                |                                                                                                                                        |
-| -              | -                                                                                                                                      |
-| Less-File      | {% if basePath == '/' %}[grid.less](assets/less/utilities/grid.less){% else %}grid.less{% endif %}                                     |
-| Less-File      | {% if basePath == '/' %}[layout.less](assets/less/utilities/layout.less){% else %}layout.less{% endif %}                                  |
-| Less-File      | {% if basePath == '/' %}[responsive-layout.less](assets/less/utilities/responsive-layout.less){% else %}responsive-layout.less{% endif %} |
+|           |                                                                                              |
+| -         | -                                                                                            |
+| Less-File | [grid.less]({{ pathToSourceFile }}assets/less/utilities/grid.less)                           |
+| Less-File | [layout.less]({{ pathToSourceFile }}assets/less/utilities/layout.less)                       |
+| Less-File | [responsive-layout.less]({{ pathToSourceFile }}assets/less/utilities/responsive-layout.less) |
 
 ### Center
 Use the `.center` utility class to vertically center a container and set it to the pre-defined [global width](/pages/css-variables/dimensions.html).

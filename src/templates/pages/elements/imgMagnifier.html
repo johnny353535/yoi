@@ -5,11 +5,11 @@
 ## Image Magnifier
 Use this element to create an *amazon-style* image zoomer. It’s very lightweight and only needs two elements with no further parameters: a preview image and a zoom image.
 
-|                |                                                                                                                           |
-| -              | -                                                                                                                         |
-| Less-File      | {% if basePath == '/' %}[imgMagnifier.less](assets/less/elements/imgMagnifier.less){% else %}imgMagnifier.less{% endif %} |
-| JS-File        | {% if basePath == '/' %}[imgMagnifier.js](assets/js/modules/imgMagnifier.js){% else %}imgMagnifier.js{% endif %}          |
-| Base CSS-Class | `.imgMagnifier`                                                                                                           |
+|                |                                                                                   |
+| -              | -                                                                                 |
+| Less-File      | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/elements/imgMagnifier.less) |
+| JS-File        | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/modules/imgMagnifier.js)        |
+| Base CSS-Class | `.imgMagnifier`                                                                   |
 
 ### Example
 See the following examples for markup reference. Notice how this element implements a **gracefull no-script fall back** – in this case it’s just a link to the larger image.

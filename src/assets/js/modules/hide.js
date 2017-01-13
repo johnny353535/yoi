@@ -5,7 +5,7 @@ var Hide = (function() {
     // private functions
     // =================
     
-    function initializeHide($hideTrigger) {
+    function initializeHide($hideTrigger, options) {
         
         /**
          *  Search the Dom for trigger-elements flagged with "data-hide" and hide the
@@ -44,7 +44,7 @@ var Hide = (function() {
             // set up vars
 
             var $thisTrigger = $(this);
-            var $data        = YOI.toObject($this.data('hide'));
+            var $data        = options === undefined ? YOI.toObject($this.data('hide')) : options;
             var target       = $data.target !== undefined ? $data.target : false;
             var event        = $data.event !== undefined ? $data.event : 'click';
             var transition   = $data.transition !== undefined ? $data.transition : false;

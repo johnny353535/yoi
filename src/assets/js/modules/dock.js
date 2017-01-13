@@ -5,7 +5,7 @@ var Dock = (function() {
     // private functions
     // =================
 
-    function initializeDock($dock) {
+    function initializeDock($dock, options) {
     
         /**
          *  Initialize all *[data-dock] found in the document (= function call without parameters)
@@ -22,7 +22,7 @@ var Dock = (function() {
         $dock.each(function() {
 
             var $thisDock = $(this);
-            var options   = YOI.toObject($thisDock.data('dock'));
+            var options   = options === undefined ? YOI.toObject($thisDock.data('dock')) : options;
 
             // auto hide
 

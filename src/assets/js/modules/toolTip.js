@@ -11,7 +11,7 @@ var Tooltip = (function() {
     // private functions
     // =================
 
-    function initializeTooltip($tooltip) {
+    function initializeTooltip($tooltip, options) {
 
         /**
          *  Initialize all *[data-tooltip] found in the document (= function call without parameters)
@@ -29,15 +29,15 @@ var Tooltip = (function() {
 
             // set up vars
 
-            var $this     = $(this);
-            var options   = YOI.toObject($this.data('tooltip'));
-            var $target   = options.target !== undefined ? $(options.target) : $this.find('.tooltip');
-            var character = (options.character !== undefined && !icon) ? options.character : '?';
+            var $thisTooltip = $(this);
+            var options      = options === undefined ? YOI.toObject($thisTooltip.data('tooltip')) : options;
+            var $target      = options.target !== undefined ? $(options.target) : $thisTooltip.find('.tooltip');
+            var character    = (options.character !== undefined && !icon) ? options.character : '?';
             var $trigger;
 
             // prepare the trigger element
 
-            $trigger = prepareTrigger($this);
+            $trigger = prepareTrigger($thisTooltip);
 
             // prepare the target element
 

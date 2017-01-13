@@ -12,7 +12,7 @@ var MicroSubmit = (function() {
     // private functions
     // =================
 
-    function initializeMicroSubmit($microSubmit) {
+    function initializeMicroSubmit($microSubmit, options) {
         
         /**
          *  Initialize all form[data-microsubmit] found in the document (= function call without parameters)
@@ -29,7 +29,7 @@ var MicroSubmit = (function() {
         $microSubmit.each(function() {
 
             var $thisForm       = $(this);
-            var options         = YOI.toObject($thisForm.data('microsubmit'));
+            var options         = options === undefined ? YOI.toObject($thisForm.data('microsubmit')) : options;
             var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
             var thisMessage     = $thisForm.find('input').val();
             var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();

@@ -21,7 +21,7 @@ var PieChart = (function() {
     // private functions
     // =================
 
-    function initializePieChart($pieChart) {
+    function initializePieChart($pieChart, options) {
 
         /**
          *  Initialize all *[data-piechart] found in the document (= function call without parameters)
@@ -59,8 +59,7 @@ var PieChart = (function() {
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-            var options = YOI.toObject($thisPieChart.data('piechart'));
+            var options              = options === undefined ? YOI.toObject($thisPieChart.data('piechart')) : options;
 
             // store data
 
