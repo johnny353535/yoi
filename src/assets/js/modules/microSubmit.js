@@ -29,14 +29,14 @@ var MicroSubmit = (function() {
         $microSubmit.each(function() {
 
             var $thisForm       = $(this);
-            var options         = Helper.toObject($thisForm.data('microsubmit'));
+            var options         = YOI.toObject($thisForm.data('microsubmit'));
             var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
             var thisMessage     = $thisForm.find('input').val();
             var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
             
             // hide response content first
             
-            Helper.hide($thisResponse);
+            YOI.hide($thisResponse);
             
             // cancel if no target url (for ajax send) was found
             
@@ -56,7 +56,7 @@ var MicroSubmit = (function() {
                     },
                     complete: function(response){
                         $thisForm.replaceWith($thisResponse);
-                        Helper.show($thisResponse);
+                        YOI.show($thisResponse);
                     }
                 });
 

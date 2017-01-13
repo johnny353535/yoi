@@ -31,7 +31,7 @@ var Remove = (function() {
         $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
-            var options            = Helper.toObject($thisremoveTrigger.data('remove'));
+            var options            = YOI.toObject($thisremoveTrigger.data('remove'));
             var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
 
             $thisremoveTrigger.on('click', function(e) {

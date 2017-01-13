@@ -9,7 +9,7 @@ var Modal = (function() {
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
     var modalIdIndex  = 0;     // An index for internally generated modal ids.
-    var btnLabelClose = Helper.locale === 'de' ? 'Schließen' : 'Close';
+    var btnLabelClose = YOI.locale === 'de' ? 'Schließen' : 'Close';
 
     var $modalCover = $('\
         <div class="modal__cover" id="modalCover" data-action="closeModal"></div>\
@@ -77,7 +77,7 @@ var Modal = (function() {
 
             var $this = $(this);
 
-            var options        = Helper.toObject($this.data('modal'));
+            var options        = YOI.toObject($this.data('modal'));
             var thisModalId    = options !== undefined && options.id    !== undefined ? options.id    : generateModalId();
             var thisModalPath  = options !== undefined && options.path  !== undefined ? options.path  : $this.attr('href');
             var thisModalCache = options !== undefined && options.cache !== undefined ? options.cache : false;
@@ -176,7 +176,7 @@ var Modal = (function() {
 
                         initializeModalCloseTriggers(modalId);
 
-                        if (Helper.foundModule('CustomFormElements'))
+                        if (YOI.foundModule('CustomFormElements'))
                             CustomFormElements.init(modalId);
 
                         // optional callback
@@ -241,7 +241,7 @@ var Modal = (function() {
             // but always jump back to the last scroll position when
             // closing the modal.
 
-            if (Helper.environment('mobile')) {
+            if (YOI.environment('mobile')) {
                 scrollTop = $('body').scrollTop();
                 $('body').scrollTop(0);
             }
@@ -289,7 +289,7 @@ var Modal = (function() {
         }
 
         modalActive = false;
-        if (Helper.foundModule('BrowserHistory'))
+        if (YOI.foundModule('BrowserHistory'))
             BrowserHistory.clearHash();
 
     }

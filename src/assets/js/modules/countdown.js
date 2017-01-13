@@ -1,6 +1,6 @@
 /** countdown.js */
 
-var countdown = (function() {
+var Countdown = (function() {
 
     // private vars
     // ============
@@ -69,7 +69,7 @@ var countdown = (function() {
             
             // update the clock every second
             
-            Helper.setInterval('countdownTimer-' + index, 1000, function() {
+            YOI.setInterval('countdownTimer-' + index, 1000, function() {
                 renderCountdown($thisCountdown, index)
             });
         
@@ -94,7 +94,7 @@ var countdown = (function() {
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
-            Helper.clearInterval('countdownTimer-' + index);
+            YOI.clearInterval('countdownTimer-' + index);
             $thisCountdown.trigger('countdown:expired');
         }
 
@@ -105,7 +105,7 @@ var countdown = (function() {
         // accessibility: create an additional, visually hidden
         // label for screen readers
         
-        var language = Helper.locale();
+        var language = YOI.locale();
         
         var labelTxt = {
             'en' : timeRemaining.days + ' days, ' + timeRemaining.hours + ' hours, ' + timeRemaining.minutes + ' minutes and ' + timeRemaining.seconds + ' seconds left.',
@@ -133,9 +133,9 @@ var countdown = (function() {
         var today       = new Date();
         var currentTime = {};
         
-        currentTime.hours   = Helper.zeroPad(today.getHours()).toString();
-        currentTime.minutes = Helper.zeroPad(today.getMinutes()).toString();
-        currentTime.seconds = Helper.zeroPad(today.getSeconds()).toString();
+        currentTime.hours   = YOI.zeroPad(today.getHours()).toString();
+        currentTime.minutes = YOI.zeroPad(today.getMinutes()).toString();
+        currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
 
         return currentTime;
 
@@ -153,10 +153,10 @@ var countdown = (function() {
         // format output
         
         var total   = Date.parse(endTime) - Date.parse(new Date());
-        var seconds = Helper.zeroPad(Math.floor((total / 1000) % 60 )).toString();
-        var minutes = Helper.zeroPad(Math.floor((total / 1000 / 60) % 60 )).toString();
-        var hours   = Helper.zeroPad(Math.floor((total / (1000 * 60 * 60)) % 24 )).toString();
-        var days    = Helper.zeroPad(Math.floor(total / (1000 * 60 * 60 * 24))).toString();
+        var seconds = YOI.zeroPad(Math.floor((total / 1000) % 60 )).toString();
+        var minutes = YOI.zeroPad(Math.floor((total / 1000 / 60) % 60 )).toString();
+        var hours   = YOI.zeroPad(Math.floor((total / (1000 * 60 * 60)) % 24 )).toString();
+        var days    = YOI.zeroPad(Math.floor(total / (1000 * 60 * 60 * 24))).toString();
         
         // return output
         
@@ -270,7 +270,7 @@ var countdown = (function() {
          */
         
         var $label   = $countdownCharacterLabel.clone();
-        var language = Helper.locale();
+        var language = YOI.locale();
         
         $label.text(clockLabels[language][unit])
         

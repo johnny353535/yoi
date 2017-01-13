@@ -141,7 +141,7 @@ var CustomFormElements = (function() {
 
             var $thisSwitch = $(this);
 
-            var options     = Helper.toObject($thisSwitch.data('switch'));
+            var options     = YOI.toObject($thisSwitch.data('switch'));
             var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
             var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
 

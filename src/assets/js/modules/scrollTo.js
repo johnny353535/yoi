@@ -77,7 +77,7 @@ var ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = Helper.toObject($thisTrigger.data('scrollto'));
+        var options              = YOI.toObject($thisTrigger.data('scrollto'));
 
         // cancel if no target was found
         
@@ -85,7 +85,7 @@ var ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && Helper.foundModule('Tabs')) {
+        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('Tabs')) {
             Tabs.switchTo(targetId);
         }
 
@@ -108,8 +108,8 @@ var ScrollTo = (function() {
                 scrollTop: scrollPosY
             }, 500)
         ).done(function(){
-            if (options.highlight === "blink") Helper.blink($target);
-            if (options.highlight === "pulse") Helper.pulse($target);
+            if (options.highlight === "blink") YOI.blink($target);
+            if (options.highlight === "pulse") YOI.pulse($target);
         });
 
     }

@@ -41,7 +41,7 @@ var PopOver = (function() {
 
             // read the options
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             // cancel if target-selector does not return any element ...
 
@@ -94,7 +94,7 @@ var PopOver = (function() {
 
                     if (preventDefault !== 'false') e.preventDefault();
 
-                    Helper.clearInterval('popOverShowTimeout');
+                    YOI.clearInterval('popOverShowTimeout');
                     hidePopOver($thisPopOverTrigger, $thisPopOver);
 
                 });
@@ -103,7 +103,7 @@ var PopOver = (function() {
 
             $thisPopOver
                 .on('mouseenter', function() {
-                    Helper.clearInterval('popOverHideTimeout');
+                    YOI.clearInterval('popOverHideTimeout');
                 })
                 .on('mouseleave', function() {
                     hidePopOver($thisPopOverTrigger, $thisPopOver);
@@ -137,12 +137,12 @@ var PopOver = (function() {
          *  @param {jQuery dom object} $thisPopOver        - the pop-over
          */
 
-        Helper.setDelay('popOverShowTimeout', 100, function() {
+        YOI.setDelay('popOverShowTimeout', 100, function() {
 
             // if this option is set, add the provided css class name
             // to the trigger element
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.addClass(options.toggleClass);
@@ -166,7 +166,7 @@ var PopOver = (function() {
          *  @param {jQuery dom object} $thisPopOver        - the pop-over
          */
 
-        Helper.setDelay('popOverHideTimeout', 500, function() {
+        YOI.setDelay('popOverHideTimeout', 500, function() {
             $thisPopOver.hide();
             removeToggleClassFromPopOverTrigger();
         });
@@ -198,7 +198,7 @@ var PopOver = (function() {
         // clear the hide interval,
         // then hide all pop-overs
 
-        Helper.clearInterval('popOverHideTimeout');
+        YOI.clearInterval('popOverHideTimeout');
         $('.popOver').hide();
 
     }
@@ -214,7 +214,7 @@ var PopOver = (function() {
 
         // read options
 
-        var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+        var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
         // position settings
 
@@ -303,12 +303,12 @@ var PopOver = (function() {
 
             // read the options
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
             
             // if this option is set, remove the provided css class name
             // from the trigger element
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.removeClass(options.toggleClass);

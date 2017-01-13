@@ -1,6 +1,6 @@
 {
     "src" : [
-        "./src/assets/js/core/helpers.js",
+        "./src/assets/js/core/yoi.js",
         "./src/assets/js/core/documentation.js",
         "./src/assets/js/modules/accordion.js",
         "./src/assets/js/modules/browserHistory.js",

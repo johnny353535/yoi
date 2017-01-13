@@ -50,7 +50,7 @@ var Documentation = (function() {
         // hightlight code inside code-tags found in markup
 
         $('[class^="language-"]').each(function() {
-            if (Helper.foundModule('Prism'))
+            if (YOI.foundModule('Prism'))
                 Prism.highlightElement($(this).find('pre')[0]);
         });
 
@@ -59,7 +59,7 @@ var Documentation = (function() {
         $('.documentation__example[data-printcode]').each(function() {
 
             var $thisExampleBlock = $(this);
-            var options           = Helper.toObject($thisExampleBlock.data('printcode'));
+            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
 
             /**
              * available options:
@@ -74,7 +74,7 @@ var Documentation = (function() {
 
             if (options.printWithDelay) {
 
-                Helper.setDelay('printCodeDelay', 1000, function() {
+                YOI.setDelay('printCodeDelay', 1000, function() {
                     printCode($thisExampleBlock);
                 });
 
@@ -98,7 +98,7 @@ var Documentation = (function() {
         $('[data-docblock]').each(function() {
 
             var $thisDocBlock = $(this)
-            var options       = Helper.toObject($thisDocBlock.data('docblock'));
+            var options       = YOI.toObject($thisDocBlock.data('docblock'));
 
             /**
              *  available options:
@@ -220,7 +220,7 @@ var Documentation = (function() {
         })
         .done(function(responseData) {
 
-            if (Helper.foundModule('Prism')) {
+            if (YOI.foundModule('Prism')) {
 
                 // highlight with prism.js if available
                 
@@ -336,7 +336,7 @@ var Documentation = (function() {
             var $thisCodeBlock    = $codeBlock.clone();
             var $thisPreBlock     = $preBlock.clone();
 
-            var options           = Helper.toObject($thisExampleBlock.data('printcode'));
+            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
             var content           = decodeEntities($thisExampleBlock.html());
             var processedCode;
 

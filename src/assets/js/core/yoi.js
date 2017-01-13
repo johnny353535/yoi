@@ -1,6 +1,6 @@
-/** helpers.js */
+/** yoi.js */
 
-var Helper = (function() {
+var YOI = (function() {
 
     return {
 
@@ -229,7 +229,7 @@ var Helper = (function() {
             var keyValuePair;
             var properObject = {};
 
-            if (Helper.stringContains(input, ':')) {
+            if (YOI.stringContains(input, ':')) {
 
                 // clean up input
 
@@ -285,7 +285,7 @@ var Helper = (function() {
             /**
              *  Hides an element which has a Yoshino UI-Core display utility class like
              *  d-block, d-inl, d-inlblk. The script remembers the display class and
-             *  puts it back, once Helper.show() gets called.
+             *  puts it back, once YOI.show() gets called.
              *
              *  @param {number} $target - the jQuery target dom element
              */
@@ -319,7 +319,7 @@ var Helper = (function() {
         show : function($target) {
 
             /**
-             *  Show an element which was previously hidden by Helper.hide().
+             *  Show an element which was previously hidden by YOI.hide().
              *  Re-assigns the previously remembered Yoshino UI-Core display utility class.
              *
              *  @param {number} $target - the jQuery target dom element

@@ -8,8 +8,8 @@ var Filters = (function() {
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
 
-    var btnLabelReset = Helper.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
-    var msgLoading    = Helper.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
+    var btnLabelReset = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
+    var msgLoading    = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
         <a href="#" class="filters__resetBtn btn btn--large btn--subtle">\
@@ -236,7 +236,7 @@ var Filters = (function() {
 
         // axecute after delay
 
-        Helper.setDelay('toggleFilterTimeout', 750, function() {
+        YOI.setDelay('toggleFilterTimeout', 750, function() {
 
             // collapse filter group
 
@@ -380,7 +380,7 @@ var Filters = (function() {
 
         // execute after delay
 
-        Helper.setDelay('updateResultsTimeout', 500, function() {
+        YOI.setDelay('updateResultsTimeout', 500, function() {
 
             /**
              *  Todo:
@@ -421,7 +421,7 @@ var Filters = (function() {
 
                         // update any rangeInput
 
-                        if (withPriceRange && Helper.foundModule('RangeInput')) {
+                        if (withPriceRange && YOI.foundModule('RangeInput')) {
 
                             var $rangeInput = $thisFilters.find('.rangeInput').first();
 

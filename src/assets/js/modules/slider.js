@@ -6,8 +6,8 @@ var Slider = (function() {
     // ============
 
     var slideAutoplayIntervals = {};
-    var btnLabelNext = Helper.locale === 'de' ? 'weiter' : 'next';
-    var btnLabelPrev = Helper.locale === 'de' ? 'zurück' : 'previous';
+    var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
+    var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
 
     var slideControls = {
 
@@ -141,7 +141,7 @@ var Slider = (function() {
 
             // slider instance options
 
-            var options = Helper.toObject($thisSlider.data('slider'));
+            var options = YOI.toObject($thisSlider.data('slider'));
 
             // prepare slides and adjust container to fixed height for animations
 
@@ -274,7 +274,7 @@ var Slider = (function() {
 
         var totalSlides        = $thisSlider.data().totalSlides;
         var slideIndex         = $thisSlider.data().slideIndex;
-        var options            = Helper.toObject($thisSlider.data('slider'));
+        var options            = YOI.toObject($thisSlider.data('slider'));
         var direction          = false;
 
         if (target === 'next' || target === undefined) {
@@ -334,7 +334,7 @@ var Slider = (function() {
 
         var    $thisSlides       = $thisSlider.find('.slider__slide');
 
-        var options           = Helper.toObject($thisSlider.data('slider'));
+        var options           = YOI.toObject($thisSlider.data('slider'));
         var currentSlideIndex = $thisSlider.data().slideIndex;
         var leftOffset;
 

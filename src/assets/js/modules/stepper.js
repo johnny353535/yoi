@@ -5,8 +5,8 @@ var Stepper = (function() {
     // private vars
     // ============
 
-    var btnLabelMore = Helper.locale === 'de' ? 'mehr'    : 'more';
-    var btnLabelLess = Helper.locale === 'de' ? 'weniger' : 'less';
+    var btnLabelMore = YOI.locale === 'de' ? 'mehr'    : 'more';
+    var btnLabelLess = YOI.locale === 'de' ? 'weniger' : 'less';
 
     var $stepperBtns = $('\
         <div class="stepper__btnPlus">\
@@ -44,7 +44,7 @@ var Stepper = (function() {
 
             // attach events
 
-            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
+            var eventType = YOI.environment('mobile') ? 'tap' : 'click';
 
             $thisStepper.find('.stepper__btnPlus').on(eventType, function(e) {
                 e.preventDefault();

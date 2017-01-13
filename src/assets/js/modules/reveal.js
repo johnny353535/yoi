@@ -41,7 +41,7 @@ var Reveal = (function() {
             // set up vars
 
             var $this      = $(this);
-            var $data      = Helper.toObject($this.data('reveal'));
+            var $data      = YOI.toObject($this.data('reveal'));
             var target     = $data.target !== undefined ? $data.target : false;
             var event      = $data.event !== undefined ? $data.event : 'click';
             var transition = $data.transition !== undefined ? $data.transition : false;

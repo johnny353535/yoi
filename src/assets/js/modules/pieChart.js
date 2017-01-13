@@ -60,7 +60,7 @@ var PieChart = (function() {
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
-            var options = Helper.toObject($thisPieChart.data('piechart'));
+            var options = YOI.toObject($thisPieChart.data('piechart'));
 
             // store data
 
@@ -110,13 +110,13 @@ var PieChart = (function() {
                     $thisRecord
                         .on('mouseover', function() {
 
-                            Helper.clearDelay('pieChartHightlightDelay');
+                            YOI.clearDelay('pieChartHightlightDelay');
                             highlightRecord($thisRecord);
 
                         })
                         .on('mouseleave', function() {
 
-                            Helper.setDelay('pieChartHightlightDelay', 500, function() {
+                            YOI.setDelay('pieChartHightlightDelay', 500, function() {
                                 resetHighlightRecord($thisPieChart);
                             });
 
@@ -378,7 +378,7 @@ var PieChart = (function() {
 
         // let the slice blink
 
-        Helper.blink($slices.eq(thisIndex));
+        YOI.blink($slices.eq(thisIndex));
 
     }
 

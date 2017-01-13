@@ -1,6 +1,6 @@
-/** helpers.js */
+/** yoi.js */
 
-var Helper = (function() {
+var YOI = (function() {
 
     return {
 
@@ -229,7 +229,7 @@ var Helper = (function() {
             var keyValuePair;
             var properObject = {};
 
-            if (Helper.stringContains(input, ':')) {
+            if (YOI.stringContains(input, ':')) {
 
                 // clean up input
 
@@ -285,7 +285,7 @@ var Helper = (function() {
             /**
              *  Hides an element which has a Yoshino UI-Core display utility class like
              *  d-block, d-inl, d-inlblk. The script remembers the display class and
-             *  puts it back, once Helper.show() gets called.
+             *  puts it back, once YOI.show() gets called.
              *
              *  @param {number} $target - the jQuery target dom element
              */
@@ -319,7 +319,7 @@ var Helper = (function() {
         show : function($target) {
 
             /**
-             *  Show an element which was previously hidden by Helper.hide().
+             *  Show an element which was previously hidden by YOI.hide().
              *  Re-assigns the previously remembered Yoshino UI-Core display utility class.
              *
              *  @param {number} $target - the jQuery target dom element
@@ -405,7 +405,7 @@ var Documentation = (function() {
         // hightlight code inside code-tags found in markup
 
         $('[class^="language-"]').each(function() {
-            if (Helper.foundModule('Prism'))
+            if (YOI.foundModule('Prism'))
                 Prism.highlightElement($(this).find('pre')[0]);
         });
 
@@ -414,7 +414,7 @@ var Documentation = (function() {
         $('.documentation__example[data-printcode]').each(function() {
 
             var $thisExampleBlock = $(this);
-            var options           = Helper.toObject($thisExampleBlock.data('printcode'));
+            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
 
             /**
              * available options:
@@ -429,7 +429,7 @@ var Documentation = (function() {
 
             if (options.printWithDelay) {
 
-                Helper.setDelay('printCodeDelay', 1000, function() {
+                YOI.setDelay('printCodeDelay', 1000, function() {
                     printCode($thisExampleBlock);
                 });
 
@@ -453,7 +453,7 @@ var Documentation = (function() {
         $('[data-docblock]').each(function() {
 
             var $thisDocBlock = $(this)
-            var options       = Helper.toObject($thisDocBlock.data('docblock'));
+            var options       = YOI.toObject($thisDocBlock.data('docblock'));
 
             /**
              *  available options:
@@ -575,7 +575,7 @@ var Documentation = (function() {
         })
         .done(function(responseData) {
 
-            if (Helper.foundModule('Prism')) {
+            if (YOI.foundModule('Prism')) {
 
                 // highlight with prism.js if available
                 
@@ -691,7 +691,7 @@ var Documentation = (function() {
             var $thisCodeBlock    = $codeBlock.clone();
             var $thisPreBlock     = $preBlock.clone();
 
-            var options           = Helper.toObject($thisExampleBlock.data('printcode'));
+            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
             var content           = decodeEntities($thisExampleBlock.html());
             var processedCode;
 
@@ -880,11 +880,11 @@ var Accordion = (function() {
             
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
-            var options        = options === undefined ? Helper.toObject($thisAccordion.data('accordion')) : options;
+            var options        = options === undefined ? YOI.toObject($thisAccordion.data('accordion')) : options;
 
             // define the event: tap on mobile, click on desktop
 
-            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
+            var eventType = YOI.environment('mobile') ? 'tap' : 'click';
             
             $thisSections.each(function() {
                 
@@ -944,7 +944,7 @@ var Accordion = (function() {
         var $thisAccordion = $section.closest('.accordion');
         var $thisSection   = $section;
         var $thisBody      = $section.find('.accordion__body');
-        var options        = Helper.toObject($thisAccordion.data('accordion'));
+        var options        = YOI.toObject($thisAccordion.data('accordion'));
         
         // in "linked" accordions, only one section can be open.
         // all remaining sections will close.
@@ -1054,7 +1054,7 @@ var BrowserHistory = (function() {
 
 /** countdown.js */
 
-var countdown = (function() {
+var Countdown = (function() {
 
     // private vars
     // ============
@@ -1123,7 +1123,7 @@ var countdown = (function() {
             
             // update the clock every second
             
-            Helper.setInterval('countdownTimer-' + index, 1000, function() {
+            YOI.setInterval('countdownTimer-' + index, 1000, function() {
                 renderCountdown($thisCountdown, index)
             });
         
@@ -1148,7 +1148,7 @@ var countdown = (function() {
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
-            Helper.clearInterval('countdownTimer-' + index);
+            YOI.clearInterval('countdownTimer-' + index);
             $thisCountdown.trigger('countdown:expired');
         }
 
@@ -1159,7 +1159,7 @@ var countdown = (function() {
         // accessibility: create an additional, visually hidden
         // label for screen readers
         
-        var language = Helper.locale();
+        var language = YOI.locale();
         
         var labelTxt = {
             'en' : timeRemaining.days + ' days, ' + timeRemaining.hours + ' hours, ' + timeRemaining.minutes + ' minutes and ' + timeRemaining.seconds + ' seconds left.',
@@ -1187,9 +1187,9 @@ var countdown = (function() {
         var today       = new Date();
         var currentTime = {};
         
-        currentTime.hours   = Helper.zeroPad(today.getHours()).toString();
-        currentTime.minutes = Helper.zeroPad(today.getMinutes()).toString();
-        currentTime.seconds = Helper.zeroPad(today.getSeconds()).toString();
+        currentTime.hours   = YOI.zeroPad(today.getHours()).toString();
+        currentTime.minutes = YOI.zeroPad(today.getMinutes()).toString();
+        currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
 
         return currentTime;
 
@@ -1207,10 +1207,10 @@ var countdown = (function() {
         // format output
         
         var total   = Date.parse(endTime) - Date.parse(new Date());
-        var seconds = Helper.zeroPad(Math.floor((total / 1000) % 60 )).toString();
-        var minutes = Helper.zeroPad(Math.floor((total / 1000 / 60) % 60 )).toString();
-        var hours   = Helper.zeroPad(Math.floor((total / (1000 * 60 * 60)) % 24 )).toString();
-        var days    = Helper.zeroPad(Math.floor(total / (1000 * 60 * 60 * 24))).toString();
+        var seconds = YOI.zeroPad(Math.floor((total / 1000) % 60 )).toString();
+        var minutes = YOI.zeroPad(Math.floor((total / 1000 / 60) % 60 )).toString();
+        var hours   = YOI.zeroPad(Math.floor((total / (1000 * 60 * 60)) % 24 )).toString();
+        var days    = YOI.zeroPad(Math.floor(total / (1000 * 60 * 60 * 24))).toString();
         
         // return output
         
@@ -1324,7 +1324,7 @@ var countdown = (function() {
          */
         
         var $label   = $countdownCharacterLabel.clone();
-        var language = Helper.locale();
+        var language = YOI.locale();
         
         $label.text(clockLabels[language][unit])
         
@@ -1355,7 +1355,7 @@ var DatePicker = (function() {
     // get the document language, fall back to english
     // note: only german and english supported at this moment
 
-    var language = typeof Helper.locale() !== 'object' || Helper.locale() === undefined || Helper.locale() === '' ? 'en' : Helper.locale();
+    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
 
     // object to save the current date
 
@@ -1434,7 +1434,7 @@ var DatePicker = (function() {
 
                 // get and format date input data
 
-                thisDateInputData = Helper.toObject($thisDateInput.data('datepicker'));
+                thisDateInputData = YOI.toObject($thisDateInput.data('datepicker'));
 
                 // if a field is undefined, fall back to the current time value for the field,
                 // eg. if year is undefined, use the current year
@@ -1503,7 +1503,7 @@ var DatePicker = (function() {
                 })
                 .on('blur', function() {
 
-                    Helper.setDelay('datePickerHideTimeout-' + index, 500, function() {
+                    YOI.setDelay('datePickerHideTimeout-' + index, 500, function() {
 
                         // get the date input data
 
@@ -1525,7 +1525,7 @@ var DatePicker = (function() {
                 })
                 .on('focus', function(e) {
 
-                    Helper.clearDelay('datePickerHideTimeout-' + index);
+                    YOI.clearDelay('datePickerHideTimeout-' + index);
 
                     // hide all other date pickers first
 
@@ -1559,7 +1559,7 @@ var DatePicker = (function() {
 
         // format the date
 
-        var formattedSelectedDate = Helper.zeroPad(selectedDay, 1) + '.' + Helper.zeroPad(selectedMonth + 1, 1) + '.' + selectedYear;
+        var formattedSelectedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(selectedMonth + 1, 1) + '.' + selectedYear;
 
         // write data
 
@@ -1619,7 +1619,7 @@ var DatePicker = (function() {
 
         // format the date
 
-        var formattedDate = Helper.zeroPad(selectedDay, 1) + '.' + Helper.zeroPad(month + 1, 1) + '.' + year;
+        var formattedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(month + 1, 1) + '.' + year;
 
         // write data to month table
 
@@ -1652,8 +1652,8 @@ var DatePicker = (function() {
         if (!day || !month || !year) {
             formattedDate = '';
         } else {
-            if (language === 'de') formattedDate = Helper.zeroPad(day, 1) + '.' + Helper.zeroPad(month + 1, 1) + '.' + year;
-            if (language === 'en') formattedDate = Helper.zeroPad(month + 1, 1) + '.' + Helper.zeroPad(day, 1) + '.' + year;
+            if (language === 'de') formattedDate = YOI.zeroPad(day, 1) + '.' + YOI.zeroPad(month + 1, 1) + '.' + year;
+            if (language === 'en') formattedDate = YOI.zeroPad(month + 1, 1) + '.' + YOI.zeroPad(day, 1) + '.' + year;
         }
 
         // write data
@@ -1702,11 +1702,11 @@ var DatePicker = (function() {
 
         // create the table header
 
-        if (Helper.locale() === 'en' || Helper.locale === undefined) {
+        if (YOI.locale() === 'en' || YOI.locale === undefined) {
 
             $monthTableBody.append($weekDaysHeader_en.clone());
 
-        } else if (Helper.locale() === 'de') {
+        } else if (YOI.locale() === 'de') {
 
             $monthTableBody.append($weekDaysHeader_de.clone());
 
@@ -1898,7 +1898,7 @@ var DatePicker = (function() {
             // for unknow reasons, focus gets fired *before* blur if we don't
             // use a short delay for debounce
 
-            Helper.setDelay('datePickerFocusDelay', 50, function() {
+            YOI.setDelay('datePickerFocusDelay', 50, function() {
                 $thisDatePicker.prev('input[data-datepicker]').focus();
             });
 
@@ -2174,7 +2174,7 @@ var Dismiss = (function() {
     // ============
 
     var $btnDismiss;
-    var btnLabelClose = Helper.locale === 'de' ? 'schliessen' : 'close';
+    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 
     $btnDismiss = $('\
         <button class="btn btn--subtle">\
@@ -2245,7 +2245,7 @@ var Dismiss = (function() {
         $dismissButton.each(function() {
 
             var $thisTrigger = $(this);
-            var options      = Helper.toObject($(this).data('dismiss'));
+            var options      = YOI.toObject($(this).data('dismiss'));
             var $thisTarget  = $(options.target);
 
             // attach events
@@ -2316,7 +2316,7 @@ var Dock = (function() {
         $dock.each(function() {
 
             var $thisDock = $(this);
-            var options   = Helper.toObject($thisDock.data('dock'));
+            var options   = YOI.toObject($thisDock.data('dock'));
 
             // auto hide
 
@@ -2326,11 +2326,11 @@ var Dock = (function() {
 
                 $thisDock
                     .on('mouseover', function() {
-                        Helper.clearDelay('hideDockTimeout');
+                        YOI.clearDelay('hideDockTimeout');
                         showDock($thisDock);
                     })
                     .on('mouseout', function() {
-                        Helper.setDelay('hideDockTimeout', 750, function() {
+                        YOI.setDelay('hideDockTimeout', 750, function() {
                             hideDock($thisDock);
                         });
                     });
@@ -2509,8 +2509,8 @@ var Filters = (function() {
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
 
-    var btnLabelReset = Helper.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
-    var msgLoading    = Helper.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
+    var btnLabelReset = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
+    var msgLoading    = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
         <a href="#" class="filters__resetBtn btn btn--large btn--subtle">\
@@ -2737,7 +2737,7 @@ var Filters = (function() {
 
         // axecute after delay
 
-        Helper.setDelay('toggleFilterTimeout', 750, function() {
+        YOI.setDelay('toggleFilterTimeout', 750, function() {
 
             // collapse filter group
 
@@ -2881,7 +2881,7 @@ var Filters = (function() {
 
         // execute after delay
 
-        Helper.setDelay('updateResultsTimeout', 500, function() {
+        YOI.setDelay('updateResultsTimeout', 500, function() {
 
             /**
              *  Todo:
@@ -2922,7 +2922,7 @@ var Filters = (function() {
 
                         // update any rangeInput
 
-                        if (withPriceRange && Helper.foundModule('RangeInput')) {
+                        if (withPriceRange && YOI.foundModule('RangeInput')) {
 
                             var $rangeInput = $thisFilters.find('.rangeInput').first();
 
@@ -3210,7 +3210,7 @@ var CustomFormElements = (function() {
 
             var $thisSwitch = $(this);
 
-            var options     = Helper.toObject($thisSwitch.data('switch'));
+            var options     = YOI.toObject($thisSwitch.data('switch'));
             var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
             var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
 
@@ -3349,7 +3349,7 @@ var Hide = (function() {
             // set up vars
 
             var $thisTrigger = $(this);
-            var $data        = Helper.toObject($this.data('hide'));
+            var $data        = YOI.toObject($this.data('hide'));
             var target       = $data.target !== undefined ? $data.target : false;
             var event        = $data.event !== undefined ? $data.event : 'click';
             var transition   = $data.transition !== undefined ? $data.transition : false;
@@ -3598,7 +3598,7 @@ var ImgMagnifier = (function(){
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
 
-        Helper.setDelay('imgMagnifierDelay', startViewerDelayTime, function() {
+        YOI.setDelay('imgMagnifierDelay', startViewerDelayTime, function() {
             $thisViewer.fadeIn();
             $thisCursor.fadeIn();
         });
@@ -3613,7 +3613,7 @@ var ImgMagnifier = (function(){
          *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
          */
 
-        Helper.clearDelay('imgMagnifierDelay');
+        YOI.clearDelay('imgMagnifierDelay');
 
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
@@ -3694,8 +3694,8 @@ var ImgMagnifier = (function(){
             initializeImgMagnifier();
         })
         .on('resize', function() {
-            Helper.clearDelay('imgMagnifierResetDelay');
-            Helper.setDelay('imgMagnifierResetDelay', 500, function() {
+            YOI.clearDelay('imgMagnifierResetDelay');
+            YOI.setDelay('imgMagnifierResetDelay', 500, function() {
                 resetImgMagnifier();
             });
         });
@@ -3741,14 +3741,14 @@ var MicroSubmit = (function() {
         $microSubmit.each(function() {
 
             var $thisForm       = $(this);
-            var options         = Helper.toObject($thisForm.data('microsubmit'));
+            var options         = YOI.toObject($thisForm.data('microsubmit'));
             var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
             var thisMessage     = $thisForm.find('input').val();
             var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
             
             // hide response content first
             
-            Helper.hide($thisResponse);
+            YOI.hide($thisResponse);
             
             // cancel if no target url (for ajax send) was found
             
@@ -3768,7 +3768,7 @@ var MicroSubmit = (function() {
                     },
                     complete: function(response){
                         $thisForm.replaceWith($thisResponse);
-                        Helper.show($thisResponse);
+                        YOI.show($thisResponse);
                     }
                 });
 
@@ -3809,7 +3809,7 @@ var Modal = (function() {
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
     var modalIdIndex  = 0;     // An index for internally generated modal ids.
-    var btnLabelClose = Helper.locale === 'de' ? 'Schließen' : 'Close';
+    var btnLabelClose = YOI.locale === 'de' ? 'Schließen' : 'Close';
 
     var $modalCover = $('\
         <div class="modal__cover" id="modalCover" data-action="closeModal"></div>\
@@ -3877,7 +3877,7 @@ var Modal = (function() {
 
             var $this = $(this);
 
-            var options        = Helper.toObject($this.data('modal'));
+            var options        = YOI.toObject($this.data('modal'));
             var thisModalId    = options !== undefined && options.id    !== undefined ? options.id    : generateModalId();
             var thisModalPath  = options !== undefined && options.path  !== undefined ? options.path  : $this.attr('href');
             var thisModalCache = options !== undefined && options.cache !== undefined ? options.cache : false;
@@ -3976,7 +3976,7 @@ var Modal = (function() {
 
                         initializeModalCloseTriggers(modalId);
 
-                        if (Helper.foundModule('CustomFormElements'))
+                        if (YOI.foundModule('CustomFormElements'))
                             CustomFormElements.init(modalId);
 
                         // optional callback
@@ -4041,7 +4041,7 @@ var Modal = (function() {
             // but always jump back to the last scroll position when
             // closing the modal.
 
-            if (Helper.environment('mobile')) {
+            if (YOI.environment('mobile')) {
                 scrollTop = $('body').scrollTop();
                 $('body').scrollTop(0);
             }
@@ -4089,7 +4089,7 @@ var Modal = (function() {
         }
 
         modalActive = false;
-        if (Helper.foundModule('BrowserHistory'))
+        if (YOI.foundModule('BrowserHistory'))
             BrowserHistory.clearHash();
 
     }
@@ -4298,7 +4298,7 @@ var PieChart = (function() {
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
-            var options = Helper.toObject($thisPieChart.data('piechart'));
+            var options = YOI.toObject($thisPieChart.data('piechart'));
 
             // store data
 
@@ -4348,13 +4348,13 @@ var PieChart = (function() {
                     $thisRecord
                         .on('mouseover', function() {
 
-                            Helper.clearDelay('pieChartHightlightDelay');
+                            YOI.clearDelay('pieChartHightlightDelay');
                             highlightRecord($thisRecord);
 
                         })
                         .on('mouseleave', function() {
 
-                            Helper.setDelay('pieChartHightlightDelay', 500, function() {
+                            YOI.setDelay('pieChartHightlightDelay', 500, function() {
                                 resetHighlightRecord($thisPieChart);
                             });
 
@@ -4616,7 +4616,7 @@ var PieChart = (function() {
 
         // let the slice blink
 
-        Helper.blink($slices.eq(thisIndex));
+        YOI.blink($slices.eq(thisIndex));
 
     }
 
@@ -4696,7 +4696,7 @@ var PopOver = (function() {
 
             // read the options
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             // cancel if target-selector does not return any element ...
 
@@ -4749,7 +4749,7 @@ var PopOver = (function() {
 
                     if (preventDefault !== 'false') e.preventDefault();
 
-                    Helper.clearInterval('popOverShowTimeout');
+                    YOI.clearInterval('popOverShowTimeout');
                     hidePopOver($thisPopOverTrigger, $thisPopOver);
 
                 });
@@ -4758,7 +4758,7 @@ var PopOver = (function() {
 
             $thisPopOver
                 .on('mouseenter', function() {
-                    Helper.clearInterval('popOverHideTimeout');
+                    YOI.clearInterval('popOverHideTimeout');
                 })
                 .on('mouseleave', function() {
                     hidePopOver($thisPopOverTrigger, $thisPopOver);
@@ -4792,12 +4792,12 @@ var PopOver = (function() {
          *  @param {jQuery dom object} $thisPopOver        - the pop-over
          */
 
-        Helper.setDelay('popOverShowTimeout', 100, function() {
+        YOI.setDelay('popOverShowTimeout', 100, function() {
 
             // if this option is set, add the provided css class name
             // to the trigger element
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.addClass(options.toggleClass);
@@ -4821,7 +4821,7 @@ var PopOver = (function() {
          *  @param {jQuery dom object} $thisPopOver        - the pop-over
          */
 
-        Helper.setDelay('popOverHideTimeout', 500, function() {
+        YOI.setDelay('popOverHideTimeout', 500, function() {
             $thisPopOver.hide();
             removeToggleClassFromPopOverTrigger();
         });
@@ -4853,7 +4853,7 @@ var PopOver = (function() {
         // clear the hide interval,
         // then hide all pop-overs
 
-        Helper.clearInterval('popOverHideTimeout');
+        YOI.clearInterval('popOverHideTimeout');
         $('.popOver').hide();
 
     }
@@ -4869,7 +4869,7 @@ var PopOver = (function() {
 
         // read options
 
-        var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+        var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
         // position settings
 
@@ -4958,12 +4958,12 @@ var PopOver = (function() {
 
             // read the options
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
             
             // if this option is set, remove the provided css class name
             // from the trigger element
 
-            var options = Helper.toObject($thisPopOverTrigger.data('popover'));
+            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.removeClass(options.toggleClass);
@@ -5063,7 +5063,7 @@ var RadioBtn = (function() {
 
         // blink the icon
 
-        Helper.blink($icon);
+        YOI.blink($icon);
 
     }
 
@@ -5142,7 +5142,7 @@ var RangeInput = (function() {
 
             // options
 
-            var options = Helper.toObject($thisRangeInput.data('rangeinput'));
+            var options = YOI.toObject($thisRangeInput.data('rangeinput'));
 
             // attach events to range knobs
 
@@ -5451,7 +5451,7 @@ var RangeInput = (function() {
          *  @return {bool false}                    - returns false if the filters module isn't available
          */
 
-        if (Helper.foundModule('Filters')) {
+        if (YOI.foundModule('Filters')) {
 
             $thisRangeInput = $rangeInput;
             $thisFilters = $thisRangeInput.closest('.filters');
@@ -5511,7 +5511,7 @@ var Remove = (function() {
         $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
-            var options            = Helper.toObject($thisremoveTrigger.data('remove'));
+            var options            = YOI.toObject($thisremoveTrigger.data('remove'));
             var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
 
             $thisremoveTrigger.on('click', function(e) {
@@ -5581,7 +5581,7 @@ var Reveal = (function() {
             // set up vars
 
             var $this      = $(this);
-            var $data      = Helper.toObject($this.data('reveal'));
+            var $data      = YOI.toObject($this.data('reveal'));
             var target     = $data.target !== undefined ? $data.target : false;
             var event      = $data.event !== undefined ? $data.event : 'click';
             var transition = $data.transition !== undefined ? $data.transition : false;
@@ -5704,7 +5704,7 @@ var ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = Helper.toObject($thisTrigger.data('scrollto'));
+        var options              = YOI.toObject($thisTrigger.data('scrollto'));
 
         // cancel if no target was found
         
@@ -5712,7 +5712,7 @@ var ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && Helper.foundModule('Tabs')) {
+        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('Tabs')) {
             Tabs.switchTo(targetId);
         }
 
@@ -5735,8 +5735,8 @@ var ScrollTo = (function() {
                 scrollTop: scrollPosY
             }, 500)
         ).done(function(){
-            if (options.highlight === "blink") Helper.blink($target);
-            if (options.highlight === "pulse") Helper.pulse($target);
+            if (options.highlight === "blink") YOI.blink($target);
+            if (options.highlight === "pulse") YOI.pulse($target);
         });
 
     }
@@ -5764,8 +5764,8 @@ var Slider = (function() {
     // ============
 
     var slideAutoplayIntervals = {};
-    var btnLabelNext = Helper.locale === 'de' ? 'weiter' : 'next';
-    var btnLabelPrev = Helper.locale === 'de' ? 'zurück' : 'previous';
+    var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
+    var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
 
     var slideControls = {
 
@@ -5899,7 +5899,7 @@ var Slider = (function() {
 
             // slider instance options
 
-            var options = Helper.toObject($thisSlider.data('slider'));
+            var options = YOI.toObject($thisSlider.data('slider'));
 
             // prepare slides and adjust container to fixed height for animations
 
@@ -6032,7 +6032,7 @@ var Slider = (function() {
 
         var totalSlides        = $thisSlider.data().totalSlides;
         var slideIndex         = $thisSlider.data().slideIndex;
-        var options            = Helper.toObject($thisSlider.data('slider'));
+        var options            = YOI.toObject($thisSlider.data('slider'));
         var direction          = false;
 
         if (target === 'next' || target === undefined) {
@@ -6092,7 +6092,7 @@ var Slider = (function() {
 
         var    $thisSlides       = $thisSlider.find('.slider__slide');
 
-        var options           = Helper.toObject($thisSlider.data('slider'));
+        var options           = YOI.toObject($thisSlider.data('slider'));
         var currentSlideIndex = $thisSlider.data().slideIndex;
         var leftOffset;
 
@@ -6231,8 +6231,8 @@ var Stepper = (function() {
     // private vars
     // ============
 
-    var btnLabelMore = Helper.locale === 'de' ? 'mehr'    : 'more';
-    var btnLabelLess = Helper.locale === 'de' ? 'weniger' : 'less';
+    var btnLabelMore = YOI.locale === 'de' ? 'mehr'    : 'more';
+    var btnLabelLess = YOI.locale === 'de' ? 'weniger' : 'less';
 
     var $stepperBtns = $('\
         <div class="stepper__btnPlus">\
@@ -6270,7 +6270,7 @@ var Stepper = (function() {
 
             // attach events
 
-            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
+            var eventType = YOI.environment('mobile') ? 'tap' : 'click';
 
             $thisStepper.find('.stepper__btnPlus').on(eventType, function(e) {
                 e.preventDefault();
@@ -6376,20 +6376,20 @@ var Sticky = (function() {
     // private vars
     // ============
     
-    var $body   = $('body');
-    var $window = $(window);
+    var $body               = $('body');
+    var $window             = $(window);
     
     // private functions
     // =================
     
-    function initializeSticky($stickyElement) {
+    function initializeSticky($stickyElements) {
         
         /**
          *  Initialize all *[data-sticky] found in the document (= function call without parameters)
          *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
          *  $stickyElement must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
+         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
          *
          *  Options are passed to the script as custom data values, eg:
          *
@@ -6400,12 +6400,12 @@ var Sticky = (function() {
          *  @option {number}               start     - The distance between the sticky element top position and the
          *                                             viewport top border at the moment the element sticks.
          *                                             The default value is 0.
-         *
+         *                                           
          *  @option {number}               stop      - The distance between the sticky element initial top position
          *                                             and the sticky element final top position at the moment it
          *                                             stops sticking. The default value is the body height, which results
          *                                             in sticking as long as the page can be scrolled.
-         *
+         *                                           
          *  @option {string, CSS selector} reference - If the value is the keyword/string "parent", the sticky
          *                                             element's fist parent element is referenced to control the
          *                                             sticky element.
@@ -6416,33 +6416,29 @@ var Sticky = (function() {
          *                                             the reference element's bottom.
          */
         
-        if (!($stickyElement instanceof jQuery)) {
-            $stickyElement = $('[data-sticky]');
+        if (!($stickyElements instanceof jQuery)) {
+            $stickyElements = $('[data-sticky]');
         }
         
-        $stickyElement.each(function() {
+        $stickyElements.each(function(index) {
             
             var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone();
+            var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
             
-            // update the stick element's data
+            // update each sticky element's data
             
             updateStickyElementData($thisStickyElement);
-            
-            // cancel if option values are invalid
-            
-            if (validInput($thisStickyElement) === false) return false;
             
             // do the necessary dom manipulation
             
             manipulateDom($thisStickyElement, $thisStickyElementClone);
-
-            // run position & stick observers
             
-            positionObserver($thisStickyElement, $thisStickyElementClone);
-            stickObserver($thisStickyElement, $thisStickyElementClone);
-        
         });
+        
+        // start position & stick observers
+        
+        positionObserver($stickyElements);
+        stickObserver($stickyElements);
     
     }
     
@@ -6455,8 +6451,8 @@ var Sticky = (function() {
          *  The original element is kept as an empty element with it's initial width
          *  and height. The visibility is set to "hidden" in order to preserve the page layout.
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElement      - the sticky element
+         *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
          */
         
         // prepare and append the cloned element
@@ -6492,23 +6488,23 @@ var Sticky = (function() {
          *
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
-
-        var options                       = Helper.toObject($stickyElement.data('sticky'));
+        
+        var options                       = YOI.toObject($stickyElement.data('sticky'));
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
-        var $scroller                     = options.scroller !== undefined ? $(options.scroller).first() : false;
-        var stickyElementheight           = $stickyElement.height();
+        var stickyElementheight           = $stickyElement.outerHeight();
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
         var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
         var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
         var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
         var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
         var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
+        var passedValidation              = validInput($stickyElement);
 
         // the reference element is found in the dom
         
         if ($referenceElement.length) {
             stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - topDistance + parseInt($referenceElement.css('borderTopWidth')) + parseInt($referenceElement.css('borderBottomWidth'));
+            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementheight - topDistance;
         }
         
         // the reference element is the parent dom object of the sticky element,
@@ -6518,12 +6514,12 @@ var Sticky = (function() {
             stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
             stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
+        
 
         // write data
 
         $stickyElement.data({
-            'referenceElement' : $referenceElement,
-            'scroller'         : $scroller,
+            'passedValidation' : passedValidation,
             'height'           : stickyElementheight,
             'initialTopPos'    : stickyElementInitialTopPos,
             'initialBottomPos' : stickyElementInitialBottomPos,
@@ -6558,84 +6554,110 @@ var Sticky = (function() {
 
     }
     
-    function positionObserver($stickyElement, $stickyElementClone) {
+    function positionObserver($stickyElements) {
         
         /**
          *  Listens to the window resize event. If the event is fired, this function
          *  updates the original $stickyElement data and updates the $stickyElementClone's
          *  left position.
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElement - the sticky element
          */
         
         $window.on('resize', function() {
             
-            updateStickyElementData($stickyElement);
-            $stickyElementClone.css('left', $stickyElement.offset().left);
+            $stickyElements.each(function(index) {
+                
+                var $stickyElement      = $(this);
+                var $stickyElementClone = $('#stickyClone-' + index);
+                
+                // if the sticky element passed validation (=> validInput),
+                // do the re-positioning
+                
+                if (validInput($stickyElement)) {
+                    updateStickyElementData($stickyElement);
+                    $stickyElementClone.css('left', $stickyElement.offset().left);
+                }
+                
+            });
             
         });
         
     }
     
-    function stickObserver($stickyElement, $stickyElementClone) {
+    function stickObserver($stickyElements) {
         
         /**
          *  Listens to the window scroll event. If the event is fired, this function
          *  observes all sticky elements and manipulates their position. If a sticky element
          *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElements      - the sticky element(s)
+         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element(s)
          */
-        
-        // references, for better readability only
-        
-        var stickyElementheight           = $stickyElement.data().height;
-        var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
-        var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
-        var stickStart                    = $stickyElement.data().stickStart;
-        var stickStop                     = $stickyElement.data().stickStop;
-        var topOffset                     = $stickyElement.data().topOffset;
-        var topDistance                   = $stickyElement.data().topDistance;
-        var $referenceElement             = $stickyElement.data().referenceElement;
-        
-        // observe and re-position on scroll
         
         $window.on('scroll', function() {
             
+            // store the scroll position
+            
             var scrollTop = $window.scrollTop();
-            var cssPositionValue;
-            var cssTopValue;
             
-            if (scrollTop < stickStart) {
+            // observe all sticky elements
             
-                // outside top boundary
-            
-                cssPositionValue = 'absolute';
-                cssTopValue      = stickyElementInitialTopPos;
-            
-            } else if (scrollTop > stickStop) {
+            $stickyElements.each(function(index) {
                 
-                // outside bottom boundary
+                // variable assignments for better readability only
                 
-                cssPositionValue = 'absolute';
-                cssTopValue      = stickStop + topOffset;
-            
-            } else {
+                var $stickyElement                = $(this);
+                var $stickyElementClone           = $('#stickyClone-' + index);
+                var stickyElementheight           = $stickyElement.data().height;
+                var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
+                var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
+                var stickStart                    = $stickyElement.data().stickStart;
+                var stickStop                     = $stickyElement.data().stickStop;
+                var topOffset                     = $stickyElement.data().topOffset;
+                var topDistance                   = $stickyElement.data().topDistance;
+                var cssPositionValue;
+                var cssTopValue;
                 
-                // inside boundaries
+                // proceed if the sticky element passed validation (=> validInput)
                 
-                cssPositionValue = 'fixed';
-                cssTopValue      = 0 + topOffset;
+                if (validInput($stickyElement)) {
                 
-            }
-            
-            // set the css
-            
-            $stickyElementClone.css({
-                'position' : cssPositionValue,
-                'top'      : cssTopValue
+                    // re-position on scroll
+                
+                    if (scrollTop < stickStart) {
+                    
+                        // outside top boundary
+                    
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickyElementInitialTopPos;
+                    
+                    } else if (scrollTop > stickStop) {
+                    
+                        // outside bottom boundary
+                    
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickStop + topOffset;
+                    
+                    } else {
+                    
+                        // inside boundaries
+                    
+                        cssPositionValue = 'fixed';
+                        cssTopValue      = 0 + topOffset;
+                    
+                    }
+                
+                    // set the css
+                
+                    $stickyElementClone.css({
+                        'position' : cssPositionValue,
+                        'top'      : cssTopValue
+                    });
+                    
+                }
+                
             });
             
         });
@@ -6662,7 +6684,7 @@ var Table = (function() {
     // private vars
     // ============
 
-    var btnLabelRemove = Helper.locale === 'de' ? 'Entfernen' : 'Remove';
+    var btnLabelRemove = YOI.locale === 'de' ? 'Entfernen' : 'Remove';
 
     var $removeBtn = $('\
         <button class="btn btn--subtle btn--rounded">\
@@ -6700,7 +6722,7 @@ var Table = (function() {
         $table.each(function(){
 
             var $thisTable = $(this);
-            var options    = Helper.toObject($thisTable.data('table'));
+            var options    = YOI.toObject($thisTable.data('table'));
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -6772,7 +6794,7 @@ var Table = (function() {
         var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
 
-        var options    = Helper.toObject($thisTable.data('table'));
+        var options    = YOI.toObject($thisTable.data('table'));
 
         // select rows, either multiple or single
 
@@ -6881,7 +6903,7 @@ var Tabs = (function() {
 
             // if start tab was in hash, scroll to start tab
 
-            if (Helper.foundModule('ScrollTo') && urlTabId !== '')
+            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
                 ScrollTo.target(urlTabId);
 
             // attach click event to menu items
@@ -6985,7 +7007,7 @@ var ToggleGroup = (function() {
         $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-            var options           = Helper.toObject($thisTrigger.data('toggle'));
+            var options           = YOI.toObject($thisTrigger.data('toggle'));
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
@@ -7018,10 +7040,10 @@ var ToggleGroup = (function() {
 
                 $thisTrigger
                     .on('mouseenter', function() {
-                        Helper.clearDelay('resetToggleTimeout');
+                        YOI.clearDelay('resetToggleTimeout');
                     })
                     .on('mouseleave', function() {
-                        Helper.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
+                        YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
                             resetToggleGroup($thisTrigger);
                         });
                     });
@@ -7065,7 +7087,7 @@ var ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = Helper.toObject($thisTrigger.data('toggle'));
+        var options           = YOI.toObject($thisTrigger.data('toggle'));
         var target            = options.target;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
@@ -7098,7 +7120,7 @@ var ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = Helper.toObject($thisTrigger.data('toggle'));
+        var options           = YOI.toObject($thisTrigger.data('toggle'));
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 
@@ -7167,7 +7189,7 @@ var Tooltip = (function() {
             // set up vars
 
             var $this     = $(this);
-            var options   = Helper.toObject($this.data('tooltip'));
+            var options   = YOI.toObject($this.data('tooltip'));
             var $target   = options.target !== undefined ? $(options.target) : $this.find('.tooltip');
             var character = (options.character !== undefined && !icon) ? options.character : '?';
             var $trigger;
@@ -7221,7 +7243,7 @@ var Tooltip = (function() {
          *  @return {jQuery dom object} $thisPreparedTrigger - the prepared trigger
          */
 
-        var options            = Helper.toObject($thisTrigger.data('tooltip'));
+        var options            = YOI.toObject($thisTrigger.data('tooltip'));
         var icon               = options.icon !== undefined ? options.icon : false;
         var textInputTypes     = [ 'email', 'password', 'tel', 'text', 'url' ];
         var triggerIsTextInput = $thisTrigger.prop('tagName') === 'INPUT' && $.inArray($thisTrigger.attr('type'), textInputTypes) > -1;
@@ -7356,14 +7378,14 @@ var Tooltip = (function() {
 
         if (action === 'start') {
 
-            Helper.setDelay('tooltipShowDelay', showDelayDuration, function(){
+            YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
                 $thisTarget.fadeIn(200);
             });
 
 
         } else if (action === 'stop') {
 
-            Helper.clearDelay('tooltipShowDelay');
+            YOI.clearDelay('tooltipShowDelay');
 
         }
 
@@ -7379,14 +7401,14 @@ var Tooltip = (function() {
 
         if (action === 'start') {
 
-            Helper.setDelay('tooltipHideDelay', hideDelayDuration, function(){
+            YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
                 $('.tooltip').hide()
             });
 
 
         } else if (action === 'stop') {
 
-            Helper.clearDelay('tooltipHideDelay');
+            YOI.clearDelay('tooltipHideDelay');
 
         }
 

@@ -30,7 +30,7 @@ var Tooltip = (function() {
             // set up vars
 
             var $this     = $(this);
-            var options   = Helper.toObject($this.data('tooltip'));
+            var options   = YOI.toObject($this.data('tooltip'));
             var $target   = options.target !== undefined ? $(options.target) : $this.find('.tooltip');
             var character = (options.character !== undefined && !icon) ? options.character : '?';
             var $trigger;
@@ -84,7 +84,7 @@ var Tooltip = (function() {
          *  @return {jQuery dom object} $thisPreparedTrigger - the prepared trigger
          */
 
-        var options            = Helper.toObject($thisTrigger.data('tooltip'));
+        var options            = YOI.toObject($thisTrigger.data('tooltip'));
         var icon               = options.icon !== undefined ? options.icon : false;
         var textInputTypes     = [ 'email', 'password', 'tel', 'text', 'url' ];
         var triggerIsTextInput = $thisTrigger.prop('tagName') === 'INPUT' && $.inArray($thisTrigger.attr('type'), textInputTypes) > -1;
@@ -219,14 +219,14 @@ var Tooltip = (function() {
 
         if (action === 'start') {
 
-            Helper.setDelay('tooltipShowDelay', showDelayDuration, function(){
+            YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
                 $thisTarget.fadeIn(200);
             });
 
 
         } else if (action === 'stop') {
 
-            Helper.clearDelay('tooltipShowDelay');
+            YOI.clearDelay('tooltipShowDelay');
 
         }
 
@@ -242,14 +242,14 @@ var Tooltip = (function() {
 
         if (action === 'start') {
 
-            Helper.setDelay('tooltipHideDelay', hideDelayDuration, function(){
+            YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
                 $('.tooltip').hide()
             });
 
 
         } else if (action === 'stop') {
 
-            Helper.clearDelay('tooltipHideDelay');
+            YOI.clearDelay('tooltipHideDelay');
 
         }
 

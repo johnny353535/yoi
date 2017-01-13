@@ -59,7 +59,7 @@ var RangeInput = (function() {
 
             // options
 
-            var options = Helper.toObject($thisRangeInput.data('rangeinput'));
+            var options = YOI.toObject($thisRangeInput.data('rangeinput'));
 
             // attach events to range knobs
 
@@ -368,7 +368,7 @@ var RangeInput = (function() {
          *  @return {bool false}                    - returns false if the filters module isn't available
          */
 
-        if (Helper.foundModule('Filters')) {
+        if (YOI.foundModule('Filters')) {
 
             $thisRangeInput = $rangeInput;
             $thisFilters = $thisRangeInput.closest('.filters');

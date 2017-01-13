@@ -22,7 +22,7 @@ var Dock = (function() {
         $dock.each(function() {
 
             var $thisDock = $(this);
-            var options   = Helper.toObject($thisDock.data('dock'));
+            var options   = YOI.toObject($thisDock.data('dock'));
 
             // auto hide
 
@@ -32,11 +32,11 @@ var Dock = (function() {
 
                 $thisDock
                     .on('mouseover', function() {
-                        Helper.clearDelay('hideDockTimeout');
+                        YOI.clearDelay('hideDockTimeout');
                         showDock($thisDock);
                     })
                     .on('mouseout', function() {
-                        Helper.setDelay('hideDockTimeout', 750, function() {
+                        YOI.setDelay('hideDockTimeout', 750, function() {
                             hideDock($thisDock);
                         });
                     });

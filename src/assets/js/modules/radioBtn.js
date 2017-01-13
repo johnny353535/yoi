@@ -73,7 +73,7 @@ var RadioBtn = (function() {
 
         // blink the icon
 
-        Helper.blink($icon);
+        YOI.blink($icon);
 
     }
 

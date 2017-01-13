@@ -5,7 +5,7 @@ var Table = (function() {
     // private vars
     // ============
 
-    var btnLabelRemove = Helper.locale === 'de' ? 'Entfernen' : 'Remove';
+    var btnLabelRemove = YOI.locale === 'de' ? 'Entfernen' : 'Remove';
 
     var $removeBtn = $('\
         <button class="btn btn--subtle btn--rounded">\
@@ -43,7 +43,7 @@ var Table = (function() {
         $table.each(function(){
 
             var $thisTable = $(this);
-            var options    = Helper.toObject($thisTable.data('table'));
+            var options    = YOI.toObject($thisTable.data('table'));
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -115,7 +115,7 @@ var Table = (function() {
         var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
 
-        var options    = Helper.toObject($thisTable.data('table'));
+        var options    = YOI.toObject($thisTable.data('table'));
 
         // select rows, either multiple or single
 

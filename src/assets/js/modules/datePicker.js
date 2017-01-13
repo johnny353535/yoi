@@ -8,7 +8,7 @@ var DatePicker = (function() {
     // get the document language, fall back to english
     // note: only german and english supported at this moment
 
-    var language = typeof Helper.locale() !== 'object' || Helper.locale() === undefined || Helper.locale() === '' ? 'en' : Helper.locale();
+    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
 
     // object to save the current date
 
@@ -87,7 +87,7 @@ var DatePicker = (function() {
 
                 // get and format date input data
 
-                thisDateInputData = Helper.toObject($thisDateInput.data('datepicker'));
+                thisDateInputData = YOI.toObject($thisDateInput.data('datepicker'));
 
                 // if a field is undefined, fall back to the current time value for the field,
                 // eg. if year is undefined, use the current year
@@ -156,7 +156,7 @@ var DatePicker = (function() {
                 })
                 .on('blur', function() {
 
-                    Helper.setDelay('datePickerHideTimeout-' + index, 500, function() {
+                    YOI.setDelay('datePickerHideTimeout-' + index, 500, function() {
 
                         // get the date input data
 
@@ -178,7 +178,7 @@ var DatePicker = (function() {
                 })
                 .on('focus', function(e) {
 
-                    Helper.clearDelay('datePickerHideTimeout-' + index);
+                    YOI.clearDelay('datePickerHideTimeout-' + index);
 
                     // hide all other date pickers first
 
@@ -212,7 +212,7 @@ var DatePicker = (function() {
 
         // format the date
 
-        var formattedSelectedDate = Helper.zeroPad(selectedDay, 1) + '.' + Helper.zeroPad(selectedMonth + 1, 1) + '.' + selectedYear;
+        var formattedSelectedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(selectedMonth + 1, 1) + '.' + selectedYear;
 
         // write data
 
@@ -272,7 +272,7 @@ var DatePicker = (function() {
 
         // format the date
 
-        var formattedDate = Helper.zeroPad(selectedDay, 1) + '.' + Helper.zeroPad(month + 1, 1) + '.' + year;
+        var formattedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(month + 1, 1) + '.' + year;
 
         // write data to month table
 
@@ -305,8 +305,8 @@ var DatePicker = (function() {
         if (!day || !month || !year) {
             formattedDate = '';
         } else {
-            if (language === 'de') formattedDate = Helper.zeroPad(day, 1) + '.' + Helper.zeroPad(month + 1, 1) + '.' + year;
-            if (language === 'en') formattedDate = Helper.zeroPad(month + 1, 1) + '.' + Helper.zeroPad(day, 1) + '.' + year;
+            if (language === 'de') formattedDate = YOI.zeroPad(day, 1) + '.' + YOI.zeroPad(month + 1, 1) + '.' + year;
+            if (language === 'en') formattedDate = YOI.zeroPad(month + 1, 1) + '.' + YOI.zeroPad(day, 1) + '.' + year;
         }
 
         // write data
@@ -355,11 +355,11 @@ var DatePicker = (function() {
 
         // create the table header
 
-        if (Helper.locale() === 'en' || Helper.locale === undefined) {
+        if (YOI.locale() === 'en' || YOI.locale === undefined) {
 
             $monthTableBody.append($weekDaysHeader_en.clone());
 
-        } else if (Helper.locale() === 'de') {
+        } else if (YOI.locale() === 'de') {
 
             $monthTableBody.append($weekDaysHeader_de.clone());
 
@@ -551,7 +551,7 @@ var DatePicker = (function() {
             // for unknow reasons, focus gets fired *before* blur if we don't
             // use a short delay for debounce
 
-            Helper.setDelay('datePickerFocusDelay', 50, function() {
+            YOI.setDelay('datePickerFocusDelay', 50, function() {
                 $thisDatePicker.prev('input[data-datepicker]').focus();
             });
 

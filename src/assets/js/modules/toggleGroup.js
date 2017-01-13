@@ -39,7 +39,7 @@ var ToggleGroup = (function() {
         $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-            var options           = Helper.toObject($thisTrigger.data('toggle'));
+            var options           = YOI.toObject($thisTrigger.data('toggle'));
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
@@ -72,10 +72,10 @@ var ToggleGroup = (function() {
 
                 $thisTrigger
                     .on('mouseenter', function() {
-                        Helper.clearDelay('resetToggleTimeout');
+                        YOI.clearDelay('resetToggleTimeout');
                     })
                     .on('mouseleave', function() {
-                        Helper.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
+                        YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
                             resetToggleGroup($thisTrigger);
                         });
                     });
@@ -119,7 +119,7 @@ var ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = Helper.toObject($thisTrigger.data('toggle'));
+        var options           = YOI.toObject($thisTrigger.data('toggle'));
         var target            = options.target;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
@@ -152,7 +152,7 @@ var ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = Helper.toObject($thisTrigger.data('toggle'));
+        var options           = YOI.toObject($thisTrigger.data('toggle'));
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 

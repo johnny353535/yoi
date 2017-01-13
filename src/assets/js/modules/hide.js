@@ -44,7 +44,7 @@ var Hide = (function() {
             // set up vars
 
             var $thisTrigger = $(this);
-            var $data        = Helper.toObject($this.data('hide'));
+            var $data        = YOI.toObject($this.data('hide'));
             var target       = $data.target !== undefined ? $data.target : false;
             var event        = $data.event !== undefined ? $data.event : 'click';
             var transition   = $data.transition !== undefined ? $data.transition : false;

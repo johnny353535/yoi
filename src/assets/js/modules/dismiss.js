@@ -6,7 +6,7 @@ var Dismiss = (function() {
     // ============
 
     var $btnDismiss;
-    var btnLabelClose = Helper.locale === 'de' ? 'schliessen' : 'close';
+    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 
     $btnDismiss = $('\
         <button class="btn btn--subtle">\
@@ -77,7 +77,7 @@ var Dismiss = (function() {
         $dismissButton.each(function() {
 
             var $thisTrigger = $(this);
-            var options      = Helper.toObject($(this).data('dismiss'));
+            var options      = YOI.toObject($(this).data('dismiss'));
             var $thisTarget  = $(options.target);
 
             // attach events

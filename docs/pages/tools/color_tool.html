@@ -146,7 +146,7 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
-                    if (Helper.stringContains(currentPagePath, thisHref)) {
+                    if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
                     

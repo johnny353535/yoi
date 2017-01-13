@@ -147,7 +147,7 @@
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
-                    if (Helper.stringContains(currentPagePath, thisHref)) {
+                    if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
                     

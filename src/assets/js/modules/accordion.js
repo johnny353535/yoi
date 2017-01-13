@@ -33,11 +33,11 @@ var Accordion = (function() {
             
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
-            var options        = options === undefined ? Helper.toObject($thisAccordion.data('accordion')) : options;
+            var options        = options === undefined ? YOI.toObject($thisAccordion.data('accordion')) : options;
 
             // define the event: tap on mobile, click on desktop
 
-            var eventType = Helper.environment('mobile') ? 'tap' : 'click';
+            var eventType = YOI.environment('mobile') ? 'tap' : 'click';
             
             $thisSections.each(function() {
                 
@@ -97,7 +97,7 @@ var Accordion = (function() {
         var $thisAccordion = $section.closest('.accordion');
         var $thisSection   = $section;
         var $thisBody      = $section.find('.accordion__body');
-        var options        = Helper.toObject($thisAccordion.data('accordion'));
+        var options        = YOI.toObject($thisAccordion.data('accordion'));
         
         // in "linked" accordions, only one section can be open.
         // all remaining sections will close.

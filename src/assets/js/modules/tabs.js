@@ -48,7 +48,7 @@ var Tabs = (function() {
 
             // if start tab was in hash, scroll to start tab
 
-            if (Helper.foundModule('ScrollTo') && urlTabId !== '')
+            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
                 ScrollTo.target(urlTabId);
 
             // attach click event to menu items

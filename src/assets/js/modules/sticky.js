@@ -3,20 +3,20 @@ var Sticky = (function() {
     // private vars
     // ============
     
-    var $body   = $('body');
-    var $window = $(window);
+    var $body               = $('body');
+    var $window             = $(window);
     
     // private functions
     // =================
     
-    function initializeSticky($stickyElement) {
+    function initializeSticky($stickyElements) {
         
         /**
          *  Initialize all *[data-sticky] found in the document (= function call without parameters)
          *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
          *  $stickyElement must be a jQuery object or jQuery object collection.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
+         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
          *
          *  Options are passed to the script as custom data values, eg:
          *
@@ -27,12 +27,12 @@ var Sticky = (function() {
          *  @option {number}               start     - The distance between the sticky element top position and the
          *                                             viewport top border at the moment the element sticks.
          *                                             The default value is 0.
-         *
+         *                                           
          *  @option {number}               stop      - The distance between the sticky element initial top position
          *                                             and the sticky element final top position at the moment it
          *                                             stops sticking. The default value is the body height, which results
          *                                             in sticking as long as the page can be scrolled.
-         *
+         *                                           
          *  @option {string, CSS selector} reference - If the value is the keyword/string "parent", the sticky
          *                                             element's fist parent element is referenced to control the
          *                                             sticky element.
@@ -43,33 +43,29 @@ var Sticky = (function() {
          *                                             the reference element's bottom.
          */
         
-        if (!($stickyElement instanceof jQuery)) {
-            $stickyElement = $('[data-sticky]');
+        if (!($stickyElements instanceof jQuery)) {
+            $stickyElements = $('[data-sticky]');
         }
         
-        $stickyElement.each(function() {
+        $stickyElements.each(function(index) {
             
             var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone();
+            var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
             
-            // update the stick element's data
+            // update each sticky element's data
             
             updateStickyElementData($thisStickyElement);
-            
-            // cancel if option values are invalid
-            
-            if (validInput($thisStickyElement) === false) return false;
             
             // do the necessary dom manipulation
             
             manipulateDom($thisStickyElement, $thisStickyElementClone);
-
-            // run position & stick observers
             
-            positionObserver($thisStickyElement, $thisStickyElementClone);
-            stickObserver($thisStickyElement, $thisStickyElementClone);
-        
         });
+        
+        // start position & stick observers
+        
+        positionObserver($stickyElements);
+        stickObserver($stickyElements);
     
     }
     
@@ -82,8 +78,8 @@ var Sticky = (function() {
          *  The original element is kept as an empty element with it's initial width
          *  and height. The visibility is set to "hidden" in order to preserve the page layout.
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElement      - the sticky element
+         *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
          */
         
         // prepare and append the cloned element
@@ -119,23 +115,23 @@ var Sticky = (function() {
          *
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
-
-        var options                       = Helper.toObject($stickyElement.data('sticky'));
+        
+        var options                       = YOI.toObject($stickyElement.data('sticky'));
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
-        var $scroller                     = options.scroller !== undefined ? $(options.scroller).first() : false;
-        var stickyElementheight           = $stickyElement.height();
+        var stickyElementheight           = $stickyElement.outerHeight();
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
         var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
         var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
         var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
         var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
         var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
+        var passedValidation              = validInput($stickyElement);
 
         // the reference element is found in the dom
         
         if ($referenceElement.length) {
             stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.height() - stickyElementheight - topDistance + parseInt($referenceElement.css('borderTopWidth')) + parseInt($referenceElement.css('borderBottomWidth'));
+            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementheight - topDistance;
         }
         
         // the reference element is the parent dom object of the sticky element,
@@ -145,12 +141,12 @@ var Sticky = (function() {
             stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
             stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
+        
 
         // write data
 
         $stickyElement.data({
-            'referenceElement' : $referenceElement,
-            'scroller'         : $scroller,
+            'passedValidation' : passedValidation,
             'height'           : stickyElementheight,
             'initialTopPos'    : stickyElementInitialTopPos,
             'initialBottomPos' : stickyElementInitialBottomPos,
@@ -185,84 +181,110 @@ var Sticky = (function() {
 
     }
     
-    function positionObserver($stickyElement, $stickyElementClone) {
+    function positionObserver($stickyElements) {
         
         /**
          *  Listens to the window resize event. If the event is fired, this function
          *  updates the original $stickyElement data and updates the $stickyElementClone's
          *  left position.
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElement - the sticky element
          */
         
         $window.on('resize', function() {
             
-            updateStickyElementData($stickyElement);
-            $stickyElementClone.css('left', $stickyElement.offset().left);
+            $stickyElements.each(function(index) {
+                
+                var $stickyElement      = $(this);
+                var $stickyElementClone = $('#stickyClone-' + index);
+                
+                // if the sticky element passed validation (=> validInput),
+                // do the re-positioning
+                
+                if (validInput($stickyElement)) {
+                    updateStickyElementData($stickyElement);
+                    $stickyElementClone.css('left', $stickyElement.offset().left);
+                }
+                
+            });
             
         });
         
     }
     
-    function stickObserver($stickyElement, $stickyElementClone) {
+    function stickObserver($stickyElements) {
         
         /**
          *  Listens to the window scroll event. If the event is fired, this function
          *  observes all sticky elements and manipulates their position. If a sticky element
          *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
          *
-         *  @param {jQuery dom object} $stickyElement       - the sticky element
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElements      - the sticky element(s)
+         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element(s)
          */
-        
-        // references, for better readability only
-        
-        var stickyElementheight           = $stickyElement.data().height;
-        var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
-        var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
-        var stickStart                    = $stickyElement.data().stickStart;
-        var stickStop                     = $stickyElement.data().stickStop;
-        var topOffset                     = $stickyElement.data().topOffset;
-        var topDistance                   = $stickyElement.data().topDistance;
-        var $referenceElement             = $stickyElement.data().referenceElement;
-        
-        // observe and re-position on scroll
         
         $window.on('scroll', function() {
             
+            // store the scroll position
+            
             var scrollTop = $window.scrollTop();
-            var cssPositionValue;
-            var cssTopValue;
             
-            if (scrollTop < stickStart) {
+            // observe all sticky elements
             
-                // outside top boundary
-            
-                cssPositionValue = 'absolute';
-                cssTopValue      = stickyElementInitialTopPos;
-            
-            } else if (scrollTop > stickStop) {
+            $stickyElements.each(function(index) {
                 
-                // outside bottom boundary
+                // variable assignments for better readability only
                 
-                cssPositionValue = 'absolute';
-                cssTopValue      = stickStop + topOffset;
-            
-            } else {
+                var $stickyElement                = $(this);
+                var $stickyElementClone           = $('#stickyClone-' + index);
+                var stickyElementheight           = $stickyElement.data().height;
+                var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
+                var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
+                var stickStart                    = $stickyElement.data().stickStart;
+                var stickStop                     = $stickyElement.data().stickStop;
+                var topOffset                     = $stickyElement.data().topOffset;
+                var topDistance                   = $stickyElement.data().topDistance;
+                var cssPositionValue;
+                var cssTopValue;
                 
-                // inside boundaries
+                // proceed if the sticky element passed validation (=> validInput)
                 
-                cssPositionValue = 'fixed';
-                cssTopValue      = 0 + topOffset;
+                if (validInput($stickyElement)) {
                 
-            }
-            
-            // set the css
-            
-            $stickyElementClone.css({
-                'position' : cssPositionValue,
-                'top'      : cssTopValue
+                    // re-position on scroll
+                
+                    if (scrollTop < stickStart) {
+                    
+                        // outside top boundary
+                    
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickyElementInitialTopPos;
+                    
+                    } else if (scrollTop > stickStop) {
+                    
+                        // outside bottom boundary
+                    
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickStop + topOffset;
+                    
+                    } else {
+                    
+                        // inside boundaries
+                    
+                        cssPositionValue = 'fixed';
+                        cssTopValue      = 0 + topOffset;
+                    
+                    }
+                
+                    // set the css
+                
+                    $stickyElementClone.css({
+                        'position' : cssPositionValue,
+                        'top'      : cssTopValue
+                    });
+                    
+                }
+                
             });
             
         });

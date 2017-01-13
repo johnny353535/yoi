@@ -209,7 +209,7 @@ var ImgMagnifier = (function(){
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
 
-        Helper.setDelay('imgMagnifierDelay', startViewerDelayTime, function() {
+        YOI.setDelay('imgMagnifierDelay', startViewerDelayTime, function() {
             $thisViewer.fadeIn();
             $thisCursor.fadeIn();
         });
@@ -224,7 +224,7 @@ var ImgMagnifier = (function(){
          *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
          */
 
-        Helper.clearDelay('imgMagnifierDelay');
+        YOI.clearDelay('imgMagnifierDelay');
 
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
@@ -305,8 +305,8 @@ var ImgMagnifier = (function(){
             initializeImgMagnifier();
         })
         .on('resize', function() {
-            Helper.clearDelay('imgMagnifierResetDelay');
-            Helper.setDelay('imgMagnifierResetDelay', 500, function() {
+            YOI.clearDelay('imgMagnifierResetDelay');
+            YOI.setDelay('imgMagnifierResetDelay', 500, function() {
                 resetImgMagnifier();
             });
         });
