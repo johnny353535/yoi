@@ -16,7 +16,7 @@ var Documentation = (function() {
     var $codeBlock = $('<code></code>');
     var $preBlock  = $('<pre></pre>');
 
-    var $controls     = $('\
+    var $controls = $('\
         <p class="documentation__controls">\
             <button data-action="toggleDarkmode">background</button>\
             <button data-action="toggleCode">code</button>\

@@ -32,8 +32,8 @@ var Table = (function() {
          *
          *  Available options:
          *
-         *  @option {string ["true"|"false"]} removeable - removeable table rows
-         *  @option {string ["true"|"false"]} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
+         *  @option {boolean} removeable - removeable table rows
+         *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
         
         if (!($table instanceof jQuery)) {

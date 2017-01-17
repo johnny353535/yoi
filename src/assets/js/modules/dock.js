@@ -13,6 +13,14 @@ var Dock = (function() {
          *  $dock must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $dock - the dock(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div class="dock" data-dock="autohide:true;">
+         *
+         *  Available options:
+         *
+         *  @option {boolean} autohide - if set to "true", the dock is initially hidden
          */
         
         if (!($dock instanceof jQuery)) {

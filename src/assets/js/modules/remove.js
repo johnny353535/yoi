@@ -20,8 +20,8 @@ var Remove = (function() {
          *
          *  Available options:
          *
-         *  @option {string, CSS selector} target - optional selector for the DOM element to remove
-         *                                          by default, the target is the trigger's first parent element
+         *  @option {string} target - optional CSS-selector for the DOM element to remove
+         *                            by default, the target is the trigger's first parent element
          */
 
         if (!($removeTrigger instanceof jQuery)) {

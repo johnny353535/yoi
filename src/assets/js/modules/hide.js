@@ -27,11 +27,9 @@ var Hide = (function() {
          *
          *  @option {string} target     - A string which is used as selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
-         *
          *  @option {string} event      - A string which defines the event which gets bound to the
          *                                trigger element. All standard event handlers from jQuery
          *                                can be used.
-         *
          *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
          */
         

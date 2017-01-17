@@ -71,7 +71,7 @@ var Tabs = (function() {
         /**
          *  Show the target tab, hide all other related tabs.
          *
-         *  @param {string} thisTargetTabId - target tab css id selector (e.g. "#myTab")
+         *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
 
         var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');

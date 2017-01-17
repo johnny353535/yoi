@@ -3,8 +3,8 @@ var Sticky = (function() {
     // private vars
     // ============
     
-    var $body               = $('body');
-    var $window             = $(window);
+    var $body   = $('body');
+    var $window = $(window);
     
     // private functions
     // =================
@@ -24,23 +24,21 @@ var Sticky = (function() {
          *
          *  Available options:
          *
-         *  @option {number}               start     - The distance between the sticky element top position and the
-         *                                             viewport top border at the moment the element sticks.
-         *                                             The default value is 0.
-         *                                           
-         *  @option {number}               stop      - The distance between the sticky element initial top position
-         *                                             and the sticky element final top position at the moment it
-         *                                             stops sticking. The default value is the body height, which results
-         *                                             in sticking as long as the page can be scrolled.
-         *                                           
-         *  @option {string, CSS selector} reference - If the value is the keyword/string "parent", the sticky
-         *                                             element's fist parent element is referenced to control the
-         *                                             sticky element.
-         *                                             If the value is a jQuery-compatible CSS selector, the script
-         *                                             selects the first matching element on the page and references
-         *                                             it's height to define a stop position for the sticky element.
-         *                                             The sticky element "sticks" as long as it's bottom aligns with
-         *                                             the reference element's bottom.
+         *  @option {number} start     - The distance between the sticky element top position and the
+         *                               viewport top border at the moment the element sticks.
+         *                               The default value is 0.
+         *  @option {number} stop      - The distance between the sticky element initial top position
+         *                               and the sticky element final top position at the moment it
+         *                               stops sticking. The default value is the body height, which results
+         *                               in sticking as long as the page can be scrolled.
+         *  @option {string} reference - If the value is the keyword/string "parent", the sticky
+         *                               element's fist parent element is referenced to control the
+         *                               sticky element.
+         *                               If the value is a jQuery-compatible CSS-selector, the script
+         *                               selects the first matching element on the page and references
+         *                               it's height to define a stop position for the sticky element.
+         *                               The sticky element "sticks" as long as it's bottom aligns with
+         *                               the reference element's bottom.
          */
         
         if (!($stickyElement instanceof jQuery)) {

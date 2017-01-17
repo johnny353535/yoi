@@ -377,7 +377,7 @@ var Documentation = (function() {
     var $codeBlock = $('<code></code>');
     var $preBlock  = $('<pre></pre>');
 
-    var $controls     = $('\
+    var $controls = $('\
         <p class="documentation__controls">\
             <button data-action="toggleDarkmode">background</button>\
             <button data-action="toggleCode">code</button>\
@@ -2313,6 +2313,14 @@ var Dock = (function() {
          *  $dock must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $dock - the dock(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div class="dock" data-dock="autohide:true;">
+         *
+         *  Available options:
+         *
+         *  @option {boolean} autohide - if set to "true", the dock is initially hidden
          */
         
         if (!($dock instanceof jQuery)) {
@@ -3090,16 +3098,6 @@ var CustomFormElements = (function() {
             $(this).find('input').trigger('change');
         });
 
-    var $ratingSelect = $('\
-        <span class="ratingSelect">\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-        </span>\
-    ');
-
     // private functions
     // =================
 
@@ -3123,8 +3121,8 @@ var CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
-        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch]), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch])');
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 
@@ -3205,93 +3203,68 @@ var CustomFormElements = (function() {
 
         // switches
 
-        $(scope + '.switch').each(function() {
-            
-           /**
-            *  How Does the Options-Interface Work?
-            *
-            *  Use the custom data-attribute to apply options. Use this notation:
-            *  data-switch="foo:bar;hello:world;"
-            */
-
-            var $thisSwitch = $(this);
-
-            var options     = YOI.toObject($thisSwitch.data('switch'));
-            var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
-            var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
-
-            var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
-            var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
-            var $knob       = $('<span class="switch__knob">');
-
-            $thisSwitch.append($knob, $labelOn, $labelOff);
-
-            $thisSwitch.on('click', function(e) {
-
-                if ($thisSwitch.hasClass('switch--on')) {
-
-                    $thisSwitch.removeClass('switch--on').addClass('switch--off');
-                    $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
-
-                } else if ($thisSwitch.hasClass('switch--off')) {
-
-                    $thisSwitch.removeClass('switch--off').addClass('switch--on');
-                    $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
-
-                }
-
-            });
-
-        });
+        // $(scope + '.switch').each(function() {
+        //
+        //    /**
+        //     *  How Does the Options-Interface Work?
+        //     *
+        //     *  Use the custom data-attribute to apply options. Use this notation:
+        //     *  data-switch="foo:bar;hello:world;"
+        //     */
+        //
+        //     var $thisSwitch = $(this);
+        //
+        //     var options     = YOI.toObject($thisSwitch.data('switch'));
+        //     var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+        //     var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
+        //
+        //     var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
+        //     var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
+        //     var $knob       = $('<span class="switch__knob">');
+        //
+        //     $thisSwitch.append($knob, $labelOn, $labelOff);
+        //
+        //     $thisSwitch.on('click', function(e) {
+        //
+        //         if ($thisSwitch.hasClass('switch--on')) {
+        //
+        //             $thisSwitch.removeClass('switch--on').addClass('switch--off');
+        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
+        //
+        //         } else if ($thisSwitch.hasClass('switch--off')) {
+        //
+        //             $thisSwitch.removeClass('switch--off').addClass('switch--on');
+        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
+        //
+        //         }
+        //
+        //     });
+        //
+        // });
 
         // textareas with max-chars
 
-        $(scope + '[data-maxchars]').each(function() {
-
-            var maxCharacters    = $(this).data('maxchars');
-            var characterCount   = $(this).next('[data-characterCount]').html('Noch <b>' + maxCharacters + '</b> Zeichen möglich.');
-            var characterCounter = $(this).next('[data-characterCount]').find('b');
-
-            $(this).on('keydown', function(e) {
-
-                var inputLenght = $(this)[0].value.length;
-
-                if(inputLenght >= maxCharacters) {
-                    characterCounter.addClass('error');
-                    characterCounter.text('0');
-                } else {
-                    characterCounter.removeClass('error');
-                    characterCounter.text(maxCharacters - inputLenght);
-                }
-
-            });
-
-        });
-
-        // special rating input element
-
-        $ratingSelect.on('click', function() {
-            $(this).toggleClass('locked');
-        });
-
-        $ratingSelect.find('i').each(function(index) {
-
-            $(this).on('mouseover', function() {
-
-                var rating = index + 1;
-                var ratingSelectElem = $(this).parent();
-                var ratingInput = $(this).parent().prev('.ratingInput');
-
-                if (ratingSelectElem.hasClass('locked')) return false;
-
-                ratingSelectElem.attr('class','ratingSelect rated--' + rating);
-                ratingInput.val(rating);
-
-            });
-
-        });
-
-        $(scope + '.ratingInput').after($ratingSelect.clone(true));
+        // $(scope + '[data-maxchars]').each(function() {
+        //
+        //     var maxCharacters    = $(this).data('maxchars');
+        //     var characterCount   = $(this).next('[data-characterCount]').html('Noch <b>' + maxCharacters + '</b> Zeichen möglich.');
+        //     var characterCounter = $(this).next('[data-characterCount]').find('b');
+        //
+        //     $(this).on('keydown', function(e) {
+        //
+        //         var inputLenght = $(this)[0].value.length;
+        //
+        //         if(inputLenght >= maxCharacters) {
+        //             characterCounter.addClass('error');
+        //             characterCounter.text('0');
+        //         } else {
+        //             characterCounter.removeClass('error');
+        //             characterCounter.text(maxCharacters - inputLenght);
+        //         }
+        //
+        //     });
+        //
+        // });
 
     }
 
@@ -3338,11 +3311,9 @@ var Hide = (function() {
          *
          *  @option {string} target     - A string which is used as selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
-         *
          *  @option {string} event      - A string which defines the event which gets bound to the
          *                                trigger element. All standard event handlers from jQuery
          *                                can be used.
-         *
          *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
          */
         
@@ -3738,10 +3709,19 @@ var MicroSubmit = (function() {
          *  $microSubmit must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <form data-microsubmit="response:#myCustomResponse;"></form>
+         *
+         *  Available options:
+         *
+         *  @option {string} response - a CSS selector (most likely an #id) to select the dom
+         *                              element which is displayed after submit
          */
 
         if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('[data-microsubmit]');
+            $microSubmit = $('form[data-microsubmit]');
         }
 
         $microSubmit.each(function() {
@@ -4680,13 +4660,13 @@ var PopOver = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target                     - The target pop-over id selector.
-         *  @option {string} pos                        - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
-         *  @option {string} ref                        - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
-         *  @option {string} toggleClass                - Css class name added to trigger if pop-over is currently shown.
-         *  @option {string} eventShow                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
-         *  @option {string} eventHide                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
-         *  @option {bool}   preventDefault             - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
+         *  @option {string} target         - The target pop-over id selector.
+         *  @option {string} pos            - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
+         *  @option {string} ref            - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
+         *  @option {string} toggleClass    - Css class name added to trigger if pop-over is currently shown.
+         *  @option {string} eventShow      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
+         *  @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
+         *  @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
          */
 
         if (!($popOverTrigger instanceof jQuery)) {
@@ -5483,6 +5463,189 @@ var RangeInput = (function() {
 
 })();
 
+var RatingInput = (function() {
+
+    // private vars
+    // ============
+    
+    var $ratingSelect = $('\
+        <span class="ratingInput__select">\
+            <i aria-hidden="true" class="icon--039-s"></i>\
+            <i aria-hidden="true" class="icon--039-s"></i>\
+            <i aria-hidden="true" class="icon--039-s"></i>\
+            <i aria-hidden="true" class="icon--039-s"></i>\
+            <i aria-hidden="true" class="icon--039-s"></i>\
+        </span>\
+    ');
+    
+    // private functions
+    // =================
+    
+    function initializeRatingInput($ratingInput, options) {
+        
+        /**
+         *  Initialize all *[data-ratinginput] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-ratinginput] (= function call with $ratingInput).
+         *  $ratingInput must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div class="ratingInput" data-ratinginput="uid:1234;">
+         *
+         *  Available options:
+         *
+         *  @option {number}  uid    - the unique identifier for each element - useful to identify
+         *                             submitted data on the backend
+         *  @option {boolean} locked - set "true" to "lock" the element and prevent editing
+         *  @option {number}  score  - a number between 0 (not rated) and 5 (highest rating score)
+         */
+        
+        if (!($ratingInput instanceof jQuery)) {
+            $ratingInput = $('[data-ratinginput]');
+        }
+
+        $ratingInput.each(function() {
+            
+            var $thisRatingInput  = $(this);
+            var $thisRatingSelect = $ratingSelect.clone();
+            var $thisRatingStars  = $thisRatingSelect.find('[class*="icon--"]');
+            
+            // append data
+            
+            appendData($thisRatingInput);
+            
+            // set the initial rating score
+            
+            setRating($thisRatingInput, $ratingInput.data().score);
+            
+            // add events to the rating stars
+            
+            $thisRatingStars
+                .on('mouseover', function() {
+                    setRating($thisRatingInput, $(this).index() + 1);
+                })
+                .on('click', function() {
+                    submitRating($thisRatingInput);
+                    lock($thisRatingInput);
+                });
+        
+            // add a cloned rating select interface to
+            // each ratingInput
+        
+            $thisRatingInput.append($thisRatingSelect);
+            
+        });
+        
+    }
+    
+    function appendData($ratingInput) {
+        
+        /**
+         *  Read the options from the markup (custom data-attribute) and
+         *  write them to the internal jQuery.data() object.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input
+         */
+        
+        var options = YOI.toObject($ratingInput.data('ratinginput'));
+        
+        $ratingInput.data({
+            'uid'    : options.uid === undefined ? null : options.uid,
+            'locked' : options.locked === undefined ? false : options.locked,
+            'score'  : options.score === undefined ? 0 : options.score
+        });
+        
+    }
+    
+    function lock($ratingInput) {
+        
+        /**
+         *  Lock the input to prevent further editing.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input
+         */
+        
+        $ratingInput.addClass('ratingInput--locked');
+        $ratingInput.data().locked = true;
+    
+    }
+    
+    function unlock($ratingInput) {
+        
+        /**
+         *  Unlock the input to make it editable.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input
+         */
+        
+        $ratingInput.removeClass('ratingInput--locked');
+        $ratingInput.data().locked = false;
+        
+    }
+    
+    function setRating($ratingInput, score) {
+        
+        /**
+         *  Set the current rating by writing it to the internal
+         *  jQuery.data() object. Also update CSS classnames to
+         *  visualize the rating.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input
+         *  @param {number}            score        - the rating score from 0 to 6
+         */
+        
+        var locked = $ratingInput.data().locked;
+        
+        if (!locked) {
+            
+            // update the score
+            
+            $ratingInput.data().score = score;
+            
+            // change css classes
+            
+            $ratingInput.removeClass('ratingInput--rated-1 ratingInput--rated-2 ratingInput--rated-3 ratingInput--rated-4 ratingInput--rated-5');
+            $ratingInput.addClass('ratingInput--rated-' + score);
+            
+        }
+
+    }
+    
+    function submitRating($ratingInput) {
+        
+        /**
+         *  This function is for demontration purpose only. A proper
+         *  submit method to the backend is still missing.
+         *
+         *  @param {jQuery dom object} $ratingInput - the rating input
+         */
+        
+        var uid   = $ratingInput.data().uid;
+        var score = $ratingInput.data().score;
+        
+        // console.log('id: ' + uid + ' | score: ' + score);
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeRatingInput();
+    
+    // public functions
+    // ================
+    
+    return {
+        init   : initializeRatingInput,
+        lock   : lock,
+        unlock : unlock,
+        set    : setRating,
+        submit : submitRating
+    }
+
+})();
 /** remove.js */
 
 var Remove = (function() {
@@ -5505,8 +5668,8 @@ var Remove = (function() {
          *
          *  Available options:
          *
-         *  @option {string, CSS selector} target - optional selector for the DOM element to remove
-         *                                          by default, the target is the trigger's first parent element
+         *  @option {string} target - optional CSS-selector for the DOM element to remove
+         *                            by default, the target is the trigger's first parent element
          */
 
         if (!($removeTrigger instanceof jQuery)) {
@@ -5565,7 +5728,7 @@ var Reveal = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target     - A string which is used as selector for the target element
+         *  @option {string} target     - A string which is used as CSS-selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
          *
          *  @option {string} event      - A string which defines the event which gets bound to the
@@ -6380,8 +6543,8 @@ var Sticky = (function() {
     // private vars
     // ============
     
-    var $body               = $('body');
-    var $window             = $(window);
+    var $body   = $('body');
+    var $window = $(window);
     
     // private functions
     // =================
@@ -6401,23 +6564,21 @@ var Sticky = (function() {
          *
          *  Available options:
          *
-         *  @option {number}               start     - The distance between the sticky element top position and the
-         *                                             viewport top border at the moment the element sticks.
-         *                                             The default value is 0.
-         *                                           
-         *  @option {number}               stop      - The distance between the sticky element initial top position
-         *                                             and the sticky element final top position at the moment it
-         *                                             stops sticking. The default value is the body height, which results
-         *                                             in sticking as long as the page can be scrolled.
-         *                                           
-         *  @option {string, CSS selector} reference - If the value is the keyword/string "parent", the sticky
-         *                                             element's fist parent element is referenced to control the
-         *                                             sticky element.
-         *                                             If the value is a jQuery-compatible CSS selector, the script
-         *                                             selects the first matching element on the page and references
-         *                                             it's height to define a stop position for the sticky element.
-         *                                             The sticky element "sticks" as long as it's bottom aligns with
-         *                                             the reference element's bottom.
+         *  @option {number} start     - The distance between the sticky element top position and the
+         *                               viewport top border at the moment the element sticks.
+         *                               The default value is 0.
+         *  @option {number} stop      - The distance between the sticky element initial top position
+         *                               and the sticky element final top position at the moment it
+         *                               stops sticking. The default value is the body height, which results
+         *                               in sticking as long as the page can be scrolled.
+         *  @option {string} reference - If the value is the keyword/string "parent", the sticky
+         *                               element's fist parent element is referenced to control the
+         *                               sticky element.
+         *                               If the value is a jQuery-compatible CSS-selector, the script
+         *                               selects the first matching element on the page and references
+         *                               it's height to define a stop position for the sticky element.
+         *                               The sticky element "sticks" as long as it's bottom aligns with
+         *                               the reference element's bottom.
          */
         
         if (!($stickyElement instanceof jQuery)) {
@@ -6681,6 +6842,202 @@ var Sticky = (function() {
     }
 
 })();
+/** switch.js */
+
+var Switch = (function() {
+
+    // private vars
+    // ============
+    
+    var $switchWrapper = $('<span class="switch"></span>');
+    var $labelOn       = $('<span class="switch__labelOn"></span>');
+    var $labelOff      = $('<span class="switch__labelOff"></span>');
+    var $knob          = $('<span class="switch__knob"></span>');
+    
+    var labelOnTxt = {
+        'de' : 'Ein',
+        'en' : 'On'
+    }
+    
+    var labelOffTxt = {
+        'de' : 'Aus',
+        'en' : 'Off'
+    }
+    
+    // get the document language, fall back to english
+    // note: only german and english supported at this moment
+
+    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
+    
+    // private functions
+    // =================
+    
+    function initializeSwitch($switch, options) {
+        
+       /**
+        *  Initialize all [data-switch] found in the document (= function call without parameters)
+        *  or target one or more specific [data-switch] (= function call with $switch).
+        *  $switch must be a jQuery object or jQuery object collection.
+        *
+        *  @param {jQuery dom object} $switch - the switch(es)
+        *
+        *  Options are passed to the script as custom data values, eg:
+        *
+        *  <form data-switch="state:off;"></form>
+        *
+        *  Available options:
+        *
+        *  @option {string}  state       - a keyword to set the switch ["on"|"off"]
+        *  @option {boolean} addCheckbox - if "true", a checkbox will be injected
+        *  @option {boolean} showLabels  - if "true", labels (on, off) are added
+        */
+
+        if (!($switch instanceof jQuery)) {
+            $switch = $('[data-switch]');
+        }
+
+        $switch.each(function() {
+
+            var $thisSwitch        = $(this);
+            var $thisSwitchWrapper = $switchWrapper.clone();
+            var options            = YOI.toObject($thisSwitch.data('switch'));
+
+            // prepare the dom
+            
+            $thisSwitch = $thisSwitch.wrap($thisSwitchWrapper).parent();
+            
+            $thisSwitch.append(
+                $knob.clone(),
+                $labelOn.clone().text(labelOnTxt[language]),
+                $labelOff.clone().text(labelOffTxt[language])
+            );
+            
+            $thisSwitch.addClass('switch--on');
+            
+            /*
+                if (:checked || .hasClass('switch--on'))
+                    => make it switched on
+            
+            */
+
+            // add events
+
+            $thisSwitch.on('click', function(e) {
+                stateToggle($thisSwitch);
+            });
+
+        });
+        
+    }
+    
+    function stateOn($switch) {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        $switch.removeClass('switch--off').addClass('switch--on');
+        $switch.find('input[type="checkbox"]').attr('checked', true);
+        
+    }
+    
+    function stateOff($switch) {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        $switch.removeClass('switch--on').addClass('switch--off');
+        $switch.find('input[type="checkbox"]').attr('checked', false);
+        
+    }
+    
+    function stateToggle($switch) {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        if ($switch.hasClass('switch--off')) {
+            stateOn($switch);
+        } else if ($switch.hasClass('switch--on')) {
+            stateOff($switch);
+        }
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeSwitch();
+    
+    // public functions
+    // ================
+    
+    return {
+        init   : initializeSwitch,
+        on     : stateOn,
+        off    : stateOff,
+        toggle : stateToggle
+    }
+
+})();
+
+
+
+
+
+
+
+
+
+// $(scope + '.switch').each(function() {
+//
+//    /**
+//     *  How Does the Options-Interface Work?
+//     *
+//     *  Use the custom data-attribute to apply options. Use this notation:
+//     *  data-switch="foo:bar;hello:world;"
+//     */
+//
+//     var $thisSwitch = $(this);
+//
+//     var options     = YOI.toObject($thisSwitch.data('switch'));
+//     var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+//     var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
+//
+//     var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
+//     var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
+//     var $knob       = $('<span class="switch__knob">');
+//
+//     $thisSwitch.append($knob, $labelOn, $labelOff);
+//
+//     $thisSwitch.on('click', function(e) {
+//
+//         if ($thisSwitch.hasClass('switch--on')) {
+//
+//             $thisSwitch.removeClass('switch--on').addClass('switch--off');
+//             $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
+//
+//         } else if ($thisSwitch.hasClass('switch--off')) {
+//
+//             $thisSwitch.removeClass('switch--off').addClass('switch--on');
+//             $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
+//
+//         }
+//
+//     });
+//
+// });
 /** tables.js */
 
 var Table = (function() {
@@ -6715,8 +7072,8 @@ var Table = (function() {
          *
          *  Available options:
          *
-         *  @option {string ["true"|"false"]} removeable - removeable table rows
-         *  @option {string ["true"|"false"]} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
+         *  @option {boolean} removeable - removeable table rows
+         *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
         
         if (!($table instanceof jQuery)) {
@@ -6925,7 +7282,7 @@ var Tabs = (function() {
         /**
          *  Show the target tab, hide all other related tabs.
          *
-         *  @param {string} thisTargetTabId - target tab css id selector (e.g. "#myTab")
+         *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
 
         var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');
@@ -6993,10 +7350,10 @@ var ToggleGroup = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target          - Selector for target element.
-         *  @option {string} group           - A unique string to group toggle elements.
-         *  @option {string} activeClassName - To highlight an "active" trigger, this
-         *                                     CSS class name is added to the trigger.
+         *  @option {string} target          - CSS-selector for target element
+         *  @option {string} group           - a unique string to group toggle elements
+         *  @option {string} activeClassName - to highlight an "active" trigger, this
+         *                                     CSS class name is added to the trigger
          */
         
         if (!($toggleGroup instanceof jQuery)) {

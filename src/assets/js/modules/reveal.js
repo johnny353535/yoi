@@ -20,7 +20,7 @@ var Reveal = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target     - A string which is used as selector for the target element
+         *  @option {string} target     - A string which is used as CSS-selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
          *
          *  @option {string} event      - A string which defines the event which gets bound to the

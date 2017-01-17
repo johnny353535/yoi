@@ -20,10 +20,19 @@ var MicroSubmit = (function() {
          *  $microSubmit must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <form data-microsubmit="response:#myCustomResponse;"></form>
+         *
+         *  Available options:
+         *
+         *  @option {string} response - a CSS selector (most likely an #id) to select the dom
+         *                              element which is displayed after submit
          */
 
         if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('[data-microsubmit]');
+            $microSubmit = $('form[data-microsubmit]');
         }
 
         $microSubmit.each(function() {

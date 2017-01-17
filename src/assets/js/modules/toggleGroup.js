@@ -26,10 +26,10 @@ var ToggleGroup = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target          - Selector for target element.
-         *  @option {string} group           - A unique string to group toggle elements.
-         *  @option {string} activeClassName - To highlight an "active" trigger, this
-         *                                     CSS class name is added to the trigger.
+         *  @option {string} target          - CSS-selector for target element
+         *  @option {string} group           - a unique string to group toggle elements
+         *  @option {string} activeClassName - to highlight an "active" trigger, this
+         *                                     CSS class name is added to the trigger
          */
         
         if (!($toggleGroup instanceof jQuery)) {

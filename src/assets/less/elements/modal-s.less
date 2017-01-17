@@ -1,5 +1,8 @@
 /** modal-s.less */
 
+// block
+// =====
+
 .modal-s {
     background: @color-main-25;
     border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
@@ -17,6 +20,9 @@
 .modal__container .modal-s {
     z-index: 601;
 }
+
+// elements
+// ========
 
 .modal-s__header {
 
@@ -38,7 +44,7 @@
         background: @color-transparent;
         position: absolute;
         right: 0;
-        top: 2px;
+        top: .2rem;
         color: @color-main-12;
 
         &:hover {
@@ -57,6 +63,7 @@
 }
 
 // modifiers
+// =========
 
 .modal-s--small {
     .mixin-defaultBorderRadius;

@@ -15,16 +15,6 @@ var CustomFormElements = (function() {
             $(this).find('input').trigger('change');
         });
 
-    var $ratingSelect = $('\
-        <span class="ratingSelect">\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-        </span>\
-    ');
-
     // private functions
     // =================
 
@@ -48,8 +38,8 @@ var CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
-        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch]), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch])');
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 
@@ -130,93 +120,68 @@ var CustomFormElements = (function() {
 
         // switches
 
-        $(scope + '.switch').each(function() {
-            
-           /**
-            *  How Does the Options-Interface Work?
-            *
-            *  Use the custom data-attribute to apply options. Use this notation:
-            *  data-switch="foo:bar;hello:world;"
-            */
-
-            var $thisSwitch = $(this);
-
-            var options     = YOI.toObject($thisSwitch.data('switch'));
-            var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
-            var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
-
-            var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
-            var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
-            var $knob       = $('<span class="switch__knob">');
-
-            $thisSwitch.append($knob, $labelOn, $labelOff);
-
-            $thisSwitch.on('click', function(e) {
-
-                if ($thisSwitch.hasClass('switch--on')) {
-
-                    $thisSwitch.removeClass('switch--on').addClass('switch--off');
-                    $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
-
-                } else if ($thisSwitch.hasClass('switch--off')) {
-
-                    $thisSwitch.removeClass('switch--off').addClass('switch--on');
-                    $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
-
-                }
-
-            });
-
-        });
+        // $(scope + '.switch').each(function() {
+        //
+        //    /**
+        //     *  How Does the Options-Interface Work?
+        //     *
+        //     *  Use the custom data-attribute to apply options. Use this notation:
+        //     *  data-switch="foo:bar;hello:world;"
+        //     */
+        //
+        //     var $thisSwitch = $(this);
+        //
+        //     var options     = YOI.toObject($thisSwitch.data('switch'));
+        //     var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
+        //     var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
+        //
+        //     var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
+        //     var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
+        //     var $knob       = $('<span class="switch__knob">');
+        //
+        //     $thisSwitch.append($knob, $labelOn, $labelOff);
+        //
+        //     $thisSwitch.on('click', function(e) {
+        //
+        //         if ($thisSwitch.hasClass('switch--on')) {
+        //
+        //             $thisSwitch.removeClass('switch--on').addClass('switch--off');
+        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
+        //
+        //         } else if ($thisSwitch.hasClass('switch--off')) {
+        //
+        //             $thisSwitch.removeClass('switch--off').addClass('switch--on');
+        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
+        //
+        //         }
+        //
+        //     });
+        //
+        // });
 
         // textareas with max-chars
 
-        $(scope + '[data-maxchars]').each(function() {
-
-            var maxCharacters    = $(this).data('maxchars');
-            var characterCount   = $(this).next('[data-characterCount]').html('Noch <b>' + maxCharacters + '</b> Zeichen möglich.');
-            var characterCounter = $(this).next('[data-characterCount]').find('b');
-
-            $(this).on('keydown', function(e) {
-
-                var inputLenght = $(this)[0].value.length;
-
-                if(inputLenght >= maxCharacters) {
-                    characterCounter.addClass('error');
-                    characterCounter.text('0');
-                } else {
-                    characterCounter.removeClass('error');
-                    characterCounter.text(maxCharacters - inputLenght);
-                }
-
-            });
-
-        });
-
-        // special rating input element
-
-        $ratingSelect.on('click', function() {
-            $(this).toggleClass('locked');
-        });
-
-        $ratingSelect.find('i').each(function(index) {
-
-            $(this).on('mouseover', function() {
-
-                var rating = index + 1;
-                var ratingSelectElem = $(this).parent();
-                var ratingInput = $(this).parent().prev('.ratingInput');
-
-                if (ratingSelectElem.hasClass('locked')) return false;
-
-                ratingSelectElem.attr('class','ratingSelect rated--' + rating);
-                ratingInput.val(rating);
-
-            });
-
-        });
-
-        $(scope + '.ratingInput').after($ratingSelect.clone(true));
+        // $(scope + '[data-maxchars]').each(function() {
+        //
+        //     var maxCharacters    = $(this).data('maxchars');
+        //     var characterCount   = $(this).next('[data-characterCount]').html('Noch <b>' + maxCharacters + '</b> Zeichen möglich.');
+        //     var characterCounter = $(this).next('[data-characterCount]').find('b');
+        //
+        //     $(this).on('keydown', function(e) {
+        //
+        //         var inputLenght = $(this)[0].value.length;
+        //
+        //         if(inputLenght >= maxCharacters) {
+        //             characterCounter.addClass('error');
+        //             characterCounter.text('0');
+        //         } else {
+        //             characterCounter.removeClass('error');
+        //             characterCounter.text(maxCharacters - inputLenght);
+        //         }
+        //
+        //     });
+        //
+        // });
 
     }
 
