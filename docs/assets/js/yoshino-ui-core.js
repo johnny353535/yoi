@@ -1351,6 +1351,142 @@ var Countdown = (function() {
     }
 
 })();
+/** forms.js */
+
+var CustomFormElements = (function() {
+
+    // private vars
+    // ============
+
+    var $checkBoxWrapper = $('<span class="checkbox"></span>')
+        .on('click', function() {
+            $(this).find('input').trigger('change');
+        });
+
+    var $radioBtnWrapper = $('<span class="radio"></span>')
+        .on('click', function() {
+            $(this).find('input').trigger('change');
+        });
+
+    // private functions
+    // =================
+
+    function initializeCustomFormElements(scope) {
+
+        /**
+         *  Set css-selector to either target all custom form elements
+         *  or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"]).
+         *
+         *  @param {string} scope - a jQuery selector to define the scope
+         */
+
+        // set css-selector to either target all custom form elements
+        // or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"])
+
+        if (scope === undefined) {
+            scope = '';
+        } else {
+            scope += ' ';
+        }
+
+        // select custom checkboxes and radio buttons
+
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
+        var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var selects     = $(scope + 'select:not(.js-fallback)');
+
+        // prepare custom form elements
+
+        checkBoxes.each(function() {
+
+            var isWrappedInLabel = $(this).parents().index('label');
+
+            if (isWrappedInLabel === -1) {
+                $(this).wrap($checkBoxWrapper.clone(true)); // clone with events
+            } else {
+                $(this).wrap($checkBoxWrapper.clone());     // clone without events
+            }
+
+        });
+
+        radioBtns.each(function() {
+
+            var isWrappedInLabel = $(this).parents().index('label');
+
+            if (isWrappedInLabel === -1) {
+                $(this).wrap($radioBtnWrapper.clone(true)); // clone with events
+            } else {
+                $(this).wrap($radioBtnWrapper.clone());     // clone without events
+            }
+
+        });
+
+        checkElemns.each(function() {
+
+            var thisWrapper = $(this).parent();
+
+            // move class names from checkbox/radio-button
+            // to the wrapper
+
+            thisWrapper.addClass($(this).attr('class'));
+            $(this).removeAttr('class');
+
+            // checked?
+
+            if ($(this).is(':checked')) {
+                thisWrapper.addClass('input--checked');
+            }
+
+        });
+
+        selects.each(function() {
+
+            var $thisSelect    = $(this);
+            var $selectWrapper = $('<span></span>');
+            var $icon          = $('<i class="icon--009-s" aria-hidden="true"></i>');
+
+            // prepare wrapper, keep modifiers
+            $selectWrapper.addClass('btn ' + $thisSelect.attr('class'));
+            $selectWrapper.attr('role','customSelect');
+
+            // inject elements
+            $thisSelect.wrap($selectWrapper);
+            $thisSelect.parent().append($icon);
+
+            // remove classNames (modifiers) from select element
+            $thisSelect.removeAttr('class');
+
+        });
+
+        checkElemns.on({
+            'focus' : function() {
+                $(this).parent().addClass('input--focus');
+            },
+            'blur' : function() {
+                $(this).parent().removeClass('input--focus');
+            },
+            'change' : function(e) {
+                $(this).parent().toggleClass('input--checked');
+            }
+        });
+
+    }
+
+    // initialize
+    // ==========
+
+    initializeCustomFormElements();
+
+    // public functions
+    // ================
+
+    return {
+        init : initializeCustomFormElements
+    }
+
+})();
+
 /** datePicker.js */
 
 var DatePicker = (function() {
@@ -3077,142 +3213,6 @@ var Flyout = (function() {
         toggle : toggleFlyout,
         show   : showFlyout,
         hide   : hideFlyout
-    }
-
-})();
-
-/** forms.js */
-
-var CustomFormElements = (function() {
-
-    // private vars
-    // ============
-
-    var $checkBoxWrapper = $('<span class="checkbox"></span>')
-        .on('click', function() {
-            $(this).find('input').trigger('change');
-        });
-
-    var $radioBtnWrapper = $('<span class="radio"></span>')
-        .on('click', function() {
-            $(this).find('input').trigger('change');
-        });
-
-    // private functions
-    // =================
-
-    function initializeCustomFormElements(scope) {
-
-        /**
-         *  Set css-selector to either target all custom form elements
-         *  or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"]).
-         *
-         *  @param {string} scope - a jQuery selector to define the scope
-         */
-
-        // set css-selector to either target all custom form elements
-        // or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"])
-
-        if (scope === undefined) {
-            scope = '';
-        } else {
-            scope += ' ';
-        }
-
-        // select custom checkboxes and radio buttons
-
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch]), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
-        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch])');
-        var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
-        var selects     = $(scope + 'select:not(.js-fallback)');
-
-        // prepare custom form elements
-
-        checkBoxes.each(function() {
-
-            var isWrappedInLabel = $(this).parents().index('label');
-
-            if (isWrappedInLabel === -1) {
-                $(this).wrap($checkBoxWrapper.clone(true)); // clone with events
-            } else {
-                $(this).wrap($checkBoxWrapper.clone());     // clone without events
-            }
-
-        });
-
-        radioBtns.each(function() {
-
-            var isWrappedInLabel = $(this).parents().index('label');
-
-            if (isWrappedInLabel === -1) {
-                $(this).wrap($radioBtnWrapper.clone(true)); // clone with events
-            } else {
-                $(this).wrap($radioBtnWrapper.clone());     // clone without events
-            }
-
-        });
-
-        checkElemns.each(function() {
-
-            var thisWrapper = $(this).parent();
-
-            // move class names from checkbox/radio-button
-            // to the wrapper
-
-            thisWrapper.addClass($(this).attr('class'));
-            $(this).removeAttr('class');
-
-            // checked?
-
-            if ($(this).is(':checked')) {
-                thisWrapper.addClass('input--checked');
-            }
-
-        });
-
-        selects.each(function() {
-
-            var $thisSelect    = $(this);
-            var $selectWrapper = $('<span></span>');
-            var $icon          = $('<i class="icon--009-s" aria-hidden="true"></i>');
-
-            // prepare wrapper, keep modifiers
-            $selectWrapper.addClass('btn ' + $thisSelect.attr('class'));
-            $selectWrapper.attr('role','customSelect');
-
-            // inject elements
-            $thisSelect.wrap($selectWrapper);
-            $thisSelect.parent().append($icon);
-
-            // remove classNames (modifiers) from select element
-            $thisSelect.removeAttr('class');
-
-        });
-
-        checkElemns.on({
-            'focus' : function() {
-                $(this).parent().addClass('input--focus');
-            },
-            'blur' : function() {
-                $(this).parent().removeClass('input--focus');
-            },
-            'change' : function(e) {
-                $(this).parent().toggleClass('input--checked');
-            }
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initializeCustomFormElements();
-
-    // public functions
-    // ================
-
-    return {
-        init : initializeCustomFormElements
     }
 
 })();
@@ -7670,6 +7670,15 @@ var Tooltip = (function() {
          *  $tooltip must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $tooltip - the tooltip(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <div data-tooltip="target:#myTargetElement;"></div>
+         *
+         *  Available options:
+         *
+         *  @option {string} target - a CSS selector (most likely an #id) to select the dom
+         *                            element which gets turned into a tooltip
          */
 
         if (!($tooltip instanceof jQuery)) {
@@ -7683,12 +7692,6 @@ var Tooltip = (function() {
             var $thisTooltip = $(this);
             var options      = options === undefined ? YOI.toObject($thisTooltip.data('tooltip')) : options;
             var $target      = options.target !== undefined ? $(options.target) : $thisTooltip.find('.tooltip');
-            var character    = (options.character !== undefined && !icon) ? options.character : '?';
-            var $trigger;
-
-            // prepare the trigger element
-
-            $trigger = prepareTrigger($thisTooltip);
 
             // prepare the target element
 
@@ -7696,7 +7699,7 @@ var Tooltip = (function() {
 
             // add event to trigger
 
-            $trigger.on('mouseover', function(e) {
+            $thisTooltip.on('mouseover', function(e) {
 
                 // positioning
 
@@ -7704,14 +7707,13 @@ var Tooltip = (function() {
 
                 // hide all other tooltips
 
-                $('.tooltip').hide();
-
+                hideAll();
                 hideWithDelay('stop');
                 showWithDelay($target, 'start');
 
             });
 
-            $trigger.on('mouseout', function() {
+            $thisTooltip.on('mouseout', function() {
 
                 hideWithDelay('start');
                 showWithDelay($target, 'stop');
@@ -7721,51 +7723,30 @@ var Tooltip = (function() {
         });
 
     }
-
-    function prepareTrigger($thisTrigger) {
-
+    
+    function hideAll(scope) {
+        
         /**
-         *  Prepare the trigger.
+         *  Hides all tool tips. Either all tool tips found in the current
+         *  document all all tool tips found inside a specified scope of
+         *  another dom element.
          *
-         *  In case the trigger element itself is an text input element,
-         *  a hint needs to get injected and things need to get
-         *  wrapped inside a <div class="wrapper"> for positioning.
-         *
-         *  @param  {jQuery dom object} $thisTrigger         - the trigger
-         *  @return {jQuery dom object} $thisPreparedTrigger - the prepared trigger
+         *  @param {string} scope - a jQuery selector to define the scope
          */
+        
+        // set css-selector to either target all tool tips
+        // or only the ones inside a specified scope of another dom element
 
-        var options            = YOI.toObject($thisTrigger.data('tooltip'));
-        var icon               = options.icon !== undefined ? options.icon : false;
-        var textInputTypes     = [ 'email', 'password', 'tel', 'text', 'url' ];
-        var triggerIsTextInput = $thisTrigger.prop('tagName') === 'INPUT' && $.inArray($thisTrigger.attr('type'), textInputTypes) > -1;
-        var triggerIsTextarea  = $thisTrigger.prop('tagName') === 'TEXTAREA';
-        var $thisPreparedTrigger;
-
-        if (triggerIsTextInput || triggerIsTextarea) {
-
-            var $wrapper = $('<div class="tooltip__wrapper">');
-
-            if (!icon) {
-                $thisPreparedTrigger = $('<span class="hint">' + character + '</span>');
-            } else {
-                $thisPreparedTrigger = $('<span class="hint"><i class="icon--' + icon + '-s" aria-hidden="true"></i></span>');
-            }
-
-            $thisTrigger.wrap($wrapper);
-            $thisTrigger.parent().append($thisPreparedTrigger);
-            $thisTrigger.parent().css('width', $thisTrigger.outerWidth());
-
+        if (scope === undefined) {
+            scope = '';
         } else {
-
-            $thisPreparedTrigger = $thisTrigger;
-
+            scope += ' ';
         }
-
-        // return the prepared trigger
-
-        return $thisPreparedTrigger;
-
+        
+        // hide all tool tips
+        
+        $(scope + '.tooltip').hide();
+        
     }
 
     function prepareTarget($thisTarget) {
@@ -7915,9 +7896,10 @@ var Tooltip = (function() {
     // ================
 
     return {
-        init: initializeTooltip,
-        show: showWithDelay,
-        hide: hideWithDelay
+        init    : initializeTooltip,
+        show    : showWithDelay,
+        hide    : hideWithDelay,
+        hideAll : hideAll
     }
 
 })();

@@ -38,8 +38,8 @@ var CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch]), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
-        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *, [data-switch])');
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 

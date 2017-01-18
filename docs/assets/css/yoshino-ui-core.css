@@ -19155,85 +19155,33 @@ a:visited.btn.btn--outline.btn--positive {
 form {
   padding: 0;
 }
-.form__header,
-.form__body,
-.form__footer,
-fieldset {
-  overflow: auto;
-}
-.form__header::after,
-.form__body::after,
-.form__footer::after,
-fieldset::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.form__header {
-  border-bottom: #e1e0df 1px solid;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-.form__body,
-fieldset {
-  border: 0;
-  margin-bottom: 10px;
-  padding: 0;
-}
-.form__body::after,
-fieldset::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.form__body:last-child,
-fieldset:last-child {
-  margin-bottom: 0;
-}
-.form__footer {
-  border-top: #e1e0df 1px solid;
-  margin-top: 10px;
-  overflow: auto;
-  padding-top: 10px;
-}
-legend,
-.legend {
+legend {
   color: #484746;
   display: block;
-  font-size: 15px;
-  font: bold 15px/25px 'Open Sans', sans-serif;
-  line-height: 20px;
-  padding: 0 0 10px 0;
+  font: bold 1.5rem/2.5rem 'Open Sans', sans-serif;
+  line-height: 2rem;
+  padding: 0 0 1rem 0;
 }
-label,
-.label {
-  font: normal 13px/20px 'Open Sans', sans-serif;
-  display: block;
-  position: relative;
+label {
   cursor: pointer;
+  display: block;
+  font: normal 1.3rem/2rem 'Open Sans', sans-serif;
+  position: relative;
 }
 label i,
-.label i,
-label em,
-.label em {
+label em {
   color: #9a9998;
   font-style: normal;
 }
 label input,
-.label input,
 label textarea,
-.label textarea,
-label .select,
-.label .select {
-  margin-top: 5px;
+label .select {
+  margin-top: .5rem;
 }
 label + input,
-.label + input,
 label + textarea,
-.label + textarea,
-label + .select,
-.label + .select {
-  margin-top: 10px;
+label + .select {
+  margin-top: 1rem;
 }
 input[type="date"],
 input[type="email"],
@@ -19245,15 +19193,15 @@ textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background: #fff;
   border-radius: 2px;
+  background: #fff;
   border: #cdcccb 1px solid;
   box-shadow: 0 1px 0 #f6f5f4 inset;
   box-sizing: border-box;
   color: #535251;
-  font: normal 13px/25px 'Open Sans', sans-serif;
-  height: 25px;
-  padding: 0 5px;
+  font: normal 1.3rem/2.5rem 'Open Sans', sans-serif;
+  height: 2.5rem;
+  padding: 0 .5rem;
   width: 100%;
 }
 input[type="date"]:focus,
@@ -19266,7 +19214,7 @@ textarea:focus {
   border-color: #9a9998;
   border-width: 2px;
   outline: none;
-  padding: 0 4px;
+  padding: 0 .4rem;
 }
 input[type="date"][disabled],
 input[type="email"][disabled],
@@ -19286,7 +19234,7 @@ textarea[readonly] {
   border: #e1e0df 1px solid;
   color: #535251;
   outline: none;
-  padding: 0 5px;
+  padding: 0 .5rem;
 }
 input[type="date"][readonly],
 input[type="email"][readonly],
@@ -19300,7 +19248,7 @@ textarea[readonly] {
   background: transparent;
 }
 input.input--large {
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 40px;
   height: 40px;
 }
@@ -19308,19 +19256,19 @@ textarea {
   box-sizing: border-box;
   display: block;
   height: auto;
-  line-height: 20px;
+  line-height: 2rem;
   max-width: 100%;
   min-height: 100px;
-  padding: 5px;
+  padding: .5rem;
   resize: vertical;
 }
 textarea:focus {
   padding: 4px;
 }
 textarea.input--large {
-  font-size: 15px;
+  font-size: 1.5rem;
   height: auto;
-  line-height: 20px;
+  line-height: 2rem;
 }
 ::-webkit-input-placeholder {
   color: #535251;
@@ -19439,17 +19387,6 @@ textarea.input--success:focus,
   background: #d9ffea;
   border-color: #81b197;
 }
-label.input--required,
-.label.input--required {
-  font-weight: bold;
-}
-label.input--required i,
-.label.input--required i,
-label.input--required a,
-.label.input--required a {
-  font-weight: normal;
-  font-style: normal;
-}
 .checkbox,
 .radio {
   -moz-appearance: none;
@@ -19461,7 +19398,7 @@ label.input--required a,
   cursor: pointer;
   display: inline-block;
   height: 12px;
-  margin: 0 5px 0 0;
+  margin: 0 .5rem 0 0;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -19477,8 +19414,8 @@ label.input--required a,
 .checkbox.input--focus,
 .radio.input--focus {
   border: #9a9998 2px solid;
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
 }
 .checkbox {
   border-radius: 2px;
@@ -19511,9 +19448,9 @@ label.input--required a,
   color: #f6f5f4;
   content: '\f011';
   font-size: 24px;
-  height: 15px;
-  left: -5px;
-  line-height: 15px;
+  height: 1.5rem;
+  left: -0.5rem;
+  line-height: 1.5rem;
   position: absolute;
   top: 0;
 }
@@ -19533,7 +19470,7 @@ label.input--required a,
 .radio.input--error.input--checked,
 .input--error .radio.input--checked {
   background: #e1e0df;
-  border: #676665 5px solid;
+  border: #676665 0.5rem solid;
   height: 4px;
   width: 4px;
 }
@@ -19570,16 +19507,16 @@ label.input--required a,
   z-index: 1;
 }
 .btn[role="customSelect"] select {
-  padding: 0 29px 0 5px;
+  padding: 0 29px 0 .5rem;
 }
 .btn[role="customSelect"].btn--small select {
-  padding: 0 29px 0 5px;
+  padding: 0 29px 0 .5rem;
 }
 .btn[role="customSelect"].btn--medium select {
-  padding: 0 26px 0 10px;
+  padding: 0 26px 0 1rem;
 }
 .btn[role="customSelect"].btn--large select {
-  padding: 0 35px 0 19px;
+  padding: 0 3.5rem 0 19px;
 }
 .btn[role="customSelect"] select + [class*="icon--"] {
   margin: 0 0 0 -24px;
@@ -19594,7 +19531,7 @@ label.input--required a,
   padding: 0 28px 0 4px;
 }
 .btn[role="customSelect"].btn--outline.btn--medium select {
-  padding: 0 25px 0 9px;
+  padding: 0 2.5rem 0 9px;
 }
 .btn[role="customSelect"].btn--outline.btn--large select {
   padding: 0 34px 0 18px;
@@ -19604,46 +19541,6 @@ label.input--required a,
 }
 .btn[role="customSelect"].btn--outline.btn--large select + [class*="icon--"] {
   margin: 0 -1px 0 -31px;
-}
-form .tooltip__wrapper {
-  position: relative;
-  display: block;
-  width: 100%;
-}
-form .tooltip__wrapper .hint {
-  border-radius: 0;
-  bottom: 1px;
-  height: 23px;
-  position: absolute;
-  right: 1px;
-  width: 23px;
-}
-form .tooltip__wrapper .hint [class*="icon"] {
-  line-height: 22px;
-}
-form .tooltip__wrapper :focus + .hint {
-  bottom: 2px;
-  height: 21px;
-  right: 2px;
-  width: 22px;
-}
-form .tooltip__wrapper :focus + .hint [class*="icon"] {
-  line-height: 21px;
-}
-form .tooltip__wrapper .input--large + .hint {
-  border-radius: 2px 0 0 0;
-  height: 20px;
-  width: 20px;
-}
-form .tooltip__wrapper .input--large + .hint [class*="icon"] {
-  line-height: 20px;
-}
-form .tooltip__wrapper .input--large:focus + .hint {
-  height: 19px;
-  width: 19px;
-}
-form .tooltip__wrapper .input--large:focus + .hint [class*="icon"] {
-  line-height: 20px;
 }
 /** headings.less */
 h1 {

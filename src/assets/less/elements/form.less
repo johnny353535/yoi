@@ -7,69 +7,31 @@ form {
     padding: 0;
 }
 
-.form__header,
-.form__body,
-.form__footer {
-    .mixin-clearfix;
-    overflow: auto;
-}
-
-.form__header {
-    border-bottom: @color-main-22 1px solid;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-
-.form__body {
-
-    .mixin-clearfix;
-    border: 0;
-    margin-bottom: 10px;
-    padding: 0;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-}
-
-.form__footer {
-    border-top: @color-main-22 1px solid;
-    margin-top: 10px;
-    overflow: auto;
-    padding-top: 10px;
-}
-
 // fieldset
 // ========
 
-fieldset {
-    &:extend(.form__body all);
-}
+fieldset {}
 
 // legend
 // ======
 
-legend,
-.legend {
+legend {
     color: @color-main-7;
     display: block;
-    font-size: 15px;
-    font: bold 15px/25px @font-sansserif;
-    line-height: 20px;
-    padding: 0 0 10px 0;
+    font: bold 1.5rem/2.5rem @font-sansserif;
+    line-height: 2rem;
+    padding: 0 0 1rem 0;
 }
 
 // label
 // =====
 
-label,
-.label {
+label {
 
-    font: normal 13px/20px @font-sansserif;
-    display: block;
-    position: relative;
     cursor: pointer;
+    display: block;
+    font: normal 1.3rem/2rem @font-sansserif;
+    position: relative;
 
     i,
     em {
@@ -82,7 +44,7 @@ label,
     input,
     textarea,
     .select {
-        margin-top: 5px;
+        margin-top: .5rem;
     }
 
     // input elements following a label
@@ -90,7 +52,7 @@ label,
     & + input,
     & + textarea,
     & + .select {
-        margin-top: 10px;
+        margin-top: 1rem;
     }
 
 }
@@ -107,15 +69,15 @@ input[type="url"],
 textarea {
 
     .mixin-clearAppearance;
-    background: #fff;
     .mixin-defaultBorderRadius;
+    background: #fff;
     border: @color-main-20 1px solid;
     box-shadow: 0 1px 0 @color-main-24 inset;
     box-sizing: border-box;
     color: @color-main-8;
-    font: normal 13px/25px @font-sansserif;
-    height: 25px;
-    padding: 0 5px;
+    font: normal 1.3rem/2.5rem @font-sansserif;
+    height: 2.5rem;
+    padding: 0 .5rem;
     width: 100%;
 
     // interactive states
@@ -124,7 +86,7 @@ textarea {
         border-color: @color-main-15;
         border-width: 2px;
         outline: none;
-        padding: 0 4px;
+        padding: 0 .4rem;
     }
 
     &[disabled],
@@ -133,7 +95,7 @@ textarea {
         border: @color-main-22 1px solid;
         color: @color-main-8;
         outline: none;
-        padding: 0 5px;
+        padding: 0 .5rem;
     }
 
     &[readonly] {
@@ -147,7 +109,7 @@ textarea {
 // large input
 
 input.input--large {
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 40px;
     height: 40px;
 }
@@ -157,10 +119,10 @@ textarea {
     box-sizing: border-box;
     display: block;
     height: auto;
-    line-height: 20px;
+    line-height: 2rem;
     max-width: 100%;
     min-height: 100px;
-    padding: 5px;
+    padding: .5rem;
     resize: vertical;
 
     &:focus {
@@ -172,9 +134,9 @@ textarea {
 // large textarea
 
 textarea.input--large {
-    font-size: 15px;
+    font-size: 1.5rem;
     height: auto;
-    line-height: 20px;
+    line-height: 2rem;
 }
 
 // placeholders
@@ -253,25 +215,10 @@ textarea {
 // required inputs
 // ===============
 
-input[required] {
+input[required] {}
 
-}
-
-label.input--required,
-.label.input--required {
-
-    font-weight: bold;
-
-    i,
-    a {
-        font-weight: normal;
-        font-style: normal;
-    }
-
-}
-
-// checkbox & radio button
-// =======================
+// custom checkbox & radio buttons
+// ===============================
 
 .checkbox,
 .radio {
@@ -283,7 +230,7 @@ label.input--required,
     cursor: pointer;
     display: inline-block;
     height: 12px;
-    margin: 0 5px 0 0;
+    margin: 0 .5rem 0 0;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -298,8 +245,8 @@ label.input--required,
 
     &.input--focus {
         border: @color-main-15 2px solid;
-        width: 10px;
-        height: 10px;
+        width: 1rem;
+        height: 1rem;
     }
 
 }
@@ -325,9 +272,9 @@ label.input--required,
         color: @color-main-24;
         content: '\f011';
         font-size: 24px;
-        height: 15px;
-        left: -5px;
-        line-height: 15px;
+        height: 1.5rem;
+        left: -.5rem;
+        line-height: 1.5rem;
         position: absolute;
         top: 0;
     }
@@ -342,7 +289,7 @@ label.input--required,
     &.input--error.input--checked,
     .input--error &.input--checked {
         background: @color-main-22;
-        border: @color-main-10 5px solid;
+        border: @color-main-10 .5rem solid;
         height: 4px;
         width: 4px;
     }
@@ -354,8 +301,8 @@ label.input--required,
 
 // ---> see buttons.less
 
-// selects
-// =======
+// custom selects
+// ==============
 
 .btn[role="customSelect"] {
 
@@ -403,86 +350,18 @@ label.input--required,
 
     // adjust icon position
 
-    select                                               { padding: 0 29px 0 5px; }
-    &.btn--small select                                  { padding: 0 29px 0 5px; }
-    &.btn--medium select                                 { padding: 0 26px 0 10px; }
-    &.btn--large select                                  { padding: 0 35px 0 19px; }
+    select                                               { padding: 0 29px 0 .5rem; }
+    &.btn--small select                                  { padding: 0 29px 0 .5rem; }
+    &.btn--medium select                                 { padding: 0 26px 0 1rem; }
+    &.btn--large select                                  { padding: 0 3.5rem 0 19px; }
     select + [class*="icon--"]                           { margin: 0 0 0 -24px; }
     &.btn--large select + [class*="icon--"]              { margin: 0 0 0 -32px; }
                                                          
     &.btn--outline select                                { padding: 0 28px 0 4px; }
     &.btn--outline.btn--small select                     { padding: 0 28px 0 4px; }
-    &.btn--outline.btn--medium select                    { padding: 0 25px 0 9px; }
+    &.btn--outline.btn--medium select                    { padding: 0 2.5rem 0 9px; }
     &.btn--outline.btn--large select                     { padding: 0 34px 0 18px; }
     &.btn--outline select + [class*="icon--"]            { margin: 0 -1px 0 -23px; }
     &.btn--outline.btn--large select + [class*="icon--"] { margin: 0 -1px 0 -31px; }
-
-}
-
-// hints / tooltips
-// ================
-
-form .tooltip__wrapper {
-
-    position: relative;
-    display: block;
-    width: 100%;
-
-    .hint {
-
-        border-radius: 0;
-        bottom: 1px;
-        height: 23px;
-        position: absolute;
-        right: 1px;
-        width: 23px;
-
-        [class*="icon"] {
-            line-height: 22px;
-        }
-
-    }
-
-    :focus + .hint {
-
-        bottom: 2px;
-        height: 21px;
-        right: 2px;
-        width: 22px;
-
-        [class*="icon"] {
-            line-height: 21px;
-        }
-
-    }
-
-    // large inputs
-
-    .input--large {
-
-        & + .hint {
-
-            border-radius: (@borderRadius * 1px) 0 0 0;
-            height: 20px;
-            width: 20px;
-
-            [class*="icon"] {
-                line-height: 20px;
-            }
-
-        }
-
-        &:focus + .hint {
-
-            height: 19px;
-            width: 19px;
-
-            [class*="icon"] {
-                line-height: 20px;
-            }
-
-        }
-
-    }
 
 }

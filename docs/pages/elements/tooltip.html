@@ -131,16 +131,16 @@ Example: Using a .note as tooltip</p>
 </div>
 
 <h3 id="inheritance">Inheritance</h3>
-<p>A tooltip will inherit certain sematic class names from it’s target (<code>.attention</code>, <code>.error</code>, <code>.negative</code>, <code>.positive</code>, <code>.success</code>.). This is pretty much only useful to show tooltips in combination with <code>.hints</code> while showing input validation messages. Learn more about <a href="/pages/elements/form_validation.html">form validation</a>.</p>
+<p>A tooltip will inherit certain sematic class names from it’s target (<code>*--attention</code>, <code>*--error</code>, <code>*--negative</code>, <code>*--positive</code>, <code>*--success</code>.). This is pretty much only useful to show tooltips in combination with <code>.hints</code> while showing input validation messages.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <form>
-            <div class="note m-b-2" id="hint-2">
+            <div class="note m-b-2 note--success" id="hint-2">
                 <h3 class="note__headline">Success!</h3>
                 <div class="note__body">
-                    <p>This is a tooltip which inherits the »success«-class from it’s referrer – in this case a text-input.</p>
+                    <p>This is a tooltip which inherits the *--success class from it’s target.</p>
                 </div>
             </div>
             <input class="input--large input--success w-30" type="text" data-tooltip="target:#hint-2; icon:011;" />
