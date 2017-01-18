@@ -5,10 +5,9 @@ var Switch = (function() {
     // private vars
     // ============
     
-    var $switchWrapper = $('<span class="switch"></span>');
-    var $labelOn       = $('<span class="switch__labelOn"></span>');
-    var $labelOff      = $('<span class="switch__labelOff"></span>');
-    var $knob          = $('<span class="switch__knob"></span>');
+    var $labelOn  = $('<span class="switch__labelOn"></span>');
+    var $labelOff = $('<span class="switch__labelOff"></span>');
+    var $knob     = $('<span class="switch__knob"></span>');
     
     var labelOnTxt = {
         'de' : 'Ein',
@@ -43,9 +42,10 @@ var Switch = (function() {
         *
         *  Available options:
         *
-        *  @option {string}  state       - a keyword to set the switch ["on"|"off"]
-        *  @option {boolean} addCheckbox - if "true", a checkbox will be injected
-        *  @option {boolean} showLabels  - if "true", labels (on, off) are added
+        *  @option {string}  state      - a keyword to set the switch ["on"|"off"]
+        *  @option {boolean} showLabels - if "true", labels (on, off) are added
+        *  @option {string}  labelOn    - a string of no more than four characters for the "on" label (default: labelOnTxt[language])
+        *  @option {string}  labelOff   - a string of no more than four characters for the "off" label (default: labelOffTxt[language])
         */
 
         if (!($switch instanceof jQuery)) {
@@ -54,27 +54,33 @@ var Switch = (function() {
 
         $switch.each(function() {
 
-            var $thisSwitch        = $(this);
-            var $thisSwitchWrapper = $switchWrapper.clone();
-            var options            = YOI.toObject($thisSwitch.data('switch'));
-
+            var $thisSwitch = $(this);
+            var options     = YOI.toObject($thisSwitch.data('switch'));
+            var state       = options.state !== undefined ? options.state : 'off';
+            
+            // get the label text
+            
+            thisLabelOnText  = options.labelOn !== undefined ? options.labelOn : labelOnTxt[language];
+            thisLabelOffText = options.labelOff !== undefined ? options.labelOff : labelOffTxt[language];
+            
             // prepare the dom
             
-            $thisSwitch = $thisSwitch.wrap($thisSwitchWrapper).parent();
-            
             $thisSwitch.append(
-                $knob.clone(),
-                $labelOn.clone().text(labelOnTxt[language]),
-                $labelOff.clone().text(labelOffTxt[language])
+                $knob.clone()
             );
             
-            $thisSwitch.addClass('switch--on');
+            if (options.showLabels) {
+                $thisSwitch.append(
+                    $labelOn.clone().text(thisLabelOnText),
+                    $labelOff.clone().text(thisLabelOffText)
+                );
+                $thisSwitch.addClass('switch--labeled');
+            }
             
-            /*
-                if (:checked || .hasClass('switch--on'))
-                    => make it switched on
+            // set to initial state
             
-            */
+            if (state === 'on') stateOn($thisSwitch);
+            if (state === 'off') stateOff($thisSwitch);
 
             // add events
 
@@ -89,38 +95,40 @@ var Switch = (function() {
     function stateOn($switch) {
         
         /**
-         *  
+         *  Sets the switch to "on". Adds the proper CSS class name to
+         *  visualize the state and sets the first checkbox found inside the
+         *  switch to "checked".
          *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *  @param {jQuery dom object} $switch - the switch
          */
         
         $switch.removeClass('switch--off').addClass('switch--on');
-        $switch.find('input[type="checkbox"]').attr('checked', true);
+        $switch.find('input[type="checkbox"]').first().attr('checked', true);
         
     }
     
     function stateOff($switch) {
         
         /**
-         *  
+         *  Sets the switch to "off". Adds the proper CSS class name to
+         *  visualize the state and removes the "checked" attribute from
+         *  the first checkbox found inside the switch.
          *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *  @param {jQuery dom object} $switch - the switch
          */
         
         $switch.removeClass('switch--on').addClass('switch--off');
-        $switch.find('input[type="checkbox"]').attr('checked', false);
+        $switch.find('input[type="checkbox"]').first().attr('checked', false);
         
     }
     
     function stateToggle($switch) {
         
         /**
-         *  
+         *  Alternates the state between "on" and "off".
+         *  See stateOn() and stateOff() for more.
          *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *  @param {jQuery dom object} $switch - the switch
          */
         
         if ($switch.hasClass('switch--off')) {
@@ -147,50 +155,3 @@ var Switch = (function() {
     }
 
 })();
-
-
-
-
-
-
-
-
-
-// $(scope + '.switch').each(function() {
-//
-//    /**
-//     *  How Does the Options-Interface Work?
-//     *
-//     *  Use the custom data-attribute to apply options. Use this notation:
-//     *  data-switch="foo:bar;hello:world;"
-//     */
-//
-//     var $thisSwitch = $(this);
-//
-//     var options     = YOI.toObject($thisSwitch.data('switch'));
-//     var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
-//     var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
-//
-//     var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
-//     var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
-//     var $knob       = $('<span class="switch__knob">');
-//
-//     $thisSwitch.append($knob, $labelOn, $labelOff);
-//
-//     $thisSwitch.on('click', function(e) {
-//
-//         if ($thisSwitch.hasClass('switch--on')) {
-//
-//             $thisSwitch.removeClass('switch--on').addClass('switch--off');
-//             $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
-//
-//         } else if ($thisSwitch.hasClass('switch--off')) {
-//
-//             $thisSwitch.removeClass('switch--off').addClass('switch--on');
-//             $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
-//
-//         }
-//
-//     });
-//
-// });

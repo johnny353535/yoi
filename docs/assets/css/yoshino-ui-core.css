@@ -23424,15 +23424,15 @@ a[class*="link--"]::after::before {
   overflow: hidden;
   position: relative;
   vertical-align: middle;
-  width: 6rem;
+  width: 3.5rem;
 }
 .js .switch input {
   position: absolute;
   visibility: hidden;
   z-index: 1;
 }
-.switch__knob {
-  background: #faf9f7;
+.js .switch__knob {
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: block;
@@ -23444,8 +23444,8 @@ a[class*="link--"]::after::before {
   transition: left 60ms ease-in;
   width: 1.6rem;
 }
-.switch__labelOn,
-.switch__labelOff {
+.js .switch__labelOn,
+.js .switch__labelOff {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -23456,11 +23456,11 @@ a[class*="link--"]::after::before {
   text-transform: uppercase;
   top: 0;
 }
-.switch__labelOn {
+.js .switch__labelOn {
   color: #ffffff;
   left: .8rem;
 }
-.switch__labelOff {
+.js .switch__labelOff {
   color: #faf9f7;
   right: .8rem;
 }
@@ -23468,14 +23468,7 @@ a[class*="link--"]::after::before {
   background: #81b197;
 }
 .js .switch--on .switch__knob {
-  background: #beeed4;
-  left: 4.2rem;
-}
-.js .switch--on:hover .switch__knob {
-  background: #fff;
-}
-.js .switch--on:focus {
-  background: #4e7e64;
+  left: 1.7rem;
 }
 .js .switch--on .switch__labelOn {
   display: block;
@@ -23489,22 +23482,22 @@ a[class*="link--"]::after::before {
 .js .switch--off .switch__knob {
   left: .2rem;
 }
-.js .switch--off:hover .switch__knob {
-  background: #fff;
-}
-.js .switch--off:focus {
-  background: #676665;
-}
 .js .switch--off .switch__labelOn {
   display: none;
 }
 .js .switch--off .switch__labelOff {
   display: block;
 }
+.js .switch--labeled {
+  width: 6rem;
+}
+.js .switch--labeled.switch--on .switch__knob {
+  left: 4.2rem;
+}
 .js .switch--large {
   border-radius: 1.5rem;
   height: 3rem;
-  width: 7.5rem;
+  width: 5.5rem;
 }
 .js .switch--large .switch__knob {
   height: 2.6rem;
@@ -23522,10 +23515,16 @@ a[class*="link--"]::after::before {
   right: 1.2rem;
 }
 .js .switch--large.switch--on .switch__knob {
-  left: 4.7rem;
+  left: 2.7rem;
 }
 .js .switch--large.switch--off .switch__knob {
   left: .2rem;
+}
+.js .switch--large.switch--labeled {
+  width: 7.5rem;
+}
+.js .switch--large.switch--labeled.switch--on .switch__knob {
+  left: 4.7rem;
 }
 /** tables.less */
 table {
