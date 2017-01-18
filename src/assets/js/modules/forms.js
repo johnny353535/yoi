@@ -24,7 +24,7 @@ var CustomFormElements = (function() {
          *  Set css-selector to either target all custom form elements
          *  or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"]).
          *
-         *  @param  {string} scope - a jQuery selector to define the scope
+         *  @param {string} scope - a jQuery selector to define the scope
          */
 
         // set css-selector to either target all custom form elements
@@ -117,71 +117,6 @@ var CustomFormElements = (function() {
                 $(this).parent().toggleClass('input--checked');
             }
         });
-
-        // switches
-
-        // $(scope + '.switch').each(function() {
-        //
-        //    /**
-        //     *  How Does the Options-Interface Work?
-        //     *
-        //     *  Use the custom data-attribute to apply options. Use this notation:
-        //     *  data-switch="foo:bar;hello:world;"
-        //     */
-        //
-        //     var $thisSwitch = $(this);
-        //
-        //     var options     = YOI.toObject($thisSwitch.data('switch'));
-        //     var labelOnTxt  = options.labelOn !== undefined ? options.labelOn : 'Ein';
-        //     var labelOffTxt = options.labelOff !== undefined ? options.labelOff : 'Aus';
-        //
-        //     var $labelOn    = $('<span class="switch__labelOn">' + labelOnTxt + '</span>');
-        //     var $labelOff   = $('<span class="switch__labelOff">' + labelOffTxt + '</span>');
-        //     var $knob       = $('<span class="switch__knob">');
-        //
-        //     $thisSwitch.append($knob, $labelOn, $labelOff);
-        //
-        //     $thisSwitch.on('click', function(e) {
-        //
-        //         if ($thisSwitch.hasClass('switch--on')) {
-        //
-        //             $thisSwitch.removeClass('switch--on').addClass('switch--off');
-        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', false);
-        //
-        //         } else if ($thisSwitch.hasClass('switch--off')) {
-        //
-        //             $thisSwitch.removeClass('switch--off').addClass('switch--on');
-        //             $thisSwitch.find('input[type="checkbox"]').attr('checked', true);
-        //
-        //         }
-        //
-        //     });
-        //
-        // });
-
-        // textareas with max-chars
-
-        // $(scope + '[data-maxchars]').each(function() {
-        //
-        //     var maxCharacters    = $(this).data('maxchars');
-        //     var characterCount   = $(this).next('[data-characterCount]').html('Noch <b>' + maxCharacters + '</b> Zeichen möglich.');
-        //     var characterCounter = $(this).next('[data-characterCount]').find('b');
-        //
-        //     $(this).on('keydown', function(e) {
-        //
-        //         var inputLenght = $(this)[0].value.length;
-        //
-        //         if(inputLenght >= maxCharacters) {
-        //             characterCounter.addClass('error');
-        //             characterCounter.text('0');
-        //         } else {
-        //             characterCounter.removeClass('error');
-        //             characterCounter.text(maxCharacters - inputLenght);
-        //         }
-        //
-        //     });
-        //
-        // });
 
     }
 
