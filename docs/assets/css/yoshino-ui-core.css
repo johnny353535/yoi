@@ -19579,61 +19579,6 @@ h6 {
   font-weight: bold;
   line-height: 1.75rem;
 }
-/** hint.less */
-.hint {
-  font: bold 1.3rem/2rem 'Open Sans', sans-serif;
-  background: #f6f5f4;
-  border-radius: 50%;
-  color: #868584;
-  cursor: pointer;
-  display: inline-block;
-  height: 2rem;
-  line-height: 2rem;
-  position: relative;
-  text-align: center;
-  width: 2rem;
-}
-.hint:hover {
-  background: #cdcccb;
-  color: #fff;
-}
-.hint [class*="icon--"] {
-  height: 2rem;
-  left: 0;
-  line-height: 2rem;
-  position: absolute;
-  text-indent: -0.5rem;
-  top: 0;
-  width: 2rem;
-}
-.hint--attention {
-  background: #e4dea0;
-  color: #888244;
-}
-.hint--attention:hover {
-  background: #554f11;
-  color: #f8f2b4;
-}
-.hint--error,
-.hint--negative {
-  background: #ffc9b4;
-  color: #c83700;
-}
-.hint--error:hover,
-.hint--negative:hover {
-  background: #c83700;
-  color: #fff;
-}
-.hint--success,
-.hint--positive {
-  background: #beeed4;
-  color: #1b4b31;
-}
-.hint--success:hover,
-.hint--positive:hover {
-  background: #4e7e64;
-  color: #fff;
-}
 /** stageMenu.less */
 .stageMenu ul {
   border-top: #ecebea 1px solid;
