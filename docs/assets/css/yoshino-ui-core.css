@@ -22453,98 +22453,42 @@ a.radioBtn {
   right: 10px;
   top: 0;
 }
-/** itemShelf.less */
-.itemShelf {
-  background: #f6f5f4;
+/** shelf.less */
+.shelf {
   border-radius: 2px;
+  background: #f6f5f4;
   border: #e1e0df 1px solid;
-  padding: 0;
+  padding: 2rem 0;
 }
-.itemShelf .rows {
-  overflow: hidden;
-}
-.itemShelf .rows .row {
-  padding: 20px 28px 20px 28px;
+.shelf__board {
+  padding: 2rem 3rem;
   position: relative;
-  display: table;
 }
-.itemShelf .rows .row:last-child {
-  padding-bottom: 40px;
-}
-.itemShelf .rows .row:last-child::after {
-  bottom: 15px;
-}
-.itemShelf .rows .row::after {
+.shelf__board::after {
   background: #fff;
-  border-bottom: #f6f5f4 4px solid;
-  bottom: 5px;
-  box-shadow: 0 0 40px rgba(154, 153, 152, 0.7);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: #ecebea 4px solid;
+  bottom: 1rem;
+  box-shadow: 0 0 4rem rgba(154, 153, 152, 0.5);
   content: ' ';
-  height: 50px;
-  left: 30px;
+  height: 5rem;
+  left: 2rem;
   position: absolute;
-  right: 30px;
-  transform: perspective(600px) rotateX(45deg);
-  z-index: 2;
-}
-.itemShelf .rows .row .item {
-  display: table-cell;
-  position: relative;
-  text-align: center;
-  vertical-align: bottom;
-  width: 220px;
-  z-index: 4;
-}
-.itemShelf .rows .row .item a {
-  display: block;
-  position: relative;
-}
-.itemShelf .rows .row .item a:after {
-  background: radial-gradient(center, ellipse contain, #b9b8b7 0%, rgba(255, 255, 255, 0) 100%);
-  bottom: -72px;
-  content: ' ';
-  display: block;
-  height: 150px;
-  left: 50%;
-  margin-left: -150px;
-  opacity: .7;
-  position: absolute;
-  transform: scaleY(0.2);
-  width: 300px;
+  right: 2rem;
+  transform: perspective(80rem) rotateX(45deg);
   z-index: 1;
 }
-.itemShelf .rows .row .item img {
+.shelf__item {
+  /*
+        Since .shelf__board includes a pseudo-element which is manipulated
+        in 3D-space (perspective & rotation), .shelf__item is pulled up 1rem
+        to prevent intersecting and cutting its's bottom edge. Z-index won't
+        help in this case.
+    */
   position: relative;
-  transition: top 100ms ease-out;
+  top: -1rem;
   z-index: 2;
-}
-.itemShelf .rows .row .item:hover img {
-  top: -15px;
-}
-.itemShelf .rows .row .item .priceSticker {
-  font-size: 20px;
-  position: absolute;
-  right: 0;
-  bottom: 15px;
-  z-index: 3;
-}
-.itemShelf .toolbar {
-  border-left: 0;
-  border-radius: 0;
-  border-right: 0;
-  border-top: 0;
-}
-.itemShelf .btnFilter {
-  border-radius: 0;
-  border: 0;
-  padding: 10px 10px 10px 10px;
-}
-.itemShelf .itemList {
-  background: #fff;
-}
-.itemShelf + .pagination {
-  border-radius: 0 2px 2px 0;
-  margin: -1px 0 0 0;
 }
 /** slider.less */
 .slider {

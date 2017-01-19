@@ -1,131 +1,54 @@
-/** itemShelf.less */
+/** shelf.less */
 
-.itemShelf {
+// block
+// =====
 
-    background: @color-main-24;
+.shelf {
     .mixin-defaultBorderRadius;
+    background: @color-main-24;
     border: @color-main-22 1px solid;
-    padding: 0;
-
-    .rows {
-        overflow: hidden;
-    }
-
-    .rows .row {
-
-        padding: 20px 28px 20px 28px;
-        position: relative;
-        display: table;
-
-        // last row (extra bottom spacing)
-
-        &:last-child {
-
-            padding-bottom: 40px;
-
-            // board / bottom
-            &::after {
-                bottom: 15px;
-            }
-
-        }
-
-        // board / bottom
-
-        &::after {
-            background: #fff;
-            border-bottom: @color-main-24 4px solid;
-            bottom: 5px;
-            box-shadow: 0 0 40px fade(@color-main-15,70%);
-            content: ' ';
-            height: 50px;
-            left: 30px;
-            position: absolute;
-            right: 30px;
-            transform: perspective(600px) rotateX(45deg);
-            z-index: 2;
-        }
-
-        // item
-
-        .item {
-
-            display: table-cell;
-            position: relative;
-            text-align: center;
-            vertical-align: bottom;
-            width: 220px;
-            z-index: 4;
-
-            a {
-
-                // since firefox does not allow relative positioning
-                // on table cells, we need some extra nesting
-
-                display: block;
-                position: relative;
-
-                // shadow
-
-                &:after {
-                    background: radial-gradient(center, ellipse contain, @color-main-18 0%, rgba(255,255,255,0) 100%);
-                    bottom: -72px;
-                    content: ' ';
-                    display: block;
-                    height: 150px;
-                    left: 50%;
-                    margin-left: -150px;
-                    opacity: .7;
-                    position: absolute;
-                    transform: scaleY(0.2);
-                    width: 300px;
-                    z-index: 1;
-                }
-
-            }
-
-            img {
-                position: relative;
-                transition: top 100ms ease-out;
-                z-index: 2;
-            }
-
-            &:hover img {
-                top: -15px;
-            }
-
-            .priceSticker {
-                font-size: 20px;
-                position: absolute;
-                right: 0;
-                bottom: 15px;
-                z-index: 3;
-            }
-
-        }
-
-    }
-
-    .toolbar {
-        border-left: 0;
-        border-radius: 0;
-        border-right: 0;
-        border-top: 0;
-    }
-
-    .btnFilter {
-        border-radius: 0;
-        border: 0;
-        padding: 10px 10px 10px 10px;
-    }
-
-    .itemList {
-        background: #fff;
-    }
-
+    padding: 2rem 0;
 }
 
-.itemShelf + .pagination {
-    border-radius: 0 (@borderRadius * 1px) (@borderRadius * 1px) 0;
-    margin: -1px 0 0 0;
+// elements
+// ========
+
+.shelf__board {
+
+    padding: 2rem 3rem;
+    position: relative;
+
+    // board / bottom
+
+    &::after {
+        background: #fff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom: @color-main-23 4px solid;
+        bottom: 1rem;
+        box-shadow: 0 0 4rem fade(@color-main-15, 50%);
+        content: ' ';
+        height: 5rem;
+        left: 2rem;
+        position: absolute;
+        right: 2rem;
+        transform: perspective(80rem) rotateX(45deg);
+        z-index: 1;
+    }
+    
+}
+
+.shelf__item {
+    
+    /*
+        Since .shelf__board includes a pseudo-element which is manipulated
+        in 3D-space (perspective & rotation), .shelf__item is pulled up 1rem
+        to prevent intersecting and cutting its's bottom edge. Z-index won't
+        help in this case.
+    */
+    
+    position: relative;
+    top: -1rem;
+    z-index: 2;
+    
 }
