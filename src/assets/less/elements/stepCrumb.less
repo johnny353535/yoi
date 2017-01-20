@@ -1,143 +1,127 @@
 /** stepCrumb.less */
 
+// block
+// =====
+
 .stepCrumb {
 
-    // counter
-
     counter-reset: i;
+    display: inline-block;
+    left: -.5rem;
+    list-style: none;
+    overflow: hidden;
+    padding-bottom: -.5rem;
+    position: relative;
+    white-space: nowrap;
 
-    // list
+    // line
 
-    ol {
-
-        display: inline-block;
-        left: -5px;
-        list-style: none;
-        overflow: hidden;
-        padding-bottom: 5px;
-        position: relative;
-        white-space: nowrap;
-
-        // line
-
-        &::after {
-            background: @color-main-23;
-            bottom: 0;
-            content: ' ';
-            display: block;
-            height: 2px;
-            left: 20px;
-            position: absolute;
-            right: 20px;
-        }
-
+    &::after {
+        background: @color-main-23;
+        bottom: 0;
+        content: ' ';
+        display: block;
+        height: .2rem;
+        left: 2rem;
+        position: absolute;
+        right: 2rem;
     }
-
-    li {
-
-        color: @color-main-8;
-        display: inline-block;
-        font-size: 13px;
-        height: 40px;
-        line-height: 40px;
-        position: relative;
-        text-align: center;
-        vertical-align: top;
-        width: 40px;
-
-        // step number
-
-        &::before {
-            background: @color-main-23;
-            .mixin-defaultBorderRadius;
-            content: counter(i);
-            counter-increment: i;
-            display: inline-block;
-            font-weight: bold;
-            height: 30px;
-            left: 5px;
-            line-height: 30px;
-            position: absolute;
-            top: 5px;
-            width: 30px;
-            z-index: 2;
-        }
-
-        // connecting line
-
-        &::after {
-            background: @color-main-23;
-            bottom: -5px;
-            content: ' ';
-            display: block;
-            height: 20px;
-            left: 19px;
-            position: absolute;
-            width: 2px;
-            z-index: 1;
-        }
-
-    }
-
-    // last step
-
-    li:last-child {
-
-        // step number
-
-        &::before {
-            left: auto;
-            right: 5px;
-        }
-
-        // connecting line
-
-        &::after {
-            left: auto;
-            right: 19px;
-        }
-
-    }
-
-    // description
-
-    .descr {
-        display: none;
-    }
-
-    // applying styling for current step
-    // (increase if you need more steps)
-
-    .generate_steps (@i) when (@i > 0) {
-        .generate_steps((@i - 1));
-
-        &.step-@{i} li:nth-child(@{i}) {
-            &:extend(.stepCrumbCurrentStep all);
-        }
-
-    }
-    .generate_steps(4);
 
 }
 
-// styling for current step
+// elements
+// ========
 
-.stepCrumbCurrentStep {
+.stepCrumb__item {
+    
+    color: @color-main-8;
+    display: inline-block;
+    font-size: 1.3rem;
+    height: 4rem;
+    line-height: 4rem;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: 4rem;
+    
+    // step number
 
+    &::before {
+        .mixin-defaultBorderRadius;
+        background: @color-main-23;
+        content: counter(i);
+        counter-increment: i;
+        display: inline-block;
+        font-weight: bold;
+        height: 3rem;
+        left: .5rem;
+        line-height: 3rem;
+        position: absolute;
+        top: .5rem;
+        width: 3rem;
+        z-index: 2;
+    }
+
+    // connecting line
+
+    &::after {
+        background: @color-main-23;
+        bottom: -.5rem;
+        content: ' ';
+        display: block;
+        height: 2rem;
+        left: 1.9rem;
+        position: absolute;
+        width: .2rem;
+        z-index: 1;
+    }
+    
+}
+
+// last step
+
+.stepCrumb__item:last-child {
+
+    // step number
+
+    &::before {
+        left: auto;
+        right: .5rem;
+    }
+
+    // connecting line
+
+    &::after {
+        left: auto;
+        right: 1.9rem;
+    }
+
+}
+
+// label
+
+.stepCrumb__label {
+    display: none;
+    padding: 0 0 0 1rem;
+    text-decoration: none;
+}
+
+// step highlighting
+
+.stepCrumb--step1 .stepCrumb__item:nth-child(1),
+.stepCrumb--step2 .stepCrumb__item:nth-child(1), .stepCrumb--step2 .stepCrumb__item:nth-child(2),
+.stepCrumb--step3 .stepCrumb__item:nth-child(1), .stepCrumb--step3 .stepCrumb__item:nth-child(2), .stepCrumb--step3 .stepCrumb__item:nth-child(3),
+.stepCrumb--step4 .stepCrumb__item:nth-child(1), .stepCrumb--step4 .stepCrumb__item:nth-child(2), .stepCrumb--step4 .stepCrumb__item:nth-child(3), .stepCrumb--step4 .stepCrumb__item:nth-child(4),
+.stepCrumb--step5 .stepCrumb__item:nth-child(1), .stepCrumb--step5 .stepCrumb__item:nth-child(2), .stepCrumb--step5 .stepCrumb__item:nth-child(3), .stepCrumb--step5 .stepCrumb__item:nth-child(4), .stepCrumb--step5 .stepCrumb__item:nth-child(5) {
+    
     color: @color-positive-8;
-    padding: 0 5px 0 50px;
+    padding: 0 .5rem 0 3.5rem;
     width: auto;
 
     // if last step
 
     &:last-child {
-        padding: 0 50px 0 5px;
-    }
-
-    // description
-
-    .descr {
-        display: inline;
+        padding: 0 5rem 0 .5rem;
     }
 
     // step number
@@ -147,4 +131,14 @@
         color: @color-positive-24;
     }
 
+}
+
+// show the label, only on current step
+
+.stepCrumb--step1 .stepCrumb__item:nth-child(1) .stepCrumb__label,
+.stepCrumb--step2 .stepCrumb__item:nth-child(2) .stepCrumb__label,
+.stepCrumb--step3 .stepCrumb__item:nth-child(3) .stepCrumb__label,
+.stepCrumb--step4 .stepCrumb__item:nth-child(4) .stepCrumb__label,
+.stepCrumb--step5 .stepCrumb__item:nth-child(5) .stepCrumb__label {
+    display: inline;
 }

@@ -19579,40 +19579,40 @@ h6 {
   font-weight: bold;
   line-height: 1.75rem;
 }
-/** stageMenu.less */
-.stageMenu ul {
+/** iconMenu.less */
+.iconMenu ul {
   border-top: #ecebea 1px solid;
   margin: 0 20px 20px 0;
   list-style: none;
 }
-.stageMenu ul li {
+.iconMenu ul li {
   border-bottom: #ecebea 1px solid;
   position: relative;
 }
-.stageMenu ul a {
+.iconMenu ul a {
   color: #676665;
   display: block;
   font-size: 20px;
   padding: 20px 15px 20px 50px;
   text-decoration: none;
 }
-.stageMenu ul [class^="icon--"] {
+.iconMenu ul [class^="icon--"] {
   color: #e1e0df;
   left: 10px;
   position: absolute;
   top: 15px;
 }
-.stageMenu ul li:hover a {
+.iconMenu ul li:hover a {
   background: rgba(246, 245, 244, 0.5);
 }
-.stageMenu ul .current a {
+.iconMenu ul .current a {
   background: #f6f5f4;
   color: #535251;
 }
-.stageMenu ul .current [class^="icon--"] {
+.iconMenu ul .current [class^="icon--"] {
   color: #535251;
 }
-.stageMenu .badge {
+.iconMenu .badge {
   position: absolute;
   right: 10px;
 }
@@ -22778,104 +22778,134 @@ a[class*="link--"]::after::before {
 /** stepCrumb.less */
 .stepCrumb {
   counter-reset: i;
-}
-.stepCrumb ol {
   display: inline-block;
-  left: -5px;
+  left: -0.5rem;
   list-style: none;
   overflow: hidden;
-  padding-bottom: 5px;
+  padding-bottom: -0.5rem;
   position: relative;
   white-space: nowrap;
 }
-.stepCrumb ol::after {
+.stepCrumb::after {
   background: #ecebea;
   bottom: 0;
   content: ' ';
   display: block;
-  height: 2px;
-  left: 20px;
+  height: .2rem;
+  left: 2rem;
   position: absolute;
-  right: 20px;
+  right: 2rem;
 }
-.stepCrumb li {
+.stepCrumb__item {
   color: #535251;
   display: inline-block;
-  font-size: 13px;
-  height: 40px;
-  line-height: 40px;
+  font-size: 1.3rem;
+  height: 4rem;
+  line-height: 4rem;
   position: relative;
   text-align: center;
   vertical-align: top;
-  width: 40px;
+  width: 4rem;
 }
-.stepCrumb li::before {
-  background: #ecebea;
+.stepCrumb__item::before {
   border-radius: 2px;
+  background: #ecebea;
   content: counter(i);
   counter-increment: i;
   display: inline-block;
   font-weight: bold;
-  height: 30px;
-  left: 5px;
-  line-height: 30px;
+  height: 3rem;
+  left: .5rem;
+  line-height: 3rem;
   position: absolute;
-  top: 5px;
-  width: 30px;
+  top: .5rem;
+  width: 3rem;
   z-index: 2;
 }
-.stepCrumb li::after {
+.stepCrumb__item::after {
   background: #ecebea;
-  bottom: -5px;
+  bottom: -0.5rem;
   content: ' ';
   display: block;
-  height: 20px;
-  left: 19px;
+  height: 2rem;
+  left: 1.9rem;
   position: absolute;
-  width: 2px;
+  width: .2rem;
   z-index: 1;
 }
-.stepCrumb li:last-child::before {
+.stepCrumb__item:last-child::before {
   left: auto;
-  right: 5px;
+  right: .5rem;
 }
-.stepCrumb li:last-child::after {
+.stepCrumb__item:last-child::after {
   left: auto;
-  right: 19px;
+  right: 1.9rem;
 }
-.stepCrumb .descr {
+.stepCrumb__label {
   display: none;
+  padding: 0 0 0 1rem;
+  text-decoration: none;
 }
-.stepCrumbCurrentStep,
-.stepCrumb.step-1 li:nth-child(1),
-.stepCrumb.step-2 li:nth-child(2),
-.stepCrumb.step-3 li:nth-child(3),
-.stepCrumb.step-4 li:nth-child(4) {
+.stepCrumb--step1 .stepCrumb__item:nth-child(1),
+.stepCrumb--step2 .stepCrumb__item:nth-child(1),
+.stepCrumb--step2 .stepCrumb__item:nth-child(2),
+.stepCrumb--step3 .stepCrumb__item:nth-child(1),
+.stepCrumb--step3 .stepCrumb__item:nth-child(2),
+.stepCrumb--step3 .stepCrumb__item:nth-child(3),
+.stepCrumb--step4 .stepCrumb__item:nth-child(1),
+.stepCrumb--step4 .stepCrumb__item:nth-child(2),
+.stepCrumb--step4 .stepCrumb__item:nth-child(3),
+.stepCrumb--step4 .stepCrumb__item:nth-child(4),
+.stepCrumb--step5 .stepCrumb__item:nth-child(1),
+.stepCrumb--step5 .stepCrumb__item:nth-child(2),
+.stepCrumb--step5 .stepCrumb__item:nth-child(3),
+.stepCrumb--step5 .stepCrumb__item:nth-child(4),
+.stepCrumb--step5 .stepCrumb__item:nth-child(5) {
   color: #3a6a50;
-  padding: 0 5px 0 50px;
+  padding: 0 .5rem 0 3.5rem;
   width: auto;
 }
-.stepCrumbCurrentStep:last-child,
-.stepCrumb.step-1 li:nth-child(1):last-child,
-.stepCrumb.step-2 li:nth-child(2):last-child,
-.stepCrumb.step-3 li:nth-child(3):last-child,
-.stepCrumb.step-4 li:nth-child(4):last-child {
-  padding: 0 50px 0 5px;
+.stepCrumb--step1 .stepCrumb__item:nth-child(1):last-child,
+.stepCrumb--step2 .stepCrumb__item:nth-child(1):last-child,
+.stepCrumb--step2 .stepCrumb__item:nth-child(2):last-child,
+.stepCrumb--step3 .stepCrumb__item:nth-child(1):last-child,
+.stepCrumb--step3 .stepCrumb__item:nth-child(2):last-child,
+.stepCrumb--step3 .stepCrumb__item:nth-child(3):last-child,
+.stepCrumb--step4 .stepCrumb__item:nth-child(1):last-child,
+.stepCrumb--step4 .stepCrumb__item:nth-child(2):last-child,
+.stepCrumb--step4 .stepCrumb__item:nth-child(3):last-child,
+.stepCrumb--step4 .stepCrumb__item:nth-child(4):last-child,
+.stepCrumb--step5 .stepCrumb__item:nth-child(1):last-child,
+.stepCrumb--step5 .stepCrumb__item:nth-child(2):last-child,
+.stepCrumb--step5 .stepCrumb__item:nth-child(3):last-child,
+.stepCrumb--step5 .stepCrumb__item:nth-child(4):last-child,
+.stepCrumb--step5 .stepCrumb__item:nth-child(5):last-child {
+  padding: 0 5rem 0 .5rem;
 }
-.stepCrumbCurrentStep .descr,
-.stepCrumb.step-1 li:nth-child(1) .descr,
-.stepCrumb.step-2 li:nth-child(2) .descr,
-.stepCrumb.step-3 li:nth-child(3) .descr,
-.stepCrumb.step-4 li:nth-child(4) .descr {
-  display: inline;
-}
-.stepCrumbCurrentStep::before,
-.stepCrumb.step-1 li:nth-child(1)::before,
-.stepCrumb.step-2 li:nth-child(2)::before,
-.stepCrumb.step-3 li:nth-child(3)::before,
-.stepCrumb.step-4 li:nth-child(4)::before {
+.stepCrumb--step1 .stepCrumb__item:nth-child(1)::before,
+.stepCrumb--step2 .stepCrumb__item:nth-child(1)::before,
+.stepCrumb--step2 .stepCrumb__item:nth-child(2)::before,
+.stepCrumb--step3 .stepCrumb__item:nth-child(1)::before,
+.stepCrumb--step3 .stepCrumb__item:nth-child(2)::before,
+.stepCrumb--step3 .stepCrumb__item:nth-child(3)::before,
+.stepCrumb--step4 .stepCrumb__item:nth-child(1)::before,
+.stepCrumb--step4 .stepCrumb__item:nth-child(2)::before,
+.stepCrumb--step4 .stepCrumb__item:nth-child(3)::before,
+.stepCrumb--step4 .stepCrumb__item:nth-child(4)::before,
+.stepCrumb--step5 .stepCrumb__item:nth-child(1)::before,
+.stepCrumb--step5 .stepCrumb__item:nth-child(2)::before,
+.stepCrumb--step5 .stepCrumb__item:nth-child(3)::before,
+.stepCrumb--step5 .stepCrumb__item:nth-child(4)::before,
+.stepCrumb--step5 .stepCrumb__item:nth-child(5)::before {
   background: #4e7e64;
   color: #f5fffa;
+}
+.stepCrumb--step1 .stepCrumb__item:nth-child(1) .stepCrumb__label,
+.stepCrumb--step2 .stepCrumb__item:nth-child(2) .stepCrumb__label,
+.stepCrumb--step3 .stepCrumb__item:nth-child(3) .stepCrumb__label,
+.stepCrumb--step4 .stepCrumb__item:nth-child(4) .stepCrumb__label,
+.stepCrumb--step5 .stepCrumb__item:nth-child(5) .stepCrumb__label {
+  display: inline;
 }
 /** stepMenu.less */
 .stepMenu,
@@ -22901,8 +22931,8 @@ a.stepMenu__label:hover {
 .stepMenu__item::after,
 .stepMenu__item::before {
   content: ' ';
-  position: absolute;
   display: block;
+  position: absolute;
 }
 .stepMenu__item + .stepMenu__item::before {
   background: #e1e0df;
