@@ -4,6 +4,9 @@ exports.nunjucksGenerateMenu = function() {
      *  Custom nunjuck extention, reads templates from a given directory
      *  and returns an unordered list with links for each template (= page).
      *  Used to automagically create menus.
+     *
+     *  Learn more about extending nunjucks:
+     *  https://mozilla.github.io/nunjucks/api.html#custom-tags
      */
     
     var glob = require('glob');
@@ -49,6 +52,48 @@ exports.nunjucksGenerateMenu = function() {
                 callback('', menuList);
             });
             
+    };
+
+};
+
+exports.nunjucksIncludeRemoteContent = function() {
+    
+    /**
+     *  Custom nunjucks extention, loads content from a remote location
+     *  and injects it into the template.
+     *
+     *  Learn more about extending nunjucks:
+     *  https://mozilla.github.io/nunjucks/api.html#custom-tags
+     */
+    
+    this.tags = ['includeRemote'];
+
+    this.parse = function(parser, nodes, lexer) {
+
+        var tok  = parser.nextToken();
+        var args = parser.parseSignature(null, true);
+        
+        parser.advanceAfterBlockEnd(tok.value);
+
+        return new nodes.CallExtensionAsync(this, 'run', args);
+        
+    };
+
+    this.run = function(context, url) {
+        
+        var request = require('request');
+        var callback = arguments[arguments.length - 1];
+        
+        request(url, function(error, response, body) {
+            
+            if (!error && response.statusCode == 200) {
+                callback('', body);
+            } else {
+                console.log('ERROR: Could not include from ' + url + '.');
+            }
+            
+        });
+        
     };
 
 };

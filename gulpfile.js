@@ -24,6 +24,7 @@ var runsequence = require('run-sequence');
 var slack       = require('node-slack');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
+var request     = require('request');
 
 // "private" modules
 
@@ -31,6 +32,7 @@ var printError = require('./src/dev/gulp-helpers.js').printError;
 
 // environment variables / flags
 // =============================
+ 
 
 var writeSourceMaps = true;
 var compressStyles  = false;
@@ -257,7 +259,13 @@ gulp.task('templates', function() {
     *  Additional searchpath for assets to include SVGs with nunjucks.
     */
 
-    var nunjucksGenerateMenu = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
+    // nunjucks extentions
+
+    var nunjucksGenerateMenu         = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
+    var nunjucksIncludeRemoteContent = require('./src/dev/nunjucks-extentions.js').nunjucksIncludeRemoteContent;
+    
+    // nunjucks filters
+    
     var nunjucksFixed        = require('./src/dev/nunjucks-filters.js').nunjucksFixed;
     var nunjucksPad          = require('./src/dev/nunjucks-filters.js').nunjucksPad;
     var nunjucksRandom       = require('./src/dev/nunjucks-filters.js').nunjucksRandom;
@@ -297,6 +305,7 @@ gulp.task('templates', function() {
             // add extensions
             
             env.addExtension('menu', new nunjucksGenerateMenu(), true);
+            env.addExtension('remote', new nunjucksIncludeRemoteContent(), true);
 
             // return
             
