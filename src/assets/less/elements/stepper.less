@@ -23,46 +23,60 @@
         border-color: @color-main-5;
     }
 
-    > [class^="icon--"] {
-        line-height: 3.8rem;
-        margin: 0 .5rem;
-        vertical-align: top;
-    }
-
 }
 
 // elements
 // ========
 
-.stepper__input {
+// optional icon
 
-    &[type="text"] {
-
-        border: 0;
-        display: inline-block;
-        font-size: 2rem;
-        height: 3.2rem;
-        margin: .3rem;
-        outline: 0;
-        padding: 0;
-        text-align: center;
-        vertical-align: top;
-        width: 6rem;
-
-        &.input--error {
-            background: @color-negative-24;
-            color: @color-negative-8;
-        }
-
-    }
-
-    // hidden label, js enabled (btnPlus/btnMinus injected)
-
-    .stepper__btnMinus ~ & {
-        margin-left: 3rem
+.stepper .icon {
+    
+    filter: drop-shadow(0 -1px 0 @color-main-10);
+    margin: .3rem .5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    circle, ellipse, path, polygon {
+        fill: #fff;
     }
 
 }
+
+// minus & plus icons
+
+.stepper__iconMinus,
+.stepper__iconPlus {
+    filter: drop-shadow(0 -1px 0 @color-main-10);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    vertical-align: top;
+    width: 100%;
+}
+
+// input
+
+input.stepper__input {
+    border: 0;
+    display: inline-block;
+    font-size: 2rem;
+    height: 3.2rem;
+    margin: .3rem;
+    outline: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: top;
+    width: 6rem;
+}
+
+.js .stepper__input {
+    margin-left: 3rem
+}
+
+// submit
 
 .stepper__submit {
 
@@ -84,24 +98,22 @@
     // hidden label
 
     &.stepper__submit--hidden {
-        background: transparent;
-        left: 6.6rem;
         opacity: 0;
         overflow: hidden;
-        position: absolute;
-        right: 0;
-    }
-
-    // hidden label, js enabled (btnPlus/btnMinus injected)
-
-    .stepper__btnMinus ~ &.stepper__submit--hidden {
-        left: 9.3rem;
+        padding: 0;
+        width: 4rem;
     }
 
 }
 
-.stepper__btnPlus,
-.stepper__btnMinus {
+.icon + .stepper__submit {
+    padding-right: 4rem;
+}
+
+// minus & plus button
+
+.stepper__btnMinus,
+.stepper__btnPlus {
 
     background: linear-gradient(to bottom, @color-main-17, @color-main-14);
     border: 0;
@@ -113,34 +125,27 @@
     width: 2.5rem;
     z-index: 2;
 
-    [class^="icon--"] {
-        color: @color-main-23;
-        height: 2rem;
-        line-height: 2rem;
-        margin: 0;
-        overflow: hidden;
-        position: absolute;
-        left: -.3rem;
-        text-shadow: 0 -1px 0 @color-main-12;
-        top: 0;
-        width: 2.5rem;
-    }
-
-    &:hover [class^="icon--"] {
-        color: #fff;
+    &:hover {
+        background: linear-gradient(to bottom, @color-main-16, @color-main-13);
+        box-shadow: 0 1px 0 @color-main-19 inset;
     }
 
     &:active {
         background: linear-gradient(to bottom, @color-main-11, @color-main-14);
         box-shadow: none;
     }
+    
+    &:focus {}
 
-    &:focus {
-        background: linear-gradient(to bottom, @color-main-15, @color-main-12);
-        box-shadow: 0 1px 0 @color-main-18 inset;
-        outline: 0;
-    }
+}
 
+.stepper__btnMinus {
+    border-radius: 0 0 0 (@borderRadius * 1px);
+    bottom: 0;
+}
+
+.stepper__iconMinus {
+    .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-23, @width: 24, @height: 24);
 }
 
 .stepper__btnPlus {
@@ -148,9 +153,8 @@
     top: 0;
 }
 
-.stepper__btnMinus {
-    border-radius: 0 0 0 (@borderRadius * 1px);
-    bottom: 0;
+.stepper__iconPlus {
+    .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-23, @width: 24, @height: 24);
 }
 
 // modifiers
@@ -166,36 +170,30 @@
         background: #fff;
         border-color: @color-main-22;
     }
+    
+    .icon {
+        
+        filter: none;
 
-    > [class^="icon--"] {
-        color: @color-main-8;
-        text-shadow: none;
+        circle, ellipse, path, polygon {
+            fill: @color-main-8;
+        }
+    
+    }
+
+    .stepper__icon {
+        filter: none;
     }
 
     .stepper__input {
-
-        &[type="text"] {
-
-            background: @color-main-25;
-            box-shadow: none;
-
-            &:focus,
-            &:hover {
-                background: @color-main-23;
-                box-shadow: none;
-            }
-
-            &.input--error {
-                background: @color-negative-24;
-            }
-
-            &.input--error:focus {
-                background: @color-negative-10;
-                color: @color-negative-24;
-            }
-
-        }
-
+        background: @color-main-24;
+        box-shadow: none;
+    }
+    
+    input.stepper__input,
+    input.stepper__input:hover,
+    input.stepper__input:focus {
+        box-shadow: none;
     }
 
     .stepper__submit {
@@ -203,79 +201,75 @@
         color: @color-main-8;
     }
 
-    .stepper__btnPlus,
-    .stepper__btnMinus {
+    .stepper__btnMinus,
+    .stepper__btnPlus {
 
         background: transparent;
         box-shadow: none;
 
-        [class^="icon--"] {
-            color: @color-main-10;
-            text-shadow: none;
-        }
-
         &:hover {
-
-            background: @color-main-25;
-
-            [class^="icon--"] {
-                color: @color-main-5;
-                text-shadow: none;
-            }
-
-        }
-
-        &:focus {
             background: @color-main-24;
-            outline: 0;
         }
+
+        &:focus {}
 
     }
+    
+    .stepper__iconMinus {
+        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10, @width: 24, @height: 24);
+    }
+    
+    .stepper__iconPlus {
+        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10, @width: 24, @height: 24);
+    }
 
-}
-
-.stepper--stripped {
-    border-color: transparent;
-    background: transparent;
 }
 
 .stepper--touch {
 
-    .stepper__input[type="text"] {
-        width: 45px;
-        height: 32px;
+    input.stepper__input {
+        width: 4.5rem;
+        height: 3.2rem;
+    }
+    
+    .js & .stepper__input {
+        margin-left: 8.6rem;
     }
 
-    .stepper__btnMinus ~ .stepper__input {
-        margin-left: 86px;
-    }
-
-    .stepper__btnMinus ~ .stepper__submit--hidden {
-        left: 134px;
-    }
-
-    .stepper__btnPlus,
-    .stepper__btnMinus {
-
+    .stepper__btnMinus,
+    .stepper__btnPlus {
         border-radius: 0;
-        height: 38px;
-        top: 0px;
-        width: 40px;
-
-        [class^="icon--"] {
-            left: 0;
-            top: 10px;
-            width: 40px;
-        }
-
+        height: 3.8rem;
+        top: 0;
+        width: 4rem;
+    }
+    
+    .stepper__btnMinus {
+        left: 4.1rem;
     }
 
     .stepper__btnPlus {
         left: 0;
     }
 
-    .stepper__btnMinus {
-        left: 41px;
+    .stepper__iconMinus {
+        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-23);
+    }
+    
+    .stepper__iconPlus {
+        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-23);
+    }
+    
+    &.stepper--light {
+        
+        .stepper__iconMinus {
+            .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10);
+        }
+
+        .stepper__iconPlus {
+            .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10);
+        }
+        
     }
 
 }

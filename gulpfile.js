@@ -33,7 +33,6 @@ var printError = require('./src/dev/gulp-helpers.js').printError;
 // environment variables / flags
 // =============================
  
-
 var writeSourceMaps = true;
 var compressStyles  = false;
 var compressImages  = false;
@@ -261,8 +260,9 @@ gulp.task('templates', function() {
 
     // nunjucks extentions
 
-    var nunjucksGenerateMenu         = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
-    var nunjucksIncludeRemoteContent = require('./src/dev/nunjucks-extentions.js').nunjucksIncludeRemoteContent;
+    var nunjucksGenerateMenu  = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
+    var nunjucksIncludeRemote = require('./src/dev/nunjucks-extentions.js').nunjucksIncludeRemote;
+    var nunjucksIcon          = require('./src/dev/nunjucks-extentions.js').nunjucksIcon;
     
     // nunjucks filters
     
@@ -277,21 +277,21 @@ gulp.task('templates', function() {
     ])
     .pipe(nunjucks({
         
-        searchPaths: ['./src/templates/', './src/assets/'],
+        searchPaths: ['./src/templates/'],
         locals: { basePath: basePath },
         setUp: function(env) {
 
             // configure markdown
             
             marked.setOptions({
-              renderer: new marked.Renderer(),
-              gfm         : true,
-              tables      : true,
-              breaks      : false,
-              pendantic   : false,
-              sanitize    : false,
-              smartLists  : true,
-              smartypants : true
+                renderer: new marked.Renderer(),
+                gfm         : true,
+                tables      : true,
+                breaks      : false,
+                pendantic   : false,
+                sanitize    : false,
+                smartLists  : true,
+                smartypants : true
             });
 
             markdown.register(env, marked);
@@ -305,7 +305,8 @@ gulp.task('templates', function() {
             // add extensions
             
             env.addExtension('menu', new nunjucksGenerateMenu(), true);
-            env.addExtension('remote', new nunjucksIncludeRemoteContent(), true);
+            env.addExtension('remote', new nunjucksIncludeRemote(), true);
+            env.addExtension('icon', new nunjucksIcon(), true);
 
             // return
             

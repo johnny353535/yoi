@@ -39,21 +39,53 @@
                     extention, to be found in src/dev/nunjucks-extentions.js
                 #}
                 <h4>Introduction</h4>
-                {% menu 'pages/introduction/ + ./src/templates/pages/introduction + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/introduction/',
+                    src: './src/templates/pages/introduction',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Core</h4>
-                {% menu './pages/core/ + ./src/templates/pages/core + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/core/',
+                    src: './src/templates/pages/core',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Theme</h4>
-                {% menu 'pages/theme/ + ./src/templates/pages/theme + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/theme/',
+                    src: './src/templates/pages/theme',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Utilities</h4>
-                {% menu 'pages/utilities/ + ./src/templates/pages/utilities + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/utilities/',
+                    src: './src/templates/pages/utilities',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Elements</h4>
-                {% menu 'pages/elements/ + ./src/templates/pages/elements + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/elements/',
+                    src: './src/templates/pages/elements',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>JS Interface</h4>
-                {% menu 'pages/js-interface/ + ./src/templates/pages/js-interface + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/js-interface/',
+                    src: './src/templates/pages/js-interface',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Tools</h4>
-                {% menu 'pages/tools/ + ./src/templates/pages/tools + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/tools/',
+                    src: './src/templates/pages/tools',
+                    modifiers: 'b-0 br-0'
+                } %}
                 <h4>Workflows / Tutorials</h4>
-                {% menu 'pages/workflows/ + ./src/templates/pages/workflows + b-0 br-0' %}
+                {% menu {
+                    path: 'pages/workflows/',
+                    src: './src/templates/pages/workflows',
+                    modifiers: 'b-0 br-0'
+                } %}
             </div>
             <div class="documentation__body">
                 {% block main %}{% endblock %}

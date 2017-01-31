@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | Documentation</title>
-        <base href="/ui-core/">
+        <base href="/">
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
@@ -36,7 +36,7 @@
                 <h4>Introduction</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
                 <h4>Core</h4>
-                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="./pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/root.html">root</a></li></ul>
+                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
                 <h4>Theme</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
                 <h4>Utilities</h4>
@@ -54,7 +54,7 @@
                 
 
 <h2 id="icons">Icons</h2>
-<p>The icons are stored as individual characters inside an icon font. They are vector-based but for really crisp and pixel-perfect rendering, you are restricted to the specified font sizes.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <table>
 <thead>
 <tr>
@@ -65,7 +65,7 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/icons.less">icons.less</a></td>
+<td><a href="assets/less/elements/icons.less">icons.less</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -78,20 +78,30 @@
 </tbody>
 </table>
 <h3 id="modifiers">Modifiers</h3>
-<p>Modifiers are used to define the icon size. The initial size is 32px. <code>.x2</code> produces icons in 64px, <code>.x3</code> = 96px, <code>.x4</code> = 128px. In fact, every font-size as a multiple of 8px is possible for perfect rendering. For 16px, there a optimized versions with reduced detail. Simply use the postfix <code>*-s</code>.</p>
 
 
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <i class="icon--057-s" aria-hidden="true"></i>
-        <i class="icon--057" aria-hidden="true"></i>
-        <i class="icon--057 icon--x2" aria-hidden="true"></i>
-        <i class="icon--057 icon--x3" aria-hidden="true"></i>
-        <i class="icon--057 icon--x4" aria-hidden="true"></i>
-    </div>
+<div class="box box--1 p-4">
+    <span class="icon icon--xsmall">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1536 1152V896h-150.797a380.905 380.905 0 0 0-15.342-36.842l106.686-106.688-181.02-181.019-106.92 106.92A380.513 380.513 0 0 0 1152 663.216V512H896v151.217a381.08 381.08 0 0 0-37.061 15.37L753.137 572.786 572.118 753.805l105.806 105.807a380.763 380.763 0 0 0-15.127 36.389H512v256h150.327a381.09 381.09 0 0 0 15.391 37.264L571.453 1295.53l181.019 181.02 106.031-106.031a381.15 381.15 0 0 0 37.498 15.578V1536h256v-149.905a380.75 380.75 0 0 0 37.045-15.363l107.15 107.15 181.02-181.02-107.146-107.146a381.056 381.056 0 0 0 15.604-37.716H1536zm-512 45.333c-95.729 0-173.334-77.604-173.334-173.333S928.271 850.666 1024 850.666s173.334 77.605 173.334 173.334-77.605 173.333-173.334 173.333z"/></svg>
+    </span>
+    <span class="icon icon--small">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1792 1216V832h-226.195a570.963 570.963 0 0 0-23.014-55.264l160.031-160.03-271.529-271.529-160.381 160.381A571.416 571.416 0 0 0 1216 482.825V256H832v226.825a571.05 571.05 0 0 0-55.592 23.055L617.706 347.178 346.177 618.707l158.708 158.709A571.44 571.44 0 0 0 482.195 832H256v384h225.49a571.676 571.676 0 0 0 23.085 55.896l-159.398 159.397 271.528 271.529 159.048-159.047A571.495 571.495 0 0 0 832 1567.141V1792h384v-224.858a571.115 571.115 0 0 0 55.566-23.044l160.727 160.726 271.529-271.529-160.721-160.72a570.903 570.903 0 0 0 23.408-56.574H1792zm-768 68c-143.594 0-260-116.406-260-260s116.406-260 260-260 260 116.406 260 260-116.406 260-260 260z"/></svg>
+    </span>
+    <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1792 1216V832h-226.195a570.963 570.963 0 0 0-23.014-55.264l160.031-160.03-271.529-271.529-160.381 160.381A571.416 571.416 0 0 0 1216 482.825V256H832v226.825a571.05 571.05 0 0 0-55.592 23.055L617.706 347.178 346.177 618.707l158.708 158.709A571.44 571.44 0 0 0 482.195 832H256v384h225.49a571.676 571.676 0 0 0 23.085 55.896l-159.398 159.397 271.528 271.529 159.048-159.047A571.495 571.495 0 0 0 832 1567.141V1792h384v-224.858a571.115 571.115 0 0 0 55.566-23.044l160.727 160.726 271.529-271.529-160.721-160.72a570.903 570.903 0 0 0 23.408-56.574H1792zm-768 68c-143.594 0-260-116.406-260-260s116.406-260 260-260 260 116.406 260 260-116.406 260-260 260z"/></svg>
+    </span>
+    <span class="icon icon--large">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1792 1216V832h-226.195a570.963 570.963 0 0 0-23.014-55.264l160.031-160.03-271.529-271.529-160.381 160.381A571.416 571.416 0 0 0 1216 482.825V256H832v226.825a571.05 571.05 0 0 0-55.592 23.055L617.706 347.178 346.177 618.707l158.708 158.709A571.44 571.44 0 0 0 482.195 832H256v384h225.49a571.676 571.676 0 0 0 23.085 55.896l-159.398 159.397 271.528 271.529 159.048-159.047A571.495 571.495 0 0 0 832 1567.141V1792h384v-224.858a571.115 571.115 0 0 0 55.566-23.044l160.727 160.726 271.529-271.529-160.721-160.72a570.903 570.903 0 0 0 23.408-56.574H1792zm-768 68c-143.594 0-260-116.406-260-260s116.406-260 260-260 260 116.406 260 260-116.406 260-260 260z"/></svg>
+    </span>
+    <span class="icon icon--xlarge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1792 1216V832h-226.195a570.963 570.963 0 0 0-23.014-55.264l160.031-160.03-271.529-271.529-160.381 160.381A571.416 571.416 0 0 0 1216 482.825V256H832v226.825a571.05 571.05 0 0 0-55.592 23.055L617.706 347.178 346.177 618.707l158.708 158.709A571.44 571.44 0 0 0 482.195 832H256v384h225.49a571.676 571.676 0 0 0 23.085 55.896l-159.398 159.397 271.528 271.529 159.048-159.047A571.495 571.495 0 0 0 832 1567.141V1792h384v-224.858a571.115 571.115 0 0 0 55.566-23.044l160.727 160.726 271.529-271.529-160.721-160.72a570.903 570.903 0 0 0 23.408-56.574H1792zm-768 68c-143.594 0-260-116.406-260-260s116.406-260 260-260 260 116.406 260 260-116.406 260-260 260z"/></svg>
+    </span>
 </div>
 
-<p>Always use the <code>&lt;i&gt;</code>-tag since there is no more semantically solution. By adding the aria-attribute “hidden”, we make sure a screen reader ignores the otherwise meaningless/empty tag.</p>
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1340.783 1250.108l-226.273-226.272 226.273-226.275-90.5-90.499-226.273 226.273-226.285-226.284-90.51 90.51 226.284 226.284-226.274 226.275 90.5 90.5L1024 1114.345l226.273 226.275z"/></svg>
+</div>
+
 <h3 id="adding-new-icons">Adding new icons</h3>
 <p>See <a href="/pages/workflows/adding_icons.html">worflows / adding icons</a>.</p>
 <h3 id="list-of-available-icons">List of Available Icons</h3>
@@ -100,1647 +110,1647 @@
 <table>
     <thead>
         <tr>
-            <th></th>
-            <th>*-s</th>
-            <th></th>
-            <th>.x2</th>
-            <th>.x3</th>
-            <th>.x4</th>
+            <th>ID</th>
+            <th>16px</th>
+            <th>32px</th>
+            <th>64px</th>
+            <th>96px</th>
+            <th>128px</th>
         </tr>
     </thead>
     <tbody>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--000</code></td>
+                <td style="vertical-align: middle;">icon-000</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <img src="//localhost/svg.php?id=icon-000-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--000"></i>
+                    <img src="//localhost/svg.php?id=icon-000&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--000  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-000&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--000  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-000&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--000  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-000&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--001</code></td>
+                <td style="vertical-align: middle;">icon-001</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--001-s"></i>
+                    <img src="//localhost/svg.php?id=icon-001-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--001"></i>
+                    <img src="//localhost/svg.php?id=icon-001&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--001  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-001&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--001  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-001&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--001  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-001&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--002</code></td>
+                <td style="vertical-align: middle;">icon-002</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--002-s"></i>
+                    <img src="//localhost/svg.php?id=icon-002-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--002"></i>
+                    <img src="//localhost/svg.php?id=icon-002&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--002  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-002&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--002  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-002&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--002  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-002&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--003</code></td>
+                <td style="vertical-align: middle;">icon-003</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--003-s"></i>
+                    <img src="//localhost/svg.php?id=icon-003-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--003"></i>
+                    <img src="//localhost/svg.php?id=icon-003&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--003  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-003&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--003  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-003&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--003  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-003&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--004</code></td>
+                <td style="vertical-align: middle;">icon-004</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--004-s"></i>
+                    <img src="//localhost/svg.php?id=icon-004-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--004"></i>
+                    <img src="//localhost/svg.php?id=icon-004&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--004  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-004&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--004  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-004&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--004  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-004&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--005</code></td>
+                <td style="vertical-align: middle;">icon-005</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--005-s"></i>
+                    <img src="//localhost/svg.php?id=icon-005-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--005"></i>
+                    <img src="//localhost/svg.php?id=icon-005&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--005  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-005&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--005  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-005&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--005  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-005&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--006</code></td>
+                <td style="vertical-align: middle;">icon-006</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--006-s"></i>
+                    <img src="//localhost/svg.php?id=icon-006-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--006"></i>
+                    <img src="//localhost/svg.php?id=icon-006&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--006  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-006&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--006  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-006&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--006  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-006&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--007</code></td>
+                <td style="vertical-align: middle;">icon-007</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--007-s"></i>
+                    <img src="//localhost/svg.php?id=icon-007-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--007"></i>
+                    <img src="//localhost/svg.php?id=icon-007&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--007  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-007&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--007  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-007&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--007  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-007&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--008</code></td>
+                <td style="vertical-align: middle;">icon-008</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--008-s"></i>
+                    <img src="//localhost/svg.php?id=icon-008-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--008"></i>
+                    <img src="//localhost/svg.php?id=icon-008&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--008  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-008&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--008  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-008&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--008  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-008&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--009</code></td>
+                <td style="vertical-align: middle;">icon-009</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--009-s"></i>
+                    <img src="//localhost/svg.php?id=icon-009-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--009"></i>
+                    <img src="//localhost/svg.php?id=icon-009&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--009  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-009&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--009  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-009&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--009  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-009&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--010</code></td>
+                <td style="vertical-align: middle;">icon-010</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--010-s"></i>
+                    <img src="//localhost/svg.php?id=icon-010-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--010"></i>
+                    <img src="//localhost/svg.php?id=icon-010&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--010  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-010&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--010  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-010&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--010  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-010&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--011</code></td>
+                <td style="vertical-align: middle;">icon-011</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--011-s"></i>
+                    <img src="//localhost/svg.php?id=icon-011-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--011"></i>
+                    <img src="//localhost/svg.php?id=icon-011&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--011  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-011&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--011  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-011&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--011  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-011&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--012</code></td>
+                <td style="vertical-align: middle;">icon-012</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--012-s"></i>
+                    <img src="//localhost/svg.php?id=icon-012-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--012"></i>
+                    <img src="//localhost/svg.php?id=icon-012&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--012  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-012&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--012  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-012&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--012  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-012&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--013</code></td>
+                <td style="vertical-align: middle;">icon-013</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--013-s"></i>
+                    <img src="//localhost/svg.php?id=icon-013-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--013"></i>
+                    <img src="//localhost/svg.php?id=icon-013&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--013  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-013&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--013  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-013&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--013  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-013&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--014</code></td>
+                <td style="vertical-align: middle;">icon-014</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--014-s"></i>
+                    <img src="//localhost/svg.php?id=icon-014-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--014"></i>
+                    <img src="//localhost/svg.php?id=icon-014&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--014  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-014&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--014  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-014&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--014  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-014&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--015</code></td>
+                <td style="vertical-align: middle;">icon-015</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--015-s"></i>
+                    <img src="//localhost/svg.php?id=icon-015-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--015"></i>
+                    <img src="//localhost/svg.php?id=icon-015&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--015  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-015&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--015  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-015&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--015  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-015&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--016</code></td>
+                <td style="vertical-align: middle;">icon-016</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--016-s"></i>
+                    <img src="//localhost/svg.php?id=icon-016-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--016"></i>
+                    <img src="//localhost/svg.php?id=icon-016&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--016  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-016&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--016  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-016&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--016  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-016&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--017</code></td>
+                <td style="vertical-align: middle;">icon-017</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--017-s"></i>
+                    <img src="//localhost/svg.php?id=icon-017-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--017"></i>
+                    <img src="//localhost/svg.php?id=icon-017&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--017  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-017&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--017  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-017&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--017  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-017&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--018</code></td>
+                <td style="vertical-align: middle;">icon-018</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--018-s"></i>
+                    <img src="//localhost/svg.php?id=icon-018-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--018"></i>
+                    <img src="//localhost/svg.php?id=icon-018&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--018  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-018&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--018  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-018&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--018  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-018&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--019</code></td>
+                <td style="vertical-align: middle;">icon-019</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--019-s"></i>
+                    <img src="//localhost/svg.php?id=icon-019-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--019"></i>
+                    <img src="//localhost/svg.php?id=icon-019&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--019  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-019&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--019  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-019&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--019  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-019&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--020</code></td>
+                <td style="vertical-align: middle;">icon-020</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--020-s"></i>
+                    <img src="//localhost/svg.php?id=icon-020-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--020"></i>
+                    <img src="//localhost/svg.php?id=icon-020&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--020  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-020&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--020  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-020&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--020  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-020&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--021</code></td>
+                <td style="vertical-align: middle;">icon-021</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--021-s"></i>
+                    <img src="//localhost/svg.php?id=icon-021-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--021"></i>
+                    <img src="//localhost/svg.php?id=icon-021&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--021  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-021&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--021  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-021&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--021  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-021&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--022</code></td>
+                <td style="vertical-align: middle;">icon-022</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--022-s"></i>
+                    <img src="//localhost/svg.php?id=icon-022-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--022"></i>
+                    <img src="//localhost/svg.php?id=icon-022&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--022  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-022&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--022  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-022&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--022  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-022&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--023</code></td>
+                <td style="vertical-align: middle;">icon-023</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--023-s"></i>
+                    <img src="//localhost/svg.php?id=icon-023-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--023"></i>
+                    <img src="//localhost/svg.php?id=icon-023&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--023  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-023&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--023  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-023&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--023  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-023&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--024</code></td>
+                <td style="vertical-align: middle;">icon-024</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--024-s"></i>
+                    <img src="//localhost/svg.php?id=icon-024-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--024"></i>
+                    <img src="//localhost/svg.php?id=icon-024&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--024  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-024&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--024  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-024&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--024  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-024&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--025</code></td>
+                <td style="vertical-align: middle;">icon-025</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--025-s"></i>
+                    <img src="//localhost/svg.php?id=icon-025-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--025"></i>
+                    <img src="//localhost/svg.php?id=icon-025&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--025  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-025&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--025  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-025&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--025  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-025&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--026</code></td>
+                <td style="vertical-align: middle;">icon-026</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--026-s"></i>
+                    <img src="//localhost/svg.php?id=icon-026-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--026"></i>
+                    <img src="//localhost/svg.php?id=icon-026&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--026  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-026&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--026  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-026&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--026  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-026&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--027</code></td>
+                <td style="vertical-align: middle;">icon-027</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--027-s"></i>
+                    <img src="//localhost/svg.php?id=icon-027-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--027"></i>
+                    <img src="//localhost/svg.php?id=icon-027&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--027  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-027&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--027  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-027&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--027  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-027&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--028</code></td>
+                <td style="vertical-align: middle;">icon-028</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--028-s"></i>
+                    <img src="//localhost/svg.php?id=icon-028-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--028"></i>
+                    <img src="//localhost/svg.php?id=icon-028&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--028  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-028&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--028  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-028&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--028  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-028&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--029</code></td>
+                <td style="vertical-align: middle;">icon-029</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--029-s"></i>
+                    <img src="//localhost/svg.php?id=icon-029-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--029"></i>
+                    <img src="//localhost/svg.php?id=icon-029&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--029  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-029&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--029  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-029&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--029  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-029&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--030</code></td>
+                <td style="vertical-align: middle;">icon-030</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--030-s"></i>
+                    <img src="//localhost/svg.php?id=icon-030-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--030"></i>
+                    <img src="//localhost/svg.php?id=icon-030&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--030  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-030&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--030  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-030&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--030  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-030&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--031</code></td>
+                <td style="vertical-align: middle;">icon-031</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--031-s"></i>
+                    <img src="//localhost/svg.php?id=icon-031-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--031"></i>
+                    <img src="//localhost/svg.php?id=icon-031&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--031  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-031&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--031  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-031&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--031  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-031&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--032</code></td>
+                <td style="vertical-align: middle;">icon-032</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--032-s"></i>
+                    <img src="//localhost/svg.php?id=icon-032-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--032"></i>
+                    <img src="//localhost/svg.php?id=icon-032&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--032  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-032&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--032  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-032&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--032  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-032&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--033</code></td>
+                <td style="vertical-align: middle;">icon-033</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--033-s"></i>
+                    <img src="//localhost/svg.php?id=icon-033-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--033"></i>
+                    <img src="//localhost/svg.php?id=icon-033&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--033  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-033&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--033  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-033&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--033  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-033&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--034</code></td>
+                <td style="vertical-align: middle;">icon-034</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--034-s"></i>
+                    <img src="//localhost/svg.php?id=icon-034-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--034"></i>
+                    <img src="//localhost/svg.php?id=icon-034&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--034  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-034&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--034  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-034&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--034  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-034&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--035</code></td>
+                <td style="vertical-align: middle;">icon-035</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--035-s"></i>
+                    <img src="//localhost/svg.php?id=icon-035-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--035"></i>
+                    <img src="//localhost/svg.php?id=icon-035&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--035  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-035&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--035  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-035&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--035  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-035&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--036</code></td>
+                <td style="vertical-align: middle;">icon-036</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--036-s"></i>
+                    <img src="//localhost/svg.php?id=icon-036-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--036"></i>
+                    <img src="//localhost/svg.php?id=icon-036&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--036  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-036&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--036  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-036&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--036  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-036&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--037</code></td>
+                <td style="vertical-align: middle;">icon-037</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--037-s"></i>
+                    <img src="//localhost/svg.php?id=icon-037-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--037"></i>
+                    <img src="//localhost/svg.php?id=icon-037&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--037  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-037&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--037  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-037&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--037  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-037&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--038</code></td>
+                <td style="vertical-align: middle;">icon-038</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--038-s"></i>
+                    <img src="//localhost/svg.php?id=icon-038-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--038"></i>
+                    <img src="//localhost/svg.php?id=icon-038&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--038  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-038&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--038  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-038&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--038  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-038&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--039</code></td>
+                <td style="vertical-align: middle;">icon-039</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--039-s"></i>
+                    <img src="//localhost/svg.php?id=icon-039-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--039"></i>
+                    <img src="//localhost/svg.php?id=icon-039&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--039  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-039&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--039  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-039&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--039  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-039&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--040</code></td>
+                <td style="vertical-align: middle;">icon-040</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--040-s"></i>
+                    <img src="//localhost/svg.php?id=icon-040-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--040"></i>
+                    <img src="//localhost/svg.php?id=icon-040&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--040  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-040&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--040  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-040&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--040  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-040&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--041</code></td>
+                <td style="vertical-align: middle;">icon-041</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--041-s"></i>
+                    <img src="//localhost/svg.php?id=icon-041-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--041"></i>
+                    <img src="//localhost/svg.php?id=icon-041&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--041  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-041&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--041  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-041&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--041  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-041&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--042</code></td>
+                <td style="vertical-align: middle;">icon-042</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--042-s"></i>
+                    <img src="//localhost/svg.php?id=icon-042-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--042"></i>
+                    <img src="//localhost/svg.php?id=icon-042&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--042  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-042&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--042  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-042&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--042  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-042&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--043</code></td>
+                <td style="vertical-align: middle;">icon-043</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--043-s"></i>
+                    <img src="//localhost/svg.php?id=icon-043-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--043"></i>
+                    <img src="//localhost/svg.php?id=icon-043&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--043  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-043&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--043  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-043&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--043  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-043&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--044</code></td>
+                <td style="vertical-align: middle;">icon-044</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--044-s"></i>
+                    <img src="//localhost/svg.php?id=icon-044-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--044"></i>
+                    <img src="//localhost/svg.php?id=icon-044&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--044  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-044&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--044  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-044&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--044  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-044&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--045</code></td>
+                <td style="vertical-align: middle;">icon-045</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--045-s"></i>
+                    <img src="//localhost/svg.php?id=icon-045-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--045"></i>
+                    <img src="//localhost/svg.php?id=icon-045&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--045  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-045&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--045  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-045&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--045  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-045&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--046</code></td>
+                <td style="vertical-align: middle;">icon-046</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--046-s"></i>
+                    <img src="//localhost/svg.php?id=icon-046-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--046"></i>
+                    <img src="//localhost/svg.php?id=icon-046&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--046  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-046&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--046  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-046&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--046  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-046&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--047</code></td>
+                <td style="vertical-align: middle;">icon-047</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--047-s"></i>
+                    <img src="//localhost/svg.php?id=icon-047-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--047"></i>
+                    <img src="//localhost/svg.php?id=icon-047&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--047  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-047&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--047  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-047&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--047  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-047&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--048</code></td>
+                <td style="vertical-align: middle;">icon-048</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--048-s"></i>
+                    <img src="//localhost/svg.php?id=icon-048-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--048"></i>
+                    <img src="//localhost/svg.php?id=icon-048&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--048  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-048&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--048  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-048&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--048  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-048&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--049</code></td>
+                <td style="vertical-align: middle;">icon-049</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--049-s"></i>
+                    <img src="//localhost/svg.php?id=icon-049-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--049"></i>
+                    <img src="//localhost/svg.php?id=icon-049&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--049  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-049&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--049  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-049&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--049  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-049&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--050</code></td>
+                <td style="vertical-align: middle;">icon-050</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--050-s"></i>
+                    <img src="//localhost/svg.php?id=icon-050-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--050"></i>
+                    <img src="//localhost/svg.php?id=icon-050&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--050  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-050&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--050  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-050&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--050  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-050&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--051</code></td>
+                <td style="vertical-align: middle;">icon-051</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--051-s"></i>
+                    <img src="//localhost/svg.php?id=icon-051-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--051"></i>
+                    <img src="//localhost/svg.php?id=icon-051&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--051  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-051&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--051  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-051&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--051  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-051&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--052</code></td>
+                <td style="vertical-align: middle;">icon-052</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--052-s"></i>
+                    <img src="//localhost/svg.php?id=icon-052-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--052"></i>
+                    <img src="//localhost/svg.php?id=icon-052&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--052  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-052&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--052  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-052&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--052  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-052&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--053</code></td>
+                <td style="vertical-align: middle;">icon-053</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--053-s"></i>
+                    <img src="//localhost/svg.php?id=icon-053-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--053"></i>
+                    <img src="//localhost/svg.php?id=icon-053&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--053  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-053&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--053  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-053&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--053  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-053&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--054</code></td>
+                <td style="vertical-align: middle;">icon-054</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--054-s"></i>
+                    <img src="//localhost/svg.php?id=icon-054-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--054"></i>
+                    <img src="//localhost/svg.php?id=icon-054&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--054  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-054&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--054  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-054&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--054  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-054&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--055</code></td>
+                <td style="vertical-align: middle;">icon-055</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--055-s"></i>
+                    <img src="//localhost/svg.php?id=icon-055-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--055"></i>
+                    <img src="//localhost/svg.php?id=icon-055&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--055  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-055&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--055  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-055&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--055  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-055&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--056</code></td>
+                <td style="vertical-align: middle;">icon-056</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--056-s"></i>
+                    <img src="//localhost/svg.php?id=icon-056-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--056"></i>
+                    <img src="//localhost/svg.php?id=icon-056&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--056  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-056&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--056  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-056&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--056  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-056&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--057</code></td>
+                <td style="vertical-align: middle;">icon-057</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--057-s"></i>
+                    <img src="//localhost/svg.php?id=icon-057-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--057"></i>
+                    <img src="//localhost/svg.php?id=icon-057&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--057  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-057&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--057  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-057&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--057  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-057&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--058</code></td>
+                <td style="vertical-align: middle;">icon-058</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--058-s"></i>
+                    <img src="//localhost/svg.php?id=icon-058-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--058"></i>
+                    <img src="//localhost/svg.php?id=icon-058&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--058  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-058&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--058  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-058&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--058  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-058&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--059</code></td>
+                <td style="vertical-align: middle;">icon-059</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--059-s"></i>
+                    <img src="//localhost/svg.php?id=icon-059-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--059"></i>
+                    <img src="//localhost/svg.php?id=icon-059&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--059  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-059&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--059  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-059&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--059  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-059&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--060</code></td>
+                <td style="vertical-align: middle;">icon-060</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <img src="//localhost/svg.php?id=icon-060-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--060"></i>
+                    <img src="//localhost/svg.php?id=icon-060&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--060  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-060&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--060  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-060&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--060  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-060&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--061</code></td>
+                <td style="vertical-align: middle;">icon-061</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <img src="//localhost/svg.php?id=icon-061-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--061"></i>
+                    <img src="//localhost/svg.php?id=icon-061&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--061  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-061&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--061  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-061&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--061  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-061&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--062</code></td>
+                <td style="vertical-align: middle;">icon-062</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--062-s"></i>
+                    <img src="//localhost/svg.php?id=icon-062-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--062"></i>
+                    <img src="//localhost/svg.php?id=icon-062&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--062  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-062&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--062  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-062&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--062  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-062&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--063</code></td>
+                <td style="vertical-align: middle;">icon-063</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <img src="//localhost/svg.php?id=icon-063-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--063"></i>
+                    <img src="//localhost/svg.php?id=icon-063&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--063  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-063&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--063  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-063&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--063  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-063&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--064</code></td>
+                <td style="vertical-align: middle;">icon-064</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <img src="//localhost/svg.php?id=icon-064-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--064"></i>
+                    <img src="//localhost/svg.php?id=icon-064&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--064  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-064&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--064  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-064&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--064  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-064&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--065</code></td>
+                <td style="vertical-align: middle;">icon-065</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--065-s"></i>
+                    <img src="//localhost/svg.php?id=icon-065-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--065"></i>
+                    <img src="//localhost/svg.php?id=icon-065&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--065  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-065&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--065  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-065&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--065  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-065&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--066</code></td>
+                <td style="vertical-align: middle;">icon-066</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--066-s"></i>
+                    <img src="//localhost/svg.php?id=icon-066-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--066"></i>
+                    <img src="//localhost/svg.php?id=icon-066&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--066  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-066&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--066  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-066&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--066  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-066&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--067</code></td>
+                <td style="vertical-align: middle;">icon-067</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--067-s"></i>
+                    <img src="//localhost/svg.php?id=icon-067-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--067"></i>
+                    <img src="//localhost/svg.php?id=icon-067&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--067  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-067&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--067  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-067&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--067  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-067&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--068</code></td>
+                <td style="vertical-align: middle;">icon-068</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--068-s"></i>
+                    <img src="//localhost/svg.php?id=icon-068-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--068"></i>
+                    <img src="//localhost/svg.php?id=icon-068&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--068  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-068&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--068  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-068&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--068  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-068&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--069</code></td>
+                <td style="vertical-align: middle;">icon-069</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--069-s"></i>
+                    <img src="//localhost/svg.php?id=icon-069-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--069"></i>
+                    <img src="//localhost/svg.php?id=icon-069&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--069  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-069&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--069  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-069&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--069  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-069&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--070</code></td>
+                <td style="vertical-align: middle;">icon-070</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--070-s"></i>
+                    <img src="//localhost/svg.php?id=icon-070-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--070"></i>
+                    <img src="//localhost/svg.php?id=icon-070&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--070  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-070&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--070  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-070&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--070  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-070&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--071</code></td>
+                <td style="vertical-align: middle;">icon-071</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--071-s"></i>
+                    <img src="//localhost/svg.php?id=icon-071-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--071"></i>
+                    <img src="//localhost/svg.php?id=icon-071&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--071  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-071&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--071  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-071&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--071  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-071&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--072</code></td>
+                <td style="vertical-align: middle;">icon-072</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--072-s"></i>
+                    <img src="//localhost/svg.php?id=icon-072-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--072"></i>
+                    <img src="//localhost/svg.php?id=icon-072&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--072  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-072&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--072  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-072&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--072  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-072&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--073</code></td>
+                <td style="vertical-align: middle;">icon-073</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--073-s"></i>
+                    <img src="//localhost/svg.php?id=icon-073-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--073"></i>
+                    <img src="//localhost/svg.php?id=icon-073&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--073  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-073&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--073  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-073&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--073  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-073&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--074</code></td>
+                <td style="vertical-align: middle;">icon-074</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--074-s"></i>
+                    <img src="//localhost/svg.php?id=icon-074-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--074"></i>
+                    <img src="//localhost/svg.php?id=icon-074&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--074  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-074&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--074  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-074&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--074  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-074&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--075</code></td>
+                <td style="vertical-align: middle;">icon-075</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--075-s"></i>
+                    <img src="//localhost/svg.php?id=icon-075-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--075"></i>
+                    <img src="//localhost/svg.php?id=icon-075&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--075  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-075&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--075  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-075&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--075  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-075&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--076</code></td>
+                <td style="vertical-align: middle;">icon-076</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--076-s"></i>
+                    <img src="//localhost/svg.php?id=icon-076-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--076"></i>
+                    <img src="//localhost/svg.php?id=icon-076&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--076  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-076&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--076  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-076&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--076  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-076&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--077</code></td>
+                <td style="vertical-align: middle;">icon-077</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--077-s"></i>
+                    <img src="//localhost/svg.php?id=icon-077-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--077"></i>
+                    <img src="//localhost/svg.php?id=icon-077&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--077  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-077&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--077  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-077&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--077  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-077&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--078</code></td>
+                <td style="vertical-align: middle;">icon-078</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--078-s"></i>
+                    <img src="//localhost/svg.php?id=icon-078-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--078"></i>
+                    <img src="//localhost/svg.php?id=icon-078&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--078  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-078&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--078  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-078&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--078  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-078&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--079</code></td>
+                <td style="vertical-align: middle;">icon-079</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--079-s"></i>
+                    <img src="//localhost/svg.php?id=icon-079-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--079"></i>
+                    <img src="//localhost/svg.php?id=icon-079&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--079  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-079&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--079  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-079&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--079  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-079&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--080</code></td>
+                <td style="vertical-align: middle;">icon-080</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--080-s"></i>
+                    <img src="//localhost/svg.php?id=icon-080-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--080"></i>
+                    <img src="//localhost/svg.php?id=icon-080&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--080  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-080&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--080  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-080&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--080  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-080&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--081</code></td>
+                <td style="vertical-align: middle;">icon-081</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--081-s"></i>
+                    <img src="//localhost/svg.php?id=icon-081-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--081"></i>
+                    <img src="//localhost/svg.php?id=icon-081&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--081  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-081&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--081  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-081&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--081  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-081&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--082</code></td>
+                <td style="vertical-align: middle;">icon-082</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--082-s"></i>
+                    <img src="//localhost/svg.php?id=icon-082-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--082"></i>
+                    <img src="//localhost/svg.php?id=icon-082&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--082  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-082&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--082  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-082&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--082  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-082&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--083</code></td>
+                <td style="vertical-align: middle;">icon-083</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--083-s"></i>
+                    <img src="//localhost/svg.php?id=icon-083-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--083"></i>
+                    <img src="//localhost/svg.php?id=icon-083&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--083  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-083&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--083  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-083&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--083  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-083&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--084</code></td>
+                <td style="vertical-align: middle;">icon-084</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--084-s"></i>
+                    <img src="//localhost/svg.php?id=icon-084-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--084"></i>
+                    <img src="//localhost/svg.php?id=icon-084&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--084  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-084&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--084  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-084&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--084  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-084&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         
             <tr>
-                <td style="vertical-align: middle;"><code contenteditable>.icon--085</code></td>
+                <td style="vertical-align: middle;">icon-085</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--085-s"></i>
+                    <img src="//localhost/svg.php?id=icon-085-s&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--085"></i>
+                    <img src="//localhost/svg.php?id=icon-085&f=%236754a1&w=32&h=32" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--085  icon--x2"></i>
+                    <img src="//localhost/svg.php?id=icon-085&f=%236754a1&w=64&h=64" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--085  icon--x3"></i>
+                    <img src="//localhost/svg.php?id=icon-085&f=%236754a1&w=96&h=96" alt="" />
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <i aria-hidden="true" class="icon--085  icon--x4"></i>
+                    <img src="//localhost/svg.php?id=icon-085&f=%236754a1&w=128&h=128" alt="" />
                 </td>
             </tr>
         

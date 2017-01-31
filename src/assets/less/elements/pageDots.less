@@ -6,10 +6,10 @@
 .pageDots {
     .mixin-userSelectNone;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 1.2rem;
     display: inline-block;
     font-size: 0;
-    height: 25px;
+    height: 2.5rem;
     margin: 0 auto;
     text-align: center;
     z-index: 20;
@@ -25,42 +25,61 @@
     color: @color-main-21;
     cursor: pointer;
     display: inline-block;
-    height: 20px;
-    width: 20px;
 
-    &:hover {
-        color: @color-main-15;
-    }
-
-    &.pageDots--active {
-        color: @color-main-7;
-    }
+    // icons
 
     &::after {
-        .mixin-icon;
-        content: '\f079';
-        font-size: 24px;
-        height: 25px;
-        line-height: 24px;
-        text-indent: -2px;
-        width: 20px;
+        content: ' ';
+        display: inline-block;
+        height: 2.5rem;
+        width: 2rem;
     }
 
+}
+
+.pageDots__dot {
+    height: 2.5rem;
+    width: 2rem;
 }
 
 .pageDots__btnPrev,
 .pageDots__btnNext {
-    width: 30px;
-    line-height: 20px;
+    height: 2.5rem;
+    width: 3rem;
 }
+
+// dot icon
+
+.pageDots__dot::after {
+    .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-22);
+}
+
+.pageDots__dot:hover::after {
+    .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-17);
+}
+
+.pageDots__dot.pageDots--active::after {
+    .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-8);
+}
+
+// chevron-left icon
 
 .pageDots__btnPrev::after {
-    content: '\f008';
+    .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-15);
 }
 
+.pageDots__btnPrev:hover::after {
+    .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-8);
+}
+
+// chevron-right icon
+
 .pageDots__btnNext::after {
-    text-indent: -1px;
-    content: '\f007';
+    .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-15);
+}
+
+.pageDots__btnNext:hover::after {
+    .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-8);
 }
 
 // modifiers
@@ -69,48 +88,43 @@
 .pageDots--dark {
 
     background: @color-main-8;
+    
+    // dot icon
 
-    .pageDots__btnPrev,
-    .pageDots__btnNext,
-    .pageDots__dot {
+    .pageDots__dot::after {
+        .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-12);
+    }
 
-        color: @color-main-12;
+    .pageDots__dot:hover::after {
+        .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-18);
+    }
 
-        &:hover {
-            color: @color-main-18;
-        }
+    .pageDots__dot.pageDots--active::after {
+        .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: #fff);
+    }
 
-        &.pageDots--active {
-            color: #fff;
-        }
+    // chevron-left icon
 
+    .pageDots__btnPrev::after {
+        .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-17);
+    }
+
+    .pageDots__btnPrev:hover::after {
+        .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-23);
+    }
+
+    // chevron-right icon
+
+    .pageDots__btnNext::after {
+        .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-17);
+    }
+
+    .pageDots__btnNext:hover::after {
+        .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-23);
     }
 
 }
 
 .pageDots--subtle {
-
     background: transparent;
-
-    .pageDots__btnPrev,
-    .pageDots__btnNext,
-    .pageDots__dot {
-
-        color: fade(@color-main-5,30%);
-
-        &:hover {
-            color: fade(@color-main-5,70%);
-        }
-
-        &.pageDots--active {
-
-            &::after {
-                color: @color-main-5;
-            }
-
-            color: #fff;
-        }
-
-    }
-
 }

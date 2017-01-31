@@ -8,7 +8,7 @@
 
 <form class="m-tb-4">
     <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
             <option value="btn--dark">dark</option>
@@ -20,7 +20,7 @@
     </span>
     <b class="p-lr-1">+</b>
     <span data-modifier="btn--rounded btn--flat btn--outline">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
             <option value="btn--flat">flat</option>
@@ -31,7 +31,7 @@
     </span>
     <b class="p-lr-1">+</b>
     <span data-modifier="btn--small btn--medium btn--large">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--small">small</option>
             <option value="btn--medium">medium</option>
@@ -48,7 +48,7 @@
             <hr class="ruler m-tb-4" />
             {% for i in range(0, 86) %}
                 <button class="btn" style="margin-bottom: 3px;">
-                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}-s"></i>
+                    <span class="icon">{% icon { id: i|pad(2) + '-s' } %}</span>
                     <span>Button</span>
                 </button>
             {% endfor %}
@@ -56,14 +56,14 @@
             {% for i in range(0, 86) %}
                 <button class="btn" style="margin-bottom: 3px;">
                     <span>Button</span>
-                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}-s"></i>
+                    <span class="icon">{% icon { id: i|pad(2) + '-s' } %}</span>
                 </button>
             {% endfor %}
             <hr class="ruler m-tb-4" />
             {% for i in range(0, 86) %}
                 <button class="btn" style="margin-bottom: 3px;">
                     <span class="hidden">Button</span>
-                    <i aria-hidden="true" class="icon--{{ i|pad(2) }}-s"></i>
+                    <span class="icon">{% icon { id: i|pad(2) + '-s' } %}</span>
                 </button>
             {% endfor %}
         </div>
@@ -76,7 +76,7 @@
 
 <form class="m-tb-4">
     <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
             <option value="btn--dark">dark</option>
@@ -88,7 +88,7 @@
     </span>
     <b class="p-lr-1">+</b>
     <span data-modifier="btn--rounded btn--flat btn--outline">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
             <option value="btn--flat">flat</option>
@@ -102,29 +102,29 @@
     <div class="documentation__block">
         <div class="documentation__example">
             <button class="btn btn--large" style="margin-bottom: 3px;">
-                <i class="icon--022"></i>
+                <span class="icon">{% icon { id: '022' } %}</span>
                 <span>Large Icon</span>
             </button>
             <button class="btn btn--large" style="margin-bottom: 3px;">
                 <span>Large Icon</span>
-                <i class="icon--022"></i>
+                <span class="icon">{% icon { id: '022' } %}</span>
             </button>
             <button class="btn btn--large" style="margin-bottom: 3px;">
                 <span class="hidden">Large Icon</span>
-                <i class="icon--022"></i>
+                <span class="icon">{% icon { id: '022' } %}</span>
             </button>
             <hr class="ruler m-tb-4" />
             <button class="btn btn--large" style="margin-bottom: 3px;">
-                <i class="icon--026"></i>
+                <span class="icon">{% icon { id: '022' } %}</span>
                 <span>Large Icon</span>
             </button>
             <button class="btn btn--large" style="margin-bottom: 3px;">
                 <span>Large Icon</span>
-                <i class="icon--026"></i>
+                <span class="icon">{% icon { id: '026' } %}</span>
             </button>
             <button class="btn btn--large" style="margin-bottom: 3px;">
                 <span class="hidden">Large Icon</span>
-                <i class="icon--026"></i>
+                <span class="icon">{% icon { id: '026' } %}</span>
             </button>
         </div>
     </div>
@@ -142,7 +142,7 @@
                 <p class="posterTeaser__body al-c m-b-2">
                     <a href="#" class="btn btn--light btn--large btn--outline">
                         <span>Learn more</span>
-                        <i aria-hidden="true" class="icon--007-s"></i>
+                        <span class="icon">{% icon { id: '007-s' } %}</span>
                     </a>
                 </p>
             </div>
@@ -156,7 +156,7 @@
 
 <form class="m-tb-4">
     <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
             <option value="btn--dark">dark</option>
@@ -168,7 +168,7 @@
     </span>
     <b class="p-lr-1">+</b>
     <span data-modifier="btn--rounded btn--flat btn--outline">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
             <option value="btn--flat">flat</option>
@@ -179,7 +179,7 @@
     </span>
     <b class="p-lr-1">+</b>
     <span data-modifier="btn--small btn--medium btn--large">
-        <select class="btn--large btn--light">
+        <select class="select select--large">
             <option value="">none</option>
             <option value="btn--small">small</option>
             <option value="btn--medium">medium</option>
@@ -197,68 +197,68 @@
             </div>
             <div class="btns m-b-2">
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                     <span>Play</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                     <span>Stop</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                     <span>Pause</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                     <span>Rewind</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                     <span>Forward</span>
                 </button>
             </div>
             <div class="btns m-b-2">
                 <button class="btn">
                     <span>Play</span>
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Stop</span>
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Pause</span>
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Rewind</span>
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Forward</span>
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                 </button>
             </div>
             <div class="btns m-b-2">
                 <button class="btn">
                     <span class="hidden">Play</span>
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Stop</span>
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Pause</span>
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Rewind</span>
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Forward</span>
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                 </button>
             </div>
         </div>
@@ -272,68 +272,68 @@
             </div>
             <div class="btns btns--vertical m-b-2">
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--000-s"></i>
                     <span>Play</span>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--063-s"></i>
                     <span>Stop</span>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--064-s"></i>
                     <span>Pause</span>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--061-s"></i>
                     <span>Rewind</span>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                 </button>
                 <button class="btn">
-                    <i aria-hidden="true" class="icon--060-s"></i>
                     <span>Forward</span>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                 </button>
             </div>
             <div class="btns btns--vertical m-b-2">
                 <button class="btn">
                     <span>Play</span>
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Stop</span>
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Pause</span>
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Rewind</span>
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span>Forward</span>
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                 </button>
             </div>
             <div class="btns btns--vertical m-b-2">
                 <button class="btn">
                     <span class="hidden">Play</span>
-                    <i aria-hidden="true" class="icon--000-s"></i>
+                    <span class="icon">{% icon { id: '000-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Stop</span>
-                    <i aria-hidden="true" class="icon--063-s"></i>
+                    <span class="icon">{% icon { id: '063-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Pause</span>
-                    <i aria-hidden="true" class="icon--064-s"></i>
+                    <span class="icon">{% icon { id: '064-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Rewind</span>
-                    <i aria-hidden="true" class="icon--061-s"></i>
+                    <span class="icon">{% icon { id: '061-s' } %}</span>
                 </button>
                 <button class="btn">
                     <span class="hidden">Forward</span>
-                    <i aria-hidden="true" class="icon--060-s"></i>
+                    <span class="icon">{% icon { id: '060-s' } %}</span>
                 </button>
             </div>
         </div>
@@ -382,7 +382,7 @@
 
             }
 
-            $(window).on('load', initKitchensink);
+            $(document).ready(initKitchensink);
 
         })();
     </script>

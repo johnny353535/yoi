@@ -80,25 +80,31 @@ var Sticky = (function() {
          *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
          */
         
-        // prepare and append the cloned element
+        // prepare the cloned element
         
         $stickyElementClone.css({
             'position' : 'absolute',
             'width'    : $stickyElement.outerWidth(),
             'height'   : $stickyElement.outerHeight(),
             'top'      : $stickyElement.offset().top,
-            'left'     : $stickyElement.offset().left
+            'left'     : $stickyElement.offset().left,
+            'backface-visibility'         : 'hidden', // boost performance trough
+            '-webkit-backface-visibility' : 'hidden'  // hardware-acceleration
         });
+        
+        // append the cloned element
         
         $body.append($stickyElementClone);
         
-        // prepare and empty the original element
+        // prepare the original element
         
         $stickyElement.css({
             'width'      : $stickyElement.outerWidth(),
             'height'     : $stickyElement.outerHeight(),
             'visibility' : 'hidden'
         });
+        
+        // empty the original element
         
         $stickyElement.empty();
         

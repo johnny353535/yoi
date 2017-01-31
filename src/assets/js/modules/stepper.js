@@ -10,11 +10,11 @@ var Stepper = (function() {
 
     var $stepperBtns = $('\
         <div class="stepper__btnPlus">\
-            <i aria-hidden="true" class="icon--003-s"></i>\
+            <span class="stepper__iconPlus"></span>\
             <span class="hidden">' + btnLabelMore + '</span>\
         </div>\
         <div class="stepper__btnMinus">\
-            <i aria-hidden="true" class="icon--002-s"></i>\
+            <span class="stepper__iconMinus"></span>\
             <span class="hidden">' + btnLabelLess + '</span>\
         </div>\
     ');

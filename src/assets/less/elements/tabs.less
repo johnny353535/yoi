@@ -176,10 +176,13 @@
 .tabs__menu--checkmarks {
 
     .tabs__item.is--active .tabs__link:before {
-        .mixin-icon;
-        color: @color-positive-15;
-        content: '\f011';
+        .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-positive-15);
+        content: ' ';
+        display: inline-block;
+        height: 3.2rem;
         margin: -1.5rem 0;
+        vertical-align: middle;
+        width: 3.2rem;
     }
 
 }
@@ -207,7 +210,7 @@
         
         color: @color-main-13;
 
-        polygon, path, circle {
+        circle, ellipse, path, polygon {
             fill: @color-main-13;
         }
 
@@ -223,7 +226,7 @@
             color: @color-main-8;
         }
 
-        polygon, path, circle {
+        circle, ellipse, path, polygon {
             fill: @color-main-8;
         }
 

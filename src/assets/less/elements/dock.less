@@ -19,12 +19,16 @@
 // elements
 // ========
 
-.dock .linkList {
+// icon
 
-    a:hover {
-        background: #fff;
-    }
-
+.dock::before {
+    content: ' ';
+    height: 2.4rem;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity 150ms ease-out;
+    width: 2.4rem;
 }
 
 // modifiers
@@ -35,13 +39,16 @@
     border-right: @color-main-23 1px solid;
     left: 0;
 
-    &::before {
-        content: '\f007';
-        left: -2px;
-    }
-
     &.is--hidden {
         left: -26rem;
+    }
+    
+    // icon
+    
+    &::before {
+        .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-23);
+        left: -.2rem;
+        right: auto;
     }
 
 }
@@ -51,25 +58,26 @@
     border-left: @color-main-23 1px solid;
     right: 0;
 
-    &::before {
-        content: '\f008';
-        right: -2px;
-    }
-
     &.is--hidden {
         right: -26rem;
+    }
+    
+    // icon
+    
+    &::before {
+        .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-23);
+        left: auto;
+        right: -.2rem;
     }
 
 }
 
 .dock.is--hidden {
+    
+    // icon
 
     &::before {
-        .mixin-icon;
-        display: block;
-        font-size: 24px;
-        position: fixed;
-        top: 0;
+        opacity: 1;
     }
 
 }

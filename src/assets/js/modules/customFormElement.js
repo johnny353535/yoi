@@ -82,39 +82,50 @@ var CustomFormElements = (function() {
             // checked?
 
             if ($(this).is(':checked')) {
-                thisWrapper.addClass('input--checked');
+                thisWrapper.addClass('is--checked');
             }
 
+        });
+        
+        checkElemns.on({
+            'focus': function() {
+                $(this).parent().addClass('is--focus');
+            },
+            'blur': function() {
+                $(this).parent().removeClass('is--focus');
+            },
+            'change': function(e) {
+                $(this).parent().toggleClass('is--checked');
+            }
         });
 
         selects.each(function() {
 
             var $thisSelect    = $(this);
             var $selectWrapper = $('<span></span>');
-            var $icon          = $('<i class="icon--009-s" aria-hidden="true"></i>');
+            var $icon          = $('<span class="select__icon"></span>');
 
             // prepare wrapper, keep modifiers
-            $selectWrapper.addClass('btn ' + $thisSelect.attr('class'));
-            $selectWrapper.attr('role','customSelect');
+            
+            $selectWrapper.addClass($thisSelect.attr('class'));
 
             // inject elements
+            
             $thisSelect.wrap($selectWrapper);
             $thisSelect.parent().append($icon);
 
             // remove classNames (modifiers) from select element
+            
             $thisSelect.removeAttr('class');
 
         });
 
-        checkElemns.on({
-            'focus' : function() {
-                $(this).parent().addClass('input--focus');
+        selects.on({
+            'focus': function() {
+                $(this).parent().addClass('is--focus');
             },
-            'blur' : function() {
-                $(this).parent().removeClass('input--focus');
-            },
-            'change' : function(e) {
-                $(this).parent().toggleClass('input--checked');
+            'blur': function() {
+                $(this).parent().removeClass('is--focus');
             }
         });
 

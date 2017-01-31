@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | Documentation</title>
-        <base href="/ui-core/">
+        <base href="/">
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
@@ -36,7 +36,7 @@
                 <h4>Introduction</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
                 <h4>Core</h4>
-                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="./pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/root.html">root</a></li></ul>
+                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
                 <h4>Theme</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
                 <h4>Utilities</h4>
@@ -65,11 +65,11 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/note.less">note.less</a></td>
+<td><a href="assets/less/elements/note.less">note.less</a></td>
 </tr>
 <tr>
 <td>JS-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/dismiss.js">dismiss.js</a></td>
+<td><a href="assets/js/modules/dismiss.js">dismiss.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -126,19 +126,21 @@
 </div>
 
 <h3 id="icons">Icons</h3>
-<p>Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the <code>.note--iconXXX</code> modifier to insert any icon from <a href="/pages/elements/icons.html">the Yoshino icon set</a>.</p>
+<!-- Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the `.note--iconXXX` modifier to insert any icon from [the Yoshino icon set](/pages/elements/icons.html). -->
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--large note--icon026">
+        <div class="note note--large">
+            <span class="note__icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1472.197 252.999h-576l-448 898.114h448L576.83 1855.539l831.367-1022.232h-384z"/></svg></span>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
             </div>
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--error note--large note--icon027">
+        <div class="note note--error note--large">
+            <span class="note__icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1024.001 319.835L256 1599.835h1536l-767.999-1280zm127.999 448l-64 384H960l-64-384h256zm-127.999 656.199c-44.624 0-80.796-36.172-80.796-80.796 0-44.621 36.172-80.795 80.796-80.795 44.62 0 80.794 36.174 80.794 80.795 0 44.624-36.174 80.796-80.794 80.796z"/></svg></span>
             <h3 class="note__headline">Headline</h3>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -146,7 +148,8 @@
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--success note--large note--icon011">
+        <div class="note note--success note--large">
+            <span class="note__icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1792 703.836l-192-192.001-768 704-384.403-393.603L256 1023.835l576 576z"/></svg></span>
             <h3 class="note__headline">Headline</h3>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -210,13 +213,6 @@
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup;">
-        <div class="note note--prescription note--large">
-            <div class="note__body">
-                <p>.note--<strong>prescription</strong></p>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__example" data-printcode="language:markup;">
         <div class="note note--success note--large">
             <div class="note__body">
                 <p>.note--<strong>success</strong></p>
@@ -253,20 +249,6 @@
                 <div class="note__body">
                     <p>The third data you supplied is <strong>valid</strong>.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<h3 id="no-borders-and-rounded-corners">No Borders and Rounded Corners</h3>
-<p>Like many elements, <code>.note</code> has a <code>--stripped</code> modifier class which <strong>removes borders and border radi</strong>.</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--large note--dark note--stripped">
-            <div class="note__body">
-                <p>No borders, no rounded corners.</p>
             </div>
         </div>
     </div>

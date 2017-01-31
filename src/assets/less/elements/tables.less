@@ -20,7 +20,7 @@ caption {
     border-bottom: 0;
     box-sizing: border-box;
     font-family: @font-sansserif;
-    padding: 5px 0;
+    padding: .5rem 0;
     width: 100%;
 }
 
@@ -41,7 +41,7 @@ tfoot tr:first-child td {
 td,
 th {
     border-top: 1px solid @color-main-23;
-    padding: 5px 10px;
+    padding: .5rem 1rem;
     text-align: left;
     vertical-align: top;
 }
@@ -68,11 +68,11 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 .table__controls {
 
     background: @color-main-25;
-    width: 20px;
+    width: 2rem;
 
     .btn {
         display: block;
-        margin: 5px 0;
+        margin: .5rem 0;
     }
 
 }
@@ -110,7 +110,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 // alternating table row colors
 
 .table--zebra tr:nth-child(odd) td {
-    background: fade(@color-main-25,40%);
+    background: fade(@color-main-25, 40%);
 }
 
 // table without outer borders
@@ -150,7 +150,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 .table--compressed {
 
     th, td {
-        padding: 0 5px;
+        padding: 0 .5rem;
     }
 
 }
@@ -186,23 +186,26 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 
     }
 
-    // col for checkboxes
+    // cells for checkboxes
 
     .table__checkbox {
 
         padding: 0;
         text-align: center;
         vertical-align: middle;
-        width: 30px;
-
-        // square icon => empty checkbox
+        width: 3rem;
+        position: relative;
+        
+        // square icon = empty checkbox
 
         &::before {
-            .mixin-icon;
-            color: @color-main-24;
-            content: '\f063';
-            height: 15px;
-            line-height: 15px;
+            .mixin-icon-bg(@id: 'icon-063-s', @fillColor: @color-main-23);
+            content: ' ';
+            height: 3.2rem;
+            left: -.1rem;
+            position: absolute;
+            top: -.1rem;
+            width: 3.2rem;
         }
 
     }
@@ -226,13 +229,61 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
             color: @color-attention-8;
         }
 
-        // checkmark icon => ticked checkbox
+        // checkmark icon = ticked checkbox
 
         .table__checkbox::before {
-            color: @color-attention-8;
-            content: '\f011';
+            .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-attention-8);
         }
 
     }
 
+}
+
+// removeable table rows
+
+.js table[data-table*="removeable"] {
+    
+    // cells for remove buttons
+
+    .table__removeBtn {
+        
+        padding: 0;
+        text-align: center;
+        vertical-align: middle;
+        width: 3rem;
+        position: relative;
+        cursor: pointer;
+        
+        // x icon
+
+        &::before {
+            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-20);
+            content: ' ';
+            height: 3.2rem;
+            width: 3.2rem;
+            position: absolute;
+            top: -.1rem;
+            left: -.1rem;
+        }
+        
+        &:hover::before {
+            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-15);
+        }
+        
+    }
+
+}
+
+// adjust icon positioning for compressed tables
+
+.js table.table--compressed .table__checkbox,
+.js table.table--compressed .table__removeBtn {
+    
+    width: 2rem;
+    
+    &::before {
+        left: -.6rem;
+        top: -.6rem;
+    }
+    
 }

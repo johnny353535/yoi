@@ -1,0 +1,110 @@
+/** customSelect.less */
+
+// block
+// =====
+
+.select {
+    
+    .mixin-defaultBorderRadius;
+    .mixin-userSelectNone;
+    background-clip: padding-box;
+    background: #fff;
+    border: @color-main-21 1px solid;
+    box-shadow: 0 1px 0 @color-main-25 inset;
+    box-sizing: border-box;
+    color: @color-main-8;
+    cursor: pointer;
+    display: inline-block;
+    font-family: @font-sansserif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 2.5rem;
+    line-height: 2.3rem;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    // inner select element
+
+    select {
+
+        .mixin-clearAppearance;
+        background: transparent;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        display: inline-block;
+        padding: 0 3.3rem 0 1rem;
+        position: relative;
+
+        &:active,
+        &:focus {
+            border: 0;
+            outline: 0;
+        }
+
+    }
+    
+}
+
+// elements
+// ========
+
+.select__icon {
+    .mixin-icon-bg(@id: 'icon-002-s', @width: 24, @height: 24, @fillColor: @color-main-13);
+    border-left: @color-main-23 1px solid;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2.3rem;
+}
+
+// modifiers
+// =========
+
+.select--large {
+    
+    font-size: 1.5rem;
+    height: 4rem;
+    line-height: 3.8rem;
+    
+    select {
+        padding: 0 6rem 0 2rem;
+    }
+    
+    .select__icon {
+        .mixin-icon-bg(@id: 'icon-002-s', @width: 32, @height: 32, @fillColor: @color-main-13);
+        width: 4rem;
+    }
+    
+}
+
+// focus
+
+.select.is--focus {
+
+    border: @color-main-8 2px solid;
+    line-height: 2.1rem;
+
+    select {
+        padding: 0 3.2rem 0 .9rem;
+    }
+
+    .select__icon {
+        right: -1px;
+    }
+
+    &.select--large {
+
+        line-height: 3.6rem;
+
+        select {
+            padding: 0 5.9rem 0 1.9rem;
+        }
+
+    }
+
+}

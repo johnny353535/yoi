@@ -2,18 +2,6 @@
 
 var Table = (function() {
 
-    // private vars
-    // ============
-
-    var btnLabelRemove = YOI.locale === 'de' ? 'Entfernen' : 'Remove';
-
-    var $removeBtn = $('\
-        <button class="btn btn--subtle btn--rounded">\
-            <span class="hidden">' + btnLabelRemove + '</span>\
-            <i class="icon--006-s" aria-hidden="true"></i>\
-        </button>\
-    ');
-
     // private functions
     // =================
 
@@ -69,15 +57,18 @@ var Table = (function() {
 
             if (options.removeable) {
 
-                // Inserts a col at the end of the table,
-                // and puts a delete-button inside which removes
-                // it's parent table row.
+                // Inserts a col at the end of the table
+                // and puts a delete-icon inside. On click, the
+                // parent table row is removed.
 
-                var $thisRemoveBtn = $removeBtn.clone();
+                // adjust table markup
+                
+                $thisTable.find('tr th:last-child').after('<th></th>');
+                $thisTable.find('tr td:last-child').after('<td class="table__removeBtn"></td>');
 
-                // attach events to button
+                // attach events to cells
 
-                $thisRemoveBtn.on('click', function(e) {
+                $thisTable.find('.table__removeBtn').on('click', function(e) {
 
                     // prevent default & call remove row
 
@@ -87,15 +78,6 @@ var Table = (function() {
                     removeRow($thisTr);
 
                 });
-
-                // adjust table markup
-
-                $thisTable.find('tr th:last-child').after('<th></th>');
-                $thisTable.find('tr td:last-child').after('<td class="table__controls"></td>');
-
-                // insert remove button
-
-                $('.table__controls').append($thisRemoveBtn);
 
             }
 

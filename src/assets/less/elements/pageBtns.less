@@ -5,14 +5,14 @@
 
 .pageBtns {
     .mixin-userSelectNone;
-    background: fade(@color-main-8,70%);
+    background: fade(@color-main-8, 70%);
     border-radius: 0 0 0 (@borderRadius * 1px);
-    height: 40px;
-    line-height: 40px;
+    height: 4rem;
+    line-height: 4rem;
     position: absolute;
     right: 0;
     text-align: center;
-    text-shadow: 0 1px 0 fade(@color-main-5,30%);
+    text-shadow: 0 1px 0 fade(@color-main-5, 30%);
     top: 0;
     z-index: 20;
 }
@@ -29,40 +29,44 @@
     color: @color-main-25;
     cursor: pointer;
     display: inline-block;
-    height: 40px;
-    line-height: 40px;
+    height: 4rem;
+    line-height: 4rem;
     padding: 0;
     text-align: center;
     vertical-align: top;
-    width: 40px;
+    width: 4rem;
 
     &:hover {
         background: @color-main-10;
     }
 
+    // icons
+
     &::after {
-        .mixin-icon;
-        height: 40px;
-        line-height: 40px;
+        content: ' ';
+        display: inline-block;
+        height: 4rem;
+        left: 0;
+        top: 0;
+        width: 4rem;
     }
 
 }
 
 .pageBtns__btnPrev::after {
-    content: '\f008';
+    .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @color-main-25);
 }
 
 .pageBtns__btnNext::after {
-    content: '\f007';
+    .mixin-icon-bg(@id: 'icon-007-s', @fillColor: @color-main-25);
 }
 
 .pageBtns__indicator {
     color: @color-main-25;
     display: inline-block;
-    font: bold 15px/40px @font-sansserif;
-    height: 40px;
-    line-height: 40px;
-    margin: 0 20px;
+    font: bold 1.5rem/4rem @font-sansserif;
+    height: 4rem;
+    line-height: 4rem;
+    margin: 0 2rem;
     vertical-align: top;
-
 }

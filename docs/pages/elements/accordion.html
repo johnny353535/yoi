@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | Documentation</title>
-        <base href="/ui-core/">
+        <base href="/">
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
@@ -36,7 +36,7 @@
                 <h4>Introduction</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
                 <h4>Core</h4>
-                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="./pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/root.html">root</a></li></ul>
+                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
                 <h4>Theme</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
                 <h4>Utilities</h4>
@@ -65,11 +65,11 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/accordion.less">accordion.less</a></td>
+<td><a href="assets/less/elements/accordion.less">accordion.less</a></td>
 </tr>
 <tr>
 <td>JS-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/accordion.js">accordion.js</a></td>
+<td><a href="assets/js/modules/accordion.js">accordion.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -77,7 +77,7 @@
 </tr>
 <tr>
 <td>Modifiers</td>
-<td><code>.accordion--dark</code></td>
+<td><code>-</code></td>
 </tr>
 </tbody>
 </table>
@@ -171,72 +171,6 @@ Accordion.closeAll(); // closes all accordion sections found in DOM
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <div class="accordion" data-accordion="linked:true;">
             <div class="accordion__section is--open">
-                <div class="accordion__header">
-                    <h3>Manganese</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
-                </div>
-            </div>
-            <div class="accordion__section">
-                <div class="accordion__header">
-                    <h3>Gold</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
-                </div>
-            </div>
-            <div class="accordion__section">
-                <div class="accordion__header">
-                    <h3>Calcium</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray Group 2 alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.[4] Free calcium metal is too reactive to occur in nature. Calcium is produced in supernova nucleosynthesis.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<h3 id="modifier">Modifier</h3>
-<p>There is one modifier available: <code>.accordion--dark</code>. It renders the accordion in dark colors:</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="accordion accordion--dark" data-accordion>
-            <div class="accordion__section">
-                <div class="accordion__header">
-                    <h3>Manganese</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in minerals in combination with iron. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.</p>
-                </div>
-            </div>
-            <div class="accordion__section">
-                <div class="accordion__header">
-                    <h3>Gold</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Gold is a chemical element with the symbol Au (from Latin: aurum) and the atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element. It is one of the least reactive chemical elements, and is solid under standard conditions. The metal therefore occurs often in free elemental (native) form, as nuggets or grains, in rocks, in veins and in alluvial deposits. It occurs in a solid solution series with the native element silver (as electrum) and also naturally alloyed with copper and palladium. Less commonly, it occurs in minerals as gold compounds, often with tellurium (gold tellurides).</p>
-                </div>
-            </div>
-            <div class="accordion__section">
-                <div class="accordion__header">
-                    <h3>Calcium</h3>
-                </div>
-                <div class="accordion__body">
-                    <p>Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray Group 2 alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.[4] Free calcium metal is too reactive to occur in nature. Calcium is produced in supernova nucleosynthesis.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div id="foo" class="accordion accordion--dark">
-            <div class="accordion__section">
                 <div class="accordion__header">
                     <h3>Manganese</h3>
                 </div>

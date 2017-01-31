@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | Documentation</title>
-        <base href="/ui-core/">
+        <base href="/">
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
@@ -36,7 +36,7 @@
                 <h4>Introduction</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
                 <h4>Core</h4>
-                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="./pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/root.html">root</a></li></ul>
+                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
                 <h4>Theme</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
                 <h4>Utilities</h4>
@@ -65,11 +65,11 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/stepper.less">stepper.less</a></td>
+<td><a href="assets/less/elements/stepper.less">stepper.less</a></td>
 </tr>
 <tr>
 <td>JS-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/stepper.js">stepper.js</a></td>
+<td><a href="assets/js/modules/stepper.js">stepper.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -113,10 +113,17 @@
 
 <div class="documentation__blocks" data-docblock="addControls:true;">
     <div class="documentation__block">
+        <div class="documentation__block">
+            <div class="documentation__example" data-printcode="language:markup;">
+                <div class="stepper" data-stepper>
+                    <input class="stepper__input" type="text" maxlength="3" value="1" />
+                </div>
+            </div>
+        </div>
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -133,7 +140,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -149,7 +156,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--light" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -166,7 +173,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--light" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -182,7 +189,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--touch" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -199,7 +206,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--touch" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -215,7 +222,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--touch stepper--light" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
             </div>
         </div>
@@ -232,7 +239,7 @@
         <div class="documentation__example" data-printcode="language:markup;">
             <div class="stepper stepper--touch stepper--light" data-stepper>
                 <input class="stepper__input" type="text" maxlength="3" value="1" />
-                <i aria-hidden="true" class="icon--026"></i>
+                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><g fill="#6754a1"><circle fill="#6754a1" cx="831.898" cy="1599.733" r="127.898"/><circle fill="#6754a1" cx="1472.102" cy="1599.733" r="127.898"/><path fill="#6754a1" d="M1667.811 511.833v.001h-.061l-27.986 128.333-950.831-.333-48.933-256-.006.001H190.909v128h343.092l169.999 896h899.75l192-896-127.939-.002zm-167.989 768.002H811.655l-98.256-512 898.638-.793-.256 1.169-111.959 511.624z"/><path fill="#6754a1" d="M832 831.835l64 384h128l-64-384zM1472 831.835l-64 384h-128l64-384zM1088 831.835h128v384h-128z"/></g></svg></span>
                 <input class="stepper__submit" type="submit" value="In den Warenkorb" />
             </div>
         </div>

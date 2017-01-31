@@ -14,33 +14,24 @@ exports.nunjucksGenerateMenu = function() {
     this.tags = ['menu'];
 
     this.parse = function(parser, nodes, lexer) {
-
+        
         var tok  = parser.nextToken();
         var args = parser.parseSignature(null, true);
-
+        
         parser.advanceAfterBlockEnd(tok.value);
-
+        
         return new nodes.CallExtensionAsync(this, 'run', args);
-
+        
     };
 
     this.run = function(context, args) {
 
-        var args = args.split(' + ');
-
-        if (args.length > 1) {
-            var pagePath  = args[0];
-            var globPath  = args[1];
-            var modifiers = ' ' + args[2]
-        } else {
-            var pagePath  = '';
-            var globPath  = args[0];
-            var modifiers = '';
-        }
-
-        var callback = arguments[arguments.length - 1];
-        var menuList = '<ul class="linkList' + modifiers + '">';
-        var menuGlob = new glob('**/*.html', { cwd: globPath });
+        var pagePath  = args.path;
+        var globSrc   = args.src;
+        var modifiers = args.modifiers;
+        var callback  = arguments[arguments.length - 1];
+        var menuList  = '<ul class="linkList ' + modifiers + '">';
+        var menuGlob  = new glob('**/*.html', { cwd: globSrc });
 
         menuGlob
             .on('match', function(match) {
@@ -56,25 +47,29 @@ exports.nunjucksGenerateMenu = function() {
 
 };
 
-exports.nunjucksIncludeRemoteContent = function() {
+exports.nunjucksIncludeRemote = function() {
     
     /**
-     *  Custom nunjucks extention, loads content from a remote location
+     *  Custom nunjucks extention, loads markup from a remote location
      *  and injects it into the template.
      *
      *  Learn more about extending nunjucks:
      *  https://mozilla.github.io/nunjucks/api.html#custom-tags
+     *
+     *  This function depends on the module "request". Learn more
+     *  about request:
+     *  https://github.com/request/request
      */
     
     this.tags = ['includeRemote'];
 
     this.parse = function(parser, nodes, lexer) {
-
+        
         var tok  = parser.nextToken();
         var args = parser.parseSignature(null, true);
         
         parser.advanceAfterBlockEnd(tok.value);
-
+        
         return new nodes.CallExtensionAsync(this, 'run', args);
         
     };
@@ -90,10 +85,71 @@ exports.nunjucksIncludeRemoteContent = function() {
                 callback('', body);
             } else {
                 console.log('ERROR: Could not include from ' + url + '.');
+                callback('', body);
             }
             
         });
         
+    };
+
+};
+
+exports.nunjucksIcon = function() {
+    
+    /**
+     *  Custom nunjucks extention, loads dynamically generated SVG icons
+     *  from a remote location and injects it into the template.
+     *
+     *  Learn more about extending nunjucks:
+     *  https://mozilla.github.io/nunjucks/api.html#custom-tags
+     *
+     *  This function depends on the module "request". Learn more
+     *  about request:
+     *  https://github.com/request/request
+     */
+    
+    this.tags = ['icon'];
+
+    this.parse = function(parser, nodes, lexer) {
+        
+        var tok  = parser.nextToken();
+        var args = parser.parseSignature(null, true);
+        
+        parser.advanceAfterBlockEnd(tok.value);
+        
+        return new nodes.CallExtensionAsync(this, 'run', args);
+        
+    };
+
+    this.run = function(context, attributes) {
+        
+        var request  = require('request');
+        var callback = arguments[arguments.length - 1];
+        
+        var url         = 'http://localhost/svg.php?id=icon-';
+        var id          = attributes.id !== undefined ? attributes.id : '';
+        var width       = attributes.width !== undefined ? '&w=' + attributes.width : '';
+        var height      = attributes.height !== undefined ? '&h=' + attributes.height : '';
+        var fillColor   = attributes.fillColor !== undefined ? '&f=' + attributes.fillColor : '';
+        var strokeColor = attributes.strokeColor !== undefined ? '&s=' + attributes.strokeColor : '';
+        
+        url += id;
+        url += width;
+        url += height;
+        url += fillColor;
+        url += strokeColor;
+
+        request(url, function(error, response, body) {
+
+            if (!error && response.statusCode == 200) {
+                callback('', body);
+            } else {
+                console.log('ERROR: Could not include from ' + url + '.');
+                callback('', body);
+            }
+
+        });
+    
     };
 
 };

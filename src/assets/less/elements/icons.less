@@ -1,119 +1,104 @@
 /** icons.less */
 
-/*
- *   Notes
- *   =====
- *
- *   We wish to replace our current icon font with SVG icons.
- *   Therefore, we need to re-draw the icons we need in order to unify
- *   their style. We are planning to have three versions of each
- *   icon: small (16px), medium (32-64px) and large (above 64px).
- *   These versions will vary in detail, with smaller icons being
- *   simple and larger icons bein more complex. Pretty much like:
- *
- *   http://svgpocketguide.com/book/
- *
- *   We wish to work with Stefan Dziallas of iconwerk.com
- */
-
 // block
 // =====
 
-@font-face {
-
-    // unicode-range: E000-E085,F000-F085
-
-    font-family: 'Yoshino-Icons';
-    src: ~"url(../fonts/icons/yoshino-icons.eot)";
-    src: ~"url(../fonts/icons/yoshino-icons.eot?#iefix)" format('embedded-opentype'),
-         ~"url(../fonts/icons/yoshino-icons.woff)" format('woff'),
-         ~"url(../fonts/icons/yoshino-icons.ttf)" format('truetype'),
-         ~"url(../fonts/icons/yoshino-icons.svg#webfont)" format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-// icon mixin
-
-.mixin-icon {
-
-    // the container element
-
-    -moz-osx-font-smoothing: grayscale !important;
-    -o-transform: scale(1) !important;
-    -webkit-font-smoothing: antialiased !important;
+.icon {
+    
     display: inline-block;
-    font-family: 'Yoshino-Icons' !important;
-    font-size: 32px;
-    font-style: normal !important;
-    font-weight: normal !important;
-    line-height: 32px;
-    overflow: hidden;
-    text-rendering: optimizeLegibility !important;
-    vertical-align: middle;
-    text-align: center;
-
-    // the icon itself
-
-    &::before {
-        height: inherit;
-        line-height: inherit;
-        overflow: hidden;
-        position: relative;
-        width: inherit;
+    width: 3.2rem;
+    height: 3.2rem;
+    
+    svg {
+        width: 3.2rem;
+        height: 3.2rem;
     }
-
-}
-
-.icon,
-[class^="icon--"] {
-    .mixin-icon;
+    
+    circle, ellipse, path, polygon {
+        fill: @textColor;
+    }
+    
 }
 
 // modifiers
 // =========
 
-.icon--x2 {
-    font-size: 64px;
-    height: 64px;
-    line-height: 64px;
-    width: 64px;
-}
+// size
 
-.icon--x3 {
-    font-size: 96px;
-    height: 96px;
-    line-height: 96px;
-    width: 96px;
-}
-
-.icon--x4 {
-    font-size: 128px;
-    height: 128px;
-    line-height: 128px;
-    width: 128px;
-}
-
-// generate all icons
-// ==================
-
-.generate_icons (@i) when (@i > -1) {
-
-    .generate_icons((@i - 1));
-    @paddedIndex: ~`(function(j) { return ('000' + j).slice(-3) })("@{i}")`;
-
-    // icons, 32px and bigger
-
-    .icon--@{paddedIndex}::before {
-        content: '\e@{paddedIndex}';
+.icon--xsmall {
+    
+    width: 1.6rem;
+    height: 1.6rem;
+    
+    svg {
+        width: 1.6rem;
+        height: 1.6rem;
     }
-
-    // icons, only 16px
-
-    .icon--@{paddedIndex}-s::before {
-        content: '\f@{paddedIndex}';
-    }
-
+    
 }
-.generate_icons(85);
+
+.icon--small {
+    
+    width: 2.4rem;
+    height: 2.4rem;
+    
+    svg {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+    
+}
+
+.icon--large {
+    
+    width: 4.8rem;
+    height: 4.8rem;
+    
+    svg {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+    
+}
+
+.icon--xlarge {
+    
+    width: 6.4rem;
+    height: 6.4rem;
+    
+    svg {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
+    
+}
+
+// color
+
+.icon--attention {
+    circle, ellipse, path, polygon {
+        fill: @color-attention-8;
+    }
+}
+
+.icon--success,
+.icon--positive {
+    circle, ellipse, path, polygon {
+        fill: @color-positive-8;
+    }
+}
+
+.icon--error,
+.icon--negative {
+    circle, ellipse, path, polygon {
+        fill: @color-negative-8;
+    }
+}
+
+// mixin: SVG icons as background image
+
+.mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '#000'; @strokeColor: '#000') {
+    @escapedFillColor   : escape(@fillColor);
+    @escapedStrokeColor : escape(@strokeColor);
+    background: transparent url(~'@{dynamicSvgDomain}?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{width}&h=@{height}') center center no-repeat;
+}

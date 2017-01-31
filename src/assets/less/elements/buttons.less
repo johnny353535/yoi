@@ -1,14 +1,13 @@
 /** buttons.less */
 
-// button types
-// ============
+// standard button
+// ===============
 
 .btn {
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
     .mixin-userSelectNone;
-    -webkit-font-smoothing: antialiased;
     background-clip: padding-box;
     background: linear-gradient(to bottom, @color-main-24, @color-main-23);
     border: @color-main-21 1px solid;
@@ -28,6 +27,37 @@
     text-shadow: 0 1px 0 @color-main-25;
     vertical-align: middle;
     white-space: nowrap;
+    
+    // submit element inside button
+    
+    input[type="submit"] {
+        text-shadow: 0 1px 0 @color-main-25;
+        border: 0;
+        bottom: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: bold;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+    }
+    
+    // icon
+    
+    .icon {
+        
+        filter: drop-shadow(0 1px 0 @color-main-25);
+        
+        circle, ellipse, path, polygon {
+            fill: @color-main-8;
+        }
+        
+    }
 
     // <a> as button
 
@@ -85,7 +115,7 @@
         opacity: .3;
     }
 
-    // modifiers
+    // size modifiers
 
     &.btn--small {
         font-size: 1.2rem;
@@ -106,6 +136,8 @@
         line-height: 3.8rem;
         padding: 0 1.9rem;
     }
+    
+    // style modifiers
 
     &.btn--subtle {
 
@@ -114,6 +146,10 @@
         border-color: @color-transparent;
         box-shadow: none;
         text-shadow: none;
+        
+        .icon {
+            filter: none;
+        }
 
         &:hover,
         &:focus,
@@ -135,6 +171,16 @@
         box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
         color: @color-main-10;
         text-shadow: 0 1px 0 #fff;
+        
+        .icon {
+        
+            filter: drop-shadow(0 1px 0 #fff);
+        
+            circle, ellipse, path, polygon {
+                fill: @color-main-10;
+            }
+        
+        }
 
         input[type="submit"] {
             text-shadow: 0 1px 0 #fff;
@@ -170,6 +216,16 @@
         box-shadow: 0 1px 0 @color-main-13 inset;
         color: @color-main-25;
         text-shadow: 0 -1px 0 @color-main-7;
+        
+        .icon {
+        
+            filter: drop-shadow(0 -1px 0 @color-main-7);
+        
+            circle, ellipse, path, polygon {
+                fill: @color-main-25;
+            }
+        
+        }
 
         input[type="submit"] {
             text-shadow: 0 -1px 0 @color-main-7;
@@ -206,6 +262,16 @@
         box-shadow: 0 1px 0 @color-attention-22 inset;
         color: @color-attention-8;
         text-shadow: 0 1px 0 @color-attention-22;
+        
+        .icon {
+        
+            filter: drop-shadow(0 1px 0 @color-attention-22);
+        
+            circle, ellipse, path, polygon {
+                fill: @color-attention-8;
+            }
+        
+        }
 
         input[type="submit"] {
             text-shadow: 0 1px 0 @color-attention-22;
@@ -242,6 +308,16 @@
         box-shadow: 0 1px 0 @color-negative-22 inset;
         color: @color-negative-6;
         text-shadow: 0 1px 0 @color-negative-22;
+        
+        .icon {
+        
+            filter: drop-shadow(0 1px 0 @color-negative-22);
+        
+            circle, ellipse, path, polygon {
+                fill: @color-negative-6;
+            }
+        
+        }
 
         input[type="submit"] {
             text-shadow: 0 1px 0 @color-negative-22;
@@ -280,6 +356,16 @@
         box-shadow: 0 1px 0 @color-positive-22 inset;
         color: @color-positive-8;
         text-shadow: 0 1px 0 @color-positive-23;
+        
+        .icon {
+        
+            filter: drop-shadow(0 1px 0 @color-positive-23);
+        
+            circle, ellipse, path, polygon {
+                fill: @color-positive-8;
+            }
+        
+        }
 
         a&,
         a:link&,
@@ -311,12 +397,19 @@
 
 }
 
+// flat button
+// ===========
+
 .btn.btn--flat {
 
     background: @color-main-22;
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
+    
+    .icon {
+        filter: none;
+    }
 
     // interactive states
 
@@ -337,13 +430,19 @@
         text-shadow: none;
     }
 
-    // modifiers
+    // style modifiers
 
     &.btn--light {
 
         background: @color-main-24;
         color: @color-main-10;
         text-shadow: none;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-main-10;
+            }
+        }
 
         a&,
         a:link&,
@@ -369,6 +468,12 @@
         background: @color-main-10;
         color: @color-main-25;
         text-shadow: none;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-main-25;
+            }
+        }
 
         a&,
         a:link&,
@@ -394,6 +499,12 @@
         background: @color-attention-20;
         color: @color-attention-8;
         text-shadow: none;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-attention-8;
+            }
+        }
 
         a&,
         a:link&,
@@ -420,6 +531,12 @@
         background: @color-negative-17;
         color: @color-negative-5;
         text-shadow: none;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-negative-5;
+            }
+        }
 
         a&,
         a:link&,
@@ -446,6 +563,12 @@
         background: @color-positive-18;
         color: @color-positive-5;
         text-shadow: none;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-positive-5;
+            }
+        }
 
         a&,
         a:link&,
@@ -468,6 +591,9 @@
 
 }
 
+// outline button
+// ==============
+
 .btn.btn--outline {
 
     background: transparent;
@@ -477,6 +603,20 @@
     line-height: 2.1rem;
     padding: 0 0.9rem;
     text-shadow: none;
+    
+    // icon
+
+    .icon {
+        
+        filter: none;
+        
+        circle, ellipse, path, polygon {
+            fill: @color-main-20;
+        }
+        
+    }
+
+    // <a> as button
 
     a&,
     a:link&,
@@ -494,7 +634,7 @@
         text-shadow: none;
     }
 
-    // modifiers
+    // size modifiers
 
     &.btn--small {
         line-height: 1.7rem;
@@ -509,12 +649,20 @@
         line-height: 3.6rem;
         padding: 0 1.8rem;
     }
+    
+    // style modifiers
 
     &.btn--light {
 
         background: transparent;
         border-color: #fff;
         color: #fff;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: #fff;
+            }
+        }
 
         a&,
         a:link&,
@@ -536,6 +684,12 @@
         border-color: @color-main-9;
         color: @color-main-9;
 
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-main-9;
+            }
+        }
+
         a&,
         a:link&,
         a:visited& {
@@ -555,6 +709,12 @@
         background: transparent;
         border-color: @color-attention-15;
         color: @color-attention-15;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-attention-15;
+            }
+        }
 
         a&,
         a:link&,
@@ -576,6 +736,12 @@
         background: transparent;
         border-color: @color-negative-18;
         color: @color-negative-18;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-negative-18;
+            }
+        }
 
         a&,
         a:link&,
@@ -597,6 +763,12 @@
         background: transparent;
         border-color: @color-positive-15;
         color: @color-positive-15;
+        
+        .icon {
+            circle, ellipse, path, polygon {
+                fill: @color-positive-15;
+            }
+        }
 
         a&,
         a:link&,
@@ -614,146 +786,84 @@
 
 }
 
-// elements inside buttons
-// =======================
+// icons inside buttons
+// ====================
 
 .btn {
 
-    [class^="icon--"] {
-        line-height: 2.4rem;
+    // all icons
+
+    .icon {
+        
+        height: 100%;
+        overflow: hidden;
+        position: relative;
         vertical-align: top;
-    }
-
-    &.btn--small [class^="icon--"] {
-        font-size: 2.4rem;
-        height: 1.8rem;
-        line-height: 1.8rem;
-    }
-
-    &.btn--medium [class^="icon--"] {
-        font-size: 3.2rem;
-        line-height: 2.8rem;
-    }
-
-    &.btn--large [class^="icon--"] {
-        height: 3.8rem;
-        line-height: 3.8rem;
-    }
-
-    // large icons inside large buttons
-
-    &.btn--large [class^="icon--"] {
-        width: 5rem;
-    }
-
-    // small icons inside large buttons
-
-    &.btn--large [class^="icon--"][class*="-s"] {
-        width: 3.2rem;
+        
+        svg {
+            left: 50%;
+            position: relative;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
     }
 
     // icon right, label left
 
-    [class^="icon--"]:last-child {
+    .icon:last-child {
         margin-right: -1rem;
     }
 
-    &.btn--small [class^="icon--"]:last-child {
-        margin-right: -0.5rem;
+    &.btn--small .icon:last-child {
+        margin-right: -0.4rem;
     }
 
-    &.btn--large [class^="icon--"]:last-child {
-        margin-right: -2rem;
+    &.btn--large .icon:last-child {
+        margin-right: -1.5rem;
     }
 
     // icon left, label right
 
-    [class^="icon--"]:first-child {
+    .icon:first-child {
         margin-left: -1rem;
     }
 
-    &.btn--small [class^="icon--"]:first-child {
-        margin-left: -0.5rem;
+    &.btn--small .icon:first-child {
+        margin-left: -0.75rem;
     }
 
-    &.btn--large [class^="icon--"]:first-child {
-        margin-left: -2rem;
+    &.btn--large .icon:first-child {
+        margin-left: -1.5rem;
     }
 
     // only icons, hidden or no label
 
-    .hidden + [class^="icon"],
-    [class^="icon--"]:only-child {
-        margin-left: -1.5rem;
-        width: 2.8rem;
+    .hidden + .icon,
+    .icon:only-child {
+        margin-left: -1rem;
+        width: 2.3rem;
     }
 
-    &.btn--small .hidden + [class^="icon--"],
-    &.btn--small [class^="icon--"]:only-child {
-        margin-left: -0.8rem;
-        width: 2.1rem;
+    &.btn--small .hidden + .icon,
+    &.btn--small .icon:only-child {
+        margin-left: -.4rem;
+        width: 1.6rem;
     }
 
-    &.btn--medium .hidden + [class^="icon--"],
-    &.btn--medium [class^="icon--"]:only-child {
+    &.btn--medium .hidden + .icon,
+    &.btn--medium .icon:only-child {
         margin-left: -1.2rem;
         width: 3rem;
     }
 
-    &.btn--large .hidden + [class^="icon--"],
-    &.btn--large [class^="icon--"]:only-child {
+    &.btn--large .hidden + .icon,
+    &.btn--large .icon:only-child {
+        margin-right: -2rem;
         margin-left: -2rem;
         width: 4rem;
     }
 
-    // outline buttons
-
-    &.btn--outline {
-
-        [class^="icon--"] {
-            height: 2.1rem;
-            line-height: 2.2rem;
-        }
-
-        &.btn--small [class^="icon--"] {
-            height: 1.6rem;
-            line-height: 1.6rem;
-        }
-
-        &.btn--medium [class^="icon--"] {
-            height: 2.6rem;
-            line-height: 2.6rem;
-        }
-
-        &.btn--large [class^="icon--"] {
-            line-height: 3.6rem;
-            height: 4rem;
-        }
-
-    }
-
-}
-
-.btn .badge {
-    position: static;
-    display: inline-block;
-}
-
-.btn input[type="submit"] {
-    text-shadow: 0 0.1rem 0 @color-main-25;
-    border: 0;
-    bottom: 0;
-    color: inherit;
-    font-family: inherit;
-    font-weight: bold;
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 2;
 }
 
 // modifiers
@@ -875,41 +985,41 @@
     // standard, rounded
 
     .btn.btn--rounded:first-child {
-        border-radius: 12px 12px 0 0;
+        border-radius: 1.2rem 1.2rem 0 0;
     }
 
     .btn.btn--rounded:last-child {
-        border-radius: 0 0 12px 12px;
+        border-radius: 0 0 1.2rem 1.2rem;
     }
 
     // small, rounded
 
     .btn.btn--small.btn--rounded:first-child {
-        border-radius: 10px 10px 0 0;
+        border-radius: 1rem 1rem 0 0;
     }
 
     .btn.btn--small.btn--rounded:last-child {
-        border-radius: 0 0 10px 10px;
+        border-radius: 0 0 1rem 1rem;
     }
 
     // medium, rounded
 
     .btn.btn--medium.btn--rounded:first-child {
-        border-radius: 15px 15px 0 0;
+        border-radius: 1.5rem 1.5rem 0 0;
     }
 
     .btn.btn--medium.btn--rounded:last-child {
-        border-radius: 0 0 15px 15px;
+        border-radius: 0 0 1.5rem 1.5rem;
     }
 
     // large, rounded
 
     .btn.btn--large.btn--rounded:first-child {
-        border-radius: 20px 20px 0 0;
+        border-radius: 2rem 2rem 0 0;
     }
 
     .btn.btn--large.btn--rounded:last-child {
-        border-radius: 0 0 20px 20px;
+        border-radius: 0 0 2rem 2rem;
     }
 
 }

@@ -30,57 +30,38 @@
         opacity: 1;
     }
 
-    // icons inside notes
-
-    &[class*="note--icon"] {
-
-        min-height: 2rem;
-        padding-left: 5.5rem;
-
-        &.note--fullwidth .center::before,
-        &:not(.note--fullwidth)::before {
-            .mixin-icon;
-            position: absolute;
-        }
-
-        &.note--fullwidth .center::before {
-            top: -.7rem;
-            left: 1rem;
-        }
-
-        &:not(.note--fullwidth)::before {
-            top: .5rem;
-            left: 1rem;
-        }
-
-    }
-
-    .generate_noteicons (@i) when (@i > -1) {
-
-        .generate_noteicons((@i - 1));
-        @paddedIndex: ~`(function(j) { return ('000' + j).slice(-3) })("@{i}")`;
-
-        &.note--icon@{paddedIndex}.note--fullwidth .center::before,
-        &.note--icon@{paddedIndex}:not(.note--fullwidth)::before {
-            content: '\e@{paddedIndex}';
-        }
-
-    }
-    .generate_noteicons(85);
-
 }
 
 // elements
 // ========
 
-// note headline
+// dismiss/close button
+
+
+
+// icon
+
+.note__icon {
+    
+    left: 1rem;
+    position: absolute;
+    top: .75rem;
+    
+    & ~ .note__headline,
+    & ~ .note__body {
+        padding-left: 4.5rem;
+    }
+    
+}
+
+// headline
 
 .note__headline {
     @h4();
     margin: 0 0 5px 0;
 }
 
-// note body
+// body
 
 .note__body {
 
@@ -132,6 +113,12 @@
     background: @backgroundColor;
     border-color: @borderColor;
     color: @txtColor;
+    
+    .note__icon {
+        circle, ellipse, path, polygon {
+            fill: @txtColor;
+        }
+    }
 
     .note__headline {
         color: @txtColor;
@@ -143,7 +130,7 @@
 
 }
 
-// different color schemes
+// color schemes
 
 .note--attention {
     .noteColorTheme(
@@ -237,13 +224,6 @@
         padding-left: 5.5rem;
     }
 
-}
-
-// no borders
-
-.note--stripped {
-    border-radius: 0;
-    border: 0;
 }
 
 // dismissable notes (see notifications.js)

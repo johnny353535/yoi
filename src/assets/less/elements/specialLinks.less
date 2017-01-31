@@ -2,27 +2,26 @@
 
 a[class*="link--"]::before,
 a[class*="link--"]::after {
-    .mixin-icon;
-    font-size: 24px;
-    line-height: inherit;
-    position: relative;
-    top: -1px;
+    content: ' ';
+    display: inline-block;
+    height: 2.5rem;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
 }
 
 // reference link
 
 .link--ref::after {
-    content: '\f070';
+    .mixin-icon-bg(@id: 'icon-070-s', @width: 24, @height: 24, @fillColor: @color-main-8);
 }
 
-// link to document (PDF)
+// link to document file (eg. a PDF)
 
 .link--doc::before {
-    content: '\f013';
+    .mixin-icon-bg(@id: 'icon-013-s', @width: 24, @height: 24, @fillColor: @color-main-8);
 }
 
 // external link
 
-.link--ext::before {
-    content: '\f070';
-}
+.link--ext::before {}

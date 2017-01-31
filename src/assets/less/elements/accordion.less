@@ -37,21 +37,18 @@
     min-height: 2rem;
     padding: .5rem 3rem .5rem 1rem;
     position: relative;
-
-    &::after {
-        color: @color-main-22;
-        font-size: 1.5rem;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
+    
     &:hover {
         background: @color-main-25;
     }
-
-    &:hover::after {
-        color: @color-main-10;
+    
+    // icon
+    
+    &::after {
+        color: @color-main-22;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
 }
@@ -59,15 +56,20 @@
 // icons (only if JS is enabled)
 
 .js {
-
-    .is--open .accordion__header:after {
-        .mixin-icon;
-        content: '\f003';
+    
+    .is--open .accordion__header::after,
+    .is--closed .accordion__header::after {
+        content: ' ';
+        height: 3.2rem;
+        width: 3.2rem;
     }
 
-    .is--closed .accordion__header:after {
-        .mixin-icon;
-        content: '\f002';
+    .is--open .accordion__header::after {
+        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-22);
+    }
+
+    .is--closed .accordion__header::after {
+        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-22);
     }
 
 }
@@ -78,33 +80,4 @@
     margin: 0;
     overflow: hidden;
     padding: 1rem;
-}
-
-// modifiers
-// =========
-
-.accordion--dark {
-
-    border-color: @color-main-5;
-
-    .accordion__header {
-
-        background: @color-main-10;
-        border-color: @color-main-7;
-        color: #fff;
-
-        &::after {
-            color: @color-main-15;
-        }
-
-        &:hover::after {
-            color: @color-main-22;
-        }
-
-    }
-
-    .accordion__body {
-        border-color: @color-main-7;
-    }
-
 }

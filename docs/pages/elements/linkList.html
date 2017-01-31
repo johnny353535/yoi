@@ -18,7 +18,7 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | Documentation</title>
-        <base href="/ui-core/">
+        <base href="/">
         <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
@@ -36,7 +36,7 @@
                 <h4>Introduction</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/introduction/_how_to_use_this_documentation.html"> how to use this documentation</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/colophon.html">colophon</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/project_structure.html">project structure</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_css.html">styleguide css</a></li><li class="linkList__item"><a class="linkList__link" href="pages/introduction/styleguide_js.html">styleguide js</a></li></ul>
                 <h4>Core</h4>
-                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="./pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="./pages/core/root.html">root</a></li></ul>
+                <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/core/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/debug.html">debug</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/mixins.html">mixins</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/reset.html">reset</a></li><li class="linkList__item"><a class="linkList__link" href="pages/core/root.html">root</a></li></ul>
                 <h4>Theme</h4>
                 <ul class="linkList b-0 br-0"><li class="linkList__item"><a class="linkList__link" href="pages/theme/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/breakpoints.html">breakpoints</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/colors.html">colors</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/dimensions.html">dimensions</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/options.html">options</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/styling.html">styling</a></li><li class="linkList__item"><a class="linkList__link" href="pages/theme/typography.html">typography</a></li></ul>
                 <h4>Utilities</h4>
@@ -65,7 +65,7 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/linkList.less">linkList.less</a></td>
+<td><a href="assets/less/elements/linkList.less">linkList.less</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td>Modifiers</td>
-<td><code>.linkList__item--active, .linkList--large, .linkList--dark, .linkList--stripped, .linkList--transparent, .linkList--arrowsLeft, .linkList--arrowsRightUp, .linkList--arrowsRightDown</code></td>
+<td><code>.is--active, .linkList--large, .linkList--dark, .linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--arrowsLeftDown, .linkList--arrowsRight, .linkList--arrowsRightUp, .linkList--arrowsRightDown</code></td>
 </tr>
 </tbody>
 </table>
@@ -102,63 +102,40 @@
 
 <h3 id="modifiers">Modifiers</h3>
 <p>Use the available modifiers to change some link list styles.</p>
-<h4 id="-linklist-active">.linkList–active</h4>
+<h4 id="-linklist-dark">.linkList–dark</h4>
+<p>Add this modifier to render a dark link list.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <ul class="linkList linkList--dark">
+            <li class="linkList__item">
+                <a class="linkList__link" href="#">Oxygen</a>
+            </li>
+            <li class="linkList__item">
+                <a class="linkList__link" href="#">Potassium</a>
+            </li>
+            <li class="linkList__item">
+                <a class="linkList__link" href="#">Krypton</a>
+            </li>
+            <li class="linkList__item">
+                <a class="linkList__link" href="#">Molybdenum</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h4 id="-is-active">.is–active</h4>
 <p>Add this modifier to a <code>&lt;li class=&quot;linkList__item&quot;&gt;</code> element inside the link list to mark it as <em>selected</em>.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <ul class="linkList">
-            <li class="linkList__item linkList__item--active">
+            <li class="linkList__item">
                 <a class="linkList__link" href="#">Oxygen</a>
             </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Potassium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Krypton</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Molybdenum</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<h4 id="-linklist-stripped">.linkList–stripped</h4>
-<p>If you wish to remove the outer borders and border-radi, use the modifier <code>.linkList--stripped</code>.</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <ul class="linkList linkList--stripped">
-            <li class="linkList__item linkList__item--active">
-                <a class="linkList__link" href="#">Oxygen</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Potassium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Krypton</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Molybdenum</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<h4 id="-linklist-transparent">.linkList–transparent</h4>
-<p>If you wish to remove the link list background color,use the modifier <code>.linkList--transparent</code>.</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <ul class="linkList linkList--transparent">
-            <li class="linkList__item linkList__item--active">
-                <a class="linkList__link" href="#">Oxygen</a>
-            </li>
-            <li class="linkList__item">
+            <li class="linkList__item is--active">
                 <a class="linkList__link" href="#">Potassium</a>
             </li>
             <li class="linkList__item">
@@ -172,16 +149,16 @@
 </div>
 
 <h4 id="combining-modifiers">Combining Modifiers</h4>
-<p>Most link list modifiers can be combined. For example it’s possible to produce a large transparent link list without outer borders and arrows pointing to the right. That’s <code>linkList--large + linkList--transparent + linkList--stripped + linkList--arrowsRight</code>:</p>
+<p>Most link list modifiers can be combined. For example it’s possible to produce a large dark link list with arrows pointing to the right. That’s <code>linkList--dark + linkList--large + linkList--arrowsRight</code>:</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <ul class="linkList linkList--large linkList--transparent linkList--stripped linkList--arrowsRight">
-            <li class="linkList__item linkList__item--active">
+        <ul class="linkList linkList--dark linkList--large linkList--arrowsRight">
+            <li class="linkList__item">
                 <a class="linkList__link" href="#">Oxygen</a>
             </li>
-            <li class="linkList__item">
+            <li class="linkList__item is--active">
                 <a class="linkList__link" href="#">Potassium</a>
             </li>
             <li class="linkList__item">
@@ -290,6 +267,42 @@
     </div>
     <div class="documentation__block">
         <div class="documentation__example" data-printcode="language:markup;">
+            <ul class="linkList linkList--arrowsLeftDown">
+                <li class="linkList__item linkList__item--active">
+                    <a class="linkList__link" href="#">Oxygen</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Potassium</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Krypton</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Molybdenum</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <ul class="linkList linkList--arrowsLeftUp">
+                <li class="linkList__item linkList__item--active">
+                    <a class="linkList__link" href="#">Oxygen</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Potassium</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Krypton</a>
+                </li>
+                <li class="linkList__item">
+                    <a class="linkList__link" href="#">Molybdenum</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
             <ul class="linkList linkList--large">
                 <li class="linkList__item linkList__item--active">
                     <a class="linkList__link" href="#">Oxygen</a>
@@ -363,186 +376,6 @@
     <div class="documentation__block">
         <div class="documentation__example" data-printcode="language:markup;">
             <ul class="linkList linkList--large linkList--arrowsLeft">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--arrowsRight linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--arrowsRightDown linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--arrowsRightUp linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--arrowsLeft linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--large linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--large linkList--arrowsRight linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--large linkList--arrowsRightDown linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--large linkList--arrowsRightUp linkList--dark">
-                <li class="linkList__item linkList__item--active">
-                    <a class="linkList__link" href="#">Oxygen</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Potassium</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Krypton</a>
-                </li>
-                <li class="linkList__item">
-                    <a class="linkList__link" href="#">Molybdenum</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <ul class="linkList linkList--large linkList--arrowsLeft linkList--dark">
                 <li class="linkList__item linkList__item--active">
                     <a class="linkList__link" href="#">Oxygen</a>
                 </li>

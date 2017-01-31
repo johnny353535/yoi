@@ -60,19 +60,21 @@ Use the modifier `.note--large` to increase the font size.
 
 {% markdown %}
 ### Icons
-Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the `.note--iconXXX` modifier to insert any icon from [the Yoshino icon set](/pages/elements/icons.html).
+<!-- Notes can have icons that serve as visual anchors. This is useful if you wish to display critical alerts or such, where an icon amplifies the message. Use the `.note--iconXXX` modifier to insert any icon from [the Yoshino icon set](/pages/elements/icons.html). -->
 {% endmarkdown %}
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--large note--icon026">
+        <div class="note note--large">
+            <span class="note__icon">{% icon { id:'085' } %}</span>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
             </div>
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--error note--large note--icon027">
+        <div class="note note--error note--large">
+            <span class="note__icon">{% icon { id:'027' } %}</span>
             <h3 class="note__headline">Headline</h3>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -80,7 +82,8 @@ Notes can have icons that serve as visual anchors. This is useful if you wish to
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--success note--large note--icon011">
+        <div class="note note--success note--large">
+            <span class="note__icon">{% icon { id:'011' } %}</span>
             <h3 class="note__headline">Headline</h3>
             <div class="note__body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -145,13 +148,6 @@ Notes are available in **different color themes**. Weather you wish to display a
         </div>
     </div>
     <div class="documentation__example" data-printcode="language:markup;">
-        <div class="note note--prescription note--large">
-            <div class="note__body">
-                <p>.note--<strong>prescription</strong></p>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__example" data-printcode="language:markup;">
         <div class="note note--success note--large">
             <div class="note__body">
                 <p>.note--<strong>success</strong></p>
@@ -189,21 +185,6 @@ Notes are available in **different color themes**. Weather you wish to display a
                 <div class="note__body">
                     <p>The third data you supplied is <strong>valid</strong>.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% markdown %}
-### No Borders and Rounded Corners
-Like many elements, `.note` has a `--stripped` modifier class which **removes borders and border radi**.
-{% endmarkdown %}
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="note note--large note--dark note--stripped">
-            <div class="note__body">
-                <p>No borders, no rounded corners.</p>
             </div>
         </div>
     </div>

@@ -187,15 +187,13 @@
         }
 
         &.is--active::before {
-            .mixin-icon;
-            background: transparent;
+            .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-attention-13);
             border: 0;
-            content: '\f011';
-            height: 3rem;
+            content: ' ';
+            height: 3.2rem;
             left: 0;
-            line-height: 3rem;
-            top: 0;
-            width: 3rem;
+            top: -.1rem;
+            width: 3.3rem;
         }
 
         &.is--active:hover {
@@ -204,7 +202,7 @@
         }
 
         &.is--active:hover::before {
-            content: '\f006';
+            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-10);
         }
 
     }
@@ -223,7 +221,7 @@
         }
 
         &.is--active::before {
-            background: @color-main-5;
+            background: @color-attention-13;
             border: none;
         }
 
@@ -233,7 +231,7 @@
     
     .rating {
         position: relative;
-        top: -2px;
+        top: -.2rem;
     }
 
 }
@@ -245,22 +243,36 @@
 // if js is enabled
 
 .js & {
+    
+    // icons
 
     .filterGroup .filterGroup__header::after {
-        .mixin-icon;
-        content: '\f010';
+        content: ' ';
+        height: 3.2rem;
         position: absolute;
         right: 0;
         top: 0;
-        color: @color-main-22;
+        width: 3.2rem;
     }
+    
+    // chevron up icon
+    
+    .filterGroup .filterGroup__header::after {
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-22);
+    }
+    
+    .filterGroup .filterGroup__header:hover::after {
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-15);
+    }
+    
+    // chevron down icon
 
     .filterGroup.filterGroup--collapsed .filterGroup__header::after {
-        content: '\f009';
+        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-main-22);
     }
 
-    .filterGroup .filterGroup__header:hover::after {
-        color: @color-main-15;
+    .filterGroup.filterGroup--collapsed .filterGroup__header:hover::after {
+        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-main-15);
     }
 
 }

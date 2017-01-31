@@ -23,16 +23,19 @@
     display: inline-block;
     position: relative;
 
+    // calendar icon
+
     &::after {
-        .mixin-icon;
-        color: @color-main-12;
-        content: '\f017';
-        line-height: 2rem;
+        .mixin-icon-bg(@id: 'icon-017-s', @fillColor: @color-main-15);
+        content: ' ';
+        width: 3.2rem;
+        height: 3.2rem;
+        display: inline-block;
         vertical-align: middle;
     }
 
     &:hover::after {
-        color: @color-main-8;
+        .mixin-icon-bg(@id: 'icon-017-s', @fillColor: @color-main-8);
     }
 
 }
