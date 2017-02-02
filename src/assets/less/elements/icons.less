@@ -115,5 +115,5 @@
 .mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '#000'; @strokeColor: '#000') {
     @escapedFillColor   : escape(@fillColor);
     @escapedStrokeColor : escape(@strokeColor);
-    background: transparent url(~'@{dynamicSvgDomain}?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{width}&h=@{height}') center center no-repeat;
+    background: transparent url(~'http://@{cdnDomain}/?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{width}&h=@{height}') center center no-repeat;
 }

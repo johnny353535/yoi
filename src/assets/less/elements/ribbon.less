@@ -51,26 +51,28 @@
 }
 
 .ribbon--attention .ribbon__label {
-    background: @color-attention-22;
-    color: @color-attention-8;
+    .ribbonTheme(@color-attention-8, @color-attention-22);
 }
 
 .ribbon--dark .ribbon__label {
-    background: @color-main-10;
-    color: #fff;
+    .ribbonTheme(#fff, @color-main-10);
 }
 
 .ribbon--light .ribbon__label {
-    background: @color-main-24;
-    color: @color-main-10;
+    .ribbonTheme(@color-main-10, @color-main-24);
 }
 
 .ribbon--negative .ribbon__label {
-    background: @color-negative-15;
-    color: #fff;
+    .ribbonTheme(#fff, @color-negative-15);
 }
 
 .ribbon--positive .ribbon__label {
-    background: @color-positive-13;
-    color: #fff;
+    .ribbonTheme(#fff, @color-positive-13);
+}
+
+// "constructor" for different color themes
+
+.ribbonTheme(@txtColor, @backgroundColor) {
+    background: @backgroundColor;
+    color: @txtColor;
 }

@@ -45,65 +45,25 @@
 }
 
 .badge--dark {
-
-    background: @color-main-10;
-    color: @color-main-25;
-
-    a&:hover {
-        background: @color-main-9;
-        color: @color-main-24;
-    }
-
+    .badgeTheme(@color-main-25, @color-main-24, @color-main-10, @color-main-9);
 }
 
 .badge--light {
-
-    background: @color-main-25;
-    color: @color-main-10;
-
-    a&:hover {
-        background: @color-main-24;
-        color: @color-main-9;
-    }
-
+    .badgeTheme(@color-main-10, @color-main-9, @color-main-25, @color-main-24);
 }
 
 .badge--attention {
-
-    background: @color-attention-20;
-    color: @color-attention-5;
-
-    a&:hover {
-        background: @color-attention-19;
-        color: @color-attention-4;
-    }
-
+    .badgeTheme(@color-attention-5, @color-attention-4, @color-attention-20, @color-attention-19);
 }
 
 .badge--error,
 .badge--negative {
-
-    background: @color-negative-21;
-    color: @color-negative-8;
-
-    a&:hover {
-        background: @color-negative-20;
-        color: @color-negative-7;
-    }
-
+    .badgeTheme(@color-negative-8, @color-negative-7, @color-negative-21, @color-negative-20);
 }
 
 .badge--success,
 .badge--positive {
-
-    background: @color-positive-12;
-    color: @color-positive-25;
-
-    a&:hover {
-        background: @color-positive-11;
-        color: @color-positive-24;
-    }
-
+    .badgeTheme(@color-positive-25, @color-positive-24, @color-positive-12, @color-positive-11);
 }
 
 .badge--rounded {
@@ -120,4 +80,18 @@
 
 .badge--large.badge--rounded {
     border-radius: 1.5rem;
+}
+
+// "constructor" for different color themes
+
+.badgeTheme(@txtColor, @hoverTxtColor, @backgroundColor, @hoverBackgroundColor) {
+
+    background: @backgroundColor;
+    color: @txtColor;
+
+    a&:hover {
+        background: @hoverBackgroundColor;
+        color: @hoverTxtColor;
+    }
+
 }

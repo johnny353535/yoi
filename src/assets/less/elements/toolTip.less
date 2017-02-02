@@ -11,9 +11,9 @@
     border: @color-main-22 1px solid;
     color: @color-main-10;
     display: block;
-    max-width: 250px;
-    min-width: 150px;
-    padding: 10px;
+    max-width: 25rem;
+    min-width: 15rem;
+    padding: 1rem;
     position: relative;
     text-align: left;
     white-space: normal;
@@ -23,7 +23,7 @@
 
     h1, h2, h3, h4, h5, h6, p, ul, ol {
         color: @color-main-10;
-        font: normal 13px/20px @font-sansserif;
+        font: normal 1.3rem/2rem @font-sansserif;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -31,7 +31,7 @@
     }
 
     ul, ol {
-        padding-left: 20px;
+        padding-left: 2rem;
     }
 
     li {
@@ -48,54 +48,29 @@
 // =========
 
 .tooltip--attention {
-
-    background: @color-attention-22;
-    border-color: @color-attention-17;
-    color: @color-attention-10;
-
-    &::after {
-        background: @color-attention-22;
-        border-color: @color-attention-17;
-    }
-
-    h1, h2, h3, h4, h5, h6, p, ul, ol {
-        color: @color-attention-10;
-    }
-
+    .tooltipTheme(@color-attention-10, @color-attention-22, @color-attention-17)
 }
 
 .tooltip--error,
 .tooltip--negative {
-
-    background: @color-negative-10;
-    border-color: @color-negative-10;
-    color: #fff;
-
-    &::after {
-        background: @color-negative-10;
-        border-color: @color-negative-10;
-    }
-
-    h1, h2, h3, h4, h5, h6, p, ul, ol {
-        color: #fff;
-    }
-
+    .tooltipTheme(#fff, @color-negative-10, @color-negative-10)
 }
 
 .tooltip--success,
 .tooltip--positive {
+    .tooltipTheme(#fff, @color-positive-10, @color-positive-10)
+}
 
-    background: @color-positive-10;
-    border-color: @color-positive-10;
-    color: #fff;
+// "constructor" for different color themes
 
-    &::after {
-        background: @color-positive-10;
-        border-color: @color-positive-10;
-    }
+.tooltipTheme(@txtColor, @backgroundColor, @borderColor) {
+
+    background: @backgroundColor;
+    border-color: @borderColor;
+    color: @txtColor;
 
     h1, h2, h3, h4, h5, h6, p, ul, ol {
-        color: #fff;
+        color: @txtColor;
     }
 
 }

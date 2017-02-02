@@ -45,21 +45,24 @@
 // other color schemes
 
 .callout--dark {
-    background: @color-main-10;
-    color: #fff;
+    .calloutTheme(#fff, @color-main-10);
 }
 
 .callout--attention {
-    background: @color-attention-22;
-    color: @color-attention-10;
+    .calloutTheme(@color-attention-10, @color-attention-22);
 }
 
 .callout--positive {
-    background: @color-positive-23;
-    color: @color-positive-10;
+    .calloutTheme(@color-positive-10, @color-positive-23);
 }
 
 .callout--negative {
-    background: @color-negative-24;
-    color: @color-negative-10;
+    .calloutTheme(@color-negative-10, @color-negative-24);
+}
+
+// "constructor" for different color themes
+
+.calloutTheme(@txtColor, @backgroundColor) {
+    background: @backgroundColor;
+    color: @txtColor;
 }
