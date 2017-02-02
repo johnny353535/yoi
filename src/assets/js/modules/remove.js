@@ -1,12 +1,12 @@
 /** remove.js */
 
 var Remove = (function() {
-    
+
     // private functions
     // =================
-    
+
     function initializeRemoveTriggers($removeTrigger, options) {
-        
+
         /**
          *  Initialize all *[data-remove] found in the document (= function call without parameters)
          *  or target one or more specific *[data-remove] (= function call with $removeTrigger).
@@ -27,7 +27,7 @@ var Remove = (function() {
         if (!($removeTrigger instanceof jQuery)) {
             $removeTrigger = $('[data-remove]');
         }
-        
+
         $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
@@ -40,19 +40,19 @@ var Remove = (function() {
                     $thisTarget.remove();
                 });
             });
-            
+
         });
-        
+
     }
-    
+
     // initialize
     // ==========
-    
+
     initializeRemoveTriggers();
-    
+
     // public functions
     // ================
-    
+
     return {
         init : initializeRemoveTriggers
     }

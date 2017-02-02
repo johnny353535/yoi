@@ -16,58 +16,58 @@
 // ========
 
 .breadcrumbs__item {
-    
+
     display: inline-block;
     position: relative;
     z-index: 4;
-    
+
     // hover
-    
+
     &:hover {
         z-index: 3;
     }
-    
+
     &:hover + .breadcrumbs__item {
         z-index: 2;
     }
-    
+
     &:hover .breadcrumbs__label {
         background: @color-main-24;
     }
-    
+
     &:hover .breadcrumbs__link::after {
         background: @color-main-24;
     }
-    
+
     // spacing
-    
+
     & + .breadcrumbs__item {
         margin-left: -2.5rem;
     }
-    
+
     // first breadcrumb
-    
+
     &:first-child .breadcrumbs__label {
         padding-left: 1.5rem;
     }
-    
+
     // last breadcrumb (= current page)
-    
+
     &:last-child {
         z-index: 1;
         font-weight: bold;
     }
-    
+
 }
 
 .breadcrumbs__link {
-    
+
     color: @color-main-8;
     display: inline-block;
     padding: 0 3rem 0 0;
     position: relative;
     text-decoration: none;
-    
+
     // pointy right edge
 
     &::after {
@@ -86,7 +86,7 @@
         width: 3em;
         z-index: 1;
     }
-    
+
 }
 
 .breadcrumbs__label {

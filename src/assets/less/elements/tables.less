@@ -195,7 +195,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
         vertical-align: middle;
         width: 3rem;
         position: relative;
-        
+
         // square icon = empty checkbox
 
         &::before {
@@ -242,18 +242,18 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 // removeable table rows
 
 .js table[data-table*="removeable"] {
-    
+
     // cells for remove buttons
 
     .table__removeBtn {
-        
+
         padding: 0;
         text-align: center;
         vertical-align: middle;
         width: 3rem;
         position: relative;
         cursor: pointer;
-        
+
         // x icon
 
         &::before {
@@ -265,11 +265,11 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
             top: -.1rem;
             left: -.1rem;
         }
-        
+
         &:hover::before {
             .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-15);
         }
-        
+
     }
 
 }
@@ -278,12 +278,12 @@ tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
 
 .js table.table--compressed .table__checkbox,
 .js table.table--compressed .table__removeBtn {
-    
+
     width: 2rem;
-    
+
     &::before {
         left: -.6rem;
         top: -.6rem;
     }
-    
+
 }

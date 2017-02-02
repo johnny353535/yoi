@@ -35,20 +35,20 @@
         transform: perspective(80rem) rotateX(45deg);
         z-index: 1;
     }
-    
+
 }
 
 .shelf__item {
-    
+
     /*
         Since .shelf__board includes a pseudo-element which is manipulated
         in 3D-space (perspective & rotation), .shelf__item is pulled up 1rem
         to prevent intersecting and cutting its's bottom edge. Z-index won't
         help in this case.
     */
-    
+
     position: relative;
     top: -1rem;
     z-index: 2;
-    
+
 }

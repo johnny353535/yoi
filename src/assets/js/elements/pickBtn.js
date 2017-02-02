@@ -25,7 +25,7 @@ var PickBtn = (function() {
         }
 
         $pickBtn.each(function() {
-            
+
             var $thisPickBtn = $(this);
 
             $thisPickBtn.find('input[type="radio"]').hide();

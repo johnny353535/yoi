@@ -6,7 +6,7 @@ var FilterBtns = (function() {
     // =================
 
     function initializeFilterBtns($filterBtns) {
-        
+
         /**
          *  Initialize all *[data-filterbtns] found in the document (= function call without parameters)
          *  or target one or more specific *[data-filterbtns] (= function call with $dock).
@@ -14,7 +14,7 @@ var FilterBtns = (function() {
          *
          *  @param {jQuery dom object} $filterBtns - the filterbutton group(s)
          */
-        
+
         if (!($filterBtns instanceof jQuery)) {
             $filterBtns = $('[data-filterbtns]');
         }

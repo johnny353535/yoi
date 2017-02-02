@@ -16,7 +16,40 @@ Straightforward pagination element with page- and browse links.
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        {{ pagination.render(currentPage=1, totalPages=10) }}
+        <div class="pagination">
+            <div class="pagination__load">
+                <a class="btn" href="#">Mehr anzeigen</a>
+            </div>
+            <ul class="pagination__items">
+                <li class="pagination__item">
+                    <a class="btn btn--subtle" href="#">1</a>
+                </li>
+                <li class="pagination__item is--active">
+                    <a class="btn btn--subtle" href="#">2</a>
+                </li>
+                <li class="pagination__item">
+                    <a class="btn btn--subtle" href="#">3</a>
+                </li>
+                <li class="pagination__item">
+                    <a class="btn btn--subtle" href="#">4</a>
+                </li>
+                <li class="pagination__item">
+                    <a class="btn btn--subtle" href="#">5</a>
+                </li>
+            </ul>
+            <div class="pagination__nav">
+                <div class="btns">
+                    <a class="btn" href="#">
+                        <span class="hidden">vorherige Seite</span>
+                        <span class="icon">{% icon {id:'008-s'} %}</span>
+                    </a>
+                    <a class="btn" href="#">
+                        <span class="hidden">nächste Seite</span>
+                        <span class="icon">{% icon {id:'007-s'} %}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

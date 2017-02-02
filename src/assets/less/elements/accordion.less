@@ -28,7 +28,7 @@
 }
 
 .accordion__header {
-    
+
     .mixin-userSelectNone;
     background: #fff;
     border-bottom: @color-main-22 1px solid;
@@ -37,13 +37,13 @@
     min-height: 2rem;
     padding: .5rem 3rem .5rem 1rem;
     position: relative;
-    
+
     &:hover {
         background: @color-main-25;
     }
-    
+
     // icon
-    
+
     &::after {
         color: @color-main-22;
         position: absolute;
@@ -56,7 +56,7 @@
 // icons (only if JS is enabled)
 
 .js {
-    
+
     .is--open .accordion__header::after,
     .is--closed .accordion__header::after {
         content: ' ';

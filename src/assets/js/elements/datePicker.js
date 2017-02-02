@@ -56,7 +56,7 @@ var DatePicker = (function() {
     // =================
 
     function initializeDatePicker($datepicker) {
-        
+
         /**
          *  Initialize all input[data-datepicker] found in the document (= function call without parameters)
          *  or target one or more specific input[data-datepicker] (= function call with $datepicker).
@@ -70,7 +70,7 @@ var DatePicker = (function() {
         getCurrentDate();
 
         // initialize date picker(s)
-        
+
         if (!($datepicker instanceof jQuery)) {
             $datepicker = $('input[data-datepicker]');
         }

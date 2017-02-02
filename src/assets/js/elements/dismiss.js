@@ -16,7 +16,7 @@ var Dismiss = (function() {
     // =================
 
     function initializeDismissableElement($dismissableElement) {
-        
+
         /**
          *  Attach a close-button to dismissable elements.
          *
@@ -26,7 +26,7 @@ var Dismiss = (function() {
          *
          *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
          */
-        
+
         if (!($dismissableElement instanceof jQuery)) {
             $dismissableElement = $('[data-dismissable]');
         }
@@ -50,7 +50,7 @@ var Dismiss = (function() {
     }
 
     function initializeDismissButton($dismissButton) {
-        
+
         /**
          *  Initialize all *[data-dismiss] found in the document (= function call without parameters)
          *  or target one or more specific *[data-dismiss] (= function call with $dismissButton).
@@ -66,7 +66,7 @@ var Dismiss = (function() {
          *
          *  @option {string} target - selector for target element
          */
-        
+
         if (!($dismissButton instanceof jQuery)) {
             $dismissButton = $('[data-dismiss]');
         }
@@ -95,7 +95,7 @@ var Dismiss = (function() {
          *
          *  @param  {jQuery dom object} $thisTarget - the target element
          */
-        
+
         if (!($thisTarget instanceof jQuery)) return false;
 
         $thisTarget.fadeOut(function() {

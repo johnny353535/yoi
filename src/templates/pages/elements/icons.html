@@ -8,33 +8,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 |                |                                                                     |
 | -              | -                                                                   |
 | Less-File      | [icons.less]({{ pathToSourceFile }}assets/less/elements/icons.less) |
-| Base CSS-Class | `.icon / .icon--*`                                                  |
-| Modifiers      | `.x2, .x3, .x4, *-s`                                                |
+| Base CSS-Class | `.icon`                                                             |
+| Modifiers      | `.icon--xsmall, .icon--small, .icon--large, .icon--xlarge`          |
 
-### Modifiers
 {% endmarkdown %}
-
-<div class="box box--1 p-4">
-    <span class="icon icon--xsmall">
-        {% includeRemote "http://localhost/svg.php?id=icon-074-s" %}
-    </span>
-    <span class="icon icon--small">
-        {% includeRemote "http://localhost/svg.php?id=icon-074" %}
-    </span>
-    <span class="icon">
-        {% includeRemote "http://localhost/svg.php?id=icon-074" %}
-    </span>
-    <span class="icon icon--large">
-        {% includeRemote "http://localhost/svg.php?id=icon-074" %}
-    </span>
-    <span class="icon icon--xlarge">
-        {% includeRemote "http://localhost/svg.php?id=icon-074" %}
-    </span>
-</div>
-
-<div>
-    {% includeRemote "http://localhost/svg.php?id=icon-006-s" %}
-</div>
 
 {% markdown %}
 ### Adding new icons

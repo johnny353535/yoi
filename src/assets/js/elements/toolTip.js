@@ -72,9 +72,9 @@ var Tooltip = (function() {
         });
 
     }
-    
+
     function hideAll(scope) {
-        
+
         /**
          *  Hides all tool tips. Either all tool tips found in the current
          *  document all all tool tips found inside a specified scope of
@@ -82,7 +82,7 @@ var Tooltip = (function() {
          *
          *  @param {string} scope - a jQuery selector to define the scope
          */
-        
+
         // set css-selector to either target all tool tips
         // or only the ones inside a specified scope of another dom element
 
@@ -91,11 +91,11 @@ var Tooltip = (function() {
         } else {
             scope += ' ';
         }
-        
+
         // hide all tool tips
-        
+
         $(scope + '.tooltip').hide();
-        
+
     }
 
     function prepareTarget($thisTarget) {

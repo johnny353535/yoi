@@ -49,7 +49,7 @@ var PopOver = (function() {
 
             // ... or proceed, move the popover out of it's original position in the DOM and
             // inject it back at the end of <body> to enable correct absolute positioning
-            
+
             var $thisPopOver = $(options.target).detach();
             $('body').append($thisPopOver);
 
@@ -280,9 +280,9 @@ var PopOver = (function() {
         }
 
     }
-    
+
     function removeToggleClassFromPopOverTrigger($popOverTrigger) {
-        
+
         /**
          *  Popover triggers provide an option to add any css-class to the trigger when the
          *  popover itself is visible. This function removes the very class name from all popover triggers
@@ -290,13 +290,13 @@ var PopOver = (function() {
          *
          *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger
          */
-        
+
         if (!($popOverTrigger instanceof jQuery)) {
             $popOverTrigger = $('[data-popover]');
         }
-        
+
         $popOverTrigger.each(function() {
-            
+
             // reference the popover trigger
 
             var $thisPopOverTrigger = $(this);
@@ -304,7 +304,7 @@ var PopOver = (function() {
             // read the options
 
             var options = YOI.toObject($thisPopOverTrigger.data('popover'));
-            
+
             // if this option is set, remove the provided css class name
             // from the trigger element
 
@@ -313,9 +313,9 @@ var PopOver = (function() {
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.removeClass(options.toggleClass);
             }
-            
+
         });
-        
+
     }
 
     // initialize

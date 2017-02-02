@@ -1,12 +1,12 @@
 /** reveal.js */
 
 var Reveal = (function() {
-    
+
     // private functions
     // =================
-    
+
     function initializeReveal($revealTrigger, options) {
-        
+
         /**
          *  Initialize all *[data-reveal] found in the document (= function call without parameters)
          *  or target one or more specific *[data-reveal] (= function call with $revealTrigger).
@@ -31,11 +31,11 @@ var Reveal = (function() {
          *
          *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
          */
-        
+
         if (!($revealTrigger instanceof jQuery)) {
             $revealTrigger = $('[data-reveal]');
         }
-        
+
         $revealTrigger.each(function(index){
 
             // set up vars
@@ -69,17 +69,17 @@ var Reveal = (function() {
             });
 
         });
-        
+
     }
-    
+
     // initialize
     // ==========
-    
+
     initializeReveal();
-    
+
     // public functions
     // ================
-    
+
     return {
         init: initializeReveal
     }

@@ -23,7 +23,7 @@
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         
 <style type="text/css" media="screen">
-    
+
     *[id*="example-"]::after {
         border-top: #ff6830 1px dashed;
         content: ' ';
@@ -33,11 +33,11 @@
         top: 200px;
         z-index: 10;
     }
-    
+
     #example-4::after {
         top: 350px;
     }
-    
+
 </style>
 
     </head>
@@ -316,7 +316,7 @@
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -326,14 +326,14 @@
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();

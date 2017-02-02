@@ -31,13 +31,13 @@
 // optional icon
 
 .stepper .icon {
-    
+
     filter: drop-shadow(0 -1px 0 @color-main-10);
     margin: .3rem .5rem;
     position: absolute;
     right: 0;
     top: 0;
-    
+
     circle, ellipse, path, polygon {
         fill: #fff;
     }
@@ -134,7 +134,7 @@
         background: linear-gradient(to bottom, @color-main-11, @color-main-14);
         box-shadow: none;
     }
-    
+
     &:focus {}
 
 }
@@ -170,15 +170,15 @@
         background: #fff;
         border-color: @color-main-22;
     }
-    
+
     .icon {
-        
+
         filter: none;
 
         circle, ellipse, path, polygon {
             fill: @color-main-8;
         }
-    
+
     }
 
     .stepper__icon {
@@ -189,7 +189,7 @@
         background: @color-main-24;
         box-shadow: none;
     }
-    
+
     .stepper__input.stepper__input,
     .stepper__input.stepper__input:hover,
     .stepper__input.stepper__input:focus {
@@ -214,11 +214,11 @@
         &:focus {}
 
     }
-    
+
     .stepper__iconMinus {
         .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10, @width: 24, @height: 24);
     }
-    
+
     .stepper__iconPlus {
         .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10, @width: 24, @height: 24);
     }
@@ -231,7 +231,7 @@
         width: 4.5rem;
         height: 3.2rem;
     }
-    
+
     .js & .stepper__input {
         margin-left: 8.6rem;
     }
@@ -243,7 +243,7 @@
         top: 0;
         width: 4rem;
     }
-    
+
     .stepper__btnMinus {
         left: 4.1rem;
     }
@@ -255,13 +255,13 @@
     .stepper__iconMinus {
         .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-23);
     }
-    
+
     .stepper__iconPlus {
         .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-23);
     }
-    
+
     &.stepper--light {
-        
+
         .stepper__iconMinus {
             .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10);
         }
@@ -269,7 +269,7 @@
         .stepper__iconPlus {
             .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10);
         }
-        
+
     }
 
 }

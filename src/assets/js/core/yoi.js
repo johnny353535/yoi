@@ -109,7 +109,7 @@ var YOI = (function() {
                 .animate({ opacity: 1 }, 100);
 
         },
-        
+
         pulse : function(elem) {
 
             /**
@@ -244,7 +244,7 @@ var YOI = (function() {
                 // and finally turning the resulting strings into a simple JS object notation
 
                 for (var i = 0; i < input.length; i++) {
-                    
+
                     keyValuePair = input[i].split(':');
 
                     if (keyValuePair[1] !== undefined)
@@ -285,9 +285,9 @@ var YOI = (function() {
             return (leadingZeros + num).slice(-digits-1);
 
         },
-        
+
         hide : function($target) {
-            
+
             /**
              *  Hides an element which has a Yoshino UI-Core display utility class like
              *  d-block, d-inl, d-inlblk. The script remembers the display class and
@@ -295,15 +295,15 @@ var YOI = (function() {
              *
              *  @param {number} $target - the jQuery target dom element
              */
-            
+
             // cancel if $target is no valid jQuery onject
-            
+
             if (!($target instanceof jQuery)) {
                 return false;
             }
-            
+
             // get the display utility class
-            
+
             if ($target.hasClass('d-blk')) {
                 $target.data('displayUtilityClass', 'd-blk');
             } else if ($target.hasClass('d-inl')) {
@@ -311,13 +311,13 @@ var YOI = (function() {
             } else if ($target.hasClass('d-inlblk')) {
                 $target.data('displayUtilityClass', 'd-inlblk');
             }
-            
+
             // remove all display utility classes
-            
+
             $target.removeClass('d-blk d-inl d-inlblk');
 
             // hide the target
-            
+
             $target.hide();
 
         },
@@ -330,27 +330,27 @@ var YOI = (function() {
              *
              *  @param {number} $target - the jQuery target dom element
              */
-            
+
             // cancel if $target is no valid jQuery onject
-            
+
             if (!($target instanceof jQuery)) {
                 return false;
             }
-            
+
             if ($target.data('displayUtilityClass') === undefined) {
-                
+
                 // if $target's data('displayUtilityClass') is undefined,
                 // fall back to jQuery's $.show() method
-                
+
                 $target.show();
-                
+
             } else {
-                
+
                 // if $target does have data('displayUtilityClass'),
                 // re-assign the stored utility class in order to show the target
-                
+
                 $target.addClass($target.data('displayUtilityClass'));
-                
+
             }
 
         }

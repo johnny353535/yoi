@@ -4,7 +4,7 @@
 // =====
 
 .btnDismiss {
-    
+
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
     .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 32, @height: 32);
@@ -17,11 +17,11 @@
     position: relative;
     text-color: transparent;
     width: 3.2rem;
-    
+
     &:hover {
         background-color: fade(@color-main-22, 50%);
     }
-    
+
 }
 
 // modifiers
@@ -54,7 +54,7 @@
     However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--error)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
-    
+
     "Repeated occurrances of the same simple selector are allowed and do increase specificity."
     https://www.w3.org/TR/css3-selectors/#specificity
 */
@@ -100,11 +100,11 @@
 .btnDismissTheme(@iconColor, @hoverBgColor) {
 
     .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @iconColor, @width: 32, @height: 32);
-    
+
     &:hover {
         background-color: fade(@hoverBgColor, 50%);
     }
-    
+
     &.btnDismiss--small {
         .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 16, @height: 16);
     }

@@ -76,27 +76,27 @@
 // removeable buttons
 
 .filterBtns--removeable .filterBtns__btn {
-    
+
     // icon
-    
+
     a::after {
         .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-18);
     }
-    
+
     &:hover {
-        
+
         background: @color-negative-10;
-        
+
         a {
             color: #fff;
         }
-        
+
         // icon
-        
+
         a::after {
             .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-22);
         }
-        
+
     }
 
 }
@@ -131,7 +131,7 @@
 .filterBtns__btn.is--active {
 
     background: @color-positive-10;
-    
+
     a {
         color: #fff;
     }

@@ -43,19 +43,19 @@ var ScrollTo = (function() {
         }
 
         $scrollToTrigger.each(function() {
-            
+
             var $thisTrigger = $(this);
             var targetId     = $thisTrigger[0].hash;
-            
+
             $thisTrigger.on('click', function(e) {
-                
+
                 // scroll to anchor if target element is found
 
                 if ($(targetId).length) {
                     e.preventDefault();
                     scrollToTarget(targetId, $thisTrigger);
                 }
-                
+
             });
 
         });
@@ -70,7 +70,7 @@ var ScrollTo = (function() {
          *  @param {string} targetId     - the target element css id (e.g. "#myTarget")
          *  @param {string} $thisTrigger - the scrollTo trigger element
          */
-        
+
         var $target              = $(targetId);
         var $scrollContext;
         var $scrollContainer     = $target.closest('.scrl-y');
@@ -80,7 +80,7 @@ var ScrollTo = (function() {
         var options              = options === undefined ? YOI.toObject($thisTrigger.data('scrollto')) : options;
 
         // cancel if no target was found
-        
+
         if (!targetFound) return false;
 
         // if target is a tab, switch to the tab
@@ -108,8 +108,8 @@ var ScrollTo = (function() {
                 scrollTop: scrollPosY
             }, 500)
         ).done(function(){
-            if (options.highlight === "blink") YOI.blink($target);
-            if (options.highlight === "pulse") YOI.pulse($target);
+            if (options.highlight === 'blink') YOI.blink($target);
+            if (options.highlight === 'pulse') YOI.pulse($target);
         });
 
     }

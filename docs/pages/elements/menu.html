@@ -273,7 +273,7 @@
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        
+
         <div class="box box--1 grid-float">
             <div class="w-1-3">
                 <ul class="menu menu--pointRight br-0 b-0 b-r">
@@ -318,7 +318,7 @@
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -328,14 +328,14 @@
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();
@@ -343,45 +343,45 @@
         
     <script>
         (function() {
-            
+
             /**
              *  Mark the active menu item on click by adding the class name ".is--active".
              *  Depending on context, the exact target item to mark differs.
              */
-            
+
             $('.menu__item').on('click', function(e) {
-                
+
                 // prevent default event behaviour and event bubbling
-                
+
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 // assign variables
-                
+
                 var $this          = $(this);
                 var $parentMenu    = $this.closest('.menu');
                 var $enclosedLinks = $this.find('.menu__link');
                 var $target;
-                
+
                 // pick the target
                 // (.menu__item if no enclosed link is found, otherwise .menu__link)
-                
+
                 if ($enclosedLinks.length) {
                     target = $enclosedLinks.first();
                 } else {
                     target = $this;
                 }
-                
+
                 // reset all active items
-                
+
                 $this.parents('.menu').find('.menu__item, .menu__link').removeClass('is--active');
-                
+
                 // mark the active item
-                
+
                 target.addClass('is--active');
-                
+
             })
-            
+
         })();
     </script>
 

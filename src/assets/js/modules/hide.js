@@ -1,12 +1,12 @@
 /** hide.js */
 
 var Hide = (function() {
-    
+
     // private functions
     // =================
-    
+
     function initializeHide($hideTrigger, options) {
-        
+
         /**
          *  Search the Dom for trigger-elements flagged with "data-hide" and hide the
          *  corresponding target elements on any event you wish to bind to the trigger.
@@ -32,11 +32,11 @@ var Hide = (function() {
          *                                can be used.
          *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
          */
-        
+
         if (!($hideTrigger instanceof jQuery)) {
             $hideTrigger = $('[data-hide]');
         }
-        
+
         $hideTrigger.each(function(index){
 
             // set up vars
@@ -46,13 +46,13 @@ var Hide = (function() {
             var target       = $data.target !== undefined ? $data.target : false;
             var event        = $data.event !== undefined ? $data.event : 'click';
             var transition   = $data.transition !== undefined ? $data.transition : false;
-            
+
             // cancel if no target was defined
 
             if (!target) return false;
-            
+
             // apply event on trigger and hide target
-            
+
             $thisTrigger.on(event, function(e) {
                 if (transition === 'fadeOut') {
                     $(target).fadeOut();
@@ -64,17 +64,17 @@ var Hide = (function() {
             });
 
         });
-        
+
     }
-    
+
     // initialize
     // ==========
-    
+
     initializeHide();
-    
+
     // public functions
     // ================
-    
+
     return {
         init: initializeHide
     }

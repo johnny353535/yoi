@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td>JS-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/toolTip.js">toolTip.js</a></td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/elements/toolTip.js">toolTip.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -167,7 +167,7 @@ Example: Using a .note as tooltip</p>
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -177,14 +177,14 @@ Example: Using a .note as tooltip</p>
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();

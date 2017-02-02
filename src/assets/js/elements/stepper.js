@@ -31,7 +31,7 @@ var Stepper = (function() {
          *
          *  @param  {jQuery dom object} $stepper - the stepper
          */
-        
+
         if (!($stepper instanceof jQuery)) {
             $stepper = $('[data-stepper]');
         }

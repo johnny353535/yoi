@@ -53,7 +53,7 @@
             <div class="documentation__body">
                 
 
-<h2 id="image-magnifier">Image Magnifier</h2>
+<h2 id="imgmagnifier">ImgMagnifier</h2>
 <p>Use this element to create an <em>amazon-style</em> image zoomer. It’s very lightweight and only needs two elements with no further parameters: a preview image and a zoom image.</p>
 <table>
 <thead>
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td>JS-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/imgMagnifier.js">imgMagnifier.js</a></td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/elements/imgMagnifier.js">imgMagnifier.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
@@ -125,7 +125,7 @@
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -135,14 +135,14 @@
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();

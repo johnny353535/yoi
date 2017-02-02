@@ -31,14 +31,14 @@
 // "push" utilities for micro layout fixes
 
 .generate_push (@i) when (@i > 0) {
-    
+
     .generate_push((@i - 1));
-    
+
     .push-t-@{i} { top: 1px * @i !important; }
     .push-r-@{i} { right: 1px * @i !important; }
     .push-b-@{i} { bottom: 1px * @i !important; }
     .push-l-@{i} { left: 1px * @i !important; }
-    
+
 }
 .generate_push(10);
 
@@ -96,7 +96,7 @@
     .w-@{i} {
         width:  1rem * @i !important; box-sizing: border-box;
     }
-    
+
     .h-@{i} {
         height: 1rem * @i !important;
         box-sizing: border-box;

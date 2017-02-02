@@ -16925,7 +16925,7 @@ a.box {
     However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--error)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
-    
+
     "Repeated occurrances of the same simple selector are allowed and do increase specificity."
     https://www.w3.org/TR/css3-selectors/#specificity
 */
@@ -19729,7 +19729,7 @@ h6 {
     However, the color modifier class names applied directly to .btnDismiss (eg. icon icon--error)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
-    
+
     "Repeated occurrances of the same simple selector are allowed and do increase specificity."
     https://www.w3.org/TR/css3-selectors/#specificity
 */

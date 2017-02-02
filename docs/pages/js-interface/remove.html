@@ -55,6 +55,24 @@
 
 <h2 id="remove">Remove</h2>
 <p>Create elements (eg. buttons) that remove their parent element or any other target-element from the current document/page.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Js-File</td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/remove.js">remove.js</a></td>
+</tr>
+<tr>
+<td>Hooks</td>
+<td><code>data-remove</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="examples">Examples</h3>
 <p>Use any element as a trigger by adding the custom data-attribute <code>data-remove</code>. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.</p>
 
@@ -139,7 +157,7 @@
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -149,14 +167,14 @@
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();

@@ -86,7 +86,7 @@ var CustomFormElements = (function() {
             }
 
         });
-        
+
         checkElemns.on({
             'focus': function() {
                 $(this).parent().addClass('is--focus');
@@ -106,16 +106,16 @@ var CustomFormElements = (function() {
             var $icon          = $('<span class="select__icon"></span>');
 
             // prepare wrapper, keep modifiers
-            
+
             $selectWrapper.addClass($thisSelect.attr('class'));
 
             // inject elements
-            
+
             $thisSelect.wrap($selectWrapper);
             $thisSelect.parent().append($icon);
 
             // remove classNames (modifiers) from select element
-            
+
             $thisSelect.removeAttr('class');
 
         });

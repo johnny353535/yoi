@@ -82,94 +82,40 @@
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        
-    
         <div class="pagination">
-    
-        
             <div class="pagination__load">
                 <a class="btn" href="#">Mehr anzeigen</a>
             </div>
-        
-        <ul class="pagination__items">
-            
-                
-                    <li class="pagination__item is--active">
-                
+            <ul class="pagination__items">
+                <li class="pagination__item">
                     <a class="btn btn--subtle" href="#">1</a>
                 </li>
-            
-                
-                    <li class="pagination__item">
-                
+                <li class="pagination__item is--active">
                     <a class="btn btn--subtle" href="#">2</a>
                 </li>
-            
-                
-                    <li class="pagination__item">
-                
+                <li class="pagination__item">
                     <a class="btn btn--subtle" href="#">3</a>
                 </li>
-            
-                
-                    <li class="pagination__item">
-                
+                <li class="pagination__item">
                     <a class="btn btn--subtle" href="#">4</a>
                 </li>
-            
-                
-                    <li class="pagination__item">
-                
+                <li class="pagination__item">
                     <a class="btn btn--subtle" href="#">5</a>
                 </li>
-            
-                
-                    <li class="pagination__item">
-                
-                    <a class="btn btn--subtle" href="#">6</a>
-                </li>
-            
-                
-                    <li class="pagination__item">
-                
-                    <a class="btn btn--subtle" href="#">7</a>
-                </li>
-            
-                
-                    <li class="pagination__item">
-                
-                    <a class="btn btn--subtle" href="#">8</a>
-                </li>
-            
-                
-                    <li class="pagination__item">
-                
-                    <a class="btn btn--subtle" href="#">9</a>
-                </li>
-            
-                
-                    <li class="pagination__item">
-                
-                    <a class="btn btn--subtle" href="#">10</a>
-                </li>
-            
-        </ul>
-        
+            </ul>
             <div class="pagination__nav">
                 <div class="btns">
-                    <a class="btn btn--disabled" href="#">
+                    <a class="btn" href="#">
                         <span class="hidden">vorherige Seite</span>
-                        <i aria-hidden="true" class="icon--008-s"></i>
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M707.217 1023.836l497.803 497.802 135.763-135.764-362.039-362.038 362.039-362.039-135.763-135.765z"/></svg></span>
                     </a>
-                    <a class="btn " href="#">
+                    <a class="btn" href="#">
                         <span class="hidden">nächste Seite</span>
-                        <i aria-hidden="true" class="icon--007-s"></i>
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1340.783 1023.835L842.98 526.033 707.217 661.797l362.039 362.038-362.039 362.039 135.763 135.765z"/></svg></span>
                     </a>
                 </div>
             </div>
-        
-    </div>
-
+        </div>
     </div>
 </div>
 
@@ -188,7 +134,7 @@
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {
-                
+
                 /**
                  *  Hightligth the current menu item.
                  */
@@ -198,14 +144,14 @@
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
-                    
+
                     var $this       = $(this);
                     var thisHref    = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('linkList__item--active');
                     }
-                    
+
                 });
 
             })();

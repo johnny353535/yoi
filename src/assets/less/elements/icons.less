@@ -4,20 +4,20 @@
 // =====
 
 .icon {
-    
+
     display: inline-block;
     width: 3.2rem;
     height: 3.2rem;
-    
+
     svg {
         width: 3.2rem;
         height: 3.2rem;
     }
-    
+
     circle, ellipse, path, polygon {
         fill: @textColor;
     }
-    
+
 }
 
 // modifiers
@@ -26,51 +26,51 @@
 // size
 
 .icon--xsmall {
-    
+
     width: 1.6rem;
     height: 1.6rem;
-    
+
     svg {
         width: 1.6rem;
         height: 1.6rem;
     }
-    
+
 }
 
 .icon--small {
-    
+
     width: 2.4rem;
     height: 2.4rem;
-    
+
     svg {
         width: 2.4rem;
         height: 2.4rem;
     }
-    
+
 }
 
 .icon--large {
-    
+
     width: 4.8rem;
     height: 4.8rem;
-    
+
     svg {
         width: 4.8rem;
         height: 4.8rem;
     }
-    
+
 }
 
 .icon--xlarge {
-    
+
     width: 6.4rem;
     height: 6.4rem;
-    
+
     svg {
         width: 6.4rem;
         height: 6.4rem;
     }
-    
+
 }
 
 // color
@@ -80,7 +80,7 @@
     However, the color modifier class names applied directly to .btnDismiss (eg. icon icon--error)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
-    
+
     "Repeated occurrances of the same simple selector are allowed and do increase specificity."
     https://www.w3.org/TR/css3-selectors/#specificity
 */

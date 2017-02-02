@@ -6,7 +6,7 @@ var Dock = (function() {
     // =================
 
     function initializeDock($dock, options) {
-    
+
         /**
          *  Initialize all *[data-dock] found in the document (= function call without parameters)
          *  or target one or more specific *[data-dock] (= function call with $dock).
@@ -22,7 +22,7 @@ var Dock = (function() {
          *
          *  @option {boolean} autohide - if set to "true", the dock is initially hidden
          */
-        
+
         if (!($dock instanceof jQuery)) {
             $dock = $('[data-dock]');
         }

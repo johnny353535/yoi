@@ -31,7 +31,7 @@ var ToggleGroup = (function() {
          *  @option {string} activeClassName - to highlight an "active" trigger, this
          *                                     CSS class name is added to the trigger
          */
-        
+
         if (!($toggleGroup instanceof jQuery)) {
             $toggleGroup = $('[data-toggle]');
         }

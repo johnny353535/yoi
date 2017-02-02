@@ -118,9 +118,9 @@ var Slider = (function() {
         }
 
         $slider.each(function(sliderIndex) {
-            
+
             // Please note:
-            // 
+            //
             // sliderIndex is provided by jQuery's each() function and used to
             // reference the slider instances internally.
             // http://api.jquery.com/each/
@@ -404,7 +404,7 @@ var Slider = (function() {
          */
 
         window.clearInterval(slideAutoplayIntervals[sliderIndex]);
-        
+
     }
 
     function updatePagination($thisSlider, thisSlideIndex) {

@@ -53,7 +53,7 @@ var Modal = (function() {
          *
          *  @option {bool} cache  - If true, the referenced modal will preload in the background.
          */
-        
+
         if (!($modal instanceof jQuery)) {
             $modal = $('[data-modal]');
         }

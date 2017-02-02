@@ -6,7 +6,7 @@ var Table = (function() {
     // =================
 
     function initializeTable($table, options) {
-        
+
         /**
          *  Initialize all table[data-table] found in the document (= function call without parameters)
          *  or target one or more specific table[data-table] (= function call with $table).
@@ -23,7 +23,7 @@ var Table = (function() {
          *  @option {boolean} removeable - removeable table rows
          *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
-        
+
         if (!($table instanceof jQuery)) {
             $table = $('[data-table]');
         }
@@ -62,7 +62,7 @@ var Table = (function() {
                 // parent table row is removed.
 
                 // adjust table markup
-                
+
                 $thisTable.find('tr th:last-child').after('<th></th>');
                 $thisTable.find('tr td:last-child').after('<td class="table__removeBtn"></td>');
 

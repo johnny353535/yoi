@@ -6,7 +6,7 @@ var Flyout = (function() {
     // =================
 
     function initializeFlyout($flyout) {
-        
+
         /**
          *  Initialize all *[data-flyout] found in the document (= function call without parameters)
          *  or target one or more specific *[data-flyout] (= function call with $dock).
@@ -14,7 +14,7 @@ var Flyout = (function() {
          *
          *  @param {jQuery dom object} $flyout - the flyout(s)
          */
-        
+
         if (!($flyout instanceof jQuery)) {
             $flyout = $('[data-flyout]');
         }

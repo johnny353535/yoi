@@ -13,7 +13,7 @@ var MicroSubmit = (function() {
     // =================
 
     function initializeMicroSubmit($microSubmit, options) {
-        
+
         /**
          *  Initialize all form[data-microsubmit] found in the document (= function call without parameters)
          *  or target one or more specific form[data-microsubmit] (= function call with $microSubmit).
@@ -42,24 +42,24 @@ var MicroSubmit = (function() {
             var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
             var thisMessage     = $thisForm.find('input').val();
             var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
-            
+
             // hide response content first
-            
+
             YOI.hide($thisResponse);
-            
+
             // cancel if no target url (for ajax send) was found
-            
+
             if (!receiver) return false;
-            
+
             // submit form, show msg
 
             $thisForm.submit(function(e) {
-                
+
                 e.preventDefault();
-                
+
                 $.ajax({
                     url: receiver,
-                    type: "POST",
+                    type: 'POST',
                     data: {
                         input: thisMessage
                     },
