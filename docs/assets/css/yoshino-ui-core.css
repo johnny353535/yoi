@@ -16885,6 +16885,150 @@ a.box {
   position: relative;
   z-index: 2;
 }
+/** btnDismiss.less */
+.btnDismiss {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 2px;
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23535251&s=%23000&w=32&h=32) center center no-repeat;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0;
+  height: 3.2rem;
+  overflow: hidden;
+  position: relative;
+  text-color: transparent;
+  width: 3.2rem;
+}
+.btnDismiss:hover {
+  background-color: rgba(225, 224, 223, 0.5);
+}
+.btnDismiss--small {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23535251&s=%23000&w=16&h=16) center center no-repeat;
+  height: 1.6rem;
+  width: 1.6rem;
+}
+.btnDismiss--medium {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23535251&s=%23000&w=24&h=24) center center no-repeat;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.btnDismiss--large {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23535251&s=%23000&w=48&h=48) center center no-repeat;
+  height: 4.8rem;
+  width: 4.8rem;
+}
+/*
+    Any .btnDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
+    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--error)
+    beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
+    not even a hack:
+    
+    "Repeated occurrances of the same simple selector are allowed and do increase specificity."
+    https://www.w3.org/TR/css3-selectors/#specificity
+*/
+.btnDismiss.btnDismiss--error.btnDismiss--error,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative,
+[class*="--error"] .btnDismiss,
+[class*="--negative"] .btnDismiss {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23c83700&s=%23000&w=32&h=32) center center no-repeat;
+}
+.btnDismiss.btnDismiss--error.btnDismiss--error:hover,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative:hover,
+[class*="--error"] .btnDismiss:hover,
+[class*="--negative"] .btnDismiss:hover {
+  background-color: rgba(255, 187, 161, 0.5);
+}
+.btnDismiss.btnDismiss--error.btnDismiss--error.btnDismiss--small,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative.btnDismiss--small,
+[class*="--error"] .btnDismiss.btnDismiss--small,
+[class*="--negative"] .btnDismiss.btnDismiss--small {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23c83700&s=%23000&w=16&h=16) center center no-repeat;
+}
+.btnDismiss.btnDismiss--error.btnDismiss--error.btnDismiss--medium,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative.btnDismiss--medium,
+[class*="--error"] .btnDismiss.btnDismiss--medium,
+[class*="--negative"] .btnDismiss.btnDismiss--medium {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23c83700&s=%23000&w=24&h=24) center center no-repeat;
+}
+.btnDismiss.btnDismiss--error.btnDismiss--error.btnDismiss--large,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative.btnDismiss--large,
+[class*="--error"] .btnDismiss.btnDismiss--large,
+[class*="--negative"] .btnDismiss.btnDismiss--large {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23c83700&s=%23000&w=48&h=48) center center no-repeat;
+}
+.btnDismiss.btnDismiss--success.btnDismiss--success,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive,
+[class*="--success"] .btnDismiss,
+[class*="--positive"] .btnDismiss {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%234e7e64&s=%23000&w=32&h=32) center center no-repeat;
+}
+.btnDismiss.btnDismiss--success.btnDismiss--success:hover,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive:hover,
+[class*="--success"] .btnDismiss:hover,
+[class*="--positive"] .btnDismiss:hover {
+  background-color: rgba(190, 238, 212, 0.5);
+}
+.btnDismiss.btnDismiss--success.btnDismiss--success.btnDismiss--small,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive.btnDismiss--small,
+[class*="--success"] .btnDismiss.btnDismiss--small,
+[class*="--positive"] .btnDismiss.btnDismiss--small {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%234e7e64&s=%23000&w=16&h=16) center center no-repeat;
+}
+.btnDismiss.btnDismiss--success.btnDismiss--success.btnDismiss--medium,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive.btnDismiss--medium,
+[class*="--success"] .btnDismiss.btnDismiss--medium,
+[class*="--positive"] .btnDismiss.btnDismiss--medium {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%234e7e64&s=%23000&w=24&h=24) center center no-repeat;
+}
+.btnDismiss.btnDismiss--success.btnDismiss--success.btnDismiss--large,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive.btnDismiss--large,
+[class*="--success"] .btnDismiss.btnDismiss--large,
+[class*="--positive"] .btnDismiss.btnDismiss--large {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%234e7e64&s=%23000&w=48&h=48) center center no-repeat;
+}
+.btnDismiss.btnDismiss--attention.btnDismiss--attention,
+[class*="--attention"] .btnDismiss {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23888244&s=%23000&w=32&h=32) center center no-repeat;
+}
+.btnDismiss.btnDismiss--attention.btnDismiss--attention:hover,
+[class*="--attention"] .btnDismiss:hover {
+  background-color: rgba(238, 232, 170, 0.5);
+}
+.btnDismiss.btnDismiss--attention.btnDismiss--attention.btnDismiss--small,
+[class*="--attention"] .btnDismiss.btnDismiss--small {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23888244&s=%23000&w=16&h=16) center center no-repeat;
+}
+.btnDismiss.btnDismiss--attention.btnDismiss--attention.btnDismiss--medium,
+[class*="--attention"] .btnDismiss.btnDismiss--medium {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23888244&s=%23000&w=24&h=24) center center no-repeat;
+}
+.btnDismiss.btnDismiss--attention.btnDismiss--attention.btnDismiss--large,
+[class*="--attention"] .btnDismiss.btnDismiss--large {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23888244&s=%23000&w=48&h=48) center center no-repeat;
+}
+.btnDismiss.btnDismiss--dark.btnDismiss--dark,
+[class*="--dark"] .btnDismiss {
+  background: transparent url(//localhost/svg.php?id=icon-006-s&f=%23f6f5f4&s=%23000&w=32&h=32) center center no-repeat;
+}
+.btnDismiss.btnDismiss--dark.btnDismiss--dark:hover,
+[class*="--dark"] .btnDismiss:hover {
+  background-color: rgba(72, 71, 70, 0.5);
+}
+.btnDismiss.btnDismiss--dark.btnDismiss--dark.btnDismiss--small,
+[class*="--dark"] .btnDismiss.btnDismiss--small {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23f6f5f4&s=%23000&w=16&h=16) center center no-repeat;
+}
+.btnDismiss.btnDismiss--dark.btnDismiss--dark.btnDismiss--medium,
+[class*="--dark"] .btnDismiss.btnDismiss--medium {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23f6f5f4&s=%23000&w=24&h=24) center center no-repeat;
+}
+.btnDismiss.btnDismiss--dark.btnDismiss--dark.btnDismiss--large,
+[class*="--dark"] .btnDismiss.btnDismiss--large {
+  background: transparent url(//localhost/svg.php?id=icon-008-s&f=%23f6f5f4&s=%23000&w=48&h=48) center center no-repeat;
+}
 /** buttons.less */
 .btn {
   -moz-appearance: none;
@@ -18638,16 +18782,11 @@ a:visited.btn.btn--outline.btn--positive {
   right: 4rem;
   top: 4rem;
 }
-.documentation__fileDisplay .btn {
-  background: transparent;
-  color: #676665;
+.documentation__fileDisplay .btnDismiss {
   position: absolute;
   right: 4rem;
   top: 4rem;
-  z-index: 2;
-}
-.documentation__fileDisplay .btn:hover {
-  background: #ecebea;
+  z-index: 600;
 }
 .documentation code,
 .documentation pre {
@@ -19585,30 +19724,59 @@ h6 {
   width: 6.4rem;
   height: 6.4rem;
 }
-.icon--attention circle,
-.icon--attention ellipse,
-.icon--attention path,
-.icon--attention polygon {
+/*
+    Any .icon inside a parent element with a certain color modifier "inherit" the colors of their parent.
+    However, the color modifier class names applied directly to .btnDismiss (eg. icon icon--error)
+    beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
+    not even a hack:
+    
+    "Repeated occurrances of the same simple selector are allowed and do increase specificity."
+    https://www.w3.org/TR/css3-selectors/#specificity
+*/
+[class*="--attention"] .icon circle,
+.icon.icon--attention.icon--attention circle,
+[class*="--attention"] .icon ellipse,
+.icon.icon--attention.icon--attention ellipse,
+[class*="--attention"] .icon path,
+.icon.icon--attention.icon--attention path,
+[class*="--attention"] .icon polygon,
+.icon.icon--attention.icon--attention polygon {
   fill: #746e30;
 }
-.icon--success circle,
-.icon--positive circle,
-.icon--success ellipse,
-.icon--positive ellipse,
-.icon--success path,
-.icon--positive path,
-.icon--success polygon,
-.icon--positive polygon {
+[class*="--success"] .icon circle,
+[class*="--positive"] .icon circle,
+.icon.icon--success.icon--success circle,
+.icon.icon--positive.icon--positive circle,
+[class*="--success"] .icon ellipse,
+[class*="--positive"] .icon ellipse,
+.icon.icon--success.icon--success ellipse,
+.icon.icon--positive.icon--positive ellipse,
+[class*="--success"] .icon path,
+[class*="--positive"] .icon path,
+.icon.icon--success.icon--success path,
+.icon.icon--positive.icon--positive path,
+[class*="--success"] .icon polygon,
+[class*="--positive"] .icon polygon,
+.icon.icon--success.icon--success polygon,
+.icon.icon--positive.icon--positive polygon {
   fill: #3a6a50;
 }
-.icon--error circle,
-.icon--negative circle,
-.icon--error ellipse,
-.icon--negative ellipse,
-.icon--error path,
-.icon--negative path,
-.icon--error polygon,
-.icon--negative polygon {
+[class*="--error"] .icon circle,
+[class*="--negative"] .icon circle,
+.icon.icon--error.icon--error circle,
+.icon.icon--negative.icon--negative circle,
+[class*="--error"] .icon ellipse,
+[class*="--negative"] .icon ellipse,
+.icon.icon--error.icon--error ellipse,
+.icon.icon--negative.icon--negative ellipse,
+[class*="--error"] .icon path,
+[class*="--negative"] .icon path,
+.icon.icon--error.icon--error path,
+.icon.icon--negative.icon--negative path,
+[class*="--error"] .icon polygon,
+[class*="--negative"] .icon polygon,
+.icon.icon--error.icon--error polygon,
+.icon.icon--negative.icon--negative polygon {
   fill: #9c2b00;
 }
 /** imgMagnifier.less */
@@ -19985,89 +20153,21 @@ a:visited:hover {
   right: 0;
   transform: translate(50%, -50%) rotate(45deg);
 }
-/** modal-s.less */
-.modal-s {
-  background: #faf9f7;
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 0 2rem #343332;
-  left: 50%;
-  margin-bottom: 1rem;
-  margin-left: -15rem;
-  padding: 1rem;
-  position: absolute;
-  text-align: left;
-  top: 1rem;
-  width: 28rem;
-}
-.modal__container .modal-s {
-  z-index: 601;
-}
-.modal-s__header {
-  border-bottom: #ecebea 1px solid;
-  border-radius: 2px 2px 0 0;
-  margin: -1rem -1rem 1rem -1rem;
-  padding: 0 4.5rem 0 1rem;
-}
-.modal-s__header h1,
-.modal-s__header h2,
-.modal-s__header h3,
-.modal-s__header h4,
-.modal-s__header h5,
-.modal-s__header h6 {
-  color: #535251;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  line-height: 2.5rem;
-  padding: 1rem 0;
-}
-.modal-s__header .btn {
-  background: rgba(255, 255, 255, 0);
-  position: absolute;
-  right: 0;
-  top: .2rem;
-  color: #7b7a79;
-}
-.modal-s__header .btn:hover {
-  color: #535251;
-}
-.modal-s__footer {
-  border-top: #e1e0df 1px solid;
-  margin-top: 1rem;
-  padding-top: 1rem;
-}
-.modal-s--small {
-  border-radius: 2px;
-}
-.modalPage-s {
-  background: #535251;
-}
-.modalPage-s .modal-s {
-  border-radius: 2px;
-  margin: 0 1rem 1rem 1rem;
-  overflow: hidden;
-  position: static;
-  width: auto;
-}
-.modalPage-s > .btn.dark {
-  left: 0;
-  margin: 1rem;
-  position: absolute;
-  top: 0;
-}
-.modalPage-s [data-action="modalClose"] {
-  display: none;
-}
 /** modal.less */
 .modal {
   border-radius: 2px;
-  box-shadow: 0 0 20px #343332;
   background: #faf9f7;
+  border: #ecebea 1px solid;
+  box-sizing: border-box;
   left: 50%;
-  margin-left: -33rem;
+  margin-left: -35rem;
   position: absolute;
   text-align: left;
-  top: 1rem;
-  width: 66rem;
+  width: 70rem;
+}
+.modal__container .modal {
+  box-shadow: 0 0 20px #343332;
+  border: 0;
 }
 .modal__header {
   border-bottom: #ecebea 1px solid;
@@ -20075,27 +20175,12 @@ a:visited:hover {
   margin: 0 0 1rem 0;
   padding: 0 1rem;
 }
-.modal__header h1,
-.modal__header h2,
-.modal__header h3,
-.modal__header h4,
-.modal__header h5,
-.modal__header h6 {
+.modal__title {
   color: #535251;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 4.5rem;
-}
-.modal__header .btn {
-  background: transparent;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  color: #7b7a79;
-}
-.modal__header .btn:hover {
-  color: #535251;
 }
 .modal__body {
   padding: 0 1rem;
@@ -20128,9 +20213,14 @@ a:visited:hover {
 .modal__container .modal {
   z-index: 601;
 }
+.modal .btnDismiss {
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+}
 .modal--small {
-  width: 40rem;
-  margin-left: -21rem;
+  width: 30rem;
+  margin-left: -15rem;
 }
 /** note.less */
 .note {
@@ -20150,36 +20240,27 @@ a:visited:hover {
   display: block;
   clear: both;
 }
-.note .note__icon circle,
-.note .note__icon ellipse,
-.note .note__icon path,
-.note .note__icon polygon {
-  fill: #676665;
-}
 .note .note__headline {
   color: #676665;
 }
 .note .note__body + .note__body {
   border-color: #ecebea;
 }
-.note > .btn {
-  top: 0;
-  right: 0;
+.note .btnDismiss {
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   position: absolute;
-  opacity: .6;
-  color: inherit;
+  right: 0;
+  top: 0;
 }
-.note > .btn:hover {
-  background: transparent;
-  opacity: 1;
-}
-.note__icon {
+.note .icon {
   left: 1rem;
   position: absolute;
   top: .75rem;
 }
-.note__icon ~ .note__headline,
-.note__icon ~ .note__body {
+.note .icon ~ .note__headline,
+.note .icon ~ .note__body {
   padding-left: 4.5rem;
 }
 .note__headline {
@@ -20216,12 +20297,6 @@ a:visited:hover {
   border-color: #e4dea0;
   color: #888244;
 }
-.note--attention .note__icon circle,
-.note--attention .note__icon ellipse,
-.note--attention .note__icon path,
-.note--attention .note__icon polygon {
-  fill: #888244;
-}
 .note--attention .note__headline {
   color: #888244;
 }
@@ -20232,12 +20307,6 @@ a:visited:hover {
   background: #676665;
   border-color: rgba(255, 255, 255, 0);
   color: #faf9f7;
-}
-.note--dark .note__icon circle,
-.note--dark .note__icon ellipse,
-.note--dark .note__icon path,
-.note--dark .note__icon polygon {
-  fill: #faf9f7;
 }
 .note--dark .note__headline {
   color: #faf9f7;
@@ -20250,16 +20319,6 @@ a:visited:hover {
   background: #ffe4da;
   border-color: #ffc9b4;
   color: #c83700;
-}
-.note--error .note__icon circle,
-.note--negative .note__icon circle,
-.note--error .note__icon ellipse,
-.note--negative .note__icon ellipse,
-.note--error .note__icon path,
-.note--negative .note__icon path,
-.note--error .note__icon polygon,
-.note--negative .note__icon polygon {
-  fill: #c83700;
 }
 .note--error .note__headline,
 .note--negative .note__headline {
@@ -20274,12 +20333,6 @@ a:visited:hover {
   border-color: #ecebea;
   color: #676665;
 }
-.note--light .note__icon circle,
-.note--light .note__icon ellipse,
-.note--light .note__icon path,
-.note--light .note__icon polygon {
-  fill: #676665;
-}
 .note--light .note__headline {
   color: #676665;
 }
@@ -20291,16 +20344,6 @@ a:visited:hover {
   background: #f5fffa;
   border-color: #c8f8de;
   color: #4e7e64;
-}
-.note--success .note__icon circle,
-.note--positive .note__icon circle,
-.note--success .note__icon ellipse,
-.note--positive .note__icon ellipse,
-.note--success .note__icon path,
-.note--positive .note__icon path,
-.note--success .note__icon polygon,
-.note--positive .note__icon polygon {
-  fill: #4e7e64;
 }
 .note--success .note__headline,
 .note--positive .note__headline {
@@ -20314,12 +20357,6 @@ a:visited:hover {
   background: #ecebea;
   border-color: rgba(255, 255, 255, 0);
   color: #3e3d3c;
-}
-.note--subtle .note__icon circle,
-.note--subtle .note__icon ellipse,
-.note--subtle .note__icon path,
-.note--subtle .note__icon polygon {
-  fill: #3e3d3c;
 }
 .note--subtle .note__headline {
   color: #3e3d3c;
@@ -20340,8 +20377,11 @@ a:visited:hover {
 .notes .note:only-child {
   border-radius: 2px;
 }
+.note[data-option="dismissable"] {
+  padding-right: 4rem;
+}
 /*
-    In order to correctly attach icons to full-width notes, we need an additial
+    In order to correctly attach icons to full-width notes, we need an additional
     css-class to mark them. Because the icons should not be attached to the note itself
     but to it's .center element inside.
 */
@@ -20354,9 +20394,6 @@ a:visited:hover {
 }
 .note.note--fullwidth[class*="note--icon"] .center {
   padding-left: 5.5rem;
-}
-.note[data-option="dismissable"] {
-  padding-right: 4rem;
 }
 /** pageBtns.less */
 .pageBtns {
@@ -20516,30 +20553,28 @@ a:visited:hover {
   box-sizing: border-box;
   color: #9a9998;
   display: block;
-  height: 4rem;
+  height: 5rem;
   left: 50%;
-  margin-left: -4.5rem;
-  padding: 1rem 2rem;
+  margin-left: -5rem;
   position: fixed;
   text-align: right;
   transition: bottom 500ms ease-out;
-  width: 9rem;
+  width: 10rem;
   z-index: 900;
 }
 .pageRewind:hover {
   background: #faf9f7;
 }
+.pageRewind::after {
+  background: transparent url(//localhost/svg.php?id=icon-010-s&f=%23535251&s=%23000&w=32&h=32) center center no-repeat;
+  content: ' ';
+  display: block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
 .pageRewind.is--hidden {
   bottom: -8rem;
-}
-.pageRewind [class^="icon--"] {
-  color: #676665;
-  height: 4rem;
-  left: 50%;
-  line-height: 4rem;
-  margin-left: -1.6rem;
-  position: absolute;
-  top: 0;
 }
 /** pagination.less */
 .pagination {
@@ -20571,6 +20606,76 @@ a:visited:hover {
 .pagination .is--active .btn:hover {
   background: #676665;
   color: #f6f5f4;
+}
+/** pickBtn.less */
+.pickBtn {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 2px;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: #faf9f7;
+  border: #ecebea 1px solid;
+  box-sizing: border-box;
+  color: #676665;
+  cursor: pointer;
+  display: inline-block;
+  height: 3rem;
+  min-width: 3.4rem;
+  padding: 0 1rem;
+  position: relative;
+  text-align: left;
+  text-overflow: clip;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+a.pickBtn {
+  text-decoration: none;
+}
+.pickBtn:hover {
+  background: #f6f5f4;
+  border-color: #f6f5f4;
+}
+.pickBtn input {
+  margin-right: .5rem;
+}
+.pickBtn__label,
+.pickBtn__toggleLabel {
+  display: inline-block;
+  font: bold 1.2rem/2.8rem 'Open Sans', sans-serif;
+}
+.pickBtn__label {
+  vertical-align: top;
+}
+.pickBtn__label + .pickBtn__toggleLabel {
+  border-left: #ecebea 1px dashed;
+  margin-left: .5rem;
+  padding-left: .5rem;
+}
+.pickBtn__icon {
+  background: transparent url(//localhost/svg.php?id=icon-011-s&f=%23fff&s=%23000&w=32&h=32) center center no-repeat;
+  display: none;
+  height: 2.8rem;
+  margin-left: -1rem;
+  vertical-align: top;
+  width: 2.8rem;
+}
+.js .pickBtn.is--active,
+.js .pickBtn.is--active:hover {
+  background: #4e7e64;
+  border-color: #4e7e64;
+  color: #fff;
+}
+.js .pickBtn.is--active .pickBtn__toggleLabel,
+.js .pickBtn.is--active:hover .pickBtn__toggleLabel {
+  display: none;
+}
+.js .pickBtn.is--active .pickBtn__icon,
+.js .pickBtn.is--active:hover .pickBtn__icon {
+  display: inline-block;
 }
 /** pieChart.less */
 .pieChart {
@@ -20772,100 +20877,6 @@ a.posterTeaser:hover img {
   position: absolute;
   top: 1.5rem;
   width: 5rem;
-}
-/** radioBtn.less */
-.radioBtn {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 2px;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #faf9f7;
-  border: #ecebea 1px solid;
-  box-sizing: border-box;
-  color: #676665;
-  cursor: pointer;
-  display: inline-block;
-  height: 3rem;
-  min-width: 3.4rem;
-  padding: 0 1rem;
-  position: relative;
-  text-align: left;
-  text-overflow: clip;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-a.radioBtn {
-  text-decoration: none;
-}
-.radioBtn:hover {
-  background: #f6f5f4;
-  border-color: #f6f5f4;
-}
-.radioBtn input {
-  margin-right: .5rem;
-}
-.radioBtn__label,
-.radioBtn__toggleLabel {
-  display: inline-block;
-  font: bold 1.2rem/2.8rem 'Open Sans', sans-serif;
-}
-.radioBtn__label,
-.radioBtn [class*="icon--"] {
-  vertical-align: top;
-}
-.radioBtn [class*="icon--"] {
-  display: none;
-  line-height: 2.8rem;
-  margin-left: -1rem;
-}
-.radioBtn__label + .radioBtn__toggleLabel {
-  border-left: #ecebea 1px dashed;
-  margin-left: .5rem;
-  padding-left: .5rem;
-}
-.js .radioBtn.is--active,
-.js .radioBtn.is--active:hover {
-  background: #4e7e64;
-  border-color: #4e7e64;
-  color: #fff;
-}
-.js .radioBtn.is--active .radioBtn__toggleLabel,
-.js .radioBtn.is--active:hover .radioBtn__toggleLabel {
-  display: none;
-}
-.js .radioBtn.is--active [class*="icon--"],
-.js .radioBtn.is--active:hover [class*="icon--"] {
-  display: inline-block;
-}
-.radioBtn--circle {
-  border-radius: 50%;
-  border: #ecebea 1px solid;
-  height: 3.4rem;
-  padding: 0;
-  width: 3.4rem;
-}
-.radioBtn--circle [class*="icon--"] {
-  height: 3.4rem;
-  width: 3.4rem;
-  line-height: 3.4rem;
-  margin: 0;
-}
-.radioBtn--circle label,
-.radioBtn--circle .radioBtn__label {
-  display: block;
-  height: 1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
-}
-.radioBtn--circle.is--active,
-.radioBtn--circle.is--active:hover {
-  border-color: transparent;
 }
 /** rangeInput.less */
 .rangeInput label {
@@ -21168,104 +21179,101 @@ a.radioBtn {
   margin: 0;
   padding: 0 .5rem;
 }
-.ratingInput__select [class*='icon--'] {
-  color: #ecebea;
-  display: inline-block;
-  height: 2.3rem;
-  line-height: 2.3rem;
-  text-indent: -0.5rem;
-  transition: color 150ms linear;
+.ratingInput__star {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
   width: 2rem;
+  height: 2.3rem;
+  display: inline-block;
 }
-.ratingInput--rated-1 [class*='icon--']:nth-child(1) {
-  color: #868584;
+.ratingInput--rated-1 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-1:hover [class*='icon--']:nth-child(1) {
-  color: #343332;
+.ratingInput--rated-1:hover .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-2 [class*='icon--']:nth-child(1) {
-  color: #868584;
+.ratingInput--rated-2 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-2 [class*='icon--']:nth-child(2) {
-  color: #868584;
+.ratingInput--rated-2 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-2:hover [class*='icon--']:nth-child(1) {
-  color: #343332;
+.ratingInput--rated-2:hover .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-2:hover [class*='icon--']:nth-child(2) {
-  color: #343332;
+.ratingInput--rated-2:hover .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3 [class*='icon--']:nth-child(1) {
-  color: #868584;
+.ratingInput--rated-3 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3 [class*='icon--']:nth-child(2) {
-  color: #868584;
+.ratingInput--rated-3 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3 [class*='icon--']:nth-child(3) {
-  color: #868584;
+.ratingInput--rated-3 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3:hover [class*='icon--']:nth-child(1) {
-  color: #343332;
+.ratingInput--rated-3:hover .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3:hover [class*='icon--']:nth-child(2) {
-  color: #343332;
+.ratingInput--rated-3:hover .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-3:hover [class*='icon--']:nth-child(3) {
-  color: #343332;
+.ratingInput--rated-3:hover .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4 [class*='icon--']:nth-child(1) {
-  color: #868584;
+.ratingInput--rated-4 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4 [class*='icon--']:nth-child(2) {
-  color: #868584;
+.ratingInput--rated-4 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4 [class*='icon--']:nth-child(3) {
-  color: #868584;
+.ratingInput--rated-4 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4 [class*='icon--']:nth-child(4) {
-  color: #868584;
+.ratingInput--rated-4 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4:hover [class*='icon--']:nth-child(1) {
-  color: #343332;
+.ratingInput--rated-4:hover .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4:hover [class*='icon--']:nth-child(2) {
-  color: #343332;
+.ratingInput--rated-4:hover .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4:hover [class*='icon--']:nth-child(3) {
-  color: #343332;
+.ratingInput--rated-4:hover .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-4:hover [class*='icon--']:nth-child(4) {
-  color: #343332;
+.ratingInput--rated-4:hover .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5 [class*='icon--']:nth-child(1) {
-  color: #868584;
+.ratingInput--rated-5 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5 [class*='icon--']:nth-child(2) {
-  color: #868584;
+.ratingInput--rated-5 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5 [class*='icon--']:nth-child(3) {
-  color: #868584;
+.ratingInput--rated-5 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5 [class*='icon--']:nth-child(4) {
-  color: #868584;
+.ratingInput--rated-5 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5 [class*='icon--']:nth-child(5) {
-  color: #868584;
+.ratingInput--rated-5 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23868584&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5:hover [class*='icon--']:nth-child(1) {
-  color: #343332;
+.ratingInput--rated-5:hover .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5:hover [class*='icon--']:nth-child(2) {
-  color: #343332;
+.ratingInput--rated-5:hover .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5:hover [class*='icon--']:nth-child(3) {
-  color: #343332;
+.ratingInput--rated-5:hover .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5:hover [class*='icon--']:nth-child(4) {
-  color: #343332;
+.ratingInput--rated-5:hover .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--rated-5:hover [class*='icon--']:nth-child(5) {
-  color: #343332;
+.ratingInput--rated-5:hover .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23343332&s=%23000&w=32&h=32) center center no-repeat;
 }
 .ratingInput--locked {
   background: transparent;
@@ -21273,83 +21281,83 @@ a.radioBtn {
   box-shadow: none;
   cursor: default;
 }
-.ratingInput--locked [class*='icon--'] {
+.ratingInput--locked .ratingInput__star {
   color: transparent;
 }
-.ratingInput--locked.ratingInput--rated-1 [class*='icon--']:nth-child(1) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-1 [class*='icon--']:nth-child(2) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-1 [class*='icon--']:nth-child(3) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-1 [class*='icon--']:nth-child(4) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-1 [class*='icon--']:nth-child(5) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-2 [class*='icon--']:nth-child(1) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-2 [class*='icon--']:nth-child(2) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-2 [class*='icon--']:nth-child(3) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-2 [class*='icon--']:nth-child(4) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-2 [class*='icon--']:nth-child(5) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-3 [class*='icon--']:nth-child(1) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-3 [class*='icon--']:nth-child(2) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-3 [class*='icon--']:nth-child(3) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-3 [class*='icon--']:nth-child(4) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-3 [class*='icon--']:nth-child(5) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-4 [class*='icon--']:nth-child(1) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-4 [class*='icon--']:nth-child(2) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-4 [class*='icon--']:nth-child(3) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-4 [class*='icon--']:nth-child(4) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-4 [class*='icon--']:nth-child(5) {
-  color: #ecebea;
+.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23ecebea&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-5 [class*='icon--']:nth-child(1) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-5 .ratingInput__star:nth-child(1) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-5 [class*='icon--']:nth-child(2) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-5 .ratingInput__star:nth-child(2) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-5 [class*='icon--']:nth-child(3) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-5 .ratingInput__star:nth-child(3) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-5 [class*='icon--']:nth-child(4) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-5 .ratingInput__star:nth-child(4) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
-.ratingInput--locked.ratingInput--rated-5 [class*='icon--']:nth-child(5) {
-  color: #eac310;
+.ratingInput--locked.ratingInput--rated-5 .ratingInput__star:nth-child(5) {
+  background: transparent url(//localhost/svg.php?id=icon-039-s&f=%23eac310&s=%23000&w=32&h=32) center center no-repeat;
 }
 .ratingInput--large {
   height: 4rem;
@@ -21357,9 +21365,9 @@ a.radioBtn {
 .ratingInput--large .ratingInput__select {
   padding: 0 1rem;
 }
-.ratingInput--large [class*='icon--'] {
+.ratingInput--large .ratingInput__star {
   height: 3.8rem;
-  line-height: 3.8rem;
+  width: 2.5rem;
 }
 /** ribbon.less */
 .ribbon {
@@ -22092,7 +22100,7 @@ a.stepMenu__label:hover {
   vertical-align: top;
   width: 100%;
 }
-input.stepper__input {
+.stepper__input.stepper__input {
   border: 0;
   display: inline-block;
   font-size: 2rem;
@@ -22193,9 +22201,9 @@ input.stepper__input {
   background: #f6f5f4;
   box-shadow: none;
 }
-.stepper--light input.stepper__input,
-.stepper--light input.stepper__input:hover,
-.stepper--light input.stepper__input:focus {
+.stepper--light .stepper__input.stepper__input,
+.stepper--light .stepper__input.stepper__input:hover,
+.stepper--light .stepper__input.stepper__input:focus {
   box-shadow: none;
 }
 .stepper--light .stepper__submit {
@@ -22217,7 +22225,7 @@ input.stepper__input {
 .stepper--light .stepper__iconPlus {
   background: transparent url(//localhost/svg.php?id=icon-003-s&f=%23676665&s=%23000&w=24&h=24) center center no-repeat;
 }
-.stepper--touch input.stepper__input {
+.stepper--touch .stepper__input.stepper__input {
   width: 4.5rem;
   height: 3.2rem;
 }

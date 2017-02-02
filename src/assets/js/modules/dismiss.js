@@ -9,10 +9,7 @@ var Dismiss = (function() {
     var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 
     $btnDismiss = $('\
-        <button class="btn btn--subtle">\
-            <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006-s" aria-hidden="true"></i>\
-        </button>\
+        <span class="btnDismiss">' + btnLabelClose + '</span>\
     ');
 
     // private functions
@@ -31,7 +28,7 @@ var Dismiss = (function() {
          */
         
         if (!($dismissableElement instanceof jQuery)) {
-            $dismissableElement = $('input[data-dismissable]');
+            $dismissableElement = $('[data-dismissable]');
         }
 
         $dismissableElement.each(function() {

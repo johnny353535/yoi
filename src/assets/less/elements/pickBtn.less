@@ -1,9 +1,9 @@
-/** radioBtn.less */
+/** pickBtn.less */
 
 // block
 // =====
 
-.radioBtn {
+.pickBtn {
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
@@ -41,72 +41,47 @@
 // elements
 // ========
 
-.radioBtn__label,
-.radioBtn__toggleLabel {
+.pickBtn__label,
+.pickBtn__toggleLabel {
     display: inline-block;
     font: bold 1.2rem/2.8rem @font-sansserif;
 }
 
-.radioBtn__label,
-.radioBtn [class*="icon--"] {
+.pickBtn__label {
     vertical-align: top;
 }
 
-.radioBtn [class*="icon--"] {
-    display: none;
-    line-height: 2.8rem;
-    margin-left: -1rem;
-}
-
-.radioBtn__label + .radioBtn__toggleLabel {
+.pickBtn__label + .pickBtn__toggleLabel {
     border-left: @color-main-23 1px dashed;
     margin-left: .5rem;
     padding-left: .5rem;
 }
 
+.pickBtn__icon {
+    .mixin-icon-bg(@id: 'icon-011-s', @fillColor: #fff);
+    display: none;
+    height: 2.8rem;
+    margin-left: -1rem;
+    vertical-align: top;
+    width: 2.8rem;
+}
+
 // modifiers
 // =========
 
-.js .radioBtn.is--active,
-.js .radioBtn.is--active:hover {
+.js .pickBtn.is--active,
+.js .pickBtn.is--active:hover {
 
     background: @color-positive-10;
     border-color: @color-positive-10;
     color: #fff;
 
-    .radioBtn__toggleLabel {
+    .pickBtn__toggleLabel {
         display: none;
     }
 
-    [class*="icon--"] {
+    .pickBtn__icon {
         display: inline-block;
-    }
-
-}
-
-.radioBtn--circle {
-
-    border-radius: 50%;
-    border: @color-main-23 1px solid;
-    height: 3.4rem;
-    padding: 0;
-    width: 3.4rem;
-
-    [class*="icon--"] {
-        height: 3.4rem;
-        width: 3.4rem;
-        line-height: 3.4rem;
-        margin: 0;
-    }
-
-    label,
-    .radioBtn__label {
-        .mixin-hidden;
-    }
-
-    &.is--active,
-    &.is--active:hover {
-        border-color: transparent;
     }
 
 }

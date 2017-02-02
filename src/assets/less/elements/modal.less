@@ -5,47 +5,40 @@
 
 .modal {
     .mixin-defaultBorderRadius;
-    .mixin-shadow-4;
     background: @color-main-25;
+    border: @color-main-23 1px solid;
+    box-sizing: border-box;
     left: 50%;
-    margin-left: -33rem;
+    margin-left: -35rem;
     position: absolute;
     text-align: left;
-    top: 1rem;
-    width: 66rem;
+    width: 70rem;
+}
+
+// only modals opend via JS (and therefore placed inside
+// .modal__container) should have a shadow but no border
+
+.modal__container .modal {
+    .mixin-shadow-4;
+    border: 0;
 }
 
 // elements
 // ========
 
 .modal__header {
-
     border-bottom: @color-main-23 1px solid;
     border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
     margin: 0 0 1rem 0;
     padding: 0 1rem;
+}
 
-    h1, h2, h3, h4, h5, h6 {
-        color: @color-main-8;
-        font-family: @font-sansserif;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 4.5rem;
-    }
-
-    .btn {
-
-        background: transparent;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        color: @color-main-12;
-
-        &:hover {
-            color: @color-main-8;
-        }
-    }
-
+.modal__title {
+    color: @color-main-8;
+    font-family: @font-sansserif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 4.5rem;
 }
 
 .modal__body {
@@ -75,10 +68,16 @@
     z-index: 601;
 }
 
+.modal .btnDismiss {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
+
 // modifiers
 // =========
 
 .modal--small {
-    width: 40rem;
-    margin-left: -21rem;
+    width: 30rem;
+    margin-left: -15rem;
 }

@@ -4,9 +4,8 @@
 // =====
 
 .note {
-
     .mixin-clearfix;
-    .noteColorTheme;
+    .noteTheme;
     .mixin-defaultBorderRadius;
     border-style: solid;
     border-width: 1px;
@@ -14,22 +13,6 @@
     font-family: @font-sansserif;
     padding: 1rem;
     position: relative;
-
-    // dismiss/close button
-
-    > .btn {
-        top: 0;
-        right: 0;
-        position: absolute;
-        opacity: .6;
-        color: inherit;
-    }
-
-    > .btn:hover {
-        background: transparent;
-        opacity: 1;
-    }
-
 }
 
 // elements
@@ -37,11 +20,18 @@
 
 // dismiss/close button
 
-
+.note .btnDismiss {
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 // icon
 
-.note__icon {
+.note .icon {
     
     left: 1rem;
     position: absolute;
@@ -99,26 +89,70 @@
 // modifiers
 // =========
 
-// large text
+// sizes
 
 .note--large .note__body {
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
+// colors
+
+.note--attention {
+    .noteTheme(
+        @borderColor: @color-attention-19,
+        @txtColor: @color-attention-10,
+        @backgroundColor: @color-attention-22
+    );
+}
+
+.note--dark {
+    .noteTheme(
+        @borderColor: @color-transparent,
+        @txtColor: @color-main-25,
+        @backgroundColor: @color-main-10
+    );
+}
+
+.note--error,
+.note--negative {
+    .noteTheme(
+        @borderColor: @color-negative-22,
+        @txtColor: @color-negative-10,
+        @backgroundColor: @color-negative-24
+    );
+}
+
+.note--light {
+    .noteTheme(
+        @backgroundColor: #fff
+    );
+}
+
+.note--success,
+.note--positive {
+    .noteTheme(
+        @borderColor: @color-positive-22,
+        @txtColor: @color-positive-10,
+        @backgroundColor: @color-positive-24
+    );
+}
+
+.note--subtle {
+    .noteTheme(
+        @borderColor: @color-transparent,
+        @txtColor: @gray-6,
+        @backgroundColor: @gray-23
+    );
+}
+
 // "constructor" for different color themes
 
-.noteColorTheme(@borderColor: @color-main-23, @txtColor: @color-main-10, @backgroundColor: @color-main-25) {
+.noteTheme(@borderColor: @color-main-23, @txtColor: @color-main-10, @backgroundColor: @color-main-25) {
 
     background: @backgroundColor;
     border-color: @borderColor;
     color: @txtColor;
-    
-    .note__icon {
-        circle, ellipse, path, polygon {
-            fill: @txtColor;
-        }
-    }
 
     .note__headline {
         color: @txtColor;
@@ -128,56 +162,6 @@
         border-color: @borderColor;
     }
 
-}
-
-// color schemes
-
-.note--attention {
-    .noteColorTheme(
-        @borderColor: @color-attention-19,
-        @txtColor: @color-attention-10,
-        @backgroundColor: @color-attention-22
-    );
-}
-
-.note--dark {
-    .noteColorTheme(
-        @borderColor: @color-transparent,
-        @txtColor: @color-main-25,
-        @backgroundColor: @color-main-10
-    );
-}
-
-.note--error,
-.note--negative {
-    .noteColorTheme(
-        @borderColor: @color-negative-22,
-        @txtColor: @color-negative-10,
-        @backgroundColor: @color-negative-24
-    );
-}
-
-.note--light {
-    .noteColorTheme(
-        @backgroundColor: #fff
-    );
-}
-
-.note--success,
-.note--positive {
-    .noteColorTheme(
-        @borderColor: @color-positive-22,
-        @txtColor: @color-positive-10,
-        @backgroundColor: @color-positive-24
-    );
-}
-
-.note--subtle {
-    .noteColorTheme(
-        @borderColor: @color-transparent,
-        @txtColor: @gray-6,
-        @backgroundColor: @gray-23
-    );
 }
 
 // grouped notes
@@ -203,10 +187,16 @@
 
 }
 
+// dismissable notes (see notifications.js)
+
+.note[data-option="dismissable"] {
+    padding-right: 4rem;
+}
+
 // full-width notes
 
 /*
-    In order to correctly attach icons to full-width notes, we need an additial
+    In order to correctly attach icons to full-width notes, we need an additional
     css-class to mark them. Because the icons should not be attached to the note itself
     but to it's .center element inside.
 */
@@ -224,10 +214,4 @@
         padding-left: 5.5rem;
     }
 
-}
-
-// dismissable notes (see notifications.js)
-
-.note[data-option="dismissable"] {
-    padding-right: 4rem;
 }

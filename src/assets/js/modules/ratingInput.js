@@ -5,11 +5,11 @@ var RatingInput = (function() {
     
     var $ratingSelect = $('\
         <span class="ratingInput__select">\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
         </span>\
     ');
     
@@ -45,7 +45,7 @@ var RatingInput = (function() {
             
             var $thisRatingInput  = $(this);
             var $thisRatingSelect = $ratingSelect.clone();
-            var $thisRatingStars  = $thisRatingSelect.find('[class*="icon--"]');
+            var $thisRatingStars  = $thisRatingSelect.find('.ratingInput__star');
             
             // append data
             

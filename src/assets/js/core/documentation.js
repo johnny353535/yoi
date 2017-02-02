@@ -25,14 +25,7 @@ var Documentation = (function() {
 
     var $fileDisplay = $('\
         <div id="fileDisplay" class="documentation__fileDisplay">\
-            <button class="btn btn--subtle btn--large">\
-                <span class="hidden">close</span>\
-                <span class="icon">\
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">\
-                        <path d="M1340.783 1250.108l-226.273-226.272 226.273-226.275-90.5-90.499-226.273 226.273-226.285-226.284-90.51 90.51 226.284 226.284-226.274 226.275 90.5 90.5L1024 1114.345l226.273 226.275z"></path>\
-                    </svg>\
-                </span>\
-            </button>\
+            <button class="btnDismiss btnDismiss--large"></button>\
             <code>\
                 <pre></pre>\
             </code>\
@@ -190,7 +183,7 @@ var Documentation = (function() {
 
         // attach event to close button
 
-        $('#fileDisplay .btn').on('click', function() {
+        $('#fileDisplay .btnDismiss').on('click', function() {
 
             $('#fileDisplay').find('code').scrollTop(0);
             $('#fileDisplay').hide();

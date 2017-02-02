@@ -6,9 +6,19 @@ var PageRewind = (function() {
     // ============
     
     var $pageRewind;
-    var $window     = $(window);
-    var $body       = $('body');
-    var threshold   = 500;
+    var $window   = $(window);
+    var $body     = $('body');
+    var threshold = 500;
+    
+    // get the document language, fall back to english
+    // note: only german and english supported at this moment
+
+    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
+    
+    var labelTxt = {
+        'en' : 'scroll back to top',
+        'de' : 'Zurück zum Seitenanfang'
+    };
     
     // private functions
     // =================
@@ -23,7 +33,7 @@ var PageRewind = (function() {
         
         $pageRewind = $(
             '<a class="pageRewind" href="#">\
-                <i aria-hidden="true" class="icon--010-s"></i>\
+                <span class="hidden">' + labelTxt[language] + '</span>\
             </a>'
         );
         

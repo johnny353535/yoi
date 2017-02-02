@@ -13,23 +13,23 @@ Modals are simple, regular pages, referenced by either `href`-attributes or a pa
 | Modifiers      | `.modal--small`                                                     |
 
 ### Modal Page
-Modal pages must at least have an element with the CSS-class `.modal`. Everything else is optional. There is only one modifier available: `.modal--small`. It affects the modal width.
-The following is an example for a simple (small) modal page. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a>.
+Modal pages must at least have an element with the CSS-class `.modal`. Everything else is optional.
+The following is an example for a typical modal page. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a>.
 {% endmarkdown %}
 
-<div class="documentation__block documentation__block--darkMainColor">
+<div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="h-33">
-            <div class="modal modal--small m-t-6">
+        <div class="h-30 p-tb-3">
+            <div class="modal">
                 <div class="modal__header">
-                    <h3>Demo Modal</h3>
+                    <h3 class="modal__title">Demo Modal</h3>
                 </div>
                 <div class="modal__body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
                 <div class="modal__footer">
                     <button class="btn btn--large btn--dark fl-r">OK</button>
-                    <button class="btn btn--large btn--subtle fl-r m-r-1" data-action="closeModal">Cancel</button>
+                    <span class="btn btn--large btn--subtle fl-r m-r-1" data-action="closeModal">Cancel</span>
                 </div>
             </div>
         </div>
@@ -37,7 +37,47 @@ The following is an example for a simple (small) modal page. You may want to <a 
 </div>
 
 {% markdown %}
-### Referencing a Modal Page (the most simple case)
+### Modifiers
+There is only one modifier available: `.modal--small`. It affects the modal width:
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="h-28 p-tb-3">
+            <div class="modal modal--small">
+                <div class="modal__header">
+                    <h3 class="modal__title">Small Demo Modal</h3>
+                </div>
+                <div class="modal__body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn btn--large btn--dark fl-r">OK</button>
+                    <span class="btn btn--large btn--subtle fl-r m-r-1" data-action="closeModal">Cancel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="note note--subtle note--large m-t-8">
+    <span class="icon">{% icon { id:'085' } %}</span>
+    <h3 class="note__headline">Modals Are Regular Pages</h3>
+    <div class="note__body">
+        <p>YOI modals are regular html pages and therefore highly accessible. If a modal opens via JavaScript, the modal page is requested via AJAX and unnecessary markup is ignored (eg. the <code>&lt;body&gt;</code> tag). </p>
+    </div>
+</div>
+
+<div class="note note--subtle note--large m-t-8">
+    <span class="icon">{% icon { id:'085' } %}</span>
+    <h3 class="note__headline">Where is the Close-Button?</h3>
+    <div class="note__body">
+        <p>You must not include a close button in your modal’s markup. Since it only makes sense when the modal opens via JavaScript, the script injects the close button for you.</p>
+    </div>
+</div>
+
+{% markdown %}
+### Referencing a Modal Page
 If you wish to reference to a modal page to show it as a modal, you need to apply the `data-modal` atribute to the trigger element (most likely a link).
 {% endmarkdown %}
 
@@ -60,7 +100,7 @@ Modal-links can have options. In fact, you may use any element to refer to a mod
 </div>
 
 {% markdown %}
-Option are written as **semicolon-seperated key/value pairs**>:
+Option are written as **semicolon-seperated key/value pairs**:
 {% endmarkdown %}
 
 <div class="documentation__block">
@@ -68,7 +108,7 @@ Option are written as **semicolon-seperated key/value pairs**>:
 </div>
 
 {% markdown %}
-Available options:
+#### Available options
 
 | Key | Value | Description |
 | - | - | - |
@@ -76,30 +116,11 @@ Available options:
 | path  | valid path to modal page as *string*, eg. `pages/modal_test.html` | Any element can be linked to a modal. If it's not a link or a link with a href that does not link to a modal, the modal path may be overridden by this option. |
 | cache | *boolean* true/false | If set to true, the referenced modal will preload in the background. |
 
-### Modals on Mobile Pages
-It’s possible to use modals on mobile pages as well, although it’s probably not the best idea. Everything is the same, only the CSS-classes are postfixed with "-s":
-{% endmarkdown %}
-
-<div class="documentation__block documentation__block--darkMainColor">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="h-31">
-            <div class="modal-s m-t-6">
-                <div class="modal-s__header">
-                    <h3>Demo Modal</h3>
-                </div>
-                <div class="modal-s__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% markdown %}
 ### Modals to External Pages
 {% endmarkdown %}
 
-<div class="note note--error note--large note--icon085 m-t-8 b-0">
+<div class="note note--error note--large m-t-8 b-0">
+    <span class="icon">{% icon { id:'085' } %}</span>
     <h3 class="note__headline">Modals Must Not Load External Pages</h3>
     <div class="note__body">
         <p>The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>

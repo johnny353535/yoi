@@ -1,5 +1,8 @@
 /** pageRewind.less */
 
+// block
+// =====
+
 .pageRewind {
 
     .mixin-shadow-3;
@@ -11,32 +14,35 @@
     box-sizing: border-box;
     color: @color-main-15;
     display: block;
-    height: 4rem;
+    height: 5rem;
     left: 50%;
-    margin-left: -4.5rem;
-    padding: 1rem 2rem;
+    margin-left: -5rem;
     position: fixed;
     text-align: right;
     transition: bottom 500ms ease-out;
-    width: 9rem;
+    width: 10rem;
     z-index: 900;
 
     &:hover {
         background: @color-main-25;
     }
-
-    &.is--hidden {
-        bottom: -8rem;
+    
+    // icon
+    
+    &::after {
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-8);
+        content: ' ';
+        display: block;
+        height: 100%;
+        position: relative;
+        width: 100%;
     }
 
-    [class^="icon--"] {
-        color: @color-main-10;
-        height: 4rem;
-        left: 50%;
-        line-height: 4rem;
-        margin-left: -1.6rem;
-        position: absolute;
-        top: 0;
-    }
+}
 
+// modifiers
+// =========
+
+.pageRewind.is--hidden {
+    bottom: -8rem;
 }

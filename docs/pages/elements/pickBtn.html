@@ -53,8 +53,8 @@
             <div class="documentation__body">
                 
 
-<h2 id="box">Box</h2>
-<p><code>.box</code> is a versatile container. Use it to wrap navigational elements, products or to build asides. Chose from the available variations to achieve different grades of emphasis – some pop out, others appear more subtle.</p>
+<h2 id="pickbtn">PickBtn</h2>
+<p>Use this element to create prominent radio buttons. It’s basically a visual candy wrapper around a <code>&lt;label&gt;</code> and an <code>input[type=&quot;radio&quot;]</code>.</p>
 <table>
 <thead>
 <tr>
@@ -65,152 +65,76 @@
 <tbody>
 <tr>
 <td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/box.less">box.less</a></td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/pickBtn.less">pickBtn.less</a></td>
+</tr>
+<tr>
+<td>JS-File</td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/pickBtn.js">pickBtn.js</a></td>
 </tr>
 <tr>
 <td>Base CSS-Class</td>
-<td><code>.box</code></td>
+<td><code>.pickBtn</code></td>
 </tr>
 <tr>
 <td>Modifiers</td>
-<td><code>.box--1, .box--2, .box--3, .box--4</code></td>
+<td><code>-</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="basic-example-with-optional-header">Basic Example with Optional Header</h3>
+<h3 id="basic-example">Basic Example</h3>
+<p>The script that controls <code>.pickBtn</code> instances assumes that we use <em>real</em> <code>input[type=&quot;radio&quot;]</code> elements inside each <code>.pickBtn</code>. Once a button is active, the script activates the radio input inside, so you can work with it like you would expect working with a regular radio input.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1">
-            <h4 class="box__header">Optional Headline</h4>
-            <div class="box__body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+        <ul class="fs-0">
+            <li class="pickBtn m-r-1 is--active" data-pickbtn>
+                <label for="pickBtn_1" class="pickBtn__label">Brausetabletten</label>
+                <input id="pickBtn_1" type="radio" checked="checked" name="testGroup_1" />
+            </li>
+            <li class="pickBtn m-r-1" data-pickbtn>
+                <label for="pickBtn_2" class="pickBtn__label">Lösliches Pulver</label>
+                <input id="pickBtn_2" type="radio" name="testGroup_1" />
+            </li>
+            <li class="pickBtn m-r-1" data-pickbtn>
+                <label for="pickBtn_3" class="pickBtn__label">Kautabletten</label>
+                <input id="pickBtn_3" type="radio" name="testGroup_1" />
+            </li>
+        </ul>
     </div>
 </div>
 
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--1">
-            <h4 class="box__header">Optional Headline</h4>
-            <div class="box__body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
+<div class="note note--subtle note--large m-t-8">
+    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1472.197 252.999h-576l-448 898.114h448L576.83 1855.539l831.367-1022.232h-384z"/></svg> </span>
+    <h3 class="note__headline">The Name Attribute</h3>
+    <div class="note__body">
+        <p>Regular radio inputs are logically grouped by their name-attribute. The script for these radio buttons follows the same logic, so <b>make sure you use the name attribute to group the radio buttons correctly</b>.</p>
     </div>
 </div>
 
-<h3 id="variations">Variations</h3>
-<p>Chose from one of the five different stylings:</p>
-
-
-<div class="documentation__blocks">
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="box box--1">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="box box--2">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="box box--3">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="box box--4">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="box box--5">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<h3 id="grouping">Grouping</h3>
-<p>Each <code>.box</code> can have multiple <code>.box__body</code>s. This is handy if you wish to group elements inside a single <code>.box</code> but only use one <code>.box__header</code>. Like this:</p>
+<h3 id="special-element-toggle-label">Special Element: Toggle-Label</h3>
+<p>Sometimes you may wish to include an additional label and hide it, once a button is active. Therefore, you can use the element <code>.pickBtn__toggleLabel</code>, like this:</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box box--2">
-            <h4 class="box__header">Headline</h4>
-            <div class="box__body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div class="box__body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<p>Sometimes you may wish to group different <code>.box</code>es. You can easily do so by wrapping them inside <code>&lt;div class=&quot;boxes&quot;&gt;</code> (notice the plural!). Of course you can also nest multiple bodies:</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="boxes">
-            <div class="box box--2">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-            <div class="box box--2">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-            <div class="box box--2">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-            <div class="box box--2">
-                <h4 class="box__header">Headline</h4>
-                <div class="box__body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </div>
+        <ul class="fs-0">
+            <li class="pickBtn m-r-1 is--active" data-pickbtn>
+                <label for="pickBtn_4" class="pickBtn__label">50 Stk</label>
+                <span class="pickBtn__toggleLabel tc-price">€ 10,99</span>
+                <input id="pickBtn_4" type="radio" checked="checked" name="testGroup_2" />
+            </li>
+            <li class="pickBtn m-r-1" data-pickbtn>
+                <label for="pickBtn_5" class="pickBtn__label">70 Stk</label>
+                <span class="pickBtn__toggleLabel tc-price">€ 15,99</span>
+                <input id="pickBtn_5" type="radio" name="testGroup_2" />
+            </li>
+            <li class="pickBtn" data-pickbtn>
+                <label for="pickBtn_6" class="pickBtn__label">150 Stk</label>
+                <span class="pickBtn__toggleLabel tc-price">€ 20,99</span>
+                <input id="pickBtn_6" type="radio" name="testGroup_2" />
+            </li>
+        </ul>
     </div>
 </div>
 

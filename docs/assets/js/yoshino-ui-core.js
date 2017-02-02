@@ -386,14 +386,7 @@ var Documentation = (function() {
 
     var $fileDisplay = $('\
         <div id="fileDisplay" class="documentation__fileDisplay">\
-            <button class="btn btn--subtle btn--large">\
-                <span class="hidden">close</span>\
-                <span class="icon">\
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">\
-                        <path d="M1340.783 1250.108l-226.273-226.272 226.273-226.275-90.5-90.499-226.273 226.273-226.285-226.284-90.51 90.51 226.284 226.284-226.274 226.275 90.5 90.5L1024 1114.345l226.273 226.275z"></path>\
-                    </svg>\
-                </span>\
-            </button>\
+            <button class="btnDismiss btnDismiss--large"></button>\
             <code>\
                 <pre></pre>\
             </code>\
@@ -551,7 +544,7 @@ var Documentation = (function() {
 
         // attach event to close button
 
-        $('#fileDisplay .btn').on('click', function() {
+        $('#fileDisplay .btnDismiss').on('click', function() {
 
             $('#fileDisplay').find('code').scrollTop(0);
             $('#fileDisplay').hide();
@@ -1395,9 +1388,9 @@ var CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
         var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .radioBtn *)');
+        var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 
         // prepare custom form elements
@@ -2334,10 +2327,7 @@ var Dismiss = (function() {
     var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 
     $btnDismiss = $('\
-        <button class="btn btn--subtle">\
-            <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006-s" aria-hidden="true"></i>\
-        </button>\
+        <span class="btnDismiss">' + btnLabelClose + '</span>\
     ');
 
     // private functions
@@ -2356,7 +2346,7 @@ var Dismiss = (function() {
          */
         
         if (!($dismissableElement instanceof jQuery)) {
-            $dismissableElement = $('input[data-dismissable]');
+            $dismissableElement = $('[data-dismissable]');
         }
 
         $dismissableElement.each(function() {
@@ -3996,16 +3986,8 @@ var Modal = (function() {
     ');
 
     var $modalCloseBtn = $('\
-        <button class="btn btn--flat" data-action="closeModal">\
+        <button class="btnDismiss" data-action="closeModal">\
             <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006-s" aria-hidden="true"></i>\
-        </button>\
-    ');
-
-    var $modalCloseBtnMobile = $('\
-        <button class="btn btn--large btn--subtle" data-action="closeModal">\
-            <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006" aria-hidden="true"></i>\
         </button>\
     ');
 
@@ -4127,7 +4109,7 @@ var Modal = (function() {
 
                 if (status === 'success') {
 
-                    var thisModal = $(this).find('.modal, .modal-s').first();
+                    var thisModal = $(this).find('.modal').first();
 
                     // if valid modal markup was found
 
@@ -4141,7 +4123,6 @@ var Modal = (function() {
 
                         thisModal.attr('id', modalId.split('#')[1]);
                         thisModal.find('.modal__header').append($modalCloseBtn.clone());
-                        thisModal.find('.modal-s__header').append($modalCloseBtnMobile.clone());
 
                         // append to dom & hide
 
@@ -4234,7 +4215,7 @@ var Modal = (function() {
          *  @param {string} modalId - the modal id
          */
 
-        var modal = $(modalId);
+        var modal   = $(modalId);
         var offSetY = modal.height() / 2 * -1 - 10;
 
         // Does the modal vertically fit into the viewport (position: fixed)
@@ -4243,7 +4224,7 @@ var Modal = (function() {
         var modalFitsIntoViewport = ($(window).height() - 50) < modal.height();
 
         if (modalFitsIntoViewport) {
-            modal.css({'top': '10px', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
+            modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
             $('html,body').animate({scrollTop: 0}, 500); // "rewind" page to top
         } else {
             modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
@@ -4258,7 +4239,7 @@ var Modal = (function() {
          */
 
         $('#modalCover').fadeOut('fast');
-        $('#modalContainer, #modalContainer .modal, #modalContainer .modal-s').hide();
+        $('#modalContainer, #modalContainer .modal').hide();
 
         if (scrollTop > 0) {
             $('body').scrollTop(scrollTop);
@@ -4338,9 +4319,19 @@ var PageRewind = (function() {
     // ============
     
     var $pageRewind;
-    var $window     = $(window);
-    var $body       = $('body');
-    var threshold   = 500;
+    var $window   = $(window);
+    var $body     = $('body');
+    var threshold = 500;
+    
+    // get the document language, fall back to english
+    // note: only german and english supported at this moment
+
+    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
+    
+    var labelTxt = {
+        'en' : 'scroll back to top',
+        'de' : 'Zurück zum Seitenanfang'
+    };
     
     // private functions
     // =================
@@ -4355,7 +4346,7 @@ var PageRewind = (function() {
         
         $pageRewind = $(
             '<a class="pageRewind" href="#">\
-                <i aria-hidden="true" class="icon--010-s"></i>\
+                <span class="hidden">' + labelTxt[language] + '</span>\
             </a>'
         );
         
@@ -4412,6 +4403,100 @@ var PageRewind = (function() {
     }
 
 })();
+/** pickBtn.js */
+
+var PickBtn = (function() {
+
+    // private vars
+    // ============
+
+    var $icon = $('<span class="pickBtn__icon"></span>');
+
+    // private functions
+    // =================
+
+    function initializePickBtn($pickBtn) {
+
+        /**
+         *  Initialize all *[data-pickbtn] found in the document (= function call without parameters)
+         *  or target one or more specific *[data-pickbtn] (= function call with $pickBtn).
+         *  $pickBtn must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $pickBtn - the pick-button(s)
+         */
+
+        if (!($pickBtn instanceof jQuery)) {
+            $pickBtn = $('[data-pickbtn]');
+        }
+
+        $pickBtn.each(function() {
+            
+            var $thisPickBtn = $(this);
+
+            $thisPickBtn.find('input[type="radio"]').hide();
+            $thisPickBtn.prepend($icon.clone());
+
+            // prevent default event of <label>
+
+            $thisPickBtn.find('label').on('click', function(e) {
+                e.preventDefault();
+            });
+
+            // bind event to button
+
+            $thisPickBtn.on('click', function(e) {
+                e.preventDefault();
+                activatePickBtn($thisPickBtn);
+            });
+
+        });
+
+    }
+
+    function activatePickBtn($thisPickBtn) {
+
+        /**
+         *  Switch a radio button to "active".
+         *
+         *  @param  {jQuery object} $thisPickBtn - the pick-button
+         */
+
+        var $icon       = $thisPickBtn.find('.pickBtn__icon');
+        var $radioInput = $thisPickBtn.find('input[type="radio"]');
+        var groupName   = $radioInput.attr('name');
+
+        // reset all other buttons first
+
+        $('input[name="' + groupName + '"]').closest('.pickBtn').removeClass('is--active');
+        $('input[name="' + groupName + '"]').removeAttr('checked');
+        $('input[name="' + groupName + '"]').prop('checked', false);
+
+        // activate this button
+
+        $radioInput.prop('checked', true);
+        $radioInput.attr('checked', 'checked');
+        $thisPickBtn.addClass('is--active');
+
+        // blink the icon
+
+        YOI.blink($icon);
+
+    }
+
+    // initialize
+    // ==========
+
+    initializePickBtn();
+
+    // public functions
+    // ================
+
+    return {
+        init : initializePickBtn
+    }
+
+})();
+
 /** pieChart.js */
 
 var PieChart = (function() {
@@ -5163,99 +5248,6 @@ var PopOver = (function() {
 
 })();
 
-/** radioBtn.js */
-
-var RadioBtn = (function() {
-
-    // private vars
-    // ============
-
-    var $icon = $('<i aria-hidden="true" class="icon--011-s"></i>');
-
-    // private functions
-    // =================
-
-    function initializeRadioBtn($radioBtn) {
-
-        /**
-         *  Initialize all *[data-radioBtn] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-radioBtn] (= function call with $radioBtn).
-         *  $radioBtn must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $radioBtn - the radio button(s)
-         */
-
-        if (!($radioBtn instanceof jQuery)) {
-            $radioBtn = $('[data-radiobtn]');
-        }
-
-        $radioBtn.each(function() {
-
-            var $thisRadioBtn = $(this);
-
-            $thisRadioBtn.find('input[type="radio"]').hide();
-            $thisRadioBtn.prepend($icon.clone());
-
-            // prevent default event of <label>
-
-            $thisRadioBtn.find('label').on('click', function(e) {
-                e.preventDefault();
-            });
-
-            // bind event to button
-
-            $thisRadioBtn.on('click', function(e) {
-                e.preventDefault();
-                activateRadioBtn($thisRadioBtn);
-            });
-
-        });
-
-    }
-
-    function activateRadioBtn($thisRadioBtn) {
-
-        /**
-         *  Switch a radio button to "active".
-         *
-         *  @param  {jQuery object} $thisRadioBtn - the button
-         */
-
-        var $icon       = $thisRadioBtn.find('[class^="icon"]');
-        var $radioInput = $thisRadioBtn.find('input[type="radio"]');
-        var groupName   = $radioInput.attr('name');
-
-        // reset all other buttons first
-
-        $('input[name="' + groupName + '"]').closest('.radioBtn').removeClass('is--active');
-        $('input[name="' + groupName + '"]').removeAttr('checked');
-
-        // activate this button
-
-        $radioInput.prop('checked', true);
-        $radioInput.attr('checked', 'checked');
-        $thisRadioBtn.addClass('is--active');
-
-        // blink the icon
-
-        YOI.blink($icon);
-
-    }
-
-    // initialize
-    // ==========
-
-    initializeRadioBtn();
-
-    // public functions
-    // ================
-
-    return {
-        init : initializeRadioBtn
-    }
-
-})();
-
 /** rangeInput.js */
 
 var RangeInput = (function() {
@@ -5660,11 +5652,11 @@ var RatingInput = (function() {
     
     var $ratingSelect = $('\
         <span class="ratingInput__select">\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
-            <i aria-hidden="true" class="icon--039-s"></i>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
+            <span class="ratingInput__star"></span>\
         </span>\
     ');
     
@@ -5700,7 +5692,7 @@ var RatingInput = (function() {
             
             var $thisRatingInput  = $(this);
             var $thisRatingSelect = $ratingSelect.clone();
-            var $thisRatingStars  = $thisRatingSelect.find('[class*="icon--"]');
+            var $thisRatingStars  = $thisRatingSelect.find('.ratingInput__star');
             
             // append data
             

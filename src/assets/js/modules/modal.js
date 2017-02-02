@@ -20,16 +20,8 @@ var Modal = (function() {
     ');
 
     var $modalCloseBtn = $('\
-        <button class="btn btn--flat" data-action="closeModal">\
+        <button class="btnDismiss" data-action="closeModal">\
             <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006-s" aria-hidden="true"></i>\
-        </button>\
-    ');
-
-    var $modalCloseBtnMobile = $('\
-        <button class="btn btn--large btn--subtle" data-action="closeModal">\
-            <span class="hidden">' + btnLabelClose + '</span>\
-            <i class="icon--006" aria-hidden="true"></i>\
         </button>\
     ');
 
@@ -151,7 +143,7 @@ var Modal = (function() {
 
                 if (status === 'success') {
 
-                    var thisModal = $(this).find('.modal, .modal-s').first();
+                    var thisModal = $(this).find('.modal').first();
 
                     // if valid modal markup was found
 
@@ -165,7 +157,6 @@ var Modal = (function() {
 
                         thisModal.attr('id', modalId.split('#')[1]);
                         thisModal.find('.modal__header').append($modalCloseBtn.clone());
-                        thisModal.find('.modal-s__header').append($modalCloseBtnMobile.clone());
 
                         // append to dom & hide
 
@@ -258,7 +249,7 @@ var Modal = (function() {
          *  @param {string} modalId - the modal id
          */
 
-        var modal = $(modalId);
+        var modal   = $(modalId);
         var offSetY = modal.height() / 2 * -1 - 10;
 
         // Does the modal vertically fit into the viewport (position: fixed)
@@ -267,7 +258,7 @@ var Modal = (function() {
         var modalFitsIntoViewport = ($(window).height() - 50) < modal.height();
 
         if (modalFitsIntoViewport) {
-            modal.css({'top': '10px', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
+            modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
             $('html,body').animate({scrollTop: 0}, 500); // "rewind" page to top
         } else {
             modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
@@ -282,7 +273,7 @@ var Modal = (function() {
          */
 
         $('#modalCover').fadeOut('fast');
-        $('#modalContainer, #modalContainer .modal, #modalContainer .modal-s').hide();
+        $('#modalContainer, #modalContainer .modal').hide();
 
         if (scrollTop > 0) {
             $('body').scrollTop(scrollTop);

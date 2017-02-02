@@ -200,4 +200,44 @@ div.myElement {
 }
 </pre></code></div>
 
+{% markdown %}
+### Specificity
+In some rare cases, you just need to up the specificity of your CSS selector. While you could do so by adding a tag – eg. `div.foo .bar` beats `.foo.bar` – this is probably a bad idea since you should not make too many assumptions about the markup. Also, the use of IDs or `!important` is not a good strategy since they increase the specificity way too much. What else can we do?
+
+There is a little know **legal hack**.
+    
+> Repeated occurrances [sic] of the same simple selector are allowed and do increase specificity.
+> https://www.w3.org/TR/css3-selectors/#specificity
+
+#### Example
+{% endmarkdown %}
+
+<div class="documentation__block"><code class="language-css"><pre>
+/* the selector to trump: */
+
+.foo.foo--bar {
+    color: red;
+}
+
+/* the bad strategies :( */
+
+div.foo.foo--bar {
+    color: green;
+}
+
+#someId .foo.foo--bar {
+    color: green;
+}
+
+.bar .foo--bar {
+    color: green !important;
+}
+
+/* the good strategy :) */
+
+.foo.foo--bar.foo--bar {
+    color: green;
+}
+</pre></code></div>
+
 {% endblock %}

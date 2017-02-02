@@ -1,0 +1,120 @@
+/** btnDismiss.less */
+
+// block
+// =====
+
+.btnDismiss {
+    
+    .mixin-clearAppearance;
+    .mixin-defaultBorderRadius;
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 32, @height: 32);
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0;
+    height: 3.2rem;
+    overflow: hidden;
+    position: relative;
+    text-color: transparent;
+    width: 3.2rem;
+    
+    &:hover {
+        background-color: fade(@color-main-22, 50%);
+    }
+    
+}
+
+// modifiers
+// =========
+
+// sizes
+
+.btnDismiss--small {
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 16, @height: 16);
+    height: 1.6rem;
+    width: 1.6rem;
+}
+
+.btnDismiss--medium {
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 24, @height: 24);
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+.btnDismiss--large {
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 48, @height: 48);
+    height: 4.8rem;
+    width: 4.8rem;
+}
+
+// colors
+
+/*
+    Any .btnDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
+    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--error)
+    beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
+    not even a hack:
+    
+    "Repeated occurrances of the same simple selector are allowed and do increase specificity."
+    https://www.w3.org/TR/css3-selectors/#specificity
+*/
+
+.btnDismiss.btnDismiss--error.btnDismiss--error,
+.btnDismiss.btnDismiss--negative.btnDismiss--negative,
+[class*="--error"] .btnDismiss,
+[class*="--negative"] .btnDismiss {
+    .btnDismissTheme(
+        @iconColor: @color-negative-10,
+        @hoverBgColor: @color-negative-21
+    );
+}
+
+.btnDismiss.btnDismiss--success.btnDismiss--success,
+.btnDismiss.btnDismiss--positive.btnDismiss--positive,
+[class*="--success"] .btnDismiss,
+[class*="--positive"] .btnDismiss {
+    .btnDismissTheme(
+        @iconColor: @color-positive-10,
+        @hoverBgColor: @color-positive-21
+    );
+}
+
+.btnDismiss.btnDismiss--attention.btnDismiss--attention,
+[class*="--attention"] .btnDismiss {
+    .btnDismissTheme(
+        @iconColor: @color-attention-10,
+        @hoverBgColor: @color-attention-20
+    );
+}
+
+.btnDismiss.btnDismiss--dark.btnDismiss--dark,
+[class*="--dark"] .btnDismiss {
+    .btnDismissTheme(
+        @iconColor: @color-main-24,
+        @hoverBgColor: @color-main-7
+    );
+}
+
+// "constructor" for different color themes
+
+.btnDismissTheme(@iconColor, @hoverBgColor) {
+
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @iconColor, @width: 32, @height: 32);
+    
+    &:hover {
+        background-color: fade(@hoverBgColor, 50%);
+    }
+    
+    &.btnDismiss--small {
+        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 16, @height: 16);
+    }
+
+    &.btnDismiss--medium {
+        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 24, @height: 24);
+    }
+
+    &.btnDismiss--large {
+        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 48, @height: 48);
+    }
+
+}
