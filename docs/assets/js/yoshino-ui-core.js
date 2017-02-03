@@ -1515,12 +1515,8 @@ var DatePicker = (function() {
 
     var $datePicker = $('\
         <div class="datePicker">\
-            <a class="btn btn--subtle btn--large btn--stripped pos-tl" data-action="prevMonth">\
-                <i aria-hidden="true" class="icon--008-s"></i>\
-            </a>\
-            <a class="btn btn--subtle btn--large btn--stripped pos-tr" data-action="nextMonth">\
-                <i aria-hidden="true" class="icon--007-s"></i>\
-            </a>\
+            <span class="datePicker__btnPrev" data-action="prevMonth"></span>\
+            <span class="datePicker__btnNext" data-action="nextMonth"></span>\
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');

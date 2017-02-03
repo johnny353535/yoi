@@ -18383,6 +18383,27 @@ a:visited.btn.btn--outline.btn--positive {
   text-align: center;
   background: #faf9f7;
 }
+.datePicker__btnPrev,
+.datePicker__btnNext {
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  width: 4rem;
+}
+.datePicker__btnPrev {
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=%23cdcccb&s=%23000&w=32&h=32) center center no-repeat;
+  left: 0;
+}
+.datePicker__btnPrev:hover {
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=%23535251&s=%23000&w=32&h=32) center center no-repeat;
+}
+.datePicker__btnNext {
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=%23cdcccb&s=%23000&w=32&h=32) center center no-repeat;
+  right: 0;
+}
+.datePicker__btnNext:hover {
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=%23535251&s=%23000&w=32&h=32) center center no-repeat;
+}
 .datePicker__days {
   background: #faf9f7;
   border-bottom: 0;
@@ -18410,6 +18431,10 @@ a:visited.btn.btn--outline.btn--positive {
 }
 .datePicker__days td:hover::after {
   background: #676665;
+}
+.datePicker__days th:nth-child(6),
+.datePicker__days th:nth-child(7) {
+  color: #ff6830;
 }
 .datePicker__days .datePicker--today {
   background: #fffbd0;
@@ -19967,20 +19992,16 @@ a:visited:hover {
 /** mainMenu.less */
 .mainMenu {
   background: #fff;
-  bottom: 0;
-  height: 50px;
-  left: 0;
-  position: absolute;
-  z-index: 20;
+  height: 5rem;
 }
 .mainMenu__menu {
   border-radius: 2px 2px 0 0;
   border: #ecebea 1px solid;
   border-bottom: 0;
   box-sizing: border-box;
-  height: 50px;
+  height: 5rem;
   position: relative;
-  width: 960px;
+  width: 100%;
   z-index: 100;
 }
 .mainMenu__menu,
@@ -19994,11 +20015,11 @@ a:visited:hover {
   border-right: 1px #ecebea solid;
   color: #676665;
   display: block;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: bold;
-  height: 49px;
-  line-height: 49px;
-  padding: 0 10px;
+  height: 4.9rem;
+  line-height: 4.9rem;
+  padding: 0 1rem;
   text-align: center;
   text-decoration: none;
 }
@@ -20692,16 +20713,10 @@ a.pickBtn {
 }
 /** posterTeaser.less */
 .posterTeaser {
-  /*
-        You may want to override the background color.
-        Do so by applying a global background-color modifier, eg.:
-
-        <div class="posterTeaser bg-blue-10"> ... </div>
-    */
   border-radius: 2px;
   background: #343332;
   border: 0;
-  display: block;
+  display: inline-block;
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
   position: relative;
@@ -20711,15 +20726,17 @@ a.pickBtn {
   display: block;
   clear: both;
 }
-.posterTeaser img {
+a.posterTeaser {
+  cursor: pointer;
+  text-decoration: none;
+}
+.posterTeaser__image {
+  opacity: .5;
   display: block;
   transition: opacity 200ms ease-out;
 }
-a.posterTeaser {
-  text-decoration: none;
-}
-a.posterTeaser:hover img {
-  opacity: .8;
+a.posterTeaser:hover .posterTeaser__image {
+  opacity: .3;
 }
 .posterTeaser__body {
   color: #fff;
@@ -20743,19 +20760,11 @@ a.posterTeaser:hover img {
 .posterTeaser__body p,
 .posterTeaser__body ul,
 .posterTeaser__body ol {
-  font-size: 15px;
+  font-size: 1.5rem;
   margin: 1rem 0;
 }
 .posterTeaser__body :last-child {
   margin-bottom: 0;
-}
-.posterTeaser--darkBody .posterTeaser__body {
-  background: rgba(52, 51, 50, 0.5);
-}
-.posterTeaser--lightBody .posterTeaser__body {
-  color: #535251;
-  background: rgba(250, 249, 247, 0.5);
-  text-shadow: none;
 }
 .posterTeaser--bottom .posterTeaser__body {
   bottom: 0;

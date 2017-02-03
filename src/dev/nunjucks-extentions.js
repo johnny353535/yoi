@@ -132,12 +132,18 @@ exports.nunjucksIcon = function() {
         var height      = attributes.height !== undefined ? '&h=' + attributes.height : '';
         var fillColor   = attributes.fillColor !== undefined ? '&f=' + attributes.fillColor : '';
         var strokeColor = attributes.strokeColor !== undefined ? '&s=' + attributes.strokeColor : '';
+        var title       = attributes.title !== undefined ? '&title=' + attributes.title : '';
+        var descr       = attributes.descr !== undefined ? '&descr=' + attributes.descr : '';
+        var hidden      = attributes.hidden !== undefined ? '&hidden=' + attributes.hidden : '';
         
         url += id;
         url += width;
         url += height;
         url += fillColor;
         url += strokeColor;
+        url += title;
+        url += descr;
+        url += hidden;
 
         request(url, function(error, response, body) {
 

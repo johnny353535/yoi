@@ -35,19 +35,19 @@ See [worflows / adding icons](/pages/workflows/adding_icons.html).
             <tr>
                 <td style="vertical-align: middle;">icon-{{ i|pad(2) }}</td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <img src="//localhost/svg.php?id=icon-{{ i|pad(2) }}-s&f=%236754a1&w=32&h=32" alt="" />
+                    {% icon {id:i|pad(2) + '-s', fillColor:'#6754a1'} %}
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <img src="//localhost/svg.php?id=icon-{{ i|pad(2) }}&f=%236754a1&w=32&h=32" alt="" />
+                    {% icon {id:i|pad(2), fillColor:'#6754a1'} %}
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <img src="//localhost/svg.php?id=icon-{{ i|pad(2) }}&f=%236754a1&w=64&h=64" alt="" />
+                    {% icon {id:i|pad(2), fillColor:'#6754a1', width:64, height:64} %}
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <img src="//localhost/svg.php?id=icon-{{ i|pad(2) }}&f=%236754a1&w=96&h=96" alt="" />
+                    {% icon {id:i|pad(2), fillColor:'#6754a1', width:96, height:96} %}
                 </td>
                 <td style="vertical-align: middle; text-align: center;">
-                    <img src="//localhost/svg.php?id=icon-{{ i|pad(2) }}&f=%236754a1&w=128&h=128" alt="" />
+                    {% icon {id:i|pad(2), fillColor:'#6754a1', width:128, height:128} %}
                 </td>
             </tr>
         {% endfor %}

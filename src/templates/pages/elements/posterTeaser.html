@@ -3,12 +3,57 @@
 
 {% markdown %}
 ## PosterTeaser
+This element renders text on top of a darkened image, resembling a movie poster.
+
+|                |                                                                                   |
+| -              | -                                                                                 |
+| Less-File      | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
+| Base CSS-Class | `.posterTeaser`                                                                   |
+| Modifiers      | `.posterTeaser--bottom`                                                           |
+
+### Example
 {% endmarkdown %}
 
-<div class="note note--subtle note--large note--icon085 m-t-8">
-    <h3 class="note__headline">Documentation Incomplete</h3>
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="posterTeaser">
+            <div class="posterTeaser__body">
+                <h2>Pain Reliev</h2>
+                <p>Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+            </div>
+            <img class="posterTeaser__image" src="https://source.unsplash.com/9kbmpWBTk9A/300x300" alt="" />
+        </a>
+    </div>
+</div>
+
+<div class="note note--subtle note--large m-t-8">
+    <h3 class="note__headline">Markup</h3>
     <div class="note__body">
-        <p>To be completed soon.</p>
+        <p>You can turn any HTML block-level element into a <em>.posterTeaser</em> but please note: only anchors get the hover effect.</p>
+    </div>
+</div>
+
+<div class="note note--attention note--large m-t-8 b-0">
+    <h3 class="note__headline">Size</h3>
+    <div class="note__body">
+        <p><em>.posterTeaser__image</em> sets the overall <em>.posterTeaser</em> width an height! Overflowing text will get cut off. Please also note, that <em>.posterTeaser</em> is set to <strong>inline-block</strong>. Wrap it inside another block-level element if you need to create a block.</p>
+    </div>
+</div>
+
+{% markdown %}
+### Modifiers
+Only one modifier is available: `posterTeaser--bottom`. It makes the copy text align to the bottom.
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="posterTeaser posterTeaser--bottom">
+            <div class="posterTeaser__body">
+                <h2>Pain Reliev</h2>
+                <p>Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+            </div>
+            <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
+        </a>
     </div>
 </div>
 
