@@ -9,7 +9,7 @@ This element renders text on top of a darkened image, resembling a movie poster.
 | -              | -                                                                                 |
 | Less-File      | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
 | Base CSS-Class | `.posterTeaser`                                                                   |
-| Modifiers      | `.posterTeaser--bottom`                                                           |
+| Modifiers      | `.posterTeaser--bottom, .fx--slide, .fx--blur`                                    |
 
 ### Example
 {% endmarkdown %}
@@ -18,7 +18,7 @@ This element renders text on top of a darkened image, resembling a movie poster.
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <a class="posterTeaser">
             <div class="posterTeaser__body">
-                <h2>Pain Reliev</h2>
+                <h2 class="m-b-2">Pain Reliev</h2>
                 <p>Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
             </div>
             <img class="posterTeaser__image" src="https://source.unsplash.com/9kbmpWBTk9A/300x300" alt="" />
@@ -42,15 +42,78 @@ This element renders text on top of a darkened image, resembling a movie poster.
 
 {% markdown %}
 ### Modifiers
-Only one modifier is available: `posterTeaser--bottom`. It makes the copy text align to the bottom.
+
+#### posterTeaser--bottom
+It makes the copy text align to the bottom.
 {% endmarkdown %}
 
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <a class="posterTeaser posterTeaser--bottom">
             <div class="posterTeaser__body">
-                <h2>Pain Reliev</h2>
+                <h2 class="m-b-2">Pain Reliev</h2>
                 <p>Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+            </div>
+            <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
+        </a>
+    </div>
+</div>
+
+{% markdown %}
+#### fx--blur
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="posterTeaser fx--blur">
+            <div class="posterTeaser__body">
+                <h2 class="posterTeaser__title m-b-2">Pain Reliev</h2>
+                <p class="posterTeaser__copy">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+            </div>
+            <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
+        </a>
+    </div>
+</div>
+
+{% markdown %}
+#### fx--slide
+{% endmarkdown %}
+
+<div class="documentation__blocks">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <a class="posterTeaser fx--slide">
+                <div class="posterTeaser__body">
+                    <h2 class="posterTeaser__title m-b-2">Pain Reliev</h2>
+                    <p class="posterTeaser__copy">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+                </div>
+                <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
+            </a>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup; print:true;">
+            <a class="posterTeaser posterTeaser--bottom fx--slide">
+                <div class="posterTeaser__body">
+                    <h2 class="posterTeaser__title m-b-2">Pain Reliev</h2>
+                    <p class="posterTeaser__copy">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
+                </div>
+                <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
+            </a>
+        </div>
+    </div>
+</div>
+
+{% markdown %}
+#### fx--blur + fx--slide
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <a class="posterTeaser posterTeaser--bottom fx--blur fx--slide">
+            <div class="posterTeaser__body">
+                <h2 class="posterTeaser__title m-b-2">Pain Reliev</h2>
+                <p class="posterTeaser__copy">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
             </div>
             <img class="posterTeaser__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
         </a>

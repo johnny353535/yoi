@@ -1,63 +1,70 @@
 /** iconMenu.less */
 
+// block
+// =====
+
 .iconMenu {
-
-    ul {
-
-        border-top: @color-main-23 1px solid;
-        margin: 0 20px 20px 0;
+    
+    border-top: @color-main-23 1px solid;
+    margin: 0 2rem 2rem 0;
+    
+    ul& {
         list-style: none;
-
-        li {
-            border-bottom: @color-main-23 1px solid;
-            position: relative;
-        }
-
-        a {
-            color: @color-main-10;
-            display: block;
-            font-size: 20px;
-            padding: 20px 15px 20px 50px;
-            text-decoration: none;
-        }
-
-        [class^="icon--"] {
-            color: @color-main-22;
-            left: 10px;
-            position: absolute;
-            top: 15px;
-        }
-
-        // hover
-
-        li:hover {
-
-            a {
-                background: fade(@color-main-24, 50%);
-            }
-
-        }
-
-        // current
-
-        .current {
-
-            a {
-                background: @color-main-24;
-                color: @color-main-8;
-            }
-
-            [class^="icon--"] {
-                color: @color-main-8;
-            }
-
-        }
-
     }
+    
+}
 
-    .badge {
-        position: absolute;
-        right: 10px;
+// elements
+// ========
+
+.iconMenu__item {
+    border-bottom: @color-main-23 1px solid;
+    position: relative;
+}
+
+.iconMenu__link {
+    
+    &, &:link {
+        color: @color-main-10;
+        display: block;
+        font-size: 2rem;
+        padding: 2rem 1.5rem 2rem 5rem;
+        text-decoration: none;
     }
+    
+    &:hover {
+        background: @color-main-25;
+    }
+    
+}
+
+.iconMenu .icon {
+    
+    left: 1rem;
+    position: absolute;
+    top: 1.5rem;
+    
+    circle, ellipse, path, polygon {
+        fill: @color-main-17;
+    }
+    
+}
+
+.iconMenu .badge {
+    position: absolute;
+    right: 1rem;
+}
+
+// modifiers
+// =========
+
+.iconMenu__item.is--active {
+    
+   background: @color-main-24;
+   color: @color-main-8;
+   
+   circle, ellipse, path, polygon {
+       fill: @color-main-8;
+   }
 
 }

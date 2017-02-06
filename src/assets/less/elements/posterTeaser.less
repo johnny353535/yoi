@@ -5,6 +5,8 @@
 
 .posterTeaser {
 
+    .mixin--enable3d;
+    .mixin--fixFlickering;
     .mixin-clearfix;
     .mixin-defaultBorderRadius;
     background: @color-main-5;
@@ -25,8 +27,8 @@
 // ========
 
 .posterTeaser__image {
-    opacity: .5;
     display: block;
+    opacity: .5;
     transition: opacity 200ms ease-out;
 }
 
@@ -35,31 +37,19 @@ a.posterTeaser:hover .posterTeaser__image {
 }
 
 .posterTeaser__body {
-
+    bottom: 1rem;
     color: #fff;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
+    font-size: 1.5rem;
+    left: 1rem;
     position: absolute;
-    right: 0;
+    right: 1rem;
     text-shadow: 0 1px 0 rgba(0,0,0,.3);
-    top: 0;
+    top: 1rem;
     z-index: 2;
-
-    h1, h2, h3, h4, h5, h6 {
-        margin: 0 0 1rem 0;
-    }
-
-    p, ul, ol {
-        font-size: 1.5rem;
-        margin: 1rem 0;
-    }
-
-    :last-child {
-        margin-bottom: 0;
-    }
-
 }
+
+.posterTeaser__title {}
+.posterTeaser__copy {}
 
 // modifiers
 // =========
@@ -67,6 +57,73 @@ a.posterTeaser:hover .posterTeaser__image {
 // body sticks to bottom
 
 .posterTeaser--bottom .posterTeaser__body {
-    bottom: 0;
+    bottom: 1rem;
     top: auto;
+}
+
+// initially, only the image and title are
+// visible, the copy text appears on hover
+
+.posterTeaser.fx--slide {
+    
+    // regular
+    
+    .posterTeaser__copy {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+        transition: all 300ms ease-out;
+    }
+    
+    &:hover {
+        
+        .posterTeaser__copy {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+    
+    // text sticks to bottom
+    
+    &.posterTeaser--bottom {
+        
+        .posterTeaser__title {
+            transform: translate3d(0, -100%, 0);
+            transition: all 300ms ease-out;
+        }
+
+        .posterTeaser__body {
+            transform: translate3d(0, 100%, 0);
+            transition: all 300ms ease-out;
+        }
+
+        &:hover {
+        
+            .posterTeaser__title {
+                transform: translate3d(0, 0, 0);
+            }
+
+            .posterTeaser__body {
+                transform: translate3d(0, 0, 0);
+            }
+
+        }
+        
+    }
+    
+}
+
+// the image blurs and scales up on hover
+
+.posterTeaser.fx--blur {
+    
+    .posterTeaser__image {
+        transition: all 600ms ease-out;
+    }
+    
+    &:hover .posterTeaser__image {
+        filter: blur(10px);
+        transform: scale3d(1.1, 1.1, 1);
+    }
+    
 }

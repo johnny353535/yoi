@@ -35,6 +35,17 @@
     user-select: none;
 }
 
+.mixin--enable3d {
+    // http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+    transform: translateZ(0);
+}
+
+.mixin--fixFlickering {
+    // http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
 // styling
 // =======
 
