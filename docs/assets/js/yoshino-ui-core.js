@@ -511,7 +511,7 @@ var Documentation = (function() {
 
         // attach events to links
 
-        $('.documentation__body a').each(function() {
+        $('.documentation__article a').each(function() {
 
             var $thisAnchor  = $(this);
             var thisFilePath = $thisAnchor.attr('href');

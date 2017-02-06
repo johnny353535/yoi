@@ -28,73 +28,68 @@
     <body class="noJs" data-environment="desktop">
         <script>document.body.className='js';</script>
         <div class="documentation">
-            <div class="documentation__header">
-                <div class="center p-tb-10">
-                    <h1 class="m-tb-5">YOI – Yoshino UI Core</h1>
+            <div class="center grid-flex flex-directionRowReverse">
+                <div class="documentation__menu w-1-4 p-l-5 p-t-10">
+                    {#
+                        The following menus are automatically generated via a custom nunjucks
+                        extention, to be found in src/dev/nunjucks-extentions.js
+                    #}
+                    <h4>Introduction</h4>
+                    {% menu {
+                        path: 'pages/introduction/',
+                        src: './src/templates/pages/introduction',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Core</h4>
+                    {% menu {
+                        path: 'pages/core/',
+                        src: './src/templates/pages/core',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Theme</h4>
+                    {% menu {
+                        path: 'pages/theme/',
+                        src: './src/templates/pages/theme',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Utilities</h4>
+                    {% menu {
+                        path: 'pages/utilities/',
+                        src: './src/templates/pages/utilities',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Elements</h4>
+                    {% menu {
+                        path: 'pages/elements/',
+                        src: './src/templates/pages/elements',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>JS Interface</h4>
+                    {% menu {
+                        path: 'pages/js-interface/',
+                        src: './src/templates/pages/js-interface',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Tools</h4>
+                    {% menu {
+                        path: 'pages/tools/',
+                        src: './src/templates/pages/tools',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
+                    <h4>Workflows / Tutorials</h4>
+                    {% menu {
+                        path: 'pages/workflows/',
+                        src: './src/templates/pages/workflows',
+                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
+                    } %}
                 </div>
-            </div>
-            <div id="menu" class="dock dock--right" data-dock="autohide:true">
-                {#
-                    The following menus are automatically generated via a custom nunjucks
-                    extention, to be found in src/dev/nunjucks-extentions.js
-                #}
-                <h4>Introduction</h4>
-                {% menu {
-                    path: 'pages/introduction/',
-                    src: './src/templates/pages/introduction',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Core</h4>
-                {% menu {
-                    path: 'pages/core/',
-                    src: './src/templates/pages/core',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Theme</h4>
-                {% menu {
-                    path: 'pages/theme/',
-                    src: './src/templates/pages/theme',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Utilities</h4>
-                {% menu {
-                    path: 'pages/utilities/',
-                    src: './src/templates/pages/utilities',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Elements</h4>
-                {% menu {
-                    path: 'pages/elements/',
-                    src: './src/templates/pages/elements',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>JS Interface</h4>
-                {% menu {
-                    path: 'pages/js-interface/',
-                    src: './src/templates/pages/js-interface',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Tools</h4>
-                {% menu {
-                    path: 'pages/tools/',
-                    src: './src/templates/pages/tools',
-                    modifiers: 'b-0 br-0'
-                } %}
-                <h4>Workflows / Tutorials</h4>
-                {% menu {
-                    path: 'pages/workflows/',
-                    src: './src/templates/pages/workflows',
-                    modifiers: 'b-0 br-0'
-                } %}
-            </div>
-            <div class="documentation__body">
-                {% block main %}{% endblock %}
-            </div>
-            <footer class="documentation__footer">
-                <div class="center">
+                <div class="documentation__article w-3-4 p-r-8">
+                    {% block main %}{% endblock %}
+                </div>
+                <footer class="documentation__footer">
                     &copy; Yoshino.digital GmbH
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
         <script src="assets/js/libs/jquery.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
@@ -108,17 +103,17 @@
                  *  Hightligth the current menu item.
                  */
 
-                var $menu           = $('#menu');
+                var $menu           = $('.documentation__menu').first();
                 var $menuLinks      = $menu.find('.linkList__link');
                 var currentPagePath = window.location.pathname;
 
                 $menuLinks.each(function() {
 
-                    var $this       = $(this);
-                    var thisHref    = $this.attr('href').slice(1);
+                    var $this    = $(this);
+                    var thisHref = $this.attr('href').slice(1);
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
-                        $this.parent().addClass('linkList__item--active');
+                        $this.parent().addClass('is--active');
                     }
 
                 });
@@ -127,4 +122,5 @@
         </script>
         {% block customScripts %}{% endblock %}
     </body>
+    
 </html>

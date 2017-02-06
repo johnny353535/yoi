@@ -3,52 +3,46 @@
 // block
 // =====
 
-.documentation {}
+.documentation {
+    padding-top: 10rem;
+}
 
 // elements
 // ========
 
-.documentation__header,
+// footer & header
+
+// .documentation__header {
+//     background: #8BA39D;
+//     height: 1rem;
+//     left: 0;
+//     position: fixed;
+//     right: 0;
+//     top: 0;
+//     z-index: 1000;
+// }
+
 .documentation__footer {
-
-    border-color: @gray-22;
-    border-style: solid;
-    border-width: 0;
-
-    .center {
-        width: 80rem;
-    }
-
+    width: 100%;
+    color: @gray-15;
+    padding: 10rem 0 5rem 0;
 }
 
-.documentation__header {
+// typography
 
-    background: @purple-12;
-    border-bottom: 0;
-
-    h1 {
-        font-family: @font-sansserif;
-        color: #fff;
-    }
-
-}
-
-.documentation__body {
-
-    font-family: @font-sansserif;
-    margin: 0 auto;
-    padding: 5rem 0 10rem 0;
-    width: 80rem;
-
+.documentation__article {
+    
     // all direct children
 
     > p,
     > pre,
     > table,
-    > blockquote {
+    > blockquote,
+    > ul,
+    > ol {
         margin: 3rem 0;
         color: @gray-10;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         line-height: 2.5rem;
     }
 
@@ -64,6 +58,7 @@
     > h6 {
         color: @gray-6;
         font-family: @font-sansserif;
+        font-weight: bold;
     }
 
     > h1,
@@ -83,10 +78,7 @@
     > ul,
     > ol {
 
-        color: @gray-10;
-        font-size: 1.5rem;
-        line-height: 2.5rem;
-        margin: 3rem 0 3rem 4rem;
+        margin-left: 4rem;
 
         li + li {
             margin-top: 1.5rem;
@@ -120,9 +112,10 @@
     // intro paragraph
 
     > h2:first-child + p {
-        font-size: 1.7rem;
-        line-height: 2.75rem;
+        font-size: 2rem;
+        line-height: 3rem;
         margin-bottom: 5rem;
+        margin-top: 0;
     }
 
     // special H3
@@ -135,26 +128,26 @@
 
         &::before,
         &::after {
-            background: @gray-20;
-            content: ' ';
             display: block;
             position: absolute;
         }
 
         &::before {
             .mixin-defaultBorderRadius;
+            content: ' ';
+            background: @gray-20;
             height: 2px;
-            left: -6.5rem;
+            left: -4rem;
             top: 3rem;
-            width: 5rem;
+            width: 3rem;
         }
 
         &::after {
-            border-radius: 50%;
-            height: 1rem;
-            left: -6.5rem;
-            top: 2.6rem;
-            width: 1rem;
+            color: @gray-20;
+            content: '#';
+            font-weight: bold;
+            left: -6rem;
+            top: 2rem;
         }
 
     }
@@ -163,7 +156,7 @@
 
     > table {
 
-        border-color: @gray-22;
+        border-color: @gray-23;
 
         th:empty {
             display: none;
@@ -185,35 +178,6 @@
 
     }
 
-    // tabs
-
-    > .tabs {
-
-        border-color: @gray-22;
-
-        .tabs__menu {
-
-            border-color: @gray-22;
-            background: @gray-24;
-
-            li {
-                border-color: @gray-22;
-            }
-
-            a {
-                color: @gray-10;
-            }
-
-        }
-
-    }
-
-    // horizontal ruler
-
-    > hr {
-        background: @gray-23;
-    }
-
     // links
 
     a[href*="assets/"],
@@ -228,10 +192,7 @@
 
 }
 
-.documentation__footer {
-    color: @gray-15;
-    padding: 5rem 0;
-}
+// content blocks
 
 .documentation__blocks {
 
@@ -263,7 +224,7 @@
 .documentation__block {
 
     .mixin-defaultBorderRadius;
-    border: @gray-22 1px solid;
+    border: @gray-23 1px solid;
     display: block;
     margin-top: 3rem;
     overflow: visible;
@@ -281,16 +242,10 @@
 
 }
 
-.documentation__treeview {
-    .mixin-defaultBorderRadius;
-    background: @gray-23;
-    margin-top: 3rem;
-}
-
 .documentation__example {
     transition: background 200ms ease-in;
     background: #fff;
-    padding: 20px;
+    padding: 2rem;
 }
 
 .documentation__controls {
@@ -298,7 +253,7 @@
     font-size: 0;
     height: 2.5rem;
     position: absolute;
-    right: -1px;
+    right: 0;
     top: -2.6rem;
 
     button {
@@ -323,6 +278,12 @@
         border-left: @gray-22 1px solid;
     }
 
+}
+
+.documentation__treeview {
+    .mixin-defaultBorderRadius;
+    background: @gray-23;
+    margin-top: 3rem;
 }
 
 .documentation__fileDisplay {
@@ -356,7 +317,9 @@
 
 }
 
-.documentation /* code elements */ {
+// code inside documentation
+
+.documentation {
 
     code,
     pre {
@@ -500,76 +463,13 @@
 
 }
 
-.documentation .dock {
-
-    // overriding .dock colors
-
-    background: @gray-5;
-    color: @gray-22;
-    border-color: @gray-4;
-
-    h4 {
-        margin: 2rem 0;
-    }
-
-    .linkList {
-
-        background: transparent;
-
-        li {
-            border-color: @gray-4;
-            text-transform: capitalize;
-        }
-
-        .linkList__link {
-            color: @gray-20;
-            padding-left: 1rem;
-        }
-
-        .linkList__item--active .linkList__link,
-        .linkList__item--active .linkList__link:hover {
-            background: @purple-12;
-            color: #fff;
-        }
-
-        .linkList__link:hover {
-            background: @gray-4;
-            border-color: transparent;
-        }
-
-    }
-
-}
-
 // modifiers
 // =========
 
 .documentation__block--dark {
 
-    &,
-    .documentation__block {
-        border-color: @gray-15;
-    }
-
     .documentation__example {
-        background: @gray-15;
-    }
-
-    .documentation__example + code {
-        border-top-color: transparent;
-    }
-
-}
-
-.documentation__block--darkMainColor {
-
-    &,
-    .documentation__block {
-        border-color: @color-main-8;
-    }
-
-    .documentation__example {
-        background: @color-main-8;
+        background: @gray-23;
     }
 
 }

@@ -10,7 +10,8 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
 {% endmarkdown %}
 
 <div class="boxes">
-    <div class="w-1-1 box box--3">
+    <div class="w-1-1 box">
+        <div class="grid-float">
         <div class="w-1-5 fl-l p-4">
             <form id="colorForm" action="#">
                 <label for="referenceColor">Reference color</label>
@@ -23,6 +24,7 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
             </form>
             <div class="m-t-4" id="presets">
                 <label class="m-b-2">Or pick a preset:</label>
+                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#8572c0',26);ColorMath.generateCode()">Purple</button><br />
                 <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#7ebaf0',26);ColorMath.generateCode()">Blue</button><br />
                 <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#b7e7cd',26);ColorMath.generateCode()">Green</button><br />
                 <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#f84502',26);ColorMath.generateCode()">Red</button><br />
@@ -30,13 +32,12 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
                 <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#979797',26);ColorMath.generateCode()">Grey</button>
             </div>
         </div>
-        <div class="w-4-5 fl-l">
-            <div class="p-tb-4 p-r-4">
-                <div class="box box--1" id="gradient"></div>
-            </div>
+        <div class="w-4-5 fl-r p-4">
+            <div id="gradient"></div>
+        </div>
         </div>
     </div>
-    <div class="box box--3" id="codepanel">
+    <div class="box" id="codepanel">
         <code class="tc-main-8 d-blk"></code>
     </div>
 </div>
@@ -47,7 +48,7 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
     <style type="text/css" media="screen">
 
         .shade {
-            height: 40px;
+            height: 4rem;
             text-align: right;
         }
 
@@ -55,9 +56,9 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
             background: rgba(0,0,0,.4);
             color: #fff;
             display: inline-block;
-            font: normal 15px/40px monospace;
+            font: normal 1.5rem/4rem monospace;
             height: 100%;
-            padding: 0 15px;
+            padding: 0 1.5rem;
         }
 
         #gradient {
@@ -70,7 +71,7 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
 
         #codepanel code {
             margin: 0;
-            padding: 20px;
+            padding: 2rem;
             white-space: pre;
         }
 
