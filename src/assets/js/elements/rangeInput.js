@@ -5,7 +5,7 @@ var RangeInput = (function() {
     // private vars
     // ============
 
-    var knobOffset = 10;
+    var knobOffset;
 
     var rangeInputKnob = $('\
         <div class="rangeInput__knob"></div>\
@@ -54,7 +54,7 @@ var RangeInput = (function() {
 
             // gather dom elements
 
-            var $documentBody = $('body');
+            var $documentBody   = $('body');
             var $thisRangeInput = $(this);
 
             // options
@@ -117,6 +117,10 @@ var RangeInput = (function() {
                 cursorPosX : 0,
                 width      : $thisTrack.width()
             });
+            
+            // calculate the knob offset
+            
+            knobOffset = $thisRangeInput.find('.rangeInput__knob').first().outerWidth() / 2;
 
             // move knobs to initial position
 

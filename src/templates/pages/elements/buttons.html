@@ -29,7 +29,7 @@ You can use any [icon](/pages/elements/icons.html) inside any kind of button. Yo
     <div class="documentation__block">
         <div class="documentation__example" data-printcode="language:markup; print:true;">
             <button class="btn">
-                <i class="icon--012-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'012-s'} %}</span>
                 <span>Icon Left</span>
             </button>
         </div>
@@ -38,7 +38,7 @@ You can use any [icon](/pages/elements/icons.html) inside any kind of button. Yo
         <div class="documentation__example" data-printcode="language:markup; print:true;">
             <button class="btn">
                 <span>Icon Right</span>
-                <i class="icon--070-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'070-s'} %}</span>
             </button>
         </div>
     </div>
@@ -52,7 +52,7 @@ If you wish to create an icon-only button, use the css-class `hidden` for the la
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <button class="btn">
             <span class="hidden">Hidden Label Text</span>
-            <i class="icon--068-s" aria-hidden="true"></i>
+            <span class="icon">{% icon {id:'068-s'} %}</span>
         </button>
     </div>
 </div>
@@ -64,11 +64,11 @@ You can use **more than one icon** per button. But **this rarely makes much sens
 <div class="documentation__block">
     <div class="documentation__example" data-printcode="language:markup; print:true;">
         <button class="btn">
-            <i class="icon--069-s" aria-hidden="true"></i>
+            <span class="icon">{% icon {id:'069-s'} %}</span>
             <span>Many Icons Left And Right</span>
-            <i class="icon--070-s" aria-hidden="true"></i>
-            <i class="icon--071-s" aria-hidden="true"></i>
-            <i class="icon--072-s" aria-hidden="true"></i>
+            <span class="icon">{% icon {id:'070-s'} %}</span>
+            <span class="icon">{% icon {id:'071-s'} %}</span>
+            <span class="icon">{% icon {id:'072-s'} %}</span>
         </button>
     </div>
 </div>
@@ -83,7 +83,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         <div class="documentation__example" data-printcode="language:markup; print:true;">
             <a class="btn m-t-1" href="#">
                 <span>a-tag and .btn plus .icon</span>
-                <i class="icon--011-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'011-s'} %}</span>
             </a>
         </div>
     </div>
@@ -91,7 +91,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         <div class="documentation__example" data-printcode="language:markup; print:true;">
             <button class="btn m-t-1">
                 <span>button-tag and .btn plus .icon</span>
-                <i class="icon--011-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'011-s'} %}</span>
             </button>
         </div>
     </div>
@@ -100,7 +100,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
             <span class="btn m-t-1">
                 <input type="submit" value="Input-tag and .btn" />
                 <span>input-tag and .btn</span>
-                <i class="icon--011-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'011-s'} %}</span>
             </span>
         </div>
     </div>
@@ -108,7 +108,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         <div class="documentation__example" data-printcode="language:markup; print:true;">
             <span class="btn m-t-1">
                 <span>span-tag and .btn</span>
-                <i class="icon--011-s" aria-hidden="true"></i>
+                <span class="icon">{% icon {id:'011-s'} %}</span>
             </span>
         </div>
     </div>

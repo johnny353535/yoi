@@ -9,7 +9,7 @@
 // ========
 
 .searchPrompt__icon {
-    
+    .mixin-icon-bg(@id: 'icon-012', @fillColor: @color-main-20);
     color: @color-main-10;
     height: 3.2rem;
     left: .9rem;
@@ -17,17 +17,6 @@
     top: .9rem;
     transition: opacity 200ms;
     width: 3.2rem;
-    
-    circle, ellipse, path, polygon {
-        fill: @color-main-20;
-    }
-    
-    .searchPrompt:hover & {
-        circle, ellipse, path, polygon {
-            fill: @color-main-8;
-        }
-    }
-    
 }
 
 .searchPrompt__input[type] {

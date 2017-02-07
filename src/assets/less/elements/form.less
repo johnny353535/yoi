@@ -83,10 +83,7 @@ textarea {
     // interactive states
 
     &:focus {
-        border-color: @color-main-8;
-        border-width: 2px;
-        outline: none;
-        padding: 0 .4rem;
+        .mixin-focus;
     }
 
     &[disabled],
@@ -110,8 +107,8 @@ textarea {
 
 input.input--large {
     font-size: 1.5rem;
-    line-height: 40px;
-    height: 40px;
+    line-height: 4rem;
+    height: 4rem;
 }
 
 textarea {
@@ -121,12 +118,12 @@ textarea {
     height: auto;
     line-height: 2rem;
     max-width: 100%;
-    min-height: 100px;
+    min-height: 10rem;
     padding: .5rem;
     resize: vertical;
 
     &:focus {
-        padding: 4px;
+        padding: .4rem;
     }
 
 }

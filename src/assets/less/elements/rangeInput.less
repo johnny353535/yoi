@@ -10,15 +10,15 @@
     }
 
     label {
-        margin-bottom: 5px;
+        margin-bottom: .5rem;
     }
 
     input[type="text"] {
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
     }
 
     input[type="submit"] {
-        margin-top: 10px;
+        margin-top: 1rem;
         text-align: center;
         width: 100%;
     }
@@ -32,7 +32,7 @@
 
     .mixin-userSelectNone;
     cursor: default;
-    height: 45px;
+    height: 4.5rem;
     position: relative;
 
     // track & range indicator
@@ -40,8 +40,8 @@
     .rangeInput__track {
         .mixin-defaultBorderRadius;
         background: @color-main-24;
-        bottom: 10px;
-        height: 4px;
+        bottom: 1rem;
+        height: .4rem;
         left: 0;
         overflow: hidden;
         position: absolute;
@@ -51,7 +51,7 @@
 
     .rangeInput__range {
         background: @color-main-10;
-        height: 4px;
+        height: .4rem;
         left: 0;
         position: absolute;
         right: 0;
@@ -69,13 +69,13 @@
         background: @color-white;
         border-radius: 50%;
         border: @color-main-22 1px solid;
-        bottom: 1px;
+        bottom: .1rem;
         box-sizing: border-box;
         cursor: ew-resize;
-        height: 20px;
+        height: 2rem;
         position: absolute;
         transition: left 200ms ease-out;
-        width: 20px;
+        width: 2rem;
         z-index: 2;
     }
 
@@ -97,27 +97,29 @@
 
     .rangeInput__label {
 
-        background: @color-main-24;
         .mixin-defaultBorderRadius;
+        background: @color-main-24;
         display: block;
-        line-height: 20px;
-        padding: 0 5px;
+        line-height: 2rem;
+        padding: 0 .5rem;
         position: absolute;
         text-align: center;
         text-overflow: ellipsis;
-        top: -30px;
+        top: -3rem;
         white-space: nowrap;
+
+        // pointer
 
         &::after {
             background: @color-main-24;
-            bottom: -3px;
+            bottom: -.3rem;
             content: ' ';
-            height: 6px;
+            height: .6rem;
             left: 50%;
-            margin-left: -2px;
+            margin-left: -.3rem;
             position: absolute;
             transform: rotate(45deg);
-            width: 6px;
+            width: .6rem;
         }
 
     }
@@ -144,7 +146,7 @@
 
     .rangeInput__label--single {
         display: none;
-        top: -5px;
+        top: -.5rem;
     }
 
     &.rangeInput--mergedLabels {

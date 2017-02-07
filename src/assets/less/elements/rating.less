@@ -41,14 +41,16 @@
     // only active stars
 
     &::before {
-        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{activeStarColor}&w=32&h=32');
+        @relativeSize: 3.2 * @rootFontSize;
+        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}');
         left: 0;
     }
 
     // only inactive stars
 
     &::after {
-        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{inactiveStarColor}&w=32&h=32');
+        @relativeSize: 3.2 * @rootFontSize;
+        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}');
         right: 0;
     }
 
@@ -185,9 +187,10 @@
 
     height: 1.9rem;
     width: 5 * 1.9rem;
-
-    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=19&h=19'); }
-    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=19&h=19'); }
+    
+    @relativeSize: 1.9 * @rootFontSize;
+    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
+    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
 
 }
 
@@ -196,8 +199,9 @@
     height: 2.4rem;
     width: 5 * 2.4rem;
 
-    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=24&h=24'); }
-    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=24&h=24'); }
+    @relativeSize: 2.4 * @rootFontSize;
+    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
+    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
 
 }
 
@@ -205,8 +209,9 @@
 
     height: 4.8rem;
     width: 5 * 4.8rem;
-
-    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=48&h=48'); }
-    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=48&h=48'); }
+    
+    @relativeSize: 4.8 * @rootFontSize;
+    &::before { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
+    &::after { background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}'); }
 
 }

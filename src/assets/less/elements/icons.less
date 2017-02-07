@@ -113,7 +113,9 @@
 // mixin: SVG icons as background image
 
 .mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '#000'; @strokeColor: '#000') {
+    @relativeWidth      : @width / 10 * @rootFontSize;
+    @relativeHeight     : @height / 10 * @rootFontSize;
     @escapedFillColor   : escape(@fillColor);
     @escapedStrokeColor : escape(@strokeColor);
-    background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{width}&h=@{height}') center center no-repeat;
+    background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
 }

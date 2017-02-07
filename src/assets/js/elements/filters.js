@@ -12,10 +12,7 @@ var Filters = (function() {
     var msgLoading    = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
-        <a href="#" class="filters__resetBtn btn btn--large btn--subtle">\
-            <i class="icon--006-s"></i>\
-            <span>' + btnLabelReset + '</span>\
-        </a>\
+        <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
     ');
 
     var $loader = $('\

@@ -6,24 +6,6 @@
     border: @color-main-23 1px solid;
     position: relative;
 
-    // header
-
-    .filters__header {
-        font-size: 1.5rem;
-        font-weight: bold;
-        padding: 1rem;
-    }
-
-    // reset button (injected via JS)
-
-    > .btn {
-        width: 100%;
-    }
-
-    > .btn + .filters__header {
-        display: none;
-    }
-
     // disabled filters (while update is runnig)
 
     &.filters--disabled::after {
@@ -38,6 +20,38 @@
         z-index: 3;
     }
 
+}
+
+.filters__header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem;
+}
+
+.filters__resetBtn,
+.filters__resetBtn:link {
+    
+    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-10);
+    background-position: 0 center;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem 0 3.2rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: @color-negative-24;
+        color: @color-negative-5;
+    }
+    
+    & + .filters__header {
+        display: none;
+    }
+    
 }
 
 // filter group

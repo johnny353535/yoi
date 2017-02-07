@@ -4,21 +4,24 @@
 // =====
 
 .radio {
-
+    
     background: @color-white;
     border-radius: 50%;
     border: @color-main-20 1px solid;
     box-shadow: 0 1px 0 @color-main-24 inset;
+    box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    height: 1.2rem;
+    height: 1.6rem;
     margin: 0 .5rem 0 0;
     overflow: hidden;
     padding: 0;
     position: relative;
+    position: relative;
+    top: -.1rem;
     vertical-align: top;
-    width: 1.2rem;
-
+    width: 1.6rem;
+    
     // inner input element
 
     input {
@@ -32,14 +35,10 @@
 // =========
 
 .radio.is--focus {
-    border: @color-main-8 2px solid;
-    width: 1rem;
-    height: 1rem;
+    .mixin-focus;
 }
 
 .radio.is--checked {
-    background: @color-main-22;
+    background: @color-positive-22;
     border: @color-main-10 .5rem solid;
-    height: 4px;
-    width: 4px;
 }

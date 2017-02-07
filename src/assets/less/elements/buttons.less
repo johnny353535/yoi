@@ -72,27 +72,10 @@
 
     &:focus,
     &.btn--focus {
-        animation-name: pulseOutline;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-out;
-        outline-color: @color-main-10;
-        outline-offset: 0.4rem;
-        outline-style: solid;
-        outline-width: 0.2rem;
+        .mixin-focus;
     }
 
-    @keyframes pulseOutline { // :focus animation
-        from {
-            outline-color: @color-main-10;
-        } to {
-            outline-color: @color-transparent;
-        }
-    }
-
-    &:hover,
-    &:focus,
-    &.btn--focus {
+    &:hover {
         background: linear-gradient(to bottom, @color-main-23, @color-main-22);
         border-color: @color-main-20;
         box-shadow: 0 1px 0 @color-main-24 inset;
@@ -151,9 +134,7 @@
             filter: none;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-main-24;
         }
 
@@ -192,9 +173,7 @@
             color: @color-main-10;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: linear-gradient(to bottom, @color-white, @color-main-25);
             border-color: @color-main-23;
         }
@@ -237,9 +216,7 @@
             color: @color-main-25;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: linear-gradient(to bottom, @color-main-10, @color-main-8);
             border-color: @color-main-5;
             text-shadow: 0 -1px 0 @color-main-4;
@@ -283,9 +260,7 @@
             color: @color-attention-8;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: linear-gradient(to bottom, @color-attention-20, @color-attention-19);
             border-color: @color-attention-16;
         }
@@ -329,9 +304,7 @@
             color: @color-negative-6;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: linear-gradient(to bottom, @color-negative-19, @color-negative-17);
             border-color: @color-negative-15;
             box-shadow: 0 1px 0 @color-negative-21 inset;
@@ -377,9 +350,7 @@
             text-shadow: 0 1px 0 @color-positive-23;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: linear-gradient(to bottom, @color-positive-20, @color-positive-19);
             border-color: @color-positive-16;
             text-shadow: 0 1px 0 @color-positive-22;
@@ -413,9 +384,7 @@
 
     // interactive states
 
-    &:hover,
-    &:focus,
-    &.btn--focus {
+    &:hover {
         background: @color-main-24;
         border-color: transparent;
         box-shadow: none;
@@ -450,9 +419,7 @@
             color: @color-main-10;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-main-23;
         }
 
@@ -481,9 +448,7 @@
             color: @color-main-25;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-main-12;
         }
 
@@ -512,9 +477,7 @@
             color: @color-attention-8;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-attention-19;
         }
 
@@ -544,9 +507,7 @@
             color: @color-negative-5;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-negative-19;
         }
 
@@ -576,9 +537,7 @@
             color: @color-positive-5;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: @color-positive-19;
         }
 
@@ -626,9 +585,7 @@
 
     // interactive states
 
-    &:hover,
-    &:focus,
-    &.btn--focus {
+    &:hover {
         background: fade(@color-main-20,10%);
         box-shadow: none;
         text-shadow: none;
@@ -670,9 +627,7 @@
             color: @color-white;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: fade(@color-white,10%);
         }
 
@@ -696,9 +651,7 @@
             color: @color-main-9;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: fade(@color-main-18,10%);
         }
 
@@ -722,9 +675,7 @@
             color: @color-attention-15;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: fade(@color-attention-18,10%);
         }
 
@@ -749,9 +700,7 @@
             color: @color-negative-18;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: fade(@color-negative-18,10%);
         }
 
@@ -776,9 +725,7 @@
             color: @color-positive-15;
         }
 
-        &:hover,
-        &:focus,
-        &.btn--focus {
+        &:hover {
             background: fade(@color-positive-18,10%);
         }
 

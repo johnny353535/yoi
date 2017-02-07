@@ -9,15 +9,16 @@
     background: @color-white;
     border: @color-main-20 1px solid;
     box-shadow: 0 1px 0 @color-main-24 inset;
+    box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    height: 1.2rem;
+    height: 1.5rem;
     margin: 0 .5rem 0 0;
     overflow: hidden;
     padding: 0;
     position: relative;
     vertical-align: top;
-    width: 1.2rem;
+    width: 1.5rem;
 
     // inner input element
 
@@ -32,9 +33,7 @@
 // =========
 
 .checkbox.is--focus {
-    border: @color-main-8 2px solid;
-    width: 1rem;
-    height: 1rem;
+    .mixin-focus;
 }
 
 .checkbox.is--checked {
@@ -42,16 +41,14 @@
     box-shadow: none;
     background: @color-main-10;
     border: none;
-    height: 14px;
-    width: 14px;
 
     // icon
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @width: 24, @height: 24, @fillColor: @color-white);
+        .mixin-icon-bg(@id: 'icon-011-s', @width: 21, @height: 21, @fillColor: @color-positive-22);
         content: ' ';
         height: 2.4rem;
-        left: -.5rem;
+        left: -.4rem;
         position: absolute;
         top: -.5rem;
         width: 2.4rem;
