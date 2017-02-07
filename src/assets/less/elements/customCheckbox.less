@@ -6,7 +6,7 @@
 .checkbox {
 
     .mixin-defaultBorderRadius;
-    background: #fff;
+    background: @color-white;
     border: @color-main-20 1px solid;
     box-shadow: 0 1px 0 @color-main-24 inset;
     cursor: pointer;
@@ -48,7 +48,7 @@
     // icon
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @width: 24, @height: 24, @fillColor: #fff);
+        .mixin-icon-bg(@id: 'icon-011-s', @width: 24, @height: 24, @fillColor: @color-white);
         content: ' ';
         height: 2.4rem;
         left: -.5rem;

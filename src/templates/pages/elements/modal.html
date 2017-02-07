@@ -60,16 +60,14 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
     </div>
 </div>
 
-<div class="note note--subtle note--large m-t-8">
-    <span class="icon">{% icon { id:'085' } %}</span>
+<div class="note note--subtle note--large">
     <h3 class="note__headline">Modals Are Regular Pages</h3>
     <div class="note__body">
         <p>YOI modals are regular html pages and therefore highly accessible. If a modal opens via JavaScript, the modal page is requested via AJAX and unnecessary markup is ignored (eg. the <code>&lt;body&gt;</code> tag). </p>
     </div>
 </div>
 
-<div class="note note--subtle note--large m-t-8">
-    <span class="icon">{% icon { id:'085' } %}</span>
+<div class="note note--subtle note--large">
     <h3 class="note__headline">Where is the Close-Button?</h3>
     <div class="note__body">
         <p>You must not include a close button in your modal’s markup. Since it only makes sense when the modal opens via JavaScript, the script injects the close button for you.</p>
@@ -119,8 +117,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Modals to External Pages
 {% endmarkdown %}
 
-<div class="note note--error note--large m-t-8 b-0">
-    <span class="icon">{% icon { id:'085' } %}</span>
+<div class="note note--error note--large b-0">
     <h3 class="note__headline">Modals Must Not Load External Pages</h3>
     <div class="note__body">
         <p>The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>

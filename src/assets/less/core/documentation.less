@@ -12,15 +12,7 @@
 
 // footer & header
 
-// .documentation__header {
-//     background: #8BA39D;
-//     height: 1rem;
-//     left: 0;
-//     position: fixed;
-//     right: 0;
-//     top: 0;
-//     z-index: 1000;
-// }
+.documentation__header {}
 
 .documentation__footer {
     width: 100%;
@@ -32,23 +24,18 @@
 
 .documentation__article {
     
-    // all direct children
-
-    > p,
-    > pre,
-    > table,
-    > blockquote,
-    > ul,
-    > ol {
-        margin: 3rem 0;
+    // min height
+    
+    min-height: 80vh;
+    
+    
+    // text color
+    
+    > * {
         color: @gray-10;
-        font-size: 1.6rem;
-        line-height: 2.5rem;
     }
-
-    > p + p {
-        margin-top: -1.5rem;
-    }
+    
+    // headlines
 
     > h1,
     > h2,
@@ -57,41 +44,13 @@
     > h5,
     > h6 {
         color: @gray-6;
-        font-family: @font-sansserif;
-        font-weight: bold;
     }
-
-    > h1,
-    > h2,
-    > h3 {
-        margin: 4rem 0;
-    }
-
+    
+    > h3,
     > h4,
     > h5,
     > h6 {
-        margin: 3rem 0 -1.5rem 0;
-    }
-
-    // lists
-
-    > ul,
-    > ol {
-
-        margin-left: 4rem;
-
-        li + li {
-            margin-top: 1.5rem;
-        }
-
-    }
-
-    > ul li {
-        list-style-type: disc;
-    }
-
-    > ol li {
-        list-style-type: decimal;
+        margin-bottom: 0;
     }
 
     // block quote
@@ -113,17 +72,13 @@
 
     > h2:first-child + p {
         font-size: 2rem;
-        line-height: 3rem;
-        margin-bottom: 5rem;
-        margin-top: 0;
+        line-height: 1.5;
     }
 
     // special H3
 
     > h3 {
 
-        padding-top: 2rem;
-        margin-bottom: 2rem;
         position: relative;
 
         &::before,
@@ -138,7 +93,7 @@
             background: @gray-20;
             height: 2px;
             left: -4rem;
-            top: 3rem;
+            top: .75rem;
             width: 3rem;
         }
 
@@ -147,15 +102,15 @@
             content: '#';
             font-weight: bold;
             left: -6rem;
-            top: 2rem;
+            top: 0;
         }
 
     }
-
+    
     // tables
 
     > table {
-
+        
         border-color: @gray-23;
 
         th:empty {
@@ -177,11 +132,21 @@
         }
 
     }
+    
+    // code
+    
+    > p > code {
+        .mixin-defaultBorderRadius;
+        background: @gray-23;
+        color: @gray-5;
+        font-size: 0.9em;
+        padding: .1rem .5rem;
+    }
 
     // links
 
     a[href*="assets/"],
-    a[href*="docs/"],
+    a[href*="pages/"],
     a[href*="http"] {
 
         &:not([class]) {
@@ -195,11 +160,15 @@
 // content blocks
 
 .documentation__blocks {
-
+    
     .mixin-defaultBorderRadius;
-    margin-top: 3rem;
+    @verticalMargin();
     position: relative;
     transition: border 200ms ease-in;
+    
+    .documentation__block {
+        margin: 0;
+    }
 
     .documentation__block:first-of-type {
         border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
@@ -208,7 +177,6 @@
     .documentation__block + .documentation__block {
         border-radius: 0;
         border-top: 0;
-        margin: 0;
     }
 
     .documentation__block:only-child {
@@ -222,29 +190,35 @@
 }
 
 .documentation__block {
-
+    
     .mixin-defaultBorderRadius;
+    @verticalMargin();
     border: @gray-23 1px solid;
     display: block;
-    margin-top: 3rem;
     overflow: visible;
     position: relative;
     transition: all 200ms ease-in;
 
-    code {
+    code pre {
         background: @gray-25;
         border-bottom: @gray-23 1px solid;
         border-top: @gray-23 1px solid;
         display: block;
+        font-size: 1.3rem;
+        line-height: 1.75;
         padding: 2rem;
         white-space: pre;
+    }
+    
+    code:first-child pre {
+        border-top: 0;
     }
 
 }
 
 .documentation__example {
     transition: background 200ms ease-in;
-    background: #fff;
+    background: @color-white;
     padding: 2rem;
 }
 
@@ -282,8 +256,8 @@
 
 .documentation__treeview {
     .mixin-defaultBorderRadius;
+    @verticalRhythm();
     background: @gray-23;
-    margin-top: 3rem;
 }
 
 .documentation__fileDisplay {
@@ -317,7 +291,7 @@
 
 }
 
-// code inside documentation
+// code
 
 .documentation {
 
@@ -361,16 +335,6 @@
 
     pre:last-child {
         border-bottom: 0;
-    }
-
-    // code inside documentation blocks
-
-    p > code {
-        .mixin-defaultBorderRadius;
-        background: @gray-23;
-        color: @gray-5;
-        font-size: 1.3rem;
-        padding: .1rem .5rem;
     }
 
     // code highlighting (based on default prism.js theme)

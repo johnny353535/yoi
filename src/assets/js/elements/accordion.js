@@ -164,7 +164,8 @@ var Accordion = (function() {
         init         : initializeAccordion,
         initTriggers : initializeAccordionTriggers,
         closeAll     : closeAllSections,
-        openAll      : openAllSections
+        openAll      : openAllSections,
+        toggle       : toggleAccordionSection
     }
 
 })();

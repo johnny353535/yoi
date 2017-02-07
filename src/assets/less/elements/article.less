@@ -6,6 +6,15 @@
 
     > h1, > h2, > h3, > h4, > h5, > h6 {
         @verticalRhythm();
+        line-height: 1;
+    }
+    
+    // adjecent headlines and paragraphs
+    
+    > h3, > h4, > h5, > h6 {
+        & + p {
+            margin-top: 0;
+        }
     }
 
     // other block-level elements
@@ -16,7 +25,12 @@
     > ul, > video {
         @verticalRhythm();
         font-size: 1.5rem;
-        line-height: 2.5rem;
+    }
+    
+    // adjacent paragraphs
+    
+    > p + p {
+        margin-top: 0;
     }
 
     // lists
@@ -26,14 +40,13 @@
 
         margin-left: 2rem;
 
-        li {
-            margin-bottom: 1rem;
+        li + li {
+            margin-top: 1rem;
         }
 
         ul,
         ol {
-            margin-top: 1rem;
-            margin-left: 2rem;
+            margin-left: 4rem;
         }
 
     }
@@ -54,6 +67,12 @@
             padding-bottom: 1rem;
         }
 
+    }
+    
+    // notes
+    
+    > .note {
+        @verticalRhythm();
     }
 
 }

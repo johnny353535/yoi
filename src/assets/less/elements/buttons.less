@@ -170,11 +170,11 @@
         border-color: @color-main-22;
         box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
         color: @color-main-10;
-        text-shadow: 0 1px 0 #fff;
+        text-shadow: 0 1px 0 @color-white;
 
         .icon {
 
-            filter: drop-shadow(0 1px 0 #fff);
+            filter: drop-shadow(0 1px 0 @color-white);
 
             circle, ellipse, path, polygon {
                 fill: @color-main-10;
@@ -183,7 +183,7 @@
         }
 
         input[type="submit"] {
-            text-shadow: 0 1px 0 #fff;
+            text-shadow: 0 1px 0 @color-white;
         }
 
         a&,
@@ -195,7 +195,7 @@
         &:hover,
         &:focus,
         &.btn--focus {
-            background: linear-gradient(to bottom, #fff, @color-main-25);
+            background: linear-gradient(to bottom, @color-white, @color-main-25);
             border-color: @color-main-23;
         }
 
@@ -655,25 +655,25 @@
     &.btn--light {
 
         background: transparent;
-        border-color: #fff;
-        color: #fff;
+        border-color: @color-white;
+        color: @color-white;
 
         .icon {
             circle, ellipse, path, polygon {
-                fill: #fff;
+                fill: @color-white;
             }
         }
 
         a&,
         a:link&,
         a:visited& {
-            color: #fff;
+            color: @color-white;
         }
 
         &:hover,
         &:focus,
         &.btn--focus {
-            background: fade(#fff,10%);
+            background: fade(@color-white,10%);
         }
 
     }

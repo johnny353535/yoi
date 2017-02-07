@@ -29,61 +29,111 @@
         <script>document.body.className='js';</script>
         <div class="documentation">
             <div class="center grid-flex flex-directionRowReverse">
-                <div class="documentation__menu w-1-4 p-l-5 p-t-10">
+                <div class="documentation__menu w-1-4 p-l-5 p-t-4">
                     {#
                         The following menus are automatically generated via a custom nunjucks
                         extention, to be found in src/dev/nunjucks-extentions.js
                     #}
-                    <h4>Introduction</h4>
-                    {% menu {
-                        path: 'pages/introduction/',
-                        src: './src/templates/pages/introduction',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Core</h4>
-                    {% menu {
-                        path: 'pages/core/',
-                        src: './src/templates/pages/core',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Theme</h4>
-                    {% menu {
-                        path: 'pages/theme/',
-                        src: './src/templates/pages/theme',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Utilities</h4>
-                    {% menu {
-                        path: 'pages/utilities/',
-                        src: './src/templates/pages/utilities',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Elements</h4>
-                    {% menu {
-                        path: 'pages/elements/',
-                        src: './src/templates/pages/elements',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>JS Interface</h4>
-                    {% menu {
-                        path: 'pages/js-interface/',
-                        src: './src/templates/pages/js-interface',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Tools</h4>
-                    {% menu {
-                        path: 'pages/tools/',
-                        src: './src/templates/pages/tools',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
-                    <h4>Workflows / Tutorials</h4>
-                    {% menu {
-                        path: 'pages/workflows/',
-                        src: './src/templates/pages/workflows',
-                        modifiers: 'b-0 br-0 m-tb-4 bg-white'
-                    } %}
+                    <div class="accordion" data-accordion="">
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Introduction</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/introduction/',
+                                    src: './src/templates/pages/introduction',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Core</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/core/',
+                                    src: './src/templates/pages/core',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Theme</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/theme/',
+                                    src: './src/templates/pages/theme',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Utilities</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/utilities/',
+                                    src: './src/templates/pages/utilities',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Elements</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/elements/',
+                                    src: './src/templates/pages/elements',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>JS Interface</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/js-interface/',
+                                    src: './src/templates/pages/js-interface',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Tools</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/tools/',
+                                    src: './src/templates/pages/tools',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                        <div class="accordion__section">
+                            <div class="accordion__header">
+                                <h4>Workflows / Tutorials</h4>
+                            </div>
+                            <div class="accordion__body">
+                                {% menu {
+                                    path: 'pages/workflows/',
+                                    src: './src/templates/pages/workflows',
+                                    modifiers: 'b-0 br-0 bg-transparent'
+                                } %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="documentation__article w-3-4 p-r-8">
+                <div class="article documentation__article w-3-4 p-r-8">
                     {% block main %}{% endblock %}
                 </div>
                 <footer class="documentation__footer">
@@ -100,7 +150,8 @@
             (function() {
 
                 /**
-                 *  Hightligth the current menu item.
+                 *  Hightlight the current menu item and expand the
+                 *  parent accordion section.
                  */
 
                 var $menu           = $('.documentation__menu').first();
@@ -114,6 +165,7 @@
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
+                        Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });
@@ -122,5 +174,4 @@
         </script>
         {% block customScripts %}{% endblock %}
     </body>
-    
 </html>

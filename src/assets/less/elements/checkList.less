@@ -5,30 +5,24 @@
 
 .checkList {
 
-    margin: 0;
     padding: 0;
     list-style: none;
 
     li {
+        font-size: 1.5rem;
         list-style-type: none;
-        margin: 0 0 1rem 0;
+        margin-bottom: 1rem;
         padding-left: 2rem;
         position: relative;
-    }
-
-    li ol,
-    li ul {
-        list-style: none;
-        margin-top: 1rem;
     }
 
     li::before {
         .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-main-8);
         content: ' ';
-        height: 3.2rem;
+        height: 1.5rem;
         left: -1rem;
         position: absolute;
-        top: -.6rem;
+        top: .5rem;
         width: 3.2rem;
     }
 

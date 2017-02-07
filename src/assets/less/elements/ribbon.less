@@ -15,7 +15,7 @@
 .ribbon__label {
 
     background: @color-main-15;
-    color: #fff;
+    color: @color-white;
     display: block;
     font: bold 1.5rem/3rem @font-sansserif;
     text-align: center;
@@ -55,7 +55,7 @@
 }
 
 .ribbon--dark .ribbon__label {
-    .ribbonTheme(#fff, @color-main-10);
+    .ribbonTheme(@color-white, @color-main-10);
 }
 
 .ribbon--light .ribbon__label {
@@ -63,11 +63,11 @@
 }
 
 .ribbon--negative .ribbon__label {
-    .ribbonTheme(#fff, @color-negative-15);
+    .ribbonTheme(@color-white, @color-negative-15);
 }
 
 .ribbon--positive .ribbon__label {
-    .ribbonTheme(#fff, @color-positive-13);
+    .ribbonTheme(@color-white, @color-positive-13);
 }
 
 // "constructor" for different color themes

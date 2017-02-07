@@ -89,7 +89,7 @@ var DatePicker = (function() {
                 // eg. if year is undefined, use the current year
 
                 var inputYear  = thisDateInputData.year  === undefined ? now.year  : parseInt(thisDateInputData.year);
-                var inputMonth = thisDateInputData.month === undefined ? now.month : parseInt(thisDateInputData.month);
+                var inputMonth = thisDateInputData.month === undefined ? now.month : parseInt(thisDateInputData.month - 1);
                 var inputDay   = thisDateInputData.day   === undefined ? now.day   : parseInt(thisDateInputData.day);
 
                 updateDateInput(
@@ -208,7 +208,7 @@ var DatePicker = (function() {
 
         // format the date
 
-        var formattedSelectedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(selectedMonth + 1, 1) + '.' + selectedYear;
+        var formattedSelectedDate = YOI.zeroPad(selectedDay, 1) + '.' + YOI.zeroPad(selectedMonth, 1) + '.' + selectedYear;
 
         // write data
 
