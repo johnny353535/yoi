@@ -15,16 +15,42 @@ Elements with this utility class are **hidden if JavaScript is active** and **vi
 A proper example would be the element [.ratingInput](/pages/elements/ratingInput.html) which simply does not work if JavaScript is not available. Instead, a `<select>` is shown as fallback.
 {% endmarkdown %}
 
-<div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <input name="#" type="hidden" class="ratingInput" value="" />
-        <select class="js-fallback">
-            <option value="5">5 | sehr gut</option>
-            <option value="4">4 | gut</option>
-            <option value="3">3 | befriedigend</option>
-            <option value="2">2 | ausreichend</option>
-            <option value="1">1 | mangelhaft</option>
-        </select>
+<div class="documentation__blocks" data-docblock="addControls:true;">
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <form class="ratingInput ratingInput--rated-3" data-ratinginput="uid:1234; score:3;">
+                <div class="js-fallback">
+                    <select class="select" name="exampleRating">
+                        <option value="5">5 | very good</option>
+                        <option value="4">4 | good</option>
+                        <option value="3">3 | fairly good</option>
+                        <option value="2">2 | still okay</option>
+                        <option value="1">1 | pretty bad</option>
+                    </select>
+                    <span class="btn m-l-2">
+                        <input type="submit" value="Submit" />
+                        <span>Submit</span>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="documentation__block">
+        <div class="documentation__example" data-printcode="language:markup;">
+            <form>
+                <select class="select" name="exampleRating">
+                    <option value="5">5 | very good</option>
+                    <option value="4">4 | good</option>
+                    <option value="3">3 | fairly good</option>
+                    <option value="2">2 | still okay</option>
+                    <option value="1">1 | pretty bad</option>
+                </select>
+                <span class="btn m-l-2">
+                    <input type="submit" value="Submit" />
+                    <span>Submit</span>
+                </span>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -45,23 +71,16 @@ Elements with this utility class are visible only if JavaScript is available. Us
 {% endblock %}
 
 {% block customScripts %}
-
 <script>
-
     $(function () {
-
         var element = $("#jsOnlyElement");
-
         (function(){
             element
                 .fadeIn("slow")
-                .animate({ marginLeft: 300 }, 1000)
+                .animate({ marginLeft: 200 }, 1000)
                 .animate({ marginLeft: 0 },   1000)
                 .fadeOut("slow", arguments.callee);
         }());
-
     });
-
 </script>
-
 {% endblock %}

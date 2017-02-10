@@ -563,9 +563,6 @@ body {
   left: -6rem;
   top: 0;
 }
-.documentation__article > table {
-  border-color: #ecebea;
-}
 .documentation__article > table th:empty {
   display: none;
 }
@@ -574,18 +571,9 @@ body {
   word-break: keep-all;
   width: 13rem;
 }
-.documentation__article > table th {
-  background: #faf9f7;
-}
-.documentation__article > table th,
-.documentation__article > table td {
-  border-color: #ecebea;
-}
 .documentation__article > p > code {
   border-radius: 2px;
   background: #ecebea;
-  color: #343332;
-  font-size: 0.9em;
   padding: .1rem .5rem;
 }
 .documentation__article a[href*="assets/"]:not([class]),
@@ -673,7 +661,7 @@ body {
   margin-bottom: 2rem;
   margin-top: 2rem;
   line-height: 1.75;
-  background: #ecebea;
+  background: #faf9f7;
 }
 .documentation__fileDisplay {
   background: rgba(0, 0, 0, 0.8);
@@ -695,6 +683,10 @@ body {
   right: 4rem;
   top: 4rem;
 }
+.documentation__fileDisplay code pre {
+  font-size: 1.3rem;
+  line-height: 1.75;
+}
 .documentation__fileDisplay .btnDismiss {
   position: absolute;
   right: 4rem;
@@ -703,14 +695,9 @@ body {
 }
 .documentation code,
 .documentation pre {
-  -moz-hyphens: none;
-  -moz-tab-size: 4;
-  -ms-hyphens: none;
-  -o-tab-size: 4;
-  -webkit-hyphens: none;
   direction: ltr;
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
-  font-size: inherit;
+  font-size: .85em;
   hyphens: none;
   line-height: inherit;
   tab-size: 4;
@@ -3747,7 +3734,7 @@ body {
   margin: 0 auto;
   position: relative;
   text-align: left;
-  width: 100rem;
+  width: 90rem;
 }
 .center::after {
   content: "";
@@ -4488,7 +4475,7 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: left;
-    width: 100rem;
+    width: 90rem;
   }
   .small-center::after {
     content: "";
@@ -5106,7 +5093,7 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: left;
-    width: 100rem;
+    width: 90rem;
   }
   .medium-center::after {
     content: "";
@@ -5724,7 +5711,7 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: left;
-    width: 100rem;
+    width: 90rem;
   }
   .large-center::after {
     content: "";
@@ -6342,7 +6329,7 @@ body {
     margin: 0 auto;
     position: relative;
     text-align: left;
-    width: 100rem;
+    width: 90rem;
   }
   .xlarge-center::after {
     content: "";
@@ -17392,12 +17379,13 @@ a:visited.btn {
 }
 .btn:focus,
 .btn.btn--focus {
-  animation-name: customFocus;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  animation-name: customFocus;
   animation-timing-function: ease-out;
   outline-color: #676665;
   outline-offset: 0.4rem;
+  outline-radius: 2px;
   outline-style: solid;
   outline-width: 0.2rem;
 }
@@ -18205,12 +18193,13 @@ a:visited.btn.btn--outline.btn--positive {
   left: -5rem;
 }
 .checkbox.is--focus {
-  animation-name: customFocus;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  animation-name: customFocus;
   animation-timing-function: ease-out;
   outline-color: #676665;
   outline-offset: 0.4rem;
+  outline-radius: 2px;
   outline-style: solid;
   outline-width: 0.2rem;
 }
@@ -18251,12 +18240,13 @@ a:visited.btn.btn--outline.btn--positive {
   left: -50rem;
 }
 .radio.is--focus {
-  animation-name: customFocus;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  animation-name: customFocus;
   animation-timing-function: ease-out;
   outline-color: #676665;
   outline-offset: 0.4rem;
+  outline-radius: 2px;
   outline-style: solid;
   outline-width: 0.2rem;
 }
@@ -18329,12 +18319,13 @@ a:visited.btn.btn--outline.btn--positive {
   width: 4rem;
 }
 .select.is--focus {
-  animation-name: customFocus;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  animation-name: customFocus;
   animation-timing-function: ease-out;
   outline-color: #676665;
   outline-offset: 0.4rem;
+  outline-radius: 2px;
   outline-style: solid;
   outline-width: 0.2rem;
 }
@@ -19301,12 +19292,13 @@ input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  animation-name: customFocus;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  animation-name: customFocus;
   animation-timing-function: ease-out;
   outline-color: #676665;
   outline-offset: 0.4rem;
+  outline-radius: 2px;
   outline-style: solid;
   outline-width: 0.2rem;
 }
@@ -20258,8 +20250,8 @@ a:visited:hover {
   padding: 1rem;
 }
 .note.note--fullwidth .center {
-  min-width: 80rem;
-  max-width: 100rem;
+  min-width: 70rem;
+  max-width: 70rem;
 }
 .note.note--fullwidth[class*="note--icon"] .center {
   padding-left: 5.5rem;
@@ -20888,11 +20880,11 @@ a.posterTeaser:hover .posterTeaser__image {
   top: 0;
 }
 .rating__stars::before {
-  background-image: url(cdn.yoshino.digitalsvg.php?id=icon-039&f=%23eac310&w=32px&h=32px);
+  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=%23eac310&w=32px&h=32px);
   left: 0;
 }
 .rating__stars::after {
-  background-image: url(cdn.yoshino.digitalsvg.php?id=icon-039&f=%23ecebea&w=32px&h=32px);
+  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=%23ecebea&w=32px&h=32px);
   right: 0;
 }
 .rating--1 .rating__stars::before {
@@ -21037,6 +21029,9 @@ a.posterTeaser:hover .posterTeaser__image {
   background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=%23ecebea&w=48px&h=48px);
 }
 /** ratingInput.less */
+.noJs .ratingInput {
+  display: none;
+}
 .ratingInput {
   border-radius: 2px;
   background: white;

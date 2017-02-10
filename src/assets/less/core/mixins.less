@@ -54,12 +54,13 @@
 }
 
 .mixin-focus() {
-    animation-name: customFocus;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    animation-name: customFocus;
     animation-timing-function: ease-out;
     outline-color: @color-main-10;
     outline-offset: 0.4rem;
+    outline-radius: @borderRadius * 1px;
     outline-style: solid;
     outline-width: 0.2rem;
 }

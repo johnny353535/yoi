@@ -42,7 +42,7 @@
 
     &::before {
         @relativeSize: 3.2 * @rootFontSize;
-        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}');
+        background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{activeStarColor}&w=@{relativeSize}&h=@{relativeSize}');
         left: 0;
     }
 
@@ -50,7 +50,7 @@
 
     &::after {
         @relativeSize: 3.2 * @rootFontSize;
-        background-image: url(~'@{cdnDomain}svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}');
+        background-image: url(~'http://@{cdnDomain}/svg.php?id=icon-039&f=@{inactiveStarColor}&w=@{relativeSize}&h=@{relativeSize}');
         right: 0;
     }
 
@@ -184,7 +184,7 @@
 // sizes
 
 .rating--small .rating__stars {
-
+    
     height: 1.9rem;
     width: 5 * 1.9rem;
     

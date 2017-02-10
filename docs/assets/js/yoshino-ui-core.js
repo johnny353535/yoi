@@ -5617,7 +5617,7 @@ var RatingInput = (function() {
     function submitRating($ratingInput) {
 
         /**
-         *  This function is for demontration purpose only. A proper
+         *  This function is for demonstration purpose only. A proper
          *  submit method to the backend is still missing.
          *
          *  @param {jQuery dom object} $ratingInput - the rating input
