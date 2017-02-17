@@ -1,0 +1,189 @@
+/** fx.less */
+
+// settings
+// ========
+
+@animation-duration: 0.5;
+
+// fx utility classes
+// ==================
+
+// all fx
+
+[class*='fx-'] {
+    animation-duration: 1s * @animation-duration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+// initial
+
+[class*='fx-'][class*='-initial'] {
+    opacity: 0;
+    transform: scale(0);
+    transform: translate(0, 0);
+}
+
+[class*='fx-'].fx-shake-initial {
+    opacity: 1;
+}
+
+// individual fx
+
+.fx-fade {
+    animation-name: yoi-fade;
+    animation-duration: 1.5s * @animation-duration;
+    animation-timing-function: linear;
+}
+
+.fx-scale-up {
+    animation-name: yoi-scale-up;
+}
+
+.fx-scale-down {
+    animation-name: yoi-scale-down;
+}
+
+.fx-slide-top {
+    animation-name: yoi-slide-top;
+}
+
+.fx-slide-bottom {
+    animation-name: yoi-slide-bottom;
+}
+
+.fx-slide-left {
+    animation-name: yoi-slide-left;
+}
+
+.fx-slide-right {
+    animation-name: yoi-slide-right;
+}
+
+.fx-shake {
+    animation-name: yoi-shake;
+}
+
+// reverse
+
+.fx-reverse {
+    animation-direction: reverse;
+    animation-timing-function: ease-in;
+}
+
+// duration
+
+.fx-fast {
+    animation-duration: 0.5s * @animation-duration;
+}
+
+.fx-slow {
+    animation-duration: 2s * @animation-duration;
+}
+
+// keyframes
+// =========
+
+// fade
+
+@keyframes yoi-fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// slide top
+
+@keyframes yoi-slide-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// slide bottom
+
+@keyframes yoi-slide-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// slide left
+
+@keyframes yoi-slide-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// slide right
+
+@keyframes yoi-slide-right {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+// scale up
+
+@keyframes yoi-scale-up {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// scale down
+
+@keyframes yoi-scale-down {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// shake
+
+@keyframes yoi-shake {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-.9rem); }
+    20% { transform: translateX(.8rem); }
+    30% { transform: translateX(-.7rem); }
+    40% { transform: translateX(.6rem); }
+    50% { transform: translateX(-.5rem); }
+    60% { transform: translateX(.4rem); }
+    70% { transform: translateX(-.3rem); }
+    80% { transform: translateX(.2rem); }
+    90% { transform: translateX(-.1rem); }
+}

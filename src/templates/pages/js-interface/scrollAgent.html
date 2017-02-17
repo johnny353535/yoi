@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+{% block main %}
+
+{% markdown %}
+## ScrollAgent
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+|         |                                                                          |
+| -       | -                                                                        |
+| Js-File | [scrollAgent.js]({{ pathToSourceFile }}assets/js/modules/scrollAgent.js) |
+| Hooks   | `data-scrollagent`                                                       |
+| Options | ``                                                                       |
+{% endmarkdown %}
+
+<div style="margin: 800px 0;">
+    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:shake; offset: 500;">shake</div>
+</div>
+<div style="margin: 800px 0;">
+    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:slide-left;">slide-left</div>
+</div>
+<div style="margin: 800px 0;">
+    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:slide-right;">slide-right</div>
+</div>
+<div style="margin: 800px 0;">
+    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:scale-up;">scale-up</div>
+</div>
+
+{% endblock %}

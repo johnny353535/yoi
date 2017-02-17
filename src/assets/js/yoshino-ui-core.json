@@ -31,6 +31,7 @@
         "./src/assets/js/modules/microSubmit.js",
         "./src/assets/js/modules/remove.js",
         "./src/assets/js/modules/reveal.js",
+        "./src/assets/js/modules/scrollAgent.js",
         "./src/assets/js/modules/scrollTo.js",
         "./src/assets/js/modules/sticky.js",
         "./src/assets/js/modules/toggleGroup.js"
