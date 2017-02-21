@@ -1,6 +1,6 @@
 /** accordion.js */
 
-var Accordion = (function() {
+YOI.Accordion = (function() {
 
     // private functions
     // =================

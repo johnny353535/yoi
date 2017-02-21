@@ -1,6 +1,6 @@
 /** modal.js */
 
-var Modal = (function() {
+YOI.Modal = (function() {
 
     // private vars
     // ============
@@ -167,7 +167,7 @@ var Modal = (function() {
 
                         initializeModalCloseTriggers(modalId);
 
-                        if (YOI.foundModule('CustomFormElements'))
+                        if (YOI.foundModule('YOI.CustomFormElements'))
                             CustomFormElements.init(modalId);
 
                         // optional callback
@@ -280,9 +280,11 @@ var Modal = (function() {
         }
 
         modalActive = false;
-        if (YOI.foundModule('BrowserHistory'))
+        
+        if (YOI.foundModule('YOI.BrowserHistory')) {
             BrowserHistory.clearHash();
-
+        }
+        
     }
 
     function detachModals() {

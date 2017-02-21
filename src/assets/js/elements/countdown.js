@@ -1,6 +1,6 @@
 /** countdown.js */
 
-var Countdown = (function() {
+YOI.Countdown = (function() {
 
     // private vars
     // ============
@@ -95,7 +95,7 @@ var Countdown = (function() {
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
-            $thisCountdown.trigger('countdown:expired');
+            $thisCountdown.trigger('yoi-countdown:expired');
         }
 
         // set the lcd characters

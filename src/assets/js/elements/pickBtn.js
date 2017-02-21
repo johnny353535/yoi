@@ -1,6 +1,6 @@
 /** pickBtn.js */
 
-var PickBtn = (function() {
+YOI.PickBtn = (function() {
 
     // private vars
     // ============

@@ -1,6 +1,6 @@
 /** filters.js */
 
-var Filters = (function() {
+YOI.Filters = (function() {
 
     // private vars
     // ============
@@ -95,11 +95,11 @@ var Filters = (function() {
                 toggleFilter($thisFilter);
             });
 
-            $thisFilters.on('filters:update', function() {
+            $thisFilters.on('yoi-filters:update', function() {
                 updateResults($thisFilters);
             });
 
-            $thisFilters.on('filters:reset', function() {
+            $thisFilters.on('yoi-filters:reset', function() {
                 resetFilters($thisFilters);
                 toggleResetBtn($thisFilters);
             });
@@ -136,11 +136,11 @@ var Filters = (function() {
 
         // fire reset event on range sliders
 
-        $thisFilters.find('.rangeInput').trigger('rangeInput:reset');
+        $thisFilters.find('.rangeInput').trigger('yoi-rangeInput:reset');
 
         // update search results
 
-        $thisFilters.trigger('filters:update');
+        $thisFilters.trigger('yoi-filters:update');
 
     }
 
@@ -246,7 +246,7 @@ var Filters = (function() {
 
             // update search results
 
-            $thisFilters.trigger('filters:update');
+            $thisFilters.trigger('yoi-filters:update');
 
             // toggle reset button
 
@@ -275,7 +275,7 @@ var Filters = (function() {
             .prependTo($thisFilters)
             .on('click', function(e) {
                 e.preventDefault();
-                $thisFilters.trigger('filters:reset');
+                $thisFilters.trigger('yoi-filters:reset');
             });
 
         } else if (!totalActiveFilters.length) {
@@ -418,7 +418,7 @@ var Filters = (function() {
 
                         // update any rangeInput
 
-                        if (withPriceRange && YOI.foundModule('RangeInput')) {
+                        if (withPriceRange && YOI.foundModule('YOI.RangeInput')) {
 
                             var $rangeInput = $thisFilters.find('.rangeInput').first();
 

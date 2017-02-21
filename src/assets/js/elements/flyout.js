@@ -1,6 +1,6 @@
 /** flyouts.js */
 
-var Flyout = (function() {
+YOI.Flyout = (function() {
 
     // private functions
     // =================

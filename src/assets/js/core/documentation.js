@@ -1,6 +1,6 @@
 /** documentation.js */
 
-var Documentation = (function() {
+YOI.Documentation = (function() {
 
     // private vars
     // ============

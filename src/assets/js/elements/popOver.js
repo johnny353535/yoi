@@ -1,6 +1,6 @@
 /** popOver.js */
 
-var PopOver = (function() {
+YOI.PopOver = (function() {
 
     // private functions
     // =================

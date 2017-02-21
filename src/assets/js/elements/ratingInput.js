@@ -1,4 +1,4 @@
-var RatingInput = (function() {
+YOI.RatingInput = (function() {
 
     // private vars
     // ============

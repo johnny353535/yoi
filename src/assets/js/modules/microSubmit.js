@@ -1,6 +1,6 @@
 /** microSubmit.js */
 
-var MicroSubmit = (function() {
+YOI.MicroSubmit = (function() {
 
     // private vars
     // ============

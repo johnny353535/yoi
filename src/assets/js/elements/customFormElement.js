@@ -1,6 +1,6 @@
 /** forms.js */
 
-var CustomFormElements = (function() {
+YOI.CustomFormElements = (function() {
 
     // private vars
     // ============

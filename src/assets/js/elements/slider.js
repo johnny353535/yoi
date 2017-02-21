@@ -1,6 +1,6 @@
 /** slider.js */
 
-var Slider = (function() {
+YOI.Slider = (function() {
 
     // private vars
     // ============

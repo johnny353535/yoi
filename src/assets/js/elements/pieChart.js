@@ -1,6 +1,6 @@
 /** pieChart.js */
 
-var PieChart = (function() {
+YOI.PieChart = (function() {
 
     // private vars
     // ============

@@ -1,6 +1,6 @@
 /** imgMagnifier.js */
 
-var ImgMagnifier = (function(){
+YOI.ImgMagnifier = (function(){
 
     // private vars
     // ============

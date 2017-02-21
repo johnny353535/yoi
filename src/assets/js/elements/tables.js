@@ -1,6 +1,6 @@
 /** tables.js */
 
-var Table = (function() {
+YOI.Table = (function() {
 
     // private functions
     // =================
@@ -129,7 +129,7 @@ var Table = (function() {
             // custom event other scripts can subscribe to:
             // the last row got removed, table is empty
 
-            if (tableIsEmpty) $thisTable.trigger('tables:empty');
+            if (tableIsEmpty) $thisTable.trigger('yoi-tables:empty');
 
         });
 

@@ -1,6 +1,6 @@
 /** datePicker.js */
 
-var DatePicker = (function() {
+YOI.DatePicker = (function() {
 
     // private vars
     // ============

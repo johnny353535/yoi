@@ -1,6 +1,6 @@
 /** switch.js */
 
-var Switch = (function() {
+YOI.Switch = (function() {
 
     // private vars
     // ============

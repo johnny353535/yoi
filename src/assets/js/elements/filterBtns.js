@@ -1,6 +1,6 @@
 /** filterBtns.js */
 
-var FilterBtns = (function() {
+YOI.FilterBtns = (function() {
 
     // private functions
     // =================

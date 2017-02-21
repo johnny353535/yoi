@@ -201,7 +201,7 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });

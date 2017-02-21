@@ -1,6 +1,6 @@
 /** reveal.js */
 
-var Reveal = (function() {
+YOI.Reveal = (function() {
 
     // private functions
     // =================

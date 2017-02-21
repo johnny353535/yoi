@@ -1,6 +1,6 @@
 /** stepper.js */
 
-var Stepper = (function() {
+YOI.Stepper = (function() {
 
     // private vars
     // ============

@@ -125,17 +125,11 @@
 </table>
 
 
-<div style="margin: 800px 0;">
-    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:shake; offset: 500;">shake</div>
-</div>
-<div style="margin: 800px 0;">
-    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:slide-left;">slide-left</div>
-</div>
-<div style="margin: 800px 0;">
-    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:slide-right;">slide-right</div>
-</div>
-<div style="margin: 800px 0;">
-    <div class="p-4 bg-red-15 b-0 br tc-red-24 fw-bold m-b-1 h-10" data-scrollagent="toggleFx:scale-up;">scale-up</div>
+<div style="margin: 1000px 0;">
+    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" data-scrollfx="in:fade-in; speed:slow;">in</div>
+    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" data-scrollfx="center:flip-in-y; speed:slow;">center</div>
+    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" data-scrollfx="center:slide-in-left; speed:slow;">center</div>
+    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" data-scrollfx="center:slide-in-right; speed:slow;">center</div>
 </div>
 
 
@@ -169,7 +163,7 @@
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });

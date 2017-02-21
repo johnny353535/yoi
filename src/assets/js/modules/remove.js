@@ -1,6 +1,6 @@
 /** remove.js */
 
-var Remove = (function() {
+YOI.Remove = (function() {
 
     // private functions
     // =================

@@ -1,6 +1,6 @@
 /** maxChars.js */
 
-var MaxChars = (function() {
+YOI.MaxChars = (function() {
 
     // private vars
     // ============

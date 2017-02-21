@@ -1,6 +1,6 @@
 /** toolTip.js */
 
-var Tooltip = (function() {
+YOI.Tooltip = (function() {
 
     // private vars
     // ============

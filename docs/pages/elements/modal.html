@@ -289,7 +289,7 @@ Instead, if the trigger element is a link, it will fall back to it’s default b
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });

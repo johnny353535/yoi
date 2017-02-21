@@ -1,6 +1,6 @@
 /** rangeInput.js */
 
-var RangeInput = (function() {
+YOI.RangeInput = (function() {
 
     // private vars
     // ============
@@ -131,8 +131,8 @@ var RangeInput = (function() {
 
             // register reset event
 
-            $thisRangeInput.on('rangeInput:reset', function() {
-                RangeInput.reset($thisRangeInput);
+            $thisRangeInput.on('yoi-rangeInput:reset', function() {
+                YOI.RangeInput.reset($thisRangeInput);
             });
 
         });
@@ -372,11 +372,11 @@ var RangeInput = (function() {
          *  @return {bool false}                    - returns false if the filters module isn't available
          */
 
-        if (YOI.foundModule('Filters')) {
+        if (YOI.foundModule('YOI.Filters')) {
 
             $thisRangeInput = $rangeInput;
             $thisFilters = $thisRangeInput.closest('.filters');
-            Filters.apply($thisFilters, false);
+            YOI.Filters.apply($thisFilters, false);
 
         } else {
             return false;

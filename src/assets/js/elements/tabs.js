@@ -1,6 +1,6 @@
 /** tabs.js */
 
-var Tabs = (function() {
+YOI.Tabs = (function() {
 
     // private functions
     // =================
@@ -48,7 +48,7 @@ var Tabs = (function() {
 
             // if start tab was in hash, scroll to start tab
 
-            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
+            if (YOI.foundModule('YOI.ScrollTo') && urlTabId !== '')
                 ScrollTo.target(urlTabId);
 
             // attach click event to menu items

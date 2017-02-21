@@ -361,7 +361,7 @@ var YOI = (function() {
 
 /** documentation.js */
 
-var Documentation = (function() {
+YOI.Documentation = (function() {
 
     // private vars
     // ============
@@ -850,7 +850,7 @@ var Documentation = (function() {
 
 /** accordion.js */
 
-var Accordion = (function() {
+YOI.Accordion = (function() {
 
     // private functions
     // =================
@@ -1022,7 +1022,7 @@ var Accordion = (function() {
 
 /** browserHistory.js */
 
-var BrowserHistory = (function() {
+YOI.BrowserHistory = (function() {
 
     // private vars
     // ============
@@ -1058,7 +1058,7 @@ var BrowserHistory = (function() {
 
 /** countdown.js */
 
-var Countdown = (function() {
+YOI.Countdown = (function() {
 
     // private vars
     // ============
@@ -1153,7 +1153,7 @@ var Countdown = (function() {
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
-            $thisCountdown.trigger('countdown:expired');
+            $thisCountdown.trigger('yoi-countdown:expired');
         }
 
         // set the lcd characters
@@ -1351,7 +1351,7 @@ var Countdown = (function() {
 })();
 /** forms.js */
 
-var CustomFormElements = (function() {
+YOI.CustomFormElements = (function() {
 
     // private vars
     // ============
@@ -1498,7 +1498,7 @@ var CustomFormElements = (function() {
 
 /** datePicker.js */
 
-var DatePicker = (function() {
+YOI.DatePicker = (function() {
 
     // private vars
     // ============
@@ -2315,7 +2315,7 @@ var DatePicker = (function() {
 
 /** dismiss.js */
 
-var Dismiss = (function() {
+YOI.Dismiss = (function() {
 
     // private vars
     // ============
@@ -2438,7 +2438,7 @@ var Dismiss = (function() {
 
 /** dock.js */
 
-var Dock = (function() {
+YOI.Dock = (function() {
 
     // private functions
     // =================
@@ -2533,7 +2533,7 @@ var Dock = (function() {
 
 /** filterBtns.js */
 
-var FilterBtns = (function() {
+YOI.FilterBtns = (function() {
 
     // private functions
     // =================
@@ -2653,7 +2653,7 @@ var FilterBtns = (function() {
 
 /** filters.js */
 
-var Filters = (function() {
+YOI.Filters = (function() {
 
     // private vars
     // ============
@@ -2748,11 +2748,11 @@ var Filters = (function() {
                 toggleFilter($thisFilter);
             });
 
-            $thisFilters.on('filters:update', function() {
+            $thisFilters.on('yoi-filters:update', function() {
                 updateResults($thisFilters);
             });
 
-            $thisFilters.on('filters:reset', function() {
+            $thisFilters.on('yoi-filters:reset', function() {
                 resetFilters($thisFilters);
                 toggleResetBtn($thisFilters);
             });
@@ -2789,11 +2789,11 @@ var Filters = (function() {
 
         // fire reset event on range sliders
 
-        $thisFilters.find('.rangeInput').trigger('rangeInput:reset');
+        $thisFilters.find('.rangeInput').trigger('yoi-rangeInput:reset');
 
         // update search results
 
-        $thisFilters.trigger('filters:update');
+        $thisFilters.trigger('yoi-filters:update');
 
     }
 
@@ -2899,7 +2899,7 @@ var Filters = (function() {
 
             // update search results
 
-            $thisFilters.trigger('filters:update');
+            $thisFilters.trigger('yoi-filters:update');
 
             // toggle reset button
 
@@ -2928,7 +2928,7 @@ var Filters = (function() {
             .prependTo($thisFilters)
             .on('click', function(e) {
                 e.preventDefault();
-                $thisFilters.trigger('filters:reset');
+                $thisFilters.trigger('yoi-filters:reset');
             });
 
         } else if (!totalActiveFilters.length) {
@@ -3071,7 +3071,7 @@ var Filters = (function() {
 
                         // update any rangeInput
 
-                        if (withPriceRange && YOI.foundModule('RangeInput')) {
+                        if (withPriceRange && YOI.foundModule('YOI.RangeInput')) {
 
                             var $rangeInput = $thisFilters.find('.rangeInput').first();
 
@@ -3116,7 +3116,7 @@ var Filters = (function() {
 
 /** flyouts.js */
 
-var Flyout = (function() {
+YOI.Flyout = (function() {
 
     // private functions
     // =================
@@ -3218,7 +3218,7 @@ var Flyout = (function() {
 
 /** imgMagnifier.js */
 
-var ImgMagnifier = (function(){
+YOI.ImgMagnifier = (function(){
 
     // private vars
     // ============
@@ -3541,7 +3541,7 @@ var ImgMagnifier = (function(){
 
 /** maxChars.js */
 
-var MaxChars = (function() {
+YOI.MaxChars = (function() {
 
     // private vars
     // ============
@@ -3781,7 +3781,7 @@ var MaxChars = (function() {
 })();
 /** modal.js */
 
-var Modal = (function() {
+YOI.Modal = (function() {
 
     // private vars
     // ============
@@ -3948,7 +3948,7 @@ var Modal = (function() {
 
                         initializeModalCloseTriggers(modalId);
 
-                        if (YOI.foundModule('CustomFormElements'))
+                        if (YOI.foundModule('YOI.CustomFormElements'))
                             CustomFormElements.init(modalId);
 
                         // optional callback
@@ -4061,9 +4061,11 @@ var Modal = (function() {
         }
 
         modalActive = false;
-        if (YOI.foundModule('BrowserHistory'))
+        
+        if (YOI.foundModule('YOI.BrowserHistory')) {
             BrowserHistory.clearHash();
-
+        }
+        
     }
 
     function detachModals() {
@@ -4128,7 +4130,7 @@ var Modal = (function() {
 
 /** pageRewind.js */
 
-var PageRewind = (function() {
+YOI.PageRewind = (function() {
 
     // private vars
     // ============
@@ -4220,7 +4222,7 @@ var PageRewind = (function() {
 })();
 /** pickBtn.js */
 
-var PickBtn = (function() {
+YOI.PickBtn = (function() {
 
     // private vars
     // ============
@@ -4314,7 +4316,7 @@ var PickBtn = (function() {
 
 /** pieChart.js */
 
-var PieChart = (function() {
+YOI.PieChart = (function() {
 
     // private vars
     // ============
@@ -4730,7 +4732,7 @@ var PieChart = (function() {
 
 /** popOver.js */
 
-var PopOver = (function() {
+YOI.PopOver = (function() {
 
     // private functions
     // =================
@@ -5065,7 +5067,7 @@ var PopOver = (function() {
 
 /** rangeInput.js */
 
-var RangeInput = (function() {
+YOI.RangeInput = (function() {
 
     // private vars
     // ============
@@ -5196,8 +5198,8 @@ var RangeInput = (function() {
 
             // register reset event
 
-            $thisRangeInput.on('rangeInput:reset', function() {
-                RangeInput.reset($thisRangeInput);
+            $thisRangeInput.on('yoi-rangeInput:reset', function() {
+                YOI.RangeInput.reset($thisRangeInput);
             });
 
         });
@@ -5437,11 +5439,11 @@ var RangeInput = (function() {
          *  @return {bool false}                    - returns false if the filters module isn't available
          */
 
-        if (YOI.foundModule('Filters')) {
+        if (YOI.foundModule('YOI.Filters')) {
 
             $thisRangeInput = $rangeInput;
             $thisFilters = $thisRangeInput.closest('.filters');
-            Filters.apply($thisFilters, false);
+            YOI.Filters.apply($thisFilters, false);
 
         } else {
             return false;
@@ -5464,7 +5466,7 @@ var RangeInput = (function() {
 
 })();
 
-var RatingInput = (function() {
+YOI.RatingInput = (function() {
 
     // private vars
     // ============
@@ -5649,7 +5651,7 @@ var RatingInput = (function() {
 })();
 /** slider.js */
 
-var Slider = (function() {
+YOI.Slider = (function() {
 
     // private vars
     // ============
@@ -6116,7 +6118,7 @@ var Slider = (function() {
 
 /** stepper.js */
 
-var Stepper = (function() {
+YOI.Stepper = (function() {
 
     // private vars
     // ============
@@ -6263,7 +6265,7 @@ var Stepper = (function() {
 
 /** switch.js */
 
-var Switch = (function() {
+YOI.Switch = (function() {
 
     // private vars
     // ============
@@ -6420,7 +6422,7 @@ var Switch = (function() {
 })();
 /** tables.js */
 
-var Table = (function() {
+YOI.Table = (function() {
 
     // private functions
     // =================
@@ -6549,7 +6551,7 @@ var Table = (function() {
             // custom event other scripts can subscribe to:
             // the last row got removed, table is empty
 
-            if (tableIsEmpty) $thisTable.trigger('tables:empty');
+            if (tableIsEmpty) $thisTable.trigger('yoi-tables:empty');
 
         });
 
@@ -6573,7 +6575,7 @@ var Table = (function() {
 
 /** tabs.js */
 
-var Tabs = (function() {
+YOI.Tabs = (function() {
 
     // private functions
     // =================
@@ -6621,7 +6623,7 @@ var Tabs = (function() {
 
             // if start tab was in hash, scroll to start tab
 
-            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
+            if (YOI.foundModule('YOI.ScrollTo') && urlTabId !== '')
                 ScrollTo.target(urlTabId);
 
             // attach click event to menu items
@@ -6686,7 +6688,7 @@ var Tabs = (function() {
 
 /** toolTip.js */
 
-var Tooltip = (function() {
+YOI.Tooltip = (function() {
 
     // private vars
     // ============
@@ -6941,7 +6943,7 @@ var Tooltip = (function() {
 
 /** hide.js */
 
-var Hide = (function() {
+YOI.Hide = (function() {
 
     // private functions
     // =================
@@ -7023,7 +7025,7 @@ var Hide = (function() {
 })();
 /** microSubmit.js */
 
-var MicroSubmit = (function() {
+YOI.MicroSubmit = (function() {
 
     // private vars
     // ============
@@ -7120,7 +7122,7 @@ var MicroSubmit = (function() {
 
 /** remove.js */
 
-var Remove = (function() {
+YOI.Remove = (function() {
 
     // private functions
     // =================
@@ -7180,7 +7182,7 @@ var Remove = (function() {
 })();
 /** reveal.js */
 
-var Reveal = (function() {
+YOI.Reveal = (function() {
 
     // private functions
     // =================
@@ -7265,159 +7267,178 @@ var Reveal = (function() {
     }
 
 })();
-var ScrollAgent = (function() {
+YOI.ScrollAgent = (function() {
 
     // private vars
     // ============
     
     var $body   = $('body');
     var $window = $(window);
-    
     var $targetElement;
-    var lastScrollTop = 0;
-        
+    
+    var viewPortHeight = $window.height();
+    
+    var scrollTop;
+    var lastScrollTop  = 0;
+    var offset         = 0; // % of viewport height
+    
+    var viewportIn;
+    var viewportOut;
+    var viewportCenter;
+    
+    var scrollDirection     = false;
+    var lastScrollDirection = false;
+    
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement) {
+    function initializeScrollAgent($targetElement, options) {
+        
+       /**
+        *  Initialize all *[data-scrollagent] found in the document (= function call without parameters)
+        *  or target one or more specific *[data-scrollagent] (= function call with $targetElement).
+        *  $targetElement must be a jQuery object or jQuery object collection.
+        *
+        *  @param {jQuery dom object} $targetElement - the target element(s)
+        *
+        *  Available options:
+        *
+        *  @option {} offset - xxx
+        *  @option {} offset - xxx
+        */
         
         if (!($targetElement instanceof jQuery)) {
             $targetElement = $('[data-scrollagent]');
         }
-
+        
+        if (!$targetElement.length) {
+            return false;
+        }
+        
         $targetElement.each(function() {
-            updateTargetElementData($(this));
+            updateTargetElementData($(this), options);
         });
         
-        observePosition($targetElement);
-        listenToTargetElements($targetElement);
-        
+        // update the viewport height on resize
+
+        $(window).on('resize', function() {
+            viewPortHeight = $window.height();
+        });
+
+        // start observer and listener
+
+        observe($targetElement);
+        listen($targetElement);
+    
     }
     
-    function updateTargetElementData($targetElement) {
-
-        var options       = YOI.toObject($targetElement.data('scrollagent'));
-        var children      = 'xxx';
-        var height        = $targetElement.outerHeight();
-        var initialTopPos = $targetElement.offset().top;
-        var offset        = options.offset !== undefined ? parseInt(options.offset) : 0;
-        var state         = 'out';
-        var toggleFx      = options.toggleFx !== undefined ? options.toggleFx : false;
-        var toggleClass   = options.toggleClass !== undefined ? options.toggleClass : false;
-        var noRepeat      = options.noRepeat !== undefined ? options.noRepeat : false;
+    function updateTargetElementData($targetElement, options) {
         
+        /**
+         *  Reads data from the custom data-attribute and from calculations (eg. height)
+         *  and maps the data directly to it's target objects via jQuery's data() method.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
+        
+        var thisOptions     = typeof(options) !== 'object' ? YOI.toObject($targetElement.data('scrollagent')) : options;
+        var thisOffset      = thisOptions.offset !== undefined ? parseInt(thisOptions.offset) : offset;
+        var thisHeight      = $targetElement.outerHeight();
+        var thisInitialPosY = $targetElement.offset().top;
+
         // write data
 
         $targetElement.data({
-            'offset'        : offset,
-            'initialTopPos' : initialTopPos,
-            'state'         : state,
-            'toggleClass'   : toggleClass,
-            'toggleFx'      : toggleFx,
-            'noRepeat'      : noRepeat,
-            'height'        : height
+            'height'      : thisHeight,
+            'initialPosY' : thisInitialPosY,
+            'offset'      : thisOffset,
+            'state'       : 'out'
         });
-
+        
     }
     
-    function observePosition($targetElements) {
+    function observe($targetElements) {
+        
+        /**
+         *  Observes all target elements and fires custom events weather the
+         *  element enters or leaves the viewport.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
         
         $window.on('scroll', function() {
 
-            // store the scroll position
-
-            var scrollTop       = $window.scrollTop();
-            var scrollDirection = lastScrollTop > scrollTop ? 'up' : 'down';
-            lastScrollTop       = scrollTop > 0 ? scrollTop : 0;
-
+            // get current scroll position & current scroll direction
+            
+            scrollTop       = $window.scrollTop();
+            scrollDirection = scrollTop >= lastScrollTop ? 'down' : 'up';
+            
             // observe all target elements
 
             $targetElements.each(function(index) {
-
+                
                 // variable assignments for better readability only
                 
-                // var startPos       = $targetElement.data().startPos;
-
                 var $targetElement = $(this);
                 var state          = $targetElement.data().state;
-                var offset         = $targetElement.data().offset;
-                var initialTopPos  = $targetElement.data().initialTopPos;
-                var startPos       = scrollDirection === 'down' ? initialTopPos + offset : initialTopPos - offset;
-                var viewPortHeight = $window.height();
+                var initialPosY    = $targetElement.data().initialPosY;
+                var offset         = viewPortHeight / 100 * $targetElement.data().offset;
                 var height         = $targetElement.data().height;
-                var viewportIn     = (scrollTop + viewPortHeight) > startPos && scrollTop < (startPos + height);
-                var viewportOut    = (scrollTop + viewPortHeight) < startPos || scrollTop > (startPos + height);
                 
-                // trigger custom viewport-in & viewport-out events
+                // calculate viewPortIn & viewPortOut
+                
+                viewportIn     = (scrollTop + viewPortHeight) > (initialPosY + offset) && scrollTop + offset < (initialPosY + height);
+                viewportCenter = (scrollTop + viewPortHeight / 2) > initialPosY && (scrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
+                viewportOut    = !viewportIn;
+                
+                // trigger custom viewport-events
                 
                 if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport:in');
-                if (viewportOut && state === 'in') $targetElement.trigger('yoi-viewport:out');
+                if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport:center');
+                if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport:out');
 
+                if (scrollDirection !== lastScrollDirection) {
+                    $targetElement.trigger('yoi-scrolldirection:' + scrollDirection);
+                }
+                
+                // save the last scroll position and the last scroll direction
+                
+                lastScrollTop       = scrollTop > 0 ? scrollTop : 0;
+                lastScrollDirection = scrollDirection;
+                
             });
-            
 
         });
 
     }
     
-    function mapEffects() {
-        // fade in, fade out
-        // move in, move out (t, r, b, l)
-        // speed (negative values = slower, positiove values = faster)
-    }
-    
-    function listenToTargetElements($targetElement) {
-        
-        $targetElement.each(function() {
-            
+    function listen($targetElements) {
+
+        /**
+         *  Listens to the custom events fired by each target element (entering or leaving viewport)
+         *  and maps the current state ("in" or "out") directly to each target object via jQuery's data() method.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+
+        $targetElements.each(function() {
+
             var $targetElement = $(this);
-            var toggleClass    = $targetElement.data().toggleClass;
-            var toggleFx       = $targetElement.data().toggleFx;
-            var noRepeat       = $targetElement.data().noRepeat;
-            
+
             $targetElement.on('yoi-viewport:in', function() {
-                
-                // change state
-                
                 $targetElement.data().state = 'in';
-                
-                // add toggleClass
-                
-                if (toggleClass) $targetElement.addClass(toggleClass);
-                
-                // add toggleFx
-                
-                if (toggleFx) {
-                    $targetElement.addClass('fx-' + toggleFx);
-                }
-                
             });
             
+            $targetElement.on('yoi-viewport:center', function() {
+                $targetElement.data().state = 'center';
+            });
+
             $targetElement.on('yoi-viewport:out', function() {
-                
-                // change state
-                
                 $targetElement.data().state = 'out';
-                
-                // remove toggleClass
-                
-                if (toggleClass) $targetElement.removeClass(toggleClass);
-                
-                // remove toggleFx
-                
-                if (toggleFx) {
-                    $targetElement.addClass('fx-' + toggleFx + '-initial');
-                    $targetElement.removeClass('fx-' + toggleFx);
-                }
-                
-                // if no reapeat
-                
-                if (noRepeat) $targetElement.css('animation','none');
-                
             });
-            
+
         });
-        
+
     }
     
     // initialize
@@ -7433,23 +7454,177 @@ var ScrollAgent = (function() {
     }
 
 })();
+YOI.ScrollFx = (function() {
 
+    // private vars
+    // ============
+    
+    // private functions
+    // =================
+    
+    function initializeScrollFx($targetElement) {
+        
+        if (!($targetElement instanceof jQuery)) {
+            $targetElement = $('[data-scrollfx]');
+        }
 
-/*
+        $targetElement.each(function() {
+            
+            var $targetElement = $(this);
+            var options        = YOI.toObject($targetElement.data('scrollfx'));
+            
+            YOI.ScrollAgent.init($targetElement);
+            
+            updateTargetElementData($targetElement);
+            addTargetElementInitialCss($targetElement);
+            
+            // start listener
+            
+            listen($targetElement);
 
-    TODO:
+        });
 
-    - comments & documentation
-    - add children & delay
-    - add offset
-    - add lazyload?
-    - ...
+    }
+    
+    function updateTargetElementData($targetElement) {
+        
+        /**
+         *  Reads data from the custom data-attribut and maps the data directly to it's target
+         *  objects via jQuery's data() method.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
 
-*/
+        var options  = YOI.toObject($targetElement.data('scrollfx'));
+        var toggleFx = options.toggle !== undefined ? options.toggle : false;
+        var inFx     = options.in !== undefined ? options.in : false;
+        var centerFx = options.center !== undefined ? options.center : false;
+        var speed    = options.speed !== undefined ? options.speed : false;
+        var repeat   = options.repeat !== undefined ? options.repeat : true;
+        
+        // write data
 
+        $targetElement.data({
+            'toggleFx' : toggleFx,
+            'inFx'     : inFx,
+            'centerFx' : centerFx,
+            'speed'    : speed,
+            'repeat'   : repeat
+        });
+
+    }
+    
+    function addTargetElementInitialCss($targetElement) {
+        
+        /**
+         *  If the target element uses the internal fx (css-)classes,
+         *  this method adds the corresponding initial (css-)class.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
+        
+        var inFx     = $targetElement.data().inFx;
+        var centerFx = $targetElement.data().centerFx;
+        var state    = $targetElement.data().state;
+        
+        if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
+        if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
+        
+        $targetElement.removeClass('fx-' + inFx);
+        $targetElement.removeClass('fx-' + centerFx);
+
+    }
+    
+    function listen($targetElements) {
+        
+        /**
+         *  Listens to the custom events (entering or leaving viewport) and
+         *  applies fx accordingly.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+        
+        $targetElements.each(function() {
+            
+            var $targetElement = $(this);
+            var state          = $targetElement.data().state;
+            var inFx           = $targetElement.data().inFx;
+            var centerFx       = $targetElement.data().centerFx;
+            var speed          = $targetElement.data().speed;
+            var repeat         = $targetElement.data().repeat;
+            
+            $targetElement.on('yoi-viewport:in', function() {
+                
+                console.log('in');
+                
+                // add inFx
+                
+                if (inFx) {
+                    $targetElement.removeClass('fx-' + inFx + '-initial');
+                    $targetElement.addClass('fx-' + inFx);
+                }
+                
+                // set speed
+                
+                if (speed) {
+                    $targetElement.addClass('fx-' + speed);
+                }
+                
+            });
+            
+            $targetElement.on('yoi-viewport:center', function() {
+                
+                console.log('center');
+
+                // add centerFx
+
+                if (centerFx) {
+                    $targetElement.removeClass('fx-' + centerFx + '-initial');
+                    $targetElement.addClass('fx-' + centerFx);
+                }
+
+                // set speed
+
+                if (speed) {
+                    $targetElement.addClass('fx-' + speed);
+                }
+
+            });
+            
+            $targetElement.on('yoi-viewport:out', function() {
+                
+                console.log('out');
+                
+                // add initial css
+                
+                addTargetElementInitialCss($targetElement);
+                
+                // no reapeat
+                
+                if (repeat !== true) $targetElement.addClass('fx-off');
+                
+            });
+            
+        });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initializeScrollFx();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initializeScrollFx
+    }
+
+})();
 /** scrollTo.js */
 
-var ScrollTo = (function() {
+YOI.ScrollTo = (function() {
 
     // private vars
     // ============
@@ -7534,7 +7709,7 @@ var ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('Tabs')) {
+        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('YOI.Tabs')) {
             Tabs.switchTo(targetId);
         }
 
@@ -7578,7 +7753,7 @@ var ScrollTo = (function() {
 
 })();
 
-var Sticky = (function() {
+YOI.Sticky = (function() {
 
     // private vars
     // ============
@@ -7890,7 +8065,7 @@ var Sticky = (function() {
 })();
 /** toggleGroup.js */
 
-var ToggleGroup = (function() {
+YOI.ToggleGroup = (function() {
 
     // private vars
     // ============

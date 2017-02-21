@@ -1,6 +1,6 @@
 /** scrollTo.js */
 
-var ScrollTo = (function() {
+YOI.ScrollTo = (function() {
 
     // private vars
     // ============
@@ -85,7 +85,7 @@ var ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('Tabs')) {
+        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('YOI.Tabs')) {
             Tabs.switchTo(targetId);
         }
 

@@ -82,6 +82,28 @@ img[title=""] when (@debugImages = true) {
     overflow: hidden;
 }
 
+// guides
+// ======
+
+body::before when (@showCenterGuides = true) {
+    border-top: rgba(255, 0, 0, .2) 1px solid;
+    content: ' ';
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    z-index: 900;
+}
+
+html::before when (@showCenterGuides = true) {
+    border-right: rgba(255, 0, 0, .2) 1px solid;
+    content: ' ';
+    position: fixed;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 900;
+}
+
 // media queries
 // =============
 

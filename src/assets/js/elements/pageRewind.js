@@ -1,6 +1,6 @@
 /** pageRewind.js */
 
-var PageRewind = (function() {
+YOI.PageRewind = (function() {
 
     // private vars
     // ============

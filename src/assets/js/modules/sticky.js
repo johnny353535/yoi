@@ -1,4 +1,4 @@
-var Sticky = (function() {
+YOI.Sticky = (function() {
 
     // private vars
     // ============

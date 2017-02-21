@@ -1,6 +1,6 @@
 /** hide.js */
 
-var Hide = (function() {
+YOI.Hide = (function() {
 
     // private functions
     // =================

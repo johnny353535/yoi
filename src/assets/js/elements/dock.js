@@ -1,6 +1,6 @@
 /** dock.js */
 
-var Dock = (function() {
+YOI.Dock = (function() {
 
     // private functions
     // =================
