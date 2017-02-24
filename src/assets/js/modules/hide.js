@@ -1,27 +1,81 @@
 /** hide.js */
 
 YOI.Hide = (function() {
+    
+    // private vars
+    // ============
+    
+    var $triggerCollection;
+    var options = undefined;
 
     // private functions
     // =================
 
-    function initializeHide($hideTrigger, options) {
+    function initialize($trigger, options) {
 
         /**
-         *  Search the Dom for trigger-elements flagged with "data-hide" and hide the
-         *  corresponding target elements on any event you wish to bind to the trigger.
-         *  Options include to chose from all standard event handlers for the trigger and
-         *  using one of two available transitions.
+         *  Initialize the script.
          *
-         *  Initialize all *[data-hide] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-hide] (= function call with $dock).
-         *  $hideTrigger must be a jQuery object or jQuery object collection.
+         *  @param {jQuery dom object} $element
+         *  @param {object}            options
+         */
+
+        if (!($trigger instanceof jQuery)) {
+        
+            // if the init function is called without a valid matching jQuery element,
+            // gather the matching elements from the dom. if no elements are found,
+            // exit the script.
+        
+            $triggerCollection = $('[data-hide]');
+            if (!$triggerCollection.length) return false;
+        
+            // add data (eg. options) to each element in the collection
+        
+            $triggerCollection.each(function() {
+                setOptions($(this));
+            });
+        
+        } else if ($trigger instanceof jQuery) {
+        
+            // if the init function is called with a valid matching jQuery element,
+            // add it to the element collection
+        
+            setOptions($trigger, options);
+            $triggerCollection = $triggerCollection.add($trigger);
+        
+        }
+
+        $trigger.each(function(index){
+
+            var $thisTrigger = $(this);
+            var options      = $thisTrigger.data();
+            var transition   = options.transition;
+            var $target      = $(options.target);
+            var event        = options.event;
+
+            // cancel if no target was defined
+
+            if (!($target instanceof jQuery)) return false;
+
+            // apply event on trigger and hide target
+
+            $thisTrigger.on(event, function(e) {
+                hide($target, transition);
+            });
+
+        });
+
+    }
+    
+    function setOptions($element, options) {
+    
+        /**
+         *  Attaches options directly to each $element via jQuery's data() method.
+         *  Options are either retrieved via the options-parameter or (if undefined)
+         *  read from markup.
          *
-         *  @param {jQuery dom object} $hideTrigger - the hide trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button class="btn" data-hide="target:#myTarget; event:click; transition:fadeOut">Hide</button>
+         *  @param {jQuery dom object} $element
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -32,51 +86,62 @@ YOI.Hide = (function() {
          *                                can be used.
          *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
          */
-
-        if (!($hideTrigger instanceof jQuery)) {
-            $hideTrigger = $('[data-hide]');
-        }
-
-        $hideTrigger.each(function(index){
-
-            // set up vars
-
-            var $thisTrigger = $(this);
-            var $data        = options === undefined ? YOI.toObject($this.data('hide')) : options;
-            var target       = $data.target !== undefined ? $data.target : false;
-            var event        = $data.event !== undefined ? $data.event : 'click';
-            var transition   = $data.transition !== undefined ? $data.transition : false;
-
-            // cancel if no target was defined
-
-            if (!target) return false;
-
-            // apply event on trigger and hide target
-
-            $thisTrigger.on(event, function(e) {
-                if (transition === 'fadeOut') {
-                    $(target).fadeOut();
-                } else if (transition === 'slideUp') {
-                    $(target).slideUp();
-                } else {
-                    $(target).hide();
-                }
-            });
-
+    
+        var options    = options === undefined ? YOI.toObject($element.data('hide')) : options;
+        var target     = options.target !== undefined ? options.target : false;
+        var event      = options.event !== undefined ? options.event : 'click';
+        var transition = options.transition !== undefined ? options.transition : false;
+    
+        $element.data({
+            'target'     : target,
+            'event'      : event,
+            'transition' : transition
         });
-
+    
+    }
+    
+    function hide($target, transition) {
+        
+        /**
+         *  Hides the target element.
+         *
+         *  @param {jQuery dom object} $target
+         *  @param {string}            transition
+         */
+        
+        // exit the script if no or an invalid target was supplied
+        
+        if (!($target instanceof jQuery)) return false;
+        
+        var transition = transition;
+        
+        // hide the target
+        
+        if (transition === 'fadeOut') {
+            $target.fadeOut();
+        } else if (transition === 'slideUp') {
+            $target.slideUp();
+        } else {
+            $target.hide();
+        }
+        
+        // trigger custom event
+        
+        $target.trigger('yoi-hidden');
+        
     }
 
     // initialize
     // ==========
 
-    initializeHide();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeHide
+        init  : initialize,
+        apply : hide
     }
 
 })();

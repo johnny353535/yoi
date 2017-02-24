@@ -5,56 +5,60 @@ YOI.Remove = (function() {
     // private functions
     // =================
 
-    function initializeRemoveTriggers($removeTrigger, options) {
-
+    function initialize($removeTrigger, options) {
+    
         /**
-         *  Initialize all *[data-remove] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-remove] (= function call with $removeTrigger).
-         *  $removeTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $removeTrigger - the remove trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-remove="target:#myTargetElement">
-         *
-         *  Available options:
-         *
-         *  @option {string} target - optional CSS-selector for the DOM element to remove
-         *                            by default, the target is the trigger's first parent element
+         *  @param {jQuery dom object} $removeTrigger
+         *  @param {object}            options
          */
+        
+        var $removeTrigger = YOI.createCollection('remove', $removeTrigger, options);
 
-        if (!($removeTrigger instanceof jQuery)) {
-            $removeTrigger = $('[data-remove]');
-        }
-
-        $removeTrigger.each(function() {
+        if ($removeTrigger) $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
-            var options            = options === undefined ? YOI.toObject($thisremoveTrigger.data('remove')) : options;
+            var options            = $thisremoveTrigger.data().options;
             var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
-
+            
+            // set default options via variable assignment.
+            
             $thisremoveTrigger.on('click', function(e) {
                 e.preventDefault();
-                $thisTarget.fadeOut(function(){
-                    $thisTarget.remove();
-                });
+                remove($thisTarget);
             });
 
         });
 
     }
+    
+    function remove($target) {
+        
+        /**
+         *  Fade-out and remove the target element from the dom.
+         *
+         *  @param  {jQuery dom object} $target - the target element in dom
+         */
+        
+        $target.fadeOut(function(){
+            $target.trigger('yoi-removed');
+            $target.remove();
+        });
+        
+    }
 
     // initialize
     // ==========
 
-    initializeRemoveTriggers();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeRemoveTriggers
+        init  : initialize,
+        apply : remove
     }
 
 })();

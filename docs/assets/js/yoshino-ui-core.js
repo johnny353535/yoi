@@ -1,7 +1,7 @@
 /** yoi.js */
 
 var YOI = (function() {
-
+    
     return {
 
         stringContains : function(input, searchString) {
@@ -261,6 +261,118 @@ var YOI = (function() {
             }
 
         },
+        
+        getAttribute : function($element) {
+            
+            /**
+             *  Searches for custom "yoi-*" attributes inside an alement's markup
+             *  and returns the value of the first matching attribute.
+             *
+             *  @param  {jQuery dom object} $element
+             *  @return {string}            yoiAttributeValue - the attribute's content / value
+             */
+        
+            var yoiAttributeValue;
+        
+            $.each($element[0].attributes, function(index, attribute) {
+                if (attribute.name.match('^yoi-')) {
+                    yoiAttributeValue = attribute.value;
+                    return false;
+                }
+            });
+            
+            return yoiAttributeValue;
+            
+        },
+        
+        setOptions : function($element, options) {
+            
+            /**
+             *  Attaches options directly to each $element via jQuery's data() method.
+             *  Options are either retrieved via the options-parameter or (if undefined)
+             *  read from markup.
+             *
+             *  Note: If a key/value is already set, it won't be changed.
+             *
+             *  @param {jQuery dom object} $element
+             *  @param {object}            options
+             */
+            
+            // create options object
+            
+            if ($element.data().options === undefined)
+                $element.data().options = {};
+            
+            if (options === undefined) {
+                
+                // if the options parameter is omitted on function call, read the
+                // options from the element's yoi-* attribute
+                
+                var options = YOI.toObject(YOI.getAttribute($element));
+                
+            }
+            
+            if (typeof options === 'object') {
+                
+                // if options is a valid object, attach the options to
+                // the element via jQuery's data() function
+                
+                $.each(options, function(key, value) {
+                    $element.data().options[key] = value;
+                });
+                
+            }
+    
+        },
+        
+        createCollection : function(identifier, $element, options) {
+            
+            /**
+             *  Create or add to a collection of jQuery objects. Passes and attaches options
+             *  via YOI.setOptions().
+             *
+             *  @param  {} identifier - the string to select elements from the dom via
+             *                          custom yoi-{identifier} attribute
+             *  @param  {} $element   - jQuery element, optional
+             *  @param  {} options    - options, optional
+             *  @return {} object     - the jQuery element collection
+             */
+            
+            // if it does not exist, create a new collection of jQuery objects
+            
+            if (YOI.elementCollection[identifier] === undefined)
+                YOI.elementCollection[identifier] = $([]);
+            
+            if (!($element instanceof jQuery)) {
+        
+                // if the createCollection() is called without a valid matching jQuery element,
+                // gather the matching elements from the dom
+        
+                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
+                
+                // if no elements are found, return false ...
+                
+                if (!YOI.elementCollection[identifier].length) return false;
+        
+                // ... otherwise add data (eg. options) to each element in the collection
+                
+                YOI.elementCollection[identifier].each(function() {
+                    YOI.setOptions($(this), options);
+                });
+        
+            } else if ($element instanceof jQuery) {
+        
+                // if the createCollection() is called with a valid matching jQuery element,
+                // set it's options and add it to the element collection
+        
+                YOI.setOptions($element, options);
+                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
+            
+            }
+            
+            return YOI.elementCollection[identifier];
+        
+        },
 
         zeroPad : function(num, digits) {
 
@@ -359,6 +471,11 @@ var YOI = (function() {
 
 })();
 
+// create an object to store jQuery
+// element collections
+
+YOI.elementCollection = {};
+
 /** documentation.js */
 
 YOI.Documentation = (function() {
@@ -414,7 +531,7 @@ YOI.Documentation = (function() {
 
         // print the code for each code-example block
 
-        $('.documentation__example[data-printcode]').each(function() {
+        $('.documentation__example[yoi-printcode]').each(function() {
 
             var $thisExampleBlock = $(this);
             var options           = YOI.toObject($thisExampleBlock.data('printcode'));
@@ -453,7 +570,7 @@ YOI.Documentation = (function() {
          *  between light and dark background or toggle code examples.
          */
 
-        $('[data-docblock]').each(function() {
+        $('[yoi-docblock]').each(function() {
 
             var $thisDocBlock = $(this)
             var options       = YOI.toObject($thisDocBlock.data('docblock'));
@@ -474,8 +591,8 @@ YOI.Documentation = (function() {
 
                 // add events to buttons
 
-                var $thisColorBtn = $thisDocBlock.find('[data-action="toggleDarkmode"]');
-                var $thisCodeBtn  = $thisDocBlock.find('[data-action="toggleCode"]');
+                var $thisColorBtn = $thisDocBlock.find('[yoi-action="toggleDarkmode"]');
+                var $thisCodeBtn  = $thisDocBlock.find('[yoi-action="toggleCode"]');
 
                 $thisColorBtn.on('click', function() {
                     $thisDocBlock.toggleClass('documentation__block--dark');
@@ -851,35 +968,50 @@ YOI.Documentation = (function() {
 /** accordion.js */
 
 YOI.Accordion = (function() {
+    
+    // // private vars
+    // // ============
+    //
+    // var $accordion;
 
     // private functions
     // =================
 
     function initializeAccordion($accordion, options) {
 
-        /**
-         *  Initialize all *[data-accordion] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-accordion] (= function call with $accordion).
-         *  $accordion must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $accordion - the accordion(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div class="accordion" data-accordion="linked:true;">
-         *
-         *  Available options:
-         *
-         *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
-         *                                             one section can be open, the remaining sections
-         *                                             will always close
-         */
+        // /**
+        //  *  Initialize the script.
+        //  *
+        //  *  @param {jQuery dom object} $accordion - the accordion(s)
+        //  *
+        //  *  Options are passed to the script as an object or through markup and
+        //  *  custom data values, eg:
+        //  *
+        //  *  <div class="accordion" data-accordion="linked:true;">
+        //  *
+        //  *  Available options:
+        //  *
+        //  *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
+        //  *                                             one section can be open, the remaining sections
+        //  *                                             will always close
+        //  */
+        //
+        // // if the function is called without a valid $accordion,
+        // // gather the accordions from the dom
+        //
+        // if (!($accordion instanceof jQuery)) {
+        //     $accordion = $('[data-accordion]');
+        // }
+        //
+        // // if no accordions are found, stop the script
+        //
+        // if (!$accordion.length) {
+        //     return false;
+        // }
+        
+        var $accordion = YOI.createCollection('accordion', $accordion, options);
 
-        if (!($accordion instanceof jQuery)) {
-            $accordion = $('[data-accordion]');
-        }
-
-        $accordion.each(function() {
+        if ($accordion) $accordion.each(function() {
 
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
@@ -1062,6 +1194,8 @@ YOI.Countdown = (function() {
 
     // private vars
     // ============
+    
+    var $countdown;
 
     // countdown clock labels
 
@@ -1106,15 +1240,23 @@ YOI.Countdown = (function() {
     function initializeCountdown($countdown, endTime) {
 
         /**
-         *  Initialize all *[data-countdown] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-countdown] (= function call with $countdown).
-         *  $countdown must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
          *  @param {jQuery dom object} $countdown - the countdown(s)
+         *  @param {string} endTime - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
          */
+
+        // if the function is called without a valid $countdown,
+        // gather the countdowns from the dom
 
         if (!($countdown instanceof jQuery)) {
             $countdown = $('[data-countdown]');
+        }
+        
+        // if no countdowns are found, stop the script
+        
+        if (!$countdown.length) {
+            return false;
         }
 
         $countdown.each(function(index) {
@@ -1141,6 +1283,7 @@ YOI.Countdown = (function() {
          *  Render the lcd-style countdown, also include a label for screen readers.
          *
          *  @param {jQuery dom object} $thisCountdown - the countdown
+         *  @param {string}            endTime        - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
          *  @param {number}            index          - index number of the count down
          */
 
@@ -1355,7 +1498,7 @@ YOI.CustomFormElements = (function() {
 
     // private vars
     // ============
-
+    
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
@@ -1382,7 +1525,7 @@ YOI.CustomFormElements = (function() {
         // or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"])
 
         if (scope === undefined) {
-            scope = '';
+            var scope = '';
         } else {
             scope += ' ';
         }
@@ -1502,6 +1645,8 @@ YOI.DatePicker = (function() {
 
     // private vars
     // ============
+    
+    var $datepicker;
 
     // get the document language, fall back to english
     // note: only german and english supported at this moment
@@ -1552,22 +1697,27 @@ YOI.DatePicker = (function() {
     function initializeDatePicker($datepicker) {
 
         /**
-         *  Initialize all input[data-datepicker] found in the document (= function call without parameters)
-         *  or target one or more specific input[data-datepicker] (= function call with $datepicker).
-         *  $datepicker must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $datepickers - the date picker(s)
+         *  @param {jQuery dom object} $datepicker - the date picker(s)
          */
 
-        // update the current date
-
-        getCurrentDate();
-
-        // initialize date picker(s)
-
+        // if the function is called without a valid $datepicker,
+        // gather the datepickers from the dom
+        
         if (!($datepicker instanceof jQuery)) {
             $datepicker = $('input[data-datepicker]');
         }
+        
+        // if no datepickers are found, stop the script
+        
+        if (!$datepicker.length) {
+            return false;
+        }
+        
+        // update the current date
+
+        getCurrentDate();
 
         $datepicker.each(function(index) {
 
@@ -2310,129 +2460,6 @@ YOI.DatePicker = (function() {
         render : renderDatePicker,
         hide   : hideAllDatePickers
     }
-
-})();
-
-/** dismiss.js */
-
-YOI.Dismiss = (function() {
-
-    // private vars
-    // ============
-
-    var $btnDismiss;
-    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
-
-    $btnDismiss = $('\
-        <span class="btnDismiss">' + btnLabelClose + '</span>\
-    ');
-
-    // private functions
-    // =================
-
-    function initializeDismissableElement($dismissableElement) {
-
-        /**
-         *  Attach a close-button to dismissable elements.
-         *
-         *  Initialize all *[data-dismissable] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-dismissable] (= function call with $dismissable).
-         *  $dismissableElement must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
-         */
-
-        if (!($dismissableElement instanceof jQuery)) {
-            $dismissableElement = $('[data-dismissable]');
-        }
-
-        $dismissableElement.each(function() {
-
-            var $thisDismissableElement = $(this);
-
-            // attach button and events
-
-            $btnDismiss
-                .clone()
-                .on('click', function(e) {
-                    e.preventDefault();
-                    dismiss($thisDismissableElement);
-                })
-                .appendTo($thisDismissableElement);
-
-        });
-
-    }
-
-    function initializeDismissButton($dismissButton) {
-
-        /**
-         *  Initialize all *[data-dismiss] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-dismiss] (= function call with $dismissButton).
-         *  $dismissButton must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $dismissButton - the dismiss button(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-dismiss="target:#myTargetElement">
-         *
-         *  Available options:
-         *
-         *  @option {string} target - selector for target element
-         */
-
-        if (!($dismissButton instanceof jQuery)) {
-            $dismissButton = $('[data-dismiss]');
-        }
-
-        $dismissButton.each(function() {
-
-            var $thisTrigger = $(this);
-            var options      = YOI.toObject($(this).data('dismiss'));
-            var $thisTarget  = $(options.target);
-
-            // attach events
-
-            $thisTrigger.on('click', function(e) {
-                e.preventDefault();
-                dismiss($thisTarget);
-            });
-
-        });
-
-    }
-
-    function dismiss($thisTarget) {
-
-        /**
-         *  Close and remove any target element.
-         *
-         *  @param  {jQuery dom object} $thisTarget - the target element
-         */
-
-        if (!($thisTarget instanceof jQuery)) return false;
-
-        $thisTarget.fadeOut(function() {
-            $thisTarget.remove();
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initializeDismissableElement();
-    initializeDismissButton();
-
-    // public functions
-    // ================
-
-    return {
-        initElements : initializeDismissableElement,
-        initBtns     : initializeDismissButton,
-        apply        : dismiss
-    };
 
 })();
 
@@ -6941,30 +6968,179 @@ YOI.Tooltip = (function() {
 
 })();
 
-/** hide.js */
+/** dismiss.js */
 
-YOI.Hide = (function() {
+YOI.Dismiss = (function() {
+
+    // private vars
+    // ============
+
+    var $dismissableElementCollection;
+    var $dismissButton;
+    var $btnDismiss;
+    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
+
+    $btnDismiss = $('\
+        <span class="btnDismiss">' + btnLabelClose + '</span>\
+    ');
 
     // private functions
     // =================
 
-    function initializeHide($hideTrigger, options) {
+    function initialize($dismissableElement) {
 
         /**
-         *  Search the Dom for trigger-elements flagged with "data-hide" and hide the
-         *  corresponding target elements on any event you wish to bind to the trigger.
-         *  Options include to chose from all standard event handlers for the trigger and
-         *  using one of two available transitions.
+         *  Initialize the script.
          *
-         *  Initialize all *[data-hide] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-hide] (= function call with $dock).
-         *  $hideTrigger must be a jQuery object or jQuery object collection.
+         *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
+         */
+
+        if (!($dismissableElement instanceof jQuery)) {
+            
+            // if the init function is called without a valid matching jQuery element,
+            // gather the matching elements from the dom. if no elements are found,
+            // exit the script.
+            
+            $dismissableElementCollection = $('[data-dismissable]');
+            if (!$dismissableElementCollection.length) return false;
+            
+        } else if ($dismissableElement instanceof jQuery) {
+            
+            // if the init function is called with a valid matching jQuery element,
+            // add it to the element collection
+            
+            $dismissableElementCollection = $dismissableElementCollection.add($dismissableElement);
+            
+        }
+
+        $dismissableElementCollection.each(function() {
+
+            var $thisDismissableElement = $(this);
+
+            // attach button and events
+
+            $btnDismiss
+                .clone()
+                .on('click', function(e) {
+                    e.preventDefault();
+                    dismiss($thisDismissableElement);
+                })
+                .appendTo($thisDismissableElement);
+
+        });
+
+    }
+
+    function dismiss($targetElement) {
+
+        /**
+         *  Close and remove any target element.
          *
-         *  @param {jQuery dom object} $hideTrigger - the hide trigger(s)
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
+
+        if (!($targetElement instanceof jQuery)) return false;
+
+        $targetElement.fadeOut(function() {
+            $targetElement.trigger('yoi-dismissed');
+            $targetElement.remove();
+        });
+
+    }
+
+    // initialize
+    // ==========
+
+    initialize();
+
+    // public functions
+    // ================
+
+    return {
+        init  : initialize,
+        apply : dismiss
+    };
+
+})();
+
+/** hide.js */
+
+YOI.Hide = (function() {
+    
+    // private vars
+    // ============
+    
+    var $triggerCollection;
+    var options = undefined;
+
+    // private functions
+    // =================
+
+    function initialize($trigger, options) {
+
+        /**
+         *  Initialize the script.
          *
-         *  Options are passed to the script as custom data values, eg:
+         *  @param {jQuery dom object} $element
+         *  @param {object}            options
+         */
+
+        if (!($trigger instanceof jQuery)) {
+        
+            // if the init function is called without a valid matching jQuery element,
+            // gather the matching elements from the dom. if no elements are found,
+            // exit the script.
+        
+            $triggerCollection = $('[data-hide]');
+            if (!$triggerCollection.length) return false;
+        
+            // add data (eg. options) to each element in the collection
+        
+            $triggerCollection.each(function() {
+                setOptions($(this));
+            });
+        
+        } else if ($trigger instanceof jQuery) {
+        
+            // if the init function is called with a valid matching jQuery element,
+            // add it to the element collection
+        
+            setOptions($trigger, options);
+            $triggerCollection = $triggerCollection.add($trigger);
+        
+        }
+
+        $trigger.each(function(index){
+
+            var $thisTrigger = $(this);
+            var options      = $thisTrigger.data();
+            var transition   = options.transition;
+            var $target      = $(options.target);
+            var event        = options.event;
+
+            // cancel if no target was defined
+
+            if (!($target instanceof jQuery)) return false;
+
+            // apply event on trigger and hide target
+
+            $thisTrigger.on(event, function(e) {
+                hide($target, transition);
+            });
+
+        });
+
+    }
+    
+    function setOptions($element, options) {
+    
+        /**
+         *  Attaches options directly to each $element via jQuery's data() method.
+         *  Options are either retrieved via the options-parameter or (if undefined)
+         *  read from markup.
          *
-         *  <button class="btn" data-hide="target:#myTarget; event:click; transition:fadeOut">Hide</button>
+         *  @param {jQuery dom object} $element
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -6975,51 +7151,62 @@ YOI.Hide = (function() {
          *                                can be used.
          *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
          */
-
-        if (!($hideTrigger instanceof jQuery)) {
-            $hideTrigger = $('[data-hide]');
-        }
-
-        $hideTrigger.each(function(index){
-
-            // set up vars
-
-            var $thisTrigger = $(this);
-            var $data        = options === undefined ? YOI.toObject($this.data('hide')) : options;
-            var target       = $data.target !== undefined ? $data.target : false;
-            var event        = $data.event !== undefined ? $data.event : 'click';
-            var transition   = $data.transition !== undefined ? $data.transition : false;
-
-            // cancel if no target was defined
-
-            if (!target) return false;
-
-            // apply event on trigger and hide target
-
-            $thisTrigger.on(event, function(e) {
-                if (transition === 'fadeOut') {
-                    $(target).fadeOut();
-                } else if (transition === 'slideUp') {
-                    $(target).slideUp();
-                } else {
-                    $(target).hide();
-                }
-            });
-
+    
+        var options    = options === undefined ? YOI.toObject($element.data('hide')) : options;
+        var target     = options.target !== undefined ? options.target : false;
+        var event      = options.event !== undefined ? options.event : 'click';
+        var transition = options.transition !== undefined ? options.transition : false;
+    
+        $element.data({
+            'target'     : target,
+            'event'      : event,
+            'transition' : transition
         });
-
+    
+    }
+    
+    function hide($target, transition) {
+        
+        /**
+         *  Hides the target element.
+         *
+         *  @param {jQuery dom object} $target
+         *  @param {string}            transition
+         */
+        
+        // exit the script if no or an invalid target was supplied
+        
+        if (!($target instanceof jQuery)) return false;
+        
+        var transition = transition;
+        
+        // hide the target
+        
+        if (transition === 'fadeOut') {
+            $target.fadeOut();
+        } else if (transition === 'slideUp') {
+            $target.slideUp();
+        } else {
+            $target.hide();
+        }
+        
+        // trigger custom event
+        
+        $target.trigger('yoi-hidden');
+        
     }
 
     // initialize
     // ==========
 
-    initializeHide();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeHide
+        init  : initialize,
+        apply : hide
     }
 
 })();
@@ -7127,56 +7314,60 @@ YOI.Remove = (function() {
     // private functions
     // =================
 
-    function initializeRemoveTriggers($removeTrigger, options) {
-
+    function initialize($removeTrigger, options) {
+    
         /**
-         *  Initialize all *[data-remove] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-remove] (= function call with $removeTrigger).
-         *  $removeTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $removeTrigger - the remove trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-remove="target:#myTargetElement">
-         *
-         *  Available options:
-         *
-         *  @option {string} target - optional CSS-selector for the DOM element to remove
-         *                            by default, the target is the trigger's first parent element
+         *  @param {jQuery dom object} $removeTrigger
+         *  @param {object}            options
          */
+        
+        var $removeTrigger = YOI.createCollection('remove', $removeTrigger, options);
 
-        if (!($removeTrigger instanceof jQuery)) {
-            $removeTrigger = $('[data-remove]');
-        }
-
-        $removeTrigger.each(function() {
+        if ($removeTrigger) $removeTrigger.each(function() {
 
             var $thisremoveTrigger = $(this);
-            var options            = options === undefined ? YOI.toObject($thisremoveTrigger.data('remove')) : options;
+            var options            = $thisremoveTrigger.data().options;
             var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
-
+            
+            // set default options via variable assignment.
+            
             $thisremoveTrigger.on('click', function(e) {
                 e.preventDefault();
-                $thisTarget.fadeOut(function(){
-                    $thisTarget.remove();
-                });
+                remove($thisTarget);
             });
 
         });
 
     }
+    
+    function remove($target) {
+        
+        /**
+         *  Fade-out and remove the target element from the dom.
+         *
+         *  @param  {jQuery dom object} $target - the target element in dom
+         */
+        
+        $target.fadeOut(function(){
+            $target.trigger('yoi-removed');
+            $target.remove();
+        });
+        
+    }
 
     // initialize
     // ==========
 
-    initializeRemoveTriggers();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeRemoveTriggers
+        init  : initialize,
+        apply : remove
     }
 
 })();
@@ -7267,56 +7458,54 @@ YOI.Reveal = (function() {
     }
 
 })();
+/** ScrollAgent.js */
+
 YOI.ScrollAgent = (function() {
 
     // private vars
     // ============
     
-    var $body   = $('body');
-    var $window = $(window);
     var $targetElement;
-    
-    var viewPortHeight = $window.height();
-    
+    var $body                = $('body');
+    var $window              = $(window);
+    var viewPortHeight       = $window.height();
+    var lastScrollTop        = 0;
+    var offset               = 0;
     var scrollTop;
-    var lastScrollTop  = 0;
-    var offset         = 0; // % of viewport height
-    
     var viewportIn;
     var viewportOut;
     var viewportCenter;
-    
-    var scrollDirection     = false;
-    var lastScrollDirection = false;
+    var scrollDirection;
+    var lastScrollDirection;
     
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement, options) {
+    function initializeScrollAgent($targetElement) {
         
        /**
-        *  Initialize all *[data-scrollagent] found in the document (= function call without parameters)
-        *  or target one or more specific *[data-scrollagent] (= function call with $targetElement).
-        *  $targetElement must be a jQuery object or jQuery object collection.
+        *  Initialize the script.
         *
         *  @param {jQuery dom object} $targetElement - the target element(s)
-        *
-        *  Available options:
-        *
-        *  @option {} offset - xxx
-        *  @option {} offset - xxx
         */
+        
+        // if the function is called without a valid $targetElement,
+        // gather the elements from the dom
         
         if (!($targetElement instanceof jQuery)) {
             $targetElement = $('[data-scrollagent]');
         }
         
+        // if no elements are found, stop the script
+        
         if (!$targetElement.length) {
             return false;
         }
         
+        // map data to each target element
+        
         $targetElement.each(function() {
-            updateTargetElementData($(this), options);
+            updateTargetElementData($(this));
         });
         
         // update the viewport height on resize
@@ -7325,14 +7514,14 @@ YOI.ScrollAgent = (function() {
             viewPortHeight = $window.height();
         });
 
-        // start observer and listener
+        // start internal observer and listener
 
         observe($targetElement);
         listen($targetElement);
     
     }
     
-    function updateTargetElementData($targetElement, options) {
+    function updateTargetElementData($targetElement) {
         
         /**
          *  Reads data from the custom data-attribute and from calculations (eg. height)
@@ -7341,8 +7530,6 @@ YOI.ScrollAgent = (function() {
          *  @param {jQuery dom object} $targetElement - the target element
          */
         
-        var thisOptions     = typeof(options) !== 'object' ? YOI.toObject($targetElement.data('scrollagent')) : options;
-        var thisOffset      = thisOptions.offset !== undefined ? parseInt(thisOptions.offset) : offset;
         var thisHeight      = $targetElement.outerHeight();
         var thisInitialPosY = $targetElement.offset().top;
 
@@ -7351,7 +7538,6 @@ YOI.ScrollAgent = (function() {
         $targetElement.data({
             'height'      : thisHeight,
             'initialPosY' : thisInitialPosY,
-            'offset'      : thisOffset,
             'state'       : 'out'
         });
         
@@ -7382,7 +7568,7 @@ YOI.ScrollAgent = (function() {
                 var $targetElement = $(this);
                 var state          = $targetElement.data().state;
                 var initialPosY    = $targetElement.data().initialPosY;
-                var offset         = viewPortHeight / 100 * $targetElement.data().offset;
+                var offset         = viewPortHeight / 100 * offset;
                 var height         = $targetElement.data().height;
                 
                 // calculate viewPortIn & viewPortOut

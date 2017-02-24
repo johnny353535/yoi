@@ -1,35 +1,50 @@
 /** accordion.js */
 
 YOI.Accordion = (function() {
+    
+    // // private vars
+    // // ============
+    //
+    // var $accordion;
 
     // private functions
     // =================
 
     function initializeAccordion($accordion, options) {
 
-        /**
-         *  Initialize all *[data-accordion] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-accordion] (= function call with $accordion).
-         *  $accordion must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $accordion - the accordion(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div class="accordion" data-accordion="linked:true;">
-         *
-         *  Available options:
-         *
-         *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
-         *                                             one section can be open, the remaining sections
-         *                                             will always close
-         */
+        // /**
+        //  *  Initialize the script.
+        //  *
+        //  *  @param {jQuery dom object} $accordion - the accordion(s)
+        //  *
+        //  *  Options are passed to the script as an object or through markup and
+        //  *  custom data values, eg:
+        //  *
+        //  *  <div class="accordion" data-accordion="linked:true;">
+        //  *
+        //  *  Available options:
+        //  *
+        //  *  @option {string ["true"|"false"]} linked - set "true" to link the accordion sections. only
+        //  *                                             one section can be open, the remaining sections
+        //  *                                             will always close
+        //  */
+        //
+        // // if the function is called without a valid $accordion,
+        // // gather the accordions from the dom
+        //
+        // if (!($accordion instanceof jQuery)) {
+        //     $accordion = $('[data-accordion]');
+        // }
+        //
+        // // if no accordions are found, stop the script
+        //
+        // if (!$accordion.length) {
+        //     return false;
+        // }
+        
+        var $accordion = YOI.createCollection('accordion', $accordion, options);
 
-        if (!($accordion instanceof jQuery)) {
-            $accordion = $('[data-accordion]');
-        }
-
-        $accordion.each(function() {
+        if ($accordion) $accordion.each(function() {
 
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');

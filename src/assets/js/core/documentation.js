@@ -53,7 +53,7 @@ YOI.Documentation = (function() {
 
         // print the code for each code-example block
 
-        $('.documentation__example[data-printcode]').each(function() {
+        $('.documentation__example[yoi-printcode]').each(function() {
 
             var $thisExampleBlock = $(this);
             var options           = YOI.toObject($thisExampleBlock.data('printcode'));
@@ -92,7 +92,7 @@ YOI.Documentation = (function() {
          *  between light and dark background or toggle code examples.
          */
 
-        $('[data-docblock]').each(function() {
+        $('[yoi-docblock]').each(function() {
 
             var $thisDocBlock = $(this)
             var options       = YOI.toObject($thisDocBlock.data('docblock'));
@@ -113,8 +113,8 @@ YOI.Documentation = (function() {
 
                 // add events to buttons
 
-                var $thisColorBtn = $thisDocBlock.find('[data-action="toggleDarkmode"]');
-                var $thisCodeBtn  = $thisDocBlock.find('[data-action="toggleCode"]');
+                var $thisColorBtn = $thisDocBlock.find('[yoi-action="toggleDarkmode"]');
+                var $thisCodeBtn  = $thisDocBlock.find('[yoi-action="toggleCode"]');
 
                 $thisColorBtn.on('click', function() {
                     $thisDocBlock.toggleClass('documentation__block--dark');

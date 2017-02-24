@@ -4,6 +4,8 @@ YOI.Countdown = (function() {
 
     // private vars
     // ============
+    
+    var $countdown;
 
     // countdown clock labels
 
@@ -48,15 +50,23 @@ YOI.Countdown = (function() {
     function initializeCountdown($countdown, endTime) {
 
         /**
-         *  Initialize all *[data-countdown] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-countdown] (= function call with $countdown).
-         *  $countdown must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
          *  @param {jQuery dom object} $countdown - the countdown(s)
+         *  @param {string} endTime - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
          */
+
+        // if the function is called without a valid $countdown,
+        // gather the countdowns from the dom
 
         if (!($countdown instanceof jQuery)) {
             $countdown = $('[data-countdown]');
+        }
+        
+        // if no countdowns are found, stop the script
+        
+        if (!$countdown.length) {
+            return false;
         }
 
         $countdown.each(function(index) {
@@ -83,6 +93,7 @@ YOI.Countdown = (function() {
          *  Render the lcd-style countdown, also include a label for screen readers.
          *
          *  @param {jQuery dom object} $thisCountdown - the countdown
+         *  @param {string}            endTime        - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
          *  @param {number}            index          - index number of the count down
          */
 

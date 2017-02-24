@@ -1,53 +1,51 @@
+/** ScrollAgent.js */
+
 YOI.ScrollAgent = (function() {
 
     // private vars
     // ============
     
-    var $body   = $('body');
-    var $window = $(window);
     var $targetElement;
-    
-    var viewPortHeight = $window.height();
-    
+    var $body                = $('body');
+    var $window              = $(window);
+    var viewPortHeight       = $window.height();
+    var lastScrollTop        = 0;
+    var offset               = 0;
     var scrollTop;
-    var lastScrollTop  = 0;
-    var offset         = 0; // % of viewport height
-    
     var viewportIn;
     var viewportOut;
     var viewportCenter;
-    
-    var scrollDirection     = false;
-    var lastScrollDirection = false;
+    var scrollDirection;
+    var lastScrollDirection;
     
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement, options) {
+    function initializeScrollAgent($targetElement) {
         
        /**
-        *  Initialize all *[data-scrollagent] found in the document (= function call without parameters)
-        *  or target one or more specific *[data-scrollagent] (= function call with $targetElement).
-        *  $targetElement must be a jQuery object or jQuery object collection.
+        *  Initialize the script.
         *
         *  @param {jQuery dom object} $targetElement - the target element(s)
-        *
-        *  Available options:
-        *
-        *  @option {} offset - xxx
-        *  @option {} offset - xxx
         */
+        
+        // if the function is called without a valid $targetElement,
+        // gather the elements from the dom
         
         if (!($targetElement instanceof jQuery)) {
             $targetElement = $('[data-scrollagent]');
         }
         
+        // if no elements are found, stop the script
+        
         if (!$targetElement.length) {
             return false;
         }
         
+        // map data to each target element
+        
         $targetElement.each(function() {
-            updateTargetElementData($(this), options);
+            updateTargetElementData($(this));
         });
         
         // update the viewport height on resize
@@ -56,14 +54,14 @@ YOI.ScrollAgent = (function() {
             viewPortHeight = $window.height();
         });
 
-        // start observer and listener
+        // start internal observer and listener
 
         observe($targetElement);
         listen($targetElement);
     
     }
     
-    function updateTargetElementData($targetElement, options) {
+    function updateTargetElementData($targetElement) {
         
         /**
          *  Reads data from the custom data-attribute and from calculations (eg. height)
@@ -72,8 +70,6 @@ YOI.ScrollAgent = (function() {
          *  @param {jQuery dom object} $targetElement - the target element
          */
         
-        var thisOptions     = typeof(options) !== 'object' ? YOI.toObject($targetElement.data('scrollagent')) : options;
-        var thisOffset      = thisOptions.offset !== undefined ? parseInt(thisOptions.offset) : offset;
         var thisHeight      = $targetElement.outerHeight();
         var thisInitialPosY = $targetElement.offset().top;
 
@@ -82,7 +78,6 @@ YOI.ScrollAgent = (function() {
         $targetElement.data({
             'height'      : thisHeight,
             'initialPosY' : thisInitialPosY,
-            'offset'      : thisOffset,
             'state'       : 'out'
         });
         
@@ -113,7 +108,7 @@ YOI.ScrollAgent = (function() {
                 var $targetElement = $(this);
                 var state          = $targetElement.data().state;
                 var initialPosY    = $targetElement.data().initialPosY;
-                var offset         = viewPortHeight / 100 * $targetElement.data().offset;
+                var offset         = viewPortHeight / 100 * offset;
                 var height         = $targetElement.data().height;
                 
                 // calculate viewPortIn & viewPortOut

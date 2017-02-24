@@ -4,7 +4,7 @@ YOI.CustomFormElements = (function() {
 
     // private vars
     // ============
-
+    
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
@@ -31,7 +31,7 @@ YOI.CustomFormElements = (function() {
         // or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"])
 
         if (scope === undefined) {
-            scope = '';
+            var scope = '';
         } else {
             scope += ' ';
         }

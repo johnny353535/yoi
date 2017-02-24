@@ -1,7 +1,7 @@
 /** yoi.js */
 
 var YOI = (function() {
-
+    
     return {
 
         stringContains : function(input, searchString) {
@@ -261,6 +261,118 @@ var YOI = (function() {
             }
 
         },
+        
+        getAttribute : function($element) {
+            
+            /**
+             *  Searches for custom "yoi-*" attributes inside an alement's markup
+             *  and returns the value of the first matching attribute.
+             *
+             *  @param  {jQuery dom object} $element
+             *  @return {string}            yoiAttributeValue - the attribute's content / value
+             */
+        
+            var yoiAttributeValue;
+        
+            $.each($element[0].attributes, function(index, attribute) {
+                if (attribute.name.match('^yoi-')) {
+                    yoiAttributeValue = attribute.value;
+                    return false;
+                }
+            });
+            
+            return yoiAttributeValue;
+            
+        },
+        
+        setOptions : function($element, options) {
+            
+            /**
+             *  Attaches options directly to each $element via jQuery's data() method.
+             *  Options are either retrieved via the options-parameter or (if undefined)
+             *  read from markup.
+             *
+             *  Note: If a key/value is already set, it won't be changed.
+             *
+             *  @param {jQuery dom object} $element
+             *  @param {object}            options
+             */
+            
+            // create options object
+            
+            if ($element.data().options === undefined)
+                $element.data().options = {};
+            
+            if (options === undefined) {
+                
+                // if the options parameter is omitted on function call, read the
+                // options from the element's yoi-* attribute
+                
+                var options = YOI.toObject(YOI.getAttribute($element));
+                
+            }
+            
+            if (typeof options === 'object') {
+                
+                // if options is a valid object, attach the options to
+                // the element via jQuery's data() function
+                
+                $.each(options, function(key, value) {
+                    $element.data().options[key] = value;
+                });
+                
+            }
+    
+        },
+        
+        createCollection : function(identifier, $element, options) {
+            
+            /**
+             *  Create or add to a collection of jQuery objects. Passes and attaches options
+             *  via YOI.setOptions().
+             *
+             *  @param  {} identifier - the string to select elements from the dom via
+             *                          custom yoi-{identifier} attribute
+             *  @param  {} $element   - jQuery element, optional
+             *  @param  {} options    - options, optional
+             *  @return {} object     - the jQuery element collection
+             */
+            
+            // if it does not exist, create a new collection of jQuery objects
+            
+            if (YOI.elementCollection[identifier] === undefined)
+                YOI.elementCollection[identifier] = $([]);
+            
+            if (!($element instanceof jQuery)) {
+        
+                // if the createCollection() is called without a valid matching jQuery element,
+                // gather the matching elements from the dom
+        
+                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
+                
+                // if no elements are found, return false ...
+                
+                if (!YOI.elementCollection[identifier].length) return false;
+        
+                // ... otherwise add data (eg. options) to each element in the collection
+                
+                YOI.elementCollection[identifier].each(function() {
+                    YOI.setOptions($(this), options);
+                });
+        
+            } else if ($element instanceof jQuery) {
+        
+                // if the createCollection() is called with a valid matching jQuery element,
+                // set it's options and add it to the element collection
+        
+                YOI.setOptions($element, options);
+                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
+            
+            }
+            
+            return YOI.elementCollection[identifier];
+        
+        },
 
         zeroPad : function(num, digits) {
 
@@ -358,3 +470,8 @@ var YOI = (function() {
     }
 
 })();
+
+// create an object to store jQuery
+// element collections
+
+YOI.elementCollection = {};
