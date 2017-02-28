@@ -6,6 +6,7 @@ YOI.Slider = (function() {
     // ============
 
     var slideAutoplayIntervals = {};
+    var $window      = $(window);
     var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
     var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
 
@@ -94,15 +95,10 @@ YOI.Slider = (function() {
     function initializeSlider($slider, options) {
 
         /**
-         *  Initialize all *[data-slider] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-slider] (= function call with $slider).
-         *  $slider must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $slider - the slider(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-slider="autoplay:true;controls:pageBtns;">
+         *  @param {jQuery dom object} $slider
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -112,42 +108,38 @@ YOI.Slider = (function() {
          *  @option {bool}   swipeable  - change the slide on swipe left/right
          *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
+        
+        var $slider = YOI.createCollection('slider', $slider, options);
 
-        if (!($slider instanceof jQuery) || $slider === undefined) {
-            $slider = $('[data-slider]');
-        }
+        if ($slider) $slider.each(function(sliderIndex) {
 
-        $slider.each(function(sliderIndex) {
-
-            // Please note:
+            // @param {number} sliderIndex
             //
-            // sliderIndex is provided by jQuery's each() function and used to
-            // reference the slider instances internally.
-            // http://api.jquery.com/each/
+            // sliderIndex is provided by jQuery's each() function. this script
+            // uses it to reference the slider instances. (http://api.jquery.com/each/)
 
             var $thisSlider        = $(this);
             var $thisSlides        = $thisSlider.find('.slider__slide');
             var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance
+            
+            $thisSlider.data().props = {
+                slideIndex  : 0,
+                totalSlides : $thisSlides.length
+            };
+            
+            // reference slider instance props & options
 
-            $thisSlider.data().slideIndex  = 0;
-            $thisSlider.data().totalSlides = $thisSlides.length;
-
-            // slider instance variables
-
-            var slideIndex  = $thisSlider.data().slideIndex;
-            var totalSlides = $thisSlider.data().totalSlides;
-
-            // slider instance options
-
-            var options = options === undefined ? YOI.toObject($thisSlider.data('slider')) : options;
-
+            var slideIndex  = $thisSlider.data().props.slideIndex;
+            var totalSlides = $thisSlider.data().props.totalSlides;
+            var options     = $thisSlider.data().options;
+            
             // prepare slides and adjust container to fixed height for animations
 
             if (options.transition !== undefined) {
 
-                $(window).on('load', function(){
+                $window.on('load', function(){
                     adjustHeight($thisSlider);
                 });
 
@@ -196,7 +188,7 @@ YOI.Slider = (function() {
 
                     // set up pagination
 
-                    paginationLinks = $(this).find('.pageDots a:not([class*="btn"])');
+                    paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
                     paginationLinks.first().addClass('pageDots--active');
 
                     paginationLinks.on('click', function(e) {
@@ -204,10 +196,10 @@ YOI.Slider = (function() {
                         e.preventDefault();
                         stopAutoplay(sliderIndex);
 
-                        if ($(this).parent().find('.pageDots__btnPrev').length) {
-                            var linkIndex = $(this).index() -1;
+                        if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
+                            var linkIndex = $thisSlider.index() -1;
                         } else {
-                            var linkIndex = $(this).index();
+                            var linkIndex = $thisSlider.index();
                         }
 
                         showSlide($thisSlider, linkIndex);
@@ -234,13 +226,13 @@ YOI.Slider = (function() {
 
             if (options.swipeable) {
 
-                $(this).on('swipeleft', function(e) {
+                $thisSlider.on('swipeleft', function(e) {
                     e.preventDefault();
                     stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'next');
                 });
 
-                $(this).on('swiperight',function(e) {
+                $thisSlider.on('swiperight',function(e) {
                     e.preventDefault();
                     stopAutoplay(sliderIndex);
                     showSlide($thisSlider, 'prev');
@@ -271,12 +263,12 @@ YOI.Slider = (function() {
 
         var $thisSlides        = $thisSlider.find('.slider__slide');
         var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
-
-        var totalSlides        = $thisSlider.data().totalSlides;
-        var slideIndex         = $thisSlider.data().slideIndex;
-        var options            = YOI.toObject($thisSlider.data('slider'));
+        var props              = $thisSlider.data().props;
+        var options            = $thisSlider.data().options;
+        var totalSlides        = props.totalSlides;
+        var slideIndex         = props.slideIndex;
         var direction          = false;
-
+        
         if (target === 'next' || target === undefined) {
 
             // set slideIndex to next slide
@@ -318,7 +310,7 @@ YOI.Slider = (function() {
 
         // update slider data object
 
-        $thisSlider.data().slideIndex = slideIndex;
+        $thisSlider.data().props.slideIndex = slideIndex;
 
     }
 
@@ -333,8 +325,8 @@ YOI.Slider = (function() {
          */
 
         var $thisSlides       = $thisSlider.find('.slider__slide');
-        var options           = YOI.toObject($thisSlider.data('slider'));
-        var currentSlideIndex = $thisSlider.data().slideIndex;
+        var options           = $thisSlider.data().options;
+        var currentSlideIndex = $thisSlider.data().props.slideIndex;
         var leftOffset;
 
         switch (direction) {

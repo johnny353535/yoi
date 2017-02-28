@@ -3,7 +3,7 @@
 
 {% markdown %}
 ## Tool Tip
-Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the data-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
+Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the yoi-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
 
 |                |                                                                              |
 | -              | -                                                                            |
@@ -17,7 +17,7 @@ The following might be the element you wish to turn into a tooltip:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div id="myTooltip">This is a tool tip.</div>
     </div>
 </div>
@@ -27,7 +27,7 @@ And this is how you refer to the tooltip from the element that you wish to trigg
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <code class="language-markup"><pre>&lt;div data-tooltip=&quot;target:#myTooltip;&quot;&gt;Move Cursor here&lt;/div&gt;</pre></code>
+    <code class="language-markup"><pre>&lt;div yoi-tooltip=&quot;target:#myTooltip;&quot;&gt;Move Cursor here&lt;/div&gt;</pre></code>
 </div>
 
 {% markdown %}
@@ -36,14 +36,14 @@ Example: Using a .note as tooltip
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div class="note m-b-2" id="hint-1">
             <h3 class="note__headline">Attention!</h3>
             <div class="note__body">
                 <p>This is a tooltip.</p>
             </div>
         </div>
-        <div class="box p-4 w-10 h-10 al-c" data-tooltip="target:#hint-1;">Move Cursor here</div>
+        <div class="box p-4 w-10 h-10 al-c" yoi-tooltip="target:#hint-1;">Move Cursor here</div>
     </div>
 </div>
 
@@ -70,7 +70,7 @@ A tooltip will inherit certain sematic class names from it’s target (`*--atten
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
             <div class="note m-b-2 note--success" id="hint-2">
                 <h3 class="note__headline">Success!</h3>
@@ -78,7 +78,7 @@ A tooltip will inherit certain sematic class names from it’s target (`*--atten
                     <p>This is a tooltip which inherits the *--success class from it’s target.</p>
                 </div>
             </div>
-            <input class="input--large input--success w-30" type="text" data-tooltip="target:#hint-2; icon:011;" />
+            <input class="input--large input--success w-30" type="text" yoi-tooltip="target:#hint-2; icon:011;" />
         </form>
     </div>
 </div>

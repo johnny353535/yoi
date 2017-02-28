@@ -4,6 +4,7 @@
         "./src/assets/js/core/documentation.js",
         "./src/assets/js/elements/accordion.js",
         "./src/assets/js/elements/browserHistory.js",
+        "./src/assets/js/elements/console.js",
         "./src/assets/js/elements/countdown.js",
         "./src/assets/js/elements/customFormElement.js",
         "./src/assets/js/elements/datePicker.js",

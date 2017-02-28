@@ -22,21 +22,18 @@ YOI.Stepper = (function() {
     // private functions
     // =================
 
-    function initializeStepper($stepper) {
-
+    function initialize($stepper, options) {
+        
         /**
-         *  Initialize all *[data-stepper] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-stepper] (= function call with $stepper).
-         *  $stepper must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param  {jQuery dom object} $stepper - the stepper
+         *  @param {jQuery dom object} $stepper
+         *  @param {object}            options
          */
+        
+        var $stepper = YOI.createCollection('stepper', $stepper, options);
 
-        if (!($stepper instanceof jQuery)) {
-            $stepper = $('[data-stepper]');
-        }
-
-        $stepper.each(function() {
+        if ($stepper) $stepper.each(function() {
 
             var $thisStepper = $(this);
 
@@ -60,13 +57,13 @@ YOI.Stepper = (function() {
                 checkInput($thisStepper);
             });
 
-            $thisStepper
-                .on('swipeleft', function(e) {
-                    decreaseItemCount($thisStepper);
-                })
-                .on('swiperight', function(e) {
-                    increaseItemCount($thisStepper);
-                });
+            // $thisStepper
+            //     .on('swipeleft', function(e) {
+            //         decreaseItemCount($thisStepper);
+            //     })
+            //     .on('swiperight', function(e) {
+            //         increaseItemCount($thisStepper);
+            //     });
 
         });
 
@@ -81,6 +78,8 @@ YOI.Stepper = (function() {
          */
 
         checkInput($stepper);
+        
+        if ($stepper.data().state === 'error') return false;
 
         var currentValue = $stepper.find('.stepper__input')[0].value;
 
@@ -88,6 +87,10 @@ YOI.Stepper = (function() {
             currentValue++;
             $stepper.find('input')[0].value = currentValue;
         }
+        
+        // trigger custom event
+        
+        $stepper.trigger('yoi-stepper:up');
 
     }
 
@@ -100,6 +103,8 @@ YOI.Stepper = (function() {
          */
 
         checkInput($stepper);
+        
+        if ($stepper.data().state === 'error') return false;
 
         var currentValue = $stepper.find('.stepper__input')[0].value;
 
@@ -107,6 +112,10 @@ YOI.Stepper = (function() {
             currentValue--;
             $stepper.find('input')[0].value = currentValue;
         }
+        
+        // trigger custom event
+        
+        $stepper.trigger('yoi-stepper:down');
 
     }
 
@@ -123,8 +132,11 @@ YOI.Stepper = (function() {
 
         if (!$input.match(/^[0-9]+$/)) {
             $txtField.addClass('input--error');
+            $stepper.trigger('yoi-stepper:error');
+            $stepper.data().state = 'error';
         } else {
             $txtField.removeClass('input--error');
+            $stepper.data().state = '';
         }
 
     }
@@ -132,13 +144,13 @@ YOI.Stepper = (function() {
     // initialize
     // ==========
 
-    initializeStepper();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init      : initializeStepper,
+        init      : initialize,
         countUp   : increaseItemCount,
         countDown : decreaseItemCount
     }

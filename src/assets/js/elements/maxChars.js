@@ -10,110 +10,81 @@ YOI.MaxChars = (function() {
     // private functions
     // =================
 
-    function initializeMaxChars($maxChars, options) {
+    function initialize($inputElement, options) {
 
-       /**
-        *  Initialize all [data-maxchars] text-inputs found in the document (= function call without parameters)
-        *  or target one or more specific [data-maxchars] (= function call with $maxChars).
-        *  $maxChars must be a jQuery object or jQuery object collection, especially an input[type="text"] or a textarea.
-        *
-        *  @param {jQuery dom object} $maxChars - the maxchar element(s) (input[type="text"] or textarea)
-        *
-        *  Options are passed to the script as custom data values, eg:
-        *
-        *  <textarea data-maxchars="maxLength:100;"></textarea>
-        *
-        *  Available options:
-        *
-        *  @option {string} maxLength - xxx
-        *  @option {string} display   - xxx
-        *  @option {string} errorClass  - xxx
-        *  @option {string} txt       - xxx
-        */
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $inputElement
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {number} maxLength  - the maximum allowed input character length
+         *  @option {string} display    - the DOM-element to display how many characters are left
+         *  @option {string} errorClass - a CSS-className applied to the display if input exceeds maxLength
+         */
 
-        if (!($maxChars instanceof jQuery)) {
-            $maxChars = $('textarea[data-maxchars], input[type="text"][data-maxchars]');
-        }
+        var $inputElement = YOI.createCollection('maxchars', $inputElement, options);
 
-        $maxChars.each(function() {
+        if ($inputElement) $inputElement.each(function() {
+            
+            var $thisInputElement = $(this);
+            
+            // set the max length
+            
+            setMaxLength($thisInputElement);
+            
+            // set the display
 
-            var $thisMaxChars = $(this);
+            displayCharsLeft($thisInputElement);
 
-           // append data
+            // attach event
 
-            appendData($thisMaxChars);
-
-           // set the display
-
-            displayCharsLeft($maxChars);
-
-           // attach event
-
-            $thisMaxChars.on('input', function() {
-                observeInput($thisMaxChars);
+            $thisInputElement.on('input', function() {
+                observeInput($thisInputElement);
             });
 
         });
 
     }
-
-    function appendData($maxChars) {
-
+    
+    function setMaxLength($inputElement) {
+        
         /**
-         *  Read the options from the markup (custom data-attribute) and
-         *  write them to the internal jQuery.data() object. In addition,
-         *  this function also sets the input's maxlength-attribute value
-         *  in the markup.
+         *  Sets the maximum character length. The maxlength-attribute in markup
+         *  overrides the value passed in via the options interface. If no value
+         *  was provided or the value is below 1, it falls back to a default value.
          *
-         *  @param {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement
          */
-
-        var maxLengthValue  = $maxChars.attr('maxlength');
-        var options         = options === undefined ? YOI.toObject($maxChars.data('maxchars')) : options;
-        var displaySelector = options.display !== undefined ? options.display : false;
-        var displaytxt      = options.txt !== undefined ? options.txt : false;
-        var errorClassNames = options.errorClass !== undefined ? options.errorClass : false;
-
-        // get the max length for input
-        // important: a (valid) maxlength attribute has a higher priority than options.maxLength
-
-        var maxLength;
-
+        
+        var $thisInputElement = $inputElement;
+        var options           = $thisInputElement.data().options;
+        var maxLengthValue    = parseInt($inputElement.attr('maxlength'));
+        
         if (maxLengthValue !== undefined && maxLengthValue > 0) {
-            maxLength = maxLengthValue;
-        } else if (options.maxLength !== undefined && options.maxLength > 0) {
-            maxLength = options.maxLength;
-        } else {
-            maxLength = defaultMaxLength;
+            $thisInputElement.data().options.maxLength = maxLengthValue;
+        } else if (options.maxLength === undefined) {
+            $thisInputElement.data().options.maxLength = defaultMaxLength;
         }
-
-        // set the input's maxlength-attribute value
-
-        $maxChars.attr('maxlength', maxLength);
-
-        // attach the data to the jQuery data object
-
-        $maxChars.data({
-            'maxLength'       : maxLength,
-            'displaySelector' : displaySelector,
-            'displaytxt'      : displaytxt,
-            'errorClassNames' : errorClassNames
-        });
-
+        
     }
 
-    function inputUnderLimit($maxChars) {
+    function inputUnderLimit($inputElement) {
 
         /**
          *  Checks if the current character input inside the input element
          *  is under a given limit.
          *
-         *  @param  {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement - the maxchar element
          *  @return {boolean}                     - "true" if under limit, "false" if over limit
          */
 
-        var maxLength   = $maxChars.data().maxLength;
-        var inputLength = $maxChars[0].value.length;
+        // TODO => set default maxlenght
+
+        var maxLength   = $inputElement.data().options.maxLength;
+        var inputLength = $inputElement[0].value.length;
 
         if (inputLength >= maxLength) {
             return false;
@@ -123,48 +94,53 @@ YOI.MaxChars = (function() {
 
     }
 
-    function observeInput($maxChars) {
+    function observeInput($inputElement) {
 
         /**
          *  Watches the input element and provides visual feedback so
          *  the user knows how many characters are left.
          *
-         *  @param  {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement - the maxchar element
          *  @return {boolean}                     - "false" if no display element was found
          */
-
-        var $displayElement    = $($maxChars.data().displaySelector);
-        var errorClassProvided = $maxChars.data().errorClass !== false;
-
+        
+        var $displayElement    = $($inputElement.data().options.display);
+        var errorClassProvided = $inputElement.data().options.errorClass !== false;
+        
         // cancel if no display element was found
 
         if (!$displayElement.length) return false;
 
         // add or remove the error styling
 
-        if (inputUnderLimit($maxChars) && errorClassProvided) {
-            removeErrorStyling($maxChars);
+        if (inputUnderLimit($inputElement) && errorClassProvided) {
+            removeErrorStyling($inputElement);
+            $inputElement.data().state = 'underlimit';
         } else if (errorClassProvided) {
-            addErrorStyling($maxChars);
+            addErrorStyling($inputElement);
+            $inputElement.data().state = 'overlimit';
+            $inputElement.trigger('yoi-maxchars:exceed');
         }
 
         // display how many characters are left
 
-        displayCharsLeft($maxChars);
+        displayCharsLeft($inputElement);
 
     }
 
-    function displayCharsLeft($maxChars) {
+    function displayCharsLeft($inputElement) {
 
         /**
          *  Writes how many characters are left to the display element.
          *
-         *  @param  {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement - the maxchar element
          *  @return {boolean}                     - "false" if no display element was found
          */
+        
+        // TODO => set default display element?
 
-        var $displayElement = $($maxChars.data().displaySelector);
-        var charsLeft       = $maxChars.data().maxLength - $maxChars[0].value.length;
+        var $displayElement = $($inputElement.data().options.display);
+        var charsLeft       = $inputElement.data().options.maxLength - $inputElement[0].value.length;
 
         // cancel if no display element was found
 
@@ -176,41 +152,39 @@ YOI.MaxChars = (function() {
 
     }
 
-    function addErrorStyling($maxChars) {
+    function addErrorStyling($inputElement) {
 
         /**
          *  Adds the provided CSS class names to the display element if the
          *  input's character count exceeds the given limit.
          *
-         *  @param  {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement - the maxchar element
          *  @return {boolean}                     - "false" if no display element was found
          */
 
-        var errorClass      = $maxChars.data().errorClassNames;
-        var $displayElement = $($maxChars.data().displaySelector);
-
-        // cancel if no display element was found
-
-        if (!$displayElement.length) return false;
+        var errorClass      = $inputElement.data().options.errorClass;
+        var $displayElement = $($inputElement.data().options.display);
 
         // add the CSS error class names
 
-        $displayElement.addClass(errorClass);
+        if ($displayElement) $displayElement.addClass(errorClass);
 
     }
 
-    function removeErrorStyling($maxChars) {
+    function removeErrorStyling($inputElement) {
 
         /**
          *  Removes the provided CSS class names from the display element if the
          *  input's character count is under the given limit.
          *
-         *  @param  {jQuery dom object} $maxChars - the maxchar element
+         *  @param  {jQuery dom object} $inputElement - the maxchar element
          *  @return {boolean}                     - "false" if no display element was found
          */
+        
+        // TODO => set default error class?
 
-        var errorClass      = $maxChars.data().errorClassNames;
-        var $displayElement = $($maxChars.data().displaySelector);
+        var errorClass      = $inputElement.data().options.errorClassNames;
+        var $displayElement = $($inputElement.data().options.displaySelector);
 
         // cancel if no display element was found
 
@@ -225,13 +199,13 @@ YOI.MaxChars = (function() {
     // initialize
     // ==========
 
-    initializeMaxChars();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init        : initializeMaxChars,
+        init        : initialize,
         display     : displayCharsLeft,
         addError    : addErrorStyling,
         removeError : removeErrorStyling

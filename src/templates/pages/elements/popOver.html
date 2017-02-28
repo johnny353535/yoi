@@ -13,14 +13,14 @@ Use this element to link any trigger (eg. a button) to a _pop-over_ which appear
 | Modifiers      | `-`                                                                     |
 
 ### Basic Example
-To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `data-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
+To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `yoi-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
 
 This example uses the pop-over to display a small menu:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a class="btn btn--large" href="#examplePopOver-1" data-popover="target:#examplePopOver-1;">Show pop-over</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#examplePopOver-1" yoi-popover="target:#examplePopOver-1;">Show pop-over</a>
         <div class="popOver" id="examplePopOver-1">
             <p class="p-4 fs-15 lh-20">Hello.</p>
         </div>
@@ -43,7 +43,7 @@ This example uses the pop-over to display a small menu:
 
 {% markdown %}
 ### Options
-The pop-over hook accepts some parameters as options. Use **semicolon seperated key/value pairs** like `data-popover="target:#foo; pos:bl; ref:tl;"`. The **following options are available**:
+The pop-over hook accepts some parameters as options. Use **semicolon seperated key/value pairs** like `yoi-popover="target:#foo; pos:bl; ref:tl;"`. The **following options are available**:
 
 | Key            | Value                                                                                                                    | Description                                                                             |
 | -              | -                                                                                                                        | -                                                                                       |
@@ -81,20 +81,20 @@ The following examples illustrate how to position the pop-overs.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a href="#examplePopOver-2" class="btn btn--large" data-popover="target:#examplePopOver-2;">Pop-over at default Position</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a href="#examplePopOver-2" class="btn btn--large" yoi-popover="target:#examplePopOver-2;">Pop-over at default Position</a>
         <div class="popOver" id="examplePopOver-2">
             <p class="p-4 fs-15 lh-20">Hello.</p>
         </div>
     </div>
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a href="#examplePopOver-3" class="btn btn--large" data-popover="target:#examplePopOver-3; pos:bl;">Pop-over at bottom left</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a href="#examplePopOver-3" class="btn btn--large" yoi-popover="target:#examplePopOver-3; pos:bl;">Pop-over at bottom left</a>
         <div class="popOver" id="examplePopOver-3">
             <p class="p-4 fs-15 lh-20">Guten Tag.</p>
         </div>
     </div>
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a href="#examplePopOver-4" class="btn btn--large" data-popover="target:#examplePopOver-4; pos:tl; ref:bl;">Pop-over at top left</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a href="#examplePopOver-4" class="btn btn--large" yoi-popover="target:#examplePopOver-4; pos:tl; ref:bl;">Pop-over at top left</a>
         <div class="popOver" id="examplePopOver-4">
             <p class="p-4 fs-15 lh-20">Bonjour.</p>
         </div>
@@ -119,16 +119,16 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 
 <div class="documentation__blocks">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <a href="#examplePopOver-6" class="btn btn--large" data-popover="target:#examplePopOver-6-a; toggleClass:btn--positive;">Change trigger class name</a>
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <a href="#examplePopOver-6" class="btn btn--large" yoi-popover="target:#examplePopOver-6-a; toggleClass:btn--positive;">Change trigger class name</a>
             <div class="popOver" id="examplePopOver-6-a">
                 <p class="p-4 fs-15 lh-20">Hallo.</p>
             </div>
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <a href="#examplePopOver-6" class="btn btn--large" data-popover="target:#examplePopOver-6-b; toggleClass:btn--attention;">Change trigger class name</a>
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <a href="#examplePopOver-6" class="btn btn--large" yoi-popover="target:#examplePopOver-6-b; toggleClass:btn--attention;">Change trigger class name</a>
             <div class="popOver" id="examplePopOver-6-b">
                 <p class="p-4 fs-15 lh-20">Howdy.</p>
             </div>
@@ -153,8 +153,8 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a class="btn btn--large" href="#examplePopOver-7" data-popover="target:#examplePopOver-7; eventShow:click;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#examplePopOver-7" yoi-popover="target:#examplePopOver-7; eventShow:click;">
             <i aria-hidden="true" class="icon--067-s"></i>
             <span>Menu</span>
         </a>
@@ -182,12 +182,12 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table>
             <tr>
-                <th class="crsr-pntr" data-popover="target:#examplePopOver-8; pos:bl; eventShow:click;">Date</th>
-                <th class="crsr-pntr" data-popover="target:#examplePopOver-9; pos:bl; eventShow:click;">Name</th>
-                <th class="crsr-pntr" data-popover="target:#examplePopOver-10; pos:bl; eventShow:click;">Status</th>
+                <th class="crsr-pntr" yoi-popover="target:#examplePopOver-8; pos:bl; eventShow:click;">Date</th>
+                <th class="crsr-pntr" yoi-popover="target:#examplePopOver-9; pos:bl; eventShow:click;">Name</th>
+                <th class="crsr-pntr" yoi-popover="target:#examplePopOver-10; pos:bl; eventShow:click;">Status</th>
             </tr>
             <tr>
                 <td>Data</td>

@@ -8,16 +8,16 @@ This script provides simple hooks you can use to logically group elements anywhe
 |                              |                                                                          |
 | -                            | -                                                                        |
 | Js-File                      | [toggleGroup.js]({{ pathToSourceFile }}assets/js/modules/toggleGroup.js) |
-| Hooks                        | `data-toggle, data-toggle-fallback`                                      |
-| Options (for `data-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)          |
+| Hooks                        | `yoi-toggle, yoi-toggle-fallback`                                      |
+| Options (for `yoi-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)          |
 
 ### Example with mouseover and Fall Back Element
-If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `data-toggle-fallback="$"` where `$` is the toggle group name.
+If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="box w-20 h-20" data-toggle-fallback="toggleGroup-1">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="box w-20 h-20" yoi-toggle-fallback="toggleGroup-1">
             <div class="box__body h-10">
                 Move your cursor over the buttons below to show different images.
             </div>
@@ -38,9 +38,9 @@ If you provide no event in the options JSON, the default event to trigger a togg
             </div>
         </div>
         <div class="btns m-t-4">
-            <button class="btn btn--large" data-toggle="target:#toggleElement-1; group:toggleGroup-1;">1</button>
-            <button class="btn btn--large" data-toggle="target:#toggleElement-2; group:toggleGroup-1;">2</button>
-            <button class="btn btn--large" data-toggle="target:#toggleElement-3; group:toggleGroup-1;">3</button>
+            <button class="btn btn--large" yoi-toggle="target:#toggleElement-1; group:toggleGroup-1;">1</button>
+            <button class="btn btn--large" yoi-toggle="target:#toggleElement-2; group:toggleGroup-1;">2</button>
+            <button class="btn btn--large" yoi-toggle="target:#toggleElement-3; group:toggleGroup-1;">3</button>
         </div>
     </div>
 </div>
@@ -51,13 +51,13 @@ This is basically the same thing like a [`.tab`](/pages/components/tabs.html), o
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div class="box">
             <div class="box__body">
                 <div class="btns">
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel One</button>
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Two</button>
-                    <button class="btn btn--light btn--large" data-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Three</button>
+                    <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel One</button>
+                    <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Two</button>
+                    <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Three</button>
                 </div>
             </div>
             <div class="box__body" id="toggleElement-4">Panel One</div>

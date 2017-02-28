@@ -8,29 +8,18 @@ YOI.Dock = (function() {
     function initializeDock($dock, options) {
 
         /**
-         *  Initialize all *[data-dock] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-dock] (= function call with $dock).
-         *  $dock must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dock - the dock(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div class="dock" data-dock="autohide:true;">
-         *
-         *  Available options:
-         *
-         *  @option {boolean} autohide - if set to "true", the dock is initially hidden
+         *  @param {jQuery dom object} $dock
+         *  @param {object}            options
          */
 
-        if (!($dock instanceof jQuery)) {
-            $dock = $('[data-dock]');
-        }
+        var $dock = YOI.createCollection('dock', $dock, options);
 
-        $dock.each(function() {
+        if ($dock) $dock.each(function() {
 
             var $thisDock = $(this);
-            var options   = options === undefined ? YOI.toObject($thisDock.data('dock')) : options;
+            var options   = $thisDock.data().options;
 
             // auto hide
 
@@ -64,6 +53,9 @@ YOI.Dock = (function() {
          */
 
         $thisDock.addClass('is--hidden');
+        $thisDock.trigger('yoi-dock:hide');
+        $thisDock.data.state() = 'hidden';
+        
     }
 
     function showDock($thisDock) {
@@ -75,6 +67,9 @@ YOI.Dock = (function() {
          */
 
         $thisDock.removeClass('is--hidden');
+        $thisDock.trigger('yoi-dock:show');
+        $thisDock.data.state() = 'visible';
+        
     }
 
     // initialize

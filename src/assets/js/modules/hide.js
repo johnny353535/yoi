@@ -32,7 +32,7 @@ YOI.Hide = (function() {
             // add data (eg. options) to each element in the collection
         
             $triggerCollection.each(function() {
-                setOptions($(this));
+                YOI.attachData($(this));
             });
         
         } else if ($trigger instanceof jQuery) {
@@ -40,7 +40,7 @@ YOI.Hide = (function() {
             // if the init function is called with a valid matching jQuery element,
             // add it to the element collection
         
-            setOptions($trigger, options);
+            YOI.attachData($trigger, options);
             $triggerCollection = $triggerCollection.add($trigger);
         
         }
@@ -67,38 +67,38 @@ YOI.Hide = (function() {
 
     }
     
-    function setOptions($element, options) {
-    
-        /**
-         *  Attaches options directly to each $element via jQuery's data() method.
-         *  Options are either retrieved via the options-parameter or (if undefined)
-         *  read from markup.
-         *
-         *  @param {jQuery dom object} $element
-         *  @param {object}            options
-         *
-         *  Available options:
-         *
-         *  @option {string} target     - A string which is used as selector for the target element
-         *                                (eg. '#myTarget' or '.myTarget', etc.)
-         *  @option {string} event      - A string which defines the event which gets bound to the
-         *                                trigger element. All standard event handlers from jQuery
-         *                                can be used.
-         *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
-         */
-    
-        var options    = options === undefined ? YOI.toObject($element.data('hide')) : options;
-        var target     = options.target !== undefined ? options.target : false;
-        var event      = options.event !== undefined ? options.event : 'click';
-        var transition = options.transition !== undefined ? options.transition : false;
-    
-        $element.data({
-            'target'     : target,
-            'event'      : event,
-            'transition' : transition
-        });
-    
-    }
+    // function ($element, options) {
+    //
+    //     /**
+    //      *  Attaches options directly to each $element via jQuery's data() method.
+    //      *  Options are either retrieved via the options-parameter or (if undefined)
+    //      *  read from markup.
+    //      *
+    //      *  @param {jQuery dom object} $element
+    //      *  @param {object}            options
+    //      *
+    //      *  Available options:
+    //      *
+    //      *  @option {string} target     - A string which is used as selector for the target element
+    //      *                                (eg. '#myTarget' or '.myTarget', etc.)
+    //      *  @option {string} event      - A string which defines the event which gets bound to the
+    //      *                                trigger element. All standard event handlers from jQuery
+    //      *                                can be used.
+    //      *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
+    //      */
+    //
+    //     var options    = options === undefined ? YOI.toObject($element.data('hide')) : options;
+    //     var target     = options.target !== undefined ? options.target : false;
+    //     var event      = options.event !== undefined ? options.event : 'click';
+    //     var transition = options.transition !== undefined ? options.transition : false;
+    //
+    //     $element.data({
+    //         'target'     : target,
+    //         'event'      : event,
+    //         'transition' : transition
+    //     });
+    //
+    // }
     
     function hide($target, transition) {
         

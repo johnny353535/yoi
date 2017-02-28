@@ -3,7 +3,7 @@
 
 {% markdown %}
 ## Tables
-Tables come with a few handy modifiers, eg. to render zebra-striped tables, tables with fixed width, etc. Tables can also be interactive (selectable or deletable rows), using the `data-table` hook.
+Tables come with a few handy modifiers, eg. to render zebra-striped tables, tables with fixed width, etc. Tables can also be interactive (selectable or deletable rows), using the `yoi-table` hook.
 
 |                |                                                                                                                                  |
 | -              | -                                                                                                                                |
@@ -16,7 +16,7 @@ Tables come with a few handy modifiers, eg. to render zebra-striped tables, tabl
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table>
             <tr>
                 <th>Header</th>
@@ -54,7 +54,7 @@ Use the modifier `table--borderless`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--borderless">
             <tr>
                 <th>Header</th>
@@ -90,7 +90,7 @@ Use the modifier `table--colHeader` and change the markup, so that each `<tr>` c
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--colHeader">
             <tr>
                 <th scope="row">Key</th>
@@ -114,7 +114,7 @@ Use the modifier `table--compressed`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--compressed">
             <tr>
                 <th>Header</th>
@@ -150,7 +150,7 @@ Use the modifier `table--fixed`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--fixed">
             <tr>
                 <th>Header</th>
@@ -186,7 +186,7 @@ Use the modifier `table--simpleHeader`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--simpleHeader">
             <tr>
                 <th>Header</th>
@@ -222,7 +222,7 @@ Use the modifier `table--stripped`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--stripped">
             <tr>
                 <th>Header</th>
@@ -258,7 +258,7 @@ Use the modifier `table--zebra`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <table class="table--zebra">
             <tr>
                 <th>Header</th>
@@ -291,12 +291,12 @@ Use the modifier `table--zebra`:
 {% markdown %}
 ### JavaScript Interface
 #### Table With Selectable Rows
-Use this option by adding `selectable:true;` as a value to the custom data-attribute.
+Use this option by adding `selectable:true;` as a value to the custom yoi-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <table data-table="selectable:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <table yoi-table="selectable:true;">
             <tr>
                 <th class="w-20">Artikel</th>
                 <th>Beschreibung</th>
@@ -323,12 +323,12 @@ Use this option by adding `selectable:true;` as a value to the custom data-attri
 
 {% markdown %}
 #### Table With Multiple Selectable Rows
-Use this option by adding `selectable:multi;` as a value to the custom data-attribute.
+Use this option by adding `selectable:multi;` as a value to the custom yoi-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <table data-table="selectable:multi;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <table yoi-table="selectable:multi;">
             <tr>
                 <th class="w-20">Artikel</th>
                 <th>Beschreibung</th>
@@ -355,29 +355,29 @@ Use this option by adding `selectable:multi;` as a value to the custom data-attr
 
 {% markdown %}
 #### Table With Removeable Rows
-Use this option by adding `removeable:true;` as a value to the custom data-attribute.
+Use this option by adding `removeable:true;` as a value to the custom yoi-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <table data-table="removeable:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <table yoi-table="removeable:true;">
             <tr>
                 <th class="w-20">Artikel</th>
                 <th>Beschreibung</th>
             </tr>
-            <tr data-foo="12345678">
+            <tr yoi-foo="12345678">
                 <td>Banane</td>
                 <td>krumme Frucht</td>
             </tr>
-            <tr data-foo="12345678">
+            <tr yoi-foo="12345678">
                 <td>Kirsche</td>
                 <td>rote Frucht</td>
             </tr>
-            <tr data-foo="12345678">
+            <tr yoi-foo="12345678">
                 <td>Orange</td>
                 <td>runde Frucht</td>
             </tr>
-            <tr data-foo="12345678">
+            <tr yoi-foo="12345678">
                 <td>Melone</td>
                 <td>grosse Frucht</td>
             </tr>

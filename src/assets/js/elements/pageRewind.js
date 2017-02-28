@@ -6,6 +6,7 @@ YOI.PageRewind = (function() {
     // ============
 
     var $pageRewind;
+    var $document = $(document);
     var $window   = $(window);
     var $body     = $('body');
     var threshold = 500;
@@ -23,7 +24,7 @@ YOI.PageRewind = (function() {
     // private functions
     // =================
 
-    function initializePageRewind() {
+    function initialize() {
 
         /**
          *  Adds an anchor to the bottom of the viewport which
@@ -41,28 +42,41 @@ YOI.PageRewind = (function() {
             .addClass('is--hidden')
             .on('click', function(e) {
                 e.preventDefault();
-                runPageRewind();
+                run();
             })
             .appendTo($body);
 
         $window
             .scroll(function() {
-                togglePageRewind();
+                toggle();
             });
 
     }
 
-    function runPageRewind() {
+    function run() {
 
         /**
          *  Scrolls the page back to the very top.
          */
+        
+        // trigger the custom start event
+        
+        $document.trigger('yoi-pagerewind:start');
 
-        $('html,body').animate({ scrollTop: 0 }, 500);
+        // scroll back to page top and
+        // fire custom end event when done
+
+        $('html,body').animate({
+            scrollTop: 0
+        }, 500)
+        .promise()
+        .then(function() {
+            $document.trigger('yoi-pagerewind:end');
+        });
 
     }
 
-    function togglePageRewind() {
+    function toggle() {
 
         /**
          *  Shows or hides .pageRewind after a certain threshold.
@@ -79,14 +93,14 @@ YOI.PageRewind = (function() {
     // initialize
     // ==========
 
-    initializePageRewind();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializePageRewind,
-        run  : runPageRewind
+        init : initialize,
+        run  : run
     }
 
 })();

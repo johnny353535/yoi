@@ -13,12 +13,12 @@ This is a simple SVG pie chart, dynamically generated on page load. It reads the
 | Modifiers      | n/a                                                                       |
 
 ### Most Basic Example
-Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `data-piechart` hook so never forget to inlcude it in your markup.
+Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` hook so never forget to inlcude it in your markup.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="pieChart" data-piechart>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="pieChart" yoi-piechart>
             <div class="pieChart__data">
                 <p class="pieChart__record">
                     <span class="pieChart__value">30%</span>
@@ -55,10 +55,10 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Unique Color Palette
 {% endmarkdown %}
 
-<div class="documentation__blocks" data-docblock="addControls:true;">
+<div class="documentation__blocks" yoi-docblock="addControls:true;">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart="palette:unique;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart="palette:unique;">
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__value">55%</span>
@@ -85,8 +85,8 @@ Option are written as **semicolon-seperated key/value pairs**:
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart="palette:unique; baseColor:[50,70,60]">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart="palette:unique; baseColor:[50,70,60]">
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__value">55%</span>
@@ -118,9 +118,9 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Random Color Palette
 {% endmarkdown %}
 
-<div class="documentation__block" data-docblock="addControls:true;">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="pieChart" data-piechart="palette:random;">
+<div class="documentation__block" yoi-docblock="addControls:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="pieChart" yoi-piechart="palette:random;">
             <div class="pieChart__data">
                 <p class="pieChart__record">
                     <span class="pieChart__value">60%</span>
@@ -143,9 +143,9 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Fixed Color Palette
 {% endmarkdown %}
 
-<div class="documentation__block" data-docblock="addControls:true;">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="pieChart" data-piechart="palette:fixed;">
+<div class="documentation__block" yoi-docblock="addControls:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="pieChart" yoi-piechart="palette:fixed;">
             <div class="pieChart__data">
                 <p class="pieChart__record">
                     <span class="pieChart__value">20%</span>
@@ -188,10 +188,10 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Different Sizes (and Random Color Palettes)
 {% endmarkdown %}
 
-<div class="documentation__blocks" data-docblock="addControls:true;">
+<div class="documentation__blocks" yoi-docblock="addControls:true;">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart="size:100; palette:random;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart="size:100; palette:random;">
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__value">60%</span>
@@ -210,8 +210,8 @@ Option are written as **semicolon-seperated key/value pairs**:
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart="size:300; palette:random;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart="size:300; palette:random;">
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__value">60%</span>
@@ -236,10 +236,10 @@ Option are written as **semicolon-seperated key/value pairs**:
 You may **change the order of label and value** for each `.pieChart__record` **or hide the value** when it makes sense by adding the global modifier `.hidden`.
 {% endmarkdown %}
 
-<div class="documentation__blocks" data-docblock="addControls:true;">
+<div class="documentation__blocks" yoi-docblock="addControls:true;">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart>
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart>
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__label">Cerium</span>
@@ -258,8 +258,8 @@ You may **change the order of label and value** for each `.pieChart__record` **o
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            <div class="pieChart" data-piechart>
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="pieChart" yoi-piechart>
                 <div class="pieChart__data">
                     <p class="pieChart__record">
                         <span class="pieChart__label">Cerium</span>
@@ -285,8 +285,8 @@ Set `highlight` to `false` if you wish to **disable highlighting** individual sl
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="pieChart" data-piechart="highlight:false;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="pieChart" yoi-piechart="highlight:false;">
             <div class="pieChart__data">
                 <p class="pieChart__record">
                     <span class="pieChart__label">Cerium</span>

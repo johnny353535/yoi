@@ -7,12 +7,12 @@ YOI.CustomFormElements = (function() {
     
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change');
+            $(this).find('input').trigger('change yoi-input:change');
         });
 
     var $radioBtnWrapper = $('<span class="radio"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change');
+            $(this).find('input').trigger('change yoi-input:change');
         });
 
     // private functions
@@ -88,14 +88,17 @@ YOI.CustomFormElements = (function() {
         });
 
         checkElemns.on({
-            'focus': function() {
+            'focus yoi-input:focus': function() {
                 $(this).parent().addClass('is--focus');
+                $(this).trigger('focus yoi-input:focus');
             },
-            'blur': function() {
+            'blur yoi-input:blur': function() {
                 $(this).parent().removeClass('is--focus');
+                $(this).trigger('blur yoi-input:blur');
             },
-            'change': function(e) {
+            'change yoi-input:change': function(e) {
                 $(this).parent().toggleClass('is--checked');
+                $(this).trigger('change yoi-input:change');
             }
         });
 
@@ -121,11 +124,16 @@ YOI.CustomFormElements = (function() {
         });
 
         selects.on({
-            'focus': function() {
+            'focus yoi-input:focus': function() {
                 $(this).parent().addClass('is--focus');
+                $(this).trigger('focus yoi-input:focus');
             },
-            'blur': function() {
+            'blur yoi-input:blur': function() {
                 $(this).parent().removeClass('is--focus');
+                $(this).trigger('blur yoi-input:blur');
+            },
+            'change yoi-input:change': function() {
+                $(this).trigger('change yoi-input:change');
             }
         });
 

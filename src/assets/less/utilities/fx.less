@@ -144,6 +144,12 @@
     animation-name: yoi-shake;
 }
 
+// pulse
+
+.fx-pulse {
+    animation-name: yoi-pulse;
+}
+
 // keyframes
 // =========
 
@@ -385,4 +391,16 @@
     70% { transform: translateX(-.3rem); }
     80% { transform: translateX(.2rem); }
     90% { transform: translateX(-.1rem); }
+}
+
+// pulse
+
+@keyframes yoi-pulse {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

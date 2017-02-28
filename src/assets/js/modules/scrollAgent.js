@@ -5,7 +5,6 @@ YOI.ScrollAgent = (function() {
     // private vars
     // ============
     
-    var $targetElement;
     var $body                = $('body');
     var $window              = $(window);
     var viewPortHeight       = $window.height();
@@ -21,30 +20,20 @@ YOI.ScrollAgent = (function() {
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement) {
+    function initializeScrollAgent($targetElement, options) {
         
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $targetElement - the target element(s)
+        *  @param {jQuery dom object} $inputElement
+        *  @param {object}            options
         */
-        
-        // if the function is called without a valid $targetElement,
-        // gather the elements from the dom
-        
-        if (!($targetElement instanceof jQuery)) {
-            $targetElement = $('[data-scrollagent]');
-        }
-        
-        // if no elements are found, stop the script
-        
-        if (!$targetElement.length) {
-            return false;
-        }
+
+        var $targetElement = YOI.createCollection('scrollagent', $targetElement, options);
         
         // map data to each target element
         
-        $targetElement.each(function() {
+        if ($targetElement) $targetElement.each(function() {
             updateTargetElementData($(this));
         });
         
@@ -55,9 +44,9 @@ YOI.ScrollAgent = (function() {
         });
 
         // start internal observer and listener
-
-        observe($targetElement);
-        listen($targetElement);
+        
+        if ($targetElement) observe($targetElement);
+        if ($targetElement) listen($targetElement);
     
     }
     
@@ -75,12 +64,13 @@ YOI.ScrollAgent = (function() {
 
         // write data
 
-        $targetElement.data({
+        $targetElement.data().props = {
             'height'      : thisHeight,
-            'initialPosY' : thisInitialPosY,
-            'state'       : 'out'
-        });
+            'initialPosY' : thisInitialPosY
+        };
         
+        $targetElement.data().state = 'out';
+
     }
     
     function observe($targetElements) {
@@ -107,9 +97,8 @@ YOI.ScrollAgent = (function() {
                 
                 var $targetElement = $(this);
                 var state          = $targetElement.data().state;
-                var initialPosY    = $targetElement.data().initialPosY;
-                var offset         = viewPortHeight / 100 * offset;
-                var height         = $targetElement.data().height;
+                var initialPosY    = $targetElement.data().props.initialPosY;
+                var height         = $targetElement.data().props.height;
                 
                 // calculate viewPortIn & viewPortOut
                 
@@ -122,6 +111,8 @@ YOI.ScrollAgent = (function() {
                 if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport:in');
                 if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport:center');
                 if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport:out');
+                
+                // trigger scroll direction event
 
                 if (scrollDirection !== lastScrollDirection) {
                     $targetElement.trigger('yoi-scrolldirection:' + scrollDirection);

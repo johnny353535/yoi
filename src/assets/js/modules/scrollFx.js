@@ -1,59 +1,31 @@
 YOI.ScrollFx = (function() {
 
-    // private vars
-    // ============
-    
     // private functions
     // =================
     
-    function initializeScrollFx($targetElement) {
+    function initializeScrollFx($targetElement, options) {
         
-        if (!($targetElement instanceof jQuery)) {
-            $targetElement = $('[data-scrollfx]');
-        }
+       /**
+        *  Initialize the script.
+        *
+        *  @param {jQuery dom object} $inputElement
+        *  @param {object}            options
+        */
+        
+        var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
+        
+        if ($targetElement) $targetElement.each(function() {
 
-        $targetElement.each(function() {
-            
             var $targetElement = $(this);
-            var options        = YOI.toObject($targetElement.data('scrollfx'));
-            
+
             YOI.ScrollAgent.init($targetElement);
-            
-            updateTargetElementData($targetElement);
+
             addTargetElementInitialCss($targetElement);
-            
+
             // start listener
-            
+
             listen($targetElement);
 
-        });
-
-    }
-    
-    function updateTargetElementData($targetElement) {
-        
-        /**
-         *  Reads data from the custom data-attribut and maps the data directly to it's target
-         *  objects via jQuery's data() method.
-         *
-         *  @param {jQuery dom object} $targetElement - the target element
-         */
-
-        var options  = YOI.toObject($targetElement.data('scrollfx'));
-        var toggleFx = options.toggle !== undefined ? options.toggle : false;
-        var inFx     = options.in !== undefined ? options.in : false;
-        var centerFx = options.center !== undefined ? options.center : false;
-        var speed    = options.speed !== undefined ? options.speed : false;
-        var repeat   = options.repeat !== undefined ? options.repeat : true;
-        
-        // write data
-
-        $targetElement.data({
-            'toggleFx' : toggleFx,
-            'inFx'     : inFx,
-            'centerFx' : centerFx,
-            'speed'    : speed,
-            'repeat'   : repeat
         });
 
     }
@@ -67,9 +39,10 @@ YOI.ScrollFx = (function() {
          *  @param {jQuery dom object} $targetElement - the target element
          */
         
-        var inFx     = $targetElement.data().inFx;
-        var centerFx = $targetElement.data().centerFx;
+        var options  = $targetElement.data().options;
         var state    = $targetElement.data().state;
+        var inFx     = options.in !== undefined ? options.in : false;
+        var centerFx = options.center !== undefined ? options.center : false;
         
         if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
         if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
@@ -91,15 +64,14 @@ YOI.ScrollFx = (function() {
         $targetElements.each(function() {
             
             var $targetElement = $(this);
+            var options        = $targetElement.data().options;
             var state          = $targetElement.data().state;
-            var inFx           = $targetElement.data().inFx;
-            var centerFx       = $targetElement.data().centerFx;
-            var speed          = $targetElement.data().speed;
-            var repeat         = $targetElement.data().repeat;
+            var inFx           = options.in !== undefined ? options.in : false;
+            var centerFx       = options.center !== undefined ? options.center : false;
+            var speed          = options.speed !== undefined ? options.speed : false;
+            var repeat         = options.repeat !== undefined ? options.repeat : true;
             
             $targetElement.on('yoi-viewport:in', function() {
-                
-                console.log('in');
                 
                 // add inFx
                 
@@ -118,8 +90,6 @@ YOI.ScrollFx = (function() {
             
             $targetElement.on('yoi-viewport:center', function() {
                 
-                console.log('center');
-
                 // add centerFx
 
                 if (centerFx) {
@@ -136,8 +106,6 @@ YOI.ScrollFx = (function() {
             });
             
             $targetElement.on('yoi-viewport:out', function() {
-                
-                console.log('out');
                 
                 // add initial css
                 

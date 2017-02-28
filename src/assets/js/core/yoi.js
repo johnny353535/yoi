@@ -223,6 +223,8 @@ var YOI = (function() {
              *  foo:something; bar:somethingelse;
              *  foo :something; bar:   somethingelse;
              *  foo:something;bar:somethingelse;
+             *  foo:'something';
+             *  foo:'some:thing:with:colons';
              *
              *  @param  {string} input                      - the input to process, see example above
              *  @return {object || bool false} properObject - a proper JS object notation
@@ -232,20 +234,39 @@ var YOI = (function() {
             var properObject = {};
 
             if (YOI.stringContains(input, ':')) {
+                
+                // set the start- and end-markers for values
+                // note: if the value contains at least one colon, wrap the value
+                // in single quotes
+                
+                var valueStartMarker;
+                var keyValuePairEndMarker;
+                
+                if (YOI.stringContains(input, "'") && YOI.stringContains(input, ';')) {
+                    valueStartMarker      = ":'";
+                    keyValuePairEndMarker = "';";
+                } else {
+                    valueStartMarker      = ':';
+                    keyValuePairEndMarker = ';';
+                }
 
                 // clean up input, replace multiple whitespace characters with a single white space
                 // eg. "    " is turned into " "
-
-                input = (input || '').replace(/\s+/g,' ').split(';');
+                
+                input = (input || '').replace(/\s+/g,' ').split(keyValuePairEndMarker);
 
                 // turn input into a proper object by creating key/value
-                // pairs by splitting the input at any occurance of a colon (:),
+                // pairs by splitting the input at any occurance of a startMarker,
                 // remove leading and trailing white space (JS native trim function)
                 // and finally turning the resulting strings into a simple JS object notation
-
+                
                 for (var i = 0; i < input.length; i++) {
+                    
+                    // console.log(keyValuePair);
+                    
+                    // if (YOI.stringContains(keyValuePair, ':')) console.log('#');
 
-                    keyValuePair = input[i].split(':');
+                    keyValuePair = input[i].split(valueStartMarker);
 
                     if (keyValuePair[1] !== undefined)
                         properObject[keyValuePair[0].trim()] = keyValuePair[1].trim();
@@ -261,7 +282,7 @@ var YOI = (function() {
             }
 
         },
-        
+
         getAttribute : function($element) {
             
             /**
@@ -284,13 +305,13 @@ var YOI = (function() {
             return yoiAttributeValue;
             
         },
-        
-        setOptions : function($element, options) {
+
+        attachData : function($element, options, state, props) {
             
             /**
-             *  Attaches options directly to each $element via jQuery's data() method.
-             *  Options are either retrieved via the options-parameter or (if undefined)
-             *  read from markup.
+             *  Attaches options and state data directly to each $element via jQuery's
+             *  data() method. Options are either retrieved via the options-parameter or
+             *  (if undefined) read from markup. States are set and retrieved via JS only.
              *
              *  Note: If a key/value is already set, it won't be changed.
              *
@@ -298,14 +319,14 @@ var YOI = (function() {
              *  @param {object}            options
              */
             
-            // create options object
+            // create "options" object
             
             if ($element.data().options === undefined)
                 $element.data().options = {};
             
             if (options === undefined) {
                 
-                // if the options parameter is omitted on function call, read the
+                // if the "options" parameter is omitted on function call, read the
                 // options from the element's yoi-* attribute
                 
                 var options = YOI.toObject(YOI.getAttribute($element));
@@ -314,7 +335,7 @@ var YOI = (function() {
             
             if (typeof options === 'object') {
                 
-                // if options is a valid object, attach the options to
+                // if "options" is a valid object, attach the options to
                 // the element via jQuery's data() function
                 
                 $.each(options, function(key, value) {
@@ -322,14 +343,48 @@ var YOI = (function() {
                 });
                 
             }
+            
+            // create "props" object
+            // use it to store properties of an element
+            // (eg. size, position, etc.)
+            
+            if ($element.data().props === undefined)
+                $element.data().props = {};
+
+            if (typeof props === 'object') {
+                
+                // if "props" is a valid object, attach the value to
+                // the element via jQuery's data() function
+                
+                $.each(props, function(key, value) {
+                    $element.data().props[key] = value;
+                });
+                
+            }
+            
+            // create "state" object
+            // use it to store the state of the object. an element should
+            // only have one state at a time (eg. "hidden")
+            
+            if ($element.data().state === undefined)
+                $element.data().state = {};
+
+            if (typeof state === 'string') {
+                
+                // if "state" is a valid string, attach the value to
+                // the element via jQuery's data() function
+                
+                $element.data().state = state;
+                
+            }
     
         },
-        
-        createCollection : function(identifier, $element, options) {
+
+        createCollection : function(identifier, $element, options, state, props) {
             
             /**
              *  Create or add to a collection of jQuery objects. Passes and attaches options
-             *  via YOI.setOptions().
+             *  via YOI.().
              *
              *  @param  {} identifier - the string to select elements from the dom via
              *                          custom yoi-{identifier} attribute
@@ -357,7 +412,7 @@ var YOI = (function() {
                 // ... otherwise add data (eg. options) to each element in the collection
                 
                 YOI.elementCollection[identifier].each(function() {
-                    YOI.setOptions($(this), options);
+                    YOI.attachData($(this), options, state, props);
                 });
         
             } else if ($element instanceof jQuery) {
@@ -365,7 +420,7 @@ var YOI = (function() {
                 // if the createCollection() is called with a valid matching jQuery element,
                 // set it's options and add it to the element collection
         
-                YOI.setOptions($element, options);
+                YOI.attachData($element, options);
                 YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
             
             }

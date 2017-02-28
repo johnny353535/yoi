@@ -13,18 +13,15 @@ YOI.PickBtn = (function() {
     function initializePickBtn($pickBtn) {
 
         /**
-         *  Initialize all *[data-pickbtn] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-pickbtn] (= function call with $pickBtn).
-         *  $pickBtn must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $pickBtn - the pick-button(s)
+         *  @param {jQuery dom object} $pickBtn
+         *  @param {object}            options
          */
+        
+        var $pickBtn = YOI.createCollection('pickBtn', $pickBtn);
 
-        if (!($pickBtn instanceof jQuery)) {
-            $pickBtn = $('[data-pickbtn]');
-        }
-
-        $pickBtn.each(function() {
+        if ($pickBtn) $pickBtn.each(function() {
 
             var $thisPickBtn = $(this);
 
@@ -42,6 +39,7 @@ YOI.PickBtn = (function() {
             $thisPickBtn.on('click', function(e) {
                 e.preventDefault();
                 activatePickBtn($thisPickBtn);
+                $thisPickBtn.trigger('yoi-pickbtn:change');
             });
 
         });

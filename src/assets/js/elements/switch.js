@@ -27,35 +27,28 @@ YOI.Switch = (function() {
     // private functions
     // =================
 
-    function initializeSwitch($switch, options) {
+    function initialize($switch, options) {
+        
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $switch
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string}  state      - a keyword to set the switch ["on"|"off"]
+         *  @option {boolean} showLabels - if "true", labels (on, off) are added
+         *  @option {string}  labelOn    - a string of no more than four characters for the "on" label (default: labelOnTxt[language])
+         *  @option {string}  labelOff   - a string of no more than four characters for the "off" label (default: labelOffTxt[language])
+         */
+        
+        var $switch = YOI.createCollection('switch', $switch, options);
 
-       /**
-        *  Initialize all [data-switch] found in the document (= function call without parameters)
-        *  or target one or more specific [data-switch] (= function call with $switch).
-        *  $switch must be a jQuery object or jQuery object collection.
-        *
-        *  @param {jQuery dom object} $switch - the switch(es)
-        *
-        *  Options are passed to the script as custom data values, eg:
-        *
-        *  <form data-switch="state:off;"></form>
-        *
-        *  Available options:
-        *
-        *  @option {string}  state      - a keyword to set the switch ["on"|"off"]
-        *  @option {boolean} showLabels - if "true", labels (on, off) are added
-        *  @option {string}  labelOn    - a string of no more than four characters for the "on" label (default: labelOnTxt[language])
-        *  @option {string}  labelOff   - a string of no more than four characters for the "off" label (default: labelOffTxt[language])
-        */
-
-        if (!($switch instanceof jQuery)) {
-            $switch = $('[data-switch]');
-        }
-
-        $switch.each(function() {
+        if ($switch) $switch.each(function() {
 
             var $thisSwitch = $(this);
-            var options     = YOI.toObject($thisSwitch.data('switch'));
+            var options     = $thisSwitch.data().options;
             var state       = options.state !== undefined ? options.state : 'off';
 
             // get the label text
@@ -79,8 +72,8 @@ YOI.Switch = (function() {
 
             // set to initial state
 
-            if (state === 'on') stateOn($thisSwitch);
-            if (state === 'off') stateOff($thisSwitch);
+            if (state === 'on') setOn($thisSwitch);
+            if (state === 'off') setOff($thisSwitch);
 
             // add events
 
@@ -92,7 +85,7 @@ YOI.Switch = (function() {
 
     }
 
-    function stateOn($switch) {
+    function setOn($switch) {
 
         /**
          *  Sets the switch to "on". Adds the proper CSS class name to
@@ -104,10 +97,14 @@ YOI.Switch = (function() {
 
         $switch.removeClass('switch--off').addClass('switch--on');
         $switch.find('input[type="checkbox"]').first().attr('checked', true);
+        
+        // trigger custom event
+        
+        $switch.trigger('yoi-switch:on');
 
     }
 
-    function stateOff($switch) {
+    function setOff($switch) {
 
         /**
          *  Sets the switch to "off". Adds the proper CSS class name to
@@ -119,6 +116,10 @@ YOI.Switch = (function() {
 
         $switch.removeClass('switch--on').addClass('switch--off');
         $switch.find('input[type="checkbox"]').first().attr('checked', false);
+        
+        // trigger custom event
+        
+        $switch.trigger('yoi-switch:off');
 
     }
 
@@ -126,15 +127,15 @@ YOI.Switch = (function() {
 
         /**
          *  Alternates the state between "on" and "off".
-         *  See stateOn() and stateOff() for more.
+         *  See setOn() and setOff() for more.
          *
          *  @param {jQuery dom object} $switch - the switch
          */
 
         if ($switch.hasClass('switch--off')) {
-            stateOn($switch);
+            setOn($switch);
         } else if ($switch.hasClass('switch--on')) {
-            stateOff($switch);
+            setOff($switch);
         }
 
     }
@@ -142,15 +143,15 @@ YOI.Switch = (function() {
     // initialize
     // ==========
 
-    initializeSwitch();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeSwitch,
-        on     : stateOn,
-        off    : stateOff,
+        init   : initialize,
+        on     : setOn,
+        off    : setOff,
         toggle : stateToggle
     }
 

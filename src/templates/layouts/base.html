@@ -1,12 +1,5 @@
 {# register all macros #}
 
-{% import 'elements/filterBtns.html'   as filterBtns %}
-{% import 'elements/filters.html'      as filters %}
-{% import 'elements/imgMagnifier.html' as imgMagnifier %}
-{% import 'elements/pagination.html'   as pagination %}
-{% import 'elements/reviews.html'      as reviews %}
-{% import 'elements/stepMenu.html'     as stepMenu %}
-
 {# set the path to source files #}
 
 {% if basePath == '/' %}
@@ -25,7 +18,7 @@
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         {% block customStyles %}{% endblock %}
     </head>
-    <body class="noJs" data-environment="desktop">
+    <body class="noJs" yoi-environment="desktop">
         <script>document.body.className='js';</script>
         <div class="documentation">
             <div class="center grid-flex flex-directionRowReverse">
@@ -34,7 +27,7 @@
                         The following menus are automatically generated via a custom nunjucks
                         extention, to be found in src/dev/nunjucks-extentions.js
                     #}
-                    <div class="accordion" data-accordion="">
+                    <div class="accordion" yoi-accordion="">
                         <div class="accordion__section">
                             <div class="accordion__header">
                                 <h4>Introduction</h4>
@@ -139,12 +132,17 @@
                 <footer class="documentation__footer">
                     &copy; Yoshino.digital GmbH
                 </footer>
+                <div class="console" yoi-console yoi-dismissable>
+                    <div class="console__body">
+                        <p>Listening</p>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="assets/js/libs/jquery.js"></script>
         <script src="assets/js/libs/jquery-ui.js"></script>
         <script src="assets/js/libs/beautify.js"></script>
-        <script src="assets/js/libs/prism.js" data-manual></script>
+        <script src="assets/js/libs/prism.js" yoi-manual></script>
         <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
             (function() {

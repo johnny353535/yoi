@@ -8,25 +8,22 @@ YOI.ImgMagnifier = (function(){
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
 
-    var startViewerDelayTime = 600;
+    var defaultStartViewerDelayTime = 600;
 
     // private functions
 
-    function initializeImgMagnifier($imgMagnifier) {
+    function initializeImgMagnifier($imgMagnifier, options) {
 
         /**
-         *  Initialize all *[data-imgmagnifier] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-imgmagnifier] (= function call with $imgmagnifier).
-         *  $imgmagnifier must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $imgmagnifier - the image magnifier(s)
+         *  @param {jQuery dom object} $dock
+         *  @param {object}            options
          */
 
-        if (!($imgMagnifier instanceof jQuery)) {
-            $imgMagnifier = $('[data-imgmagnifier]');
-        }
+        var $imgMagnifier = YOI.createCollection('imgmagnifier', $imgMagnifier, options);
 
-        $imgMagnifier.each(function() {
+        if ($imgMagnifier) $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
             var $thisCursor       = $cursor.clone().hide();
@@ -109,10 +106,10 @@ YOI.ImgMagnifier = (function(){
 
         // prepare the zoom image, get size before injecting into DOM
 
-        var thisZoomImage           = new Image();
+        var thisZoomImage       = new Image();
         thisZoomImage.src       = thisZoomImagePath;
         thisZoomImage.className = 'imgMagnifier__zoomImage';
-        var $thisZoomImage          = $(thisZoomImage);
+        var $thisZoomImage      = $(thisZoomImage);
 
         $thisZoomImage
             .on('error', function() {
@@ -208,8 +205,10 @@ YOI.ImgMagnifier = (function(){
 
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
+        var options     = $thisImgMagnifier.data().options;
+        var delay       = options.delay !== undefined ? parseInt(options.delay) : defaultStartViewerDelayTime;
 
-        YOI.setDelay('imgMagnifierDelay', startViewerDelayTime, function() {
+        YOI.setDelay('imgMagnifierDelay', delay, function() {
             $thisViewer.fadeIn();
             $thisCursor.fadeIn();
         });

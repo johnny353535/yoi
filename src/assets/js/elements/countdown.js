@@ -2,11 +2,6 @@
 
 YOI.Countdown = (function() {
 
-    // private vars
-    // ============
-    
-    var $countdown;
-
     // countdown clock labels
 
     var clockLabels = {
@@ -47,40 +42,30 @@ YOI.Countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown($countdown, endTime) {
+    function initializeCountdown($countdown, options) {
 
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $countdown - the countdown(s)
-         *  @param {string} endTime - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
+         *  @param {jQuery dom object} $countdown
+         *  @param {object}            options
          */
-
-        // if the function is called without a valid $countdown,
-        // gather the countdowns from the dom
-
-        if (!($countdown instanceof jQuery)) {
-            $countdown = $('[data-countdown]');
-        }
         
-        // if no countdowns are found, stop the script
-        
-        if (!$countdown.length) {
-            return false;
-        }
+        var $countdown = YOI.createCollection('countdown', $countdown, options);
 
-        $countdown.each(function(index) {
-
+        if ($countdown) $countdown.each(function(index) {
+            
             var $thisCountdown = $(this);
-
+            var options        = $thisCountdown.data().options;
+            
             // render the countdown
 
-            renderCountdown($thisCountdown, endTime, index);
+            renderCountdown($thisCountdown, options.endTime, index);
 
             // update the clock every second
 
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
-                renderCountdown($thisCountdown, endTime, index)
+                renderCountdown($thisCountdown, options.endTime, index)
             });
 
         });
@@ -99,14 +84,13 @@ YOI.Countdown = (function() {
 
         // read end time and get remaining time
 
-        var endTime       = endTime === undefined ? $thisCountdown.data('countdown') : endTime;
         var timeRemaining = getTimeRemaining(endTime);
 
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
-            $thisCountdown.trigger('yoi-countdown:expired');
+            $thisCountdown.trigger('yoi-countdown:expire');
         }
 
         // set the lcd characters

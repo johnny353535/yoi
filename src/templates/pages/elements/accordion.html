@@ -13,12 +13,12 @@ Use this element to create one or several grouped sections that expand or collap
 | Modifiers      | `-`                                                                         |
 
 ### Simple Example
-This is the markup for the most basic example of an accordion. Don’t forget to add the custom data-attribute `accordion`.
+This is the markup for the most basic example of an accordion. Don’t forget to add the custom yoi-attribute `accordion`.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="accordion" data-accordion>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="accordion" yoi-accordion>
             <div class="accordion__section">
                 <div class="accordion__header">
                     <h4>Manganese</h4>
@@ -53,8 +53,8 @@ By default, all accordion sections are closed on page load. However, you can def
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="accordion" data-accordion>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="accordion" yoi-accordion>
             <div class="accordion__section">
                 <div class="accordion__header">
                     <h4>Manganese</h4>
@@ -85,26 +85,26 @@ Accordion.closeAll(); // closes all accordion sections found in DOM
 </pre></code></div>
 
 {% markdown %}
-Alternatively, you can assign the function calls to elements like buttons by tagging them with the custom data-attribute `data-action` and the according value like `data-action="openAllAccordions"` or `data-action="closeAllAccordions"`.
+Alternatively, you can assign the function calls to elements like buttons by tagging them with the custom yoi-attribute `yoi-action` and the according value like `yoi-action="openAllAccordions"` or `yoi-action="closeAllAccordions"`.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <p class="btns">
-            <button class="btn btn--large" data-action="openAllAccordions">Open All Accordions</button>
-            <button class="btn btn--large" data-action="closeAllAccordions">Close All Accordions</button>
+            <button class="btn btn--large" yoi-action="openAllAccordions">Open All Accordions</button>
+            <button class="btn btn--large" yoi-action="closeAllAccordions">Close All Accordions</button>
         </p>
     </div>
 </div>
 
 {% markdown %}
 ### Linked Accordion Sections
-It’s a common UI pattern to close all accordion sections but the one the user wishes to open. This behaviour is optional and may be enabled by adding `linked:true` to the custom data-attribute `data-accordion`:
+It’s a common UI pattern to close all accordion sections but the one the user wishes to open. This behaviour is optional and may be enabled by adding `linked:true` to the custom yoi-attribute `yoi-accordion`:
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <div class="accordion" data-accordion="linked:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="accordion" yoi-accordion="linked:true;">
             <div class="accordion__section is--open">
                 <div class="accordion__header">
                     <h4>Manganese</h4>

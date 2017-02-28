@@ -16,18 +16,13 @@ YOI.RatingInput = (function() {
     // private functions
     // =================
 
-    function initializeRatingInput($ratingInput, options) {
+    function initialize($ratingInput, options) {
 
         /**
-         *  Initialize all *[data-ratinginput] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-ratinginput] (= function call with $ratingInput).
-         *  $ratingInput must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $ratingInput - the rating input(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div class="ratingInput" data-ratinginput="uid:1234;">
+         *  @param {jQuery dom object} $ratingInput
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -36,33 +31,27 @@ YOI.RatingInput = (function() {
          *  @option {boolean} locked - set "true" to "lock" the element and prevent editing
          *  @option {number}  score  - a number between 0 (not rated) and 5 (highest rating score)
          */
+        
+        var $ratingInput = YOI.createCollection('ratinginput', $ratingInput, options);
 
-        if (!($ratingInput instanceof jQuery)) {
-            $ratingInput = $('[data-ratinginput]');
-        }
-
-        $ratingInput.each(function() {
+        if ($ratingInput) $ratingInput.each(function() {
 
             var $thisRatingInput  = $(this);
             var $thisRatingSelect = $ratingSelect.clone();
             var $thisRatingStars  = $thisRatingSelect.find('.ratingInput__star');
 
-            // append data
-
-            appendData($thisRatingInput);
-
             // set the initial rating score
 
-            setRating($thisRatingInput, $ratingInput.data().score);
+            setScore($thisRatingInput);
 
             // add events to the rating stars
 
             $thisRatingStars
                 .on('mouseover', function() {
-                    setRating($thisRatingInput, $(this).index() + 1);
+                    setScore($thisRatingInput, $(this).index() + 1);
                 })
                 .on('click', function() {
-                    submitRating($thisRatingInput);
+                    submitScore($thisRatingInput);
                     lock($thisRatingInput);
                 });
 
@@ -71,25 +60,6 @@ YOI.RatingInput = (function() {
 
             $thisRatingInput.append($thisRatingSelect);
 
-        });
-
-    }
-
-    function appendData($ratingInput) {
-
-        /**
-         *  Read the options from the markup (custom data-attribute) and
-         *  write them to the internal jQuery.data() object.
-         *
-         *  @param {jQuery dom object} $ratingInput - the rating input
-         */
-
-        var options = YOI.toObject($ratingInput.data('ratinginput'));
-
-        $ratingInput.data({
-            'uid'    : options.uid === undefined ? null : options.uid,
-            'locked' : options.locked === undefined ? false : options.locked,
-            'score'  : options.score === undefined ? 0 : options.score
         });
 
     }
@@ -103,7 +73,7 @@ YOI.RatingInput = (function() {
          */
 
         $ratingInput.addClass('ratingInput--locked');
-        $ratingInput.data().locked = true;
+        $ratingInput.data().state = 'locked';
 
     }
 
@@ -116,11 +86,11 @@ YOI.RatingInput = (function() {
          */
 
         $ratingInput.removeClass('ratingInput--locked');
-        $ratingInput.data().locked = false;
+        $ratingInput.data().state = 'unlocked';
 
     }
 
-    function setRating($ratingInput, score) {
+    function setScore($ratingInput, score) {
 
         /**
          *  Set the current rating by writing it to the internal
@@ -128,16 +98,18 @@ YOI.RatingInput = (function() {
          *  visualize the rating.
          *
          *  @param {jQuery dom object} $ratingInput - the rating input
-         *  @param {number}            score        - the rating score from 0 to 6
+         *  @param {number}            score        - the rating score from 0 to 6 (optional, default = 0)
          */
 
-        var locked = $ratingInput.data().locked;
+        var options = $ratingInput.data().options;
+        var state   = $ratingInput.data().state;
+        var score   = score !== undefined ? score : options.score;
 
-        if (!locked) {
+        if (state !== 'locked') {
 
             // update the score
 
-            $ratingInput.data().score = score;
+            $ratingInput.data().options.score = score;
 
             // change css classes
 
@@ -148,7 +120,7 @@ YOI.RatingInput = (function() {
 
     }
 
-    function submitRating($ratingInput) {
+    function submitScore($ratingInput) {
 
         /**
          *  This function is for demonstration purpose only. A proper
@@ -156,28 +128,30 @@ YOI.RatingInput = (function() {
          *
          *  @param {jQuery dom object} $ratingInput - the rating input
          */
-
-        var uid   = $ratingInput.data().uid;
-        var score = $ratingInput.data().score;
-
-        // console.log('id: ' + uid + ' | score: ' + score);
+        
+        var options  = $ratingInput.data().options;
+        var uid      = options.uid;
+        var score    = options.score === undefined ? 0 : options.score;
+        
+        // log custom event
+        
+        $ratingInput.trigger('yoi-rating:submit');
 
     }
 
     // initialize
     // ==========
 
-    initializeRatingInput();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeRatingInput,
+        init   : initialize,
         lock   : lock,
         unlock : unlock,
-        set    : setRating,
-        submit : submitRating
+        set    : setScore
     }
 
 })();

@@ -13,28 +13,28 @@ Use this element to provide an easy and comfortable way to enter dates into inpu
 | Modifiers      | `none`                                                                        |
 
 ### Basic Example
-Add the data-attribute "datepicker" to any (date-)input field that you would like to use the date picker. A little icon on the right side will appear to indicate that the field invokes a date picker on focus. *If you do not supply any more data, the date picker will start with the current date*.
+Add the yoi-attribute "datepicker" to any (date-)input field that you would like to use the date picker. A little icon on the right side will appear to indicate that the field invokes a date picker on focus. *If you do not supply any more data, the date picker will start with the current date*.
 {% endmarkdown %}
 
 <div id="calendar"></div>
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
-            <input class="w-20" type="date" data-datepicker />
+            <input class="w-20" type="date" yoi-datepicker />
         </form>
     </div>
 </div>
 
 {% markdown %}
 ### Set an Initial Date
-You can add a date to the input field via markup. **Make sure you use the date picker data-attribute. Do not use the value-attribute.**
+You can add a date to the input field via markup. **Make sure you use the date picker yoi-attribute. Do not use the value-attribute.**
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
-            <input class="w-20" type="date" data-datepicker="year:2010; month:10; day:5;" />
+            <input class="w-20" type="date" yoi-datepicker="year:2010; month:10; day:5;" />
         </form>
     </div>
 </div>
@@ -44,9 +44,9 @@ If you leave out a parameter, it will **fall back to the current date**. Eg. if 
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
-            <input class="w-20" type="date" data-datepicker="month:10; day:10;" />
+            <input class="w-20" type="date" yoi-datepicker="month:10; day:10;" />
         </form>
     </div>
 </div>
@@ -57,9 +57,9 @@ By default, the date picker appears below the date input field. However, if the 
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
-            <input class="input w-20" type="date" data-datepicker />
+            <input class="input w-20" type="date" yoi-datepicker />
         </form>
     </div>
 </div>
@@ -70,9 +70,9 @@ The date picker works perfectly fine with both large and small input fields.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <form>
-            <input class="input--large w-20" type="date" data-datepicker />
+            <input class="input--large w-20" type="date" yoi-datepicker />
         </form>
     </div>
 </div>
@@ -83,10 +83,10 @@ These date pickers were created to be used as progressive enhancement. Without J
 {% endmarkdown %}
 
 <div class="documentation__block documentation__block--dark">
-    <div class="documentation__example h-27" data-printcode="language:markup; print:true;">
+    <div class="documentation__example h-27" yoi-printcode="language:markup; print:true;">
         <div class="datePicker">
-            <span class="datePicker__btnPrev" data-action="prevMonth"></span>
-            <span class="datePicker__btnNext" data-action="nextMonth"></span>
+            <span class="datePicker__btnPrev" yoi-action="prevMonth"></span>
+            <span class="datePicker__btnNext" yoi-action="nextMonth"></span>
             <h3 class="datePicker__header">February 2017</h3>
             <table class="datePicker__days">
                 <tbody>

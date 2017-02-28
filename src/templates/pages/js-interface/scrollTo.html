@@ -8,16 +8,16 @@ This script provides a simple interface to set smooth automated scrolls to targe
 |         |                                                                    |
 | -       | -                                                                  |
 | Js-File | [scrollTo.js]({{ pathToSourceFile }}assets/js/modules/scrollTo.js) |
-| Hooks   | `data-scrollto`                                                    |
+| Hooks   | `yoi-scrollto`                                                    |
 | Options | `highlight: [blink / pulse]`                                       |
 
 ### Smoothly Scroll to an Anchor
-In order to set a smooth automated scroll (to a target element within the same document), add the data-attribute `data-scrollto` to the link.
+In order to set a smooth automated scroll (to a target element within the same document), add the yoi-attribute `yoi-scrollto` to the link.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a class="btn btn--large" href="#target-1" data-scrollto>Scroll to Target #1</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-1" yoi-scrollto>Scroll to Target #1</a>
     </div>
 </div>
 <div class="m-tb-20">
@@ -26,13 +26,13 @@ In order to set a smooth automated scroll (to a target element within the same d
 
 {% markdown %}
 ### Highlighting Effects
-If you wish to highlight the target element once the autometed scroll finished, add one of the two available highlight animation types – `blink` and `pulse` to the `data-scrollto`-attribute.
+If you wish to highlight the target element once the autometed scroll finished, add one of the two available highlight animation types – `blink` and `pulse` to the `yoi-scrollto`-attribute.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a class="btn btn--large" href="#target-2" data-scrollto="highlight:blink">Scroll to Target #2</a>
-        <a class="btn btn--large" href="#target-3" data-scrollto="highlight:pulse">Scroll to Target #3</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-2" yoi-scrollto="highlight:blink">Scroll to Target #2</a>
+        <a class="btn btn--large" href="#target-3" yoi-scrollto="highlight:pulse">Scroll to Target #3</a>
     </div>
 </div>
 <div class="m-tb-20">
@@ -53,9 +53,9 @@ The target element may sit inside a container with hidden or scrollable overflow
 </div>
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <a class="btn btn--large" href="#target-4" data-scrollto>Scroll Container to Target #4</a>
-        <a class="btn btn--large" href="#target-5" data-scrollto>Scroll Container to Target #5</a>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <a class="btn btn--large" href="#target-4" yoi-scrollto>Scroll Container to Target #4</a>
+        <a class="btn btn--large" href="#target-5" yoi-scrollto>Scroll Container to Target #5</a>
     </div>
 </div>
 <div class="m-t-4 h-40 p-4 br b-all bc-main-22 pos-rel scrl-y">

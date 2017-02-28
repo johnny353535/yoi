@@ -15,7 +15,7 @@ Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` in
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn">A Simple Button</button>
     </div>
 </div>
@@ -27,7 +27,7 @@ You can use any [icon](/pages/elements/icons.html) inside any kind of button. Yo
 
 <div class="documentation__blocks">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <button class="btn">
                 <span class="icon">{% icon {id:'012-s'} %}</span>
                 <span>Icon Left</span>
@@ -35,7 +35,7 @@ You can use any [icon](/pages/elements/icons.html) inside any kind of button. Yo
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <button class="btn">
                 <span>Icon Right</span>
                 <span class="icon">{% icon {id:'070-s'} %}</span>
@@ -49,7 +49,7 @@ If you wish to create an icon-only button, use the css-class `hidden` for the la
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn">
             <span class="hidden">Hidden Label Text</span>
             <span class="icon">{% icon {id:'068-s'} %}</span>
@@ -62,7 +62,7 @@ You can use **more than one icon** per button. But **this rarely makes much sens
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn">
             <span class="icon">{% icon {id:'069-s'} %}</span>
             <span>Many Icons Left And Right</span>
@@ -80,7 +80,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 <div class="documentation__blocks">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <a class="btn m-t-1" href="#">
                 <span>a-tag and .btn plus .icon</span>
                 <span class="icon">{% icon {id:'011-s'} %}</span>
@@ -88,7 +88,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <button class="btn m-t-1">
                 <span>button-tag and .btn plus .icon</span>
                 <span class="icon">{% icon {id:'011-s'} %}</span>
@@ -96,7 +96,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <span class="btn m-t-1">
                 <input type="submit" value="Input-tag and .btn" />
                 <span>input-tag and .btn</span>
@@ -105,7 +105,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
             <span class="btn m-t-1">
                 <span>span-tag and .btn</span>
                 <span class="icon">{% icon {id:'011-s'} %}</span>
@@ -129,7 +129,7 @@ Buttons come in **four different sizes**: *small*, *(default)*, *medium* and *la
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--small">Small Button</button>
         <button class="btn">Button</button>
         <button class="btn btn--medium">Medium Button</button>
@@ -142,7 +142,7 @@ There are **six different color styles** available – while `.btn--subtle` is a
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--large btn--subtle">Button</button>
         <button class="btn btn--large btn--light">Button</button>
         <button class="btn btn--large">Button</button>
@@ -158,7 +158,7 @@ In addition to the default appearance, buttons can be either ***flat* or *outlin
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--flat btn--large btn--light">Button</button>
         <button class="btn btn--flat btn--large">Button</button>
         <button class="btn btn--flat btn--large btn--dark">Button</button>
@@ -166,7 +166,7 @@ In addition to the default appearance, buttons can be either ***flat* or *outlin
         <button class="btn btn--flat btn--large btn--negative">Button</button>
         <button class="btn btn--flat btn--large btn--positive">Button</button>
     </div>
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--outline btn--large">Button</button>
         <button class="btn btn--outline btn--large btn--dark">Button</button>
         <button class="btn btn--outline btn--large btn--attention">Button</button>
@@ -180,7 +180,7 @@ If you combine `.btn--outline` and `.btn--light`, make sure you **put the button
 {% endmarkdown %}
 
 <div class="documentation__block documentation__block--dark">
-    <div class="documentation__example " data-printcode="language:markup; print:true;">
+    <div class="documentation__example " yoi-printcode="language:markup; print:true;">
         <button class="btn btn--outline btn--large btn--light">Button</button>
     </div>
 </div>
@@ -190,7 +190,7 @@ All button styles can be combined with .btn--rounded to create **pill-shaped but
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--large btn--outline btn--rounded">Button</button>
         <button class="btn btn--large btn--flat btn--rounded">Button</button>
         <button class="btn btn--large btn--rounded">Button</button>
@@ -202,7 +202,7 @@ All buttons have **three state-modifiers** which simply reflect the same styling
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--large btn--active">Active</button>
         <button class="btn btn--large btn--disabled">Disabled</button>
         <button class="btn btn--large btn--focus">Focused</button>
@@ -214,7 +214,7 @@ It’s possible to **shorten very long button labels** by adding the modifier `.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <button class="btn btn--medium w-10 btn--clip">Very Long Button Label Text foo foo bar bar</button>
     </div>
 </div>

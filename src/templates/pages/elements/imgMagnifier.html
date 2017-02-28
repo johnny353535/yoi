@@ -17,13 +17,21 @@ See the following examples for markup reference. Notice how this element impleme
 
 <div class="documentation__blocks">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            {{ imgMagnifier.render(previewImgPath='https://source.unsplash.com/WLUHO9A_xik/300x300', zoomImgPath='https://source.unsplash.com/WLUHO9A_xik/1000x1000') }}
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="imgMagnifier" yoi-imgmagnifier>
+                <a href="https://source.unsplash.com/WLUHO9A_xik/1000x1000">
+                    <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/WLUHO9A_xik/300x300" alt="" />
+                </a>
+            </div>
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup; print:true;">
-            {{ imgMagnifier.render() }}
+        <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+            <div class="imgMagnifier" yoi-imgmagnifier="delay:100;">
+                <a href="https://source.unsplash.com/WLUHO9A_xik/1000x1000">
+                    <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/WLUHO9A_xik/300x300" alt="" />
+                </a>
+            </div>
         </div>
     </div>
 </div>

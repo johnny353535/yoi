@@ -15,10 +15,10 @@ Elements with this utility class are **hidden if JavaScript is active** and **vi
 A proper example would be the element [.ratingInput](/pages/elements/ratingInput.html) which simply does not work if JavaScript is not available. Instead, a `<select>` is shown as fallback.
 {% endmarkdown %}
 
-<div class="documentation__blocks" data-docblock="addControls:true;">
+<div class="documentation__blocks" yoi-docblock="addControls:true;">
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
-            <form class="ratingInput ratingInput--rated-3" data-ratinginput="uid:1234; score:3;">
+        <div class="documentation__example" yoi-printcode="language:markup;">
+            <form class="ratingInput ratingInput--rated-3" yoi-ratinginput="uid:1234; score:3;">
                 <div class="js-fallback">
                     <select class="select" name="exampleRating">
                         <option value="5">5 | very good</option>
@@ -36,7 +36,7 @@ A proper example would be the element [.ratingInput](/pages/elements/ratingInput
         </div>
     </div>
     <div class="documentation__block">
-        <div class="documentation__example" data-printcode="language:markup;">
+        <div class="documentation__example" yoi-printcode="language:markup;">
             <form>
                 <select class="select" name="exampleRating">
                     <option value="5">5 | very good</option>
@@ -61,7 +61,7 @@ Elements with this utility class are visible only if JavaScript is available. Us
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div class="js-only" id="jsOnlyElement">
             <p class="fs-15 lh-20">Some element that only works with JavaScript enabled.</p>
         </div>

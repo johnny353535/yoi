@@ -5,7 +5,6 @@ YOI.Dismiss = (function() {
     // private vars
     // ============
 
-    var $dismissableElementCollection;
     var $dismissButton;
     var $btnDismiss;
     var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
@@ -17,33 +16,18 @@ YOI.Dismiss = (function() {
     // private functions
     // =================
 
-    function initialize($dismissableElement) {
-
+    function initialize($dismissableElement, options) {
+        
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dismissableElement - the dismissable element(s)
+         *  @param {jQuery dom object} $dismissableElement
+         *  @param {object}            options
          */
+        
+        var $dismissableElement = YOI.createCollection('dismissable', $dismissableElement, options);
 
-        if (!($dismissableElement instanceof jQuery)) {
-            
-            // if the init function is called without a valid matching jQuery element,
-            // gather the matching elements from the dom. if no elements are found,
-            // exit the script.
-            
-            $dismissableElementCollection = $('[data-dismissable]');
-            if (!$dismissableElementCollection.length) return false;
-            
-        } else if ($dismissableElement instanceof jQuery) {
-            
-            // if the init function is called with a valid matching jQuery element,
-            // add it to the element collection
-            
-            $dismissableElementCollection = $dismissableElementCollection.add($dismissableElement);
-            
-        }
-
-        $dismissableElementCollection.each(function() {
+        if ($dismissableElement) $dismissableElement.each(function() {
 
             var $thisDismissableElement = $(this);
 

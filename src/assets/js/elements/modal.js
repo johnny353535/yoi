@@ -5,6 +5,8 @@ YOI.Modal = (function() {
     // private vars
     // ============
 
+    var $body         = $(document.body);
+    var $document     = $(document);
     var modalActive   = false; // Is any modal currently visible?
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
@@ -12,7 +14,7 @@ YOI.Modal = (function() {
     var btnLabelClose = YOI.locale === 'de' ? 'Schließen' : 'Close';
 
     var $modalCover = $('\
-        <div class="modal__cover" id="modalCover" data-action="closeModal"></div>\
+        <div class="modal__cover" id="modalCover" yoi-action="closeModal"></div>\
     ');
 
     var $modalContainer = $('\
@@ -20,25 +22,20 @@ YOI.Modal = (function() {
     ');
 
     var $modalCloseBtn = $('\
-        <button class="btnDismiss" data-action="closeModal">\
+        <button class="btnDismiss" yoi-action="closeModal">\
             <span class="hidden">' + btnLabelClose + '</span>\
         </button>\
     ');
 
     // private methods
 
-    function initializeModal($modal, options) {
-
+    function initialize($modal, options) {
+        
         /**
-         *  Initialize all *[data-modal] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-modal] (= function call with $modal).
-         *  $modal must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $modal - the modal(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-modal="path:pages/modal_test.html;cache:true;">
+         *  @param {jQuery dom object} $inputElement
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -54,36 +51,33 @@ YOI.Modal = (function() {
          *  @option {bool} cache  - If true, the referenced modal will preload in the background.
          */
 
-        if (!($modal instanceof jQuery)) {
-            $modal = $('[data-modal]');
-        }
+        var $modal = YOI.createCollection('modal', $modal, options);
 
         // prepare dom
 
-        $(document.body).append($modalCover.clone().hide());
-        $(document.body).append($modalContainer.clone().hide());
+        if ($modal) prepareDom();
 
         // prepare modal links
 
-        $modal.each(function() {
+        if ($modal) $modal.each(function() {
 
-            var $this = $(this);
+            var $thisModal = $(this);
 
-            var options        = options === undefined ? YOI.toObject($this.data('modal')) : options;
-            var thisModalId    = options !== undefined && options.id    !== undefined ? options.id    : generateModalId();
-            var thisModalPath  = options !== undefined && options.path  !== undefined ? options.path  : $this.attr('href');
-            var thisModalCache = options !== undefined && options.cache !== undefined ? options.cache : false;
+            var options        = $thisModal.data().options;
+            var thisModalId    = options.id !== undefined ? options.id : generateId();
+            var thisModalPath  = options.path !== undefined ? options.path : $thisModal.attr('href');
+            var thisModalCache = options.cache !== undefined ? options.cache : false;
 
             // preload/cache
 
-            if (thisModalCache) loadModal(thisModalId, thisModalPath);
+            if (thisModalCache) load(thisModalId, thisModalPath);
 
             // attach click event
 
-            $this.on('click', function(e) {
+            $thisModal.on('click', function(e) {
 
                 e.preventDefault();
-                showModal(thisModalId, thisModalPath);
+                show(thisModalId, thisModalPath);
 
             });
 
@@ -91,15 +85,29 @@ YOI.Modal = (function() {
 
         // inititalize triggers to close all modals
 
-        initializeModalCloseTriggers();
+        initializeCloseTriggers();
 
     }
+    
+    function prepareDom() {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        $body.append($modalCover.clone().hide());
+        $body.append($modalContainer.clone().hide());
+        
+    }
 
-    function initializeModalCloseTriggers(modalId) {
+    function initializeCloseTriggers(modalId) {
 
         /**
          *  Attach modal close action to elements with
-         *  data-action="closeModal".
+         *  yoi-action="closeModal".
          *
          *  Triggers are either all matching elements or
          *  only mathing elements inside the provided scope
@@ -111,18 +119,18 @@ YOI.Modal = (function() {
         var triggers;
 
         if (modalId !== undefined) {
-            triggers = $(modalId).find('[data-action="closeModal"]');
+            triggers = $(modalId).find('[yoi-action="closeModal"]');
         } else {
-            triggers = $('[data-action="closeModal"]');
+            triggers = $('[yoi-action="closeModal"]');
         }
 
         triggers.on('click', function() {
-            closeModals();
+            closeAll();
         });
 
     }
 
-    function loadModal(modalId, modalPath, callback) {
+    function load(modalId, modalPath, callback) {
 
         /**
          *  Load a modal (ajax) and inject it into the dom.
@@ -165,7 +173,7 @@ YOI.Modal = (function() {
 
                         // update elements inside modal
 
-                        initializeModalCloseTriggers(modalId);
+                        initializeCloseTriggers(modalId);
 
                         if (YOI.foundModule('YOI.CustomFormElements'))
                             CustomFormElements.init(modalId);
@@ -175,6 +183,8 @@ YOI.Modal = (function() {
                         if (typeof callback === 'function') {
                             callback();
                         }
+                        
+                        $window.trigger('yoi-modal:load');
 
                     } else {
 
@@ -188,6 +198,8 @@ YOI.Modal = (function() {
                 if (status === 'error') {
 
                     // fail silently
+                    
+                    $window.trigger('yoi-modal:error');
 
                 }
 
@@ -197,7 +209,7 @@ YOI.Modal = (function() {
 
     }
 
-    function showModal(modalId, modalPath) {
+    function show(modalId, modalPath) {
 
         /**
          *  Open/show a modal.
@@ -210,8 +222,8 @@ YOI.Modal = (function() {
 
             // if the modal is not found in dom, load it first, then show it
 
-            loadModal(modalId, modalPath, function(){
-                showModal(modalId, modalPath);
+            load(modalId, modalPath, function(){
+                show(modalId, modalPath);
             });
 
         } else {
@@ -226,7 +238,7 @@ YOI.Modal = (function() {
 
             // center modal
 
-            centerModal(modalId);
+            center(modalId);
 
             // On mobile, scroll page to top when opening the modal
             // but always jump back to the last scroll position when
@@ -236,12 +248,14 @@ YOI.Modal = (function() {
                 scrollTop = $('body').scrollTop();
                 $('body').scrollTop(0);
             }
+            
+            $document.trigger('yoi-modal:show');
 
         }
 
     }
 
-    function centerModal(modalId) {
+    function center(modalId) {
 
         /**
          *  Vertically center a modal.
@@ -266,7 +280,7 @@ YOI.Modal = (function() {
 
     }
 
-    function closeModals() {
+    function closeAll() {
 
         /**
          *  Close all modals.
@@ -285,9 +299,11 @@ YOI.Modal = (function() {
             BrowserHistory.clearHash();
         }
         
+        $document.trigger('yoi-modal:hide');
+        
     }
 
-    function detachModals() {
+    function detachAll() {
 
         /**
          *  Close and remove all modals.
@@ -304,7 +320,7 @@ YOI.Modal = (function() {
 
     }
 
-    function generateModalId() {
+    function generateId() {
 
         /**
          *  Generate a simple "unique" modal id for internal reference.
@@ -332,17 +348,15 @@ YOI.Modal = (function() {
     // initialize
     // ==========
 
-    initializeModal();
+    initialize();
 
     // public methods
     // ==============
 
     return {
-        init   : initializeModal,
-        load   : loadModal,
-        show   : showModal,
-        close  : closeModals,
-        detach : detachModals
+        init      : initialize,
+        show      : show,
+        close     : closeAll
     }
 
 })();

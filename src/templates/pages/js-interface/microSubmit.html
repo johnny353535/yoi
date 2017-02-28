@@ -8,7 +8,7 @@ This script provides a simple interface to post a string to a given endpoint (eg
 |         |                                                                          |
 | -       | -                                                                        |
 | Js-File | [microSubmit.js]({{ pathToSourceFile }}assets/js/modules/microSubmit.js) |
-| Hooks   | `data-microsubmit`                                                       |
+| Hooks   | `yoi-microsubmit`                                                       |
 {% endmarkdown %}
 
 <div class="note note--error b-0 note--large">
@@ -23,8 +23,8 @@ To use this script, create a basic `<form>`-element. Define an endpoint (= backe
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <form action="http://reqres.in/api/test" data-microsubmit>
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <form action="http://reqres.in/api/test" yoi-microsubmit>
             <input type="hidden" name="message" value="My message" />
             <button class="btn btn--large">Submit My Message</button>
         </form>
@@ -33,12 +33,12 @@ To use this script, create a basic `<form>`-element. Define an endpoint (= backe
 
 {% markdown %}
 ### Custom Response Message
-To add custom response message/markup, create any element you like and assign a unique `id` – eg. *myResponse* to it. Tell the script which custom response message it should use by adding `response:#myId` to the custom `data-microsubmit` attribute. Your custom response markup gets hidden on page load and revealed after the form got submitted.
+To add custom response message/markup, create any element you like and assign a unique `id` – eg. *myResponse* to it. Tell the script which custom response message it should use by adding `response:#myId` to the custom `yoi-microsubmit` attribute. Your custom response markup gets hidden on page load and revealed after the form got submitted.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
-        <form action="http://reqres.in/api/test" data-microsubmit="response:#myResponse">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <form action="http://reqres.in/api/test" yoi-microsubmit="response:#myResponse">
             <input type="hidden" name="message" value="My message" />
             <button class="btn btn--large">Submit My Message & Show My Custom Response</button>
         </form>
@@ -50,7 +50,7 @@ To add custom response message/markup, create any element you like and assign a 
     <h3 class="note__headline">Check List:</h3>
     <div class="note__body">
         <ul class="checkList p-l-0 m-tb-2">
-            <li class="checkList__item">The DOM element which is tagged with a data-microsubmit attribute must be a form element!</li>
+            <li class="checkList__item">The DOM element which is tagged with a yoi-microsubmit attribute must be a form element!</li>
             <li class="checkList__item">The very form must contain a single submit- or button-element!</li>
             <li class="checkList__item">The very form must contain a single hidden input-element to define the message the script submits!</li>
         </ul>

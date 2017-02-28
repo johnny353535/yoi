@@ -8,16 +8,16 @@ Create elements (eg. buttons) that remove their parent element or any other targ
 |         |                                                                     |
 | -       | -                                                                   |
 | Js-File | [remove.js]({{ pathToSourceFile }}assets/js/modules/remove.js) |
-| Hooks   | `data-remove`                                                       |
+| Hooks   | `yoi-remove`                                                       |
 
 ### Examples
-Use any element as a trigger by adding the custom data-attribute `data-remove`. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.
+Use any element as a trigger by adding the custom yoi-attribute `yoi-remove`. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div class="box w-30 h-20 p-2">
-            <button class="btn pos-tr m-2" data-remove>Remove my Parent Element</button>
+            <button class="btn pos-tr m-2" yoi-remove>Remove my Parent Element</button>
         </div>
     </div>
 </div>
@@ -27,10 +27,10 @@ If you wish to remove any other element in the dom, refer to it through the trig
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <!-- the trigger element: -->
         <div class="m-b-2">
-            <button class="btn" data-remove="target:#myTargetElement">Remove my Target Element</button>
+            <button class="btn" yoi-remove="target:#myTargetElement">Remove my Target Element</button>
         </div>
         <!-- the target element: -->
         <div id="myTargetElement" class="w-30 h-20 p-2 br bg-green-16 tc-white">
@@ -44,10 +44,10 @@ If you wish to remove a collection of elements from the dom, refer to them throu
 {% endmarkdown %}
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <!-- the trigger element: -->
         <div class="m-b-2">
-            <button class="btn" data-remove="target:.myTargetElement">Remove My Many Target Elements</button>
+            <button class="btn" yoi-remove="target:.myTargetElement">Remove My Many Target Elements</button>
         </div>
         <!-- the target elements: -->
         <div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
@@ -66,10 +66,10 @@ If you wish to remove a collection of elements from the dom, refer to them throu
 </div>
 
 <div class="documentation__block">
-    <div class="documentation__example" data-printcode="language:markup; print:true;">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <!-- the trigger element: -->
         <div class="m-b-2">
-            <button class="btn" data-remove="target:.documentation__example ul,[href*=http]">Remove All Unordered Lists and External Links</button>
+            <button class="btn" yoi-remove="target:.documentation__example ul,[href*=http]">Remove All Unordered Lists and External Links</button>
         </div>
         <!-- the target elements: -->
         <ul class="p-l-4 m-t-4 m-b-2">

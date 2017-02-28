@@ -1,7 +1,7 @@
 /** documentation.js */
 
 YOI.Documentation = (function() {
-
+    
     // private vars
     // ============
 
@@ -18,8 +18,8 @@ YOI.Documentation = (function() {
 
     var $controls = $('\
         <p class="documentation__controls">\
-            <button data-action="toggleDarkmode">background</button>\
-            <button data-action="toggleCode">code</button>\
+            <button yoi-action="toggleDarkmode">background</button>\
+            <button yoi-action="toggleCode">code</button>\
         </p>\
     ');
 
@@ -34,16 +34,18 @@ YOI.Documentation = (function() {
     // private functions
     // =================
 
-    function initializeDocumentation() {
+    function initializeDocumentation(options) {
 
         /**
          *  Initialize the documentation: inject dom elements
          *  and attach events in order to display example code.
+         *
+         *  @param {object} options
          */
 
         initializeControls();
         initializeFileDisplay();
-
+        
         // hightlight code inside code-tags found in markup
 
         $('[class^="language-"]').each(function() {
@@ -51,13 +53,17 @@ YOI.Documentation = (function() {
                 Prism.highlightElement($(this).find('pre')[0]);
         });
 
+        // gather the code example blocks
+
+        var $exampleBlock = YOI.createCollection('printcode', $exampleBlock, options);
+
         // print the code for each code-example block
 
-        $('.documentation__example[yoi-printcode]').each(function() {
-
+        if ($exampleBlock) $exampleBlock.each(function() {
+            
             var $thisExampleBlock = $(this);
-            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
-
+            var options           = $thisExampleBlock.data().options;
+            
             /**
              * available options:
              *
@@ -68,7 +74,7 @@ YOI.Documentation = (function() {
              * @option {bool}   hideExample    - only show the code, hide the example
              * @option {string} language       - "markup"|"css"|"clike"|"javascript"|"less" (http://prismjs.com/#languages-list)
              */
-
+            
             if (options.printWithDelay) {
 
                 YOI.setDelay('printCodeDelay', 1000, function() {
@@ -85,17 +91,21 @@ YOI.Documentation = (function() {
 
     }
 
-    function initializeControls() {
+    function initializeControls(options) {
 
         /**
          *  Add control elements to example blocks to switch
          *  between light and dark background or toggle code examples.
+         *
+         *  @param {object} options
          */
+        
+        var $docBlock = YOI.createCollection('docblock', $docBlock, options);
 
-        $('[yoi-docblock]').each(function() {
+        if ($docBlock) $docBlock.each(function() {
 
             var $thisDocBlock = $(this)
-            var options       = YOI.toObject($thisDocBlock.data('docblock'));
+            var options       = $thisDocBlock.data().options;
 
             /**
              *  available options:
@@ -332,8 +342,7 @@ YOI.Documentation = (function() {
             var $thisExampleBlock = $(this);
             var $thisCodeBlock    = $codeBlock.clone();
             var $thisPreBlock     = $preBlock.clone();
-
-            var options           = YOI.toObject($thisExampleBlock.data('printcode'));
+            var options           = $thisExampleBlock.data().options;
             var content           = decodeEntities($thisExampleBlock.html());
             var processedCode;
 
@@ -472,7 +481,7 @@ YOI.Documentation = (function() {
         return cleanedCode;
 
     }
-
+    
     // initialize
     // ==========
 

@@ -1,22 +1,22 @@
 /** popOver.js */
 
 YOI.PopOver = (function() {
+    
+    // private vars
+    // ============
+    
+    $document = $(document);
 
     // private functions
     // =================
 
-    function initializePopOverTrigger($popOverTrigger, options) {
+    function initialize($popOverTrigger, options) {
 
         /**
-         *  Initialize all *[data-popover] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-popover] (= function call with $popover).
-         *  $popover must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-popover="pos:bt;eventShow:mouseover;">
+         *  @param {jQuery dom object} $popOverTrigger
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -28,12 +28,10 @@ YOI.PopOver = (function() {
          *  @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
          *  @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
          */
+        
+        var $popOverTrigger = YOI.createCollection('popover', $popOverTrigger, options);
 
-        if (!($popOverTrigger instanceof jQuery)) {
-            $popOverTrigger = $('[data-popover]');
-        }
-
-        $popOverTrigger.each(function() {
+        if ($popOverTrigger) $popOverTrigger.each(function() {
 
             // reference the popover trigger
 
@@ -41,7 +39,7 @@ YOI.PopOver = (function() {
 
             // read the options
 
-            var options = options === undefined ? YOI.toObject($thisPopOverTrigger.data('popover')) : options;
+            var options = $thisPopOverTrigger.data().options;
 
             // cancel if target-selector does not return any element ...
 
@@ -85,9 +83,9 @@ YOI.PopOver = (function() {
 
                     if (preventDefault !== 'false') e.preventDefault();
 
-                    hideAllPopOvers();
-                    removeToggleClassFromPopOverTrigger();
-                    showPopOver($thisPopOverTrigger, $thisPopOver);
+                    hideAll();
+                    removeToggleClass();
+                    show($thisPopOverTrigger, $thisPopOver);
 
                 })
                 .on(eventHide, function(e) {
@@ -95,7 +93,7 @@ YOI.PopOver = (function() {
                     if (preventDefault !== 'false') e.preventDefault();
 
                     YOI.clearInterval('popOverShowTimeout');
-                    hidePopOver($thisPopOverTrigger, $thisPopOver);
+                    hide($thisPopOverTrigger, $thisPopOver);
 
                 });
 
@@ -106,7 +104,7 @@ YOI.PopOver = (function() {
                     YOI.clearInterval('popOverHideTimeout');
                 })
                 .on('mouseleave', function() {
-                    hidePopOver($thisPopOverTrigger, $thisPopOver);
+                    hide($thisPopOverTrigger, $thisPopOver);
                 });
 
         });
@@ -128,7 +126,7 @@ YOI.PopOver = (function() {
 
     }
 
-    function showPopOver($thisPopOverTrigger, $thisPopOver) {
+    function show($thisPopOverTrigger, $thisPopOver) {
 
         /**
          *  Shows a pop-over after a certain delay.
@@ -142,7 +140,7 @@ YOI.PopOver = (function() {
             // if this option is set, add the provided css class name
             // to the trigger element
 
-            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
+            var options = $thisPopOverTrigger.data().options;
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.addClass(options.toggleClass);
@@ -150,14 +148,18 @@ YOI.PopOver = (function() {
 
             // set the pop-over postion, then show it
 
-            setPopOverPosition($thisPopOverTrigger, $thisPopOver);
+            setPosition($thisPopOverTrigger, $thisPopOver);
             $thisPopOver.fadeIn(100);
+            
+            // trigger custom event
+        
+            $thisPopOverTrigger.trigger('yoi-popover:show');
 
         });
 
     }
 
-    function hidePopOver($thisPopOverTrigger, $thisPopOver) {
+    function hide($thisPopOverTrigger, $thisPopOver) {
 
         /**
          *  Hides a pop-over after a certain delay.
@@ -167,13 +169,19 @@ YOI.PopOver = (function() {
          */
 
         YOI.setDelay('popOverHideTimeout', 500, function() {
+            
             $thisPopOver.hide();
-            removeToggleClassFromPopOverTrigger();
+            removeToggleClass();
+            
+            // trigger custom event
+        
+            $thisPopOverTrigger.trigger('yoi-popover:hide');
+            
         });
 
     }
 
-    function hideAllPopOvers() {
+    function hideAll() {
 
         /**
          *  Clears the pop-over hide-interval and
@@ -183,10 +191,10 @@ YOI.PopOver = (function() {
         // if this option is set, add the provided css class name
         // to the trigger element
 
-        $('[data-popover]').each(function() {
+        $('[yoi-popover]').each(function() {
 
             var $thisPopOverTrigger = $(this);
-            var options             = $thisPopOverTrigger.data('popover');
+            var options             = $thisPopOverTrigger.data().options;
 
             if (options.toggleClass !== undefined) {
                 var cssClassName = options.toggleClass;
@@ -203,7 +211,7 @@ YOI.PopOver = (function() {
 
     }
 
-    function setPopOverPosition($thisPopOverTrigger, $thisPopOver) {
+    function setPosition($thisPopOverTrigger, $thisPopOver) {
 
         /**
          *  Position the pop-over
@@ -214,7 +222,7 @@ YOI.PopOver = (function() {
 
         // read options
 
-        var options = YOI.toObject($thisPopOverTrigger.data('popover'));
+        var options = $thisPopOverTrigger.data().options;
 
         // position settings
 
@@ -281,7 +289,7 @@ YOI.PopOver = (function() {
 
     }
 
-    function removeToggleClassFromPopOverTrigger($popOverTrigger) {
+    function removeToggleClass($popOverTrigger) {
 
         /**
          *  Popover triggers provide an option to add any css-class to the trigger when the
@@ -297,18 +305,11 @@ YOI.PopOver = (function() {
 
         $popOverTrigger.each(function() {
 
-            // reference the popover trigger
-
             var $thisPopOverTrigger = $(this);
-
-            // read the options
-
-            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
+            var options             = $thisPopOverTrigger.data().options;
 
             // if this option is set, remove the provided css class name
             // from the trigger element
-
-            var options = YOI.toObject($thisPopOverTrigger.data('popover'));
 
             if (options.toggleClass !== undefined) {
                 $thisPopOverTrigger.removeClass(options.toggleClass);
@@ -321,14 +322,14 @@ YOI.PopOver = (function() {
     // initialize
     // ==========
 
-    initializePopOverTrigger();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init    : initializePopOverTrigger,
-        hideAll : hideAllPopOvers
+        init    : initialize,
+        hideAll : hideAll
     }
 
 })();

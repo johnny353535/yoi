@@ -5,21 +5,18 @@ YOI.FilterBtns = (function() {
     // private functions
     // =================
 
-    function initializeFilterBtns($filterBtns) {
+    function initializeFilterBtns($filterBtns, options) {
 
         /**
-         *  Initialize all *[data-filterbtns] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-filterbtns] (= function call with $dock).
-         *  $filterBtns must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $filterBtns - the filterbutton group(s)
+         *  @param {jQuery dom object} $dock
+         *  @param {object}            options
          */
 
-        if (!($filterBtns instanceof jQuery)) {
-            $filterBtns = $('[data-filterbtns]');
-        }
+        var $filterBtns = YOI.createCollection('filterbtns', $filterBtns, options);
 
-        $filterBtns.each(function() {
+        if ($filterBtns) $filterBtns.each(function() {
 
             var $thisFilterBtns = $(this);
 
@@ -45,6 +42,16 @@ YOI.FilterBtns = (function() {
                 $thisFilterBtns.find('.filterBtns__btn').each(function() {
 
                     var $thisBtn = $(this);
+                    
+                    // set the state
+                    
+                    if ($thisBtn.hasClass('is--active')) {
+                        $thisBtn.data().state = 'on';
+                    } else {
+                        $thisBtn.data().state = 'off';
+                    }
+                    
+                    // add the event
 
                     $thisBtn.on('click', function(e) {
                         e.preventDefault();
@@ -63,6 +70,7 @@ YOI.FilterBtns = (function() {
 
                         e.preventDefault();
                         $thisBtn.removeClass('filterBtns__btn--debounce');
+                        
                     });
 
                 });
@@ -81,13 +89,21 @@ YOI.FilterBtns = (function() {
          *
          *  @param  {jQuery dom object} $thisBtn - the filter button
          */
+        
+        var state = $thisBtn.data().state;
 
-        if ($thisBtn.hasClass('is--active')) {
+        if (state === 'on') {
             $thisBtn.removeClass('is--active');
             $thisBtn.removeClass('filterBtns__btn--debounce');
-        } else {
+            $thisBtn.trigger('yoi-filterbtn:on');
+            $thisBtn.data().state = 'off';
+        }
+        
+        if (state === 'off') {
             $thisBtn.addClass('is--active');
             $thisBtn.addClass('filterBtns__btn--debounce');
+            $thisBtn.trigger('yoi-filterbtn:off');
+            $thisBtn.data().state = 'on';
         }
 
     }
@@ -101,6 +117,7 @@ YOI.FilterBtns = (function() {
          */
 
         $thisBtn.fadeOut('fast');
+        $thisBtn.trigger('yoi-filterbtn:remove');
 
     }
 
