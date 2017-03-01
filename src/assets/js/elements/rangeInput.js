@@ -27,8 +27,8 @@ YOI.RangeInput = (function() {
     function initializeRangeInput($rangeInput, options) {
 
         /**
-         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
+         *  Initialize all *[yoi-rangeinput] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-rangeinput] (= function call with $rangeinput).
          *  $rangeinput must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $rangeinput - the range input(s)
@@ -47,7 +47,7 @@ YOI.RangeInput = (function() {
          */
 
         if (!($rangeInput instanceof jQuery)) {
-            $rangeInput = $('[data-rangeinput]');
+            $rangeInput = $('[yoi-rangeinput]');
         }
 
         $rangeInput.each(function() {

@@ -26,6 +26,15 @@ YOI.Modal = (function() {
             <span class="hidden">' + btnLabelClose + '</span>\
         </button>\
     ');
+    
+    var $modalTemplate = $('\
+        <div class="modal modal--small">\
+            <div class="modal__header">\
+                <h3 class="modal__title">Small Demo Modal</h3>\
+            </div>\
+            <div class="modal__body"></div>\
+        </div>\
+    ');
 
     // private methods
 
@@ -129,6 +138,10 @@ YOI.Modal = (function() {
         });
 
     }
+    
+    function generate() {
+        
+    };
 
     function load(modalId, modalPath, callback) {
 
@@ -184,7 +197,7 @@ YOI.Modal = (function() {
                             callback();
                         }
                         
-                        $window.trigger('yoi-modal:load');
+                        $document.trigger('yoi-modal:load');
 
                     } else {
 

@@ -1323,7 +1323,19 @@ YOI.Console = (function() {
         'yoi-stepper:down',
         'yoi-stepper:error',
         'yoi-switch:on',
-        'yoi-switch:off'
+        'yoi-switch:off',
+        'yoi-table:select',
+        'yoi-table:remove',
+        'yoi-table:empty',
+        'yoi-tooltip:show',
+        'yoi-tooltip:hide',
+        'yoi-remove',
+        'yoi-hide',
+        'yoi-reveal',
+        'yoi-scrollto:start',
+        'yoi-scrollto:end',
+        'yoi-togglegroup:change',
+        'yoi-togglegroup:reset'
     ];
 
     // private functions
@@ -2900,15 +2912,15 @@ YOI.Filters = (function() {
     function initializeFilters($filters) {
 
         /**
-         *  Initialize all *[data-filters] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-filters] (= function call with $dock).
+         *  Initialize all *[yoi-filters] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-filters] (= function call with $dock).
          *  $filters must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $filters - the filter group(s)
          */
 
         if (!($filters instanceof jQuery) || $filters === undefined) {
-            $filters = $('[data-filters]');
+            $filters = $('[yoi-filters]');
         }
 
         $filters.each(function() {
@@ -3525,7 +3537,7 @@ YOI.ImgMagnifier = (function(){
          */
 
         if (!($imgMagnifier instanceof jQuery)) {
-            $imgMagnifier = $('[data-imgmagnifier]');
+            $imgMagnifier = $('[yoi-imgmagnifier]');
         }
 
         $imgMagnifier.each(function() {
@@ -4013,6 +4025,15 @@ YOI.Modal = (function() {
             <span class="hidden">' + btnLabelClose + '</span>\
         </button>\
     ');
+    
+    var $modalTemplate = $('\
+        <div class="modal modal--small">\
+            <div class="modal__header">\
+                <h3 class="modal__title">Small Demo Modal</h3>\
+            </div>\
+            <div class="modal__body"></div>\
+        </div>\
+    ');
 
     // private methods
 
@@ -4116,6 +4137,10 @@ YOI.Modal = (function() {
         });
 
     }
+    
+    function generate() {
+        
+    };
 
     function load(modalId, modalPath, callback) {
 
@@ -4171,7 +4196,7 @@ YOI.Modal = (function() {
                             callback();
                         }
                         
-                        $window.trigger('yoi-modal:load');
+                        $document.trigger('yoi-modal:load');
 
                     } else {
 
@@ -4572,8 +4597,8 @@ YOI.PieChart = (function() {
     function initializePieChart($pieChart, options) {
 
         /**
-         *  Initialize all *[data-piechart] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-piechart] (= function call with $piechart).
+         *  Initialize all *[yoi-piechart] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-piechart] (= function call with $piechart).
          *  $piechart must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $pieChart - the pie chart(s)
@@ -4599,7 +4624,7 @@ YOI.PieChart = (function() {
          */
 
         if (!($pieChart instanceof jQuery)) {
-            $pieChart = $('[data-piechart]');
+            $pieChart = $('[yoi-piechart]');
         }
 
         $pieChart.each(function() {
@@ -5264,7 +5289,7 @@ YOI.PopOver = (function() {
          */
 
         if (!($popOverTrigger instanceof jQuery)) {
-            $popOverTrigger = $('[data-popover]');
+            $popOverTrigger = $('[yoi-popover]');
         }
 
         $popOverTrigger.each(function() {
@@ -5327,8 +5352,8 @@ YOI.RangeInput = (function() {
     function initializeRangeInput($rangeInput, options) {
 
         /**
-         *  Initialize all *[data-rangeinput] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-rangeinput] (= function call with $rangeinput).
+         *  Initialize all *[yoi-rangeinput] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-rangeinput] (= function call with $rangeinput).
          *  $rangeinput must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $rangeinput - the range input(s)
@@ -5347,7 +5372,7 @@ YOI.RangeInput = (function() {
          */
 
         if (!($rangeInput instanceof jQuery)) {
-            $rangeInput = $('[data-rangeinput]');
+            $rangeInput = $('[yoi-rangeinput]');
         }
 
         $rangeInput.each(function() {
@@ -6642,30 +6667,23 @@ YOI.Table = (function() {
     function initializeTable($table, options) {
 
         /**
-         *  Initialize all table[data-table] found in the document (= function call without parameters)
-         *  or target one or more specific table[data-table] (= function call with $table).
-         *  $table must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param  {jQuery dom object} $table - the table(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <table data-table="removeable:true;">
+         *  @param {jQuery dom object} $table
+         *  @param {object}            options
          *
          *  Available options:
          *
          *  @option {boolean} removeable - removeable table rows
          *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
-
-        if (!($table instanceof jQuery)) {
-            $table = $('[data-table]');
-        }
-
-        $table.each(function(){
+        
+        var $table = YOI.createCollection('table', $table, options);
+        
+        if ($table) $table.each(function() {
 
             var $thisTable = $(this);
-            var options    = options === undefined ? YOI.toObject($thisTable.data('table')) : options;
+            var options    = $thisTable.data().options;
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -6679,7 +6697,7 @@ YOI.Table = (function() {
                 // attach events
 
                 $thisTable.find('td').on('click', function(e) {
-
+                    
                     e.preventDefault();
 
                     var $thisTr = $(this).closest('tr');
@@ -6730,7 +6748,7 @@ YOI.Table = (function() {
         var $thisTable = $thisTr.closest('table');
         var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
-        var options    = YOI.toObject($thisTable.data('table'));
+        var options    = $thisTable.data().options;
 
         // select rows, either multiple or single
 
@@ -6740,6 +6758,10 @@ YOI.Table = (function() {
             $thisAllTr.removeClass('tr--active');
             $thisTr.addClass('tr--active');
         }
+        
+        // trigger custom event
+        
+        $thisTable.trigger('yoi-table:select');
 
     }
 
@@ -6752,7 +6774,6 @@ YOI.Table = (function() {
          */
 
         var $thisTable   = $thisTr.closest('table');
-        var thisData     = $thisTr.data();
         var totalTds     = $thisTable.find('td').length;
         var tableIsEmpty = (totalTds - $thisTr.find('td').length) === 0 ? true : false;
 
@@ -6763,9 +6784,13 @@ YOI.Table = (function() {
             // custom event other scripts can subscribe to:
             // the last row got removed, table is empty
 
-            if (tableIsEmpty) $thisTable.trigger('yoi-tables:empty');
+            if (tableIsEmpty) $thisTable.trigger('yoi-table:empty');
 
         });
+        
+        // trigger custom event
+        
+        $thisTable.trigger('yoi-table:remove');
 
     }
 
@@ -6914,15 +6939,10 @@ YOI.Tooltip = (function() {
     function initializeTooltip($tooltip, options) {
 
         /**
-         *  Initialize all *[data-tooltip] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-tooltip] (= function call with $tooltip).
-         *  $tooltip must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $tooltip - the tooltip(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-tooltip="target:#myTargetElement;"></div>
+         *  @param {jQuery dom object} $tooltip
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -6930,16 +6950,14 @@ YOI.Tooltip = (function() {
          *                            element which gets turned into a tooltip
          */
 
-        if (!($tooltip instanceof jQuery)) {
-            $tooltip = $('[data-tooltip]');
-        }
+        var $tooltip = YOI.createCollection('tooltip', $tooltip, options);
 
-        $tooltip.each(function() {
+        if ($tooltip) $tooltip.each(function() {
 
             // set up vars
 
             var $thisTooltip = $(this);
-            var options      = options === undefined ? YOI.toObject($thisTooltip.data('tooltip')) : options;
+            var options      = $thisTooltip.data().options;
             var $target      = options.target !== undefined ? $(options.target) : $thisTooltip.find('.tooltip');
 
             // prepare the target element
@@ -6957,14 +6975,14 @@ YOI.Tooltip = (function() {
                 // hide all other tooltips
 
                 hideAll();
-                hideWithDelay('stop');
+                hideWithDelay($target, 'stop');
                 showWithDelay($target, 'start');
 
             });
 
             $thisTooltip.on('mouseout', function() {
 
-                hideWithDelay('start');
+                hideWithDelay($target, 'start');
                 showWithDelay($target, 'stop');
 
             });
@@ -7101,7 +7119,12 @@ YOI.Tooltip = (function() {
         if (action === 'start') {
 
             YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
-                $thisTarget.fadeIn(200);
+                $thisTarget
+                    .fadeIn(200)
+                    .promise()
+                    .then(function() {
+                        $thisTarget.trigger('yoi-tooltip:show');
+                    });
             });
 
 
@@ -7113,7 +7136,7 @@ YOI.Tooltip = (function() {
 
     }
 
-    function hideWithDelay(action) {
+    function hideWithDelay($thisTarget, action) {
 
         /**
          *  Hide a tool tip with delay.
@@ -7124,9 +7147,9 @@ YOI.Tooltip = (function() {
         if (action === 'start') {
 
             YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
-                $('.tooltip').hide()
+                $('.tooltip').hide();
+                $thisTarget.trigger('yoi-tooltip:hide');
             });
-
 
         } else if (action === 'stop') {
 
@@ -7235,12 +7258,6 @@ YOI.Dismiss = (function() {
 /** hide.js */
 
 YOI.Hide = (function() {
-    
-    // private vars
-    // ============
-    
-    var $triggerCollection;
-    var options = undefined;
 
     // private functions
     // =================
@@ -7250,39 +7267,16 @@ YOI.Hide = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $element
+         *  @param {jQuery dom object} $trigger
          *  @param {object}            options
          */
+        
+        var $trigger = YOI.createCollection('hide', $trigger, options);
 
-        if (!($trigger instanceof jQuery)) {
-        
-            // if the init function is called without a valid matching jQuery element,
-            // gather the matching elements from the dom. if no elements are found,
-            // exit the script.
-        
-            $triggerCollection = $('[data-hide]');
-            if (!$triggerCollection.length) return false;
-        
-            // add data (eg. options) to each element in the collection
-        
-            $triggerCollection.each(function() {
-                YOI.attachData($(this));
-            });
-        
-        } else if ($trigger instanceof jQuery) {
-        
-            // if the init function is called with a valid matching jQuery element,
-            // add it to the element collection
-        
-            YOI.attachData($trigger, options);
-            $triggerCollection = $triggerCollection.add($trigger);
-        
-        }
-
-        $trigger.each(function(index){
+        if ($trigger) $trigger.each(function(index){
 
             var $thisTrigger = $(this);
-            var options      = $thisTrigger.data();
+            var options      = $thisTrigger.data().options;
             var transition   = options.transition;
             var $target      = $(options.target);
             var event        = options.event;
@@ -7300,39 +7294,6 @@ YOI.Hide = (function() {
         });
 
     }
-    
-    // function ($element, options) {
-    //
-    //     /**
-    //      *  Attaches options directly to each $element via jQuery's data() method.
-    //      *  Options are either retrieved via the options-parameter or (if undefined)
-    //      *  read from markup.
-    //      *
-    //      *  @param {jQuery dom object} $element
-    //      *  @param {object}            options
-    //      *
-    //      *  Available options:
-    //      *
-    //      *  @option {string} target     - A string which is used as selector for the target element
-    //      *                                (eg. '#myTarget' or '.myTarget', etc.)
-    //      *  @option {string} event      - A string which defines the event which gets bound to the
-    //      *                                trigger element. All standard event handlers from jQuery
-    //      *                                can be used.
-    //      *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
-    //      */
-    //
-    //     var options    = options === undefined ? YOI.toObject($element.data('hide')) : options;
-    //     var target     = options.target !== undefined ? options.target : false;
-    //     var event      = options.event !== undefined ? options.event : 'click';
-    //     var transition = options.transition !== undefined ? options.transition : false;
-    //
-    //     $element.data({
-    //         'target'     : target,
-    //         'event'      : event,
-    //         'transition' : transition
-    //     });
-    //
-    // }
     
     function hide($target, transition) {
         
@@ -7361,7 +7322,7 @@ YOI.Hide = (function() {
         
         // trigger custom event
         
-        $target.trigger('yoi-hidden');
+        $target.trigger('yoi-hide');
         
     }
 
@@ -7396,8 +7357,8 @@ YOI.MicroSubmit = (function() {
     function initializeMicroSubmit($microSubmit, options) {
 
         /**
-         *  Initialize all form[data-microsubmit] found in the document (= function call without parameters)
-         *  or target one or more specific form[data-microsubmit] (= function call with $microSubmit).
+         *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
+         *  or target one or more specific form[yoi-microsubmit] (= function call with $microSubmit).
          *  $microSubmit must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
@@ -7413,7 +7374,7 @@ YOI.MicroSubmit = (function() {
          */
 
         if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('form[data-microsubmit]');
+            $microSubmit = $('form[yoi-microsubmit]');
         }
 
         $microSubmit.each(function() {
@@ -7520,7 +7481,7 @@ YOI.Remove = (function() {
          */
         
         $target.fadeOut(function(){
-            $target.trigger('yoi-removed');
+            $target.trigger('yoi-remove');
             $target.remove();
         });
         
@@ -7548,17 +7509,12 @@ YOI.Reveal = (function() {
     // =================
 
     function initializeReveal($revealTrigger, options) {
-
+        
         /**
-         *  Initialize all *[data-reveal] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-reveal] (= function call with $revealTrigger).
-         *  $revealTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $revealTrigger - the reveal trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-reveal="target:#myTargetElement">
+         *  @param {jQuery dom object} $revealTrigger
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -7573,17 +7529,15 @@ YOI.Reveal = (function() {
          *
          *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
          */
+        
+        var $revealTrigger = YOI.createCollection('reveal', $revealTrigger, options);
 
-        if (!($revealTrigger instanceof jQuery)) {
-            $revealTrigger = $('[data-reveal]');
-        }
-
-        $revealTrigger.each(function(index){
+        if ($revealTrigger) $revealTrigger.each(function(index){
 
             // set up vars
 
             var $thisRevealTrigger = $(this);
-            var options            = options === undefined ? YOI.toObject($thisRevealTrigger.data('reveal')) : options;
+            var options            = $thisRevealTrigger.data().options;
             var target             = options.target !== undefined ? options.target : false;
             var event              = options.event !== undefined ? options.event : 'click';
             var transition         = options.transition !== undefined ? options.transition : false;
@@ -7609,6 +7563,10 @@ YOI.Reveal = (function() {
                     $(target).hide();
                 }
             });
+            
+            // trigger custom event
+            
+            $thisRevealTrigger.trigger('yoi-reveal');
 
         });
 
@@ -7668,7 +7626,7 @@ YOI.ScrollAgent = (function() {
         
         // update the viewport height on resize
 
-        $(window).on('resize', function() {
+        $window.on('resize', function() {
             viewPortHeight = $window.height();
         });
 
@@ -7942,45 +7900,40 @@ YOI.ScrollTo = (function() {
 
     // private vars
     // ============
+    
+    var $document = $(document);
 
     switch ($('body').data('environment')) {
-    case 'desktop':
-        var offset = 220;
-        break;
-    case 'mobile':
-        var offset = 80;
-        break;
-    default:
-        var offset = 20;
+        case 'desktop':
+            var offset = 220;
+            break;
+        case 'mobile':
+            var offset = 80;
+            break;
+        default:
+            var offset = 20;
     }
 
     // private functions
     // =================
 
-    function initializeScrollTo($scrollToTrigger) {
+    function initializeScrollTo($scrollToTrigger, options) {
 
         /**
-         *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
-         *  or target one or more specific a[data-scrollto] (= function call with $scrollToTrigger).
-         *  $scrollToTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-scrollto="hightlight:true;">
+         *  @param {jQuery dom object} $trigger
+         *  @param {object}            options
          *
          *  Available options:
          *
          *  @option {string} highlight - Define an optional effect to highlight the target element once
          *                               the scrolling has stopped. Chose from "blink" and "pulse".
          */
+        
+        var $scrollToTrigger = YOI.createCollection('scrollto', $scrollToTrigger, options);
 
-        if (!($scrollToTrigger instanceof jQuery)) {
-            $scrollToTrigger = $('[data-scrollto]');
-        }
-
-        $scrollToTrigger.each(function() {
+        if ($scrollToTrigger) $scrollToTrigger.each(function() {
 
             var $thisTrigger = $(this);
             var targetId     = $thisTrigger[0].hash;
@@ -8015,7 +7968,7 @@ YOI.ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = options === undefined ? YOI.toObject($thisTrigger.data('scrollto')) : options;
+        var options              = options === undefined ? $thisTrigger.data().options : options;
 
         // cancel if no target was found
 
@@ -8041,6 +7994,8 @@ YOI.ScrollTo = (function() {
 
         // start the scroll animation and apply optional highlight effect
 
+        $document.trigger('yoi-scrollto:start');
+
         $.when(
             $scrollContext.stop().animate({
                 scrollTop: scrollPosY
@@ -8048,6 +8003,7 @@ YOI.ScrollTo = (function() {
         ).done(function(){
             if (options.highlight === 'blink') YOI.blink($target);
             if (options.highlight === 'pulse') YOI.pulse($target);
+            $document.trigger('yoi-scrollto:end');
         });
 
     }
@@ -8078,18 +8034,13 @@ YOI.Sticky = (function() {
     // private functions
     // =================
 
-    function initializeSticky($stickyElement) {
+    function initializeSticky($stickyElement, options) {
 
         /**
-         *  Initialize all *[data-sticky] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
-         *  $stickyElement must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-sticky="start:20;stop:200;">
+         *  @param {jQuery dom object} $$stickyElement
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -8109,12 +8060,10 @@ YOI.Sticky = (function() {
          *                               The sticky element "sticks" as long as it's bottom aligns with
          *                               the reference element's bottom.
          */
+        
+        var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
-        if (!($stickyElement instanceof jQuery)) {
-            $stickyElement = $('[data-sticky]');
-        }
-
-        $stickyElement.each(function(index) {
+        if ($stickyElement) $stickyElement.each(function(index) {
 
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
@@ -8131,8 +8080,8 @@ YOI.Sticky = (function() {
 
         // start position & stick observers
 
-        positionObserver($stickyElement);
-        stickObserver($stickyElement);
+        if ($stickyElement) positionObserver($stickyElement);
+        if ($stickyElement) stickObserver($stickyElement);
 
     }
 
@@ -8189,7 +8138,7 @@ YOI.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
 
-        var options                       = YOI.toObject($stickyElement.data('sticky'));
+        var options                       = $stickyElement.data().options;
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
         var stickyElementheight           = $stickyElement.outerHeight();
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
@@ -8214,11 +8163,10 @@ YOI.Sticky = (function() {
             stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
             stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
-
-
-        // write data
-
-        $stickyElement.data({
+        
+        // write props data
+        
+        $stickyElement.data().props = {
             'passedValidation' : passedValidation,
             'height'           : stickyElementheight,
             'initialTopPos'    : stickyElementInitialTopPos,
@@ -8227,8 +8175,8 @@ YOI.Sticky = (function() {
             'topDistance'      : topDistance,
             'stickStart'       : stickStart,
             'stickStop'        : stickStop
-        });
-
+        };
+        
     }
 
     function validInput($stickyElement) {
@@ -8243,8 +8191,9 @@ YOI.Sticky = (function() {
          *  @return {bool}                             - true if data is valid, false if data is invalid
          */
 
-        var stickStart = $stickyElement.data().stickStart;
-        var stickStop  = $stickyElement.data().stickStop;
+        var props      = $stickyElement.data().props;
+        var stickStart = props.stickStart;
+        var stickStop  = props.stickStop;
 
         if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
             return false;
@@ -8310,13 +8259,14 @@ YOI.Sticky = (function() {
 
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
-                var stickyElementheight           = $stickyElement.data().height;
-                var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
-                var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
-                var stickStart                    = $stickyElement.data().stickStart;
-                var stickStop                     = $stickyElement.data().stickStop;
-                var topOffset                     = $stickyElement.data().topOffset;
-                var topDistance                   = $stickyElement.data().topDistance;
+                var props                         = $stickyElement.data().props;
+                var stickyElementheight           = props.height;
+                var stickyElementInitialTopPos    = props.initialTopPos;
+                var stickyElementInitialBottomPos = props.initialBottomPos;
+                var stickStart                    = props.stickStart;
+                var stickStop                     = props.stickStop;
+                var topOffset                     = props.topOffset;
+                var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
 
@@ -8393,15 +8343,10 @@ YOI.ToggleGroup = (function() {
     function initializeToggleGroup($toggleGroup, options) {
 
         /**
-         *  Initialize all *[data-toggle] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-toggle] (= function call with $toggleGroup).
-         *  $toggleGroup must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $toggleGroup - the toggle group(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-toggle="target:#myTargetElement;activeClassName:is--active;">
+         *  @param {jQuery dom object} $toggleGroup
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -8410,20 +8355,18 @@ YOI.ToggleGroup = (function() {
          *  @option {string} activeClassName - to highlight an "active" trigger, this
          *                                     CSS class name is added to the trigger
          */
+        
+        var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
 
-        if (!($toggleGroup instanceof jQuery)) {
-            $toggleGroup = $('[data-toggle]');
-        }
-
-        $toggleGroup.each(function(index) {
+        if ($toggleGroup) $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-            var options           = options === undefined ? YOI.toObject($thisTrigger.data('toggle')) : options;
+            var options           = $thisTrigger.data().options;
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
             var activeClassName   = options.activeClassName;
-            var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+            var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
             // group related toggle elements for easy dom-access
 
@@ -8498,12 +8441,12 @@ YOI.ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = YOI.toObject($thisTrigger.data('toggle'));
+        var options           = $thisTrigger.data().options;
         var target            = options.target;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 
-        var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
         // Hide all elements from the same toggle group and
         // show the target element.
@@ -8520,6 +8463,10 @@ YOI.ToggleGroup = (function() {
 
         if ($thisFallBackElem !== undefined)
             $thisFallBackElem.hide();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:change');
 
     }
 
@@ -8531,11 +8478,11 @@ YOI.ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = YOI.toObject($thisTrigger.data('toggle'));
+        var options           = $thisTrigger.data().options;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 
-        var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
         // Remove active class name from trigger.
 
@@ -8550,6 +8497,10 @@ YOI.ToggleGroup = (function() {
 
         if ($thisFallBackElem.length > 0)
             $thisFallBackElem.fadeIn();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:reset');
 
     }
 

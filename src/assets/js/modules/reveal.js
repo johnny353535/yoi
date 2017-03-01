@@ -6,17 +6,12 @@ YOI.Reveal = (function() {
     // =================
 
     function initializeReveal($revealTrigger, options) {
-
+        
         /**
-         *  Initialize all *[data-reveal] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-reveal] (= function call with $revealTrigger).
-         *  $revealTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $revealTrigger - the reveal trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-reveal="target:#myTargetElement">
+         *  @param {jQuery dom object} $revealTrigger
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -31,17 +26,15 @@ YOI.Reveal = (function() {
          *
          *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
          */
+        
+        var $revealTrigger = YOI.createCollection('reveal', $revealTrigger, options);
 
-        if (!($revealTrigger instanceof jQuery)) {
-            $revealTrigger = $('[data-reveal]');
-        }
-
-        $revealTrigger.each(function(index){
+        if ($revealTrigger) $revealTrigger.each(function(index){
 
             // set up vars
 
             var $thisRevealTrigger = $(this);
-            var options            = options === undefined ? YOI.toObject($thisRevealTrigger.data('reveal')) : options;
+            var options            = $thisRevealTrigger.data().options;
             var target             = options.target !== undefined ? options.target : false;
             var event              = options.event !== undefined ? options.event : 'click';
             var transition         = options.transition !== undefined ? options.transition : false;
@@ -67,6 +60,10 @@ YOI.Reveal = (function() {
                     $(target).hide();
                 }
             });
+            
+            // trigger custom event
+            
+            $thisRevealTrigger.trigger('yoi-reveal');
 
         });
 

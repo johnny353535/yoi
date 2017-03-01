@@ -14,15 +14,10 @@ YOI.Tooltip = (function() {
     function initializeTooltip($tooltip, options) {
 
         /**
-         *  Initialize all *[data-tooltip] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-tooltip] (= function call with $tooltip).
-         *  $tooltip must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $tooltip - the tooltip(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-tooltip="target:#myTargetElement;"></div>
+         *  @param {jQuery dom object} $tooltip
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -30,16 +25,14 @@ YOI.Tooltip = (function() {
          *                            element which gets turned into a tooltip
          */
 
-        if (!($tooltip instanceof jQuery)) {
-            $tooltip = $('[data-tooltip]');
-        }
+        var $tooltip = YOI.createCollection('tooltip', $tooltip, options);
 
-        $tooltip.each(function() {
+        if ($tooltip) $tooltip.each(function() {
 
             // set up vars
 
             var $thisTooltip = $(this);
-            var options      = options === undefined ? YOI.toObject($thisTooltip.data('tooltip')) : options;
+            var options      = $thisTooltip.data().options;
             var $target      = options.target !== undefined ? $(options.target) : $thisTooltip.find('.tooltip');
 
             // prepare the target element
@@ -57,14 +50,14 @@ YOI.Tooltip = (function() {
                 // hide all other tooltips
 
                 hideAll();
-                hideWithDelay('stop');
+                hideWithDelay($target, 'stop');
                 showWithDelay($target, 'start');
 
             });
 
             $thisTooltip.on('mouseout', function() {
 
-                hideWithDelay('start');
+                hideWithDelay($target, 'start');
                 showWithDelay($target, 'stop');
 
             });
@@ -201,7 +194,12 @@ YOI.Tooltip = (function() {
         if (action === 'start') {
 
             YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
-                $thisTarget.fadeIn(200);
+                $thisTarget
+                    .fadeIn(200)
+                    .promise()
+                    .then(function() {
+                        $thisTarget.trigger('yoi-tooltip:show');
+                    });
             });
 
 
@@ -213,7 +211,7 @@ YOI.Tooltip = (function() {
 
     }
 
-    function hideWithDelay(action) {
+    function hideWithDelay($thisTarget, action) {
 
         /**
          *  Hide a tool tip with delay.
@@ -224,9 +222,9 @@ YOI.Tooltip = (function() {
         if (action === 'start') {
 
             YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
-                $('.tooltip').hide()
+                $('.tooltip').hide();
+                $thisTarget.trigger('yoi-tooltip:hide');
             });
-
 
         } else if (action === 'stop') {
 

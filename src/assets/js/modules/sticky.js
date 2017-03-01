@@ -9,18 +9,13 @@ YOI.Sticky = (function() {
     // private functions
     // =================
 
-    function initializeSticky($stickyElement) {
+    function initializeSticky($stickyElement, options) {
 
         /**
-         *  Initialize all *[data-sticky] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-sticky] (= function call with $stickyElement).
-         *  $stickyElement must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-sticky="start:20;stop:200;">
+         *  @param {jQuery dom object} $$stickyElement
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -40,12 +35,10 @@ YOI.Sticky = (function() {
          *                               The sticky element "sticks" as long as it's bottom aligns with
          *                               the reference element's bottom.
          */
+        
+        var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
-        if (!($stickyElement instanceof jQuery)) {
-            $stickyElement = $('[data-sticky]');
-        }
-
-        $stickyElement.each(function(index) {
+        if ($stickyElement) $stickyElement.each(function(index) {
 
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
@@ -62,8 +55,8 @@ YOI.Sticky = (function() {
 
         // start position & stick observers
 
-        positionObserver($stickyElement);
-        stickObserver($stickyElement);
+        if ($stickyElement) positionObserver($stickyElement);
+        if ($stickyElement) stickObserver($stickyElement);
 
     }
 
@@ -120,7 +113,7 @@ YOI.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
 
-        var options                       = YOI.toObject($stickyElement.data('sticky'));
+        var options                       = $stickyElement.data().options;
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
         var stickyElementheight           = $stickyElement.outerHeight();
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
@@ -145,11 +138,10 @@ YOI.Sticky = (function() {
             stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
             stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
-
-
-        // write data
-
-        $stickyElement.data({
+        
+        // write props data
+        
+        $stickyElement.data().props = {
             'passedValidation' : passedValidation,
             'height'           : stickyElementheight,
             'initialTopPos'    : stickyElementInitialTopPos,
@@ -158,8 +150,8 @@ YOI.Sticky = (function() {
             'topDistance'      : topDistance,
             'stickStart'       : stickStart,
             'stickStop'        : stickStop
-        });
-
+        };
+        
     }
 
     function validInput($stickyElement) {
@@ -174,8 +166,9 @@ YOI.Sticky = (function() {
          *  @return {bool}                             - true if data is valid, false if data is invalid
          */
 
-        var stickStart = $stickyElement.data().stickStart;
-        var stickStop  = $stickyElement.data().stickStop;
+        var props      = $stickyElement.data().props;
+        var stickStart = props.stickStart;
+        var stickStop  = props.stickStop;
 
         if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
             return false;
@@ -241,13 +234,14 @@ YOI.Sticky = (function() {
 
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
-                var stickyElementheight           = $stickyElement.data().height;
-                var stickyElementInitialTopPos    = $stickyElement.data().initialTopPos;
-                var stickyElementInitialBottomPos = $stickyElement.data().initialBottomPos;
-                var stickStart                    = $stickyElement.data().stickStart;
-                var stickStop                     = $stickyElement.data().stickStop;
-                var topOffset                     = $stickyElement.data().topOffset;
-                var topDistance                   = $stickyElement.data().topDistance;
+                var props                         = $stickyElement.data().props;
+                var stickyElementheight           = props.height;
+                var stickyElementInitialTopPos    = props.initialTopPos;
+                var stickyElementInitialBottomPos = props.initialBottomPos;
+                var stickStart                    = props.stickStart;
+                var stickStop                     = props.stickStop;
+                var topOffset                     = props.topOffset;
+                var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
 

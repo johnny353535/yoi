@@ -74,7 +74,7 @@ YOI.ImgMagnifier = (function(){
          */
 
         if (!($imgMagnifier instanceof jQuery)) {
-            $imgMagnifier = $('[data-imgmagnifier]');
+            $imgMagnifier = $('[yoi-imgmagnifier]');
         }
 
         $imgMagnifier.each(function() {

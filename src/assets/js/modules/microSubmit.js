@@ -15,8 +15,8 @@ YOI.MicroSubmit = (function() {
     function initializeMicroSubmit($microSubmit, options) {
 
         /**
-         *  Initialize all form[data-microsubmit] found in the document (= function call without parameters)
-         *  or target one or more specific form[data-microsubmit] (= function call with $microSubmit).
+         *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
+         *  or target one or more specific form[yoi-microsubmit] (= function call with $microSubmit).
          *  $microSubmit must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
@@ -32,7 +32,7 @@ YOI.MicroSubmit = (function() {
          */
 
         if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('form[data-microsubmit]');
+            $microSubmit = $('form[yoi-microsubmit]');
         }
 
         $microSubmit.each(function() {

@@ -42,7 +42,7 @@ YOI.Remove = (function() {
          */
         
         $target.fadeOut(function(){
-            $target.trigger('yoi-removed');
+            $target.trigger('yoi-remove');
             $target.remove();
         });
         

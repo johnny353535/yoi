@@ -32,7 +32,19 @@ YOI.Console = (function() {
         'yoi-stepper:down',
         'yoi-stepper:error',
         'yoi-switch:on',
-        'yoi-switch:off'
+        'yoi-switch:off',
+        'yoi-table:select',
+        'yoi-table:remove',
+        'yoi-table:empty',
+        'yoi-tooltip:show',
+        'yoi-tooltip:hide',
+        'yoi-remove',
+        'yoi-hide',
+        'yoi-reveal',
+        'yoi-scrollto:start',
+        'yoi-scrollto:end',
+        'yoi-togglegroup:change',
+        'yoi-togglegroup:reset'
     ];
 
     // private functions

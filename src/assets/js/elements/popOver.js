@@ -300,7 +300,7 @@ YOI.PopOver = (function() {
          */
 
         if (!($popOverTrigger instanceof jQuery)) {
-            $popOverTrigger = $('[data-popover]');
+            $popOverTrigger = $('[yoi-popover]');
         }
 
         $popOverTrigger.each(function() {

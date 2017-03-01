@@ -4,45 +4,40 @@ YOI.ScrollTo = (function() {
 
     // private vars
     // ============
+    
+    var $document = $(document);
 
     switch ($('body').data('environment')) {
-    case 'desktop':
-        var offset = 220;
-        break;
-    case 'mobile':
-        var offset = 80;
-        break;
-    default:
-        var offset = 20;
+        case 'desktop':
+            var offset = 220;
+            break;
+        case 'mobile':
+            var offset = 80;
+            break;
+        default:
+            var offset = 20;
     }
 
     // private functions
     // =================
 
-    function initializeScrollTo($scrollToTrigger) {
+    function initializeScrollTo($scrollToTrigger, options) {
 
         /**
-         *  Initialize all a[data-scrollto] found in the document (= function call without parameters)
-         *  or target one or more specific a[data-scrollto] (= function call with $scrollToTrigger).
-         *  $scrollToTrigger must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $scrollToTrigger - the scrollTo trigger(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-scrollto="hightlight:true;">
+         *  @param {jQuery dom object} $trigger
+         *  @param {object}            options
          *
          *  Available options:
          *
          *  @option {string} highlight - Define an optional effect to highlight the target element once
          *                               the scrolling has stopped. Chose from "blink" and "pulse".
          */
+        
+        var $scrollToTrigger = YOI.createCollection('scrollto', $scrollToTrigger, options);
 
-        if (!($scrollToTrigger instanceof jQuery)) {
-            $scrollToTrigger = $('[data-scrollto]');
-        }
-
-        $scrollToTrigger.each(function() {
+        if ($scrollToTrigger) $scrollToTrigger.each(function() {
 
             var $thisTrigger = $(this);
             var targetId     = $thisTrigger[0].hash;
@@ -77,7 +72,7 @@ YOI.ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = options === undefined ? YOI.toObject($thisTrigger.data('scrollto')) : options;
+        var options              = options === undefined ? $thisTrigger.data().options : options;
 
         // cancel if no target was found
 
@@ -103,6 +98,8 @@ YOI.ScrollTo = (function() {
 
         // start the scroll animation and apply optional highlight effect
 
+        $document.trigger('yoi-scrollto:start');
+
         $.when(
             $scrollContext.stop().animate({
                 scrollTop: scrollPosY
@@ -110,6 +107,7 @@ YOI.ScrollTo = (function() {
         ).done(function(){
             if (options.highlight === 'blink') YOI.blink($target);
             if (options.highlight === 'pulse') YOI.pulse($target);
+            $document.trigger('yoi-scrollto:end');
         });
 
     }

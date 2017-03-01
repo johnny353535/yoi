@@ -8,30 +8,23 @@ YOI.Table = (function() {
     function initializeTable($table, options) {
 
         /**
-         *  Initialize all table[data-table] found in the document (= function call without parameters)
-         *  or target one or more specific table[data-table] (= function call with $table).
-         *  $table must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param  {jQuery dom object} $table - the table(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <table data-table="removeable:true;">
+         *  @param {jQuery dom object} $table
+         *  @param {object}            options
          *
          *  Available options:
          *
          *  @option {boolean} removeable - removeable table rows
          *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
-
-        if (!($table instanceof jQuery)) {
-            $table = $('[data-table]');
-        }
-
-        $table.each(function(){
+        
+        var $table = YOI.createCollection('table', $table, options);
+        
+        if ($table) $table.each(function() {
 
             var $thisTable = $(this);
-            var options    = options === undefined ? YOI.toObject($thisTable.data('table')) : options;
+            var options    = $thisTable.data().options;
 
             if (options.selectable || options.selectable === 'multi') {
 
@@ -45,7 +38,7 @@ YOI.Table = (function() {
                 // attach events
 
                 $thisTable.find('td').on('click', function(e) {
-
+                    
                     e.preventDefault();
 
                     var $thisTr = $(this).closest('tr');
@@ -96,7 +89,7 @@ YOI.Table = (function() {
         var $thisTable = $thisTr.closest('table');
         var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
-        var options    = YOI.toObject($thisTable.data('table'));
+        var options    = $thisTable.data().options;
 
         // select rows, either multiple or single
 
@@ -106,6 +99,10 @@ YOI.Table = (function() {
             $thisAllTr.removeClass('tr--active');
             $thisTr.addClass('tr--active');
         }
+        
+        // trigger custom event
+        
+        $thisTable.trigger('yoi-table:select');
 
     }
 
@@ -118,7 +115,6 @@ YOI.Table = (function() {
          */
 
         var $thisTable   = $thisTr.closest('table');
-        var thisData     = $thisTr.data();
         var totalTds     = $thisTable.find('td').length;
         var tableIsEmpty = (totalTds - $thisTr.find('td').length) === 0 ? true : false;
 
@@ -129,9 +125,13 @@ YOI.Table = (function() {
             // custom event other scripts can subscribe to:
             // the last row got removed, table is empty
 
-            if (tableIsEmpty) $thisTable.trigger('yoi-tables:empty');
+            if (tableIsEmpty) $thisTable.trigger('yoi-table:empty');
 
         });
+        
+        // trigger custom event
+        
+        $thisTable.trigger('yoi-table:remove');
 
     }
 

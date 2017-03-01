@@ -39,7 +39,7 @@ YOI.ScrollAgent = (function() {
         
         // update the viewport height on resize
 
-        $(window).on('resize', function() {
+        $window.on('resize', function() {
             viewPortHeight = $window.height();
         });
 

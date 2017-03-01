@@ -14,15 +14,10 @@ YOI.ToggleGroup = (function() {
     function initializeToggleGroup($toggleGroup, options) {
 
         /**
-         *  Initialize all *[data-toggle] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-toggle] (= function call with $toggleGroup).
-         *  $toggleGroup must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $toggleGroup - the toggle group(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <button data-toggle="target:#myTargetElement;activeClassName:is--active;">
+         *  @param {jQuery dom object} $toggleGroup
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -31,20 +26,18 @@ YOI.ToggleGroup = (function() {
          *  @option {string} activeClassName - to highlight an "active" trigger, this
          *                                     CSS class name is added to the trigger
          */
+        
+        var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
 
-        if (!($toggleGroup instanceof jQuery)) {
-            $toggleGroup = $('[data-toggle]');
-        }
-
-        $toggleGroup.each(function(index) {
+        if ($toggleGroup) $toggleGroup.each(function(index) {
 
             var $thisTrigger      = $(this);
-            var options           = options === undefined ? YOI.toObject($thisTrigger.data('toggle')) : options;
+            var options           = $thisTrigger.data().options;
             var target            = options.target;
             var group             = options.group;
             var event             = options.event !== undefined ? options.event : 'mouseover';
             var activeClassName   = options.activeClassName;
-            var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+            var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
             // group related toggle elements for easy dom-access
 
@@ -119,12 +112,12 @@ YOI.ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = YOI.toObject($thisTrigger.data('toggle'));
+        var options           = $thisTrigger.data().options;
         var target            = options.target;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 
-        var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
         // Hide all elements from the same toggle group and
         // show the target element.
@@ -141,6 +134,10 @@ YOI.ToggleGroup = (function() {
 
         if ($thisFallBackElem !== undefined)
             $thisFallBackElem.hide();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:change');
 
     }
 
@@ -152,11 +149,11 @@ YOI.ToggleGroup = (function() {
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
 
-        var options           = YOI.toObject($thisTrigger.data('toggle'));
+        var options           = $thisTrigger.data().options;
         var group             = options.group;
         var activeClassName   = options.activeClassName;
 
-        var $thisFallBackElem = $('[data-toggle-fallback="' + group + '"]');
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
 
         // Remove active class name from trigger.
 
@@ -171,6 +168,10 @@ YOI.ToggleGroup = (function() {
 
         if ($thisFallBackElem.length > 0)
             $thisFallBackElem.fadeIn();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:reset');
 
     }
 

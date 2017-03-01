@@ -28,15 +28,15 @@ YOI.Filters = (function() {
     function initializeFilters($filters) {
 
         /**
-         *  Initialize all *[data-filters] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-filters] (= function call with $dock).
+         *  Initialize all *[yoi-filters] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-filters] (= function call with $dock).
          *  $filters must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $filters - the filter group(s)
          */
 
         if (!($filters instanceof jQuery) || $filters === undefined) {
-            $filters = $('[data-filters]');
+            $filters = $('[yoi-filters]');
         }
 
         $filters.each(function() {

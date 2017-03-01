@@ -19782,7 +19782,7 @@ textarea.input--large {
 .input--success::-moz-input-placeholder {
   color: #3a6a50;
 }
-[data-environment="desktop"] ::-webkit-calendar-picker-indicator {
+[yoi-environment="desktop"] ::-webkit-calendar-picker-indicator {
   display: none;
 }
 input[type="date"].input--error,
@@ -20646,7 +20646,7 @@ a:visited:hover {
 .notes .note:only-child {
   border-radius: 2px;
 }
-.note[data-option="dismissable"] {
+.note[yoi-dismissable] {
   padding-right: 4rem;
 }
 /*
@@ -20966,7 +20966,7 @@ a.pickBtn {
 .js .pieChart__record {
   cursor: pointer;
 }
-[data-piechart*="highlight:false;"] .pieChart__record {
+[yoi-piechart*="highlight:false;"] .pieChart__record {
   cursor: default;
 }
 .pieChart__dot {
@@ -21838,10 +21838,10 @@ a.slider__slide {
 .slider__slide img {
   display: block;
 }
-[data-slider*="clickable"] .slider__slide {
+[yoi-slider*="clickable"] .slider__slide {
   cursor: pointer;
 }
-[data-slider*="animate"] .slider__slide {
+[yoi-slider*="animate"] .slider__slide {
   background: inherit;
   left: 0;
   position: absolute;
@@ -22604,22 +22604,22 @@ tr:last-child td:last-child {
 .table--stripped.table--compressed tr th:only-child {
   padding-bottom: 0;
 }
-.js table[data-table*="selectable"] tr:hover td {
+.js table[yoi-table*="selectable"] tr:hover td {
   background: #faf9f7;
   color: #535251;
   cursor: pointer;
 }
-.js table[data-table*="selectable"] tr:hover td::before {
+.js table[yoi-table*="selectable"] tr:hover td::before {
   color: #ecebea;
 }
-.js table[data-table*="selectable"] .table__checkbox {
+.js table[yoi-table*="selectable"] .table__checkbox {
   padding: 0;
   text-align: center;
   vertical-align: middle;
   width: 3rem;
   position: relative;
 }
-.js table[data-table*="selectable"] .table__checkbox::before {
+.js table[yoi-table*="selectable"] .table__checkbox::before {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-063-s&f=%23ecebea&s=%23000&w=32px&h=32px) center center no-repeat;
   content: ' ';
   height: 3.2rem;
@@ -22628,22 +22628,22 @@ tr:last-child td:last-child {
   top: -0.1rem;
   width: 3.2rem;
 }
-.js table[data-table*="selectable"] .tr--active td {
+.js table[yoi-table*="selectable"] .tr--active td {
   background: #fffbd0;
   border-color: #e4dea0;
   color: #746e30;
 }
-.js table[data-table*="selectable"] .tr--active + tr td {
+.js table[yoi-table*="selectable"] .tr--active + tr td {
   border-top-color: #e4dea0;
 }
-.js table[data-table*="selectable"] .tr--active:hover td {
+.js table[yoi-table*="selectable"] .tr--active:hover td {
   background: #f8f2b4;
   color: #746e30;
 }
-.js table[data-table*="selectable"] .tr--active .table__checkbox::before {
+.js table[yoi-table*="selectable"] .tr--active .table__checkbox::before {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=%23746e30&s=%23000&w=32px&h=32px) center center no-repeat;
 }
-.js table[data-table*="removeable"] .table__removeBtn {
+.js table[yoi-table*="removeable"] .table__removeBtn {
   padding: 0;
   text-align: center;
   vertical-align: middle;
@@ -22651,7 +22651,7 @@ tr:last-child td:last-child {
   position: relative;
   cursor: pointer;
 }
-.js table[data-table*="removeable"] .table__removeBtn::before {
+.js table[yoi-table*="removeable"] .table__removeBtn::before {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=%23cdcccb&s=%23000&w=32px&h=32px) center center no-repeat;
   content: ' ';
   height: 3.2rem;
@@ -22660,7 +22660,7 @@ tr:last-child td:last-child {
   top: -0.1rem;
   left: -0.1rem;
 }
-.js table[data-table*="removeable"] .table__removeBtn:hover::before {
+.js table[yoi-table*="removeable"] .table__removeBtn:hover::before {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=%23ff6830&s=%23000&w=32px&h=32px) center center no-repeat;
 }
 .js table.table--compressed .table__checkbox,

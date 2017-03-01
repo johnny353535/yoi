@@ -24,8 +24,8 @@ YOI.PieChart = (function() {
     function initializePieChart($pieChart, options) {
 
         /**
-         *  Initialize all *[data-piechart] found in the document (= function call without parameters)
-         *  or target one or more specific *[data-piechart] (= function call with $piechart).
+         *  Initialize all *[yoi-piechart] found in the document (= function call without parameters)
+         *  or target one or more specific *[yoi-piechart] (= function call with $piechart).
          *  $piechart must be a jQuery object or jQuery object collection.
          *
          *  @param {jQuery dom object} $pieChart - the pie chart(s)
@@ -51,7 +51,7 @@ YOI.PieChart = (function() {
          */
 
         if (!($pieChart instanceof jQuery)) {
-            $pieChart = $('[data-piechart]');
+            $pieChart = $('[yoi-piechart]');
         }
 
         $pieChart.each(function() {
