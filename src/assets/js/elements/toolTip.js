@@ -11,7 +11,7 @@ YOI.Tooltip = (function() {
     // private functions
     // =================
 
-    function initializeTooltip($tooltip, options) {
+    function initialize($tooltip, options) {
 
         /**
          *  Initialize the script.
@@ -237,13 +237,13 @@ YOI.Tooltip = (function() {
     // initialize
     // ==========
 
-    initializeTooltip();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init    : initializeTooltip,
+        init    : initialize,
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll

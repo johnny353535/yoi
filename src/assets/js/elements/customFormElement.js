@@ -18,7 +18,7 @@ YOI.CustomFormElements = (function() {
     // private functions
     // =================
 
-    function initializeCustomFormElements(scope) {
+    function initialize(scope) {
 
         /**
          *  Set css-selector to either target all custom form elements
@@ -142,13 +142,13 @@ YOI.CustomFormElements = (function() {
     // initialize
     // ==========
 
-    initializeCustomFormElements();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeCustomFormElements
+        init : initialize
     }
 
 })();

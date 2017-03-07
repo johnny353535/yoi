@@ -5,7 +5,6 @@ YOI.Slider = (function() {
     // private vars
     // ============
 
-    var slideAutoplayIntervals = {};
     var $window      = $(window);
     var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
     var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
@@ -92,7 +91,7 @@ YOI.Slider = (function() {
     // private functions
     // =================
 
-    function initializeSlider($slider, options) {
+    function initialize($slider, options) {
 
         /**
          *  Initialize the script.
@@ -125,6 +124,7 @@ YOI.Slider = (function() {
             // attach data to slider instance
             
             $thisSlider.data().props = {
+                index       : sliderIndex,
                 slideIndex  : 0,
                 totalSlides : $thisSlides.length
             };
@@ -138,11 +138,9 @@ YOI.Slider = (function() {
             // prepare slides and adjust container to fixed height for animations
 
             if (options.transition !== undefined) {
-
                 $window.on('load', function(){
                     adjustHeight($thisSlider);
                 });
-
             }
 
             // hide all slides but the first one
@@ -162,13 +160,13 @@ YOI.Slider = (function() {
 
                 $thisSlider.find('[class*="btnNext"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
 
                 $thisSlider.find('[class*="btnPrev"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -192,9 +190,9 @@ YOI.Slider = (function() {
                     paginationLinks.first().addClass('pageDots--active');
 
                     paginationLinks.on('click', function(e) {
-
+                        
                         e.preventDefault();
-                        stopAutoplay(sliderIndex);
+                        stopAutoplay($thisSlider);
 
                         if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
                             var linkIndex = $thisSlider.index() -1;
@@ -213,39 +211,32 @@ YOI.Slider = (function() {
             // attach events if "clickable"
 
             if (options.clickable) {
-
                 $thisSlides.not('a').on('tap', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
-
             }
 
             // attach events if "swipeable"
 
             if (options.swipeable) {
-
                 $thisSlider.on('swipeleft', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
-
                 $thisSlider.on('swiperight',function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'prev');
                 });
-
             }
 
             // enable auto play
 
             if (options.autoplay !== undefined) {
-                slideAutoplayIntervals[sliderIndex] = window.setInterval(function(){
-                    showSlide($thisSlider)
-                }, options.autoplay);
+                startAutoplay($thisSlider);
             }
 
         });
@@ -311,6 +302,10 @@ YOI.Slider = (function() {
         // update slider data object
 
         $thisSlider.data().props.slideIndex = slideIndex;
+        
+        // trigger custom event
+        
+        $thisSlider.trigger('yoi-slider:change');
 
     }
 
@@ -386,16 +381,45 @@ YOI.Slider = (function() {
         }
 
     }
+    
+    function startAutoplay($slider) {
+        
+        /**
+         *  Start auto play.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        var options      = $slider.data().options;
+        var sliderIndex  = $slider.data().props.index;
+        var intervalName = 'slideAutoplay-' + sliderIndex;
+        
+        YOI.setInterval(intervalName, options.autoplay, function() {
+            showSlide($slider)
+        });
 
-    function stopAutoplay(sliderIndex) {
+        // trigger custom event
+
+        $slider.trigger('yoi-slider:autoplaystart');
+        
+    }
+    
+    function stopAutoplay($slider) {
 
         /**
-         *  Stop the auto play.
+         *  Stop auto play.
          *
-         *  @param {string} sliderIndex - the internal slider instance index number
+         *  @param {jQuery dom object} $slider
          */
+        
+        var sliderIndex  = $slider.data().props.index;
+        var intervalName = 'slideAutoplay-' + sliderIndex;
+        
+        YOI.clearInterval('intervalName');
 
-        window.clearInterval(slideAutoplayIntervals[sliderIndex]);
+        // trigger custom event
+
+        $slider.trigger('yoi-slider:autoplaystop');
 
     }
 
@@ -445,14 +469,16 @@ YOI.Slider = (function() {
     // initialize
     // ==========
 
-    initializeSlider();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeSlider,
-        show : showSlide
+        init  : initialize,
+        show  : showSlide,
+        start : startAutoplay,
+        stop  : stopAutoplay
     };
 
 })();

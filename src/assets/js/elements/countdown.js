@@ -42,7 +42,7 @@ YOI.Countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown($countdown, options) {
+    function initialize($countdown, options) {
 
         /**
          *  Initialize the script.
@@ -55,66 +55,143 @@ YOI.Countdown = (function() {
 
         if ($countdown) $countdown.each(function(index) {
             
-            var $thisCountdown = $(this);
-            var options        = $thisCountdown.data().options;
+            var $thisCountdown  = $(this);
+            var options         = $thisCountdown.data().options;
+            var defaultTimezone = "GMT+0002";
+            var defaultYear     = new Date().getFullYear();
+            var defaultMonth    = 1;
+            var defaultDay      = 1;
+            var defaultHour     = 12;
+            var defaultMinute   = 0;
+            var defaultSecond   = 0;
+            var timezone        = options.timezone === undefined ? defaultTimezone : options.timezone;
+            var year            = options.year === undefined ? defaultYear : parseInt(options.year);
+            var month           = options.month === undefined || parseInt(options.month) > 12 || parseInt(options.month) < 1 ? defaultMonth : parseInt(options.month);
+            var day             = options.day === undefined || parseInt(options.day) > 31 || parseInt(options.day) < 1 ? defaultDay : parseInt(options.day);
+            var hour            = options.hour === undefined || parseInt(options.hour) > 12 || parseInt(options.hour) < 1 ? defaultHour : parseInt(options.hour);
+            var minute          = options.minute === undefined || parseInt(options.minute) > 60 || parseInt(options.minute) < 1 ? defaultMinute : parseInt(options.minute);
+            var second          = options.second === undefined || parseInt(options.second) > 60 || parseInt(options.second) < 1 ? defaultSecond : parseInt(options.second);
+            
+            // write props
+        
+            $thisCountdown.data().props = {
+                'endTime' : getDateString(month, day, year, hour, minute, second, timezone),
+                'index'   : index
+            };
             
             // render the countdown
-
-            renderCountdown($thisCountdown, options.endTime, index);
+            
+            render($thisCountdown);
 
             // update the clock every second
 
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
-                renderCountdown($thisCountdown, options.endTime, index)
+                update($thisCountdown);
             });
 
         });
 
     }
-
-    function renderCountdown($thisCountdown, endTime, index) {
-
+    
+    function render($thisCountdown) {
+        
         /**
-         *  Render the lcd-style countdown, also include a label for screen readers.
+         *  Create and append the countdown markup.
          *
-         *  @param {jQuery dom object} $thisCountdown - the countdown
-         *  @param {string}            endTime        - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
-         *  @param {number}            index          - index number of the count down
+         *  @param {jQuery dom object} $countdown
          */
+        
+        var endTime             = $thisCountdown.data().props.endTime;
+        var timeRemaining       = getTimeRemaining(endTime);
+        var lcdCharacters       = getLcdCharactersCSSClassNames(timeRemaining);
+        var $hiddenLabel        = $thisCountdown.find('.countdown__hiddenLabel');
+        var $thisCountdownClock = $countdownClock.clone();
 
-        // read end time and get remaining time
+        // add the lcd characters and labels
 
+        for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
+
+            var unit            = Object.keys(lcdCharacters)[i];
+            var $countdownChars = $('<div></div>').addClass('countdown__' + unit);
+            var $countdownLabel = getCharacterLabel(unit);
+
+            if (timeRemaining.total > 0) {
+                $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][0]));
+                $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][1]));
+            } else {
+                $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
+                $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
+            }
+
+            $countdownChars.append($countdownLabel);
+            $thisCountdownClock.append($countdownChars);
+
+        }
+
+        // add the countdown clock
+
+        $thisCountdown.append($thisCountdownClock);
+        
+        // accessibility: create an additional, visually hidden
+        // label for screen readers
+        
+        if ($hiddenLabel.length === 0) {
+            $thisCountdown.append($('<p class="countdown__hiddenLabel"></p>'));
+        }
+        
+    }
+    
+    function update($thisCountdown) {
+        
+        /**
+         *  Update the countdown display.
+         *
+         *  @param {jQuery dom object} $countdown
+         */
+        
+        var endTime       = $thisCountdown.data().props.endTime;
+        var index         = $thisCountdown.data().props.index;
         var timeRemaining = getTimeRemaining(endTime);
-
+        var language      = YOI.locale();
+        var $hiddenLabel  = $thisCountdown.find('.countdown__hiddenLabel');
+        
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
             $thisCountdown.trigger('yoi-countdown:expire');
         }
+        
+        // get lcd character map
 
-        // set the lcd characters
+        var lcdCharacters = getLcdCharactersCSSClassNames(timeRemaining);
+        
+        // update the LCD characters
+        
+        for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
 
-        setLcdCharacters($thisCountdown, timeRemaining);
+            var unit     = Object.keys(lcdCharacters)[i];
+            var selector = '.countdown__' + unit + ' .countdown__character';
 
-        // accessibility: create an additional, visually hidden
-        // label for screen readers
+            if (timeRemaining.total > 0) {
+                $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character ' + lcdCharacters[unit][0]);
+                $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character ' + lcdCharacters[unit][1]);
+            } else {
+                $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character countdown--empty');
+                $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character countdown--empty');
+            }
 
-        var language = YOI.locale();
+        }
+        
+        // update hidden label
 
         var labelTxt = {
             'en' : timeRemaining.days + ' days, ' + timeRemaining.hours + ' hours, ' + timeRemaining.minutes + ' minutes and ' + timeRemaining.seconds + ' seconds left.',
             'de' : 'Noch ' + timeRemaining.days + ' Tage, ' + timeRemaining.hours + ' Stunden, ' + timeRemaining.minutes + ' Minuten und ' + timeRemaining.seconds + ' Sekunden.'
         };
 
-        var $hiddenLabel = $thisCountdown.find('.hidden');
-
-        if ($hiddenLabel.length === 0) {
-            $thisCountdown.append($('<p class="hidden"></p>'));
-        }
-
         $hiddenLabel.text(labelTxt[language]);
-
+        
     }
 
     function getTime() {
@@ -133,6 +210,36 @@ YOI.Countdown = (function() {
         currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
 
         return currentTime;
+
+    }
+    
+    function getDateString(month, day, year, hour, minute, second, timezone) {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ];
+        
+        var endTimeIsoString = months[month - 1] + ' ' + day + ' ' + year + ' ' + hour + ':' + minute + ':' + second + ' ' + timezone;
+        
+        return endTimeIsoString;
 
     }
 
@@ -164,23 +271,17 @@ YOI.Countdown = (function() {
         };
 
     }
-
-    function setLcdCharacters($thisCountdown, timeRemaining) {
-
+    
+    function getLcdCharactersCSSClassNames(timeRemaining) {
+        
         /**
-         *  Set or update the lcd-style characters of the countdown clock.
+         *  Returns an object with css the cass names for each LCD character.
          *
-         *  @param {jQuery dom object} $thisCountdown - the countdown
-         *  @param {object} timeRemaining             - the formatted remaining time
+         *  @param  {object} timeRemaining - the remaining time (y/m/d/h/m/s)
+         *  @return {object} lcdCharacters - a "lookup-table" with css class names
          */
-
-        // check if clock already exists
-
-        var foundClock = $thisCountdown.find('.countdown__clock').length === 0 ? false : true;
-
-        // generate the lcd character map
-
-        var lcdCharacters = {
+        
+        return lcdCharacters = {
             'days' : [
                 'countdown--' + timeRemaining.days.charAt(0),
                 'countdown--' + timeRemaining.days.charAt(1)
@@ -198,67 +299,13 @@ YOI.Countdown = (function() {
                 'countdown--' + timeRemaining.seconds.charAt(1)
             ]
         };
+        
+    }
 
-        // add the characters
-
-        if (foundClock) {
-
-            // update the css class names inside the existing clock
-
-            for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
-
-                var unit     = Object.keys(lcdCharacters)[i];
-                var selector = '.countdown__' + unit + ' .countdown__character';
-
-                if (timeRemaining.total > 0) {
-                    $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character ' + lcdCharacters[unit][0]);
-                    $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character ' + lcdCharacters[unit][1]);
-                } else {
-                    $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character countdown--empty');
-                    $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character countdown--empty');
-                }
-
-            }
-
-        } else {
-
-            // reference the countdown clock
-
-            var $thisCountdownClock = $countdownClock.clone();
-
-            // add the lcd characters
-
-            for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
-
-                var unit            = Object.keys(lcdCharacters)[i];
-                var $countdownChars = $('<div></div>').addClass('countdown__' + unit);
-                var $countdownLabel = createCountdownCharacterLabel(unit);
-
-                if (timeRemaining.total > 0) {
-                    $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][0]));
-                    $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][1]));
-                } else {
-                    $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
-                    $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
-                }
-
-                $countdownChars.append($countdownLabel);
-                $thisCountdownClock.append($countdownChars);
-
-            }
-
-            // add the countdown clock
-
-            $thisCountdown.append($thisCountdownClock);
-
-        }
-
-    };
-
-    function createCountdownCharacterLabel(unit) {
+    function getCharacterLabel(unit) {
 
         /**
-         *  Return a clock label (eg. "hours") as jQuery dom element.
+         *  Returns a clock label (eg. "hours") as jQuery dom element.
          *
          *  @param  {string} unit              - "days" | "hours" | "minutes" | "seconds"
          *  @return {jQuery dom object} $label - the label
@@ -276,13 +323,13 @@ YOI.Countdown = (function() {
     // initialize
     // ==========
 
-    initializeCountdown();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeCountdown
+        init : initialize
     }
 
 })();

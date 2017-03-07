@@ -49,7 +49,7 @@ YOI.Documentation = (function() {
         // hightlight code inside code-tags found in markup
 
         $('[class^="language-"]').each(function() {
-            if (YOI.foundModule('Prism'))
+            if (typeof Prism === 'object')
                 Prism.highlightElement($(this).find('pre')[0]);
         });
 
@@ -227,7 +227,7 @@ YOI.Documentation = (function() {
         })
         .done(function(responseData) {
 
-            if (YOI.foundModule('Prism')) {
+            if (typeof Prism === 'object') {
 
                 // highlight with prism.js if available
 

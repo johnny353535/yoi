@@ -5,7 +5,7 @@ YOI.Reveal = (function() {
     // private functions
     // =================
 
-    function initializeReveal($revealTrigger, options) {
+    function initialize($revealTrigger, options) {
         
         /**
          *  Initialize the script.
@@ -72,13 +72,13 @@ YOI.Reveal = (function() {
     // initialize
     // ==========
 
-    initializeReveal();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeReveal
+        init: initialize
     }
 
 })();

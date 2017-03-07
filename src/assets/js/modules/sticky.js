@@ -9,7 +9,7 @@ YOI.Sticky = (function() {
     // private functions
     // =================
 
-    function initializeSticky($stickyElement, options) {
+    function initialize($stickyElement, options) {
 
         /**
          *  Initialize the script.
@@ -39,13 +39,17 @@ YOI.Sticky = (function() {
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
         if ($stickyElement) $stickyElement.each(function(index) {
+            
 
             var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
-
+            var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
+            
+            console.log('init: ' + $thisStickyElement.offset().top);
+            
+            
             // update each sticky element's data
 
-            updateStickyElementData($thisStickyElement);
+            updateStickyElementProps($thisStickyElement);
 
             // do the necessary dom manipulation
 
@@ -72,17 +76,19 @@ YOI.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement      - the sticky element
          *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
          */
-
+        
         // prepare the cloned element
+        
+        console.log('manipulateDom: ' + $stickyElement.offset().top);
 
         $stickyElementClone.css({
-            'position' : 'absolute',
-            'width'    : $stickyElement.outerWidth(),
-            'height'   : $stickyElement.outerHeight(),
-            'top'      : $stickyElement.offset().top,
-            'left'     : $stickyElement.offset().left,
-            'backface-visibility'         : 'hidden', // boost performance trough
-            '-webkit-backface-visibility' : 'hidden'  // hardware-acceleration
+            'position'                    : 'absolute',
+            'width'                       : $stickyElement.outerWidth(),
+            'height'                      : $stickyElement.outerHeight(),
+            'top'                         : $stickyElement.offset().top,
+            'left'                        : $stickyElement.offset().left,
+            'backface-visibility'         : 'hidden',
+            '-webkit-backface-visibility' : 'hidden'
         });
 
         // append the cloned element
@@ -103,12 +109,12 @@ YOI.Sticky = (function() {
 
     }
 
-    function updateStickyElementData($stickyElement) {
+    function updateStickyElementProps($stickyElement) {
 
         /**
          *  Reads options from the custom data-option interface and calculates other
          *  important data, like initial position, dimensions, etc. Adds all data to the
-         *  $stickyElement so that it is available for other functions.
+         *  $stickyElement props object, so that it is available for other functions.
          *
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
@@ -142,14 +148,14 @@ YOI.Sticky = (function() {
         // write props data
         
         $stickyElement.data().props = {
-            'passedValidation' : passedValidation,
-            'height'           : stickyElementheight,
-            'initialTopPos'    : stickyElementInitialTopPos,
-            'initialBottomPos' : stickyElementInitialBottomPos,
-            'topOffset'        : topOffset,
-            'topDistance'      : topDistance,
-            'stickStart'       : stickStart,
-            'stickStop'        : stickStop
+            passedValidation : passedValidation,
+            height           : stickyElementheight,
+            initialTopPos    : stickyElementInitialTopPos,
+            initialBottomPos : stickyElementInitialBottomPos,
+            topOffset        : topOffset,
+            topDistance      : topDistance,
+            stickStart       : stickStart,
+            stickStop        : stickStop
         };
         
     }
@@ -169,7 +175,7 @@ YOI.Sticky = (function() {
         var props      = $stickyElement.data().props;
         var stickStart = props.stickStart;
         var stickStop  = props.stickStop;
-
+        
         if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
             return false;
         } else {
@@ -199,7 +205,7 @@ YOI.Sticky = (function() {
                 // do the re-positioning
 
                 if (validInput($stickyElement)) {
-                    updateStickyElementData($stickyElement);
+                    updateStickyElementProps($stickyElement);
                     $stickyElementClone.css('left', $stickyElement.offset().left);
                 }
 
@@ -244,15 +250,15 @@ YOI.Sticky = (function() {
                 var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
+                
+                // proceed if the sticky element passed validation
 
-                // proceed if the sticky element passed validation (=> validInput)
-
-                if (validInput($stickyElement)) {
+                if (props.passedValidation) {
 
                     // re-position on scroll
 
                     if (scrollTop < stickStart) {
-
+                        
                         // outside top boundary
 
                         cssPositionValue = 'absolute';
@@ -266,7 +272,7 @@ YOI.Sticky = (function() {
                         cssTopValue      = stickStop + topOffset;
 
                     } else {
-
+                        
                         // inside boundaries
 
                         cssPositionValue = 'fixed';
@@ -292,13 +298,13 @@ YOI.Sticky = (function() {
     // initialize
     // ==========
 
-    initializeSticky();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeSticky
+        init: initialize
     }
 
 })();

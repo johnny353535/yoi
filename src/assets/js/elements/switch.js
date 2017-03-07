@@ -78,7 +78,7 @@ YOI.Switch = (function() {
             // add events
 
             $thisSwitch.on('click', function(e) {
-                stateToggle($thisSwitch);
+                setToggle($thisSwitch);
             });
 
         });
@@ -123,7 +123,7 @@ YOI.Switch = (function() {
 
     }
 
-    function stateToggle($switch) {
+    function setToggle($switch) {
 
         /**
          *  Alternates the state between "on" and "off".
@@ -152,7 +152,7 @@ YOI.Switch = (function() {
         init   : initialize,
         on     : setOn,
         off    : setOff,
-        toggle : stateToggle
+        toggle : setToggle
     }
 
 })();

@@ -3,6 +3,8 @@
 var YOI = (function() {
     
     return {
+        
+        // helpers
 
         stringContains : function(input, searchString) {
 
@@ -28,49 +30,31 @@ var YOI = (function() {
             }
 
         },
-
-        environment : function(envName) {
+        
+        zeroPad : function(num, digits) {
 
             /**
-             *  Get an "environment" flag, useful to tag pages
-             *  that are designed for a specific screen or platform.
+             *  Add leading zeros to a given number and return the result.
              *
-             *  @param  {string} envName - the environment name to check for
-             *  @return {bool}
+             *  @param  {number} num    - the number
+             *  @param  {number} digits - the number of leading zeros
+             *  @return {string}        - the padded number
              */
 
-            if ($('body').data('environment') === envName) {
-                return true;
-            } else {
-                return false;
+            var num = Math.abs(num);
+            var digits = digits !== undefined ? digits : 1;
+            var i = 1;
+            var leadingZeros = '0';
+
+            while (i < digits) {
+                i++;
+                leadingZeros += '0';
             }
 
-        },
-
-        currentBreakpoint : function() {
-
-            /**
-             *  Read and return the currently active media-query.
-             *
-             *  @return {string} - the active media query name
-             */
-
-            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
+            return (leadingZeros + num).slice(-digits-1);
 
         },
-
-        locale : function() {
-
-            /**
-             *  Read and return the "lang" attribute of a page.
-             *
-             *  @return {string} - the page language as ISO language code
-             */
-
-            return $('html').attr('lang');
-
-        },
-
+        
         foundModule : function(module) {
 
             /**
@@ -80,58 +64,14 @@ var YOI = (function() {
              *  @return {bool}
              */
 
-            if (typeof window[module] === 'object') {
+            if (typeof window.YOI[module] === 'object') {
                 return true;
             } else {
                 return false;
             }
 
         },
-
-        blink : function(elem) {
-
-            /**
-             *  Blink animation.
-             *
-             *  @param  {jQuery dom object} elem - the element to blink
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
-             */
-
-            // cancel if elem is not a jQuery object
-
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
-
-            // animate
-
-            elem.animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100)
-                .animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100);
-
-        },
-
-        pulse : function(elem) {
-
-            /**
-             *  Pulse animation.
-             *
-             *  @param  {jQuery dom object} elem - the element to pulse
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
-             */
-
-            // cancel if elem is not a jQuery object
-
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
-
-            // animate
-
-            elem.animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300)
-                .animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300);
-
-        },
-
+        
         setDelay : function(delayName, delayTime, delayFunction) {
 
             /**
@@ -206,7 +146,7 @@ var YOI = (function() {
             }
 
         },
-
+        
         toObject : function(input) {
 
             /*
@@ -305,154 +245,7 @@ var YOI = (function() {
             return yoiAttributeValue;
             
         },
-
-        attachData : function($element, options, state, props) {
-            
-            /**
-             *  Attaches options and state data directly to each $element via jQuery's
-             *  data() method. Options are either retrieved via the options-parameter or
-             *  (if undefined) read from markup. States are set and retrieved via JS only.
-             *
-             *  Note: If a key/value is already set, it won't be changed.
-             *
-             *  @param {jQuery dom object} $element
-             *  @param {object}            options
-             */
-            
-            // create "options" object
-            
-            if ($element.data().options === undefined)
-                $element.data().options = {};
-            
-            if (options === undefined) {
-                
-                // if the "options" parameter is omitted on function call, read the
-                // options from the element's yoi-* attribute
-                
-                var options = YOI.toObject(YOI.getAttribute($element));
-                
-            }
-            
-            if (typeof options === 'object') {
-                
-                // if "options" is a valid object, attach the options to
-                // the element via jQuery's data() function
-                
-                $.each(options, function(key, value) {
-                    $element.data().options[key] = value;
-                });
-                
-            }
-            
-            // create "props" object
-            // use it to store properties of an element
-            // (eg. size, position, etc.)
-            
-            if ($element.data().props === undefined)
-                $element.data().props = {};
-
-            if (typeof props === 'object') {
-                
-                // if "props" is a valid object, attach the value to
-                // the element via jQuery's data() function
-                
-                $.each(props, function(key, value) {
-                    $element.data().props[key] = value;
-                });
-                
-            }
-            
-            // create "state" object
-            // use it to store the state of the object. an element should
-            // only have one state at a time (eg. "hidden")
-            
-            if ($element.data().state === undefined)
-                $element.data().state = {};
-
-            if (typeof state === 'string') {
-                
-                // if "state" is a valid string, attach the value to
-                // the element via jQuery's data() function
-                
-                $element.data().state = state;
-                
-            }
-    
-        },
-
-        createCollection : function(identifier, $element, options, state, props) {
-            
-            /**
-             *  Create or add to a collection of jQuery objects. Passes and attaches options
-             *  via YOI.().
-             *
-             *  @param  {} identifier - the string to select elements from the dom via
-             *                          custom yoi-{identifier} attribute
-             *  @param  {} $element   - jQuery element, optional
-             *  @param  {} options    - options, optional
-             *  @return {} object     - the jQuery element collection
-             */
-            
-            // if it does not exist, create a new collection of jQuery objects
-            
-            if (YOI.elementCollection[identifier] === undefined)
-                YOI.elementCollection[identifier] = $([]);
-            
-            if (!($element instanceof jQuery)) {
         
-                // if the createCollection() is called without a valid matching jQuery element,
-                // gather the matching elements from the dom
-        
-                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
-                
-                // if no elements are found, return false ...
-                
-                if (!YOI.elementCollection[identifier].length) return false;
-        
-                // ... otherwise add data (eg. options) to each element in the collection
-                
-                YOI.elementCollection[identifier].each(function() {
-                    YOI.attachData($(this), options, state, props);
-                });
-        
-            } else if ($element instanceof jQuery) {
-        
-                // if the createCollection() is called with a valid matching jQuery element,
-                // set it's options and add it to the element collection
-        
-                YOI.attachData($element, options);
-                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
-            
-            }
-            
-            return YOI.elementCollection[identifier];
-        
-        },
-
-        zeroPad : function(num, digits) {
-
-            /**
-             *  Add leading zeros to a given number and return the result.
-             *
-             *  @param  {number} num    - the number
-             *  @param  {number} digits - the number of leading zeros
-             *  @return {string}        - the padded number
-             */
-
-            var num = Math.abs(num);
-            var digits = digits !== undefined ? digits : 1;
-            var i = 1;
-            var leadingZeros = '0';
-
-            while (i < digits) {
-                i++;
-                leadingZeros += '0';
-            }
-
-            return (leadingZeros + num).slice(-digits-1);
-
-        },
-
         hide : function($target) {
 
             /**
@@ -520,8 +313,272 @@ var YOI = (function() {
 
             }
 
-        }
+        },
 
+        // global attributes
+
+        environment : function(envName) {
+
+            /**
+             *  Get an "environment" flag, useful to tag pages
+             *  that are designed for a specific screen or platform.
+             *
+             *  @param  {string} envName - the environment name to check for
+             *  @return {bool}
+             */
+
+            if ($('body').data('environment') === envName) {
+                return true;
+            } else {
+                return false;
+            }
+
+        },
+
+        currentBreakpoint : function() {
+
+            /**
+             *  Read and return the currently active media-query.
+             *
+             *  @return {string} - the active media query name
+             */
+
+            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
+
+        },
+
+        locale : function() {
+
+            /**
+             *  Read and return the "lang" attribute of a page.
+             *
+             *  @return {string} - the page language as ISO language code
+             */
+
+            return $('html').attr('lang');
+
+        },
+
+        // animations
+
+        blink : function(elem) {
+
+            /**
+             *  Blink animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to blink
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: 0 }, 100)
+                .animate({ opacity: 1 }, 100)
+                .animate({ opacity: 0 }, 100)
+                .animate({ opacity: 1 }, 100);
+
+        },
+
+        pulse : function(elem) {
+
+            /**
+             *  Pulse animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to pulse
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300)
+                .animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300);
+
+        },
+        
+        // YOI interface
+
+        updateOptions : function($element, options) {
+            
+            /**
+             *  Options are simple key/value pairs that affect how a component
+             *  might behave. For example "autoplay:true" for a slide show.
+             *  Options are attached to an $element via jQuery's data() method.
+             *
+             *  @param {jQuery dom object} $element
+             *  @param {object}            options
+             */
+            
+            // if not already present, create "options" object
+            
+            if ($element.data().options === undefined)
+                $element.data().options = {};
+            
+            if (options === undefined) {
+                
+                // if the "options" parameter is omitted on function call, read the
+                // options from the element's yoi-* attribute
+                
+                var options = YOI.toObject(YOI.getAttribute($element));
+                
+            }
+            
+            if (typeof options === 'object') {
+                
+                // if "options" is a valid object, attach the options to
+                // the element via jQuery's data() function
+                
+                $.each(options, function(key, value) {
+                    $element.data().options[key] = value;
+                });
+                
+            }
+            
+        },
+        
+        updateProps : function($element, props) {
+            
+            /**
+             *  Props are simple key/value pairs that define properties of a
+             *  component. For example an $element's size or position.
+             *  Props are attached to an $element via jQuery's data() method.
+             *
+             *  @param  {jQuery dom object}  $element
+             *  @param  {object}             props
+             *  @return {jQuery data object} props
+             */
+            
+            // if not already present, create "props" object
+            
+            if ($element.data().props === undefined)
+                $element.data().props = {};
+
+            if (typeof props === 'object') {
+                
+                // if the new props differ from the already attached props,
+                // fire a custom event
+                
+                if (props !== $element.data().props) {
+                    $element.trigger('YOI.props:change');
+                }
+                
+                // if "props" is a valid object, attach the value to
+                // the element via jQuery's data() function
+                
+                $.each(props, function(key, value) {
+                    $element.data().props[key] = value;
+                });
+                
+                // trigger custom event
+                
+                $element.trigger('YOI.props:update');
+                
+            }
+            
+            return $element.data().props;
+
+        },
+        
+        updateState : function($element, state) {
+            
+            /**
+             *  Each $element can have one state. For example "visible" or "hidden".
+             *  The state is attached to an $element via jQuery's data() method.
+             *
+             *  @param  {jQuery dom object}  $element
+             *  @param  {string}             state
+             *  @return {jQuery data object} state
+             */
+            
+            // if not already present, create "state" object
+            
+            if ($element.data().state === undefined)
+                $element.data().state = {};
+
+            if (typeof state === 'string') {
+                
+                // if the new props differ from the already attached props,
+                // fire a custom event
+                
+                if (state !== $element.data().state) {
+                    $element.trigger('YOI.state:change');
+                }
+                
+                // if "state" is a valid string, attach the value to
+                // the element via jQuery's data() function
+                
+                $element.data().state = state;
+                
+                // trigger custom event
+                
+                $element.trigger('YOI.state:update');
+                
+            }
+            
+            return $element.data().state;
+            
+        },
+
+        createCollection : function(identifier, $element, options, state, props) {
+            
+            /**
+             *  Create or add to a collection of jQuery objects and add options,
+             *  state and props data.
+             *
+             *  @param  {} identifier - the string to select elements from the dom via
+             *                          custom yoi-{identifier} attribute
+             *  @param  {} $element   - jQuery element, optional
+             *  @param  {} options    - options, optional
+             *  @return {} object     - the jQuery element collection
+             */
+            
+            // if it does not exist, create a new collection of jQuery objects
+            
+            if (YOI.elementCollection[identifier] === undefined)
+                YOI.elementCollection[identifier] = $([]);
+            
+            if (!($element instanceof jQuery)) {
+        
+                // if the createCollection() is called without a valid matching jQuery element,
+                // gather the matching elements from the dom
+        
+                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
+                
+                // if no elements are found, return false ...
+                
+                if (!YOI.elementCollection[identifier].length) return false;
+        
+                // ... otherwise add data (options, state, props) to each element in the collection
+                
+                YOI.elementCollection[identifier].each(function() {
+                    YOI.updateOptions($(this), options);
+                    YOI.updateState($(this), state);
+                    YOI.updateProps($(this), props);
+                });
+        
+            } else if ($element instanceof jQuery) {
+        
+                // if the createCollection() is called with a valid matching jQuery element,
+                // set it's options and add it to the element collection
+        
+                YOI.updateOptions($(this), options);
+                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
+            
+            }
+            
+            return YOI.elementCollection[identifier];
+        
+        }
+        
     }
 
 })();

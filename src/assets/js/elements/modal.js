@@ -28,9 +28,12 @@ YOI.Modal = (function() {
     ');
     
     var $modalTemplate = $('\
-        <div class="modal modal--small">\
+        <div class="modal">\
             <div class="modal__header">\
-                <h3 class="modal__title">Small Demo Modal</h3>\
+                <h3 class="modal__title"></h3>\
+                <button class="btnDismiss" yoi-action="closeModal">\
+                    <span class="hidden">' + btnLabelClose + '</span>\
+                </button>\
             </div>\
             <div class="modal__body"></div>\
         </div>\
@@ -38,12 +41,12 @@ YOI.Modal = (function() {
 
     // private methods
 
-    function initialize($modal, options) {
+    function initialize($modalTrigger, options) {
         
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $inputElement
+         *  @param {jQuery dom object} $modalTrigger
          *  @param {object}            options
          *
          *  Available options:
@@ -60,22 +63,25 @@ YOI.Modal = (function() {
          *  @option {bool} cache  - If true, the referenced modal will preload in the background.
          */
 
-        var $modal = YOI.createCollection('modal', $modal, options);
+        var $modalTrigger = YOI.createCollection('modal', $modalTrigger, options);
 
         // prepare dom
 
-        if ($modal) prepareDom();
+        if ($modalTrigger) prepareDom();
 
         // prepare modal links
 
-        if ($modal) $modal.each(function() {
+        if ($modalTrigger) $modalTrigger.each(function() {
 
-            var $thisModal = $(this);
-
-            var options        = $thisModal.data().options;
-            var thisModalId    = options.id !== undefined ? options.id : generateId();
-            var thisModalPath  = options.path !== undefined ? options.path : $thisModal.attr('href');
-            var thisModalCache = options.cache !== undefined ? options.cache : false;
+            var $thisModalTrigger  = $(this);
+            var options            = $thisModalTrigger.data().options;
+            var thisModalGenerate  = options.generate !== undefined ? options.generate : false;
+            var thisModalTitle     = options.title !== undefined ? options.title : false;
+            var thisModalBody      = options.body !== undefined ? options.body : false;
+            var thisModalId        = options.id !== undefined ? options.id : generateId();
+            var thisModalModifiers = options.modifiers !== undefined ? options.modifiers : false;
+            var thisModalPath      = options.path !== undefined ? options.path : $thisModalTrigger.attr('href');
+            var thisModalCache     = options.cache !== undefined ? options.cache : false;
 
             // preload/cache
 
@@ -83,10 +89,15 @@ YOI.Modal = (function() {
 
             // attach click event
 
-            $thisModal.on('click', function(e) {
-
+            $thisModalTrigger.on('click', function(e) {
+                
                 e.preventDefault();
-                show(thisModalId, thisModalPath);
+                
+                if (thisModalGenerate === 'true') {
+                    generate(thisModalTitle, thisModalBody, thisModalId, thisModalModifiers);
+                } else {
+                    show(thisModalId, thisModalPath);
+                }
 
             });
 
@@ -109,6 +120,19 @@ YOI.Modal = (function() {
         
         $body.append($modalCover.clone().hide());
         $body.append($modalContainer.clone().hide());
+        
+    }
+    
+    function foundModal(modalId) {
+        
+        /**
+         *  Returns true if modal is already loaded, false if not.
+         *
+         *  @param  {string} modalId 
+         *  @return {bool}
+         */
+        
+        return loadedModals.indexOf(modalId) === -1 ? false : true;
         
     }
 
@@ -139,7 +163,47 @@ YOI.Modal = (function() {
 
     }
     
-    function generate() {
+    function generate(title, body, modalId, modifiers) {
+        
+        /**
+         *  Generates a very simple modal. Add the title, body text and
+         *  optional modifiers.
+         *
+         *  @param {string} title     - the modal title
+         *  @param {string} body      - the modal body text
+         *  @param {string} modalId   - modal id
+         *  @param {string} modifiers - optional modifiers (CSS class names)
+         */
+        
+        var $thisModal      = $modalTemplate.clone();
+        var $thisModalTitle = $thisModal.find('.modal__title');
+        var $thisModalBody  = $thisModal.find('.modal__body');
+        var thisModalId     = modalId.split('#')[1];
+        
+        // add title, content and id
+        
+        $thisModalTitle.text(title);
+        $thisModalBody.html('<p>' + body + '</p>');
+        $thisModal.attr('id', thisModalId);
+        
+        // add modifiers
+        
+        if (modifiers) {
+            $thisModal.addClass(modifiers);
+        }
+        
+        // add modal to markup
+        
+        if (!foundModal(modalId)) {
+            $('#modalContainer').append($thisModal);
+            loadedModals.push(modalId);
+        }
+        
+        // initialize the close triggers and
+        // show the generated modal
+        
+        initializeCloseTriggers(modalId);
+        show(modalId);
         
     };
 
@@ -154,7 +218,7 @@ YOI.Modal = (function() {
          *  @param {callback function} callback - a function to execute as callback
          */
 
-        if (loadedModals.indexOf(modalId) === -1) {
+        if (!foundModal(modalId)) {
 
             var $loadBin = $('<div>');
 
@@ -170,7 +234,7 @@ YOI.Modal = (function() {
 
                     if (thisModal.length) {
 
-                        // register the modalId to an array of already loaded modals.
+                        // register the modalId to an array of already loaded modals
 
                         loadedModals.push(modalId);
 
@@ -188,8 +252,8 @@ YOI.Modal = (function() {
 
                         initializeCloseTriggers(modalId);
 
-                        if (YOI.foundModule('YOI.CustomFormElements'))
-                            CustomFormElements.init(modalId);
+                        if (YOI.foundModule('CustomFormElements'))
+                            YOI.CustomFormElements.init(modalId);
 
                         // optional callback
 
@@ -231,22 +295,14 @@ YOI.Modal = (function() {
          *  @param {string} modalPath - the path to the modal page
          */
 
-        if (loadedModals.indexOf(modalId) === -1) {
-
-            // if the modal is not found in dom, load it first, then show it
-
-            load(modalId, modalPath, function(){
-                show(modalId, modalPath);
-            });
-
-        } else {
+        if (foundModal(modalId)) {
 
             // if modal is already in dom, simply show it
 
             $('#modalCover').fadeIn('fast');
             $('#modalContainer').show();
             $(modalId).show();
-
+            
             modalActive = true;
 
             // center modal
@@ -264,6 +320,14 @@ YOI.Modal = (function() {
             
             $document.trigger('yoi-modal:show');
 
+        } else {
+
+            // if the modal is not found in dom, load it first, then show it
+
+            load(modalId, modalPath, function(){
+                show(modalId, modalPath);
+            });
+
         }
 
     }
@@ -276,19 +340,19 @@ YOI.Modal = (function() {
          *  @param {string} modalId - the modal id
          */
 
-        var modal   = $(modalId);
-        var offSetY = modal.height() / 2 * -1 - 10;
+        var $modal  = $(modalId);
+        var offSetY = $modal.height() / 2 * -1 - 10;
 
         // Does the modal vertically fit into the viewport (position: fixed)
         // or do we need to scroll (position: absolute)?
 
-        var modalFitsIntoViewport = ($(window).height() - 50) < modal.height();
+        var modalFitsIntoViewport = ($(window).height() - 50) < $modal.height();
 
         if (modalFitsIntoViewport) {
-            modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
+            $modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
             $('html,body').animate({scrollTop: 0}, 500); // "rewind" page to top
         } else {
-            modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
+            $modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
         }
 
     }
@@ -308,8 +372,8 @@ YOI.Modal = (function() {
 
         modalActive = false;
         
-        if (YOI.foundModule('YOI.BrowserHistory')) {
-            BrowserHistory.clearHash();
+        if (YOI.foundModule('BrowserHistory')) {
+            YOI.BrowserHistory.clearHash();
         }
         
         $document.trigger('yoi-modal:hide');

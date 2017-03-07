@@ -11,7 +11,7 @@ YOI.ToggleGroup = (function() {
     // private functions
     // =================
 
-    function initializeToggleGroup($toggleGroup, options) {
+    function initialize($toggleGroup, options) {
 
         /**
          *  Initialize the script.
@@ -48,7 +48,7 @@ YOI.ToggleGroup = (function() {
 
             $thisTrigger.on(event, function(e) {
                 e.preventDefault();
-                toggleGroup($thisTrigger);
+                toggle($thisTrigger);
             });
 
             if ($thisFallBackElem.length > 0 && event === 'mouseover') {
@@ -69,7 +69,7 @@ YOI.ToggleGroup = (function() {
                     })
                     .on('mouseleave', function() {
                         YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
-                            resetToggleGroup($thisTrigger);
+                            reset($thisTrigger);
                         });
                     });
 
@@ -104,7 +104,7 @@ YOI.ToggleGroup = (function() {
 
     }
 
-    function toggleGroup($thisTrigger) {
+    function toggle($thisTrigger) {
 
         /**
          *  Toggle a group, read required data from the trigger.
@@ -141,10 +141,10 @@ YOI.ToggleGroup = (function() {
 
     }
 
-    function resetToggleGroup($thisTrigger) {
+    function reset($thisTrigger) {
 
         /**
-         *  Reset a toggle group, read required data from the trigger.
+         *  Reset a group, read required data from the trigger.
          *
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
@@ -178,14 +178,14 @@ YOI.ToggleGroup = (function() {
     // initialize
     // ==========
 
-    initializeToggleGroup();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init  : initializeToggleGroup,
-        reset : resetToggleGroup
+        init  : initialize,
+        reset : reset
     }
 
 })();

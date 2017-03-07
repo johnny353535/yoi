@@ -4,9 +4,11 @@ YOI.DatePicker = (function() {
 
     // private vars
     // ============
+    
+    var $document = $(document);
 
     // get the document language, fall back to english
-    // note: only german and english supported at this moment
+    // only german and english supported at this moment
 
     var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
 
@@ -18,8 +20,8 @@ YOI.DatePicker = (function() {
 
     var $datePicker = $('\
         <div class="datePicker">\
-            <span class="datePicker__btnPrev" data-action="prevMonth"></span>\
-            <span class="datePicker__btnNext" data-action="nextMonth"></span>\
+            <span class="datePicker__btnPrev" yoi-action="prevMonth"></span>\
+            <span class="datePicker__btnNext" yoi-action="nextMonth"></span>\
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');
@@ -51,7 +53,7 @@ YOI.DatePicker = (function() {
     // private functions
     // =================
 
-    function initializeDatePicker($datepicker, options) {
+    function initialize($datepicker, options) {
 
         /**
          *  Initialize the script.
@@ -74,50 +76,32 @@ YOI.DatePicker = (function() {
 
             var $thisDateInput = $(this);
 
-            // if the date input already has data (from markup), use it
+            // get and format date input data
 
-            // if (!$.isEmptyObject($thisDateInput.data('datepicker'))) {
+            var options = $thisDateInput.data().options;
 
-                // get and format date input data
+            // if a field is undefined, fall back to the current time value for the field,
+            // eg. if year is undefined, use the current year
 
-                var options = $thisDateInput.data().options;
+            var inputYear  = options.year  === undefined ? now.year  : parseInt(options.year);
+            var inputMonth = options.month === undefined ? now.month : parseInt(options.month - 1);
+            var inputDay   = options.day   === undefined ? now.day   : parseInt(options.day);
 
-                // if a field is undefined, fall back to the current time value for the field,
-                // eg. if year is undefined, use the current year
+            updateDateInput(
+                $thisDateInput,
+                inputYear,
+                inputMonth,
+                inputDay
+            );
 
-                var inputYear  = options.year  === undefined ? now.year  : parseInt(options.year);
-                var inputMonth = options.month === undefined ? now.month : parseInt(options.month - 1);
-                var inputDay   = options.day   === undefined ? now.day   : parseInt(options.day);
+            // render date picker with year and date from date input data
 
-                updateDateInput(
-                    $thisDateInput,
-                    inputYear,
-                    inputMonth,
-                    inputDay
-                );
-
-                // render date picker with year and date from date input data
-
-                var $thisDatePicker = renderDatePicker(inputYear, inputMonth, inputDay);
-
-            // } else {
-
-                updateDateInput(
-                    $thisDateInput,
-                    now.year,
-                    now.month
-                );
-
-                // render date picker with current date
-
-                var $thisDatePicker = $thisDatePicker = renderDatePicker();
-
-            // }
+            var $thisDatePicker = renderDatePicker(inputYear, inputMonth, inputDay);
 
             // get month table and month table data
 
-            var $thisMonthTable    = $thisDatePicker.find('.datePicker__days');
-            var thisMonthTableData = $thisMonthTable.data();
+            var $thisMonthTable     = $thisDatePicker.find('.datePicker__days');
+            var thisMonthTableProps = $thisMonthTable.data().props;
 
             // add a wrapper to aid positioning
 
@@ -153,7 +137,7 @@ YOI.DatePicker = (function() {
 
                         // get the date input data
 
-                        var thisDateInputData = $thisDateInput.data();
+                        var thisDateInputProps = $thisDateInput.data().props;
 
                         // hide this date picker after a short delay
 
@@ -161,10 +145,14 @@ YOI.DatePicker = (function() {
 
                             // reset the month table to the selected date
 
-                            $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, thisDateInputData.selectedYear, thisDateInputData.selectedMonth));
-                            $thisDatePicker.find('.datePicker__header').text(getMonthName(thisDateInputData.selectedMonth) + ' ' + thisDateInputData.selectedYear);
+                            $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, thisDateInputProps.selectedYear, thisDateInputProps.selectedMonth));
+                            $thisDatePicker.find('.datePicker__header').text(getMonthName(thisDateInputProps.selectedMonth) + ' ' + thisDateInputProps.selectedYear);
 
                         });
+                        
+                        // fire custom event
+        
+                        $document.trigger('yoi-datepicker:hide');
 
                     });
 
@@ -185,6 +173,10 @@ YOI.DatePicker = (function() {
                     // show the date picker
 
                     $thisDatePicker.show();
+        
+                    // fire custom event
+        
+                    $document.trigger('yoi-datepicker:show');
 
                 });
 
@@ -209,7 +201,7 @@ YOI.DatePicker = (function() {
 
         // write data
 
-        $thisDatePicker.data().options = {
+        $thisDatePicker.data().props = {
             'selectedYear'          : selectedYear,
             'selectedMonth'         : selectedMonth,
             'selectedDay'           : selectedDay,
@@ -269,13 +261,13 @@ YOI.DatePicker = (function() {
 
         // write data to month table
 
-        $thisMonthTable.data({
+        $thisMonthTable.data().props = {
             'firstDay'       : firstDay,     // week day of the first day of the given month
             'totalDays'      : totalDays,    // total days of the given month
             'year'           : year,         // the given year of the month table
             'month'          : month,        // the given month of the month table
             'formattedDate'  : formattedDate // the formatted date
-        });
+        };
 
     }
 
@@ -304,12 +296,12 @@ YOI.DatePicker = (function() {
 
         // write data
 
-        $thisDateInput.data({
+        $thisDateInput.data().props = {
             'selectedYear'  : year,
             'selectedMonth' : month,
             'selectedDay'   : day,
             'formattedDate' : formattedDate
-        });
+        };
 
         // write the selected date to the date input field
 
@@ -340,11 +332,11 @@ YOI.DatePicker = (function() {
 
         // access the month table data
 
-        var thisMonthTableData = $monthTable.data();
+        var thisMonthTableProps = $monthTable.data().props;
 
         // access the date picker data
 
-        var thisDatePickerData = $thisDatePicker.data();
+        var thisDatePickerProps = $thisDatePicker.data().props;
 
         // create the table header
 
@@ -358,53 +350,61 @@ YOI.DatePicker = (function() {
 
         }
 
-        // create the table rows
+        // set index vars
 
         var indexCell = 1;
         var indexDay  = 1;
+        
+        // create the table cells and rows
 
-        for (var i = 0; i < Math.ceil((thisMonthTableData.totalDays + thisMonthTableData.firstDay - 1) / 7); i++) {
+        for (var i = 0; i < Math.ceil((thisMonthTableProps.totalDays + thisMonthTableProps.firstDay - 1) / 7); i++) {
+
+            // create a table row
 
             var $row = $('<tr>');
 
-            // create the table cells
+            // create a table cell
 
             for (var j = 0; j < 7; j++) {
-
-                if (indexCell < thisMonthTableData.firstDay || indexDay > thisMonthTableData.totalDays) {
-
-                    // empty cells
-
-                    $row.append('<td class="datePicker--emptyDay"></td>');
-
-                } else if (thisMonthTableData.month === thisDatePickerData.selectedMonth && thisMonthTableData.year === thisDatePickerData.selectedYear && indexDay === thisDatePickerData.selectedDay) {
-
-                    // selected day
-
-                    $row.append('<td class="datePicker--selectedDay">' + indexDay + '</td>');
-                    indexDay++;
-
-                } else if (thisMonthTableData.month === now.month && thisMonthTableData.year === now.year && indexDay === now.day) {
-
-                    // today
-
-                    $row.append('<td class="datePicker--today">' + indexDay + '</td>');
-                    indexDay++;
-
-                } else {
-
-                    // any other cell
-
-                    $row.append('<td>' + indexDay + '</td>');
-                    indexDay++;
-
+                
+                var $cell = $('<td></td>');
+                
+                // empty day
+                
+                if (indexCell < thisMonthTableProps.firstDay || indexDay > thisMonthTableProps.totalDays) {
+                    $cell.addClass('datePicker--emptyDay');
                 }
+                
+                // any other day
+                
+                else {
+                    $cell.text(indexDay);
+                    indexDay++;
+                }
+                
+                // selected day
 
+                if (thisMonthTableProps.month === thisDatePickerProps.selectedMonth && thisMonthTableProps.year === thisDatePickerProps.selectedYear && indexDay - 1 === thisDatePickerProps.selectedDay) {
+                    $cell.addClass('datePicker--selectedDay');
+                }
+                
+                // today
+                
+                if (thisMonthTableProps.month === now.month && thisMonthTableProps.year === now.year && indexDay - 1 === now.day) {
+                    $cell.addClass('datePicker--today');
+                }
+                
+                // append the cell
+
+                $row.append($cell);
+                
+                // count up index var
+                
                 indexCell++;
 
             }
 
-            // append the table row
+            // append the row
 
             $monthTableBody.append($row);
 
@@ -416,7 +416,7 @@ YOI.DatePicker = (function() {
 
             var selectedDay = parseInt($(this).text());
 
-            pickDate($monthTable, thisMonthTableData.year, thisMonthTableData.month, selectedDay);
+            pickDate($monthTable, thisMonthTableProps.year, thisMonthTableProps.month, selectedDay);
 
         });
 
@@ -462,7 +462,7 @@ YOI.DatePicker = (function() {
 
         // get month table data
 
-        var thisMonthTableData = $thisMonthTable.data();
+        var thisMonthTableProps = $thisMonthTable.data().props;
 
         // set year and month
 
@@ -476,53 +476,42 @@ YOI.DatePicker = (function() {
         // attach events to date picker buttons
 
         $thisDatePicker.find('[yoi-action*="Month"]').on('click', function(e) {
-
+            
             e.preventDefault();
 
             // important: get updated month table data on each click
 
-            var $thisDatepicker    = $(this).closest('.datePicker');
-            var $thisMonthTable    = $thisDatepicker.find('.datePicker__days');
-            var thisMonthTableData = $thisMonthTable.data();
-            var month              = thisMonthTableData.month;
-            var year               = thisMonthTableData.year;
+            var $thisMonthButton    = $(this);
+            var $thisDatepicker     = $thisMonthButton.closest('.datePicker');
+            var $thisMonthTable     = $thisDatepicker.find('.datePicker__days');
+            var thisMonthTableProps = $thisMonthTable.data().props;
+            var month               = thisMonthTableProps.month;
+            var year                = thisMonthTableProps.year;
 
             // get the action (prevMonth or nextMonth)
 
-            var thisAction = $(this).data('action');
+            var thisAction = $thisMonthButton.attr('yoi-action');
 
             // action = show previous month
 
             if (thisAction === 'prevMonth') {
-
                 if (month > 0) {
-
                     --month;
-
                 } else {
-
                     month = 11;
                     --year;
-
                 }
-
             }
 
             // action = show next month
 
             if (thisAction === 'nextMonth') {
-
                 if (month < 11) {
-
                     ++month;
-
                 } else {
-
                     month = 0;
                     ++year;
-
                 }
-
             }
 
             // render new month table and
@@ -572,7 +561,7 @@ YOI.DatePicker = (function() {
 
         // access the month table data
 
-        var thisMonthTableData = $thisMonthTable.data();
+        var thisMonthTableProps = $thisMonthTable.data().props;
 
         // add a class to the day cell to visualize selection
 
@@ -623,6 +612,8 @@ YOI.DatePicker = (function() {
          */
 
         $('.datePicker__wrapper .datePicker').hide();
+        $document.trigger('yoi-datepicker:hide');
+        
     }
 
     function getCurrentDate() {
@@ -799,13 +790,13 @@ YOI.DatePicker = (function() {
     // initialize
     // ==========
 
-    initializeDatePicker();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeDatePicker,
+        init   : initialize,
         render : renderDatePicker,
         hide   : hideAllDatePickers
     }

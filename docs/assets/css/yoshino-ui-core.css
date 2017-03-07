@@ -18630,6 +18630,9 @@ a:visited.btn.btn--outline.btn--positive {
   position: relative;
   text-shadow: #343332 0 -1px 0;
 }
+.js .countdown__hiddenLabel {
+  display: none;
+}
 .countdown__character {
   margin: 1px;
 }
@@ -20460,6 +20463,9 @@ a:visited:hover {
   content: "";
   display: block;
   clear: both;
+}
+.modal__body:last-child {
+  margin-bottom: 1rem;
 }
 .modal__footer {
   border-top: #e1e0df 1px solid;

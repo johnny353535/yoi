@@ -12,7 +12,7 @@ YOI.ImgMagnifier = (function(){
 
     // private functions
 
-    function initializeImgMagnifier($imgMagnifier, options) {
+    function initialize($imgMagnifier, options) {
 
         /**
          *  Initialize the script.
@@ -65,7 +65,7 @@ YOI.ImgMagnifier = (function(){
 
     }
 
-    function resetImgMagnifier($imgMagnifier) {
+    function reset($imgMagnifier) {
 
         /**
          *  Reset one or more image magnifiers.
@@ -87,6 +87,34 @@ YOI.ImgMagnifier = (function(){
             });
 
         });
+
+    }
+    
+    function destroy($imgMagnifier) {
+
+        /**
+         *  Remove all injected elements and detach all events.
+         *
+         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
+         *  @return {bool false}
+         */
+
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('.imgMagnifier');
+        }
+
+        $imgMagnifier.each(function() {
+
+            var $thisImgMagnifier = $(this);
+
+            $thisImgMagnifier.find('.imgMagnifier__cursor').remove();
+            $thisImgMagnifier.find('.imgMagnifier__viewer').remove();
+            $thisImgMagnifier.off();
+            $thisImgMagnifier.find('*').off();
+
+        });
+
+        return false;
 
     }
 
@@ -117,7 +145,7 @@ YOI.ImgMagnifier = (function(){
                 // If the image does not exist, destroy
                 // the image magnifier.
 
-                destroyImageMagnifier($thisImgMagnifier);
+                destroy($thisImgMagnifier);
 
             })
             .on('load', function() {
@@ -139,7 +167,7 @@ YOI.ImgMagnifier = (function(){
                 // the image magnifier.
 
                 if ($thisImgMagnifier.data().yRatio >= 1 || $thisImgMagnifier.data().yRatio >= 1) {
-                    destroyImageMagnifier($thisImgMagnifier);
+                    destroy($thisImgMagnifier);
                 }
 
             });
@@ -268,45 +296,17 @@ YOI.ImgMagnifier = (function(){
 
     }
 
-    function destroyImageMagnifier($imgMagnifier) {
-
-        /**
-         *  Remove all injected elements and detach all events.
-         *
-         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
-         *  @return {bool false}
-         */
-
-        if (!($imgMagnifier instanceof jQuery)) {
-            $imgMagnifier = $('.imgMagnifier');
-        }
-
-        $imgMagnifier.each(function() {
-
-            var $thisImgMagnifier = $(this);
-
-            $thisImgMagnifier.find('.imgMagnifier__cursor').remove();
-            $thisImgMagnifier.find('.imgMagnifier__viewer').remove();
-            $thisImgMagnifier.off();
-            $thisImgMagnifier.find('*').off();
-
-        });
-
-        return false;
-
-    }
-
     // initialize
     // ==========
 
     $(window)
         .on('load', function() {
-            initializeImgMagnifier();
+            initialize();
         })
         .on('resize', function() {
             YOI.clearDelay('imgMagnifierResetDelay');
             YOI.setDelay('imgMagnifierResetDelay', 500, function() {
-                resetImgMagnifier();
+                reset();
             });
         });
 
@@ -314,8 +314,8 @@ YOI.ImgMagnifier = (function(){
     // ================
 
     return {
-        init    : initializeImgMagnifier,
-        destroy : destroyImageMagnifier
+        init    : initialize,
+        destroy : destroy
     }
 
 })();

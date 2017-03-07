@@ -18,7 +18,7 @@ Create an element with the css class name `countdown`. One parameter is needed, 
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="countdown" yoi-countdown="endTime:'December 31 2020 15:50:00 GMT+0002';"></div>
+        <div class="countdown" yoi-countdown="year:2017; month:3; day:8;"></div>
     </div>
 </div>
 <div class="note note--subtle note--large">
@@ -35,7 +35,7 @@ Add an element with the css class name `countdown__title` to add an optional tit
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="countdown" yoi-countdown="endTime:'December 31 2020 15:00:00 GMT-0005';">
+        <div class="countdown" yoi-countdown="year:2020; month:12; day:31; hour:15;">
             <p class="countdown__title">Time Until Takeoff:</p>
         </div>
     </div>
@@ -48,7 +48,7 @@ Once the countdown expired, the display will reset and the **custom event** `cou
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="countdown" yoi-countdown="endTime:'January 1 2020 18:18:00 GMT+0002';"></div>
+        <div class="countdown" yoi-countdown="year:2001; month:12; day:31; hour:15;"></div>
     </div>
 </div>
 
@@ -59,7 +59,7 @@ Each lcd-style digit is an svg graphic. To make the countdown more accessible by
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true">
-        <div class="countdown" yoi-countdown="endTime:'December 31 2020 15:50:00 GMT+0002';">
+        <div class="countdown" yoi-countdown="year:2001; month:12; day:31; hour:15;">
             <p class="hidden">Expires on December 31st 2020 at 15:00 GMT+0002.</p>
         </div>
     </div>
@@ -71,7 +71,7 @@ Once the script is executed, the label gets replaced and updates every second:
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; printWithDelay:true">
-        <div class="countdown" yoi-countdown="endTime:'December 31 2020 15:50:00 GMT+0002';">
+        <div class="countdown" yoi-countdown="year:2001; month:12; day:31; hour:15;">
             <p class="hidden">Expires on January 1st, 2020 at 15:00 GMT+0002</p>
         </div>
     </div>

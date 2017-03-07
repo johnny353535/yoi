@@ -21,18 +21,13 @@ YOI.PieChart = (function() {
     // private functions
     // =================
 
-    function initializePieChart($pieChart, options) {
+    function initialize($pieChart, options) {
 
         /**
-         *  Initialize all *[yoi-piechart] found in the document (= function call without parameters)
-         *  or target one or more specific *[yoi-piechart] (= function call with $piechart).
-         *  $piechart must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $pieChart - the pie chart(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-piechart="palette:fixed;size:200;">
+         *  @param {jQuery dom object} $pieChart
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -49,31 +44,29 @@ YOI.PieChart = (function() {
          *
          *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
+        
+        var $pieChart = YOI.createCollection('piechart', $pieChart, options);
 
-        if (!($pieChart instanceof jQuery)) {
-            $pieChart = $('[yoi-piechart]');
-        }
-
-        $pieChart.each(function() {
+        if ($pieChart) $pieChart.each(function() {
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            var options              = options === undefined ? YOI.toObject($thisPieChart.data('piechart')) : options;
+            var options              = $thisPieChart.data().options;
+            var size                 = options.size !== undefined ? options.size : 200;
+            var highlight            = options.highlight !== undefined ? (options.highlight == true) : true;
+            var palette              = options.palette !== undefined ? options.palette : 'shades';
 
-            // store data
+            // store props
 
-            $thisPieChart.data({
+            $thisPieChart.data().props = {
                 rotation  : 0,
                 index     : 0,
                 records   : $thisPieChartRecords.length,
-                baseColor : options.baseColor !== undefined ? options.baseColor : '[252,45,65]',
-                palette   : options.palette !== undefined ? options.palette : 'shades',
-                size      : options.size !== undefined ? options.size : 200,
-                highlight : options.highlight !== undefined ? options.highlight : true
-            });
-
-            var size   = $thisPieChart.data().size;
+                size      : size
+            };
+            
+            var size   = $thisPieChart.data().props.size;
             var radius = size / 2;
 
             $thisPieChartSvg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
@@ -92,48 +85,42 @@ YOI.PieChart = (function() {
             $thisPieChartRecords.each(function(index) {
 
                 var $thisRecord = $(this);
-                var thisValue   = $(this).find('.pieChart__value').text();
+                var thisValue   = $thisRecord.find('.pieChart__value').text();
 
                 // add slices
 
-                addData($thisPieChart, thisValue);
+                addChartData($thisPieChart, thisValue);
 
                 // add dots to data records (legend)
 
                 $thisRecord.prepend($colorDot.clone());
 
                 // attach events to record
-
-                if ($thisPieChart.data().highlight === true) {
-
+                
+                if (highlight) {
                     $thisRecord
                         .on('mouseover', function() {
-
                             YOI.clearDelay('pieChartHightlightDelay');
                             highlightRecord($thisRecord);
-
                         })
                         .on('mouseleave', function() {
-
                             YOI.setDelay('pieChartHightlightDelay', 500, function() {
                                 resetHighlightRecord($thisPieChart);
                             });
-
                         })
                         .on('click', function() {
                             blinkRecord($thisRecord);
                         });
-
                 }
 
             });
 
             // paint the slices
 
-            if ($thisPieChart.data().palette === 'fixed')  setFixedSliceColors($thisPieChart);
-            if ($thisPieChart.data().palette === 'random') setRandomSliceColors($thisPieChart);
-            if ($thisPieChart.data().palette === 'shades') setSliceShades($thisPieChart);
-            if ($thisPieChart.data().palette === 'unique') setUniqueSliceColors($thisPieChart);
+            if (palette === 'fixed')  setFixedSliceColors($thisPieChart);
+            if (palette === 'random') setRandomSliceColors($thisPieChart);
+            if (palette === 'shades') setSliceShades($thisPieChart);
+            if (palette === 'unique') setUniqueSliceColors($thisPieChart);
 
         });
 
@@ -150,13 +137,14 @@ YOI.PieChart = (function() {
         var $thisPaths      = $thisPieChart.find('path');
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices     = $thisPieChart.data().records;
-        var baseColor       = JSON.parse($thisPieChart.data().baseColor);
+        var options         = $thisPieChart.data().options;
+        var props           = $thisPieChart.data().props;
+        var totalSlices     = props.records;
+        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
-
+        
         for (var i = 0; i < totalSlices; i++) {
 
             var splitRadius = (360 / totalSlices) * i;
@@ -164,7 +152,7 @@ YOI.PieChart = (function() {
 
             // set colors
 
-            if ($thisPaths[i] !== undefined)   $thisPaths[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
+            if ($thisPaths[i] !== undefined) $thisPaths[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
             if ($thisCircles[i] !== undefined) $thisCircles[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
 
             $thisDots.eq(i).css('background','hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
@@ -184,8 +172,7 @@ YOI.PieChart = (function() {
         var $thisPaths   = $thisPieChart.find('path');
         var $thisCircles = $thisPieChart.find('circle');
         var $thisDots    = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices  = $thisPieChart.data().records;
+        var totalSlices  = $thisPieChart.data().props.records;
 
         for (var i = 0; i < totalSlices; i++) {
 
@@ -213,8 +200,7 @@ YOI.PieChart = (function() {
         var $thisPaths   = $thisPieChart.find('path');
         var $thisCircles = $thisPieChart.find('circle');
         var $thisDots    = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices  = $thisPieChart.data().records;
+        var totalSlices  = $thisPieChart.data().props.records;
 
         for (var i = 0; i < totalSlices; i++) {
 
@@ -247,9 +233,10 @@ YOI.PieChart = (function() {
         var $thisPaths      = $thisPieChart.find('path');
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices     = $thisPieChart.data().records;
-        var baseColor       = JSON.parse($thisPieChart.data().baseColor);
+        var options         = $thisPieChart.data().options;
+        var props           = $thisPieChart.data().props;
+        var totalSlices     = $thisPieChart.data().props.records;
+        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
@@ -270,7 +257,7 @@ YOI.PieChart = (function() {
 
     }
 
-    function addData($thisPieChart, thisValue) {
+    function addChartData($thisPieChart, thisValue) {
 
         /**
          *  Calculate and set shades of a given base color for each slice.
@@ -282,11 +269,10 @@ YOI.PieChart = (function() {
         // Inspired by
         // http://jsfiddle.net/lensco/ScURE/
 
-        var size     = parseInt($thisPieChart.data().size);
-        var radius   = size / 2;
-        var rotation = $thisPieChart.data().rotation;
-        var index    = $thisPieChart.data().index;
-
+        var size             = parseInt($thisPieChart.data().props.size);
+        var radius           = size / 2;
+        var rotation         = $thisPieChart.data().props.rotation;
+        var index            = $thisPieChart.data().props.index;
         var $thisPieChartSvg = $thisPieChart.find('svg');
         var $thisPieSlice;
 
@@ -330,8 +316,8 @@ YOI.PieChart = (function() {
 
             // save rotation and increase index
 
-            $thisPieChart.data().rotation +=  thisValue;
-            $thisPieChart.data().index +=  1;
+            $thisPieChart.data().props.rotation +=  thisValue;
+            $thisPieChart.data().props.index +=  1;
 
         }
 
@@ -400,13 +386,13 @@ YOI.PieChart = (function() {
     // initialize
     // ==========
 
-    initializePieChart();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init                 : initializePieChart,
+        init                 : initialize,
         highlightRecord      : highlightRecord,
         blinkRecord          : blinkRecord,
         resetHighlightRecord : resetHighlightRecord

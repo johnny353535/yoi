@@ -5,7 +5,7 @@ YOI.Dock = (function() {
     // private functions
     // =================
 
-    function initializeDock($dock, options) {
+    function initialize($dock, options) {
 
         /**
          *  Initialize the script.
@@ -25,16 +25,16 @@ YOI.Dock = (function() {
 
             if (options.autohide) {
 
-                hideDock($thisDock);
+                hide($thisDock);
 
                 $thisDock
                     .on('mouseover', function() {
-                        YOI.clearDelay('hideDockTimeout');
-                        showDock($thisDock);
+                        YOI.clearDelay('hideTimeout');
+                        show($thisDock);
                     })
                     .on('mouseout', function() {
-                        YOI.setDelay('hideDockTimeout', 750, function() {
-                            hideDock($thisDock);
+                        YOI.setDelay('hideTimeout', 750, function() {
+                            hide($thisDock);
                         });
                     });
 
@@ -44,7 +44,7 @@ YOI.Dock = (function() {
 
     }
 
-    function hideDock($thisDock) {
+    function hide($thisDock) {
 
         /**
          *  Hide the dock.
@@ -58,7 +58,7 @@ YOI.Dock = (function() {
         
     }
 
-    function showDock($thisDock) {
+    function show($thisDock) {
 
         /**
          *  Show the dock.
@@ -75,15 +75,15 @@ YOI.Dock = (function() {
     // initialize
     // ==========
 
-    initializeDock();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeDock,
-        hide : hideDock,
-        show : showDock
+        init : initialize,
+        hide : hide,
+        show : show
     }
 
 })();

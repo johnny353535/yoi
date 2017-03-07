@@ -10,7 +10,7 @@ YOI.PickBtn = (function() {
     // private functions
     // =================
 
-    function initializePickBtn($pickBtn) {
+    function initialize($pickBtn) {
 
         /**
          *  Initialize the script.
@@ -38,7 +38,7 @@ YOI.PickBtn = (function() {
 
             $thisPickBtn.on('click', function(e) {
                 e.preventDefault();
-                activatePickBtn($thisPickBtn);
+                activate($thisPickBtn);
                 $thisPickBtn.trigger('yoi-pickbtn:change');
             });
 
@@ -46,7 +46,7 @@ YOI.PickBtn = (function() {
 
     }
 
-    function activatePickBtn($thisPickBtn) {
+    function activate($thisPickBtn) {
 
         /**
          *  Switch a radio button to "active".
@@ -79,13 +79,13 @@ YOI.PickBtn = (function() {
     // initialize
     // ==========
 
-    initializePickBtn();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializePickBtn
+        init : initialize
     }
 
 })();

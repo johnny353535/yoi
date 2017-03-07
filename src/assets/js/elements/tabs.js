@@ -5,10 +5,13 @@ YOI.Tabs = (function() {
     // private functions
     // =================
 
-    function initializeTabs() {
-
+    function initialize($tabsMenu, options) {
+        
         /**
-         *  Initialize the tabs.
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $tabsMenu
+         *  @param {object}            options
          *
          *  In general:
          *
@@ -27,12 +30,16 @@ YOI.Tabs = (function() {
          *    gets overridden by the tabs page matching the hash. Additionally, the tab page
          *    gets scrolled into the viewport.
          */
+        
+        var $tabsMenu = YOI.createCollection('tabs', $tabsMenu, options);
 
-        $('.tabs__menu').each(function(){
+        if ($tabsMenu) $tabsMenu.each(function(){
+            
+            var $thisTabsMenu = $(this);
 
             // read start tab from markup ...
 
-            var thisStartTabId = $(this).find('.is--active').length ? $(this).find('.is--active a')[0].hash : $(this).find('a').first()[0].hash;
+            var thisStartTabId = $thisTabsMenu.find('.is--active').length ? $thisTabsMenu.find('.is--active a')[0].hash : $thisTabsMenu.find('a').first()[0].hash;
 
             // read start tab from url ...
 
@@ -40,33 +47,29 @@ YOI.Tabs = (function() {
 
             // ... and finally define the target tab
 
-            var targetTabId = $(this).find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
+            var targetTabId = $thisTabsMenu.find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
 
             // switch to target tab
 
-            switchToTab(targetTabId);
+            switchTo(targetTabId);
 
             // if start tab was in hash, scroll to start tab
-
-            if (YOI.foundModule('YOI.ScrollTo') && urlTabId !== '')
-                ScrollTo.target(urlTabId);
+            
+            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
+                YOI.ScrollTo.target(urlTabId);
 
             // attach click event to menu items
 
-            $(this).find('a').on('click', function(e) {
-
+            $thisTabsMenu.find('a').on('click', function(e) {
                 e.preventDefault();
-
-                var thisHash = $(this)[0].hash;
-                switchToTab(thisHash);
-
+                switchTo($(this)[0].hash);
             });
 
         });
 
     }
 
-    function switchToTab(thisTargetTabId) {
+    function switchTo(thisTargetTabId) {
 
         /**
          *  Show the target tab, hide all other related tabs.
@@ -76,15 +79,17 @@ YOI.Tabs = (function() {
 
         var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
-
+        var $thisTargetTab            = $(thisTargetTabId);
+        
         // remove '.is--active' from all related menu items,
         // hide all related tabs
 
         $thisRelatedTabsMenuItems.each(function() {
+            
+            var $thisMenuItem = $(this);
+            var tabId         = $thisMenuItem.find('a')[0].hash;
 
-            var tabId = $(this).find('a')[0].hash;
-
-            $(this).removeClass('is--active');
+            $thisMenuItem.removeClass('is--active');
             $(tabId).hide();
 
         });
@@ -92,21 +97,25 @@ YOI.Tabs = (function() {
         // add '.is--active' and switch to target tab
 
         $thisTabsMenuItem.addClass('is--active');
-        $(thisTargetTabId).show();
+        $thisTargetTab.show();
+        
+        // trigger custom event
+        
+        $thisTargetTab.trigger('yoi-tabs:change');
 
     }
 
     // initialize
     // ==========
 
-    initializeTabs();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init     : initializeTabs,
-        switchTo : switchToTab
+        init     : initialize,
+        switchTo : switchTo
     };
 
 })();

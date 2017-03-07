@@ -20,7 +20,7 @@ YOI.ScrollAgent = (function() {
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement, options) {
+    function initialize($targetElement, options) {
         
        /**
         *  Initialize the script.
@@ -34,7 +34,7 @@ YOI.ScrollAgent = (function() {
         // map data to each target element
         
         if ($targetElement) $targetElement.each(function() {
-            updateTargetElementData($(this));
+            updateTargetElement($(this));
         });
         
         // update the viewport height on resize
@@ -50,7 +50,7 @@ YOI.ScrollAgent = (function() {
     
     }
     
-    function updateTargetElementData($targetElement) {
+    function updateTargetElement($targetElement) {
         
         /**
          *  Reads data from the custom data-attribute and from calculations (eg. height)
@@ -161,13 +161,13 @@ YOI.ScrollAgent = (function() {
     // initialize
     // ==========
     
-    initializeScrollAgent();
+    initialize();
     
     // public functions
     // ================
     
     return {
-        init: initializeScrollAgent
+        init: initialize
     }
 
 })();

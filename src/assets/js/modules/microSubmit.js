@@ -12,7 +12,7 @@ YOI.MicroSubmit = (function() {
     // private functions
     // =================
 
-    function initializeMicroSubmit($microSubmit, options) {
+    function initialize($microSubmit, options) {
 
         /**
          *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
@@ -84,13 +84,13 @@ YOI.MicroSubmit = (function() {
     // initialize
     // ==========
 
-    initializeMicroSubmit();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeMicroSubmit
+        init : initialize
     }
 
 })();

@@ -5,7 +5,7 @@ YOI.FilterBtns = (function() {
     // private functions
     // =================
 
-    function initializeFilterBtns($filterBtns, options) {
+    function initialize($filterBtns, options) {
 
         /**
          *  Initialize the script.
@@ -30,7 +30,7 @@ YOI.FilterBtns = (function() {
 
                     $thisBtn.on('click', function(e) {
                         e.preventDefault();
-                        removeBtnFilter($thisBtn);
+                        remove($thisBtn);
                     });
 
                 });
@@ -55,7 +55,7 @@ YOI.FilterBtns = (function() {
 
                     $thisBtn.on('click', function(e) {
                         e.preventDefault();
-                        toggleBtnFilter($thisBtn);
+                        toggle($thisBtn);
                     });
 
                     $thisBtn.on('mouseout', function(e) {
@@ -81,7 +81,7 @@ YOI.FilterBtns = (function() {
 
     }
 
-    function toggleBtnFilter($thisBtn) {
+    function toggle($thisBtn) {
 
         /**
          *  Mark the button active or inactive, depending
@@ -108,7 +108,7 @@ YOI.FilterBtns = (function() {
 
     }
 
-    function removeBtnFilter($thisBtn) {
+    function remove($thisBtn) {
 
         /**
          *  Remove the button and show an activity message.
@@ -124,13 +124,13 @@ YOI.FilterBtns = (function() {
     // initialize
     // ==========
 
-    initializeFilterBtns();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeFilterBtns
+        init : initialize
     }
 
 })();

@@ -86,6 +86,16 @@ If you wish to reference to a modal page to show it as a modal, you need to appl
 </div>
 
 {% markdown %}
+### Generate a Simple Modal
+{% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <button class="btn btn--large" yoi-modal="generate:true; title:Generated Modal; body:This is a generated modal. It is really basic, there is not much you can do with this thing.; modifiers:modal--small;">Generate Modal</button>
+    </div>
+</div>
+
+{% markdown %}
 In this most simple example, only two things are necessary: a valid link to a correctly formatted modal page and the `yoi-modal`-atribute.
 ### Options
 Modal-links can have options. In fact, you may use any element to refer to a modal, as long as you provide a valid modal path:

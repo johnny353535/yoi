@@ -21,7 +21,7 @@ YOI.ScrollTo = (function() {
     // private functions
     // =================
 
-    function initializeScrollTo($scrollToTrigger, options) {
+    function initialize($scrollToTrigger, options) {
 
         /**
          *  Initialize the script.
@@ -58,6 +58,7 @@ YOI.ScrollTo = (function() {
     }
 
     function scrollToTarget(targetId, $thisTrigger, options) {
+        
 
         /**
          *  Scroll the page to a given target element.
@@ -80,8 +81,8 @@ YOI.ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('YOI.Tabs')) {
-            Tabs.switchTo(targetId);
+        if ($target.hasClass('tabs__page') && YOI.foundModule('Tabs')) {
+            YOI.Tabs.switchTo(targetId);
         }
 
         // if the target is wrapped inside a container with
@@ -115,13 +116,13 @@ YOI.ScrollTo = (function() {
     // initialize
     // ==========
 
-    initializeScrollTo();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeScrollTo,
+        init   : initialize,
         target : scrollToTarget
     }
 

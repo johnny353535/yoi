@@ -5,7 +5,7 @@ YOI.Table = (function() {
     // private functions
     // =================
 
-    function initializeTable($table, options) {
+    function initialize($table, options) {
 
         /**
          *  Initialize the script.
@@ -138,13 +138,13 @@ YOI.Table = (function() {
     // initialize
     // ==========
 
-    initializeTable();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init      : initializeTable,
+        init      : initialize,
         selectRow : selectRow,
         removeRow : removeRow
     };

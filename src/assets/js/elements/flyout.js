@@ -5,7 +5,7 @@ YOI.Flyout = (function() {
     // private functions
     // =================
 
-    function initializeFlyout($flyout, options) {
+    function initialize($flyout, options) {
 
         /**
          *  Initialize the script.
@@ -30,12 +30,12 @@ YOI.Flyout = (function() {
 
             // hide the flyout
 
-            hideFlyout($thisFlyout);
+            hide($thisFlyout);
 
             // add events to flyout handle
 
             $flyoutHandle.on('click', function() {
-                toggleFlyout($thisFlyout);
+                toggle($thisFlyout);
             });
 
             // move the flyout in markup to make it a
@@ -47,7 +47,7 @@ YOI.Flyout = (function() {
 
     }
 
-    function toggleFlyout($thisFlyout) {
+    function toggle($thisFlyout) {
 
         /**
          *  Toggle the flyout.
@@ -56,14 +56,14 @@ YOI.Flyout = (function() {
          */
         
         if ($thisFlyout.data().state == 'visible') {
-            hideFlyout($thisFlyout)
+            hide($thisFlyout)
         } else {
-            showFlyout($thisFlyout);
+            show($thisFlyout);
         }
         
     }
 
-    function showFlyout($thisFlyout) {
+    function show($thisFlyout) {
 
         /**
          *  Show the flyout.
@@ -80,7 +80,7 @@ YOI.Flyout = (function() {
         
     }
 
-    function hideFlyout($thisFlyout) {
+    function hide($thisFlyout) {
 
         /**
          *  Hide the flyout.
@@ -100,16 +100,16 @@ YOI.Flyout = (function() {
     // initialize
     // ==========
 
-    initializeFlyout();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeFlyout,
-        toggle : toggleFlyout,
-        show   : showFlyout,
-        hide   : hideFlyout
+        init   : initialize,
+        toggle : toggle,
+        show   : show,
+        hide   : hide
     }
 
 })();

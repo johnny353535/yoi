@@ -3,7 +3,7 @@ YOI.ScrollFx = (function() {
     // private functions
     // =================
     
-    function initializeScrollFx($targetElement, options) {
+    function initialize($targetElement, options) {
         
        /**
         *  Initialize the script.
@@ -124,13 +124,13 @@ YOI.ScrollFx = (function() {
     // initialize
     // ==========
     
-    initializeScrollFx();
+    initialize();
     
     // public functions
     // ================
     
     return {
-        init: initializeScrollFx
+        init: initialize
     }
 
 })();

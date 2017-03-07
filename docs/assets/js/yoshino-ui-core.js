@@ -3,6 +3,8 @@
 var YOI = (function() {
     
     return {
+        
+        // helpers
 
         stringContains : function(input, searchString) {
 
@@ -28,49 +30,31 @@ var YOI = (function() {
             }
 
         },
-
-        environment : function(envName) {
+        
+        zeroPad : function(num, digits) {
 
             /**
-             *  Get an "environment" flag, useful to tag pages
-             *  that are designed for a specific screen or platform.
+             *  Add leading zeros to a given number and return the result.
              *
-             *  @param  {string} envName - the environment name to check for
-             *  @return {bool}
+             *  @param  {number} num    - the number
+             *  @param  {number} digits - the number of leading zeros
+             *  @return {string}        - the padded number
              */
 
-            if ($('body').data('environment') === envName) {
-                return true;
-            } else {
-                return false;
+            var num = Math.abs(num);
+            var digits = digits !== undefined ? digits : 1;
+            var i = 1;
+            var leadingZeros = '0';
+
+            while (i < digits) {
+                i++;
+                leadingZeros += '0';
             }
 
-        },
-
-        currentBreakpoint : function() {
-
-            /**
-             *  Read and return the currently active media-query.
-             *
-             *  @return {string} - the active media query name
-             */
-
-            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
+            return (leadingZeros + num).slice(-digits-1);
 
         },
-
-        locale : function() {
-
-            /**
-             *  Read and return the "lang" attribute of a page.
-             *
-             *  @return {string} - the page language as ISO language code
-             */
-
-            return $('html').attr('lang');
-
-        },
-
+        
         foundModule : function(module) {
 
             /**
@@ -80,58 +64,14 @@ var YOI = (function() {
              *  @return {bool}
              */
 
-            if (typeof window[module] === 'object') {
+            if (typeof window.YOI[module] === 'object') {
                 return true;
             } else {
                 return false;
             }
 
         },
-
-        blink : function(elem) {
-
-            /**
-             *  Blink animation.
-             *
-             *  @param  {jQuery dom object} elem - the element to blink
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
-             */
-
-            // cancel if elem is not a jQuery object
-
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
-
-            // animate
-
-            elem.animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100)
-                .animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100);
-
-        },
-
-        pulse : function(elem) {
-
-            /**
-             *  Pulse animation.
-             *
-             *  @param  {jQuery dom object} elem - the element to pulse
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
-             */
-
-            // cancel if elem is not a jQuery object
-
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
-
-            // animate
-
-            elem.animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300)
-                .animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300);
-
-        },
-
+        
         setDelay : function(delayName, delayTime, delayFunction) {
 
             /**
@@ -206,7 +146,7 @@ var YOI = (function() {
             }
 
         },
-
+        
         toObject : function(input) {
 
             /*
@@ -305,154 +245,7 @@ var YOI = (function() {
             return yoiAttributeValue;
             
         },
-
-        attachData : function($element, options, state, props) {
-            
-            /**
-             *  Attaches options and state data directly to each $element via jQuery's
-             *  data() method. Options are either retrieved via the options-parameter or
-             *  (if undefined) read from markup. States are set and retrieved via JS only.
-             *
-             *  Note: If a key/value is already set, it won't be changed.
-             *
-             *  @param {jQuery dom object} $element
-             *  @param {object}            options
-             */
-            
-            // create "options" object
-            
-            if ($element.data().options === undefined)
-                $element.data().options = {};
-            
-            if (options === undefined) {
-                
-                // if the "options" parameter is omitted on function call, read the
-                // options from the element's yoi-* attribute
-                
-                var options = YOI.toObject(YOI.getAttribute($element));
-                
-            }
-            
-            if (typeof options === 'object') {
-                
-                // if "options" is a valid object, attach the options to
-                // the element via jQuery's data() function
-                
-                $.each(options, function(key, value) {
-                    $element.data().options[key] = value;
-                });
-                
-            }
-            
-            // create "props" object
-            // use it to store properties of an element
-            // (eg. size, position, etc.)
-            
-            if ($element.data().props === undefined)
-                $element.data().props = {};
-
-            if (typeof props === 'object') {
-                
-                // if "props" is a valid object, attach the value to
-                // the element via jQuery's data() function
-                
-                $.each(props, function(key, value) {
-                    $element.data().props[key] = value;
-                });
-                
-            }
-            
-            // create "state" object
-            // use it to store the state of the object. an element should
-            // only have one state at a time (eg. "hidden")
-            
-            if ($element.data().state === undefined)
-                $element.data().state = {};
-
-            if (typeof state === 'string') {
-                
-                // if "state" is a valid string, attach the value to
-                // the element via jQuery's data() function
-                
-                $element.data().state = state;
-                
-            }
-    
-        },
-
-        createCollection : function(identifier, $element, options, state, props) {
-            
-            /**
-             *  Create or add to a collection of jQuery objects. Passes and attaches options
-             *  via YOI.().
-             *
-             *  @param  {} identifier - the string to select elements from the dom via
-             *                          custom yoi-{identifier} attribute
-             *  @param  {} $element   - jQuery element, optional
-             *  @param  {} options    - options, optional
-             *  @return {} object     - the jQuery element collection
-             */
-            
-            // if it does not exist, create a new collection of jQuery objects
-            
-            if (YOI.elementCollection[identifier] === undefined)
-                YOI.elementCollection[identifier] = $([]);
-            
-            if (!($element instanceof jQuery)) {
         
-                // if the createCollection() is called without a valid matching jQuery element,
-                // gather the matching elements from the dom
-        
-                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
-                
-                // if no elements are found, return false ...
-                
-                if (!YOI.elementCollection[identifier].length) return false;
-        
-                // ... otherwise add data (eg. options) to each element in the collection
-                
-                YOI.elementCollection[identifier].each(function() {
-                    YOI.attachData($(this), options, state, props);
-                });
-        
-            } else if ($element instanceof jQuery) {
-        
-                // if the createCollection() is called with a valid matching jQuery element,
-                // set it's options and add it to the element collection
-        
-                YOI.attachData($element, options);
-                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
-            
-            }
-            
-            return YOI.elementCollection[identifier];
-        
-        },
-
-        zeroPad : function(num, digits) {
-
-            /**
-             *  Add leading zeros to a given number and return the result.
-             *
-             *  @param  {number} num    - the number
-             *  @param  {number} digits - the number of leading zeros
-             *  @return {string}        - the padded number
-             */
-
-            var num = Math.abs(num);
-            var digits = digits !== undefined ? digits : 1;
-            var i = 1;
-            var leadingZeros = '0';
-
-            while (i < digits) {
-                i++;
-                leadingZeros += '0';
-            }
-
-            return (leadingZeros + num).slice(-digits-1);
-
-        },
-
         hide : function($target) {
 
             /**
@@ -520,8 +313,272 @@ var YOI = (function() {
 
             }
 
-        }
+        },
 
+        // global attributes
+
+        environment : function(envName) {
+
+            /**
+             *  Get an "environment" flag, useful to tag pages
+             *  that are designed for a specific screen or platform.
+             *
+             *  @param  {string} envName - the environment name to check for
+             *  @return {bool}
+             */
+
+            if ($('body').data('environment') === envName) {
+                return true;
+            } else {
+                return false;
+            }
+
+        },
+
+        currentBreakpoint : function() {
+
+            /**
+             *  Read and return the currently active media-query.
+             *
+             *  @return {string} - the active media query name
+             */
+
+            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
+
+        },
+
+        locale : function() {
+
+            /**
+             *  Read and return the "lang" attribute of a page.
+             *
+             *  @return {string} - the page language as ISO language code
+             */
+
+            return $('html').attr('lang');
+
+        },
+
+        // animations
+
+        blink : function(elem) {
+
+            /**
+             *  Blink animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to blink
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: 0 }, 100)
+                .animate({ opacity: 1 }, 100)
+                .animate({ opacity: 0 }, 100)
+                .animate({ opacity: 1 }, 100);
+
+        },
+
+        pulse : function(elem) {
+
+            /**
+             *  Pulse animation.
+             *
+             *  @param  {jQuery dom object} elem - the element to pulse
+             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             */
+
+            // cancel if elem is not a jQuery object
+
+            if (!(elem instanceof jQuery) || elem === undefined) return false;
+
+            // animate
+
+            elem.animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300)
+                .animate({ opacity: .2 }, 300)
+                .animate({ opacity:  1 }, 300);
+
+        },
+        
+        // YOI interface
+
+        updateOptions : function($element, options) {
+            
+            /**
+             *  Options are simple key/value pairs that affect how a component
+             *  might behave. For example "autoplay:true" for a slide show.
+             *  Options are attached to an $element via jQuery's data() method.
+             *
+             *  @param {jQuery dom object} $element
+             *  @param {object}            options
+             */
+            
+            // if not already present, create "options" object
+            
+            if ($element.data().options === undefined)
+                $element.data().options = {};
+            
+            if (options === undefined) {
+                
+                // if the "options" parameter is omitted on function call, read the
+                // options from the element's yoi-* attribute
+                
+                var options = YOI.toObject(YOI.getAttribute($element));
+                
+            }
+            
+            if (typeof options === 'object') {
+                
+                // if "options" is a valid object, attach the options to
+                // the element via jQuery's data() function
+                
+                $.each(options, function(key, value) {
+                    $element.data().options[key] = value;
+                });
+                
+            }
+            
+        },
+        
+        updateProps : function($element, props) {
+            
+            /**
+             *  Props are simple key/value pairs that define properties of a
+             *  component. For example an $element's size or position.
+             *  Props are attached to an $element via jQuery's data() method.
+             *
+             *  @param  {jQuery dom object}  $element
+             *  @param  {object}             props
+             *  @return {jQuery data object} props
+             */
+            
+            // if not already present, create "props" object
+            
+            if ($element.data().props === undefined)
+                $element.data().props = {};
+
+            if (typeof props === 'object') {
+                
+                // if the new props differ from the already attached props,
+                // fire a custom event
+                
+                if (props !== $element.data().props) {
+                    $element.trigger('YOI.props:change');
+                }
+                
+                // if "props" is a valid object, attach the value to
+                // the element via jQuery's data() function
+                
+                $.each(props, function(key, value) {
+                    $element.data().props[key] = value;
+                });
+                
+                // trigger custom event
+                
+                $element.trigger('YOI.props:update');
+                
+            }
+            
+            return $element.data().props;
+
+        },
+        
+        updateState : function($element, state) {
+            
+            /**
+             *  Each $element can have one state. For example "visible" or "hidden".
+             *  The state is attached to an $element via jQuery's data() method.
+             *
+             *  @param  {jQuery dom object}  $element
+             *  @param  {string}             state
+             *  @return {jQuery data object} state
+             */
+            
+            // if not already present, create "state" object
+            
+            if ($element.data().state === undefined)
+                $element.data().state = {};
+
+            if (typeof state === 'string') {
+                
+                // if the new props differ from the already attached props,
+                // fire a custom event
+                
+                if (state !== $element.data().state) {
+                    $element.trigger('YOI.state:change');
+                }
+                
+                // if "state" is a valid string, attach the value to
+                // the element via jQuery's data() function
+                
+                $element.data().state = state;
+                
+                // trigger custom event
+                
+                $element.trigger('YOI.state:update');
+                
+            }
+            
+            return $element.data().state;
+            
+        },
+
+        createCollection : function(identifier, $element, options, state, props) {
+            
+            /**
+             *  Create or add to a collection of jQuery objects and add options,
+             *  state and props data.
+             *
+             *  @param  {} identifier - the string to select elements from the dom via
+             *                          custom yoi-{identifier} attribute
+             *  @param  {} $element   - jQuery element, optional
+             *  @param  {} options    - options, optional
+             *  @return {} object     - the jQuery element collection
+             */
+            
+            // if it does not exist, create a new collection of jQuery objects
+            
+            if (YOI.elementCollection[identifier] === undefined)
+                YOI.elementCollection[identifier] = $([]);
+            
+            if (!($element instanceof jQuery)) {
+        
+                // if the createCollection() is called without a valid matching jQuery element,
+                // gather the matching elements from the dom
+        
+                YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
+                
+                // if no elements are found, return false ...
+                
+                if (!YOI.elementCollection[identifier].length) return false;
+        
+                // ... otherwise add data (options, state, props) to each element in the collection
+                
+                YOI.elementCollection[identifier].each(function() {
+                    YOI.updateOptions($(this), options);
+                    YOI.updateState($(this), state);
+                    YOI.updateProps($(this), props);
+                });
+        
+            } else if ($element instanceof jQuery) {
+        
+                // if the createCollection() is called with a valid matching jQuery element,
+                // set it's options and add it to the element collection
+        
+                YOI.updateOptions($(this), options);
+                YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
+            
+            }
+            
+            return YOI.elementCollection[identifier];
+        
+        }
+        
     }
 
 })();
@@ -582,7 +639,7 @@ YOI.Documentation = (function() {
         // hightlight code inside code-tags found in markup
 
         $('[class^="language-"]').each(function() {
-            if (YOI.foundModule('Prism'))
+            if (typeof Prism === 'object')
                 Prism.highlightElement($(this).find('pre')[0]);
         });
 
@@ -760,7 +817,7 @@ YOI.Documentation = (function() {
         })
         .done(function(responseData) {
 
-            if (YOI.foundModule('Prism')) {
+            if (typeof Prism === 'object') {
 
                 // highlight with prism.js if available
 
@@ -1304,38 +1361,50 @@ YOI.Console = (function() {
     var yoiEvents = [
         'yoi-accordion:close',
         'yoi-accordion:open',
-        'yoi-modal:load',
+        'yoi-countdown:expire',
+        'yoi-datepicker:hide',
+        'yoi-datepicker:show',
+        'yoi-filters:change',
+        'yoi-filters:reset',
+        'yoi-filters:update',
+        'yoi-hide',
         'yoi-modal:error',
-        'yoi-modal:show',
         'yoi-modal:hide',
-        'yoi-viewport:in',
-        'yoi-viewport:center',
-        'yoi-viewport:out',
-        // 'yoi-scrolldirection:up',
-        // 'yoi-scrolldirection:down',
-        'yoi-pagerewind:start',
+        'yoi-modal:load',
+        'yoi-modal:show',
         'yoi-pagerewind:end',
+        'yoi-pagerewind:start',
         'yoi-pickbtn:change',
-        'yoi-popover:show',
         'yoi-popover:hide',
+        'yoi-popover:show',
+        'yoi-rangeinput:change',
+        'yoi-rangeinput:update',
         'yoi-rating:submit',
-        'yoi-stepper:up',
+        'yoi-remove',
+        'yoi-reveal',
+        'yoi-scrollto:end',
+        'yoi-scrollto:start',
+        'yoi-slider:autoplaystart',
+        'yoi-slider:autoplaystop',
+        'yoi-slider:change',
         'yoi-stepper:down',
         'yoi-stepper:error',
-        'yoi-switch:on',
+        'yoi-stepper:up',
         'yoi-switch:off',
-        'yoi-table:select',
-        'yoi-table:remove',
+        'yoi-switch:on',
         'yoi-table:empty',
-        'yoi-tooltip:show',
-        'yoi-tooltip:hide',
-        'yoi-remove',
-        'yoi-hide',
-        'yoi-reveal',
-        'yoi-scrollto:start',
-        'yoi-scrollto:end',
+        'yoi-table:remove',
+        'yoi-table:select',
+        'yoi-tabs:change',
         'yoi-togglegroup:change',
-        'yoi-togglegroup:reset'
+        'yoi-togglegroup:reset',
+        'yoi-tooltip:hide',
+        'yoi-tooltip:show',
+        'yoi-viewport:center',
+        'yoi-viewport:in',
+        'yoi-viewport:out'
+        // 'yoi-scrolldirection:down',
+        // 'yoi-scrolldirection:up',
     ];
 
     // private functions
@@ -1442,7 +1511,7 @@ YOI.Countdown = (function() {
     // private functions
     // =================
 
-    function initializeCountdown($countdown, options) {
+    function initialize($countdown, options) {
 
         /**
          *  Initialize the script.
@@ -1455,66 +1524,143 @@ YOI.Countdown = (function() {
 
         if ($countdown) $countdown.each(function(index) {
             
-            var $thisCountdown = $(this);
-            var options        = $thisCountdown.data().options;
+            var $thisCountdown  = $(this);
+            var options         = $thisCountdown.data().options;
+            var defaultTimezone = "GMT+0002";
+            var defaultYear     = new Date().getFullYear();
+            var defaultMonth    = 1;
+            var defaultDay      = 1;
+            var defaultHour     = 12;
+            var defaultMinute   = 0;
+            var defaultSecond   = 0;
+            var timezone        = options.timezone === undefined ? defaultTimezone : options.timezone;
+            var year            = options.year === undefined ? defaultYear : parseInt(options.year);
+            var month           = options.month === undefined || parseInt(options.month) > 12 || parseInt(options.month) < 1 ? defaultMonth : parseInt(options.month);
+            var day             = options.day === undefined || parseInt(options.day) > 31 || parseInt(options.day) < 1 ? defaultDay : parseInt(options.day);
+            var hour            = options.hour === undefined || parseInt(options.hour) > 12 || parseInt(options.hour) < 1 ? defaultHour : parseInt(options.hour);
+            var minute          = options.minute === undefined || parseInt(options.minute) > 60 || parseInt(options.minute) < 1 ? defaultMinute : parseInt(options.minute);
+            var second          = options.second === undefined || parseInt(options.second) > 60 || parseInt(options.second) < 1 ? defaultSecond : parseInt(options.second);
+            
+            // write props
+        
+            $thisCountdown.data().props = {
+                'endTime' : getDateString(month, day, year, hour, minute, second, timezone),
+                'index'   : index
+            };
             
             // render the countdown
-
-            renderCountdown($thisCountdown, options.endTime, index);
+            
+            render($thisCountdown);
 
             // update the clock every second
 
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
-                renderCountdown($thisCountdown, options.endTime, index)
+                update($thisCountdown);
             });
 
         });
 
     }
-
-    function renderCountdown($thisCountdown, endTime, index) {
-
+    
+    function render($thisCountdown) {
+        
         /**
-         *  Render the lcd-style countdown, also include a label for screen readers.
+         *  Create and append the countdown markup.
          *
-         *  @param {jQuery dom object} $thisCountdown - the countdown
-         *  @param {string}            endTime        - the complete iso date format like "January 1 2020 15:50:00 GMT+0002"
-         *  @param {number}            index          - index number of the count down
+         *  @param {jQuery dom object} $countdown
          */
+        
+        var endTime             = $thisCountdown.data().props.endTime;
+        var timeRemaining       = getTimeRemaining(endTime);
+        var lcdCharacters       = getLcdCharactersCSSClassNames(timeRemaining);
+        var $hiddenLabel        = $thisCountdown.find('.countdown__hiddenLabel');
+        var $thisCountdownClock = $countdownClock.clone();
 
-        // read end time and get remaining time
+        // add the lcd characters and labels
 
+        for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
+
+            var unit            = Object.keys(lcdCharacters)[i];
+            var $countdownChars = $('<div></div>').addClass('countdown__' + unit);
+            var $countdownLabel = getCharacterLabel(unit);
+
+            if (timeRemaining.total > 0) {
+                $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][0]));
+                $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][1]));
+            } else {
+                $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
+                $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
+            }
+
+            $countdownChars.append($countdownLabel);
+            $thisCountdownClock.append($countdownChars);
+
+        }
+
+        // add the countdown clock
+
+        $thisCountdown.append($thisCountdownClock);
+        
+        // accessibility: create an additional, visually hidden
+        // label for screen readers
+        
+        if ($hiddenLabel.length === 0) {
+            $thisCountdown.append($('<p class="countdown__hiddenLabel"></p>'));
+        }
+        
+    }
+    
+    function update($thisCountdown) {
+        
+        /**
+         *  Update the countdown display.
+         *
+         *  @param {jQuery dom object} $countdown
+         */
+        
+        var endTime       = $thisCountdown.data().props.endTime;
+        var index         = $thisCountdown.data().props.index;
         var timeRemaining = getTimeRemaining(endTime);
-
+        var language      = YOI.locale();
+        var $hiddenLabel  = $thisCountdown.find('.countdown__hiddenLabel');
+        
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
             $thisCountdown.trigger('yoi-countdown:expire');
         }
+        
+        // get lcd character map
 
-        // set the lcd characters
+        var lcdCharacters = getLcdCharactersCSSClassNames(timeRemaining);
+        
+        // update the LCD characters
+        
+        for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
 
-        setLcdCharacters($thisCountdown, timeRemaining);
+            var unit     = Object.keys(lcdCharacters)[i];
+            var selector = '.countdown__' + unit + ' .countdown__character';
 
-        // accessibility: create an additional, visually hidden
-        // label for screen readers
+            if (timeRemaining.total > 0) {
+                $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character ' + lcdCharacters[unit][0]);
+                $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character ' + lcdCharacters[unit][1]);
+            } else {
+                $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character countdown--empty');
+                $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character countdown--empty');
+            }
 
-        var language = YOI.locale();
+        }
+        
+        // update hidden label
 
         var labelTxt = {
             'en' : timeRemaining.days + ' days, ' + timeRemaining.hours + ' hours, ' + timeRemaining.minutes + ' minutes and ' + timeRemaining.seconds + ' seconds left.',
             'de' : 'Noch ' + timeRemaining.days + ' Tage, ' + timeRemaining.hours + ' Stunden, ' + timeRemaining.minutes + ' Minuten und ' + timeRemaining.seconds + ' Sekunden.'
         };
 
-        var $hiddenLabel = $thisCountdown.find('.hidden');
-
-        if ($hiddenLabel.length === 0) {
-            $thisCountdown.append($('<p class="hidden"></p>'));
-        }
-
         $hiddenLabel.text(labelTxt[language]);
-
+        
     }
 
     function getTime() {
@@ -1533,6 +1679,36 @@ YOI.Countdown = (function() {
         currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
 
         return currentTime;
+
+    }
+    
+    function getDateString(month, day, year, hour, minute, second, timezone) {
+        
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+        
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ];
+        
+        var endTimeIsoString = months[month - 1] + ' ' + day + ' ' + year + ' ' + hour + ':' + minute + ':' + second + ' ' + timezone;
+        
+        return endTimeIsoString;
 
     }
 
@@ -1564,23 +1740,17 @@ YOI.Countdown = (function() {
         };
 
     }
-
-    function setLcdCharacters($thisCountdown, timeRemaining) {
-
+    
+    function getLcdCharactersCSSClassNames(timeRemaining) {
+        
         /**
-         *  Set or update the lcd-style characters of the countdown clock.
+         *  Returns an object with css the cass names for each LCD character.
          *
-         *  @param {jQuery dom object} $thisCountdown - the countdown
-         *  @param {object} timeRemaining             - the formatted remaining time
+         *  @param  {object} timeRemaining - the remaining time (y/m/d/h/m/s)
+         *  @return {object} lcdCharacters - a "lookup-table" with css class names
          */
-
-        // check if clock already exists
-
-        var foundClock = $thisCountdown.find('.countdown__clock').length === 0 ? false : true;
-
-        // generate the lcd character map
-
-        var lcdCharacters = {
+        
+        return lcdCharacters = {
             'days' : [
                 'countdown--' + timeRemaining.days.charAt(0),
                 'countdown--' + timeRemaining.days.charAt(1)
@@ -1598,67 +1768,13 @@ YOI.Countdown = (function() {
                 'countdown--' + timeRemaining.seconds.charAt(1)
             ]
         };
+        
+    }
 
-        // add the characters
-
-        if (foundClock) {
-
-            // update the css class names inside the existing clock
-
-            for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
-
-                var unit     = Object.keys(lcdCharacters)[i];
-                var selector = '.countdown__' + unit + ' .countdown__character';
-
-                if (timeRemaining.total > 0) {
-                    $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character ' + lcdCharacters[unit][0]);
-                    $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character ' + lcdCharacters[unit][1]);
-                } else {
-                    $thisCountdown.find(selector).eq(0).attr('class', 'countdown__character countdown--empty');
-                    $thisCountdown.find(selector).eq(1).attr('class', 'countdown__character countdown--empty');
-                }
-
-            }
-
-        } else {
-
-            // reference the countdown clock
-
-            var $thisCountdownClock = $countdownClock.clone();
-
-            // add the lcd characters
-
-            for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
-
-                var unit            = Object.keys(lcdCharacters)[i];
-                var $countdownChars = $('<div></div>').addClass('countdown__' + unit);
-                var $countdownLabel = createCountdownCharacterLabel(unit);
-
-                if (timeRemaining.total > 0) {
-                    $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][0]));
-                    $countdownChars.append($countdownCharacter.clone().addClass(lcdCharacters[unit][1]));
-                } else {
-                    $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
-                    $countdownChars.append($countdownCharacter.clone().addClass('countdown--empty'));
-                }
-
-                $countdownChars.append($countdownLabel);
-                $thisCountdownClock.append($countdownChars);
-
-            }
-
-            // add the countdown clock
-
-            $thisCountdown.append($thisCountdownClock);
-
-        }
-
-    };
-
-    function createCountdownCharacterLabel(unit) {
+    function getCharacterLabel(unit) {
 
         /**
-         *  Return a clock label (eg. "hours") as jQuery dom element.
+         *  Returns a clock label (eg. "hours") as jQuery dom element.
          *
          *  @param  {string} unit              - "days" | "hours" | "minutes" | "seconds"
          *  @return {jQuery dom object} $label - the label
@@ -1676,13 +1792,13 @@ YOI.Countdown = (function() {
     // initialize
     // ==========
 
-    initializeCountdown();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeCountdown
+        init : initialize
     }
 
 })();
@@ -1706,7 +1822,7 @@ YOI.CustomFormElements = (function() {
     // private functions
     // =================
 
-    function initializeCustomFormElements(scope) {
+    function initialize(scope) {
 
         /**
          *  Set css-selector to either target all custom form elements
@@ -1830,13 +1946,13 @@ YOI.CustomFormElements = (function() {
     // initialize
     // ==========
 
-    initializeCustomFormElements();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeCustomFormElements
+        init : initialize
     }
 
 })();
@@ -1847,9 +1963,11 @@ YOI.DatePicker = (function() {
 
     // private vars
     // ============
+    
+    var $document = $(document);
 
     // get the document language, fall back to english
-    // note: only german and english supported at this moment
+    // only german and english supported at this moment
 
     var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
 
@@ -1861,8 +1979,8 @@ YOI.DatePicker = (function() {
 
     var $datePicker = $('\
         <div class="datePicker">\
-            <span class="datePicker__btnPrev" data-action="prevMonth"></span>\
-            <span class="datePicker__btnNext" data-action="nextMonth"></span>\
+            <span class="datePicker__btnPrev" yoi-action="prevMonth"></span>\
+            <span class="datePicker__btnNext" yoi-action="nextMonth"></span>\
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');
@@ -1894,7 +2012,7 @@ YOI.DatePicker = (function() {
     // private functions
     // =================
 
-    function initializeDatePicker($datepicker, options) {
+    function initialize($datepicker, options) {
 
         /**
          *  Initialize the script.
@@ -1917,50 +2035,32 @@ YOI.DatePicker = (function() {
 
             var $thisDateInput = $(this);
 
-            // if the date input already has data (from markup), use it
+            // get and format date input data
 
-            // if (!$.isEmptyObject($thisDateInput.data('datepicker'))) {
+            var options = $thisDateInput.data().options;
 
-                // get and format date input data
+            // if a field is undefined, fall back to the current time value for the field,
+            // eg. if year is undefined, use the current year
 
-                var options = $thisDateInput.data().options;
+            var inputYear  = options.year  === undefined ? now.year  : parseInt(options.year);
+            var inputMonth = options.month === undefined ? now.month : parseInt(options.month - 1);
+            var inputDay   = options.day   === undefined ? now.day   : parseInt(options.day);
 
-                // if a field is undefined, fall back to the current time value for the field,
-                // eg. if year is undefined, use the current year
+            updateDateInput(
+                $thisDateInput,
+                inputYear,
+                inputMonth,
+                inputDay
+            );
 
-                var inputYear  = options.year  === undefined ? now.year  : parseInt(options.year);
-                var inputMonth = options.month === undefined ? now.month : parseInt(options.month - 1);
-                var inputDay   = options.day   === undefined ? now.day   : parseInt(options.day);
+            // render date picker with year and date from date input data
 
-                updateDateInput(
-                    $thisDateInput,
-                    inputYear,
-                    inputMonth,
-                    inputDay
-                );
-
-                // render date picker with year and date from date input data
-
-                var $thisDatePicker = renderDatePicker(inputYear, inputMonth, inputDay);
-
-            // } else {
-
-                updateDateInput(
-                    $thisDateInput,
-                    now.year,
-                    now.month
-                );
-
-                // render date picker with current date
-
-                var $thisDatePicker = $thisDatePicker = renderDatePicker();
-
-            // }
+            var $thisDatePicker = renderDatePicker(inputYear, inputMonth, inputDay);
 
             // get month table and month table data
 
-            var $thisMonthTable    = $thisDatePicker.find('.datePicker__days');
-            var thisMonthTableData = $thisMonthTable.data();
+            var $thisMonthTable     = $thisDatePicker.find('.datePicker__days');
+            var thisMonthTableProps = $thisMonthTable.data().props;
 
             // add a wrapper to aid positioning
 
@@ -1996,7 +2096,7 @@ YOI.DatePicker = (function() {
 
                         // get the date input data
 
-                        var thisDateInputData = $thisDateInput.data();
+                        var thisDateInputProps = $thisDateInput.data().props;
 
                         // hide this date picker after a short delay
 
@@ -2004,10 +2104,14 @@ YOI.DatePicker = (function() {
 
                             // reset the month table to the selected date
 
-                            $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, thisDateInputData.selectedYear, thisDateInputData.selectedMonth));
-                            $thisDatePicker.find('.datePicker__header').text(getMonthName(thisDateInputData.selectedMonth) + ' ' + thisDateInputData.selectedYear);
+                            $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, thisDateInputProps.selectedYear, thisDateInputProps.selectedMonth));
+                            $thisDatePicker.find('.datePicker__header').text(getMonthName(thisDateInputProps.selectedMonth) + ' ' + thisDateInputProps.selectedYear);
 
                         });
+                        
+                        // fire custom event
+        
+                        $document.trigger('yoi-datepicker:hide');
 
                     });
 
@@ -2028,6 +2132,10 @@ YOI.DatePicker = (function() {
                     // show the date picker
 
                     $thisDatePicker.show();
+        
+                    // fire custom event
+        
+                    $document.trigger('yoi-datepicker:show');
 
                 });
 
@@ -2052,7 +2160,7 @@ YOI.DatePicker = (function() {
 
         // write data
 
-        $thisDatePicker.data().options = {
+        $thisDatePicker.data().props = {
             'selectedYear'          : selectedYear,
             'selectedMonth'         : selectedMonth,
             'selectedDay'           : selectedDay,
@@ -2112,13 +2220,13 @@ YOI.DatePicker = (function() {
 
         // write data to month table
 
-        $thisMonthTable.data({
+        $thisMonthTable.data().props = {
             'firstDay'       : firstDay,     // week day of the first day of the given month
             'totalDays'      : totalDays,    // total days of the given month
             'year'           : year,         // the given year of the month table
             'month'          : month,        // the given month of the month table
             'formattedDate'  : formattedDate // the formatted date
-        });
+        };
 
     }
 
@@ -2147,12 +2255,12 @@ YOI.DatePicker = (function() {
 
         // write data
 
-        $thisDateInput.data({
+        $thisDateInput.data().props = {
             'selectedYear'  : year,
             'selectedMonth' : month,
             'selectedDay'   : day,
             'formattedDate' : formattedDate
-        });
+        };
 
         // write the selected date to the date input field
 
@@ -2183,11 +2291,11 @@ YOI.DatePicker = (function() {
 
         // access the month table data
 
-        var thisMonthTableData = $monthTable.data();
+        var thisMonthTableProps = $monthTable.data().props;
 
         // access the date picker data
 
-        var thisDatePickerData = $thisDatePicker.data();
+        var thisDatePickerProps = $thisDatePicker.data().props;
 
         // create the table header
 
@@ -2201,53 +2309,61 @@ YOI.DatePicker = (function() {
 
         }
 
-        // create the table rows
+        // set index vars
 
         var indexCell = 1;
         var indexDay  = 1;
+        
+        // create the table cells and rows
 
-        for (var i = 0; i < Math.ceil((thisMonthTableData.totalDays + thisMonthTableData.firstDay - 1) / 7); i++) {
+        for (var i = 0; i < Math.ceil((thisMonthTableProps.totalDays + thisMonthTableProps.firstDay - 1) / 7); i++) {
+
+            // create a table row
 
             var $row = $('<tr>');
 
-            // create the table cells
+            // create a table cell
 
             for (var j = 0; j < 7; j++) {
-
-                if (indexCell < thisMonthTableData.firstDay || indexDay > thisMonthTableData.totalDays) {
-
-                    // empty cells
-
-                    $row.append('<td class="datePicker--emptyDay"></td>');
-
-                } else if (thisMonthTableData.month === thisDatePickerData.selectedMonth && thisMonthTableData.year === thisDatePickerData.selectedYear && indexDay === thisDatePickerData.selectedDay) {
-
-                    // selected day
-
-                    $row.append('<td class="datePicker--selectedDay">' + indexDay + '</td>');
-                    indexDay++;
-
-                } else if (thisMonthTableData.month === now.month && thisMonthTableData.year === now.year && indexDay === now.day) {
-
-                    // today
-
-                    $row.append('<td class="datePicker--today">' + indexDay + '</td>');
-                    indexDay++;
-
-                } else {
-
-                    // any other cell
-
-                    $row.append('<td>' + indexDay + '</td>');
-                    indexDay++;
-
+                
+                var $cell = $('<td></td>');
+                
+                // empty day
+                
+                if (indexCell < thisMonthTableProps.firstDay || indexDay > thisMonthTableProps.totalDays) {
+                    $cell.addClass('datePicker--emptyDay');
                 }
+                
+                // any other day
+                
+                else {
+                    $cell.text(indexDay);
+                    indexDay++;
+                }
+                
+                // selected day
 
+                if (thisMonthTableProps.month === thisDatePickerProps.selectedMonth && thisMonthTableProps.year === thisDatePickerProps.selectedYear && indexDay - 1 === thisDatePickerProps.selectedDay) {
+                    $cell.addClass('datePicker--selectedDay');
+                }
+                
+                // today
+                
+                if (thisMonthTableProps.month === now.month && thisMonthTableProps.year === now.year && indexDay - 1 === now.day) {
+                    $cell.addClass('datePicker--today');
+                }
+                
+                // append the cell
+
+                $row.append($cell);
+                
+                // count up index var
+                
                 indexCell++;
 
             }
 
-            // append the table row
+            // append the row
 
             $monthTableBody.append($row);
 
@@ -2259,7 +2375,7 @@ YOI.DatePicker = (function() {
 
             var selectedDay = parseInt($(this).text());
 
-            pickDate($monthTable, thisMonthTableData.year, thisMonthTableData.month, selectedDay);
+            pickDate($monthTable, thisMonthTableProps.year, thisMonthTableProps.month, selectedDay);
 
         });
 
@@ -2305,7 +2421,7 @@ YOI.DatePicker = (function() {
 
         // get month table data
 
-        var thisMonthTableData = $thisMonthTable.data();
+        var thisMonthTableProps = $thisMonthTable.data().props;
 
         // set year and month
 
@@ -2319,53 +2435,42 @@ YOI.DatePicker = (function() {
         // attach events to date picker buttons
 
         $thisDatePicker.find('[yoi-action*="Month"]').on('click', function(e) {
-
+            
             e.preventDefault();
 
             // important: get updated month table data on each click
 
-            var $thisDatepicker    = $(this).closest('.datePicker');
-            var $thisMonthTable    = $thisDatepicker.find('.datePicker__days');
-            var thisMonthTableData = $thisMonthTable.data();
-            var month              = thisMonthTableData.month;
-            var year               = thisMonthTableData.year;
+            var $thisMonthButton    = $(this);
+            var $thisDatepicker     = $thisMonthButton.closest('.datePicker');
+            var $thisMonthTable     = $thisDatepicker.find('.datePicker__days');
+            var thisMonthTableProps = $thisMonthTable.data().props;
+            var month               = thisMonthTableProps.month;
+            var year                = thisMonthTableProps.year;
 
             // get the action (prevMonth or nextMonth)
 
-            var thisAction = $(this).data('action');
+            var thisAction = $thisMonthButton.attr('yoi-action');
 
             // action = show previous month
 
             if (thisAction === 'prevMonth') {
-
                 if (month > 0) {
-
                     --month;
-
                 } else {
-
                     month = 11;
                     --year;
-
                 }
-
             }
 
             // action = show next month
 
             if (thisAction === 'nextMonth') {
-
                 if (month < 11) {
-
                     ++month;
-
                 } else {
-
                     month = 0;
                     ++year;
-
                 }
-
             }
 
             // render new month table and
@@ -2415,7 +2520,7 @@ YOI.DatePicker = (function() {
 
         // access the month table data
 
-        var thisMonthTableData = $thisMonthTable.data();
+        var thisMonthTableProps = $thisMonthTable.data().props;
 
         // add a class to the day cell to visualize selection
 
@@ -2466,6 +2571,8 @@ YOI.DatePicker = (function() {
          */
 
         $('.datePicker__wrapper .datePicker').hide();
+        $document.trigger('yoi-datepicker:hide');
+        
     }
 
     function getCurrentDate() {
@@ -2642,13 +2749,13 @@ YOI.DatePicker = (function() {
     // initialize
     // ==========
 
-    initializeDatePicker();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeDatePicker,
+        init   : initialize,
         render : renderDatePicker,
         hide   : hideAllDatePickers
     }
@@ -2662,7 +2769,7 @@ YOI.Dock = (function() {
     // private functions
     // =================
 
-    function initializeDock($dock, options) {
+    function initialize($dock, options) {
 
         /**
          *  Initialize the script.
@@ -2682,16 +2789,16 @@ YOI.Dock = (function() {
 
             if (options.autohide) {
 
-                hideDock($thisDock);
+                hide($thisDock);
 
                 $thisDock
                     .on('mouseover', function() {
-                        YOI.clearDelay('hideDockTimeout');
-                        showDock($thisDock);
+                        YOI.clearDelay('hideTimeout');
+                        show($thisDock);
                     })
                     .on('mouseout', function() {
-                        YOI.setDelay('hideDockTimeout', 750, function() {
-                            hideDock($thisDock);
+                        YOI.setDelay('hideTimeout', 750, function() {
+                            hide($thisDock);
                         });
                     });
 
@@ -2701,7 +2808,7 @@ YOI.Dock = (function() {
 
     }
 
-    function hideDock($thisDock) {
+    function hide($thisDock) {
 
         /**
          *  Hide the dock.
@@ -2715,7 +2822,7 @@ YOI.Dock = (function() {
         
     }
 
-    function showDock($thisDock) {
+    function show($thisDock) {
 
         /**
          *  Show the dock.
@@ -2732,15 +2839,15 @@ YOI.Dock = (function() {
     // initialize
     // ==========
 
-    initializeDock();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeDock,
-        hide : hideDock,
-        show : showDock
+        init : initialize,
+        hide : hide,
+        show : show
     }
 
 })();
@@ -2752,7 +2859,7 @@ YOI.FilterBtns = (function() {
     // private functions
     // =================
 
-    function initializeFilterBtns($filterBtns, options) {
+    function initialize($filterBtns, options) {
 
         /**
          *  Initialize the script.
@@ -2777,7 +2884,7 @@ YOI.FilterBtns = (function() {
 
                     $thisBtn.on('click', function(e) {
                         e.preventDefault();
-                        removeBtnFilter($thisBtn);
+                        remove($thisBtn);
                     });
 
                 });
@@ -2802,7 +2909,7 @@ YOI.FilterBtns = (function() {
 
                     $thisBtn.on('click', function(e) {
                         e.preventDefault();
-                        toggleBtnFilter($thisBtn);
+                        toggle($thisBtn);
                     });
 
                     $thisBtn.on('mouseout', function(e) {
@@ -2828,7 +2935,7 @@ YOI.FilterBtns = (function() {
 
     }
 
-    function toggleBtnFilter($thisBtn) {
+    function toggle($thisBtn) {
 
         /**
          *  Mark the button active or inactive, depending
@@ -2855,7 +2962,7 @@ YOI.FilterBtns = (function() {
 
     }
 
-    function removeBtnFilter($thisBtn) {
+    function remove($thisBtn) {
 
         /**
          *  Remove the button and show an activity message.
@@ -2871,13 +2978,13 @@ YOI.FilterBtns = (function() {
     // initialize
     // ==========
 
-    initializeFilterBtns();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeFilterBtns
+        init : initialize
     }
 
 })();
@@ -2891,9 +2998,8 @@ YOI.Filters = (function() {
 
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
-
-    var btnLabelReset = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
-    var msgLoading    = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
+    var btnLabelReset        = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
+    var msgLoading           = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
         <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
@@ -2909,21 +3015,18 @@ YOI.Filters = (function() {
     // private functions
     // =================
 
-    function initializeFilters($filters) {
-
+    function initialize($filters, options) {
+        
         /**
-         *  Initialize all *[yoi-filters] found in the document (= function call without parameters)
-         *  or target one or more specific *[yoi-filters] (= function call with $dock).
-         *  $filters must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $filters - the filter group(s)
+         *  @param {jQuery dom object} $accordion
+         *  @param {object}            options
          */
+        
+        var $filters = YOI.createCollection('filters', $filters, options);
 
-        if (!($filters instanceof jQuery) || $filters === undefined) {
-            $filters = $('[yoi-filters]');
-        }
-
-        $filters.each(function() {
+        if ($filters) $filters.each(function() {
 
             var $thisFilters            = $(this);
             var $thisFilterGroups       = $thisFilters.find('.filterGroup');
@@ -2934,11 +3037,11 @@ YOI.Filters = (function() {
             // set initial states
 
             updateAllFilterGroups($thisFilters);
-            toggleResetBtn($thisFilters);
 
             $thisFilterGroups.each(function() {
 
                 var $thisFilterGroup = $(this);
+                var props            = $thisFilterGroup.data().props;
 
                 // only on init: mark filter groups that have too many filters
                 // add make them scrollable
@@ -2946,16 +3049,16 @@ YOI.Filters = (function() {
                 var aboveMaxHeight = $thisFilterGroup.height() > filterGroupMaxHeight;
 
                 if (aboveMaxHeight) {
-                    $thisFilterGroup.data().isScroll = true;
+                    props.isScroll = true;
                     $thisFilterGroup.addClass('filterGroup--isScroll');
                 } else {
-                    $thisFilterGroup.data().isScroll = false;
+                    props.isScroll = false;
                 }
 
                 // collapse all filter groups if they are already
                 // defined as collapsed in markup
 
-                if ($thisFilterGroup.data().isCollapsed)
+                if (props.isCollapsed)
                     collapseFilterGroup($thisFilterGroup);
 
             });
@@ -2979,20 +3082,26 @@ YOI.Filters = (function() {
                 toggleFilter($thisFilter);
             });
 
-            $thisFilters.on('yoi-filters:update', function() {
-                updateResults($thisFilters);
-            });
-
             $thisFilters.on('yoi-filters:reset', function() {
-                resetFilters($thisFilters);
-                toggleResetBtn($thisFilters);
+                reset($thisFilters);
+                removeResetBtn($thisFilters);
+            });
+            
+            $thisFilters.on('yoi-filters:update', function() {
+                addResetBtn($thisFilters);
+            });
+            
+            // if a foo
+            
+            $thisFilters.on('yoi-rangeinput:change', function() {
+                addResetBtn($thisFilters);
             });
 
         });
 
     }
 
-    function resetFilters($filters) {
+    function reset($filters) {
 
         /**
          *  Reset all filters inside a .filter (if .filter was specified through
@@ -3013,16 +3122,20 @@ YOI.Filters = (function() {
         // collapse filter groups
 
         $thisFilterGroups.each(function() {
+            
             var $thisFilterGroup = $(this);
-            if ($thisFilterGroup.data().isCollapsed)
+            var props            = $thisFilterGroup.data().props;
+            
+            if (props.isCollapsed)
                 collapseFilterGroup($thisFilterGroup);
+            
         });
 
-        // fire reset event on range sliders
+        // fire reset event on range inputs
 
-        $thisFilters.find('.rangeInput').trigger('yoi-rangeInput:reset');
+        $thisFilters.find('.rangeInput').trigger('yoi-rangeinput:reset');
 
-        // update search results
+        // trigger custom event
 
         $thisFilters.trigger('yoi-filters:update');
 
@@ -3079,8 +3192,10 @@ YOI.Filters = (function() {
          *
          *  @param {jQuery dom object} $filterGroup - the fiter group
          */
+        
+        var props = $thisFilterGroup.data().props;
 
-        if ($thisFilterGroup.data().isCollapsed) {
+        if (props.isCollapsed) {
             expandFilterGroup($thisFilterGroup);
         } else {
             collapseFilterGroup($thisFilterGroup);
@@ -3092,9 +3207,8 @@ YOI.Filters = (function() {
 
         /**
          *  Activate or deactivate an individual filter.
-         *  The visual change is applied immediately while the actual query
-         *  to update the search results and so on gets called with a certain delay.
-         *  The delay helps avoiding unexpected behaviour through brute-force / rapid clicking.
+         *  The visual change is applied immediately while the actual update-event is triggered
+         *  after a certain delay to prevent unexpected behaviour through brute-force / rapid clicking.
          *
          *  @param {jQuery dom object} $thisFilter - the filter
          */
@@ -3106,6 +3220,7 @@ YOI.Filters = (function() {
         }
 
         var $thisFilterGroup = $thisFilter.closest('.filterGroup');
+        var props            = $thisFilterGroup.data().props;
         var $thisFilters     = $thisFilter.closest('.filters');
 
         if ($thisFilter.hasClass('filter--multi')) {
@@ -3114,6 +3229,10 @@ YOI.Filters = (function() {
             $thisFilterGroup.find('.filter--single').removeClass('is--active');
             $thisFilter.addClass('is--active');
         }
+        
+        // trigger custom event
+        
+        $thisFilter.trigger('yoi-filters:change');
 
         // axecute after delay
 
@@ -3121,53 +3240,54 @@ YOI.Filters = (function() {
 
             // collapse filter group
 
-            if ($thisFilterGroup.data().isCollapsed && $thisFilterGroup.data().hasActiveFilters)
+            if (props.isCollapsed && props.hasActiveFilters)
                 collapseFilterGroup($thisFilterGroup);
 
             // update all filter groups
 
             updateAllFilterGroups($thisFilters);
 
-            // update search results
+            // trigger custom event
 
             $thisFilters.trigger('yoi-filters:update');
-
-            // toggle reset button
-
-            toggleResetBtn($thisFilters);
 
         });
 
     }
-
-    function toggleResetBtn($thisFilters) {
-
+    
+    function addResetBtn($thisFilters) {
+        
         /**
-         *  Injects or removes a reset button per '.filters' container.
-         *  The buttons calls the public reset method and deactivates
-         *  all active filter buttons.
+         *  Add a reset button per '.filters' container.
+         *  The buttons calls the reset method on click.
          *
-         *  @param {jQuery dom object} $thisFilters - the filters
+         *  @param {jQuery dom object} $thisFilters
          */
-
-        var totalActiveFilters = $thisFilters.find('.is--active');
-
-        if (!$thisFilters.find('.filters__resetBtn').length && totalActiveFilters.length) {
-
+        
+        var hasResetBtn = $thisFilters.find('.filters__resetBtn').length > 0;
+        
+        if (!hasResetBtn) {
             $resetBtn
-            .clone()
-            .prependTo($thisFilters)
-            .on('click', function(e) {
-                e.preventDefault();
-                $thisFilters.trigger('yoi-filters:reset');
-            });
-
-        } else if (!totalActiveFilters.length) {
-
-            $thisFilters.find('.filters__resetBtn').detach();
-
+                .clone()
+                .prependTo($thisFilters)
+                .on('click', function(e) {
+                    e.preventDefault();
+                    $thisFilters.trigger('yoi-filters:reset');
+                });
         }
-
+        
+    }
+    
+    function removeResetBtn($thisFilters) {
+        
+        /**
+         *  Removes the reset button per '.filters' container.
+         *
+         *  @param {jQuery dom object} $thisFilters
+         */
+        
+        $thisFilters.find('.filters__resetBtn').detach();
+        
     }
 
     function updateAllFilterGroups($thisFilters) {
@@ -3175,39 +3295,34 @@ YOI.Filters = (function() {
         /**
          *  Walk through all filter groups and update some properties.
          *  These properties are booleans like "is this filtergroup expanded or collapsed", etc.
-         *  They are stored inside the jQuery data-object of each filter group.
+         *  They are stored inside the "props" object of each filter group.
          *
-         *  @param {jQuery dom object} $thisFilters - the filters
+         *  @param {jQuery dom object} $thisFilters
          */
 
         var $thisFilterGroups = $thisFilters.find('.filterGroup');
 
         $thisFilterGroups.each(function() {
 
-            var $thisFilterGroup = $(this);
+            var $thisFilterGroup     = $(this);
             var $thisFilterGroupBody = $thisFilterGroup.find('.filterGroup__body');
+            var props                = YOI.updateProps($thisFilterGroup);
 
-            // update data
+            // update props
 
-            $thisFilterGroup.data({
-                // isScroll      : defined only once on init
-                isCollapsed      : $thisFilterGroup.hasClass('filterGroup--collapsed'),
-                hasActiveFilters : $thisFilterGroup.find('.is--active').length > 0
-            });
-
-            $thisFilterGroup.data({
-                hasShadow: ($thisFilterGroup.data().isScroll && !$thisFilterGroup.data().isCollapsed) || ($thisFilterGroup.data().isCollapsed && $thisFilterGroup.height() > filterGroupMaxHeight)
-            });
+            props.isCollapsed      = $thisFilterGroup.hasClass('filterGroup--collapsed');
+            props.hasActiveFilters = $thisFilterGroup.find('.is--active').length > 0;
+            props.hasShadow        = (props.isScroll && !props.isCollapsed) || (props.isCollapsed && $thisFilterGroup.height() > filterGroupMaxHeight);
 
             // update css classes
 
-            if ($thisFilterGroup.data().hasActiveFilters) {
+            if (props.hasActiveFilters) {
                 $thisFilterGroup.addClass('filterGroup--hasActiveFilters');
             } else {
                 $thisFilterGroup.removeClass('filterGroup--hasActiveFilters');
             }
 
-            if ($thisFilterGroup.data().hasShadow) {
+            if (props.hasShadow) {
                 $thisFilterGroup.addClass('filterGroup--hasShadow');
             } else {
                 $thisFilterGroup.removeClass('filterGroup--hasShadow');
@@ -3217,130 +3332,17 @@ YOI.Filters = (function() {
 
     }
 
-    function updateActiveFilters($thisFilters) {
-        /**
-         *  Todo:
-         *  Read all active filters and generate a search url,
-         *  Something like "/s/?term=some+search+term&filter=xx".
-         *
-         *  @param {jQuery dom object} $thisFilters - the filters
-         */
-    }
-
-    function updateResults($thisFilters, withPriceRange) {
-
-        /**
-         *  Apply the active filters by requesting the search results
-         *  and updating the search display. The search display is set via
-         *  the data-attribute "data-searchdisplay" in the markup.
-         *
-         *  @param {jQuery dom object} $filter        - the filter
-         *  @param {bool}              withPriceRange - updates the corrensponding price range, default is true
-         */
-
-        // cancel if already running
-
-        if (loadResultsIsRunning) {
-            return false;
-        }
-
-        // update price range?
-
-        if (withPriceRange === undefined) {
-            withPriceRange = true;
-        }
-
-        // gather dom objects
-
-        var $thisSearchDisplay = $($thisFilters.data().searchdisplay);
-        var $thisRangeInput    = $thisFilters.find('.rangeInput').first();
-
-        // cancel if no search display was found
-
-        if ($thisSearchDisplay.length < 1) return false;
-
-        // execute after delay
-
-        YOI.setDelay('updateResultsTimeout', 500, function() {
-
-            /**
-             *  Todo:
-             *
-             *  Load the search results and update the target display.
-             *  Return data to update pagination. Return data to update any
-             *  .rangeInput, for example to update the price range (derived from
-             *  the updated search results from manipulating the filters).
-             *
-             *  To avoid unnecessary requests, the results should only be
-             *  updated if the filters actually did change. Furthermore it's
-             *  important to fetch any .rangeInput elements and include
-             *  their data, too.
-             *
-             *  The following code is simply simulated behaviour to test the
-             *  user experience:
-             *
-             */
-
-            $('body').stop().animate({ scrollTop: 0 }, 500, function() {
-
-                // set flag: update is running
-
-                loadResultsIsRunning = true;
-
-                // update filters
-
-                $thisFilters.addClass('filters--disabled');
-                $thisSearchDisplay.append($loader);
-                $loader.hide().fadeIn(200);
-
-                $thisSearchDisplay.animate({ opacity: 0 }, 200, function() {
-
-                    $thisSearchDisplay.delay(300).animate({ opacity: 1 }, 500, function() {
-
-                        $loader.fadeOut(200);
-                        $thisFilters.removeClass('filters--disabled');
-
-                        // update any rangeInput
-
-                        if (withPriceRange && YOI.foundModule('YOI.RangeInput')) {
-
-                            var $rangeInput = $thisFilters.find('.rangeInput').first();
-
-                            var randomPriceA = Math.ceil(Math.random(1, 250) * 100);
-                            var randomPriceB = Math.ceil(Math.random(1, 250) * 100);
-                            var minPrice     = Math.min(randomPriceA, randomPriceB);
-                            var maxPrice     = Math.max(randomPriceA, randomPriceB);
-                            var absMinPrice  = minPrice;
-                            var absMaxPrice  = maxPrice;
-
-                            RangeInput.set($rangeInput, minPrice, maxPrice, absMinPrice, absMaxPrice);
-
-                        }
-
-                        loadResultsIsRunning = false;
-
-                    });
-
-                });
-
-            });
-
-        });
-
-    }
-
     // initialize
     // ==========
 
-    initializeFilters();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeFilters,
-        reset  : resetFilters,
-        apply  : updateResults
+        init   : initialize,
+        reset  : reset
     };
 
 })();
@@ -3352,7 +3354,7 @@ YOI.Flyout = (function() {
     // private functions
     // =================
 
-    function initializeFlyout($flyout, options) {
+    function initialize($flyout, options) {
 
         /**
          *  Initialize the script.
@@ -3377,12 +3379,12 @@ YOI.Flyout = (function() {
 
             // hide the flyout
 
-            hideFlyout($thisFlyout);
+            hide($thisFlyout);
 
             // add events to flyout handle
 
             $flyoutHandle.on('click', function() {
-                toggleFlyout($thisFlyout);
+                toggle($thisFlyout);
             });
 
             // move the flyout in markup to make it a
@@ -3394,7 +3396,7 @@ YOI.Flyout = (function() {
 
     }
 
-    function toggleFlyout($thisFlyout) {
+    function toggle($thisFlyout) {
 
         /**
          *  Toggle the flyout.
@@ -3403,14 +3405,14 @@ YOI.Flyout = (function() {
          */
         
         if ($thisFlyout.data().state == 'visible') {
-            hideFlyout($thisFlyout)
+            hide($thisFlyout)
         } else {
-            showFlyout($thisFlyout);
+            show($thisFlyout);
         }
         
     }
 
-    function showFlyout($thisFlyout) {
+    function show($thisFlyout) {
 
         /**
          *  Show the flyout.
@@ -3427,7 +3429,7 @@ YOI.Flyout = (function() {
         
     }
 
-    function hideFlyout($thisFlyout) {
+    function hide($thisFlyout) {
 
         /**
          *  Hide the flyout.
@@ -3447,16 +3449,16 @@ YOI.Flyout = (function() {
     // initialize
     // ==========
 
-    initializeFlyout();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeFlyout,
-        toggle : toggleFlyout,
-        show   : showFlyout,
-        hide   : hideFlyout
+        init   : initialize,
+        toggle : toggle,
+        show   : show,
+        hide   : hide
     }
 
 })();
@@ -3475,7 +3477,7 @@ YOI.ImgMagnifier = (function(){
 
     // private functions
 
-    function initializeImgMagnifier($imgMagnifier, options) {
+    function initialize($imgMagnifier, options) {
 
         /**
          *  Initialize the script.
@@ -3528,7 +3530,7 @@ YOI.ImgMagnifier = (function(){
 
     }
 
-    function resetImgMagnifier($imgMagnifier) {
+    function reset($imgMagnifier) {
 
         /**
          *  Reset one or more image magnifiers.
@@ -3550,6 +3552,34 @@ YOI.ImgMagnifier = (function(){
             });
 
         });
+
+    }
+    
+    function destroy($imgMagnifier) {
+
+        /**
+         *  Remove all injected elements and detach all events.
+         *
+         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
+         *  @return {bool false}
+         */
+
+        if (!($imgMagnifier instanceof jQuery)) {
+            $imgMagnifier = $('.imgMagnifier');
+        }
+
+        $imgMagnifier.each(function() {
+
+            var $thisImgMagnifier = $(this);
+
+            $thisImgMagnifier.find('.imgMagnifier__cursor').remove();
+            $thisImgMagnifier.find('.imgMagnifier__viewer').remove();
+            $thisImgMagnifier.off();
+            $thisImgMagnifier.find('*').off();
+
+        });
+
+        return false;
 
     }
 
@@ -3580,7 +3610,7 @@ YOI.ImgMagnifier = (function(){
                 // If the image does not exist, destroy
                 // the image magnifier.
 
-                destroyImageMagnifier($thisImgMagnifier);
+                destroy($thisImgMagnifier);
 
             })
             .on('load', function() {
@@ -3602,7 +3632,7 @@ YOI.ImgMagnifier = (function(){
                 // the image magnifier.
 
                 if ($thisImgMagnifier.data().yRatio >= 1 || $thisImgMagnifier.data().yRatio >= 1) {
-                    destroyImageMagnifier($thisImgMagnifier);
+                    destroy($thisImgMagnifier);
                 }
 
             });
@@ -3731,45 +3761,17 @@ YOI.ImgMagnifier = (function(){
 
     }
 
-    function destroyImageMagnifier($imgMagnifier) {
-
-        /**
-         *  Remove all injected elements and detach all events.
-         *
-         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
-         *  @return {bool false}
-         */
-
-        if (!($imgMagnifier instanceof jQuery)) {
-            $imgMagnifier = $('.imgMagnifier');
-        }
-
-        $imgMagnifier.each(function() {
-
-            var $thisImgMagnifier = $(this);
-
-            $thisImgMagnifier.find('.imgMagnifier__cursor').remove();
-            $thisImgMagnifier.find('.imgMagnifier__viewer').remove();
-            $thisImgMagnifier.off();
-            $thisImgMagnifier.find('*').off();
-
-        });
-
-        return false;
-
-    }
-
     // initialize
     // ==========
 
     $(window)
         .on('load', function() {
-            initializeImgMagnifier();
+            initialize();
         })
         .on('resize', function() {
             YOI.clearDelay('imgMagnifierResetDelay');
             YOI.setDelay('imgMagnifierResetDelay', 500, function() {
-                resetImgMagnifier();
+                reset();
             });
         });
 
@@ -3777,8 +3779,8 @@ YOI.ImgMagnifier = (function(){
     // ================
 
     return {
-        init    : initializeImgMagnifier,
-        destroy : destroyImageMagnifier
+        init    : initialize,
+        destroy : destroy
     }
 
 })();
@@ -4027,9 +4029,12 @@ YOI.Modal = (function() {
     ');
     
     var $modalTemplate = $('\
-        <div class="modal modal--small">\
+        <div class="modal">\
             <div class="modal__header">\
-                <h3 class="modal__title">Small Demo Modal</h3>\
+                <h3 class="modal__title"></h3>\
+                <button class="btnDismiss" yoi-action="closeModal">\
+                    <span class="hidden">' + btnLabelClose + '</span>\
+                </button>\
             </div>\
             <div class="modal__body"></div>\
         </div>\
@@ -4037,12 +4042,12 @@ YOI.Modal = (function() {
 
     // private methods
 
-    function initialize($modal, options) {
+    function initialize($modalTrigger, options) {
         
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $inputElement
+         *  @param {jQuery dom object} $modalTrigger
          *  @param {object}            options
          *
          *  Available options:
@@ -4059,22 +4064,25 @@ YOI.Modal = (function() {
          *  @option {bool} cache  - If true, the referenced modal will preload in the background.
          */
 
-        var $modal = YOI.createCollection('modal', $modal, options);
+        var $modalTrigger = YOI.createCollection('modal', $modalTrigger, options);
 
         // prepare dom
 
-        if ($modal) prepareDom();
+        if ($modalTrigger) prepareDom();
 
         // prepare modal links
 
-        if ($modal) $modal.each(function() {
+        if ($modalTrigger) $modalTrigger.each(function() {
 
-            var $thisModal = $(this);
-
-            var options        = $thisModal.data().options;
-            var thisModalId    = options.id !== undefined ? options.id : generateId();
-            var thisModalPath  = options.path !== undefined ? options.path : $thisModal.attr('href');
-            var thisModalCache = options.cache !== undefined ? options.cache : false;
+            var $thisModalTrigger  = $(this);
+            var options            = $thisModalTrigger.data().options;
+            var thisModalGenerate  = options.generate !== undefined ? options.generate : false;
+            var thisModalTitle     = options.title !== undefined ? options.title : false;
+            var thisModalBody      = options.body !== undefined ? options.body : false;
+            var thisModalId        = options.id !== undefined ? options.id : generateId();
+            var thisModalModifiers = options.modifiers !== undefined ? options.modifiers : false;
+            var thisModalPath      = options.path !== undefined ? options.path : $thisModalTrigger.attr('href');
+            var thisModalCache     = options.cache !== undefined ? options.cache : false;
 
             // preload/cache
 
@@ -4082,10 +4090,15 @@ YOI.Modal = (function() {
 
             // attach click event
 
-            $thisModal.on('click', function(e) {
-
+            $thisModalTrigger.on('click', function(e) {
+                
                 e.preventDefault();
-                show(thisModalId, thisModalPath);
+                
+                if (thisModalGenerate === 'true') {
+                    generate(thisModalTitle, thisModalBody, thisModalId, thisModalModifiers);
+                } else {
+                    show(thisModalId, thisModalPath);
+                }
 
             });
 
@@ -4108,6 +4121,19 @@ YOI.Modal = (function() {
         
         $body.append($modalCover.clone().hide());
         $body.append($modalContainer.clone().hide());
+        
+    }
+    
+    function foundModal(modalId) {
+        
+        /**
+         *  Returns true if modal is already loaded, false if not.
+         *
+         *  @param  {string} modalId 
+         *  @return {bool}
+         */
+        
+        return loadedModals.indexOf(modalId) === -1 ? false : true;
         
     }
 
@@ -4138,7 +4164,47 @@ YOI.Modal = (function() {
 
     }
     
-    function generate() {
+    function generate(title, body, modalId, modifiers) {
+        
+        /**
+         *  Generates a very simple modal. Add the title, body text and
+         *  optional modifiers.
+         *
+         *  @param {string} title     - the modal title
+         *  @param {string} body      - the modal body text
+         *  @param {string} modalId   - modal id
+         *  @param {string} modifiers - optional modifiers (CSS class names)
+         */
+        
+        var $thisModal      = $modalTemplate.clone();
+        var $thisModalTitle = $thisModal.find('.modal__title');
+        var $thisModalBody  = $thisModal.find('.modal__body');
+        var thisModalId     = modalId.split('#')[1];
+        
+        // add title, content and id
+        
+        $thisModalTitle.text(title);
+        $thisModalBody.html('<p>' + body + '</p>');
+        $thisModal.attr('id', thisModalId);
+        
+        // add modifiers
+        
+        if (modifiers) {
+            $thisModal.addClass(modifiers);
+        }
+        
+        // add modal to markup
+        
+        if (!foundModal(modalId)) {
+            $('#modalContainer').append($thisModal);
+            loadedModals.push(modalId);
+        }
+        
+        // initialize the close triggers and
+        // show the generated modal
+        
+        initializeCloseTriggers(modalId);
+        show(modalId);
         
     };
 
@@ -4153,7 +4219,7 @@ YOI.Modal = (function() {
          *  @param {callback function} callback - a function to execute as callback
          */
 
-        if (loadedModals.indexOf(modalId) === -1) {
+        if (!foundModal(modalId)) {
 
             var $loadBin = $('<div>');
 
@@ -4169,7 +4235,7 @@ YOI.Modal = (function() {
 
                     if (thisModal.length) {
 
-                        // register the modalId to an array of already loaded modals.
+                        // register the modalId to an array of already loaded modals
 
                         loadedModals.push(modalId);
 
@@ -4187,8 +4253,8 @@ YOI.Modal = (function() {
 
                         initializeCloseTriggers(modalId);
 
-                        if (YOI.foundModule('YOI.CustomFormElements'))
-                            CustomFormElements.init(modalId);
+                        if (YOI.foundModule('CustomFormElements'))
+                            YOI.CustomFormElements.init(modalId);
 
                         // optional callback
 
@@ -4230,22 +4296,14 @@ YOI.Modal = (function() {
          *  @param {string} modalPath - the path to the modal page
          */
 
-        if (loadedModals.indexOf(modalId) === -1) {
-
-            // if the modal is not found in dom, load it first, then show it
-
-            load(modalId, modalPath, function(){
-                show(modalId, modalPath);
-            });
-
-        } else {
+        if (foundModal(modalId)) {
 
             // if modal is already in dom, simply show it
 
             $('#modalCover').fadeIn('fast');
             $('#modalContainer').show();
             $(modalId).show();
-
+            
             modalActive = true;
 
             // center modal
@@ -4263,6 +4321,14 @@ YOI.Modal = (function() {
             
             $document.trigger('yoi-modal:show');
 
+        } else {
+
+            // if the modal is not found in dom, load it first, then show it
+
+            load(modalId, modalPath, function(){
+                show(modalId, modalPath);
+            });
+
         }
 
     }
@@ -4275,19 +4341,19 @@ YOI.Modal = (function() {
          *  @param {string} modalId - the modal id
          */
 
-        var modal   = $(modalId);
-        var offSetY = modal.height() / 2 * -1 - 10;
+        var $modal  = $(modalId);
+        var offSetY = $modal.height() / 2 * -1 - 10;
 
         // Does the modal vertically fit into the viewport (position: fixed)
         // or do we need to scroll (position: absolute)?
 
-        var modalFitsIntoViewport = ($(window).height() - 50) < modal.height();
+        var modalFitsIntoViewport = ($(window).height() - 50) < $modal.height();
 
         if (modalFitsIntoViewport) {
-            modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
+            $modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
             $('html,body').animate({scrollTop: 0}, 500); // "rewind" page to top
         } else {
-            modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
+            $modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
         }
 
     }
@@ -4307,8 +4373,8 @@ YOI.Modal = (function() {
 
         modalActive = false;
         
-        if (YOI.foundModule('YOI.BrowserHistory')) {
-            BrowserHistory.clearHash();
+        if (YOI.foundModule('BrowserHistory')) {
+            YOI.BrowserHistory.clearHash();
         }
         
         $document.trigger('yoi-modal:hide');
@@ -4491,7 +4557,7 @@ YOI.PickBtn = (function() {
     // private functions
     // =================
 
-    function initializePickBtn($pickBtn) {
+    function initialize($pickBtn) {
 
         /**
          *  Initialize the script.
@@ -4519,7 +4585,7 @@ YOI.PickBtn = (function() {
 
             $thisPickBtn.on('click', function(e) {
                 e.preventDefault();
-                activatePickBtn($thisPickBtn);
+                activate($thisPickBtn);
                 $thisPickBtn.trigger('yoi-pickbtn:change');
             });
 
@@ -4527,7 +4593,7 @@ YOI.PickBtn = (function() {
 
     }
 
-    function activatePickBtn($thisPickBtn) {
+    function activate($thisPickBtn) {
 
         /**
          *  Switch a radio button to "active".
@@ -4560,13 +4626,13 @@ YOI.PickBtn = (function() {
     // initialize
     // ==========
 
-    initializePickBtn();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializePickBtn
+        init : initialize
     }
 
 })();
@@ -4594,18 +4660,13 @@ YOI.PieChart = (function() {
     // private functions
     // =================
 
-    function initializePieChart($pieChart, options) {
+    function initialize($pieChart, options) {
 
         /**
-         *  Initialize all *[yoi-piechart] found in the document (= function call without parameters)
-         *  or target one or more specific *[yoi-piechart] (= function call with $piechart).
-         *  $piechart must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $pieChart - the pie chart(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-piechart="palette:fixed;size:200;">
+         *  @param {jQuery dom object} $pieChart
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -4622,31 +4683,29 @@ YOI.PieChart = (function() {
          *
          *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
+        
+        var $pieChart = YOI.createCollection('piechart', $pieChart, options);
 
-        if (!($pieChart instanceof jQuery)) {
-            $pieChart = $('[yoi-piechart]');
-        }
-
-        $pieChart.each(function() {
+        if ($pieChart) $pieChart.each(function() {
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            var options              = options === undefined ? YOI.toObject($thisPieChart.data('piechart')) : options;
+            var options              = $thisPieChart.data().options;
+            var size                 = options.size !== undefined ? options.size : 200;
+            var highlight            = options.highlight !== undefined ? (options.highlight == true) : true;
+            var palette              = options.palette !== undefined ? options.palette : 'shades';
 
-            // store data
+            // store props
 
-            $thisPieChart.data({
+            $thisPieChart.data().props = {
                 rotation  : 0,
                 index     : 0,
                 records   : $thisPieChartRecords.length,
-                baseColor : options.baseColor !== undefined ? options.baseColor : '[252,45,65]',
-                palette   : options.palette !== undefined ? options.palette : 'shades',
-                size      : options.size !== undefined ? options.size : 200,
-                highlight : options.highlight !== undefined ? options.highlight : true
-            });
-
-            var size   = $thisPieChart.data().size;
+                size      : size
+            };
+            
+            var size   = $thisPieChart.data().props.size;
             var radius = size / 2;
 
             $thisPieChartSvg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
@@ -4665,48 +4724,42 @@ YOI.PieChart = (function() {
             $thisPieChartRecords.each(function(index) {
 
                 var $thisRecord = $(this);
-                var thisValue   = $(this).find('.pieChart__value').text();
+                var thisValue   = $thisRecord.find('.pieChart__value').text();
 
                 // add slices
 
-                addData($thisPieChart, thisValue);
+                addChartData($thisPieChart, thisValue);
 
                 // add dots to data records (legend)
 
                 $thisRecord.prepend($colorDot.clone());
 
                 // attach events to record
-
-                if ($thisPieChart.data().highlight === true) {
-
+                
+                if (highlight) {
                     $thisRecord
                         .on('mouseover', function() {
-
                             YOI.clearDelay('pieChartHightlightDelay');
                             highlightRecord($thisRecord);
-
                         })
                         .on('mouseleave', function() {
-
                             YOI.setDelay('pieChartHightlightDelay', 500, function() {
                                 resetHighlightRecord($thisPieChart);
                             });
-
                         })
                         .on('click', function() {
                             blinkRecord($thisRecord);
                         });
-
                 }
 
             });
 
             // paint the slices
 
-            if ($thisPieChart.data().palette === 'fixed')  setFixedSliceColors($thisPieChart);
-            if ($thisPieChart.data().palette === 'random') setRandomSliceColors($thisPieChart);
-            if ($thisPieChart.data().palette === 'shades') setSliceShades($thisPieChart);
-            if ($thisPieChart.data().palette === 'unique') setUniqueSliceColors($thisPieChart);
+            if (palette === 'fixed')  setFixedSliceColors($thisPieChart);
+            if (palette === 'random') setRandomSliceColors($thisPieChart);
+            if (palette === 'shades') setSliceShades($thisPieChart);
+            if (palette === 'unique') setUniqueSliceColors($thisPieChart);
 
         });
 
@@ -4723,13 +4776,14 @@ YOI.PieChart = (function() {
         var $thisPaths      = $thisPieChart.find('path');
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices     = $thisPieChart.data().records;
-        var baseColor       = JSON.parse($thisPieChart.data().baseColor);
+        var options         = $thisPieChart.data().options;
+        var props           = $thisPieChart.data().props;
+        var totalSlices     = props.records;
+        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
-
+        
         for (var i = 0; i < totalSlices; i++) {
 
             var splitRadius = (360 / totalSlices) * i;
@@ -4737,7 +4791,7 @@ YOI.PieChart = (function() {
 
             // set colors
 
-            if ($thisPaths[i] !== undefined)   $thisPaths[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
+            if ($thisPaths[i] !== undefined) $thisPaths[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
             if ($thisCircles[i] !== undefined) $thisCircles[i].setAttribute('fill', 'hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
 
             $thisDots.eq(i).css('background','hsl(' + radius + ',' + startSaturation + ',' + startLuminance + ')');
@@ -4757,8 +4811,7 @@ YOI.PieChart = (function() {
         var $thisPaths   = $thisPieChart.find('path');
         var $thisCircles = $thisPieChart.find('circle');
         var $thisDots    = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices  = $thisPieChart.data().records;
+        var totalSlices  = $thisPieChart.data().props.records;
 
         for (var i = 0; i < totalSlices; i++) {
 
@@ -4786,8 +4839,7 @@ YOI.PieChart = (function() {
         var $thisPaths   = $thisPieChart.find('path');
         var $thisCircles = $thisPieChart.find('circle');
         var $thisDots    = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices  = $thisPieChart.data().records;
+        var totalSlices  = $thisPieChart.data().props.records;
 
         for (var i = 0; i < totalSlices; i++) {
 
@@ -4820,9 +4872,10 @@ YOI.PieChart = (function() {
         var $thisPaths      = $thisPieChart.find('path');
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
-
-        var totalSlices     = $thisPieChart.data().records;
-        var baseColor       = JSON.parse($thisPieChart.data().baseColor);
+        var options         = $thisPieChart.data().options;
+        var props           = $thisPieChart.data().props;
+        var totalSlices     = $thisPieChart.data().props.records;
+        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
@@ -4843,7 +4896,7 @@ YOI.PieChart = (function() {
 
     }
 
-    function addData($thisPieChart, thisValue) {
+    function addChartData($thisPieChart, thisValue) {
 
         /**
          *  Calculate and set shades of a given base color for each slice.
@@ -4855,11 +4908,10 @@ YOI.PieChart = (function() {
         // Inspired by
         // http://jsfiddle.net/lensco/ScURE/
 
-        var size     = parseInt($thisPieChart.data().size);
-        var radius   = size / 2;
-        var rotation = $thisPieChart.data().rotation;
-        var index    = $thisPieChart.data().index;
-
+        var size             = parseInt($thisPieChart.data().props.size);
+        var radius           = size / 2;
+        var rotation         = $thisPieChart.data().props.rotation;
+        var index            = $thisPieChart.data().props.index;
         var $thisPieChartSvg = $thisPieChart.find('svg');
         var $thisPieSlice;
 
@@ -4903,8 +4955,8 @@ YOI.PieChart = (function() {
 
             // save rotation and increase index
 
-            $thisPieChart.data().rotation +=  thisValue;
-            $thisPieChart.data().index +=  1;
+            $thisPieChart.data().props.rotation +=  thisValue;
+            $thisPieChart.data().props.index +=  1;
 
         }
 
@@ -4973,13 +5025,13 @@ YOI.PieChart = (function() {
     // initialize
     // ==========
 
-    initializePieChart();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init                 : initializePieChart,
+        init                 : initialize,
         highlightRecord      : highlightRecord,
         blinkRecord          : blinkRecord,
         resetHighlightRecord : resetHighlightRecord
@@ -5331,6 +5383,8 @@ YOI.RangeInput = (function() {
     // ============
 
     var knobOffset;
+    var $document = $(document);
+    var $body     = $('body');
 
     var rangeInputKnob = $('\
         <div class="rangeInput__knob"></div>\
@@ -5349,18 +5403,13 @@ YOI.RangeInput = (function() {
     // private functions
     // =================
 
-    function initializeRangeInput($rangeInput, options) {
+    function initialize($rangeInput, options) {
 
         /**
-         *  Initialize all *[yoi-rangeinput] found in the document (= function call without parameters)
-         *  or target one or more specific *[yoi-rangeinput] (= function call with $rangeinput).
-         *  $rangeinput must be a jQuery object or jQuery object collection.
+         *  Initialize the script.
          *
-         *  @param {jQuery dom object} $rangeinput - the range input(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <div data-rangeinput="absMin:10;absMax:200;unit:$;">
+         *  @param {jQuery dom object} $rangeInput
+         *  @param {object}            options
          *
          *  Available options:
          *
@@ -5370,21 +5419,13 @@ YOI.RangeInput = (function() {
          *  @option {number} max    - initial max value
          *  @option {string} unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
          */
+        
+        var $rangeInput = YOI.createCollection('rangeinput', $rangeInput, options);
 
-        if (!($rangeInput instanceof jQuery)) {
-            $rangeInput = $('[yoi-rangeinput]');
-        }
+        if ($rangeInput) $rangeInput.each(function() {
 
-        $rangeInput.each(function() {
-
-            // gather dom elements
-
-            var $documentBody   = $('body');
             var $thisRangeInput = $(this);
-
-            // options
-
-            var options = options === undefined ? YOI.toObject($thisRangeInput.data('rangeinput')) : options;
+            var options         = $thisRangeInput.data().options;
 
             // attach events to range knobs
 
@@ -5395,25 +5436,28 @@ YOI.RangeInput = (function() {
 
                     storeCursorPos($thisRangeInput, $thisKnob, e.pageX);
 
-                    $(document)
+                    $document
                         .on('mousemove', function(e) {
-                            $documentBody.addClass('noSelect');
+                            $body.addClass('noSelect');
                             $thisKnob.addClass('rangeInput__knob--active');
                             $thisRangeInput.addClass('rangeInput--active');
                             moveKnob($thisRangeInput, $thisKnob, e);
                         })
                         .on('mouseup', function(e) {
-                            triggerFiltersUpdate($thisRangeInput);
-                            $documentBody.removeClass('noSelect');
+                            $body.removeClass('noSelect');
                             $thisKnob.removeClass('rangeInput__knob--active');
                             $thisRangeInput.removeClass('rangeInput--active');
-                            $(document).off('mousemove mouseup');
+                            $document.off('mousemove mouseup');
                         });
 
                 })
                 .on('mouseover', function() {
-                    $(this).siblings('.rangeInput__knob').removeClass('rangeInput__knob--topMost');
-                    $(this).addClass('rangeInput__knob--topMost');
+                    
+                    var $thisKnob = $(this);
+                    
+                    $thisKnob.siblings('.rangeInput__knob').removeClass('rangeInput__knob--topMost');
+                    $thisKnob.addClass('rangeInput__knob--topMost');
+                    
                 });
 
             // clone & append objects
@@ -5425,10 +5469,10 @@ YOI.RangeInput = (function() {
 
             $thisRangeInput.append($thisMinKnob, $thisMaxKnob, $singleLabel, $thisTrack);
 
-            // assign data to range input,
+            // assign values to range input data().props object,
             // provide default values for some properties
 
-            $thisRangeInput.data({
+            $thisRangeInput.data().props = {
                 absMin     : (options.absMin !== undefined ? options.absMin : 0),
                 absMax     : (options.absMax !== undefined ? options.absMax : 100),
                 min        : (options.min !== undefined ? options.min : 0),
@@ -5441,7 +5485,7 @@ YOI.RangeInput = (function() {
                 maxPosX    : null,
                 cursorPosX : 0,
                 width      : $thisTrack.width()
-            });
+            };
             
             // calculate the knob offset
             
@@ -5456,15 +5500,15 @@ YOI.RangeInput = (function() {
 
             // register reset event
 
-            $thisRangeInput.on('yoi-rangeInput:reset', function() {
-                YOI.RangeInput.reset($thisRangeInput);
+            $thisRangeInput.on('yoi-rangeinput:reset', function() {
+                reset($thisRangeInput);
             });
 
         });
 
     }
 
-    function setRangeInput($rangeInput, absMin, absMax, min, max) {
+    function set($rangeInput, absMin, absMax, min, max) {
 
         /**
          *  Set the range input to the provided values.
@@ -5480,19 +5524,19 @@ YOI.RangeInput = (function() {
         var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
         var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
 
-        $thisRangeInput.data({
+        $thisRangeInput.data().props = {
             absMin : absMin,
             absMax : absMax,
             min    : min,
             max    : max
-        });
+        };
 
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
 
     }
 
-    function resetRangeInput($rangeInput) {
+    function reset($rangeInput) {
 
         /**
          *  Reset a range input. The knobs will move back into absolute min
@@ -5502,17 +5546,15 @@ YOI.RangeInput = (function() {
          */
 
         var $thisRangeInput = $rangeInput;
+        var props           = $thisRangeInput.data().props;
         var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
         var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
-
-        var thisAbsMin = $thisRangeInput.data().absMin;
-        var thisAbsMax = $thisRangeInput.data().absMax;
-
-        $thisRangeInput.data({
-            min : thisAbsMin,
-            max : thisAbsMax
-        });
-
+        var thisAbsMin      = props.absMin;
+        var thisAbsMax      = props.absMax;
+        
+        props.min = thisAbsMin;
+        props.max = thisAbsMax;
+        
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
 
@@ -5529,7 +5571,7 @@ YOI.RangeInput = (function() {
          */
 
         var $thisRangeInput  = $rangeInput;
-        var data             = $thisRangeInput.data();
+        var props            = $thisRangeInput.data().props;
         var $thisMinLabel    = $thisRangeInput.find('.rangeInput__knob--min .rangeInput__label');
         var $thisMaxLabel    = $thisRangeInput.find('.rangeInput__knob--max .rangeInput__label');
         var $thisSingleLabel = $thisRangeInput.find('.rangeInput__label--single');
@@ -5538,15 +5580,15 @@ YOI.RangeInput = (function() {
 
         $thisMinLabel.css('left', (($thisMinLabel.outerWidth() / -2) + knobOffset));
         $thisMaxLabel.css('left', (($thisMaxLabel.outerWidth() / -2) + knobOffset));
-        $thisSingleLabel.css('left', (data.minPosX + (data.maxPosX - data.minPosX) / 2) - ($thisSingleLabel.outerWidth() / 2));
+        $thisSingleLabel.css('left', (props.minPosX + (props.maxPosX - props.minPosX) / 2) - ($thisSingleLabel.outerWidth() / 2));
 
         // if labels "collide", switch to a single label
         // or cancel if minPosX or maxPosX is not yet defined
 
-        if (data.minPosX === null || data.maxPosX === null) return;
+        if (props.minPosX === null || props.maxPosX === null) return;
 
-        var minKnobRightEdge = data.minPosX + $thisMinLabel.outerWidth() / 2;
-        var maxKnobLeftEdge  = data.maxPosX - $thisMaxLabel.outerWidth() / 2;
+        var minKnobRightEdge = props.minPosX + $thisMinLabel.outerWidth() / 2;
+        var maxKnobLeftEdge  = props.maxPosX - $thisMaxLabel.outerWidth() / 2;
 
         if (minKnobRightEdge >= maxKnobLeftEdge) {
             $thisRangeInput.addClass('rangeInput--mergedLabels');
@@ -5568,15 +5610,25 @@ YOI.RangeInput = (function() {
          *  @param {jQuery dom object} $knob       - the range input knob
          *  @param {number}            ePosX       - the cursor x position
          */
+        
+        var props = $rangeInput.data().props;
+        var newCursorPos;
 
         if ($knob.hasClass('rangeInput__knob--min')) {
-            $rangeInput.data().cursorOffset = Math.floor(ePosX - $rangeInput.data().offsetX) - $rangeInput.data().minPosX;
+            newCursorPos = Math.floor(ePosX - props.offsetX) - props.minPosX;
         }
 
         if ($knob.hasClass('rangeInput__knob--max')) {
-            $rangeInput.data().cursorOffset = Math.floor(ePosX - $rangeInput.data().offsetX) - $rangeInput.data().maxPosX;
+            newCursorPos = Math.floor(ePosX - props.offsetX) - props.maxPosX;
         }
-
+        
+        // update prop if value has changed and trigger custom event
+        
+        if (props.cursorOffset != newCursorPos) {
+            props.cursorOffset = newCursorPos;
+            $rangeInput.trigger('yoi-rangeinput:change');
+        }
+        
     };
 
     function moveKnob($rangeInput, $knob, e) {
@@ -5588,53 +5640,51 @@ YOI.RangeInput = (function() {
          *  @param  {jQuery dom object} $rangeInput - the range input
          *  @param  {jQuery dom object} $knob       - the range input knob
          *  @param  {event}             ePosX       - the caller event
-         *  @return {bool false}                    - returns false if data is invalid
+         *  @return {bool false}                    - returns false if props data is invalid
          */
+        
+        // abort if absMin is larger than absMax
 
-        // abort if data is clearly invalid
-
-        if ($rangeInput.data().absMin >= $rangeInput.data().absMax) return false;
-
+        if ($rangeInput.data().props.absMin >= $rangeInput.data().props.absMax) return false;
+        
         // gather dom elements, set some vars
 
         var $thisRangeInput = $rangeInput;
         var $thisKnob       = $knob;
         var $thisMinInput   = $thisRangeInput.find('input[name="min"]');
         var $thisMaxInput   = $thisRangeInput.find('input[name="max"]');
-
-        var data            = $thisRangeInput.data();
+        var props           = $thisRangeInput.data().props;
         var isMinKnob       = $thisKnob.hasClass('rangeInput__knob--min');
         var isMaxKnob       = $thisKnob.hasClass('rangeInput__knob--max');
         var posX            = 0;
         var thisKnobValue   = null;
 
-        // set the knob position & value
-
         if (e !== undefined) {
-
+            
+            // set knob position & value via dragging,
             // deal with cursor offset first
 
-            if (data.cursorOffset > 0) e.pageX = e.pageX - data.cursorOffset;
-            if (data.cursorOffset < 0) e.pageX = e.pageX + (data.cursorOffset * -1);
+            if (props.cursorOffset > 0) e.pageX = e.pageX - props.cursorOffset;
+            if (props.cursorOffset < 0) e.pageX = e.pageX + (props.cursorOffset * -1);
 
             // set position & value if knob is beeing dragged
 
-            posX          = Math.floor(Math.min(Math.max(0, (e.pageX - data.offsetX)), data.width));
-            var factor    = Math.floor((posX / data.width) * 100);
-            thisKnobValue = Math.floor(((data.absMax - data.absMin) / 100) * factor + (data.absMin * 1));
+            posX          = Math.floor(Math.min(Math.max(0, (e.pageX - props.offsetX)), props.width));
+            var factor    = Math.floor((posX / props.width) * 100);
+            thisKnobValue = Math.floor(((props.absMax - props.absMin) / 100) * factor + (props.absMin * 1));
 
         } else {
 
-            // set position & value if knob is set directly
+            // set position & value directly on function call
 
             var inputValue;
 
-            if (isMinKnob) inputValue = data.min;
-            if (isMaxKnob) inputValue = data.max;
+            if (isMinKnob) inputValue = props.min;
+            if (isMaxKnob) inputValue = props.max;
 
-            var range   = data.absMax - data.absMin;
-            var factor  = data.width / range;
-            var posX    = Math.ceil(factor * (inputValue - data.absMin));
+            var range   = props.absMax - props.absMin;
+            var factor  = props.width / range;
+            var posX    = Math.ceil(factor * (inputValue - props.absMin));
 
             thisKnobValue = inputValue;
 
@@ -5644,14 +5694,14 @@ YOI.RangeInput = (function() {
 
         if (isMinKnob) {
 
-            if (e !== undefined) data.min = thisKnobValue;
-
-            if (data.min < data.max) {
+            if (e !== undefined) props.min = thisKnobValue;
+            
+            if (props.min < props.max) {
                 $thisRangeInput.find('.rangeInput__range').css('left', posX);
-                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + data.unit);
+                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + props.unit);
                 $thisMinInput.val(thisKnobValue);
-                data.minPosX = posX;
-                data.minValue = thisKnobValue;
+                props.minPosX  = posX;
+                props.minValue = thisKnobValue;
             }
 
         }
@@ -5660,51 +5710,28 @@ YOI.RangeInput = (function() {
 
         if (isMaxKnob) {
 
-            if (e !== undefined) data.max = thisKnobValue;
+            if (e !== undefined) props.max = thisKnobValue;
 
-            if (data.min < data.max) {
-                $thisRangeInput.find('.rangeInput__range').css('right', data.width - posX);
-                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + data.unit);
+            if (props.min < props.max) {
+                $thisRangeInput.find('.rangeInput__range').css('right', props.width - posX);
+                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + props.unit);
                 $thisMaxInput.val(thisKnobValue);
-                data.maxPosX = posX;
-                data.maxValue = thisKnobValue;
+                props.maxPosX  = posX;
+                props.maxValue = thisKnobValue;
             }
 
         }
 
         // update single label
 
-        var thisSingleLabelTxt = data.minValue + data.unit + ' – ' + data.maxValue + data.unit;
+        var thisSingleLabelTxt = props.minValue + props.unit + ' – ' + props.maxValue + props.unit;
         $thisRangeInput.find('.rangeInput__label--single').text(thisSingleLabelTxt);
 
         // finally, move the knob and adjust the labels
 
-        if (data.min < data.max) {
+        if (props.min < props.max) {
             $thisKnob.css('left', posX - knobOffset);
             adjustLabels($thisRangeInput);
-        }
-
-    };
-
-    function triggerFiltersUpdate($rangeInput) {
-
-        /**
-         *  After knobs were dragged or set, apply the new values
-         *  to search results / filtered data. Abort if no Filters
-         *  are found.
-         *
-         *  @param  {jQuery dom object} $rangeInput - the range input
-         *  @return {bool false}                    - returns false if the filters module isn't available
-         */
-
-        if (YOI.foundModule('YOI.Filters')) {
-
-            $thisRangeInput = $rangeInput;
-            $thisFilters = $thisRangeInput.closest('.filters');
-            YOI.Filters.apply($thisFilters, false);
-
-        } else {
-            return false;
         }
 
     };
@@ -5712,14 +5739,14 @@ YOI.RangeInput = (function() {
     // initialize
     // ==========
 
-    initializeRangeInput();
+    initialize();
 
     // public functions
 
     return {
-        init  : initializeRangeInput,
-        set   : setRangeInput,
-        reset : resetRangeInput
+        init  : initialize,
+        set   : set,
+        reset : reset
     };
 
 })();
@@ -5888,7 +5915,6 @@ YOI.Slider = (function() {
     // private vars
     // ============
 
-    var slideAutoplayIntervals = {};
     var $window      = $(window);
     var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
     var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
@@ -5975,7 +6001,7 @@ YOI.Slider = (function() {
     // private functions
     // =================
 
-    function initializeSlider($slider, options) {
+    function initialize($slider, options) {
 
         /**
          *  Initialize the script.
@@ -6008,6 +6034,7 @@ YOI.Slider = (function() {
             // attach data to slider instance
             
             $thisSlider.data().props = {
+                index       : sliderIndex,
                 slideIndex  : 0,
                 totalSlides : $thisSlides.length
             };
@@ -6021,11 +6048,9 @@ YOI.Slider = (function() {
             // prepare slides and adjust container to fixed height for animations
 
             if (options.transition !== undefined) {
-
                 $window.on('load', function(){
                     adjustHeight($thisSlider);
                 });
-
             }
 
             // hide all slides but the first one
@@ -6045,13 +6070,13 @@ YOI.Slider = (function() {
 
                 $thisSlider.find('[class*="btnNext"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
 
                 $thisSlider.find('[class*="btnPrev"]').on('click', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'prev');
                 });
 
@@ -6075,9 +6100,9 @@ YOI.Slider = (function() {
                     paginationLinks.first().addClass('pageDots--active');
 
                     paginationLinks.on('click', function(e) {
-
+                        
                         e.preventDefault();
-                        stopAutoplay(sliderIndex);
+                        stopAutoplay($thisSlider);
 
                         if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
                             var linkIndex = $thisSlider.index() -1;
@@ -6096,39 +6121,32 @@ YOI.Slider = (function() {
             // attach events if "clickable"
 
             if (options.clickable) {
-
                 $thisSlides.not('a').on('tap', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
-
             }
 
             // attach events if "swipeable"
 
             if (options.swipeable) {
-
                 $thisSlider.on('swipeleft', function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
-
                 $thisSlider.on('swiperight',function(e) {
                     e.preventDefault();
-                    stopAutoplay(sliderIndex);
+                    stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'prev');
                 });
-
             }
 
             // enable auto play
 
             if (options.autoplay !== undefined) {
-                slideAutoplayIntervals[sliderIndex] = window.setInterval(function(){
-                    showSlide($thisSlider)
-                }, options.autoplay);
+                startAutoplay($thisSlider);
             }
 
         });
@@ -6194,6 +6212,10 @@ YOI.Slider = (function() {
         // update slider data object
 
         $thisSlider.data().props.slideIndex = slideIndex;
+        
+        // trigger custom event
+        
+        $thisSlider.trigger('yoi-slider:change');
 
     }
 
@@ -6269,16 +6291,45 @@ YOI.Slider = (function() {
         }
 
     }
+    
+    function startAutoplay($slider) {
+        
+        /**
+         *  Start auto play.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        var options      = $slider.data().options;
+        var sliderIndex  = $slider.data().props.index;
+        var intervalName = 'slideAutoplay-' + sliderIndex;
+        
+        YOI.setInterval(intervalName, options.autoplay, function() {
+            showSlide($slider)
+        });
 
-    function stopAutoplay(sliderIndex) {
+        // trigger custom event
+
+        $slider.trigger('yoi-slider:autoplaystart');
+        
+    }
+    
+    function stopAutoplay($slider) {
 
         /**
-         *  Stop the auto play.
+         *  Stop auto play.
          *
-         *  @param {string} sliderIndex - the internal slider instance index number
+         *  @param {jQuery dom object} $slider
          */
+        
+        var sliderIndex  = $slider.data().props.index;
+        var intervalName = 'slideAutoplay-' + sliderIndex;
+        
+        YOI.clearInterval('intervalName');
 
-        window.clearInterval(slideAutoplayIntervals[sliderIndex]);
+        // trigger custom event
+
+        $slider.trigger('yoi-slider:autoplaystop');
 
     }
 
@@ -6328,14 +6379,16 @@ YOI.Slider = (function() {
     // initialize
     // ==========
 
-    initializeSlider();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeSlider,
-        show : showSlide
+        init  : initialize,
+        show  : showSlide,
+        start : startAutoplay,
+        stop  : stopAutoplay
     };
 
 })();
@@ -6579,7 +6632,7 @@ YOI.Switch = (function() {
             // add events
 
             $thisSwitch.on('click', function(e) {
-                stateToggle($thisSwitch);
+                setToggle($thisSwitch);
             });
 
         });
@@ -6624,7 +6677,7 @@ YOI.Switch = (function() {
 
     }
 
-    function stateToggle($switch) {
+    function setToggle($switch) {
 
         /**
          *  Alternates the state between "on" and "off".
@@ -6653,7 +6706,7 @@ YOI.Switch = (function() {
         init   : initialize,
         on     : setOn,
         off    : setOff,
-        toggle : stateToggle
+        toggle : setToggle
     }
 
 })();
@@ -6664,7 +6717,7 @@ YOI.Table = (function() {
     // private functions
     // =================
 
-    function initializeTable($table, options) {
+    function initialize($table, options) {
 
         /**
          *  Initialize the script.
@@ -6797,13 +6850,13 @@ YOI.Table = (function() {
     // initialize
     // ==========
 
-    initializeTable();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init      : initializeTable,
+        init      : initialize,
         selectRow : selectRow,
         removeRow : removeRow
     };
@@ -6817,10 +6870,13 @@ YOI.Tabs = (function() {
     // private functions
     // =================
 
-    function initializeTabs() {
-
+    function initialize($tabsMenu, options) {
+        
         /**
-         *  Initialize the tabs.
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $tabsMenu
+         *  @param {object}            options
          *
          *  In general:
          *
@@ -6839,12 +6895,16 @@ YOI.Tabs = (function() {
          *    gets overridden by the tabs page matching the hash. Additionally, the tab page
          *    gets scrolled into the viewport.
          */
+        
+        var $tabsMenu = YOI.createCollection('tabs', $tabsMenu, options);
 
-        $('.tabs__menu').each(function(){
+        if ($tabsMenu) $tabsMenu.each(function(){
+            
+            var $thisTabsMenu = $(this);
 
             // read start tab from markup ...
 
-            var thisStartTabId = $(this).find('.is--active').length ? $(this).find('.is--active a')[0].hash : $(this).find('a').first()[0].hash;
+            var thisStartTabId = $thisTabsMenu.find('.is--active').length ? $thisTabsMenu.find('.is--active a')[0].hash : $thisTabsMenu.find('a').first()[0].hash;
 
             // read start tab from url ...
 
@@ -6852,33 +6912,29 @@ YOI.Tabs = (function() {
 
             // ... and finally define the target tab
 
-            var targetTabId = $(this).find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
+            var targetTabId = $thisTabsMenu.find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
 
             // switch to target tab
 
-            switchToTab(targetTabId);
+            switchTo(targetTabId);
 
             // if start tab was in hash, scroll to start tab
-
-            if (YOI.foundModule('YOI.ScrollTo') && urlTabId !== '')
-                ScrollTo.target(urlTabId);
+            
+            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
+                YOI.ScrollTo.target(urlTabId);
 
             // attach click event to menu items
 
-            $(this).find('a').on('click', function(e) {
-
+            $thisTabsMenu.find('a').on('click', function(e) {
                 e.preventDefault();
-
-                var thisHash = $(this)[0].hash;
-                switchToTab(thisHash);
-
+                switchTo($(this)[0].hash);
             });
 
         });
 
     }
 
-    function switchToTab(thisTargetTabId) {
+    function switchTo(thisTargetTabId) {
 
         /**
          *  Show the target tab, hide all other related tabs.
@@ -6888,15 +6944,17 @@ YOI.Tabs = (function() {
 
         var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
-
+        var $thisTargetTab            = $(thisTargetTabId);
+        
         // remove '.is--active' from all related menu items,
         // hide all related tabs
 
         $thisRelatedTabsMenuItems.each(function() {
+            
+            var $thisMenuItem = $(this);
+            var tabId         = $thisMenuItem.find('a')[0].hash;
 
-            var tabId = $(this).find('a')[0].hash;
-
-            $(this).removeClass('is--active');
+            $thisMenuItem.removeClass('is--active');
             $(tabId).hide();
 
         });
@@ -6904,21 +6962,25 @@ YOI.Tabs = (function() {
         // add '.is--active' and switch to target tab
 
         $thisTabsMenuItem.addClass('is--active');
-        $(thisTargetTabId).show();
+        $thisTargetTab.show();
+        
+        // trigger custom event
+        
+        $thisTargetTab.trigger('yoi-tabs:change');
 
     }
 
     // initialize
     // ==========
 
-    initializeTabs();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init     : initializeTabs,
-        switchTo : switchToTab
+        init     : initialize,
+        switchTo : switchTo
     };
 
 })();
@@ -6936,7 +6998,7 @@ YOI.Tooltip = (function() {
     // private functions
     // =================
 
-    function initializeTooltip($tooltip, options) {
+    function initialize($tooltip, options) {
 
         /**
          *  Initialize the script.
@@ -7162,13 +7224,13 @@ YOI.Tooltip = (function() {
     // initialize
     // ==========
 
-    initializeTooltip();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init    : initializeTooltip,
+        init    : initialize,
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
@@ -7354,7 +7416,7 @@ YOI.MicroSubmit = (function() {
     // private functions
     // =================
 
-    function initializeMicroSubmit($microSubmit, options) {
+    function initialize($microSubmit, options) {
 
         /**
          *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
@@ -7426,13 +7488,13 @@ YOI.MicroSubmit = (function() {
     // initialize
     // ==========
 
-    initializeMicroSubmit();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init : initializeMicroSubmit
+        init : initialize
     }
 
 })();
@@ -7508,7 +7570,7 @@ YOI.Reveal = (function() {
     // private functions
     // =================
 
-    function initializeReveal($revealTrigger, options) {
+    function initialize($revealTrigger, options) {
         
         /**
          *  Initialize the script.
@@ -7575,13 +7637,13 @@ YOI.Reveal = (function() {
     // initialize
     // ==========
 
-    initializeReveal();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeReveal
+        init: initialize
     }
 
 })();
@@ -7607,7 +7669,7 @@ YOI.ScrollAgent = (function() {
     // private functions
     // =================
     
-    function initializeScrollAgent($targetElement, options) {
+    function initialize($targetElement, options) {
         
        /**
         *  Initialize the script.
@@ -7621,7 +7683,7 @@ YOI.ScrollAgent = (function() {
         // map data to each target element
         
         if ($targetElement) $targetElement.each(function() {
-            updateTargetElementData($(this));
+            updateTargetElement($(this));
         });
         
         // update the viewport height on resize
@@ -7637,7 +7699,7 @@ YOI.ScrollAgent = (function() {
     
     }
     
-    function updateTargetElementData($targetElement) {
+    function updateTargetElement($targetElement) {
         
         /**
          *  Reads data from the custom data-attribute and from calculations (eg. height)
@@ -7748,13 +7810,13 @@ YOI.ScrollAgent = (function() {
     // initialize
     // ==========
     
-    initializeScrollAgent();
+    initialize();
     
     // public functions
     // ================
     
     return {
-        init: initializeScrollAgent
+        init: initialize
     }
 
 })();
@@ -7763,7 +7825,7 @@ YOI.ScrollFx = (function() {
     // private functions
     // =================
     
-    function initializeScrollFx($targetElement, options) {
+    function initialize($targetElement, options) {
         
        /**
         *  Initialize the script.
@@ -7884,13 +7946,13 @@ YOI.ScrollFx = (function() {
     // initialize
     // ==========
     
-    initializeScrollFx();
+    initialize();
     
     // public functions
     // ================
     
     return {
-        init: initializeScrollFx
+        init: initialize
     }
 
 })();
@@ -7917,7 +7979,7 @@ YOI.ScrollTo = (function() {
     // private functions
     // =================
 
-    function initializeScrollTo($scrollToTrigger, options) {
+    function initialize($scrollToTrigger, options) {
 
         /**
          *  Initialize the script.
@@ -7954,6 +8016,7 @@ YOI.ScrollTo = (function() {
     }
 
     function scrollToTarget(targetId, $thisTrigger, options) {
+        
 
         /**
          *  Scroll the page to a given target element.
@@ -7976,8 +8039,8 @@ YOI.ScrollTo = (function() {
 
         // if target is a tab, switch to the tab
 
-        if ($(targetId).hasClass('tabs__page') && YOI.foundModule('YOI.Tabs')) {
-            Tabs.switchTo(targetId);
+        if ($target.hasClass('tabs__page') && YOI.foundModule('Tabs')) {
+            YOI.Tabs.switchTo(targetId);
         }
 
         // if the target is wrapped inside a container with
@@ -8011,13 +8074,13 @@ YOI.ScrollTo = (function() {
     // initialize
     // ==========
 
-    initializeScrollTo();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init   : initializeScrollTo,
+        init   : initialize,
         target : scrollToTarget
     }
 
@@ -8034,7 +8097,7 @@ YOI.Sticky = (function() {
     // private functions
     // =================
 
-    function initializeSticky($stickyElement, options) {
+    function initialize($stickyElement, options) {
 
         /**
          *  Initialize the script.
@@ -8064,13 +8127,17 @@ YOI.Sticky = (function() {
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
         if ($stickyElement) $stickyElement.each(function(index) {
+            
 
             var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone('true').attr('id', 'stickyClone-' + index);
-
+            var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
+            
+            console.log('init: ' + $thisStickyElement.offset().top);
+            
+            
             // update each sticky element's data
 
-            updateStickyElementData($thisStickyElement);
+            updateStickyElementProps($thisStickyElement);
 
             // do the necessary dom manipulation
 
@@ -8097,17 +8164,19 @@ YOI.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement      - the sticky element
          *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
          */
-
+        
         // prepare the cloned element
+        
+        console.log('manipulateDom: ' + $stickyElement.offset().top);
 
         $stickyElementClone.css({
-            'position' : 'absolute',
-            'width'    : $stickyElement.outerWidth(),
-            'height'   : $stickyElement.outerHeight(),
-            'top'      : $stickyElement.offset().top,
-            'left'     : $stickyElement.offset().left,
-            'backface-visibility'         : 'hidden', // boost performance trough
-            '-webkit-backface-visibility' : 'hidden'  // hardware-acceleration
+            'position'                    : 'absolute',
+            'width'                       : $stickyElement.outerWidth(),
+            'height'                      : $stickyElement.outerHeight(),
+            'top'                         : $stickyElement.offset().top,
+            'left'                        : $stickyElement.offset().left,
+            'backface-visibility'         : 'hidden',
+            '-webkit-backface-visibility' : 'hidden'
         });
 
         // append the cloned element
@@ -8128,12 +8197,12 @@ YOI.Sticky = (function() {
 
     }
 
-    function updateStickyElementData($stickyElement) {
+    function updateStickyElementProps($stickyElement) {
 
         /**
          *  Reads options from the custom data-option interface and calculates other
          *  important data, like initial position, dimensions, etc. Adds all data to the
-         *  $stickyElement so that it is available for other functions.
+         *  $stickyElement props object, so that it is available for other functions.
          *
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
@@ -8167,14 +8236,14 @@ YOI.Sticky = (function() {
         // write props data
         
         $stickyElement.data().props = {
-            'passedValidation' : passedValidation,
-            'height'           : stickyElementheight,
-            'initialTopPos'    : stickyElementInitialTopPos,
-            'initialBottomPos' : stickyElementInitialBottomPos,
-            'topOffset'        : topOffset,
-            'topDistance'      : topDistance,
-            'stickStart'       : stickStart,
-            'stickStop'        : stickStop
+            passedValidation : passedValidation,
+            height           : stickyElementheight,
+            initialTopPos    : stickyElementInitialTopPos,
+            initialBottomPos : stickyElementInitialBottomPos,
+            topOffset        : topOffset,
+            topDistance      : topDistance,
+            stickStart       : stickStart,
+            stickStop        : stickStop
         };
         
     }
@@ -8194,7 +8263,7 @@ YOI.Sticky = (function() {
         var props      = $stickyElement.data().props;
         var stickStart = props.stickStart;
         var stickStop  = props.stickStop;
-
+        
         if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
             return false;
         } else {
@@ -8224,7 +8293,7 @@ YOI.Sticky = (function() {
                 // do the re-positioning
 
                 if (validInput($stickyElement)) {
-                    updateStickyElementData($stickyElement);
+                    updateStickyElementProps($stickyElement);
                     $stickyElementClone.css('left', $stickyElement.offset().left);
                 }
 
@@ -8269,15 +8338,15 @@ YOI.Sticky = (function() {
                 var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
+                
+                // proceed if the sticky element passed validation
 
-                // proceed if the sticky element passed validation (=> validInput)
-
-                if (validInput($stickyElement)) {
+                if (props.passedValidation) {
 
                     // re-position on scroll
 
                     if (scrollTop < stickStart) {
-
+                        
                         // outside top boundary
 
                         cssPositionValue = 'absolute';
@@ -8291,7 +8360,7 @@ YOI.Sticky = (function() {
                         cssTopValue      = stickStop + topOffset;
 
                     } else {
-
+                        
                         // inside boundaries
 
                         cssPositionValue = 'fixed';
@@ -8317,13 +8386,13 @@ YOI.Sticky = (function() {
     // initialize
     // ==========
 
-    initializeSticky();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init: initializeSticky
+        init: initialize
     }
 
 })();
@@ -8340,7 +8409,7 @@ YOI.ToggleGroup = (function() {
     // private functions
     // =================
 
-    function initializeToggleGroup($toggleGroup, options) {
+    function initialize($toggleGroup, options) {
 
         /**
          *  Initialize the script.
@@ -8377,7 +8446,7 @@ YOI.ToggleGroup = (function() {
 
             $thisTrigger.on(event, function(e) {
                 e.preventDefault();
-                toggleGroup($thisTrigger);
+                toggle($thisTrigger);
             });
 
             if ($thisFallBackElem.length > 0 && event === 'mouseover') {
@@ -8398,7 +8467,7 @@ YOI.ToggleGroup = (function() {
                     })
                     .on('mouseleave', function() {
                         YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
-                            resetToggleGroup($thisTrigger);
+                            reset($thisTrigger);
                         });
                     });
 
@@ -8433,7 +8502,7 @@ YOI.ToggleGroup = (function() {
 
     }
 
-    function toggleGroup($thisTrigger) {
+    function toggle($thisTrigger) {
 
         /**
          *  Toggle a group, read required data from the trigger.
@@ -8470,10 +8539,10 @@ YOI.ToggleGroup = (function() {
 
     }
 
-    function resetToggleGroup($thisTrigger) {
+    function reset($thisTrigger) {
 
         /**
-         *  Reset a toggle group, read required data from the trigger.
+         *  Reset a group, read required data from the trigger.
          *
          *  @param {jQuery dom object} $thisTrigger - the trigger
          */
@@ -8507,14 +8576,14 @@ YOI.ToggleGroup = (function() {
     // initialize
     // ==========
 
-    initializeToggleGroup();
+    initialize();
 
     // public functions
     // ================
 
     return {
-        init  : initializeToggleGroup,
-        reset : resetToggleGroup
+        init  : initialize,
+        reset : reset
     }
 
 })();
