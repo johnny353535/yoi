@@ -101,6 +101,6 @@ YOI.PageRewind = (function() {
     return {
         init : initialize,
         run  : run
-    }
+    };
 
 })();

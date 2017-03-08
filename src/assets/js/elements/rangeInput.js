@@ -219,7 +219,7 @@ YOI.RangeInput = (function() {
             $thisRangeInput.removeClass('rangeInput--mergedLabels');
         }
 
-    };
+    }
 
     function storeCursorPos($rangeInput, $knob, ePosX) {
 
@@ -252,7 +252,7 @@ YOI.RangeInput = (function() {
             $rangeInput.trigger('yoi-rangeinput:change');
         }
         
-    };
+    }
 
     function moveKnob($rangeInput, $knob, e) {
 
@@ -357,7 +357,7 @@ YOI.RangeInput = (function() {
             adjustLabels($thisRangeInput);
         }
 
-    };
+    }
 
     // initialize
     // ==========

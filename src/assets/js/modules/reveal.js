@@ -79,6 +79,6 @@ YOI.Reveal = (function() {
 
     return {
         init: initialize
-    }
+    };
 
 })();

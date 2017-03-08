@@ -636,7 +636,7 @@ YOI.DatePicker = (function() {
             'day'     : currentDate.getDate(),            // the current day of the month
             'month'   : currentDate.getMonth(),           // the current month
             'year'    : adjustYear(currentDate.getYear()) // the current year
-        }
+        };
 
     }
 
@@ -703,7 +703,7 @@ YOI.DatePicker = (function() {
                 'October',
                 'November',
                 'December'
-            ]
+            ];
 
         } else if (language === 'de') {
 
@@ -720,7 +720,7 @@ YOI.DatePicker = (function() {
                 'Oktober',
                 'November',
                 'Dezember'
-            ]
+            ];
 
         }
 
@@ -799,6 +799,6 @@ YOI.DatePicker = (function() {
         init   : initialize,
         render : renderDatePicker,
         hide   : hideAllDatePickers
-    }
+    };
 
 })();

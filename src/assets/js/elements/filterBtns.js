@@ -131,6 +131,6 @@ YOI.FilterBtns = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();

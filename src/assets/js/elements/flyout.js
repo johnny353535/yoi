@@ -56,7 +56,7 @@ YOI.Flyout = (function() {
          */
         
         if ($thisFlyout.data().state == 'visible') {
-            hide($thisFlyout)
+            hide($thisFlyout);
         } else {
             show($thisFlyout);
         }
@@ -110,6 +110,6 @@ YOI.Flyout = (function() {
         toggle : toggle,
         show   : show,
         hide   : hide
-    }
+    };
 
 })();

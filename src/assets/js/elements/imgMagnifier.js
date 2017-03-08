@@ -129,7 +129,6 @@ YOI.ImgMagnifier = (function(){
 
         var thisZoomImagePath   = $thisImgMagnifier.find('a').attr('href');
         var $thisViewer         = $thisImgMagnifier.find('.imgMagnifier__viewer');
-        var $thisCursor         = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisPreviewImage   = $thisImgMagnifier.find('.imgMagnifier__previewImage');
 
         // prepare the zoom image, get size before injecting into DOM
@@ -316,6 +315,6 @@ YOI.ImgMagnifier = (function(){
     return {
         init    : initialize,
         destroy : destroy
-    }
+    };
 
 })();

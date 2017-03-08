@@ -40,7 +40,6 @@ YOI.ScrollFx = (function() {
          */
         
         var options  = $targetElement.data().options;
-        var state    = $targetElement.data().state;
         var inFx     = options.in !== undefined ? options.in : false;
         var centerFx = options.center !== undefined ? options.center : false;
         
@@ -65,7 +64,6 @@ YOI.ScrollFx = (function() {
             
             var $targetElement = $(this);
             var options        = $targetElement.data().options;
-            var state          = $targetElement.data().state;
             var inFx           = options.in !== undefined ? options.in : false;
             var centerFx       = options.center !== undefined ? options.center : false;
             var speed          = options.speed !== undefined ? options.speed : false;
@@ -131,6 +129,6 @@ YOI.ScrollFx = (function() {
     
     return {
         init: initialize
-    }
+    };
 
 })();

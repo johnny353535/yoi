@@ -87,7 +87,6 @@ YOI.Table = (function() {
          */
 
         var $thisTable = $thisTr.closest('table');
-        var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
         var options    = $thisTable.data().options;
 

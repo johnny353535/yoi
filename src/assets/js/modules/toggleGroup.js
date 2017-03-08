@@ -186,6 +186,6 @@ YOI.ToggleGroup = (function() {
     return {
         init  : initialize,
         reset : reset
-    }
+    };
 
 })();

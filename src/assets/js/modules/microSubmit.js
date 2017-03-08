@@ -91,6 +91,6 @@ YOI.MicroSubmit = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();

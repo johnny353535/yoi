@@ -278,10 +278,10 @@ YOI.Countdown = (function() {
          *  Returns an object with css the cass names for each LCD character.
          *
          *  @param  {object} timeRemaining - the remaining time (y/m/d/h/m/s)
-         *  @return {object} lcdCharacters - a "lookup-table" with css class names
+         *  @return {object}               - a "lookup-table" with css class names
          */
         
-        return lcdCharacters = {
+        return {
             'days' : [
                 'countdown--' + timeRemaining.days.charAt(0),
                 'countdown--' + timeRemaining.days.charAt(1)
@@ -314,7 +314,7 @@ YOI.Countdown = (function() {
         var $label   = $countdownCharacterLabel.clone();
         var language = YOI.locale();
 
-        $label.text(clockLabels[language][unit])
+        $label.text(clockLabels[language][unit]);
 
         return $label;
 
@@ -330,6 +330,6 @@ YOI.Countdown = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();

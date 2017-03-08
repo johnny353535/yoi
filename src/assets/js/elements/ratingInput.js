@@ -129,9 +129,9 @@ YOI.RatingInput = (function() {
          *  @param {jQuery dom object} $ratingInput - the rating input
          */
         
-        var options  = $ratingInput.data().options;
-        var uid      = options.uid;
-        var score    = options.score === undefined ? 0 : options.score;
+        var options = $ratingInput.data().options;
+        var uid     = options.uid;
+        var score   = options.score === undefined ? 0 : options.score;
         
         // log custom event
         
@@ -152,6 +152,6 @@ YOI.RatingInput = (function() {
         lock   : lock,
         unlock : unlock,
         set    : setScore
-    }
+    };
 
 })();

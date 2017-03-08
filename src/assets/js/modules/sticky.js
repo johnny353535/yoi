@@ -237,17 +237,18 @@ YOI.Sticky = (function() {
             $stickyElements.each(function(index) {
 
                 // variable assignments for better readability only
+                
+                // var topDistance                   = props.topDistance;
+                // var stickyElementheight           = props.height;
+                // var stickyElementInitialBottomPos = props.initialBottomPos;
 
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
                 var props                         = $stickyElement.data().props;
-                var stickyElementheight           = props.height;
                 var stickyElementInitialTopPos    = props.initialTopPos;
-                var stickyElementInitialBottomPos = props.initialBottomPos;
                 var stickStart                    = props.stickStart;
                 var stickStop                     = props.stickStop;
                 var topOffset                     = props.topOffset;
-                var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
                 
@@ -305,6 +306,6 @@ YOI.Sticky = (function() {
 
     return {
         init: initialize
-    }
+    };
 
 })();

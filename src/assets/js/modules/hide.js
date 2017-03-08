@@ -80,6 +80,6 @@ YOI.Hide = (function() {
     return {
         init  : initialize,
         apply : hide
-    }
+    };
 
 })();

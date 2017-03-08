@@ -67,7 +67,6 @@ YOI.PieChart = (function() {
             };
             
             var size   = $thisPieChart.data().props.size;
-            var radius = size / 2;
 
             $thisPieChartSvg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
 
@@ -234,9 +233,8 @@ YOI.PieChart = (function() {
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
         var options         = $thisPieChart.data().options;
-        var props           = $thisPieChart.data().props;
         var totalSlices     = $thisPieChart.data().props.records;
-        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
+        var baseColor       = typeof options.baseColor === 'object' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
@@ -272,7 +270,6 @@ YOI.PieChart = (function() {
         var size             = parseInt($thisPieChart.data().props.size);
         var radius           = size / 2;
         var rotation         = $thisPieChart.data().props.rotation;
-        var index            = $thisPieChart.data().props.index;
         var $thisPieChartSvg = $thisPieChart.find('svg');
         var $thisPieSlice;
 
@@ -396,6 +393,6 @@ YOI.PieChart = (function() {
         highlightRecord      : highlightRecord,
         blinkRecord          : blinkRecord,
         resetHighlightRecord : resetHighlightRecord
-    }
+    };
 
 })();

@@ -153,6 +153,6 @@ YOI.Stepper = (function() {
         init      : initialize,
         countUp   : increaseItemCount,
         countDown : decreaseItemCount
-    }
+    };
 
 })();

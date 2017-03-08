@@ -205,7 +205,7 @@ YOI.Modal = (function() {
         initializeCloseTriggers(modalId);
         show(modalId);
         
-    };
+    }
 
     function load(modalId, modalPath, callback) {
 
@@ -434,6 +434,6 @@ YOI.Modal = (function() {
         init      : initialize,
         show      : show,
         close     : closeAll
-    }
+    };
 
 })();

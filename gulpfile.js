@@ -198,11 +198,6 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
-    var jQueryUiCustom = gulp.src(libs.jQueryUi)
-        .pipe(concat('jquery-ui.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs/'))
-        .pipe(gulp.dest('./docs/assets/js/libs/'));
-
     var prism = gulp.src(libs.prism)
         .pipe(concat('prism.js'))
         .pipe(gulp.dest('./dist/assets/js/libs/'))
@@ -213,7 +208,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
-    return merge(yoshinoUiCore, jQuery, jQueryUiCustom, prism, beautify);
+    return merge(yoshinoUiCore, jQuery, prism, beautify);
 
 });
 

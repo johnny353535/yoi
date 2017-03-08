@@ -5,7 +5,6 @@ YOI.Dismiss = (function() {
     // private vars
     // ============
 
-    var $dismissButton;
     var $btnDismiss;
     var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 

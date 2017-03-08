@@ -5,7 +5,6 @@ YOI.ScrollAgent = (function() {
     // private vars
     // ============
     
-    var $body                = $('body');
     var $window              = $(window);
     var viewPortHeight       = $window.height();
     var lastScrollTop        = 0;
@@ -168,6 +167,6 @@ YOI.ScrollAgent = (function() {
     
     return {
         init: initialize
-    }
+    };
 
 })();

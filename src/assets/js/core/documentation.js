@@ -492,6 +492,6 @@ YOI.Documentation = (function() {
 
     return {
         init : initializeDocumentation
-    }
+    };
 
 })();

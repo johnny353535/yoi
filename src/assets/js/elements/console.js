@@ -11,6 +11,7 @@ YOI.Console = (function() {
     // make the console listen to these events:
     
     var yoiEvents = [
+        
         'yoi-accordion:close',
         'yoi-accordion:open',
         'yoi-countdown:expire',
@@ -20,6 +21,9 @@ YOI.Console = (function() {
         'yoi-filters:reset',
         'yoi-filters:update',
         'yoi-hide',
+        'yoi-input:blur',
+        'yoi-input:change',
+        'yoi-input:focus',
         'yoi-modal:error',
         'yoi-modal:hide',
         'yoi-modal:load',
@@ -115,6 +119,6 @@ YOI.Console = (function() {
     return {
         init : initialize,
         log  : log
-    }
+    };
 
 })();

@@ -111,7 +111,7 @@ YOI.PopOver = (function() {
 
         $('.popOver').each(function() {
 
-            $thisPopOver = $(this);
+            var $thisPopOver = $(this);
 
             // first measure, then hide pop-over
 
@@ -330,6 +330,6 @@ YOI.PopOver = (function() {
     return {
         init    : initialize,
         hideAll : hideAll
-    }
+    };
 
 })();

@@ -59,6 +59,6 @@ YOI.Remove = (function() {
     return {
         init  : initialize,
         apply : remove
-    }
+    };
 
 })();

@@ -124,6 +124,6 @@ YOI.ScrollTo = (function() {
     return {
         init   : initialize,
         target : scrollToTarget
-    }
+    };
 
 })();

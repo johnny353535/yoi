@@ -12,12 +12,12 @@ YOI.Switch = (function() {
     var labelOnTxt = {
         'de' : 'Ein',
         'en' : 'On'
-    }
+    };
 
     var labelOffTxt = {
         'de' : 'Aus',
         'en' : 'Off'
-    }
+    };
 
     // get the document language, fall back to english
     // note: only german and english supported at this moment
@@ -153,6 +153,6 @@ YOI.Switch = (function() {
         on     : setOn,
         off    : setOff,
         toggle : setToggle
-    }
+    };
 
 })();

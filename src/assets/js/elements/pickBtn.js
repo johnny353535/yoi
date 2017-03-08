@@ -86,6 +86,6 @@ YOI.PickBtn = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();

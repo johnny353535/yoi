@@ -30,6 +30,6 @@ YOI.BrowserHistory = (function() {
         pushHash    : pushHash,
         replaceHash : replaceHash,
         clearHash   : clearHash
-    }
+    };
 
 })();

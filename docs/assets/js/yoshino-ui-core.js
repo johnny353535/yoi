@@ -579,7 +579,7 @@ var YOI = (function() {
         
         }
         
-    }
+    };
 
 })();
 
@@ -1082,7 +1082,7 @@ YOI.Documentation = (function() {
 
     return {
         init : initializeDocumentation
-    }
+    };
 
 })();
 
@@ -1108,7 +1108,6 @@ YOI.Accordion = (function() {
 
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
-            var options        = $thisAccordion.data().options;
 
             // define the event: tap on mobile, click on desktop
 
@@ -1178,7 +1177,6 @@ YOI.Accordion = (function() {
 
         var $thisAccordion = $section.closest('.accordion');
         var $thisSection   = $section;
-        var $thisBody      = $section.find('.accordion__body');
         var options        = $thisAccordion.data().options;
         var state          = $thisSection.data().state;
         
@@ -1306,7 +1304,7 @@ YOI.Accordion = (function() {
         closeAll     : closeAllSections,
         openAll      : openAllSections,
         toggle       : toggleAccordionSection
-    }
+    };
 
 })();
 
@@ -1342,7 +1340,7 @@ YOI.BrowserHistory = (function() {
         pushHash    : pushHash,
         replaceHash : replaceHash,
         clearHash   : clearHash
-    }
+    };
 
 })();
 
@@ -1359,6 +1357,7 @@ YOI.Console = (function() {
     // make the console listen to these events:
     
     var yoiEvents = [
+        
         'yoi-accordion:close',
         'yoi-accordion:open',
         'yoi-countdown:expire',
@@ -1368,6 +1367,9 @@ YOI.Console = (function() {
         'yoi-filters:reset',
         'yoi-filters:update',
         'yoi-hide',
+        'yoi-input:blur',
+        'yoi-input:change',
+        'yoi-input:focus',
         'yoi-modal:error',
         'yoi-modal:hide',
         'yoi-modal:load',
@@ -1463,7 +1465,7 @@ YOI.Console = (function() {
     return {
         init : initialize,
         log  : log
-    }
+    };
 
 })();
 
@@ -1747,10 +1749,10 @@ YOI.Countdown = (function() {
          *  Returns an object with css the cass names for each LCD character.
          *
          *  @param  {object} timeRemaining - the remaining time (y/m/d/h/m/s)
-         *  @return {object} lcdCharacters - a "lookup-table" with css class names
+         *  @return {object}               - a "lookup-table" with css class names
          */
         
-        return lcdCharacters = {
+        return {
             'days' : [
                 'countdown--' + timeRemaining.days.charAt(0),
                 'countdown--' + timeRemaining.days.charAt(1)
@@ -1783,7 +1785,7 @@ YOI.Countdown = (function() {
         var $label   = $countdownCharacterLabel.clone();
         var language = YOI.locale();
 
-        $label.text(clockLabels[language][unit])
+        $label.text(clockLabels[language][unit]);
 
         return $label;
 
@@ -1799,7 +1801,7 @@ YOI.Countdown = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();
 /** forms.js */
@@ -1892,17 +1894,17 @@ YOI.CustomFormElements = (function() {
         });
 
         checkElemns.on({
-            'focus yoi-input:focus': function() {
+            'focus': function() {
                 $(this).parent().addClass('is--focus');
-                $(this).trigger('focus yoi-input:focus');
+                $(this).trigger('yoi-input:focus');
             },
-            'blur yoi-input:blur': function() {
+            'blur': function() {
                 $(this).parent().removeClass('is--focus');
-                $(this).trigger('blur yoi-input:blur');
+                $(this).trigger('yoi-input:blur');
             },
-            'change yoi-input:change': function(e) {
+            'change': function(e) {
                 $(this).parent().toggleClass('is--checked');
-                $(this).trigger('change yoi-input:change');
+                $(this).trigger('yoi-input:change');
             }
         });
 
@@ -1928,16 +1930,16 @@ YOI.CustomFormElements = (function() {
         });
 
         selects.on({
-            'focus yoi-input:focus': function() {
+            'focus': function() {
                 $(this).parent().addClass('is--focus');
-                $(this).trigger('focus yoi-input:focus');
+                $(this).trigger('yoi-input:focus');
             },
-            'blur yoi-input:blur': function() {
+            'blur': function() {
                 $(this).parent().removeClass('is--focus');
-                $(this).trigger('blur yoi-input:blur');
+                $(this).trigger('yoi-input:blur');
             },
-            'change yoi-input:change': function() {
-                $(this).trigger('change yoi-input:change');
+            'change': function() {
+                $(this).trigger('yoi-input:change');
             }
         });
 
@@ -1953,7 +1955,7 @@ YOI.CustomFormElements = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();
 
@@ -2595,7 +2597,7 @@ YOI.DatePicker = (function() {
             'day'     : currentDate.getDate(),            // the current day of the month
             'month'   : currentDate.getMonth(),           // the current month
             'year'    : adjustYear(currentDate.getYear()) // the current year
-        }
+        };
 
     }
 
@@ -2662,7 +2664,7 @@ YOI.DatePicker = (function() {
                 'October',
                 'November',
                 'December'
-            ]
+            ];
 
         } else if (language === 'de') {
 
@@ -2679,7 +2681,7 @@ YOI.DatePicker = (function() {
                 'Oktober',
                 'November',
                 'Dezember'
-            ]
+            ];
 
         }
 
@@ -2758,7 +2760,7 @@ YOI.DatePicker = (function() {
         init   : initialize,
         render : renderDatePicker,
         hide   : hideAllDatePickers
-    }
+    };
 
 })();
 
@@ -2818,7 +2820,7 @@ YOI.Dock = (function() {
 
         $thisDock.addClass('is--hidden');
         $thisDock.trigger('yoi-dock:hide');
-        $thisDock.data.state() = 'hidden';
+        $thisDock.data().state = 'hidden';
         
     }
 
@@ -2832,7 +2834,7 @@ YOI.Dock = (function() {
 
         $thisDock.removeClass('is--hidden');
         $thisDock.trigger('yoi-dock:show');
-        $thisDock.data.state() = 'visible';
+        $thisDock.data().state = 'visible';
         
     }
 
@@ -2848,7 +2850,7 @@ YOI.Dock = (function() {
         init : initialize,
         hide : hide,
         show : show
-    }
+    };
 
 })();
 
@@ -2985,7 +2987,7 @@ YOI.FilterBtns = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();
 
@@ -2999,17 +3001,9 @@ YOI.Filters = (function() {
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
     var btnLabelReset        = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
-    var msgLoading           = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
         <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
-    ');
-
-    var $loader = $('\
-        <div class="loading">\
-            <span class="pulse"></span>\
-            <span class="msg"><b>' + msgLoading + '</b></span>\
-        </div>\
     ');
 
     // private functions
@@ -3304,9 +3298,8 @@ YOI.Filters = (function() {
 
         $thisFilterGroups.each(function() {
 
-            var $thisFilterGroup     = $(this);
-            var $thisFilterGroupBody = $thisFilterGroup.find('.filterGroup__body');
-            var props                = YOI.updateProps($thisFilterGroup);
+            var $thisFilterGroup = $(this);
+            var props            = YOI.updateProps($thisFilterGroup);
 
             // update props
 
@@ -3405,7 +3398,7 @@ YOI.Flyout = (function() {
          */
         
         if ($thisFlyout.data().state == 'visible') {
-            hide($thisFlyout)
+            hide($thisFlyout);
         } else {
             show($thisFlyout);
         }
@@ -3459,7 +3452,7 @@ YOI.Flyout = (function() {
         toggle : toggle,
         show   : show,
         hide   : hide
-    }
+    };
 
 })();
 
@@ -3594,7 +3587,6 @@ YOI.ImgMagnifier = (function(){
 
         var thisZoomImagePath   = $thisImgMagnifier.find('a').attr('href');
         var $thisViewer         = $thisImgMagnifier.find('.imgMagnifier__viewer');
-        var $thisCursor         = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisPreviewImage   = $thisImgMagnifier.find('.imgMagnifier__previewImage');
 
         // prepare the zoom image, get size before injecting into DOM
@@ -3781,7 +3773,7 @@ YOI.ImgMagnifier = (function(){
     return {
         init    : initialize,
         destroy : destroy
-    }
+    };
 
 })();
 
@@ -3996,7 +3988,7 @@ YOI.MaxChars = (function() {
         display     : displayCharsLeft,
         addError    : addErrorStyling,
         removeError : removeErrorStyling
-    }
+    };
 
 })();
 /** modal.js */
@@ -4206,7 +4198,7 @@ YOI.Modal = (function() {
         initializeCloseTriggers(modalId);
         show(modalId);
         
-    };
+    }
 
     function load(modalId, modalPath, callback) {
 
@@ -4435,7 +4427,7 @@ YOI.Modal = (function() {
         init      : initialize,
         show      : show,
         close     : closeAll
-    }
+    };
 
 })();
 
@@ -4542,7 +4534,7 @@ YOI.PageRewind = (function() {
     return {
         init : initialize,
         run  : run
-    }
+    };
 
 })();
 /** pickBtn.js */
@@ -4633,7 +4625,7 @@ YOI.PickBtn = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();
 
@@ -4706,7 +4698,6 @@ YOI.PieChart = (function() {
             };
             
             var size   = $thisPieChart.data().props.size;
-            var radius = size / 2;
 
             $thisPieChartSvg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
 
@@ -4873,9 +4864,8 @@ YOI.PieChart = (function() {
         var $thisCircles    = $thisPieChart.find('circle');
         var $thisDots       = $thisPieChart.find('.pieChart__dot');
         var options         = $thisPieChart.data().options;
-        var props           = $thisPieChart.data().props;
         var totalSlices     = $thisPieChart.data().props.records;
-        var baseColor       = typeof options.baseColor === 'array' ? JSON.parse(options.baseColor) : [252,45,65];
+        var baseColor       = typeof options.baseColor === 'object' ? JSON.parse(options.baseColor) : [252,45,65];
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
@@ -4911,7 +4901,6 @@ YOI.PieChart = (function() {
         var size             = parseInt($thisPieChart.data().props.size);
         var radius           = size / 2;
         var rotation         = $thisPieChart.data().props.rotation;
-        var index            = $thisPieChart.data().props.index;
         var $thisPieChartSvg = $thisPieChart.find('svg');
         var $thisPieSlice;
 
@@ -5035,7 +5024,7 @@ YOI.PieChart = (function() {
         highlightRecord      : highlightRecord,
         blinkRecord          : blinkRecord,
         resetHighlightRecord : resetHighlightRecord
-    }
+    };
 
 })();
 
@@ -5152,7 +5141,7 @@ YOI.PopOver = (function() {
 
         $('.popOver').each(function() {
 
-            $thisPopOver = $(this);
+            var $thisPopOver = $(this);
 
             // first measure, then hide pop-over
 
@@ -5371,7 +5360,7 @@ YOI.PopOver = (function() {
     return {
         init    : initialize,
         hideAll : hideAll
-    }
+    };
 
 })();
 
@@ -5596,7 +5585,7 @@ YOI.RangeInput = (function() {
             $thisRangeInput.removeClass('rangeInput--mergedLabels');
         }
 
-    };
+    }
 
     function storeCursorPos($rangeInput, $knob, ePosX) {
 
@@ -5629,7 +5618,7 @@ YOI.RangeInput = (function() {
             $rangeInput.trigger('yoi-rangeinput:change');
         }
         
-    };
+    }
 
     function moveKnob($rangeInput, $knob, e) {
 
@@ -5734,7 +5723,7 @@ YOI.RangeInput = (function() {
             adjustLabels($thisRangeInput);
         }
 
-    };
+    }
 
     // initialize
     // ==========
@@ -5882,9 +5871,9 @@ YOI.RatingInput = (function() {
          *  @param {jQuery dom object} $ratingInput - the rating input
          */
         
-        var options  = $ratingInput.data().options;
-        var uid      = options.uid;
-        var score    = options.score === undefined ? 0 : options.score;
+        var options = $ratingInput.data().options;
+        var uid     = options.uid;
+        var score   = options.score === undefined ? 0 : options.score;
         
         // log custom event
         
@@ -5905,7 +5894,7 @@ YOI.RatingInput = (function() {
         lock   : lock,
         unlock : unlock,
         set    : setScore
-    }
+    };
 
 })();
 /** slider.js */
@@ -6029,7 +6018,6 @@ YOI.Slider = (function() {
 
             var $thisSlider        = $(this);
             var $thisSlides        = $thisSlider.find('.slider__slide');
-            var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance
             
@@ -6041,7 +6029,6 @@ YOI.Slider = (function() {
             
             // reference slider instance props & options
 
-            var slideIndex  = $thisSlider.data().props.slideIndex;
             var totalSlides = $thisSlider.data().props.totalSlides;
             var options     = $thisSlider.data().options;
             
@@ -6103,11 +6090,13 @@ YOI.Slider = (function() {
                         
                         e.preventDefault();
                         stopAutoplay($thisSlider);
+                        
+                        var linkIndex;
 
                         if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
-                            var linkIndex = $thisSlider.index() -1;
+                            linkIndex = $thisSlider.index() -1;
                         } else {
-                            var linkIndex = $thisSlider.index();
+                            linkIndex = $thisSlider.index();
                         }
 
                         showSlide($thisSlider, linkIndex);
@@ -6163,7 +6152,6 @@ YOI.Slider = (function() {
          */
 
         var $thisSlides        = $thisSlider.find('.slider__slide');
-        var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
         var props              = $thisSlider.data().props;
         var options            = $thisSlider.data().options;
         var totalSlides        = props.totalSlides;
@@ -6305,7 +6293,7 @@ YOI.Slider = (function() {
         var intervalName = 'slideAutoplay-' + sliderIndex;
         
         YOI.setInterval(intervalName, options.autoplay, function() {
-            showSlide($slider)
+            showSlide($slider);
         });
 
         // trigger custom event
@@ -6325,7 +6313,7 @@ YOI.Slider = (function() {
         var sliderIndex  = $slider.data().props.index;
         var intervalName = 'slideAutoplay-' + sliderIndex;
         
-        YOI.clearInterval('intervalName');
+        YOI.clearInterval(intervalName);
 
         // trigger custom event
 
@@ -6345,7 +6333,7 @@ YOI.Slider = (function() {
         // update page dots (.pageDots)
 
         paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-        paginationLinks.removeClass('pageDots--active')
+        paginationLinks.removeClass('pageDots--active');
         paginationLinks.eq(thisSlideIndex).addClass('pageDots--active');
 
         // update page buttons (.pageBtns)
@@ -6370,7 +6358,7 @@ YOI.Slider = (function() {
             var thisSlideHeight = $thisSlides.eq(i).outerHeight();
             slideHeight = thisSlideHeight > slideHeight ? thisSlideHeight : slideHeight;
             $thisSlidesWrapper.css({ 'height': slideHeight });
-        };
+        }
 
         $thisSlidesWrapper.css({ 'height': slideHeight });
 
@@ -6548,7 +6536,7 @@ YOI.Stepper = (function() {
         init      : initialize,
         countUp   : increaseItemCount,
         countDown : decreaseItemCount
-    }
+    };
 
 })();
 
@@ -6566,12 +6554,12 @@ YOI.Switch = (function() {
     var labelOnTxt = {
         'de' : 'Ein',
         'en' : 'On'
-    }
+    };
 
     var labelOffTxt = {
         'de' : 'Aus',
         'en' : 'Off'
-    }
+    };
 
     // get the document language, fall back to english
     // note: only german and english supported at this moment
@@ -6707,7 +6695,7 @@ YOI.Switch = (function() {
         on     : setOn,
         off    : setOff,
         toggle : setToggle
-    }
+    };
 
 })();
 /** tables.js */
@@ -6799,7 +6787,6 @@ YOI.Table = (function() {
          */
 
         var $thisTable = $thisTr.closest('table');
-        var $thisAllTd = $thisTable.find('td');
         var $thisAllTr = $thisTable.find('tr');
         var options    = $thisTable.data().options;
 
@@ -7234,7 +7221,7 @@ YOI.Tooltip = (function() {
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
-    }
+    };
 
 })();
 
@@ -7245,7 +7232,6 @@ YOI.Dismiss = (function() {
     // private vars
     // ============
 
-    var $dismissButton;
     var $btnDismiss;
     var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
 
@@ -7399,7 +7385,7 @@ YOI.Hide = (function() {
     return {
         init  : initialize,
         apply : hide
-    }
+    };
 
 })();
 /** microSubmit.js */
@@ -7495,7 +7481,7 @@ YOI.MicroSubmit = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();
 
@@ -7560,7 +7546,7 @@ YOI.Remove = (function() {
     return {
         init  : initialize,
         apply : remove
-    }
+    };
 
 })();
 /** reveal.js */
@@ -7644,7 +7630,7 @@ YOI.Reveal = (function() {
 
     return {
         init: initialize
-    }
+    };
 
 })();
 /** ScrollAgent.js */
@@ -7654,7 +7640,6 @@ YOI.ScrollAgent = (function() {
     // private vars
     // ============
     
-    var $body                = $('body');
     var $window              = $(window);
     var viewPortHeight       = $window.height();
     var lastScrollTop        = 0;
@@ -7817,7 +7802,7 @@ YOI.ScrollAgent = (function() {
     
     return {
         init: initialize
-    }
+    };
 
 })();
 YOI.ScrollFx = (function() {
@@ -7862,7 +7847,6 @@ YOI.ScrollFx = (function() {
          */
         
         var options  = $targetElement.data().options;
-        var state    = $targetElement.data().state;
         var inFx     = options.in !== undefined ? options.in : false;
         var centerFx = options.center !== undefined ? options.center : false;
         
@@ -7887,7 +7871,6 @@ YOI.ScrollFx = (function() {
             
             var $targetElement = $(this);
             var options        = $targetElement.data().options;
-            var state          = $targetElement.data().state;
             var inFx           = options.in !== undefined ? options.in : false;
             var centerFx       = options.center !== undefined ? options.center : false;
             var speed          = options.speed !== undefined ? options.speed : false;
@@ -7953,7 +7936,7 @@ YOI.ScrollFx = (function() {
     
     return {
         init: initialize
-    }
+    };
 
 })();
 /** scrollTo.js */
@@ -8082,7 +8065,7 @@ YOI.ScrollTo = (function() {
     return {
         init   : initialize,
         target : scrollToTarget
-    }
+    };
 
 })();
 
@@ -8325,17 +8308,18 @@ YOI.Sticky = (function() {
             $stickyElements.each(function(index) {
 
                 // variable assignments for better readability only
+                
+                // var topDistance                   = props.topDistance;
+                // var stickyElementheight           = props.height;
+                // var stickyElementInitialBottomPos = props.initialBottomPos;
 
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
                 var props                         = $stickyElement.data().props;
-                var stickyElementheight           = props.height;
                 var stickyElementInitialTopPos    = props.initialTopPos;
-                var stickyElementInitialBottomPos = props.initialBottomPos;
                 var stickStart                    = props.stickStart;
                 var stickStop                     = props.stickStop;
                 var topOffset                     = props.topOffset;
-                var topDistance                   = props.topDistance;
                 var cssPositionValue;
                 var cssTopValue;
                 
@@ -8393,7 +8377,7 @@ YOI.Sticky = (function() {
 
     return {
         init: initialize
-    }
+    };
 
 })();
 /** toggleGroup.js */
@@ -8584,6 +8568,6 @@ YOI.ToggleGroup = (function() {
     return {
         init  : initialize,
         reset : reset
-    }
+    };
 
 })();

@@ -8,17 +8,9 @@ YOI.Filters = (function() {
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
     var btnLabelReset        = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
-    var msgLoading           = YOI.locale === 'de' ? 'Daten werden geladen' : 'Fetching data';
 
     var $resetBtn = $('\
         <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
-    ');
-
-    var $loader = $('\
-        <div class="loading">\
-            <span class="pulse"></span>\
-            <span class="msg"><b>' + msgLoading + '</b></span>\
-        </div>\
     ');
 
     // private functions
@@ -313,9 +305,8 @@ YOI.Filters = (function() {
 
         $thisFilterGroups.each(function() {
 
-            var $thisFilterGroup     = $(this);
-            var $thisFilterGroupBody = $thisFilterGroup.find('.filterGroup__body');
-            var props                = YOI.updateProps($thisFilterGroup);
+            var $thisFilterGroup = $(this);
+            var props            = YOI.updateProps($thisFilterGroup);
 
             // update props
 

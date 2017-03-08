@@ -119,7 +119,6 @@ YOI.Slider = (function() {
 
             var $thisSlider        = $(this);
             var $thisSlides        = $thisSlider.find('.slider__slide');
-            var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
 
             // attach data to slider instance
             
@@ -131,7 +130,6 @@ YOI.Slider = (function() {
             
             // reference slider instance props & options
 
-            var slideIndex  = $thisSlider.data().props.slideIndex;
             var totalSlides = $thisSlider.data().props.totalSlides;
             var options     = $thisSlider.data().options;
             
@@ -193,11 +191,13 @@ YOI.Slider = (function() {
                         
                         e.preventDefault();
                         stopAutoplay($thisSlider);
+                        
+                        var linkIndex;
 
                         if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
-                            var linkIndex = $thisSlider.index() -1;
+                            linkIndex = $thisSlider.index() -1;
                         } else {
-                            var linkIndex = $thisSlider.index();
+                            linkIndex = $thisSlider.index();
                         }
 
                         showSlide($thisSlider, linkIndex);
@@ -253,7 +253,6 @@ YOI.Slider = (function() {
          */
 
         var $thisSlides        = $thisSlider.find('.slider__slide');
-        var $thisSlidesWrapper = $thisSlider.find('.slider__slides');
         var props              = $thisSlider.data().props;
         var options            = $thisSlider.data().options;
         var totalSlides        = props.totalSlides;
@@ -395,7 +394,7 @@ YOI.Slider = (function() {
         var intervalName = 'slideAutoplay-' + sliderIndex;
         
         YOI.setInterval(intervalName, options.autoplay, function() {
-            showSlide($slider)
+            showSlide($slider);
         });
 
         // trigger custom event
@@ -415,7 +414,7 @@ YOI.Slider = (function() {
         var sliderIndex  = $slider.data().props.index;
         var intervalName = 'slideAutoplay-' + sliderIndex;
         
-        YOI.clearInterval('intervalName');
+        YOI.clearInterval(intervalName);
 
         // trigger custom event
 
@@ -435,7 +434,7 @@ YOI.Slider = (function() {
         // update page dots (.pageDots)
 
         paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-        paginationLinks.removeClass('pageDots--active')
+        paginationLinks.removeClass('pageDots--active');
         paginationLinks.eq(thisSlideIndex).addClass('pageDots--active');
 
         // update page buttons (.pageBtns)
@@ -460,7 +459,7 @@ YOI.Slider = (function() {
             var thisSlideHeight = $thisSlides.eq(i).outerHeight();
             slideHeight = thisSlideHeight > slideHeight ? thisSlideHeight : slideHeight;
             $thisSlidesWrapper.css({ 'height': slideHeight });
-        };
+        }
 
         $thisSlidesWrapper.css({ 'height': slideHeight });
 

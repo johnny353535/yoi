@@ -88,17 +88,17 @@ YOI.CustomFormElements = (function() {
         });
 
         checkElemns.on({
-            'focus yoi-input:focus': function() {
+            'focus': function() {
                 $(this).parent().addClass('is--focus');
-                $(this).trigger('focus yoi-input:focus');
+                $(this).trigger('yoi-input:focus');
             },
-            'blur yoi-input:blur': function() {
+            'blur': function() {
                 $(this).parent().removeClass('is--focus');
-                $(this).trigger('blur yoi-input:blur');
+                $(this).trigger('yoi-input:blur');
             },
-            'change yoi-input:change': function(e) {
+            'change': function(e) {
                 $(this).parent().toggleClass('is--checked');
-                $(this).trigger('change yoi-input:change');
+                $(this).trigger('yoi-input:change');
             }
         });
 
@@ -124,16 +124,16 @@ YOI.CustomFormElements = (function() {
         });
 
         selects.on({
-            'focus yoi-input:focus': function() {
+            'focus': function() {
                 $(this).parent().addClass('is--focus');
-                $(this).trigger('focus yoi-input:focus');
+                $(this).trigger('yoi-input:focus');
             },
-            'blur yoi-input:blur': function() {
+            'blur': function() {
                 $(this).parent().removeClass('is--focus');
-                $(this).trigger('blur yoi-input:blur');
+                $(this).trigger('yoi-input:blur');
             },
-            'change yoi-input:change': function() {
-                $(this).trigger('change yoi-input:change');
+            'change': function() {
+                $(this).trigger('yoi-input:change');
             }
         });
 
@@ -149,6 +149,6 @@ YOI.CustomFormElements = (function() {
 
     return {
         init : initialize
-    }
+    };
 
 })();

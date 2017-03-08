@@ -20,7 +20,6 @@ YOI.Accordion = (function() {
 
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
-            var options        = $thisAccordion.data().options;
 
             // define the event: tap on mobile, click on desktop
 
@@ -90,7 +89,6 @@ YOI.Accordion = (function() {
 
         var $thisAccordion = $section.closest('.accordion');
         var $thisSection   = $section;
-        var $thisBody      = $section.find('.accordion__body');
         var options        = $thisAccordion.data().options;
         var state          = $thisSection.data().state;
         
@@ -218,6 +216,6 @@ YOI.Accordion = (function() {
         closeAll     : closeAllSections,
         openAll      : openAllSections,
         toggle       : toggleAccordionSection
-    }
+    };
 
 })();

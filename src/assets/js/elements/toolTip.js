@@ -247,6 +247,6 @@ YOI.Tooltip = (function() {
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
-    }
+    };
 
 })();

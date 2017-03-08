@@ -209,6 +209,6 @@ YOI.MaxChars = (function() {
         display     : displayCharsLeft,
         addError    : addErrorStyling,
         removeError : removeErrorStyling
-    }
+    };
 
 })();
