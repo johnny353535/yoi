@@ -85,12 +85,22 @@ YOI.module.Lazyload = (function() {
                 .then(function() {
                     YOI.module.ScrollAgent.init(newImage);
                 });
+            
+            // when the image is done loading, listen for the yoi-viewport:in event
+            // and add the fx css class name
                 
             newImage.on('load', function() {
                 $(this).one('yoi-viewport:in', function() {
                     $(this).addClass('fx-fade-in');
                 });
             });
+            
+            // to make sure timing always works well, this little hack is necesarry
+            // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
+            
+            if (newImage[0].complete) {
+                newImage.load();
+            }
 
         });
         
