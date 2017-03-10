@@ -622,6 +622,8 @@ YOI.module  = {};
 // YOI.element and YOI.module
 
 $(function() {
+    
+    YOI.Documentation.init();
 
     $.each(YOI.element, function() {
         try { this.init(); } catch(e) {}
@@ -630,8 +632,6 @@ $(function() {
     $.each(YOI.module, function() {
         try { this.init(); } catch(e) {}
     });
-    
-    YOI.Documentation.init();
 
 });
 /** documentation.js */
