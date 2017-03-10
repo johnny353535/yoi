@@ -1,6 +1,6 @@
 /** dock.js */
 
-YOI.Dock = (function() {
+YOI.element.Dock = (function() {
 
     // private functions
     // =================
@@ -12,6 +12,11 @@ YOI.Dock = (function() {
          *
          *  @param {jQuery dom object} $dock
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {bool} autohide - if TRUE, dock is initially hidden
+         *                            default: FALSE
          */
 
         var $dock = YOI.createCollection('dock', $dock, options);
@@ -71,11 +76,6 @@ YOI.Dock = (function() {
         $thisDock.data().state = 'visible';
         
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

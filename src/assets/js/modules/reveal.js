@@ -1,6 +1,6 @@
 /** reveal.js */
 
-YOI.Reveal = (function() {
+YOI.module.Reveal = (function() {
 
     // private functions
     // =================
@@ -17,13 +17,10 @@ YOI.Reveal = (function() {
          *
          *  @option {string} target     - A string which is used as CSS-selector for the target element
          *                                (eg. '#myTarget' or '.myTarget', etc.)
-         *
          *  @option {string} event      - A string which defines the event which gets bound to the
          *                                trigger element. All standard event handlers from jQuery
          *                                can be used.
-         *
          *  @option {string} transition - Chose from two jQuery animations: 'fadeIn' and 'slideDown'.
-         *
          *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
          */
         
@@ -68,11 +65,6 @@ YOI.Reveal = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

@@ -1,12 +1,12 @@
 /** tabs.js */
 
-YOI.Tabs = (function() {
+YOI.element.Tabs = (function() {
 
     // private functions
     // =================
 
     function initialize($tabsMenu, options) {
-        
+
         /**
          *  Initialize the script.
          *
@@ -56,7 +56,7 @@ YOI.Tabs = (function() {
             // if start tab was in hash, scroll to start tab
             
             if (YOI.foundModule('ScrollTo') && urlTabId !== '')
-                YOI.ScrollTo.target(urlTabId);
+                YOI.module.ScrollTo.target(urlTabId);
 
             // attach click event to menu items
 
@@ -104,11 +104,6 @@ YOI.Tabs = (function() {
         $thisTargetTab.trigger('yoi-tabs:change');
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

@@ -1,6 +1,6 @@
 /** popOver.js */
 
-YOI.PopOver = (function() {
+YOI.element.PopOver = (function() {
     
     // private vars
     // ============
@@ -318,11 +318,6 @@ YOI.PopOver = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

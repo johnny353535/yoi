@@ -68,7 +68,7 @@
                                 <h4>JS Interface</h4>
                             </div>
                             <div class="accordion__body">
-                                <ul class="linkList b-0 br-0 bg-transparent"><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/hide_and_reveal.html">hide and reveal</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/microSubmit.html">microSubmit</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/remove.html">remove</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollAgent.html">scrollAgent</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollTo.html">scrollTo</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/sticky.html">sticky</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/toggleGroup.html">toggleGroup</a></li></ul>
+                                <ul class="linkList b-0 br-0 bg-transparent"><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/hide_and_reveal.html">hide and reveal</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/lazyload.html">lazyload</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/remove.html">remove</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollAgent.html">scrollAgent</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollTo.html">scrollTo</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/sticky.html">sticky</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/toggleGroup.html">toggleGroup</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/update.html">update</a></li></ul>
                             </div>
                         </div>
                         <div class="accordion__section">
@@ -92,70 +92,59 @@
                 <div class="article documentation__article w-3-4 p-r-8">
                     
 
-<h2 id="microsubmit">MicroSubmit</h2>
-<p>This script provides a simple interface to post a string to a given endpoint (eg. some backend script).</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Js-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/microSubmit.js">microSubmit.js</a></td>
-</tr>
-<tr>
-<td>Hooks</td>
-<td><code>yoi-microsubmit</code></td>
-</tr>
-</tbody>
-</table>
+<h2 id="lazy-load">Lazy Load</h2>
 
 
-<div class="note note--error b-0 note--large">
-    <div class="note__body">
-        <p>This script was designed for <strong>very simple use cases only</strong>! It asumes, that to the user it does not really matter if the post was succesful or not. There will always be a positive response message, if if the script failed to post.</p>
-    </div>
-</div>
-
-<h3 id="simple-example">Simple Example</h3>
-<p>To use this script, create a basic <code>&lt;form&gt;</code>-element. Define an endpoint (= backend script) via the <code>action</code>-attribute. Make sure you also add a single hidden input field which you can name however you wish. This field’s value gets posted to the endpoint. Please make sure to include a single <code>submit-</code> or <code>button</code>-element as well. <em>There will always be a standard, positive response</em>, no matter if the post fails or succeeds.</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <form action="http://reqres.in/api/test" yoi-microsubmit>
-            <input type="hidden" name="message" value="My message" />
-            <button class="btn btn--large">Submit My Message</button>
-        </form>
-    </div>
-</div>
-
-<h3 id="custom-response-message">Custom Response Message</h3>
-<p>To add custom response message/markup, create any element you like and assign a unique <code>id</code> – eg. <em>myResponse</em> to it. Tell the script which custom response message it should use by adding <code>response:#myId</code> to the custom <code>yoi-microsubmit</code> attribute. Your custom response markup gets hidden on page load and revealed after the form got submitted.</p>
-
-
-<div class="documentation__block">
-    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <form action="http://reqres.in/api/test" yoi-microsubmit="response:#myResponse">
-            <input type="hidden" name="message" value="My message" />
-            <button class="btn btn--large">Submit My Message & Show My Custom Response</button>
-        </form>
-        <div id="myResponse" class="fw-bold tc-green-12 h-4 lh-40 d-inlblk br bg-main-24 p-lr-4">Thank you!</div>
-    </div>
-</div>
-
-<div class="note note--subtle note--large">
-    <h3 class="note__headline">Check List:</h3>
-    <div class="note__body">
-        <ul class="checkList p-l-0 m-tb-2">
-            <li class="checkList__item">The DOM element which is tagged with a yoi-microsubmit attribute must be a form element!</li>
-            <li class="checkList__item">The very form must contain a single submit- or button-element!</li>
-            <li class="checkList__item">The very form must contain a single hidden input-element to define the message the script submits!</li>
-        </ul>
-    </div>
+<div>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-red-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-green-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <div style="margin:500px 0;"></div>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-green-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-green-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-green-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/500x500';
+            modifiers:'p-4 bg-green-22';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
+    <noscript yoi-lazyload="
+            image:'https://source.unsplash.com/WLUHO9A_xik/100x100';
+            small:'https://source.unsplash.com/WLUHO9A_xik/30x30';
+            medium:'https://source.unsplash.com/WLUHO9A_xik/150x150';
+            large:'https://source.unsplash.com/WLUHO9A_xik/300x300';
+            xlarge:'https://source.unsplash.com/WLUHO9A_xik/600x600';
+            alt:'A beautiful mountain.';
+            title:'foo';
+            longdesc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
+        ">
+        <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    </noscript>
 </div>
 
 
@@ -171,12 +160,12 @@
             </div>
         </div>
         <script src="assets/js/libs/jquery.js"></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
         <script src="assets/js/libs/beautify.js"></script>
         <script src="assets/js/libs/prism.js" yoi-manual></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
-            (function() {
-
+            $(window).on('load', function() {
+                
                 /**
                  *  Hightlight the current menu item and expand the
                  *  parent accordion section.
@@ -193,12 +182,11 @@
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        YOI.Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.element.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });
-
-            })();
+            });
         </script>
         
     </body>

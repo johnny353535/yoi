@@ -1,6 +1,6 @@
 /** browserHistory.js */
 
-YOI.BrowserHistory = (function() {
+YOI.element.BrowserHistory = (function() {
 
     // private vars
     // ============

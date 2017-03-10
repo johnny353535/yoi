@@ -1,13 +1,28 @@
 /** slider.js */
 
-YOI.Slider = (function() {
+YOI.element.Slider = (function() {
 
     // private vars
     // ============
 
-    var $window      = $(window);
-    var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
-    var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
+    var $window = $(window);
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelNext' : 'next',
+            'btnLabelPrev' : 'previous'
+        },
+        'de' : {
+            'btnLabelNext' : 'weiter',
+            'btnLabelPrev' : 'zurück'
+        }
+    };
+    
+    // templates
 
     var slideControls = {
 
@@ -16,13 +31,13 @@ YOI.Slider = (function() {
         'pageBtns': $('\
             <div class="pageBtns">\
                 <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </button>\
                 <span class="pageBtns__indicator">\
                     <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
                 </span>\
                 <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
@@ -32,10 +47,10 @@ YOI.Slider = (function() {
         'flipBtns': $('\
             <div class="flipBtns">\
                 <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -43,10 +58,10 @@ YOI.Slider = (function() {
         'flipBtns--inset': $('\
             <div class="flipBtns flipBtns--inset">\
                 <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -56,10 +71,10 @@ YOI.Slider = (function() {
         'pageDots': $('\
             <div class="pageDots">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -67,10 +82,10 @@ YOI.Slider = (function() {
         'pageDots--dark': $('\
             <div class="pageDots pageDots--dark">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -78,10 +93,10 @@ YOI.Slider = (function() {
         'pageDots--subtle': $('\
             <div class="pageDots pageDots--subtle">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         ')
@@ -464,11 +479,6 @@ YOI.Slider = (function() {
         $thisSlidesWrapper.css({ 'height': slideHeight });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

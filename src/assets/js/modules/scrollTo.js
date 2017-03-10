@@ -1,22 +1,11 @@
 /** scrollTo.js */
 
-YOI.ScrollTo = (function() {
+YOI.module.ScrollTo = (function() {
 
     // private vars
     // ============
     
     var $document = $(document);
-
-    switch ($('body').data('environment')) {
-        case 'desktop':
-            var offset = 220;
-            break;
-        case 'mobile':
-            var offset = 80;
-            break;
-        default:
-            var offset = 20;
-    }
 
     // private functions
     // =================
@@ -33,6 +22,8 @@ YOI.ScrollTo = (function() {
          *
          *  @option {string} highlight - Define an optional effect to highlight the target element once
          *                               the scrolling has stopped. Chose from "blink" and "pulse".
+         *  @option {number} offset    - When scrolled to target element, this is the remaining distance in px
+         *                               between the target and the upper viewport border. Default = 20.
          */
         
         var $scrollToTrigger = YOI.createCollection('scrollto', $scrollToTrigger, options);
@@ -73,16 +64,18 @@ YOI.ScrollTo = (function() {
         var targetFound          = $target.length > 0 ? true : false;
         var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
         var scrollPosY;
-        var options              = options === undefined ? $thisTrigger.data().options : options;
-
+        var options              = options === undefined && $thisTrigger !== undefined ? $thisTrigger.data().options : options;
+        var offset               = $thisTrigger !== undefined && options.offset !== undefined ? options.offset : 20;
+        var highlight            = $thisTrigger !== undefined && options.highlight !== undefined ? options.highlight : false;
+        
         // cancel if no target was found
 
         if (!targetFound) return false;
 
         // if target is a tab, switch to the tab
 
-        if ($target.hasClass('tabs__page') && YOI.foundModule('Tabs')) {
-            YOI.Tabs.switchTo(targetId);
+        if ($target.hasClass('tabs__page') && YOI.foundElement('Tabs')) {
+            YOI.element.Tabs.switchTo(targetId);
         }
 
         // if the target is wrapped inside a container with
@@ -106,17 +99,12 @@ YOI.ScrollTo = (function() {
                 scrollTop: scrollPosY
             }, 500)
         ).done(function(){
-            if (options.highlight === 'blink') YOI.blink($target);
-            if (options.highlight === 'pulse') YOI.pulse($target);
+            if (highlight === 'blink') YOI.blink($target);
+            if (highlight === 'pulse') YOI.pulse($target);
             $document.trigger('yoi-scrollto:end');
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

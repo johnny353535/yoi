@@ -1,11 +1,68 @@
 /** datePicker.js */
 
-YOI.DatePicker = (function() {
+YOI.element.DatePicker = (function() {
 
     // private vars
     // ============
     
     var $document = $(document);
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'weekDays' : [
+                'Mon',
+                'Tue',
+                'Wed',
+                'Thu',
+                'Fri',
+                'Sat',
+                'Sun'
+            ],
+            'monthNames' : [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ] 
+        },
+        'de' : {
+            'weekDays' : [
+                'Mo',
+                'Di',
+                'Mi',
+                'Do',
+                'Fr',
+                'Sa',
+                'So'
+            ],
+            'monthNames' : [
+                'Januar',
+                'Februar',
+                'März',
+                'April',
+                'Mai',
+                'Juni',
+                'Juli',
+                'August',
+                'September',
+                'Oktober',
+                'November',
+                'Dezember'
+            ] 
+        }
+    };
 
     // get the document language, fall back to english
     // only german and english supported at this moment
@@ -25,28 +82,16 @@ YOI.DatePicker = (function() {
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');
-
-    var $weekDaysHeader_en = $('\
+    
+    var $weekDaysHeader = $('\
         <tr>\
-            <th>Mon</th>\
-            <th>Tue</th>\
-            <th>Wed</th>\
-            <th>Thu</th>\
-            <th>Fri</th>\
-            <th>Sat</th>\
-            <th>Sun</th>\
-        </tr>\
-    ');
-
-    var $weekDaysHeader_de = $('\
-        <tr>\
-            <th>Mo</th>\
-            <th>Di</th>\
-            <th>Mi</th>\
-            <th>Do</th>\
-            <th>Fr</th>\
-            <th>Sa</th>\
-            <th>So</th>\
+            <th>' + localization[language]['weekDays'][0] + '</th>\
+            <th>' + localization[language]['weekDays'][1] + '</th>\
+            <th>' + localization[language]['weekDays'][2] + '</th>\
+            <th>' + localization[language]['weekDays'][3] + '</th>\
+            <th>' + localization[language]['weekDays'][4] + '</th>\
+            <th>' + localization[language]['weekDays'][5] + '</th>\
+            <th>' + localization[language]['weekDays'][6] + '</th>\
         </tr>\
     ');
 
@@ -60,6 +105,12 @@ YOI.DatePicker = (function() {
          *
          *  @param {jQuery dom object} $datepicker
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} year  - initial year (ISO 8601)
+         *  @option {string} month - initial month (ISO 8601)
+         *  @option {string} day   - initial day (ISO 8601)
          */
         
         // update the current date
@@ -239,7 +290,7 @@ YOI.DatePicker = (function() {
 
         // get the month name
 
-        var monthName = getMonthName(month);
+        var monthName = localization[language]['monthNames'][month];
 
         // get the first day of the month
 
@@ -340,15 +391,7 @@ YOI.DatePicker = (function() {
 
         // create the table header
 
-        if (YOI.locale() === 'en' || YOI.locale === undefined) {
-
-            $monthTableBody.append($weekDaysHeader_en.clone());
-
-        } else if (YOI.locale() === 'de') {
-
-            $monthTableBody.append($weekDaysHeader_de.clone());
-
-        }
+        $monthTableBody.append($weekDaysHeader.clone());
 
         // set index vars
 
@@ -471,7 +514,7 @@ YOI.DatePicker = (function() {
 
         // write the date picker header
 
-        $thisDatePicker.find('.datePicker__header').text(getMonthName(month) + ' ' + year);
+        $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][month] + ' ' + year);
 
         // attach events to date picker buttons
 
@@ -518,7 +561,7 @@ YOI.DatePicker = (function() {
             // write date picker header
 
             $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, year, month));
-            $thisDatePicker.find('.datePicker__header').text(getMonthName(month) + ' ' + year);
+            $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][month] + ' ' + year);
 
             // update month table data
 
@@ -676,58 +719,6 @@ YOI.DatePicker = (function() {
 
     }
 
-    function getMonthName(month) {
-
-        /**
-         *  Return the name of a given month. Very basic localisation,
-         *  only English and German so far.
-         *
-         *  @param  {number}  month - the month, eg. 5
-         *  @return {string}        - the name of the month in English (default) or German
-         */
-
-        var monthNames;
-
-        if (language === 'en' || language === undefined) {
-
-            monthNames = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-            ];
-
-        } else if (language === 'de') {
-
-            monthNames = [
-                'Januar',
-                'Februar',
-                'März',
-                'April',
-                'Mai',
-                'Juni',
-                'Juli',
-                'August',
-                'September',
-                'Oktober',
-                'November',
-                'Dezember'
-            ];
-
-        }
-
-        return monthNames[month];
-
-    }
-
     function adjustYear(year) {
 
         /**
@@ -786,11 +777,6 @@ YOI.DatePicker = (function() {
         return $thisDatePicker;
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

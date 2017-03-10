@@ -1,6 +1,6 @@
 /** modal.js */
 
-YOI.Modal = (function() {
+YOI.element.Modal = (function() {
 
     // private vars
     // ============
@@ -11,7 +11,21 @@ YOI.Modal = (function() {
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
     var modalIdIndex  = 0;     // An index for internally generated modal ids.
-    var btnLabelClose = YOI.locale === 'de' ? 'Schließen' : 'Close';
+
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelClose' : 'Close'
+        },
+        'de' : {
+            'btnLabelClose' : 'Schließen'
+        }
+    };
+
+    // templates
 
     var $modalCover = $('\
         <div class="modal__cover" id="modalCover" yoi-action="closeModal"></div>\
@@ -23,7 +37,7 @@ YOI.Modal = (function() {
 
     var $modalCloseBtn = $('\
         <button class="btnDismiss" yoi-action="closeModal">\
-            <span class="hidden">' + btnLabelClose + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
         </button>\
     ');
     
@@ -32,7 +46,7 @@ YOI.Modal = (function() {
             <div class="modal__header">\
                 <h3 class="modal__title"></h3>\
                 <button class="btnDismiss" yoi-action="closeModal">\
-                    <span class="hidden">' + btnLabelClose + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
                 </button>\
             </div>\
             <div class="modal__body"></div>\
@@ -252,8 +266,8 @@ YOI.Modal = (function() {
 
                         initializeCloseTriggers(modalId);
 
-                        if (YOI.foundModule('CustomFormElements'))
-                            YOI.CustomFormElements.init(modalId);
+                        if (YOI.foundElement('CustomFormElements'))
+                            YOI.element.CustomFormElements.init(modalId);
 
                         // optional callback
 
@@ -373,7 +387,7 @@ YOI.Modal = (function() {
         modalActive = false;
         
         if (YOI.foundModule('BrowserHistory')) {
-            YOI.BrowserHistory.clearHash();
+            YOI.module.BrowserHistory.clearHash();
         }
         
         $document.trigger('yoi-modal:hide');
@@ -421,11 +435,6 @@ YOI.Modal = (function() {
         window.location = window.location.protocol + '//' + window.location.host + '/' + modalPath;
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public methods
     // ==============

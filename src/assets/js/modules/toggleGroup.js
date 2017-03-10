@@ -1,6 +1,6 @@
 /** toggleGroup.js */
 
-YOI.ToggleGroup = (function() {
+YOI.module.ToggleGroup = (function() {
 
     // private vars
     // ============
@@ -174,11 +174,6 @@ YOI.ToggleGroup = (function() {
         $thisTrigger.trigger('yoi-togglegroup:reset');
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

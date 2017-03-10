@@ -1,6 +1,6 @@
 /** remove.js */
 
-YOI.Remove = (function() {
+YOI.module.Remove = (function() {
 
     // private functions
     // =================
@@ -12,6 +12,11 @@ YOI.Remove = (function() {
          *
          *  @param {jQuery dom object} $removeTrigger
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} target - optional css selector string for the target element
+         *                            default: the trigger's parent element
          */
         
         var $removeTrigger = YOI.createCollection('remove', $removeTrigger, options);
@@ -47,11 +52,6 @@ YOI.Remove = (function() {
         });
         
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

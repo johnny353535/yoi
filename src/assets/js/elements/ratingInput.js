@@ -1,4 +1,6 @@
-YOI.RatingInput = (function() {
+/** ratingInput.js */
+
+YOI.element.RatingInput = (function() {
 
     // private vars
     // ============
@@ -138,11 +140,6 @@ YOI.RatingInput = (function() {
         $ratingInput.trigger('yoi-rating:submit');
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

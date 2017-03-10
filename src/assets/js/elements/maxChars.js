@@ -1,6 +1,6 @@
 /** maxChars.js */
 
-YOI.MaxChars = (function() {
+YOI.element.MaxChars = (function() {
 
     // private vars
     // ============
@@ -195,11 +195,6 @@ YOI.MaxChars = (function() {
         $displayElement.removeClass(errorClass);
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

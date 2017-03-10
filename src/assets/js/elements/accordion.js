@@ -1,6 +1,6 @@
 /** accordion.js */
 
-YOI.Accordion = (function() {
+YOI.element.Accordion = (function() {
 
     // private functions
     // =================
@@ -12,9 +12,16 @@ YOI.Accordion = (function() {
          *
          *  @param {jQuery dom object} $accordion
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {bool} linked - if TRUE, only one accordion section is expanded at a time
+         *                          default: FALSE
          */
         
         var $accordion = YOI.createCollection('accordion', $accordion, options);
+        
+        if ($accordion) initializeAccordionTriggers();
 
         if ($accordion) $accordion.each(function() {
 
@@ -199,12 +206,6 @@ YOI.Accordion = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initializeAccordion();
-    initializeAccordionTriggers();
 
     // public functions
     // ================

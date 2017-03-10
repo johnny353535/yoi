@@ -1,4 +1,4 @@
-YOI.ScrollFx = (function() {
+YOI.module.ScrollFx = (function() {
 
     // private functions
     // =================
@@ -10,15 +10,21 @@ YOI.ScrollFx = (function() {
         *
         *  @param {jQuery dom object} $inputElement
         *  @param {object}            options
+        *
+        *  Available options:
+        *
+        *  @option {string} in     - yoi fx css class name on viewport:in
+        *  @option {string} center - yoi fx css class name on viewport:center
+        *  @option {string} out    - yoi fx css class name on viewport:out
         */
         
         var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
         
         if ($targetElement) $targetElement.each(function() {
-
+            
             var $targetElement = $(this);
 
-            YOI.ScrollAgent.init($targetElement);
+            YOI.module.ScrollAgent.init($targetElement, options);
 
             addTargetElementInitialCss($targetElement);
 
@@ -40,8 +46,8 @@ YOI.ScrollFx = (function() {
          */
         
         var options  = $targetElement.data().options;
-        var inFx     = options.in !== undefined ? options.in : false;
-        var centerFx = options.center !== undefined ? options.center : false;
+        var inFx     = options.in === undefined ? false : options.in;
+        var centerFx = options.center === undefined ? false : options.center;
         
         if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
         if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
@@ -118,11 +124,6 @@ YOI.ScrollFx = (function() {
         });
         
     }
-    
-    // initialize
-    // ==========
-    
-    initialize();
     
     // public functions
     // ================

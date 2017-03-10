@@ -68,7 +68,7 @@
                                 <h4>JS Interface</h4>
                             </div>
                             <div class="accordion__body">
-                                <ul class="linkList b-0 br-0 bg-transparent"><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/hide_and_reveal.html">hide and reveal</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/microSubmit.html">microSubmit</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/remove.html">remove</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollAgent.html">scrollAgent</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollTo.html">scrollTo</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/sticky.html">sticky</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/toggleGroup.html">toggleGroup</a></li></ul>
+                                <ul class="linkList b-0 br-0 bg-transparent"><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/_introduction.html"> introduction</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/hide_and_reveal.html">hide and reveal</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/lazyload.html">lazyload</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/remove.html">remove</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollAgent.html">scrollAgent</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/scrollTo.html">scrollTo</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/sticky.html">sticky</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/toggleGroup.html">toggleGroup</a></li><li class="linkList__item"><a class="linkList__link" href="pages/js-interface/update.html">update</a></li></ul>
                             </div>
                         </div>
                         <div class="accordion__section">
@@ -371,12 +371,12 @@ var myMarkup = '\
             </div>
         </div>
         <script src="assets/js/libs/jquery.js"></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
         <script src="assets/js/libs/beautify.js"></script>
         <script src="assets/js/libs/prism.js" yoi-manual></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
-            (function() {
-
+            $(window).on('load', function() {
+                
                 /**
                  *  Hightlight the current menu item and expand the
                  *  parent accordion section.
@@ -393,12 +393,11 @@ var myMarkup = '\
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        YOI.Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.element.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });
-
-            })();
+            });
         </script>
         
     </body>

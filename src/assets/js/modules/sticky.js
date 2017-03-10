@@ -1,4 +1,4 @@
-YOI.Sticky = (function() {
+YOI.module.Sticky = (function() {
 
     // private vars
     // ============
@@ -39,13 +39,9 @@ YOI.Sticky = (function() {
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
         if ($stickyElement) $stickyElement.each(function(index) {
-            
 
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
-            
-            console.log('init: ' + $thisStickyElement.offset().top);
-            
             
             // update each sticky element's data
 
@@ -79,8 +75,6 @@ YOI.Sticky = (function() {
         
         // prepare the cloned element
         
-        console.log('manipulateDom: ' + $stickyElement.offset().top);
-
         $stickyElementClone.css({
             'position'                    : 'absolute',
             'width'                       : $stickyElement.outerWidth(),
@@ -195,7 +189,7 @@ YOI.Sticky = (function() {
          */
 
         $window.on('resize', function() {
-
+            
             $stickyElements.each(function(index) {
 
                 var $stickyElement      = $(this);
@@ -206,7 +200,7 @@ YOI.Sticky = (function() {
 
                 if (validInput($stickyElement)) {
                     updateStickyElementProps($stickyElement);
-                    $stickyElementClone.css('left', $stickyElement.offset().left);
+                    $stickyElementClone.css('left', Math.floor($stickyElement.offset().left));
                 }
 
             });
@@ -295,11 +289,6 @@ YOI.Sticky = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

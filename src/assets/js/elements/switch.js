@@ -1,29 +1,31 @@
 /** switch.js */
 
-YOI.Switch = (function() {
+YOI.element.Switch = (function() {
 
     // private vars
     // ============
-
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'labelOn'  : 'On',
+            'labelOff' : 'Off'
+        },
+        'de' : {
+            'labelOn'  : 'Ein',
+            'labelOff' : 'Aus'
+        }
+    };
+    
+    // templates
+    
     var $labelOn  = $('<span class="switch__labelOn"></span>');
     var $labelOff = $('<span class="switch__labelOff"></span>');
     var $knob     = $('<span class="switch__knob"></span>');
-
-    var labelOnTxt = {
-        'de' : 'Ein',
-        'en' : 'On'
-    };
-
-    var labelOffTxt = {
-        'de' : 'Aus',
-        'en' : 'Off'
-    };
-
-    // get the document language, fall back to english
-    // note: only german and english supported at this moment
-
-    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
-
+    
     // private functions
     // =================
 
@@ -53,8 +55,8 @@ YOI.Switch = (function() {
 
             // get the label text
 
-            thisLabelOnText  = options.labelOn !== undefined ? options.labelOn : labelOnTxt[language];
-            thisLabelOffText = options.labelOff !== undefined ? options.labelOff : labelOffTxt[language];
+            thisLabelOnText  = options.labelOn !== undefined ? options.labelOn : localization[language]['labelOn'];
+            thisLabelOffText = options.labelOff !== undefined ? options.labelOff : localization[language]['labelOff'];
 
             // prepare the dom
 
@@ -139,11 +141,6 @@ YOI.Switch = (function() {
         }
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

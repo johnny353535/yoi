@@ -1,13 +1,13 @@
 /** imgMagnifier.js */
 
-YOI.ImgMagnifier = (function(){
+YOI.element.ImgMagnifier = (function(){
 
     // private vars
     // ============
-
+    
+    var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
-
     var defaultStartViewerDelayTime = 600;
 
     // private functions
@@ -57,9 +57,20 @@ YOI.ImgMagnifier = (function(){
                 });
 
             // set up viewer and zoom image
-
-            setViewer($thisImgMagnifier);
-            setZoomImage($thisImgMagnifier);
+            
+            $window.on('load', function() {
+                setViewer($thisImgMagnifier);
+                setZoomImage($thisImgMagnifier);
+            });
+            
+            // reset the image viewer on window resize
+            
+            $window.on('resize', function() {
+                YOI.clearDelay('imgMagnifierResetDelay');
+                YOI.setDelay('imgMagnifierResetDelay', 500, function() {
+                    reset();
+                });
+            });
 
         });
 
@@ -81,10 +92,10 @@ YOI.ImgMagnifier = (function(){
 
             var $thisImgMagnifier = $(this);
 
-            $thisImgMagnifier.data({
+            $thisImgMagnifier.data().props = {
                 'yPos' : $thisImgMagnifier.offset().top,
                 'xPos' : $thisImgMagnifier.offset().left
-            });
+            };
 
         });
 
@@ -95,7 +106,7 @@ YOI.ImgMagnifier = (function(){
         /**
          *  Remove all injected elements and detach all events.
          *
-         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
+         *  @param  {jQuery dom object} $imgMagnifier - all image magnifiers
          *  @return {bool false}
          */
 
@@ -151,21 +162,21 @@ YOI.ImgMagnifier = (function(){
 
                 $thisViewer.append($thisZoomImage);
 
-                $thisImgMagnifier.data({
+                $thisImgMagnifier.data().props = {
                     'width'  : $thisImgMagnifier.width(),
                     'height' : $thisImgMagnifier.height(),
                     'yPos'   : $thisImgMagnifier.offset().top,
                     'xPos'   : $thisImgMagnifier.offset().left,
                     'yRatio' : $thisPreviewImage.height() / thisZoomImage.height,
                     'xRatio' : $thisPreviewImage.width() / thisZoomImage.width
-                });
+                };
 
                 setCursor($thisImgMagnifier);
 
                 // If the zoom image is smaller than the preview image, destory
                 // the image magnifier.
 
-                if ($thisImgMagnifier.data().yRatio >= 1 || $thisImgMagnifier.data().yRatio >= 1) {
+                if ($thisImgMagnifier.data().props.yRatio >= 1 || $thisImgMagnifier.data().props.yRatio >= 1) {
                     destroy($thisImgMagnifier);
                 }
 
@@ -185,20 +196,20 @@ YOI.ImgMagnifier = (function(){
 
         var $thisCursor      = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisViewer      = $thisImgMagnifier.find('.imgMagnifier__viewer');
-        var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().xRatio;
-        var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().yRatio;
+        var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().props.xRatio;
+        var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().props.yRatio;
 
         $thisCursor.css({
             width: thisCursorWith,
             height: thisCursorHeight
         });
 
-        $thisCursor.data({
+        $thisCursor.data().props = {
             'width'  : thisCursorWith,
             'height' : thisCursorHeight,
             'yRatio' : $thisViewer.height() / thisCursorHeight,
             'xRatio' : $thisViewer.width() / thisCursorWith
-        });
+        };
 
     }
 
@@ -238,6 +249,7 @@ YOI.ImgMagnifier = (function(){
         YOI.setDelay('imgMagnifierDelay', delay, function() {
             $thisViewer.fadeIn();
             $thisCursor.fadeIn();
+            $thisViewer.trigger('yoi-imgmagnifier:start');
         });
 
     }
@@ -257,7 +269,9 @@ YOI.ImgMagnifier = (function(){
 
         $thisViewer.fadeOut('fast');
         $thisCursor.fadeOut('fast');
-
+        
+        $thisViewer.trigger('yoi-imgmagnifier:stop');
+        
     }
 
     function moveMagnifier($thisImgMagnifier, e) {
@@ -270,18 +284,22 @@ YOI.ImgMagnifier = (function(){
          *  @param {event}             e                 - the trigger event
          */
 
-        var $thisCursor    = $thisImgMagnifier.find('.imgMagnifier__cursor');
-        var $thisZoomImage = $thisImgMagnifier.find('.imgMagnifier__zoomImage');
-
-        var yPos = (e.pageY - $thisImgMagnifier.data().yPos - $thisCursor.data().height / 2);
-        var xPos = (e.pageX - $thisImgMagnifier.data().xPos - $thisCursor.data().width / 2);
+        var $thisCursor       = $thisImgMagnifier.find('.imgMagnifier__cursor');
+        var $thisZoomImage    = $thisImgMagnifier.find('.imgMagnifier__zoomImage');
+        var imgMagnifierProps = $thisImgMagnifier.data().props;
+        var cursorProps       = $thisCursor.data().props;
+        
+        // calculate position
+        
+        var yPos = (e.pageY - imgMagnifierProps.yPos - cursorProps.height / 2);
+        var xPos = (e.pageX - imgMagnifierProps.xPos - cursorProps.width / 2);
 
         // calculate cursor boundaries
 
         var minY = yPos > 0 ? true : false;
-        var maxY = yPos < $thisImgMagnifier.data().height - $thisCursor.data().height ? true : false;
+        var maxY = yPos < imgMagnifierProps.height - cursorProps.height ? true : false;
         var minX = xPos > 0 ? true : false;
-        var maxX = xPos < $thisImgMagnifier.data().width - $thisCursor.data().width ? true : false;
+        var maxX = xPos < imgMagnifierProps.width - cursorProps.width ? true : false;
 
         // move the cursor
 
@@ -290,24 +308,10 @@ YOI.ImgMagnifier = (function(){
 
         // move the zoom image
 
-        if (minY && maxY) $thisZoomImage.css('top', yPos * $thisCursor.data().yRatio * -1);
-        if (minX && maxX) $thisZoomImage.css('left', xPos * $thisCursor.data().xRatio * -1);
+        if (minY && maxY) $thisZoomImage.css('top', yPos * cursorProps.yRatio * -1);
+        if (minX && maxX) $thisZoomImage.css('left', xPos * cursorProps.xRatio * -1);
 
     }
-
-    // initialize
-    // ==========
-
-    $(window)
-        .on('load', function() {
-            initialize();
-        })
-        .on('resize', function() {
-            YOI.clearDelay('imgMagnifierResetDelay');
-            YOI.setDelay('imgMagnifierResetDelay', 500, function() {
-                reset();
-            });
-        });
 
     // public functions
     // ================

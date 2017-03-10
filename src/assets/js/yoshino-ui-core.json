@@ -2,8 +2,19 @@
     "src" : [
         "./src/assets/js/core/yoi.js",
         "./src/assets/js/core/documentation.js",
+        "./src/assets/js/modules/browserHistory.js",
+        "./src/assets/js/modules/dismiss.js",
+        "./src/assets/js/modules/hide.js",
+        "./src/assets/js/modules/lazyload.js",
+        "./src/assets/js/modules/remove.js",
+        "./src/assets/js/modules/reveal.js",
+        "./src/assets/js/modules/scrollAgent.js",
+        "./src/assets/js/modules/scrollFx.js",
+        "./src/assets/js/modules/scrollTo.js",
+        "./src/assets/js/modules/sticky.js",
+        "./src/assets/js/modules/toggleGroup.js",
+        "./src/assets/js/modules/update.js",
         "./src/assets/js/elements/accordion.js",
-        "./src/assets/js/elements/browserHistory.js",
         "./src/assets/js/elements/console.js",
         "./src/assets/js/elements/countdown.js",
         "./src/assets/js/elements/customFormElement.js",
@@ -26,16 +37,6 @@
         "./src/assets/js/elements/switch.js",
         "./src/assets/js/elements/tables.js",
         "./src/assets/js/elements/tabs.js",
-        "./src/assets/js/elements/toolTip.js",
-        "./src/assets/js/modules/dismiss.js",
-        "./src/assets/js/modules/hide.js",
-        "./src/assets/js/modules/microSubmit.js",
-        "./src/assets/js/modules/remove.js",
-        "./src/assets/js/modules/reveal.js",
-        "./src/assets/js/modules/scrollAgent.js",
-        "./src/assets/js/modules/scrollFx.js",
-        "./src/assets/js/modules/scrollTo.js",
-        "./src/assets/js/modules/sticky.js",
-        "./src/assets/js/modules/toggleGroup.js"
+        "./src/assets/js/elements/toolTip.js"
     ]
 }

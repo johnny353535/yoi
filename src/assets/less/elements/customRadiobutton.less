@@ -25,14 +25,20 @@
     // inner input element
 
     input {
-        position: absolute;
         left: -50rem;
+        opacity: 0;
+        position: absolute;
     }
 
 }
 
 // modifiers
 // =========
+
+.radio--large {
+    height: 3rem;
+    width: 3rem;
+}
 
 .radio.is--focus {
     .mixin-focus;
@@ -41,4 +47,8 @@
 .radio.is--checked {
     background: @color-positive-22;
     border: @color-main-10 .5rem solid;
+}
+
+.radio.radio--large.is--checked {
+    border-width: .9rem;
 }

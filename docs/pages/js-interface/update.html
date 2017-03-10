@@ -92,8 +92,8 @@
                 <div class="article documentation__article w-3-4 p-r-8">
                     
 
-<h2 id="pagination">Pagination</h2>
-<p>Straightforward pagination element with page- and browse links.</p>
+<h2 id="update">Update</h2>
+<p>This script provides a simple interface to post a string to a given endpoint (eg. some backend script).</p>
 <table>
 <thead>
 <tr>
@@ -103,58 +103,58 @@
 </thead>
 <tbody>
 <tr>
-<td>Less-File</td>
-<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/less/elements/pagination.less">pagination.less</a></td>
+<td>Js-File</td>
+<td><a href="https://github.com/yoshino-digital/ui-core/blob/master/src/assets/js/modules/update.js">update.js</a></td>
 </tr>
 <tr>
-<td>Base CSS-Class</td>
-<td><code>.pagination</code></td>
-</tr>
-<tr>
-<td>Modifiers</td>
-<td><code>-</code></td>
+<td>Hooks</td>
+<td><code>yoi-update</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="basic-example">Basic Example</h3>
+
+
+<div class="note note--error b-0 note--large">
+    <div class="note__body">
+        <p>This script was designed for <strong>very simple use cases only</strong>! It asumes, that to the user it does not really matter if the post was succesful or not. There will always be a positive response message, if if the script failed to post.</p>
+    </div>
+</div>
+
+<h3 id="simple-example">Simple Example</h3>
+<p>To use this script, create a basic <code>&lt;form&gt;</code>-element. Define an endpoint (= backend script) via the <code>action</code>-attribute. Make sure you also add a single hidden input field which you can name however you wish. This field’s value gets posted to the endpoint. Please make sure to include a single <code>submit-</code> or <code>button</code>-element as well. <em>There will always be a standard, positive response</em>, no matter if the post fails or succeeds.</p>
 
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="pagination">
-            <div class="pagination__load">
-                <a class="btn" href="#">Mehr anzeigen</a>
-            </div>
-            <ul class="pagination__items">
-                <li class="pagination__item">
-                    <a class="btn btn--subtle" href="#">1</a>
-                </li>
-                <li class="pagination__item is--active">
-                    <a class="btn btn--subtle" href="#">2</a>
-                </li>
-                <li class="pagination__item">
-                    <a class="btn btn--subtle" href="#">3</a>
-                </li>
-                <li class="pagination__item">
-                    <a class="btn btn--subtle" href="#">4</a>
-                </li>
-                <li class="pagination__item">
-                    <a class="btn btn--subtle" href="#">5</a>
-                </li>
-            </ul>
-            <div class="pagination__nav">
-                <div class="btns">
-                    <a class="btn" href="#">
-                        <span class="hidden">vorherige Seite</span>
-                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M707.217 1023.836l497.803 497.802 135.763-135.764-362.039-362.038 362.039-362.039-135.763-135.765z"/></svg></span>
-                    </a>
-                    <a class="btn" href="#">
-                        <span class="hidden">nächste Seite</span>
-                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" width="32" height="32" viewBox="0 0 2048 2048"><path fill="#6754a1" d="M1340.783 1023.835L842.98 526.033 707.217 661.797l362.039 362.038-362.039 362.039 135.763 135.765z"/></svg></span>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <form action="http://reqres.in/api/test" yoi-microsubmit>
+            <input type="hidden" name="message" value="My message" />
+            <button class="btn btn--large">Submit My Message</button>
+        </form>
+    </div>
+</div>
+
+<h3 id="custom-response-message">Custom Response Message</h3>
+<p>To add custom response message/markup, create any element you like and assign a unique <code>id</code> – eg. <em>myResponse</em> to it. Tell the script which custom response message it should use by adding <code>response:#myId</code> to the custom <code>yoi-microsubmit</code> attribute. Your custom response markup gets hidden on page load and revealed after the form got submitted.</p>
+
+
+<div class="documentation__block">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <form action="http://reqres.in/api/test" yoi-microsubmit="response:#myResponse">
+            <input type="hidden" name="message" value="My message" />
+            <button class="btn btn--large">Submit My Message & Show My Custom Response</button>
+        </form>
+        <div id="myResponse" class="fw-bold tc-green-12 h-4 lh-40 d-inlblk br bg-main-24 p-lr-4">Thank you!</div>
+    </div>
+</div>
+
+<div class="note note--subtle note--large">
+    <h3 class="note__headline">Check List:</h3>
+    <div class="note__body">
+        <ul class="checkList p-l-0 m-tb-2">
+            <li class="checkList__item">The DOM element which is tagged with a yoi-microsubmit attribute must be a form element!</li>
+            <li class="checkList__item">The very form must contain a single submit- or button-element!</li>
+            <li class="checkList__item">The very form must contain a single hidden input-element to define the message the script submits!</li>
+        </ul>
     </div>
 </div>
 

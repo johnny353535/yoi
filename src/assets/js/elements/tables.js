@@ -1,6 +1,6 @@
 /** tables.js */
 
-YOI.Table = (function() {
+YOI.element.Table = (function() {
 
     // private functions
     // =================
@@ -133,11 +133,6 @@ YOI.Table = (function() {
         $thisTable.trigger('yoi-table:remove');
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

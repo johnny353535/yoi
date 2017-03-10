@@ -1,6 +1,6 @@
 /** toolTip.js */
 
-YOI.Tooltip = (function() {
+YOI.element.Tooltip = (function() {
 
     // private vars
     // ============
@@ -233,11 +233,6 @@ YOI.Tooltip = (function() {
         }
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

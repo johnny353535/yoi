@@ -1,6 +1,6 @@
 /** pageRewind.js */
 
-YOI.PageRewind = (function() {
+YOI.element.PageRewind = (function() {
 
     // private vars
     // ============
@@ -11,14 +11,17 @@ YOI.PageRewind = (function() {
     var $body     = $('body');
     var threshold = 500;
 
-    // get the document language, fall back to english
-    // note: only german and english supported at this moment
-
-    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
-
-    var labelTxt = {
-        'en' : 'scroll back to top',
-        'de' : 'Zurück zum Seitenanfang'
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'labelTxt' : 'scroll back to top'
+        },
+        'de' : {
+            'labelTxt' : 'Zurück zum Seitenanfang'
+        }
     };
 
     // private functions
@@ -34,7 +37,7 @@ YOI.PageRewind = (function() {
 
         $pageRewind = $(
             '<a class="pageRewind" href="#">\
-                <span class="hidden">' + labelTxt[language] + '</span>\
+                <span class="hidden">' + localization[language]['labelTxt'] + '</span>\
             </a>'
         );
 
@@ -89,11 +92,6 @@ YOI.PageRewind = (function() {
         }
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

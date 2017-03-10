@@ -1,16 +1,30 @@
 /** filters.js */
 
-YOI.Filters = (function() {
+YOI.element.Filters = (function() {
 
     // private vars
     // ============
 
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
-    var btnLabelReset        = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelReset' : 'Reset All Filters'
+        },
+        'de' : {
+            'btnLabelReset' : 'Alle Filter zurücksetzen'
+        }
+    };
+    
+    // templates
 
     var $resetBtn = $('\
-        <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
+        <a href="#" class="filters__resetBtn">' + localization[language]['btnLabelReset'] + '</a>\
     ');
 
     // private functions
@@ -331,11 +345,6 @@ YOI.Filters = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

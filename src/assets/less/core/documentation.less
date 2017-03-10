@@ -23,18 +23,18 @@
 // typography
 
 .documentation__article {
-    
+
     // min height
-    
+
     min-height: 80vh;
-    
-    
+
+
     // text color
-    
+
     > * {
         color: @color-main-10;
     }
-    
+
     // headlines
 
     > h1,
@@ -45,7 +45,7 @@
     > h6 {
         color: @color-main-6;
     }
-    
+
     > h3,
     > h4,
     > h5,
@@ -107,11 +107,11 @@
         }
 
     }
-    
+
     // tables
 
     > table {
-        
+
         th:empty {
             display: none;
         }
@@ -123,9 +123,9 @@
         }
 
     }
-        
+
     // inline code
-    
+
     > p > code {
         .mixin-defaultBorderRadius;
         background: @color-main-23;
@@ -149,12 +149,12 @@
 // content blocks
 
 .documentation__blocks {
-    
+
     .mixin-defaultBorderRadius;
     @verticalMargin();
     position: relative;
     transition: border 200ms ease-in;
-    
+
     .documentation__block {
         margin: 0;
     }
@@ -179,7 +179,7 @@
 }
 
 .documentation__block {
-    
+
     .mixin-defaultBorderRadius;
     @verticalMargin();
     border: @color-main-23 1px solid;
@@ -189,16 +189,14 @@
     transition: all 200ms ease-in;
 
     code pre {
-        background: @color-main-25;
+        padding: 2rem;
         border-bottom: @color-main-23 1px solid;
-        border-top: @color-main-23 1px solid;
         display: block;
         font-size: 1.3rem;
         line-height: 1.75;
-        padding: 2rem;
         white-space: pre;
     }
-    
+
     code:first-child pre {
         border-top: 0;
     }
@@ -270,7 +268,7 @@
         right: 4rem;
         top: 4rem;
     }
-    
+
     code pre {
         font-size: 1.3rem;
         line-height: 1.75;
@@ -289,11 +287,9 @@
 
 .documentation {
 
-    code,
-    pre {
+    code pre {
         direction: ltr;
         font-family: Consolas, Monaco, 'Andale Mono', monospace;
-        font-size: .85em;
         hyphens: none;
         line-height: inherit;
         tab-size: 4;
@@ -406,7 +402,7 @@
     .token.bold {
         font-weight: bold;
     }
-    
+
     .token.italic {
         font-style: italic;
     }

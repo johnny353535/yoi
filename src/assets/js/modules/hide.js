@@ -1,6 +1,6 @@
 /** hide.js */
 
-YOI.Hide = (function() {
+YOI.module.Hide = (function() {
 
     // private functions
     // =================
@@ -12,6 +12,11 @@ YOI.Hide = (function() {
          *
          *  @param {jQuery dom object} $trigger
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} transition - jQuery transition, fadeOut or slideUp
+         *                                default: none
          */
         
         var $trigger = YOI.createCollection('hide', $trigger, options);
@@ -68,11 +73,6 @@ YOI.Hide = (function() {
         $target.trigger('yoi-hide');
         
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

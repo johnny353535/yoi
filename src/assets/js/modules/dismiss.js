@@ -1,15 +1,27 @@
 /** dismiss.js */
 
-YOI.Dismiss = (function() {
+YOI.module.Dismiss = (function() {
 
     // private vars
     // ============
 
-    var $btnDismiss;
-    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
-
-    $btnDismiss = $('\
-        <span class="btnDismiss">' + btnLabelClose + '</span>\
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabel' : 'close'
+        },
+        'de' : {
+            'btnLabel' : 'schliessen'
+        }
+    };
+    
+    // templates
+    
+    var $btnDismiss = $('\
+        <span class="btnDismiss">' + localization[language]['btnLabel'] + '</span>\
     ');
 
     // private functions
@@ -60,11 +72,6 @@ YOI.Dismiss = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

@@ -1,6 +1,6 @@
 /** console.js */
 
-YOI.Console = (function() {
+YOI.element.Console = (function() {
     
     // private vars
     // ============
@@ -21,6 +21,8 @@ YOI.Console = (function() {
         'yoi-filters:reset',
         'yoi-filters:update',
         'yoi-hide',
+        'yoi-imgmagnifier:start',
+        'yoi-imgmagnifier:stop',
         'yoi-input:blur',
         'yoi-input:change',
         'yoi-input:focus',
@@ -107,11 +109,6 @@ YOI.Console = (function() {
             $yoiConsoleBody.html(consoleOutput);
         });
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

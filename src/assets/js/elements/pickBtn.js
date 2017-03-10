@@ -1,6 +1,6 @@
 /** pickBtn.js */
 
-YOI.PickBtn = (function() {
+YOI.element.PickBtn = (function() {
 
     // private vars
     // ============
@@ -75,11 +75,6 @@ YOI.PickBtn = (function() {
         YOI.blink($icon);
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

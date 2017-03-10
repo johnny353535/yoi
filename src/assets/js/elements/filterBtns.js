@@ -1,6 +1,6 @@
 /** filterBtns.js */
 
-YOI.FilterBtns = (function() {
+YOI.element.FilterBtns = (function() {
 
     // private functions
     // =================
@@ -120,11 +120,6 @@ YOI.FilterBtns = (function() {
         $thisBtn.trigger('yoi-filterbtn:remove');
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

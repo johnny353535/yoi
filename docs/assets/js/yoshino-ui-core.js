@@ -1,9 +1,9 @@
 /** yoi.js */
 
 var YOI = (function() {
-    
+
     return {
-        
+    
         // helpers
 
         stringContains : function(input, searchString) {
@@ -30,7 +30,7 @@ var YOI = (function() {
             }
 
         },
-        
+    
         zeroPad : function(num, digits) {
 
             /**
@@ -54,7 +54,7 @@ var YOI = (function() {
             return (leadingZeros + num).slice(-digits-1);
 
         },
-        
+    
         foundModule : function(module) {
 
             /**
@@ -64,7 +64,7 @@ var YOI = (function() {
              *  @return {bool}
              */
 
-            if (typeof window.YOI[module] === 'object') {
+            if (typeof window.YOI.module[module] === 'object') {
                 return true;
             } else {
                 return false;
@@ -72,6 +72,23 @@ var YOI = (function() {
 
         },
         
+        foundElement : function(element) {
+
+            /**
+             *  Syntax sugar to test if an element is available.
+             *
+             *  @param  {string} element - the exact name of the element variable
+             *  @return {bool}
+             */
+
+            if (typeof window.YOI.element[element] === 'object') {
+                return true;
+            } else {
+                return false;
+            }
+
+        },
+    
         setDelay : function(delayName, delayTime, delayFunction) {
 
             /**
@@ -146,7 +163,7 @@ var YOI = (function() {
             }
 
         },
-        
+    
         toObject : function(input) {
 
             /*
@@ -174,14 +191,14 @@ var YOI = (function() {
             var properObject = {};
 
             if (YOI.stringContains(input, ':')) {
-                
+            
                 // set the start- and end-markers for values
                 // note: if the value contains at least one colon, wrap the value
                 // in single quotes
-                
+            
                 var valueStartMarker;
                 var keyValuePairEndMarker;
-                
+            
                 if (YOI.stringContains(input, "'") && YOI.stringContains(input, ';')) {
                     valueStartMarker      = ":'";
                     keyValuePairEndMarker = "';";
@@ -192,19 +209,15 @@ var YOI = (function() {
 
                 // clean up input, replace multiple whitespace characters with a single white space
                 // eg. "    " is turned into " "
-                
+            
                 input = (input || '').replace(/\s+/g,' ').split(keyValuePairEndMarker);
 
                 // turn input into a proper object by creating key/value
                 // pairs by splitting the input at any occurance of a startMarker,
                 // remove leading and trailing white space (JS native trim function)
                 // and finally turning the resulting strings into a simple JS object notation
-                
+            
                 for (var i = 0; i < input.length; i++) {
-                    
-                    // console.log(keyValuePair);
-                    
-                    // if (YOI.stringContains(keyValuePair, ':')) console.log('#');
 
                     keyValuePair = input[i].split(valueStartMarker);
 
@@ -224,7 +237,7 @@ var YOI = (function() {
         },
 
         getAttribute : function($element) {
-            
+        
             /**
              *  Searches for custom "yoi-*" attributes inside an alement's markup
              *  and returns the value of the first matching attribute.
@@ -232,20 +245,20 @@ var YOI = (function() {
              *  @param  {jQuery dom object} $element
              *  @return {string}            yoiAttributeValue - the attribute's content / value
              */
-        
+    
             var yoiAttributeValue;
-        
+    
             $.each($element[0].attributes, function(index, attribute) {
                 if (attribute.name.match('^yoi-')) {
                     yoiAttributeValue = attribute.value;
                     return false;
                 }
             });
-            
-            return yoiAttributeValue;
-            
-        },
         
+            return yoiAttributeValue;
+        
+        },
+    
         hide : function($target) {
 
             /**
@@ -320,17 +333,19 @@ var YOI = (function() {
         environment : function(envName) {
 
             /**
-             *  Get an "environment" flag, useful to tag pages
-             *  that are designed for a specific screen or platform.
+             *  Read and return the "yoi-environment" attribute of a page or check
+             *  for a given envName.
              *
              *  @param  {string} envName - the environment name to check for
-             *  @return {bool}
+             *  @return {string | bool}  - a) the page environment string (eg. "mobile")
+             *                             b) checks against the given envName parameter
+             *                                and returns true/false
              */
-
-            if ($('body').data('environment') === envName) {
-                return true;
+        
+            if (envName === undefined) {
+                return $('body').attr('yoi-environment');
             } else {
-                return false;
+                return $('body').attr('yoi-environment') === envName;
             }
 
         },
@@ -347,15 +362,23 @@ var YOI = (function() {
 
         },
 
-        locale : function() {
+        locale : function(language) {
 
             /**
-             *  Read and return the "lang" attribute of a page.
+             *  Read and return the "lang" attribute of a page or check
+             *  for a given language.
              *
-             *  @return {string} - the page language as ISO language code
+             *  @return {string}        - the page language as ISO language code
+             *  @return {string | bool} - a) the page language as ISO language code
+             *                            b) checks against the given language parameter
+             *                               and returns true/false
              */
-
-            return $('html').attr('lang');
+        
+            if (language === undefined) {
+                return $('html').attr('lang');
+            } else {
+                return $('html').attr('lang') === language;
+            }
 
         },
 
@@ -404,7 +427,7 @@ var YOI = (function() {
                 .animate({ opacity:  1 }, 300);
 
         },
-        
+    
         // YOI interface
 
         updateOptions : function($element, options) {
@@ -417,36 +440,36 @@ var YOI = (function() {
              *  @param {jQuery dom object} $element
              *  @param {object}            options
              */
-            
+        
             // if not already present, create "options" object
-            
+        
             if ($element.data().options === undefined)
                 $element.data().options = {};
             
             if (options === undefined) {
-                
+            
                 // if the "options" parameter is omitted on function call, read the
                 // options from the element's yoi-* attribute
-                
-                var options = YOI.toObject(YOI.getAttribute($element));
-                
-            }
             
+                var options = YOI.toObject(YOI.getAttribute($element));
+            
+            }
+        
             if (typeof options === 'object') {
-                
+            
                 // if "options" is a valid object, attach the options to
                 // the element via jQuery's data() function
-                
+            
                 $.each(options, function(key, value) {
                     $element.data().options[key] = value;
                 });
                 
             }
-            
-        },
         
+        },
+    
         updateProps : function($element, props) {
-            
+        
             /**
              *  Props are simple key/value pairs that define properties of a
              *  component. For example an $element's size or position.
@@ -456,40 +479,40 @@ var YOI = (function() {
              *  @param  {object}             props
              *  @return {jQuery data object} props
              */
-            
+        
             // if not already present, create "props" object
-            
+        
             if ($element.data().props === undefined)
                 $element.data().props = {};
 
             if (typeof props === 'object') {
-                
+            
                 // if the new props differ from the already attached props,
                 // fire a custom event
-                
+            
                 if (props !== $element.data().props) {
                     $element.trigger('YOI.props:change');
                 }
-                
+            
                 // if "props" is a valid object, attach the value to
                 // the element via jQuery's data() function
-                
+            
                 $.each(props, function(key, value) {
                     $element.data().props[key] = value;
                 });
-                
-                // trigger custom event
-                
-                $element.trigger('YOI.props:update');
-                
-            }
             
+                // trigger custom event
+            
+                $element.trigger('YOI.props:update');
+            
+            }
+        
             return $element.data().props;
 
         },
-        
+    
         updateState : function($element, state) {
-            
+        
             /**
              *  Each $element can have one state. For example "visible" or "hidden".
              *  The state is attached to an $element via jQuery's data() method.
@@ -498,34 +521,34 @@ var YOI = (function() {
              *  @param  {string}             state
              *  @return {jQuery data object} state
              */
-            
+        
             // if not already present, create "state" object
-            
+        
             if ($element.data().state === undefined)
                 $element.data().state = {};
 
             if (typeof state === 'string') {
-                
+            
                 // if the new props differ from the already attached props,
                 // fire a custom event
-                
+            
                 if (state !== $element.data().state) {
                     $element.trigger('YOI.state:change');
                 }
-                
+            
                 // if "state" is a valid string, attach the value to
                 // the element via jQuery's data() function
-                
+            
                 $element.data().state = state;
-                
+            
                 // trigger custom event
-                
+            
                 $element.trigger('YOI.state:update');
-                
+            
             }
-            
+        
             return $element.data().state;
-            
+        
         },
 
         createCollection : function(identifier, $element, options, state, props) {
@@ -542,45 +565,46 @@ var YOI = (function() {
              */
             
             // if it does not exist, create a new collection of jQuery objects
-            
+        
             if (YOI.elementCollection[identifier] === undefined)
                 YOI.elementCollection[identifier] = $([]);
-            
-            if (!($element instanceof jQuery)) {
         
+            if (!($element instanceof jQuery)) {
+                
+                
                 // if the createCollection() is called without a valid matching jQuery element,
                 // gather the matching elements from the dom
-        
+    
                 YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
-                
+            
                 // if no elements are found, return false ...
-                
+            
                 if (!YOI.elementCollection[identifier].length) return false;
-        
+    
                 // ... otherwise add data (options, state, props) to each element in the collection
-                
+            
                 YOI.elementCollection[identifier].each(function() {
                     YOI.updateOptions($(this), options);
                     YOI.updateState($(this), state);
                     YOI.updateProps($(this), props);
                 });
-        
+    
             } else if ($element instanceof jQuery) {
-        
+                
                 // if the createCollection() is called with a valid matching jQuery element,
                 // set it's options and add it to the element collection
-        
-                YOI.updateOptions($(this), options);
+                
+                YOI.updateOptions($element, options);
                 YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
-            
+        
             }
-            
+        
             return YOI.elementCollection[identifier];
-        
+    
         }
-        
+    
     };
-
+    
 })();
 
 // create an object to store jQuery
@@ -588,6 +612,28 @@ var YOI = (function() {
 
 YOI.elementCollection = {};
 
+// create objects for all
+// YOI.element and YOI.module
+
+YOI.element = {};
+YOI.module  = {};
+
+// initialize all
+// YOI.element and YOI.module
+
+$(function() {
+
+    $.each(YOI.element, function() {
+        try { this.init(); } catch(e) {}
+    });
+
+    $.each(YOI.module, function() {
+        try { this.init(); } catch(e) {}
+    });
+    
+    YOI.Documentation.init();
+
+});
 /** documentation.js */
 
 YOI.Documentation = (function() {
@@ -1072,11 +1118,6 @@ YOI.Documentation = (function() {
 
     }
     
-    // initialize
-    // ==========
-
-    initializeDocumentation();
-
     // public functions
     // ================
 
@@ -1086,9 +1127,1483 @@ YOI.Documentation = (function() {
 
 })();
 
+/** browserHistory.js */
+
+YOI.element.BrowserHistory = (function() {
+
+    // private vars
+    // ============
+
+    var currentScrollTop;
+    var $window = $(window);
+
+    // private functions
+    // =================
+
+    function pushHash(hashString) {
+        history.pushState(null, null, window.location.pathname + hashString);
+    }
+
+    function replaceHash(hashString) {
+        history.replaceState(null, null, window.location.pathname + hashString);
+    }
+
+    function clearHash() {
+        history.replaceState('', document.title, window.location.pathname);
+    }
+
+    // public functions
+    // ================
+
+    return {
+        pushHash    : pushHash,
+        replaceHash : replaceHash,
+        clearHash   : clearHash
+    };
+
+})();
+
+/** dismiss.js */
+
+YOI.module.Dismiss = (function() {
+
+    // private vars
+    // ============
+
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabel' : 'close'
+        },
+        'de' : {
+            'btnLabel' : 'schliessen'
+        }
+    };
+    
+    // templates
+    
+    var $btnDismiss = $('\
+        <span class="btnDismiss">' + localization[language]['btnLabel'] + '</span>\
+    ');
+
+    // private functions
+    // =================
+
+    function initialize($dismissableElement, options) {
+        
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $dismissableElement
+         *  @param {object}            options
+         */
+        
+        var $dismissableElement = YOI.createCollection('dismissable', $dismissableElement, options);
+
+        if ($dismissableElement) $dismissableElement.each(function() {
+
+            var $thisDismissableElement = $(this);
+
+            // attach button and events
+
+            $btnDismiss
+                .clone()
+                .on('click', function(e) {
+                    e.preventDefault();
+                    dismiss($thisDismissableElement);
+                })
+                .appendTo($thisDismissableElement);
+
+        });
+
+    }
+
+    function dismiss($targetElement) {
+
+        /**
+         *  Close and remove any target element.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
+
+        if (!($targetElement instanceof jQuery)) return false;
+
+        $targetElement.fadeOut(function() {
+            $targetElement.trigger('yoi-dismissed');
+            $targetElement.remove();
+        });
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init  : initialize,
+        apply : dismiss
+    };
+
+})();
+
+/** hide.js */
+
+YOI.module.Hide = (function() {
+
+    // private functions
+    // =================
+
+    function initialize($trigger, options) {
+
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $trigger
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} transition - jQuery transition, fadeOut or slideUp
+         *                                default: none
+         */
+        
+        var $trigger = YOI.createCollection('hide', $trigger, options);
+
+        if ($trigger) $trigger.each(function(index){
+
+            var $thisTrigger = $(this);
+            var options      = $thisTrigger.data().options;
+            var transition   = options.transition;
+            var $target      = $(options.target);
+            var event        = options.event;
+
+            // cancel if no target was defined
+
+            if (!($target instanceof jQuery)) return false;
+
+            // apply event on trigger and hide target
+
+            $thisTrigger.on(event, function(e) {
+                hide($target, transition);
+            });
+
+        });
+
+    }
+    
+    function hide($target, transition) {
+        
+        /**
+         *  Hides the target element.
+         *
+         *  @param {jQuery dom object} $target
+         *  @param {string}            transition
+         */
+        
+        // exit the script if no or an invalid target was supplied
+        
+        if (!($target instanceof jQuery)) return false;
+        
+        var transition = transition;
+        
+        // hide the target
+        
+        if (transition === 'fadeOut') {
+            $target.fadeOut();
+        } else if (transition === 'slideUp') {
+            $target.slideUp();
+        } else {
+            $target.hide();
+        }
+        
+        // trigger custom event
+        
+        $target.trigger('yoi-hide');
+        
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init  : initialize,
+        apply : hide
+    };
+
+})();
+/** lazyload.js */
+
+YOI.module.Lazyload = (function() {
+
+    // private vars
+    // ============
+    
+    // private functions
+    // =================
+    
+    function initialize($lazyload, options) {
+    
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $lazyload
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} image     - url to image
+         *  @option {string} small     - url to image @ breakpoint "small"
+         *  @option {string} medium    - url to image @ breakpoint "medium"
+         *  @option {string} large     - url to image @ breakpoint "large"
+         *  @option {string} xlarge    - url to image @ breakpoint "xlarge"
+         *  @option {string} width     - optional image width
+         *  @option {string} height    - optional image height
+         *  @option {string} alt       - optional image alt
+         *  @option {string} title     - optional image title
+         *  @option {string} longdesc  - optional image longdesc
+         *  @option {string} modifiers - optional css modifier classnames
+         */
+         
+        var $lazyload = YOI.createCollection('lazyload', $lazyload, options);
+        
+        if ($lazyload) $lazyload.each(function() {
+            
+            var $thisLazyload = $(this);
+            var options       = $thisLazyload.data().options;
+            var defaultImage  = options.image !== undefined ? options.image : false;
+            var width         = options.width !== undefined ? options.width : false;
+            var height        = options.height !== undefined ? options.height : false;
+            var alt           = options.alt !== undefined ? options.alt : false;
+            var title         = options.title !== undefined ? options.title : false;
+            var longdesc      = options.longdesc !== undefined ? options.longdesc : false;
+            var modifiers     = options.modifiers !== undefined ? options.modifiers : false;
+            
+            // cancel if no image url was found
+            
+            if (!defaultImage) return false;
+            
+            // pick the image url
+            
+            var imageUrl;
+            
+            var currentBreakpoint = YOI.currentBreakpoint();
+            var breakPointSmall   = YOI.stringContains(currentBreakpoint, 'small');
+            var breakPointMedium  = YOI.stringContains(currentBreakpoint, 'medium');
+            var breakPointLarge   = YOI.stringContains(currentBreakpoint, 'large');
+            var breakPointXlarge  = YOI.stringContains(currentBreakpoint, 'xlarge');
+            
+            if (breakPointSmall) imageUrl        = options.small;
+            if (breakPointMedium) imageUrl       = options.medium;
+            if (breakPointLarge) imageUrl        = options.large;
+            if (breakPointXlarge) imageUrl       = options.xlarge;
+            if (imageUrl === undefined) imageUrl = defaultImage;
+            
+            // make a new image
+            
+            var newImage = $('<img src="' + imageUrl + '"></img>');
+            
+            if (width) newImage.attr('width', width);
+            if (height) newImage.attr('height', height);
+            if (alt) newImage.attr('alt', alt);
+            if (title) newImage.attr('title', title);
+            if (longdesc) newImage.attr('longdesc', longdesc);
+            if (modifiers) newImage.addClass(modifiers);
+            
+            // inject after the noscript element
+            
+            newImage
+                .addClass('fx-fade-in-initial')
+                .insertAfter($thisLazyload)
+                .promise()
+                .then(function() {
+                    YOI.module.ScrollAgent.init(newImage);
+                });
+                
+            newImage.on('load', function() {
+                $(this).one('yoi-viewport:in', function() {
+                    $(this).addClass('fx-fade-in');
+                });
+            });
+
+        });
+        
+    }
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initialize
+    }
+
+})();
+
+/** remove.js */
+
+YOI.module.Remove = (function() {
+
+    // private functions
+    // =================
+
+    function initialize($removeTrigger, options) {
+    
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $removeTrigger
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} target - optional css selector string for the target element
+         *                            default: the trigger's parent element
+         */
+        
+        var $removeTrigger = YOI.createCollection('remove', $removeTrigger, options);
+
+        if ($removeTrigger) $removeTrigger.each(function() {
+
+            var $thisremoveTrigger = $(this);
+            var options            = $thisremoveTrigger.data().options;
+            var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
+            
+            // set default options via variable assignment.
+            
+            $thisremoveTrigger.on('click', function(e) {
+                e.preventDefault();
+                remove($thisTarget);
+            });
+
+        });
+
+    }
+    
+    function remove($target) {
+        
+        /**
+         *  Fade-out and remove the target element from the dom.
+         *
+         *  @param  {jQuery dom object} $target - the target element in dom
+         */
+        
+        $target.fadeOut(function(){
+            $target.trigger('yoi-remove');
+            $target.remove();
+        });
+        
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init  : initialize,
+        apply : remove
+    };
+
+})();
+/** reveal.js */
+
+YOI.module.Reveal = (function() {
+
+    // private functions
+    // =================
+
+    function initialize($revealTrigger, options) {
+        
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $revealTrigger
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} target     - A string which is used as CSS-selector for the target element
+         *                                (eg. '#myTarget' or '.myTarget', etc.)
+         *  @option {string} event      - A string which defines the event which gets bound to the
+         *                                trigger element. All standard event handlers from jQuery
+         *                                can be used.
+         *  @option {string} transition - Chose from two jQuery animations: 'fadeIn' and 'slideDown'.
+         *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
+         */
+        
+        var $revealTrigger = YOI.createCollection('reveal', $revealTrigger, options);
+
+        if ($revealTrigger) $revealTrigger.each(function(index){
+
+            // set up vars
+
+            var $thisRevealTrigger = $(this);
+            var options            = $thisRevealTrigger.data().options;
+            var target             = options.target !== undefined ? options.target : false;
+            var event              = options.event !== undefined ? options.event : 'click';
+            var transition         = options.transition !== undefined ? options.transition : false;
+            var hideTarget         = options.hideTarget !== undefined ? options.hideTarget : true;
+
+            // cancel if no target was defined
+
+            if (!target) return false;
+
+            // hide target elements first, may be overridden
+            // by options
+
+            if (hideTarget) $(target).hide();
+
+            // apply event on trigger and hide target
+
+            $thisRevealTrigger.on(event, function(e) {
+                if (transition === 'fadeOut') {
+                    $(target).fadeOut();
+                } else if (transition === 'slideUp') {
+                    $(target).slideUp();
+                } else {
+                    $(target).hide();
+                }
+            });
+            
+            // trigger custom event
+            
+            $thisRevealTrigger.trigger('yoi-reveal');
+
+        });
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init: initialize
+    };
+
+})();
+/** ScrollAgent.js */
+
+YOI.module.ScrollAgent = (function() {
+
+    // private vars
+    // ============
+    
+    var $window        = $(window);
+    var viewPortHeight = $window.height();
+    var lastScrollTop  = 0;
+    var offset         = 0;
+    var scrollTop;
+    var viewportIn;
+    var viewportOut;
+    var viewportCenter;
+    var scrollDirection;
+    var lastScrollDirection;
+    
+    // private functions
+    // =================
+    
+    function initialize($targetElement, options) {
+        
+       /**
+        *  Initialize the script.
+        *
+        *  @param {jQuery dom object} $inputElement
+        *  @param {object}            options
+        */
+        
+        var $targetElement = YOI.createCollection('scrollagent', $targetElement, options);
+
+        if ($targetElement) {
+            
+            // initially update target elements
+            
+            update($targetElement);
+
+            // start observer and listener
+            
+            observe($targetElement);
+            listen($targetElement);
+        
+            // update target elements on load and resize,
+            // run the observer on scroll
+
+            $window
+                .on('load resize', function() {
+                    update($targetElement);
+                    observe($targetElement);
+                })
+                .on('scroll', function() {
+                    observe($targetElement);
+                });
+            
+        }
+    
+    }
+    
+    function update($targetElements) {
+        
+        /**
+         *  Reads data from the custom data-attribute and from calculations (eg. height)
+         *  and maps the data directly to it's target objects via jQuery's data() method.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+        
+        // update the viewport height
+        
+        viewPortHeight = $window.height();
+        
+        // update all target elements
+        
+        $targetElements.each(function() {
+            
+            var $thisTargetElement = $(this);
+            var thisHeight         = $thisTargetElement.outerHeight();
+            var thisInitialPosY    = $thisTargetElement.offset().top;
+        
+            // write data
+
+            $thisTargetElement.data().props = {
+                'height'      : thisHeight,
+                'initialPosY' : thisInitialPosY
+            };
+            
+            // set the initial state
+        
+            if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {
+                $thisTargetElement.data().state = 'in';
+                $thisTargetElement.trigger('yoi-viewport:in');
+            } else {
+                $thisTargetElement.data().state = 'out';
+            }
+        
+        });
+
+    }
+    
+    function observe($targetElements) {
+        
+        /**
+         *  Observes all target elements and fires custom events weather the
+         *  element enters or leaves the viewport.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+            
+        // get current scroll position & current scroll direction
+        
+        scrollTop       = $window.scrollTop();
+        scrollDirection = scrollTop >= lastScrollTop ? 'down' : 'up';
+        
+        // observe all target elements
+
+        $targetElements.each(function(index) {
+            
+            // variable assignments for better readability only
+            
+            var $targetElement = $(this);
+            var state          = $targetElement.data().state;
+            var initialPosY    = $targetElement.data().props.initialPosY;
+            var height         = $targetElement.data().props.height;
+            
+            // calculate viewPortIn & viewPortOut
+            
+            viewportIn     = (scrollTop + viewPortHeight) > (initialPosY + offset) && scrollTop + offset < (initialPosY + height);
+            viewportCenter = (scrollTop + viewPortHeight / 2) > initialPosY && (scrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
+            viewportOut    = !viewportIn;
+            
+            // trigger custom viewport-events
+            
+            if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport:in');
+            if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport:center');
+            if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport:out');
+            
+            // trigger scroll direction event
+
+            if (scrollDirection !== lastScrollDirection) {
+                $targetElement.trigger('yoi-scrolldirection:' + scrollDirection);
+            }
+            
+            // save the last scroll position and the last scroll direction
+            
+            lastScrollTop       = scrollTop > 0 ? scrollTop : 0;
+            lastScrollDirection = scrollDirection;
+            
+        });
+
+    }
+    
+    function listen($targetElements) {
+
+        /**
+         *  Listens to the custom events fired by each target element (entering or leaving viewport)
+         *  and maps the current state ("in" or "out") directly to each target object via jQuery's data() method.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+
+        $targetElements.each(function() {
+
+            var $targetElement = $(this);
+
+            $targetElement.on('yoi-viewport:in', function() {
+                $targetElement.data().state = 'in';
+            });
+            
+            $targetElement.on('yoi-viewport:center', function() {
+                $targetElement.data().state = 'center';
+            });
+
+            $targetElement.on('yoi-viewport:out', function() {
+                $targetElement.data().state = 'out';
+            });
+
+        });
+
+    }
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initialize
+    };
+
+})();
+YOI.module.ScrollFx = (function() {
+
+    // private functions
+    // =================
+    
+    function initialize($targetElement, options) {
+        
+       /**
+        *  Initialize the script.
+        *
+        *  @param {jQuery dom object} $inputElement
+        *  @param {object}            options
+        *
+        *  Available options:
+        *
+        *  @option {string} in     - yoi fx css class name on viewport:in
+        *  @option {string} center - yoi fx css class name on viewport:center
+        *  @option {string} out    - yoi fx css class name on viewport:out
+        */
+        
+        var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
+        
+        if ($targetElement) $targetElement.each(function() {
+            
+            var $targetElement = $(this);
+
+            YOI.module.ScrollAgent.init($targetElement, options);
+
+            addTargetElementInitialCss($targetElement);
+
+            // start listener
+
+            listen($targetElement);
+
+        });
+
+    }
+    
+    function addTargetElementInitialCss($targetElement) {
+        
+        /**
+         *  If the target element uses the internal fx (css-)classes,
+         *  this method adds the corresponding initial (css-)class.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         */
+        
+        var options  = $targetElement.data().options;
+        var inFx     = options.in === undefined ? false : options.in;
+        var centerFx = options.center === undefined ? false : options.center;
+        
+        if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
+        if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
+        
+        $targetElement.removeClass('fx-' + inFx);
+        $targetElement.removeClass('fx-' + centerFx);
+
+    }
+    
+    function listen($targetElements) {
+        
+        /**
+         *  Listens to the custom events (entering or leaving viewport) and
+         *  applies fx accordingly.
+         *
+         *  @param {jQuery dom object} $targetElements - the target element(s)
+         */
+        
+        $targetElements.each(function() {
+            
+            var $targetElement = $(this);
+            var options        = $targetElement.data().options;
+            var inFx           = options.in !== undefined ? options.in : false;
+            var centerFx       = options.center !== undefined ? options.center : false;
+            var speed          = options.speed !== undefined ? options.speed : false;
+            var repeat         = options.repeat !== undefined ? options.repeat : true;
+            
+            $targetElement.on('yoi-viewport:in', function() {
+                
+                // add inFx
+                
+                if (inFx) {
+                    $targetElement.removeClass('fx-' + inFx + '-initial');
+                    $targetElement.addClass('fx-' + inFx);
+                }
+                
+                // set speed
+                
+                if (speed) {
+                    $targetElement.addClass('fx-' + speed);
+                }
+                
+            });
+            
+            $targetElement.on('yoi-viewport:center', function() {
+                
+                // add centerFx
+
+                if (centerFx) {
+                    $targetElement.removeClass('fx-' + centerFx + '-initial');
+                    $targetElement.addClass('fx-' + centerFx);
+                }
+
+                // set speed
+
+                if (speed) {
+                    $targetElement.addClass('fx-' + speed);
+                }
+
+            });
+            
+            $targetElement.on('yoi-viewport:out', function() {
+                
+                // add initial css
+                
+                addTargetElementInitialCss($targetElement);
+                
+                // no reapeat
+                
+                if (repeat !== true) $targetElement.addClass('fx-off');
+                
+            });
+            
+        });
+        
+    }
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initialize
+    };
+
+})();
+/** scrollTo.js */
+
+YOI.module.ScrollTo = (function() {
+
+    // private vars
+    // ============
+    
+    var $document = $(document);
+
+    // private functions
+    // =================
+
+    function initialize($scrollToTrigger, options) {
+
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $trigger
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} highlight - Define an optional effect to highlight the target element once
+         *                               the scrolling has stopped. Chose from "blink" and "pulse".
+         *  @option {number} offset    - When scrolled to target element, this is the remaining distance in px
+         *                               between the target and the upper viewport border. Default = 20.
+         */
+        
+        var $scrollToTrigger = YOI.createCollection('scrollto', $scrollToTrigger, options);
+
+        if ($scrollToTrigger) $scrollToTrigger.each(function() {
+
+            var $thisTrigger = $(this);
+            var targetId     = $thisTrigger[0].hash;
+
+            $thisTrigger.on('click', function(e) {
+
+                // scroll to anchor if target element is found
+
+                if ($(targetId).length) {
+                    e.preventDefault();
+                    scrollToTarget(targetId, $thisTrigger);
+                }
+
+            });
+
+        });
+
+    }
+
+    function scrollToTarget(targetId, $thisTrigger, options) {
+        
+
+        /**
+         *  Scroll the page to a given target element.
+         *
+         *  @param {string} targetId     - the target element css id (e.g. "#myTarget")
+         *  @param {string} $thisTrigger - the scrollTo trigger element
+         */
+
+        var $target              = $(targetId);
+        var $scrollContext;
+        var $scrollContainer     = $target.closest('.scrl-y');
+        var targetFound          = $target.length > 0 ? true : false;
+        var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
+        var scrollPosY;
+        var options              = options === undefined && $thisTrigger !== undefined ? $thisTrigger.data().options : options;
+        var offset               = $thisTrigger !== undefined && options.offset !== undefined ? options.offset : 20;
+        var highlight            = $thisTrigger !== undefined && options.highlight !== undefined ? options.highlight : false;
+        
+        // cancel if no target was found
+
+        if (!targetFound) return false;
+
+        // if target is a tab, switch to the tab
+
+        if ($target.hasClass('tabs__page') && YOI.foundElement('Tabs')) {
+            YOI.element.Tabs.switchTo(targetId);
+        }
+
+        // if the target is wrapped inside a container with
+        // scroll-overflow, scroll this container. otherwise,
+        // scroll the whole page.
+
+        if (scrollContainerFound) {
+            scrollPosY     = '+=' + $target.position().top;
+            $scrollContext = $target.closest('.scrl-y');
+        } else {
+            scrollPosY     = $target.offset().top - offset;
+            $scrollContext = $('body');
+        }
+
+        // start the scroll animation and apply optional highlight effect
+
+        $document.trigger('yoi-scrollto:start');
+
+        $.when(
+            $scrollContext.stop().animate({
+                scrollTop: scrollPosY
+            }, 500)
+        ).done(function(){
+            if (highlight === 'blink') YOI.blink($target);
+            if (highlight === 'pulse') YOI.pulse($target);
+            $document.trigger('yoi-scrollto:end');
+        });
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init   : initialize,
+        target : scrollToTarget
+    };
+
+})();
+
+YOI.module.Sticky = (function() {
+
+    // private vars
+    // ============
+
+    var $body   = $('body');
+    var $window = $(window);
+
+    // private functions
+    // =================
+
+    function initialize($stickyElement, options) {
+
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $$stickyElement
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {number} start     - The distance between the sticky element top position and the
+         *                               viewport top border at the moment the element sticks.
+         *                               The default value is 0.
+         *  @option {number} stop      - The distance between the sticky element initial top position
+         *                               and the sticky element final top position at the moment it
+         *                               stops sticking. The default value is the body height, which results
+         *                               in sticking as long as the page can be scrolled.
+         *  @option {string} reference - If the value is the keyword/string "parent", the sticky
+         *                               element's fist parent element is referenced to control the
+         *                               sticky element.
+         *                               If the value is a jQuery-compatible CSS-selector, the script
+         *                               selects the first matching element on the page and references
+         *                               it's height to define a stop position for the sticky element.
+         *                               The sticky element "sticks" as long as it's bottom aligns with
+         *                               the reference element's bottom.
+         */
+        
+        var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
+
+        if ($stickyElement) $stickyElement.each(function(index) {
+
+            var $thisStickyElement      = $(this);
+            var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
+            
+            // update each sticky element's data
+
+            updateStickyElementProps($thisStickyElement);
+
+            // do the necessary dom manipulation
+
+            manipulateDom($thisStickyElement, $thisStickyElementClone);
+
+        });
+
+        // start position & stick observers
+
+        if ($stickyElement) positionObserver($stickyElement);
+        if ($stickyElement) stickObserver($stickyElement);
+
+    }
+
+    function manipulateDom($stickyElement, $stickyElementClone) {
+
+        /**
+         *  Perform all necessary dom manipulations. Takes a clone of the original
+         *  sticky element, injects it as a direct child of the body and sets it to
+         *  absolute positioning. While being "sticky", the clone is set to fixed positioning.
+         *  The original element is kept as an empty element with it's initial width
+         *  and height. The visibility is set to "hidden" in order to preserve the page layout.
+         *
+         *  @param {jQuery dom object} $stickyElement      - the sticky element
+         *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
+         */
+        
+        // prepare the cloned element
+        
+        $stickyElementClone.css({
+            'position'                    : 'absolute',
+            'width'                       : $stickyElement.outerWidth(),
+            'height'                      : $stickyElement.outerHeight(),
+            'top'                         : $stickyElement.offset().top,
+            'left'                        : $stickyElement.offset().left,
+            'backface-visibility'         : 'hidden',
+            '-webkit-backface-visibility' : 'hidden'
+        });
+
+        // append the cloned element
+
+        $body.append($stickyElementClone);
+
+        // prepare the original element
+
+        $stickyElement.css({
+            'width'      : $stickyElement.outerWidth(),
+            'height'     : $stickyElement.outerHeight(),
+            'visibility' : 'hidden'
+        });
+
+        // empty the original element
+
+        $stickyElement.empty();
+
+    }
+
+    function updateStickyElementProps($stickyElement) {
+
+        /**
+         *  Reads options from the custom data-option interface and calculates other
+         *  important data, like initial position, dimensions, etc. Adds all data to the
+         *  $stickyElement props object, so that it is available for other functions.
+         *
+         *  @param {jQuery dom object} $stickyElement - the sticky element
+         */
+
+        var options                       = $stickyElement.data().options;
+        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
+        var stickyElementheight           = $stickyElement.outerHeight();
+        var stickyElementInitialTopPos    = $stickyElement.offset().top;
+        var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
+        var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
+        var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
+        var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
+        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
+        var passedValidation              = validInput($stickyElement);
+
+        // the reference element is found in the dom
+
+        if ($referenceElement.length) {
+            stickStart = $referenceElement.offset().top - topOffset;
+            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementheight - topDistance;
+        }
+
+        // the reference element is the parent dom object of the sticky element,
+        // in this case, add the parent object's padding to the calculation
+
+        if ($referenceElement.length && options.reference === 'parent') {
+            stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
+            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
+        }
+        
+        // write props data
+        
+        $stickyElement.data().props = {
+            passedValidation : passedValidation,
+            height           : stickyElementheight,
+            initialTopPos    : stickyElementInitialTopPos,
+            initialBottomPos : stickyElementInitialBottomPos,
+            topOffset        : topOffset,
+            topDistance      : topDistance,
+            stickStart       : stickStart,
+            stickStop        : stickStop
+        };
+        
+    }
+
+    function validInput($stickyElement) {
+
+        /**
+         *  Checks the input from the custom data-option interface and decides
+         *  weather it makes sense. For example it does not make sense if the
+         *  start position value is larger than the end position value. Stuff would break.
+         *  Returns true if the input is valid, false if not.
+         *
+         *  @param  {jQuery dom object} $stickyElement - the sticky element
+         *  @return {bool}                             - true if data is valid, false if data is invalid
+         */
+
+        var props      = $stickyElement.data().props;
+        var stickStart = props.stickStart;
+        var stickStop  = props.stickStop;
+        
+        if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    function positionObserver($stickyElements) {
+
+        /**
+         *  Listens to the window resize event. If the event is fired, this function
+         *  updates the original $stickyElement data and updates the $stickyElementClone's
+         *  left position.
+         *
+         *  @param {jQuery dom object} $stickyElement - the sticky element
+         */
+
+        $window.on('resize', function() {
+            
+            $stickyElements.each(function(index) {
+
+                var $stickyElement      = $(this);
+                var $stickyElementClone = $('#stickyClone-' + index);
+
+                // if the sticky element passed validation (=> validInput),
+                // do the re-positioning
+
+                if (validInput($stickyElement)) {
+                    updateStickyElementProps($stickyElement);
+                    $stickyElementClone.css('left', Math.floor($stickyElement.offset().left));
+                }
+
+            });
+
+        });
+
+    }
+
+    function stickObserver($stickyElements) {
+
+        /**
+         *  Listens to the window scroll event. If the event is fired, this function
+         *  observes all sticky elements and manipulates their position. If a sticky element
+         *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
+         *
+         *  @param {jQuery dom object} $stickyElements      - the sticky element(s)
+         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element(s)
+         */
+
+        $window.on('scroll', function() {
+
+            // store the scroll position
+
+            var scrollTop = $window.scrollTop();
+
+            // observe all sticky elements
+
+            $stickyElements.each(function(index) {
+
+                // variable assignments for better readability only
+                
+                // var topDistance                   = props.topDistance;
+                // var stickyElementheight           = props.height;
+                // var stickyElementInitialBottomPos = props.initialBottomPos;
+
+                var $stickyElement                = $(this);
+                var $stickyElementClone           = $('#stickyClone-' + index);
+                var props                         = $stickyElement.data().props;
+                var stickyElementInitialTopPos    = props.initialTopPos;
+                var stickStart                    = props.stickStart;
+                var stickStop                     = props.stickStop;
+                var topOffset                     = props.topOffset;
+                var cssPositionValue;
+                var cssTopValue;
+                
+                // proceed if the sticky element passed validation
+
+                if (props.passedValidation) {
+
+                    // re-position on scroll
+
+                    if (scrollTop < stickStart) {
+                        
+                        // outside top boundary
+
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickyElementInitialTopPos;
+
+                    } else if (scrollTop > stickStop) {
+
+                        // outside bottom boundary
+
+                        cssPositionValue = 'absolute';
+                        cssTopValue      = stickStop + topOffset;
+
+                    } else {
+                        
+                        // inside boundaries
+
+                        cssPositionValue = 'fixed';
+                        cssTopValue      = 0 + topOffset;
+
+                    }
+
+                    // set the css
+
+                    $stickyElementClone.css({
+                        'position' : cssPositionValue,
+                        'top'      : cssTopValue
+                    });
+
+                }
+
+            });
+
+        });
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init: initialize
+    };
+
+})();
+/** toggleGroup.js */
+
+YOI.module.ToggleGroup = (function() {
+
+    // private vars
+    // ============
+
+    var toggleTargetGroupIteration;
+    var resetToggleDelayTime = 300;
+
+    // private functions
+    // =================
+
+    function initialize($toggleGroup, options) {
+
+        /**
+         *  Initialize the script.
+         *
+         *  @param {jQuery dom object} $toggleGroup
+         *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} target          - CSS-selector for target element
+         *  @option {string} group           - a unique string to group toggle elements
+         *  @option {string} activeClassName - to highlight an "active" trigger, this
+         *                                     CSS class name is added to the trigger
+         */
+        
+        var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
+
+        if ($toggleGroup) $toggleGroup.each(function(index) {
+
+            var $thisTrigger      = $(this);
+            var options           = $thisTrigger.data().options;
+            var target            = options.target;
+            var group             = options.group;
+            var event             = options.event !== undefined ? options.event : 'mouseover';
+            var activeClassName   = options.activeClassName;
+            var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
+
+            // group related toggle elements for easy dom-access
+
+            $(target).addClass('toggleTargetGroup-' + group);
+            $thisTrigger.addClass('toggleTriggerGroup-' + group);
+
+            // toggle on event (default event = mouseover)
+
+            $thisTrigger.on(event, function(e) {
+                e.preventDefault();
+                toggle($thisTrigger);
+            });
+
+            if ($thisFallBackElem.length > 0 && event === 'mouseover') {
+
+                // If there is a fallback element defined,
+                // hide all targets since fallback is the first
+                // element to show. This only makes sense on
+                // mouseenter/mouseleave events, not on click.
+
+                $(target).hide();
+
+                // Add additional events to switch back
+                // to fallback element.
+
+                $thisTrigger
+                    .on('mouseenter', function() {
+                        YOI.clearDelay('resetToggleTimeout');
+                    })
+                    .on('mouseleave', function() {
+                        YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
+                            reset($thisTrigger);
+                        });
+                    });
+
+            } else {
+
+                if (toggleTargetGroupIteration !== group) {
+
+                    // If there is no fallback element defined,
+                    // each time we start a new toggle group,
+                    // hide all targets but the first one.
+
+                    toggleTargetGroupIteration = group;
+
+                    // If an "activeClassName" was defined, add it
+                    // to the first trigger element.
+
+                    if (activeClassName !== undefined)
+                        $thisTrigger.addClass(activeClassName);
+
+                } else {
+
+                    // If a fall back element exists, hide all
+                    // target elements to only show the fall
+                    // back element.
+
+                    $(target).hide();
+                }
+
+            }
+
+        });
+
+    }
+
+    function toggle($thisTrigger) {
+
+        /**
+         *  Toggle a group, read required data from the trigger.
+         *
+         *  @param {jQuery dom object} $thisTrigger - the trigger
+         */
+
+        var options           = $thisTrigger.data().options;
+        var target            = options.target;
+        var group             = options.group;
+        var activeClassName   = options.activeClassName;
+
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
+
+        // Hide all elements from the same toggle group and
+        // show the target element.
+
+        $('.toggleTargetGroup-' + group).hide();
+        $(target).show();
+
+        if (activeClassName !== undefined) {
+            $('.toggleTriggerGroup-' + group).removeClass(activeClassName);
+            $thisTrigger.addClass(activeClassName);
+        }
+
+        // If there is a fall back element, hide it.
+
+        if ($thisFallBackElem !== undefined)
+            $thisFallBackElem.hide();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:change');
+
+    }
+
+    function reset($thisTrigger) {
+
+        /**
+         *  Reset a group, read required data from the trigger.
+         *
+         *  @param {jQuery dom object} $thisTrigger - the trigger
+         */
+
+        var options           = $thisTrigger.data().options;
+        var group             = options.group;
+        var activeClassName   = options.activeClassName;
+
+        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
+
+        // Remove active class name from trigger.
+
+        if (activeClassName !== undefined)
+            $('.toggleTriggerGroup-' + group).removeClass(activeClassName);
+
+        // Hide all elements from the same toggle group.
+
+        $('.toggleTargetGroup-' + group).hide();
+
+        // If there is a fall back element, show it.
+
+        if ($thisFallBackElem.length > 0)
+            $thisFallBackElem.fadeIn();
+        
+        // trigger custom event
+        
+        $thisTrigger.trigger('yoi-togglegroup:reset');
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init  : initialize,
+        reset : reset
+    };
+
+})();
+
+/** update.js */
+
+YOI.module.Update = (function() {
+
+    // private vars
+    // ============
+
+    var $response = $('\
+        <span class="tc-green-12 fw-bold">OK</span>\
+    ');
+
+    // private functions
+    // =================
+
+    function initialize($microSubmit, options) {
+
+        /**
+         *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
+         *  or target one or more specific form[yoi-microsubmit] (= function call with $microSubmit).
+         *  $microSubmit must be a jQuery object or jQuery object collection.
+         *
+         *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
+         *
+         *  Options are passed to the script as custom data values, eg:
+         *
+         *  <form data-microsubmit="response:#myCustomResponse;"></form>
+         *
+         *  Available options:
+         *
+         *  @option {string} response - a CSS selector (most likely an #id) to select the dom
+         *                              element which is displayed after submit
+         */
+
+        if (!($microSubmit instanceof jQuery)) {
+            $microSubmit = $('form[yoi-microsubmit]');
+        }
+
+        $microSubmit.each(function() {
+
+            var $thisForm       = $(this);
+            var options         = options === undefined ? YOI.toObject($thisForm.data('microsubmit')) : options;
+            var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
+            var thisMessage     = $thisForm.find('input').val();
+            var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
+
+            // hide response content first
+
+            YOI.hide($thisResponse);
+
+            // cancel if no target url (for ajax send) was found
+
+            if (!receiver) return false;
+
+            // submit form, show msg
+
+            $thisForm.submit(function(e) {
+
+                e.preventDefault();
+
+                $.ajax({
+                    url: receiver,
+                    type: 'POST',
+                    data: {
+                        input: thisMessage
+                    },
+                    complete: function(response){
+                        $thisForm.replaceWith($thisResponse);
+                        YOI.show($thisResponse);
+                    }
+                });
+
+            });
+
+            /**
+             *  It doesn't add any value to display an error message.
+             *  Even if the submission fails, let's pretend it worked all fine.
+             *  It's much better to track these errors internally.
+             */
+
+        });
+
+    }
+
+    // public functions
+    // ================
+
+    return {
+        init : initialize
+    };
+
+})();
+
 /** accordion.js */
 
-YOI.Accordion = (function() {
+YOI.element.Accordion = (function() {
 
     // private functions
     // =================
@@ -1100,9 +2615,16 @@ YOI.Accordion = (function() {
          *
          *  @param {jQuery dom object} $accordion
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {bool} linked - if TRUE, only one accordion section is expanded at a time
+         *                          default: FALSE
          */
         
         var $accordion = YOI.createCollection('accordion', $accordion, options);
+        
+        if ($accordion) initializeAccordionTriggers();
 
         if ($accordion) $accordion.each(function() {
 
@@ -1288,12 +2810,6 @@ YOI.Accordion = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initializeAccordion();
-    initializeAccordionTriggers();
-
     // public functions
     // ================
 
@@ -1308,45 +2824,9 @@ YOI.Accordion = (function() {
 
 })();
 
-/** browserHistory.js */
-
-YOI.BrowserHistory = (function() {
-
-    // private vars
-    // ============
-
-    var currentScrollTop;
-    var $window = $(window);
-
-    // private functions
-    // =================
-
-    function pushHash(hashString) {
-        history.pushState(null, null, window.location.pathname + hashString);
-    }
-
-    function replaceHash(hashString) {
-        history.replaceState(null, null, window.location.pathname + hashString);
-    }
-
-    function clearHash() {
-        history.replaceState('', document.title, window.location.pathname);
-    }
-
-    // public functions
-    // ================
-
-    return {
-        pushHash    : pushHash,
-        replaceHash : replaceHash,
-        clearHash   : clearHash
-    };
-
-})();
-
 /** console.js */
 
-YOI.Console = (function() {
+YOI.element.Console = (function() {
     
     // private vars
     // ============
@@ -1367,6 +2847,8 @@ YOI.Console = (function() {
         'yoi-filters:reset',
         'yoi-filters:update',
         'yoi-hide',
+        'yoi-imgmagnifier:start',
+        'yoi-imgmagnifier:stop',
         'yoi-input:blur',
         'yoi-input:change',
         'yoi-input:focus',
@@ -1454,11 +2936,6 @@ YOI.Console = (function() {
         });
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -1471,11 +2948,13 @@ YOI.Console = (function() {
 
 /** countdown.js */
 
-YOI.Countdown = (function() {
+YOI.element.Countdown = (function() {
 
-    // countdown clock labels
-
-    var clockLabels = {
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
         'en' : {
             'days'    : 'Days',
             'hours'   : 'Hours',
@@ -1520,6 +2999,16 @@ YOI.Countdown = (function() {
          *
          *  @param {jQuery dom object} $countdown
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} timezone - ISO 8601 time zone
+         *  @option {string} year     - end year (ISO 8601)
+         *  @option {string} month    - end month (ISO 8601)
+         *  @option {string} day      - end day (ISO 8601)
+         *  @option {string} hour     - end hour (ISO 8601)
+         *  @option {string} minute   - end minute (ISO 8601)
+         *  @option {string} second   - end second (ISO 8601)
          */
         
         var $countdown = YOI.createCollection('countdown', $countdown, options);
@@ -1783,18 +3272,12 @@ YOI.Countdown = (function() {
          */
 
         var $label   = $countdownCharacterLabel.clone();
-        var language = YOI.locale();
 
-        $label.text(clockLabels[language][unit]);
+        $label.text(localization[language][unit]);
 
         return $label;
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================
@@ -1806,20 +3289,23 @@ YOI.Countdown = (function() {
 })();
 /** forms.js */
 
-YOI.CustomFormElements = (function() {
+YOI.element.CustomFormElements = (function() {
 
     // private vars
     // ============
     
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change yoi-input:change');
+            $(this).find('input').trigger('change');
         });
 
     var $radioBtnWrapper = $('<span class="radio"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change yoi-input:change');
+            $(this).find('input').trigger('change');
         });
+        
+    var $selectWrapper = $('<span class="select"></span>');
+    var $selectIcon    = $('<span class="select__icon"></span>');
 
     // private functions
     // =================
@@ -1849,106 +3335,137 @@ YOI.CustomFormElements = (function() {
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 
-        // prepare custom form elements
+        // checkboxes
 
         checkBoxes.each(function() {
 
-            var isWrappedInLabel = $(this).parents().index('label');
+            var $thisCheckbox    = $(this);
+            var isWrappedInLabel = $thisCheckbox.parents().index('label');
 
             if (isWrappedInLabel === -1) {
-                $(this).wrap($checkBoxWrapper.clone(true)); // clone with events
+                $thisCheckbox.wrap($checkBoxWrapper.clone(true)); // clone with events
             } else {
-                $(this).wrap($checkBoxWrapper.clone());     // clone without events
+                $thisCheckbox.wrap($checkBoxWrapper.clone());     // clone without events
             }
+            
+            // attach events
+            
+            $thisCheckbox.on({
+                'focus': function() {
+                    $thisCheckbox.parent().addClass('is--focus');
+                    $thisCheckbox.trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $thisCheckbox.parent().removeClass('is--focus');
+                    $thisCheckbox.trigger('yoi-input:blur');
+                },
+                'change': function(e) {
+                    $thisCheckbox.parent().toggleClass('is--checked');
+                    $thisCheckbox.trigger('yoi-input:change');
+                }
+            });
 
         });
+        
+        // radio buttons
 
         radioBtns.each(function() {
 
-            var isWrappedInLabel = $(this).parents().index('label');
+            var $thisRadioBtn    = $(this);
+            var isWrappedInLabel = $thisRadioBtn.parents().index('label');
 
             if (isWrappedInLabel === -1) {
-                $(this).wrap($radioBtnWrapper.clone(true)); // clone with events
+                $thisRadioBtn.wrap($radioBtnWrapper.clone(true)); // clone with events
             } else {
-                $(this).wrap($radioBtnWrapper.clone());     // clone without events
+                $thisRadioBtn.wrap($radioBtnWrapper.clone());     // clone without events
             }
+            
+            // attach events
+            
+            $thisRadioBtn.on({
+                'focus': function() {
+                    $thisRadioBtn.parent().addClass('is--focus');
+                    $thisRadioBtn.trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $thisRadioBtn.parent().removeClass('is--focus');
+                    $thisRadioBtn.trigger('yoi-input:blur');
+                },
+                'change': function(e) {
+                
+                    var groupName    = $thisRadioBtn.attr('name');
+                    var $groupedBtns = $('[name="' + groupName + '"]');
+
+                    $groupedBtns.parent().removeClass('is--checked');
+                    $thisRadioBtn.parent().addClass('is--checked');
+                    $thisRadioBtn.trigger('yoi-input:change');
+                
+                }
+            });
 
         });
+        
+        // selects
 
+        selects.each(function() {
+
+            var $thisSelect        = $(this);
+            var $thisSelectWrapper = $selectWrapper.clone();
+            var $thisSelectIcon    = $selectIcon.clone();
+
+            // prepare wrapper, keep modifiers
+
+            $thisSelectWrapper.addClass($thisSelect.attr('class'));
+
+            // inject elements
+
+            $thisSelect.wrap($thisSelectWrapper);
+            $thisSelect.parent().append($thisSelectIcon);
+
+            // remove classNames (modifiers) from select element
+
+            $thisSelect.removeAttr('class');
+            
+            // add events
+            
+            $thisSelect.on({
+                'focus': function() {
+                    $(this).parent().addClass('is--focus');
+                    $(this).trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $(this).parent().removeClass('is--focus');
+                    $(this).trigger('yoi-input:blur');
+                },
+                'change': function() {
+                    $(this).trigger('yoi-input:change');
+                }
+            });
+
+        });
+        
+        // add css class names to check element wrappers
+        
         checkElemns.each(function() {
 
             var thisWrapper = $(this).parent();
 
-            // move class names from checkbox/radio-button
-            // to the wrapper
+            // move class names from an checkbox/radio-button/select
+            // element to it's wrapper
 
             thisWrapper.addClass($(this).attr('class'));
             $(this).removeAttr('class');
 
-            // checked?
+            // if the check element is already checked,
+            // add the "is--checked" modifier
 
             if ($(this).is(':checked')) {
                 thisWrapper.addClass('is--checked');
             }
 
         });
-
-        checkElemns.on({
-            'focus': function() {
-                $(this).parent().addClass('is--focus');
-                $(this).trigger('yoi-input:focus');
-            },
-            'blur': function() {
-                $(this).parent().removeClass('is--focus');
-                $(this).trigger('yoi-input:blur');
-            },
-            'change': function(e) {
-                $(this).parent().toggleClass('is--checked');
-                $(this).trigger('yoi-input:change');
-            }
-        });
-
-        selects.each(function() {
-
-            var $thisSelect    = $(this);
-            var $selectWrapper = $('<span></span>');
-            var $icon          = $('<span class="select__icon"></span>');
-
-            // prepare wrapper, keep modifiers
-
-            $selectWrapper.addClass($thisSelect.attr('class'));
-
-            // inject elements
-
-            $thisSelect.wrap($selectWrapper);
-            $thisSelect.parent().append($icon);
-
-            // remove classNames (modifiers) from select element
-
-            $thisSelect.removeAttr('class');
-
-        });
-
-        selects.on({
-            'focus': function() {
-                $(this).parent().addClass('is--focus');
-                $(this).trigger('yoi-input:focus');
-            },
-            'blur': function() {
-                $(this).parent().removeClass('is--focus');
-                $(this).trigger('yoi-input:blur');
-            },
-            'change': function() {
-                $(this).trigger('yoi-input:change');
-            }
-        });
-
+        
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================
@@ -1961,12 +3478,69 @@ YOI.CustomFormElements = (function() {
 
 /** datePicker.js */
 
-YOI.DatePicker = (function() {
+YOI.element.DatePicker = (function() {
 
     // private vars
     // ============
     
     var $document = $(document);
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'weekDays' : [
+                'Mon',
+                'Tue',
+                'Wed',
+                'Thu',
+                'Fri',
+                'Sat',
+                'Sun'
+            ],
+            'monthNames' : [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December'
+            ] 
+        },
+        'de' : {
+            'weekDays' : [
+                'Mo',
+                'Di',
+                'Mi',
+                'Do',
+                'Fr',
+                'Sa',
+                'So'
+            ],
+            'monthNames' : [
+                'Januar',
+                'Februar',
+                'März',
+                'April',
+                'Mai',
+                'Juni',
+                'Juli',
+                'August',
+                'September',
+                'Oktober',
+                'November',
+                'Dezember'
+            ] 
+        }
+    };
 
     // get the document language, fall back to english
     // only german and english supported at this moment
@@ -1986,28 +3560,16 @@ YOI.DatePicker = (function() {
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');
-
-    var $weekDaysHeader_en = $('\
+    
+    var $weekDaysHeader = $('\
         <tr>\
-            <th>Mon</th>\
-            <th>Tue</th>\
-            <th>Wed</th>\
-            <th>Thu</th>\
-            <th>Fri</th>\
-            <th>Sat</th>\
-            <th>Sun</th>\
-        </tr>\
-    ');
-
-    var $weekDaysHeader_de = $('\
-        <tr>\
-            <th>Mo</th>\
-            <th>Di</th>\
-            <th>Mi</th>\
-            <th>Do</th>\
-            <th>Fr</th>\
-            <th>Sa</th>\
-            <th>So</th>\
+            <th>' + localization[language]['weekDays'][0] + '</th>\
+            <th>' + localization[language]['weekDays'][1] + '</th>\
+            <th>' + localization[language]['weekDays'][2] + '</th>\
+            <th>' + localization[language]['weekDays'][3] + '</th>\
+            <th>' + localization[language]['weekDays'][4] + '</th>\
+            <th>' + localization[language]['weekDays'][5] + '</th>\
+            <th>' + localization[language]['weekDays'][6] + '</th>\
         </tr>\
     ');
 
@@ -2021,6 +3583,12 @@ YOI.DatePicker = (function() {
          *
          *  @param {jQuery dom object} $datepicker
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} year  - initial year (ISO 8601)
+         *  @option {string} month - initial month (ISO 8601)
+         *  @option {string} day   - initial day (ISO 8601)
          */
         
         // update the current date
@@ -2200,7 +3768,7 @@ YOI.DatePicker = (function() {
 
         // get the month name
 
-        var monthName = getMonthName(month);
+        var monthName = localization[language]['monthNames'][month];
 
         // get the first day of the month
 
@@ -2301,15 +3869,7 @@ YOI.DatePicker = (function() {
 
         // create the table header
 
-        if (YOI.locale() === 'en' || YOI.locale === undefined) {
-
-            $monthTableBody.append($weekDaysHeader_en.clone());
-
-        } else if (YOI.locale() === 'de') {
-
-            $monthTableBody.append($weekDaysHeader_de.clone());
-
-        }
+        $monthTableBody.append($weekDaysHeader.clone());
 
         // set index vars
 
@@ -2432,7 +3992,7 @@ YOI.DatePicker = (function() {
 
         // write the date picker header
 
-        $thisDatePicker.find('.datePicker__header').text(getMonthName(month) + ' ' + year);
+        $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][month] + ' ' + year);
 
         // attach events to date picker buttons
 
@@ -2479,7 +4039,7 @@ YOI.DatePicker = (function() {
             // write date picker header
 
             $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, year, month));
-            $thisDatePicker.find('.datePicker__header').text(getMonthName(month) + ' ' + year);
+            $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][month] + ' ' + year);
 
             // update month table data
 
@@ -2637,58 +4197,6 @@ YOI.DatePicker = (function() {
 
     }
 
-    function getMonthName(month) {
-
-        /**
-         *  Return the name of a given month. Very basic localisation,
-         *  only English and German so far.
-         *
-         *  @param  {number}  month - the month, eg. 5
-         *  @return {string}        - the name of the month in English (default) or German
-         */
-
-        var monthNames;
-
-        if (language === 'en' || language === undefined) {
-
-            monthNames = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
-                'July',
-                'August',
-                'September',
-                'October',
-                'November',
-                'December'
-            ];
-
-        } else if (language === 'de') {
-
-            monthNames = [
-                'Januar',
-                'Februar',
-                'März',
-                'April',
-                'Mai',
-                'Juni',
-                'Juli',
-                'August',
-                'September',
-                'Oktober',
-                'November',
-                'Dezember'
-            ];
-
-        }
-
-        return monthNames[month];
-
-    }
-
     function adjustYear(year) {
 
         /**
@@ -2748,11 +4256,6 @@ YOI.DatePicker = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -2766,7 +4269,7 @@ YOI.DatePicker = (function() {
 
 /** dock.js */
 
-YOI.Dock = (function() {
+YOI.element.Dock = (function() {
 
     // private functions
     // =================
@@ -2778,6 +4281,11 @@ YOI.Dock = (function() {
          *
          *  @param {jQuery dom object} $dock
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {bool} autohide - if TRUE, dock is initially hidden
+         *                            default: FALSE
          */
 
         var $dock = YOI.createCollection('dock', $dock, options);
@@ -2838,11 +4346,6 @@ YOI.Dock = (function() {
         
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -2856,7 +4359,7 @@ YOI.Dock = (function() {
 
 /** filterBtns.js */
 
-YOI.FilterBtns = (function() {
+YOI.element.FilterBtns = (function() {
 
     // private functions
     // =================
@@ -2977,11 +4480,6 @@ YOI.FilterBtns = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -2993,17 +4491,31 @@ YOI.FilterBtns = (function() {
 
 /** filters.js */
 
-YOI.Filters = (function() {
+YOI.element.Filters = (function() {
 
     // private vars
     // ============
 
     var filterGroupMaxHeight = 210;
     var loadResultsIsRunning = false;
-    var btnLabelReset        = YOI.locale === 'de' ? 'Alle Filter zurücksetzen' : 'Reset All';
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelReset' : 'Reset All Filters'
+        },
+        'de' : {
+            'btnLabelReset' : 'Alle Filter zurücksetzen'
+        }
+    };
+    
+    // templates
 
     var $resetBtn = $('\
-        <a href="#" class="filters__resetBtn">' + btnLabelReset + '</a>\
+        <a href="#" class="filters__resetBtn">' + localization[language]['btnLabelReset'] + '</a>\
     ');
 
     // private functions
@@ -3325,11 +4837,6 @@ YOI.Filters = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -3342,7 +4849,7 @@ YOI.Filters = (function() {
 
 /** flyouts.js */
 
-YOI.Flyout = (function() {
+YOI.element.Flyout = (function() {
 
     // private functions
     // =================
@@ -3439,11 +4946,6 @@ YOI.Flyout = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -3458,14 +4960,14 @@ YOI.Flyout = (function() {
 
 /** imgMagnifier.js */
 
-YOI.ImgMagnifier = (function(){
+YOI.element.ImgMagnifier = (function(){
 
     // private vars
     // ============
-
+    
+    var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
-
     var defaultStartViewerDelayTime = 600;
 
     // private functions
@@ -3515,9 +5017,20 @@ YOI.ImgMagnifier = (function(){
                 });
 
             // set up viewer and zoom image
-
-            setViewer($thisImgMagnifier);
-            setZoomImage($thisImgMagnifier);
+            
+            $window.on('load', function() {
+                setViewer($thisImgMagnifier);
+                setZoomImage($thisImgMagnifier);
+            });
+            
+            // reset the image viewer on window resize
+            
+            $window.on('resize', function() {
+                YOI.clearDelay('imgMagnifierResetDelay');
+                YOI.setDelay('imgMagnifierResetDelay', 500, function() {
+                    reset();
+                });
+            });
 
         });
 
@@ -3539,10 +5052,10 @@ YOI.ImgMagnifier = (function(){
 
             var $thisImgMagnifier = $(this);
 
-            $thisImgMagnifier.data({
+            $thisImgMagnifier.data().props = {
                 'yPos' : $thisImgMagnifier.offset().top,
                 'xPos' : $thisImgMagnifier.offset().left
-            });
+            };
 
         });
 
@@ -3553,7 +5066,7 @@ YOI.ImgMagnifier = (function(){
         /**
          *  Remove all injected elements and detach all events.
          *
-         *  @param  {jQuery dom object} $$imgMagnifiers - all image magnifiers
+         *  @param  {jQuery dom object} $imgMagnifier - all image magnifiers
          *  @return {bool false}
          */
 
@@ -3609,21 +5122,21 @@ YOI.ImgMagnifier = (function(){
 
                 $thisViewer.append($thisZoomImage);
 
-                $thisImgMagnifier.data({
+                $thisImgMagnifier.data().props = {
                     'width'  : $thisImgMagnifier.width(),
                     'height' : $thisImgMagnifier.height(),
                     'yPos'   : $thisImgMagnifier.offset().top,
                     'xPos'   : $thisImgMagnifier.offset().left,
                     'yRatio' : $thisPreviewImage.height() / thisZoomImage.height,
                     'xRatio' : $thisPreviewImage.width() / thisZoomImage.width
-                });
+                };
 
                 setCursor($thisImgMagnifier);
 
                 // If the zoom image is smaller than the preview image, destory
                 // the image magnifier.
 
-                if ($thisImgMagnifier.data().yRatio >= 1 || $thisImgMagnifier.data().yRatio >= 1) {
+                if ($thisImgMagnifier.data().props.yRatio >= 1 || $thisImgMagnifier.data().props.yRatio >= 1) {
                     destroy($thisImgMagnifier);
                 }
 
@@ -3643,20 +5156,20 @@ YOI.ImgMagnifier = (function(){
 
         var $thisCursor      = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisViewer      = $thisImgMagnifier.find('.imgMagnifier__viewer');
-        var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().xRatio;
-        var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().yRatio;
+        var thisCursorWith   = $thisImgMagnifier.width() * $thisImgMagnifier.data().props.xRatio;
+        var thisCursorHeight = $thisImgMagnifier.height() * $thisImgMagnifier.data().props.yRatio;
 
         $thisCursor.css({
             width: thisCursorWith,
             height: thisCursorHeight
         });
 
-        $thisCursor.data({
+        $thisCursor.data().props = {
             'width'  : thisCursorWith,
             'height' : thisCursorHeight,
             'yRatio' : $thisViewer.height() / thisCursorHeight,
             'xRatio' : $thisViewer.width() / thisCursorWith
-        });
+        };
 
     }
 
@@ -3696,6 +5209,7 @@ YOI.ImgMagnifier = (function(){
         YOI.setDelay('imgMagnifierDelay', delay, function() {
             $thisViewer.fadeIn();
             $thisCursor.fadeIn();
+            $thisViewer.trigger('yoi-imgmagnifier:start');
         });
 
     }
@@ -3715,7 +5229,9 @@ YOI.ImgMagnifier = (function(){
 
         $thisViewer.fadeOut('fast');
         $thisCursor.fadeOut('fast');
-
+        
+        $thisViewer.trigger('yoi-imgmagnifier:stop');
+        
     }
 
     function moveMagnifier($thisImgMagnifier, e) {
@@ -3728,18 +5244,22 @@ YOI.ImgMagnifier = (function(){
          *  @param {event}             e                 - the trigger event
          */
 
-        var $thisCursor    = $thisImgMagnifier.find('.imgMagnifier__cursor');
-        var $thisZoomImage = $thisImgMagnifier.find('.imgMagnifier__zoomImage');
-
-        var yPos = (e.pageY - $thisImgMagnifier.data().yPos - $thisCursor.data().height / 2);
-        var xPos = (e.pageX - $thisImgMagnifier.data().xPos - $thisCursor.data().width / 2);
+        var $thisCursor       = $thisImgMagnifier.find('.imgMagnifier__cursor');
+        var $thisZoomImage    = $thisImgMagnifier.find('.imgMagnifier__zoomImage');
+        var imgMagnifierProps = $thisImgMagnifier.data().props;
+        var cursorProps       = $thisCursor.data().props;
+        
+        // calculate position
+        
+        var yPos = (e.pageY - imgMagnifierProps.yPos - cursorProps.height / 2);
+        var xPos = (e.pageX - imgMagnifierProps.xPos - cursorProps.width / 2);
 
         // calculate cursor boundaries
 
         var minY = yPos > 0 ? true : false;
-        var maxY = yPos < $thisImgMagnifier.data().height - $thisCursor.data().height ? true : false;
+        var maxY = yPos < imgMagnifierProps.height - cursorProps.height ? true : false;
         var minX = xPos > 0 ? true : false;
-        var maxX = xPos < $thisImgMagnifier.data().width - $thisCursor.data().width ? true : false;
+        var maxX = xPos < imgMagnifierProps.width - cursorProps.width ? true : false;
 
         // move the cursor
 
@@ -3748,24 +5268,10 @@ YOI.ImgMagnifier = (function(){
 
         // move the zoom image
 
-        if (minY && maxY) $thisZoomImage.css('top', yPos * $thisCursor.data().yRatio * -1);
-        if (minX && maxX) $thisZoomImage.css('left', xPos * $thisCursor.data().xRatio * -1);
+        if (minY && maxY) $thisZoomImage.css('top', yPos * cursorProps.yRatio * -1);
+        if (minX && maxX) $thisZoomImage.css('left', xPos * cursorProps.xRatio * -1);
 
     }
-
-    // initialize
-    // ==========
-
-    $(window)
-        .on('load', function() {
-            initialize();
-        })
-        .on('resize', function() {
-            YOI.clearDelay('imgMagnifierResetDelay');
-            YOI.setDelay('imgMagnifierResetDelay', 500, function() {
-                reset();
-            });
-        });
 
     // public functions
     // ================
@@ -3779,7 +5285,7 @@ YOI.ImgMagnifier = (function(){
 
 /** maxChars.js */
 
-YOI.MaxChars = (function() {
+YOI.element.MaxChars = (function() {
 
     // private vars
     // ============
@@ -3975,11 +5481,6 @@ YOI.MaxChars = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -3993,7 +5494,7 @@ YOI.MaxChars = (function() {
 })();
 /** modal.js */
 
-YOI.Modal = (function() {
+YOI.element.Modal = (function() {
 
     // private vars
     // ============
@@ -4004,7 +5505,21 @@ YOI.Modal = (function() {
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
     var modalIdIndex  = 0;     // An index for internally generated modal ids.
-    var btnLabelClose = YOI.locale === 'de' ? 'Schließen' : 'Close';
+
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelClose' : 'Close'
+        },
+        'de' : {
+            'btnLabelClose' : 'Schließen'
+        }
+    };
+
+    // templates
 
     var $modalCover = $('\
         <div class="modal__cover" id="modalCover" yoi-action="closeModal"></div>\
@@ -4016,7 +5531,7 @@ YOI.Modal = (function() {
 
     var $modalCloseBtn = $('\
         <button class="btnDismiss" yoi-action="closeModal">\
-            <span class="hidden">' + btnLabelClose + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
         </button>\
     ');
     
@@ -4025,7 +5540,7 @@ YOI.Modal = (function() {
             <div class="modal__header">\
                 <h3 class="modal__title"></h3>\
                 <button class="btnDismiss" yoi-action="closeModal">\
-                    <span class="hidden">' + btnLabelClose + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
                 </button>\
             </div>\
             <div class="modal__body"></div>\
@@ -4245,8 +5760,8 @@ YOI.Modal = (function() {
 
                         initializeCloseTriggers(modalId);
 
-                        if (YOI.foundModule('CustomFormElements'))
-                            YOI.CustomFormElements.init(modalId);
+                        if (YOI.foundElement('CustomFormElements'))
+                            YOI.element.CustomFormElements.init(modalId);
 
                         // optional callback
 
@@ -4366,7 +5881,7 @@ YOI.Modal = (function() {
         modalActive = false;
         
         if (YOI.foundModule('BrowserHistory')) {
-            YOI.BrowserHistory.clearHash();
+            YOI.module.BrowserHistory.clearHash();
         }
         
         $document.trigger('yoi-modal:hide');
@@ -4415,11 +5930,6 @@ YOI.Modal = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public methods
     // ==============
 
@@ -4433,7 +5943,7 @@ YOI.Modal = (function() {
 
 /** pageRewind.js */
 
-YOI.PageRewind = (function() {
+YOI.element.PageRewind = (function() {
 
     // private vars
     // ============
@@ -4444,14 +5954,17 @@ YOI.PageRewind = (function() {
     var $body     = $('body');
     var threshold = 500;
 
-    // get the document language, fall back to english
-    // note: only german and english supported at this moment
-
-    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
-
-    var labelTxt = {
-        'en' : 'scroll back to top',
-        'de' : 'Zurück zum Seitenanfang'
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'labelTxt' : 'scroll back to top'
+        },
+        'de' : {
+            'labelTxt' : 'Zurück zum Seitenanfang'
+        }
     };
 
     // private functions
@@ -4467,7 +5980,7 @@ YOI.PageRewind = (function() {
 
         $pageRewind = $(
             '<a class="pageRewind" href="#">\
-                <span class="hidden">' + labelTxt[language] + '</span>\
+                <span class="hidden">' + localization[language]['labelTxt'] + '</span>\
             </a>'
         );
 
@@ -4523,11 +6036,6 @@ YOI.PageRewind = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -4539,7 +6047,7 @@ YOI.PageRewind = (function() {
 })();
 /** pickBtn.js */
 
-YOI.PickBtn = (function() {
+YOI.element.PickBtn = (function() {
 
     // private vars
     // ============
@@ -4615,11 +6123,6 @@ YOI.PickBtn = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -4631,7 +6134,7 @@ YOI.PickBtn = (function() {
 
 /** pieChart.js */
 
-YOI.PieChart = (function() {
+YOI.element.PieChart = (function() {
 
     // private vars
     // ============
@@ -4665,14 +6168,11 @@ YOI.PieChart = (function() {
          *  @option {string} baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
          *                               Sets the base color, used to calculate a unique color for each
          *                               slice of the pie chart.
-         *
          *  @option {bool}   highlight - Default is true. Set to false if you wish to disable highlighting individual
          *                               slices on mouse over.
-         *
          *  @option {string} palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
          *                               Selects the formula used to calculate the unique color for
          *                               each slice of the pie chart.
-         *
          *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
         
@@ -5011,11 +6511,6 @@ YOI.PieChart = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -5030,7 +6525,7 @@ YOI.PieChart = (function() {
 
 /** popOver.js */
 
-YOI.PopOver = (function() {
+YOI.element.PopOver = (function() {
     
     // private vars
     // ============
@@ -5349,11 +6844,6 @@ YOI.PopOver = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -5366,7 +6856,7 @@ YOI.PopOver = (function() {
 
 /** rangeInput.js */
 
-YOI.RangeInput = (function() {
+YOI.element.RangeInput = (function() {
 
     // private vars
     // ============
@@ -5725,11 +7215,6 @@ YOI.RangeInput = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
 
     return {
@@ -5740,7 +7225,9 @@ YOI.RangeInput = (function() {
 
 })();
 
-YOI.RatingInput = (function() {
+/** ratingInput.js */
+
+YOI.element.RatingInput = (function() {
 
     // private vars
     // ============
@@ -5881,11 +7368,6 @@ YOI.RatingInput = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -5899,14 +7381,29 @@ YOI.RatingInput = (function() {
 })();
 /** slider.js */
 
-YOI.Slider = (function() {
+YOI.element.Slider = (function() {
 
     // private vars
     // ============
 
-    var $window      = $(window);
-    var btnLabelNext = YOI.locale === 'de' ? 'weiter' : 'next';
-    var btnLabelPrev = YOI.locale === 'de' ? 'zurück' : 'previous';
+    var $window = $(window);
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelNext' : 'next',
+            'btnLabelPrev' : 'previous'
+        },
+        'de' : {
+            'btnLabelNext' : 'weiter',
+            'btnLabelPrev' : 'zurück'
+        }
+    };
+    
+    // templates
 
     var slideControls = {
 
@@ -5915,13 +7412,13 @@ YOI.Slider = (function() {
         'pageBtns': $('\
             <div class="pageBtns">\
                 <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </button>\
                 <span class="pageBtns__indicator">\
                     <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
                 </span>\
                 <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
@@ -5931,10 +7428,10 @@ YOI.Slider = (function() {
         'flipBtns': $('\
             <div class="flipBtns">\
                 <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -5942,10 +7439,10 @@ YOI.Slider = (function() {
         'flipBtns--inset': $('\
             <div class="flipBtns flipBtns--inset">\
                 <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -5955,10 +7452,10 @@ YOI.Slider = (function() {
         'pageDots': $('\
             <div class="pageDots">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -5966,10 +7463,10 @@ YOI.Slider = (function() {
         'pageDots--dark': $('\
             <div class="pageDots pageDots--dark">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -5977,10 +7474,10 @@ YOI.Slider = (function() {
         'pageDots--subtle': $('\
             <div class="pageDots pageDots--subtle">\
                 <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + btnLabelPrev + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </a>\
                 <a class="pageDots__btnNext">\
-                    <span class="hidden">' + btnLabelNext + '</span>\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
                 </a>\
             </div>\
         ')
@@ -6364,11 +7861,6 @@ YOI.Slider = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -6383,22 +7875,36 @@ YOI.Slider = (function() {
 
 /** stepper.js */
 
-YOI.Stepper = (function() {
+YOI.element.Stepper = (function() {
 
     // private vars
     // ============
-
-    var btnLabelMore = YOI.locale === 'de' ? 'mehr'    : 'more';
-    var btnLabelLess = YOI.locale === 'de' ? 'weniger' : 'less';
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelMore' : 'more',
+            'btnLabelLess' : 'less'
+        },
+        'de' : {
+            'btnLabelMore' : 'mehr',
+            'btnLabelLess' : 'weniger'
+        }
+    };
+    
+    // templates
 
     var $stepperBtns = $('\
         <div class="stepper__btnPlus">\
             <span class="stepper__iconPlus"></span>\
-            <span class="hidden">' + btnLabelMore + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelMore'] + '</span>\
         </div>\
         <div class="stepper__btnMinus">\
             <span class="stepper__iconMinus"></span>\
-            <span class="hidden">' + btnLabelLess + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelLess'] + '</span>\
         </div>\
     ');
 
@@ -6439,14 +7945,6 @@ YOI.Stepper = (function() {
             $thisStepper.find('.stepper__input').blur(function() {
                 checkInput($thisStepper);
             });
-
-            // $thisStepper
-            //     .on('swipeleft', function(e) {
-            //         decreaseItemCount($thisStepper);
-            //     })
-            //     .on('swiperight', function(e) {
-            //         increaseItemCount($thisStepper);
-            //     });
 
         });
 
@@ -6524,11 +8022,6 @@ YOI.Stepper = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -6542,30 +8035,32 @@ YOI.Stepper = (function() {
 
 /** switch.js */
 
-YOI.Switch = (function() {
+YOI.element.Switch = (function() {
 
     // private vars
     // ============
-
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'labelOn'  : 'On',
+            'labelOff' : 'Off'
+        },
+        'de' : {
+            'labelOn'  : 'Ein',
+            'labelOff' : 'Aus'
+        }
+    };
+    
+    // templates
+    
     var $labelOn  = $('<span class="switch__labelOn"></span>');
     var $labelOff = $('<span class="switch__labelOff"></span>');
     var $knob     = $('<span class="switch__knob"></span>');
-
-    var labelOnTxt = {
-        'de' : 'Ein',
-        'en' : 'On'
-    };
-
-    var labelOffTxt = {
-        'de' : 'Aus',
-        'en' : 'Off'
-    };
-
-    // get the document language, fall back to english
-    // note: only german and english supported at this moment
-
-    var language = typeof YOI.locale() !== 'object' || YOI.locale() === undefined || YOI.locale() === '' ? 'en' : YOI.locale();
-
+    
     // private functions
     // =================
 
@@ -6595,8 +8090,8 @@ YOI.Switch = (function() {
 
             // get the label text
 
-            thisLabelOnText  = options.labelOn !== undefined ? options.labelOn : labelOnTxt[language];
-            thisLabelOffText = options.labelOff !== undefined ? options.labelOff : labelOffTxt[language];
+            thisLabelOnText  = options.labelOn !== undefined ? options.labelOn : localization[language]['labelOn'];
+            thisLabelOffText = options.labelOff !== undefined ? options.labelOff : localization[language]['labelOff'];
 
             // prepare the dom
 
@@ -6682,11 +8177,6 @@ YOI.Switch = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -6700,7 +8190,7 @@ YOI.Switch = (function() {
 })();
 /** tables.js */
 
-YOI.Table = (function() {
+YOI.element.Table = (function() {
 
     // private functions
     // =================
@@ -6834,11 +8324,6 @@ YOI.Table = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -6852,13 +8337,13 @@ YOI.Table = (function() {
 
 /** tabs.js */
 
-YOI.Tabs = (function() {
+YOI.element.Tabs = (function() {
 
     // private functions
     // =================
 
     function initialize($tabsMenu, options) {
-        
+
         /**
          *  Initialize the script.
          *
@@ -6908,7 +8393,7 @@ YOI.Tabs = (function() {
             // if start tab was in hash, scroll to start tab
             
             if (YOI.foundModule('ScrollTo') && urlTabId !== '')
-                YOI.ScrollTo.target(urlTabId);
+                YOI.module.ScrollTo.target(urlTabId);
 
             // attach click event to menu items
 
@@ -6957,11 +8442,6 @@ YOI.Tabs = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -6974,7 +8454,7 @@ YOI.Tabs = (function() {
 
 /** toolTip.js */
 
-YOI.Tooltip = (function() {
+YOI.element.Tooltip = (function() {
 
     // private vars
     // ============
@@ -7208,11 +8688,6 @@ YOI.Tooltip = (function() {
 
     }
 
-    // initialize
-    // ==========
-
-    initialize();
-
     // public functions
     // ================
 
@@ -7221,1353 +8696,6 @@ YOI.Tooltip = (function() {
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
-    };
-
-})();
-
-/** dismiss.js */
-
-YOI.Dismiss = (function() {
-
-    // private vars
-    // ============
-
-    var $btnDismiss;
-    var btnLabelClose = YOI.locale === 'de' ? 'schliessen' : 'close';
-
-    $btnDismiss = $('\
-        <span class="btnDismiss">' + btnLabelClose + '</span>\
-    ');
-
-    // private functions
-    // =================
-
-    function initialize($dismissableElement, options) {
-        
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $dismissableElement
-         *  @param {object}            options
-         */
-        
-        var $dismissableElement = YOI.createCollection('dismissable', $dismissableElement, options);
-
-        if ($dismissableElement) $dismissableElement.each(function() {
-
-            var $thisDismissableElement = $(this);
-
-            // attach button and events
-
-            $btnDismiss
-                .clone()
-                .on('click', function(e) {
-                    e.preventDefault();
-                    dismiss($thisDismissableElement);
-                })
-                .appendTo($thisDismissableElement);
-
-        });
-
-    }
-
-    function dismiss($targetElement) {
-
-        /**
-         *  Close and remove any target element.
-         *
-         *  @param {jQuery dom object} $targetElement - the target element
-         */
-
-        if (!($targetElement instanceof jQuery)) return false;
-
-        $targetElement.fadeOut(function() {
-            $targetElement.trigger('yoi-dismissed');
-            $targetElement.remove();
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init  : initialize,
-        apply : dismiss
-    };
-
-})();
-
-/** hide.js */
-
-YOI.Hide = (function() {
-
-    // private functions
-    // =================
-
-    function initialize($trigger, options) {
-
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $trigger
-         *  @param {object}            options
-         */
-        
-        var $trigger = YOI.createCollection('hide', $trigger, options);
-
-        if ($trigger) $trigger.each(function(index){
-
-            var $thisTrigger = $(this);
-            var options      = $thisTrigger.data().options;
-            var transition   = options.transition;
-            var $target      = $(options.target);
-            var event        = options.event;
-
-            // cancel if no target was defined
-
-            if (!($target instanceof jQuery)) return false;
-
-            // apply event on trigger and hide target
-
-            $thisTrigger.on(event, function(e) {
-                hide($target, transition);
-            });
-
-        });
-
-    }
-    
-    function hide($target, transition) {
-        
-        /**
-         *  Hides the target element.
-         *
-         *  @param {jQuery dom object} $target
-         *  @param {string}            transition
-         */
-        
-        // exit the script if no or an invalid target was supplied
-        
-        if (!($target instanceof jQuery)) return false;
-        
-        var transition = transition;
-        
-        // hide the target
-        
-        if (transition === 'fadeOut') {
-            $target.fadeOut();
-        } else if (transition === 'slideUp') {
-            $target.slideUp();
-        } else {
-            $target.hide();
-        }
-        
-        // trigger custom event
-        
-        $target.trigger('yoi-hide');
-        
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init  : initialize,
-        apply : hide
-    };
-
-})();
-/** microSubmit.js */
-
-YOI.MicroSubmit = (function() {
-
-    // private vars
-    // ============
-
-    var $response = $('\
-        <span class="tc-green-12 fw-bold">OK</span>\
-    ');
-
-    // private functions
-    // =================
-
-    function initialize($microSubmit, options) {
-
-        /**
-         *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
-         *  or target one or more specific form[yoi-microsubmit] (= function call with $microSubmit).
-         *  $microSubmit must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <form data-microsubmit="response:#myCustomResponse;"></form>
-         *
-         *  Available options:
-         *
-         *  @option {string} response - a CSS selector (most likely an #id) to select the dom
-         *                              element which is displayed after submit
-         */
-
-        if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('form[yoi-microsubmit]');
-        }
-
-        $microSubmit.each(function() {
-
-            var $thisForm       = $(this);
-            var options         = options === undefined ? YOI.toObject($thisForm.data('microsubmit')) : options;
-            var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
-            var thisMessage     = $thisForm.find('input').val();
-            var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
-
-            // hide response content first
-
-            YOI.hide($thisResponse);
-
-            // cancel if no target url (for ajax send) was found
-
-            if (!receiver) return false;
-
-            // submit form, show msg
-
-            $thisForm.submit(function(e) {
-
-                e.preventDefault();
-
-                $.ajax({
-                    url: receiver,
-                    type: 'POST',
-                    data: {
-                        input: thisMessage
-                    },
-                    complete: function(response){
-                        $thisForm.replaceWith($thisResponse);
-                        YOI.show($thisResponse);
-                    }
-                });
-
-            });
-
-            /**
-             *  It doesn't add any value to display an error message.
-             *  Even if the submission fails, let's pretend it worked all fine.
-             *  It's much better to track these errors internally.
-             */
-
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init : initialize
-    };
-
-})();
-
-/** remove.js */
-
-YOI.Remove = (function() {
-
-    // private functions
-    // =================
-
-    function initialize($removeTrigger, options) {
-    
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $removeTrigger
-         *  @param {object}            options
-         */
-        
-        var $removeTrigger = YOI.createCollection('remove', $removeTrigger, options);
-
-        if ($removeTrigger) $removeTrigger.each(function() {
-
-            var $thisremoveTrigger = $(this);
-            var options            = $thisremoveTrigger.data().options;
-            var $thisTarget        = options.target !== undefined && $(options.target).length ? $(options.target) : $thisremoveTrigger.parent();
-            
-            // set default options via variable assignment.
-            
-            $thisremoveTrigger.on('click', function(e) {
-                e.preventDefault();
-                remove($thisTarget);
-            });
-
-        });
-
-    }
-    
-    function remove($target) {
-        
-        /**
-         *  Fade-out and remove the target element from the dom.
-         *
-         *  @param  {jQuery dom object} $target - the target element in dom
-         */
-        
-        $target.fadeOut(function(){
-            $target.trigger('yoi-remove');
-            $target.remove();
-        });
-        
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init  : initialize,
-        apply : remove
-    };
-
-})();
-/** reveal.js */
-
-YOI.Reveal = (function() {
-
-    // private functions
-    // =================
-
-    function initialize($revealTrigger, options) {
-        
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $revealTrigger
-         *  @param {object}            options
-         *
-         *  Available options:
-         *
-         *  @option {string} target     - A string which is used as CSS-selector for the target element
-         *                                (eg. '#myTarget' or '.myTarget', etc.)
-         *
-         *  @option {string} event      - A string which defines the event which gets bound to the
-         *                                trigger element. All standard event handlers from jQuery
-         *                                can be used.
-         *
-         *  @option {string} transition - Chose from two jQuery animations: 'fadeIn' and 'slideDown'.
-         *
-         *  @option {bool} hideTarget   - Hide the target on page init? Default is true.
-         */
-        
-        var $revealTrigger = YOI.createCollection('reveal', $revealTrigger, options);
-
-        if ($revealTrigger) $revealTrigger.each(function(index){
-
-            // set up vars
-
-            var $thisRevealTrigger = $(this);
-            var options            = $thisRevealTrigger.data().options;
-            var target             = options.target !== undefined ? options.target : false;
-            var event              = options.event !== undefined ? options.event : 'click';
-            var transition         = options.transition !== undefined ? options.transition : false;
-            var hideTarget         = options.hideTarget !== undefined ? options.hideTarget : true;
-
-            // cancel if no target was defined
-
-            if (!target) return false;
-
-            // hide target elements first, may be overridden
-            // by options
-
-            if (hideTarget) $(target).hide();
-
-            // apply event on trigger and hide target
-
-            $thisRevealTrigger.on(event, function(e) {
-                if (transition === 'fadeOut') {
-                    $(target).fadeOut();
-                } else if (transition === 'slideUp') {
-                    $(target).slideUp();
-                } else {
-                    $(target).hide();
-                }
-            });
-            
-            // trigger custom event
-            
-            $thisRevealTrigger.trigger('yoi-reveal');
-
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init: initialize
-    };
-
-})();
-/** ScrollAgent.js */
-
-YOI.ScrollAgent = (function() {
-
-    // private vars
-    // ============
-    
-    var $window              = $(window);
-    var viewPortHeight       = $window.height();
-    var lastScrollTop        = 0;
-    var offset               = 0;
-    var scrollTop;
-    var viewportIn;
-    var viewportOut;
-    var viewportCenter;
-    var scrollDirection;
-    var lastScrollDirection;
-    
-    // private functions
-    // =================
-    
-    function initialize($targetElement, options) {
-        
-       /**
-        *  Initialize the script.
-        *
-        *  @param {jQuery dom object} $inputElement
-        *  @param {object}            options
-        */
-
-        var $targetElement = YOI.createCollection('scrollagent', $targetElement, options);
-        
-        // map data to each target element
-        
-        if ($targetElement) $targetElement.each(function() {
-            updateTargetElement($(this));
-        });
-        
-        // update the viewport height on resize
-
-        $window.on('resize', function() {
-            viewPortHeight = $window.height();
-        });
-
-        // start internal observer and listener
-        
-        if ($targetElement) observe($targetElement);
-        if ($targetElement) listen($targetElement);
-    
-    }
-    
-    function updateTargetElement($targetElement) {
-        
-        /**
-         *  Reads data from the custom data-attribute and from calculations (eg. height)
-         *  and maps the data directly to it's target objects via jQuery's data() method.
-         *
-         *  @param {jQuery dom object} $targetElement - the target element
-         */
-        
-        var thisHeight      = $targetElement.outerHeight();
-        var thisInitialPosY = $targetElement.offset().top;
-
-        // write data
-
-        $targetElement.data().props = {
-            'height'      : thisHeight,
-            'initialPosY' : thisInitialPosY
-        };
-        
-        $targetElement.data().state = 'out';
-
-    }
-    
-    function observe($targetElements) {
-        
-        /**
-         *  Observes all target elements and fires custom events weather the
-         *  element enters or leaves the viewport.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
-         */
-        
-        $window.on('scroll', function() {
-
-            // get current scroll position & current scroll direction
-            
-            scrollTop       = $window.scrollTop();
-            scrollDirection = scrollTop >= lastScrollTop ? 'down' : 'up';
-            
-            // observe all target elements
-
-            $targetElements.each(function(index) {
-                
-                // variable assignments for better readability only
-                
-                var $targetElement = $(this);
-                var state          = $targetElement.data().state;
-                var initialPosY    = $targetElement.data().props.initialPosY;
-                var height         = $targetElement.data().props.height;
-                
-                // calculate viewPortIn & viewPortOut
-                
-                viewportIn     = (scrollTop + viewPortHeight) > (initialPosY + offset) && scrollTop + offset < (initialPosY + height);
-                viewportCenter = (scrollTop + viewPortHeight / 2) > initialPosY && (scrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
-                viewportOut    = !viewportIn;
-                
-                // trigger custom viewport-events
-                
-                if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport:in');
-                if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport:center');
-                if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport:out');
-                
-                // trigger scroll direction event
-
-                if (scrollDirection !== lastScrollDirection) {
-                    $targetElement.trigger('yoi-scrolldirection:' + scrollDirection);
-                }
-                
-                // save the last scroll position and the last scroll direction
-                
-                lastScrollTop       = scrollTop > 0 ? scrollTop : 0;
-                lastScrollDirection = scrollDirection;
-                
-            });
-
-        });
-
-    }
-    
-    function listen($targetElements) {
-
-        /**
-         *  Listens to the custom events fired by each target element (entering or leaving viewport)
-         *  and maps the current state ("in" or "out") directly to each target object via jQuery's data() method.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
-         */
-
-        $targetElements.each(function() {
-
-            var $targetElement = $(this);
-
-            $targetElement.on('yoi-viewport:in', function() {
-                $targetElement.data().state = 'in';
-            });
-            
-            $targetElement.on('yoi-viewport:center', function() {
-                $targetElement.data().state = 'center';
-            });
-
-            $targetElement.on('yoi-viewport:out', function() {
-                $targetElement.data().state = 'out';
-            });
-
-        });
-
-    }
-    
-    // initialize
-    // ==========
-    
-    initialize();
-    
-    // public functions
-    // ================
-    
-    return {
-        init: initialize
-    };
-
-})();
-YOI.ScrollFx = (function() {
-
-    // private functions
-    // =================
-    
-    function initialize($targetElement, options) {
-        
-       /**
-        *  Initialize the script.
-        *
-        *  @param {jQuery dom object} $inputElement
-        *  @param {object}            options
-        */
-        
-        var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
-        
-        if ($targetElement) $targetElement.each(function() {
-
-            var $targetElement = $(this);
-
-            YOI.ScrollAgent.init($targetElement);
-
-            addTargetElementInitialCss($targetElement);
-
-            // start listener
-
-            listen($targetElement);
-
-        });
-
-    }
-    
-    function addTargetElementInitialCss($targetElement) {
-        
-        /**
-         *  If the target element uses the internal fx (css-)classes,
-         *  this method adds the corresponding initial (css-)class.
-         *
-         *  @param {jQuery dom object} $targetElement - the target element
-         */
-        
-        var options  = $targetElement.data().options;
-        var inFx     = options.in !== undefined ? options.in : false;
-        var centerFx = options.center !== undefined ? options.center : false;
-        
-        if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
-        if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
-        
-        $targetElement.removeClass('fx-' + inFx);
-        $targetElement.removeClass('fx-' + centerFx);
-
-    }
-    
-    function listen($targetElements) {
-        
-        /**
-         *  Listens to the custom events (entering or leaving viewport) and
-         *  applies fx accordingly.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
-         */
-        
-        $targetElements.each(function() {
-            
-            var $targetElement = $(this);
-            var options        = $targetElement.data().options;
-            var inFx           = options.in !== undefined ? options.in : false;
-            var centerFx       = options.center !== undefined ? options.center : false;
-            var speed          = options.speed !== undefined ? options.speed : false;
-            var repeat         = options.repeat !== undefined ? options.repeat : true;
-            
-            $targetElement.on('yoi-viewport:in', function() {
-                
-                // add inFx
-                
-                if (inFx) {
-                    $targetElement.removeClass('fx-' + inFx + '-initial');
-                    $targetElement.addClass('fx-' + inFx);
-                }
-                
-                // set speed
-                
-                if (speed) {
-                    $targetElement.addClass('fx-' + speed);
-                }
-                
-            });
-            
-            $targetElement.on('yoi-viewport:center', function() {
-                
-                // add centerFx
-
-                if (centerFx) {
-                    $targetElement.removeClass('fx-' + centerFx + '-initial');
-                    $targetElement.addClass('fx-' + centerFx);
-                }
-
-                // set speed
-
-                if (speed) {
-                    $targetElement.addClass('fx-' + speed);
-                }
-
-            });
-            
-            $targetElement.on('yoi-viewport:out', function() {
-                
-                // add initial css
-                
-                addTargetElementInitialCss($targetElement);
-                
-                // no reapeat
-                
-                if (repeat !== true) $targetElement.addClass('fx-off');
-                
-            });
-            
-        });
-        
-    }
-    
-    // initialize
-    // ==========
-    
-    initialize();
-    
-    // public functions
-    // ================
-    
-    return {
-        init: initialize
-    };
-
-})();
-/** scrollTo.js */
-
-YOI.ScrollTo = (function() {
-
-    // private vars
-    // ============
-    
-    var $document = $(document);
-
-    switch ($('body').data('environment')) {
-        case 'desktop':
-            var offset = 220;
-            break;
-        case 'mobile':
-            var offset = 80;
-            break;
-        default:
-            var offset = 20;
-    }
-
-    // private functions
-    // =================
-
-    function initialize($scrollToTrigger, options) {
-
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $trigger
-         *  @param {object}            options
-         *
-         *  Available options:
-         *
-         *  @option {string} highlight - Define an optional effect to highlight the target element once
-         *                               the scrolling has stopped. Chose from "blink" and "pulse".
-         */
-        
-        var $scrollToTrigger = YOI.createCollection('scrollto', $scrollToTrigger, options);
-
-        if ($scrollToTrigger) $scrollToTrigger.each(function() {
-
-            var $thisTrigger = $(this);
-            var targetId     = $thisTrigger[0].hash;
-
-            $thisTrigger.on('click', function(e) {
-
-                // scroll to anchor if target element is found
-
-                if ($(targetId).length) {
-                    e.preventDefault();
-                    scrollToTarget(targetId, $thisTrigger);
-                }
-
-            });
-
-        });
-
-    }
-
-    function scrollToTarget(targetId, $thisTrigger, options) {
-        
-
-        /**
-         *  Scroll the page to a given target element.
-         *
-         *  @param {string} targetId     - the target element css id (e.g. "#myTarget")
-         *  @param {string} $thisTrigger - the scrollTo trigger element
-         */
-
-        var $target              = $(targetId);
-        var $scrollContext;
-        var $scrollContainer     = $target.closest('.scrl-y');
-        var targetFound          = $target.length > 0 ? true : false;
-        var scrollContainerFound = $scrollContainer.length > 0 ? true : false;
-        var scrollPosY;
-        var options              = options === undefined ? $thisTrigger.data().options : options;
-
-        // cancel if no target was found
-
-        if (!targetFound) return false;
-
-        // if target is a tab, switch to the tab
-
-        if ($target.hasClass('tabs__page') && YOI.foundModule('Tabs')) {
-            YOI.Tabs.switchTo(targetId);
-        }
-
-        // if the target is wrapped inside a container with
-        // scroll-overflow, scroll this container. otherwise,
-        // scroll the whole page.
-
-        if (scrollContainerFound) {
-            scrollPosY     = '+=' + $target.position().top;
-            $scrollContext = $target.closest('.scrl-y');
-        } else {
-            scrollPosY     = $target.offset().top - offset;
-            $scrollContext = $('body');
-        }
-
-        // start the scroll animation and apply optional highlight effect
-
-        $document.trigger('yoi-scrollto:start');
-
-        $.when(
-            $scrollContext.stop().animate({
-                scrollTop: scrollPosY
-            }, 500)
-        ).done(function(){
-            if (options.highlight === 'blink') YOI.blink($target);
-            if (options.highlight === 'pulse') YOI.pulse($target);
-            $document.trigger('yoi-scrollto:end');
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init   : initialize,
-        target : scrollToTarget
-    };
-
-})();
-
-YOI.Sticky = (function() {
-
-    // private vars
-    // ============
-
-    var $body   = $('body');
-    var $window = $(window);
-
-    // private functions
-    // =================
-
-    function initialize($stickyElement, options) {
-
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $$stickyElement
-         *  @param {object}            options
-         *
-         *  Available options:
-         *
-         *  @option {number} start     - The distance between the sticky element top position and the
-         *                               viewport top border at the moment the element sticks.
-         *                               The default value is 0.
-         *  @option {number} stop      - The distance between the sticky element initial top position
-         *                               and the sticky element final top position at the moment it
-         *                               stops sticking. The default value is the body height, which results
-         *                               in sticking as long as the page can be scrolled.
-         *  @option {string} reference - If the value is the keyword/string "parent", the sticky
-         *                               element's fist parent element is referenced to control the
-         *                               sticky element.
-         *                               If the value is a jQuery-compatible CSS-selector, the script
-         *                               selects the first matching element on the page and references
-         *                               it's height to define a stop position for the sticky element.
-         *                               The sticky element "sticks" as long as it's bottom aligns with
-         *                               the reference element's bottom.
-         */
-        
-        var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
-
-        if ($stickyElement) $stickyElement.each(function(index) {
-            
-
-            var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
-            
-            console.log('init: ' + $thisStickyElement.offset().top);
-            
-            
-            // update each sticky element's data
-
-            updateStickyElementProps($thisStickyElement);
-
-            // do the necessary dom manipulation
-
-            manipulateDom($thisStickyElement, $thisStickyElementClone);
-
-        });
-
-        // start position & stick observers
-
-        if ($stickyElement) positionObserver($stickyElement);
-        if ($stickyElement) stickObserver($stickyElement);
-
-    }
-
-    function manipulateDom($stickyElement, $stickyElementClone) {
-
-        /**
-         *  Perform all necessary dom manipulations. Takes a clone of the original
-         *  sticky element, injects it as a direct child of the body and sets it to
-         *  absolute positioning. While being "sticky", the clone is set to fixed positioning.
-         *  The original element is kept as an empty element with it's initial width
-         *  and height. The visibility is set to "hidden" in order to preserve the page layout.
-         *
-         *  @param {jQuery dom object} $stickyElement      - the sticky element
-         *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
-         */
-        
-        // prepare the cloned element
-        
-        console.log('manipulateDom: ' + $stickyElement.offset().top);
-
-        $stickyElementClone.css({
-            'position'                    : 'absolute',
-            'width'                       : $stickyElement.outerWidth(),
-            'height'                      : $stickyElement.outerHeight(),
-            'top'                         : $stickyElement.offset().top,
-            'left'                        : $stickyElement.offset().left,
-            'backface-visibility'         : 'hidden',
-            '-webkit-backface-visibility' : 'hidden'
-        });
-
-        // append the cloned element
-
-        $body.append($stickyElementClone);
-
-        // prepare the original element
-
-        $stickyElement.css({
-            'width'      : $stickyElement.outerWidth(),
-            'height'     : $stickyElement.outerHeight(),
-            'visibility' : 'hidden'
-        });
-
-        // empty the original element
-
-        $stickyElement.empty();
-
-    }
-
-    function updateStickyElementProps($stickyElement) {
-
-        /**
-         *  Reads options from the custom data-option interface and calculates other
-         *  important data, like initial position, dimensions, etc. Adds all data to the
-         *  $stickyElement props object, so that it is available for other functions.
-         *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
-         */
-
-        var options                       = $stickyElement.data().options;
-        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
-        var stickyElementheight           = $stickyElement.outerHeight();
-        var stickyElementInitialTopPos    = $stickyElement.offset().top;
-        var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
-        var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
-        var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
-        var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
-        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
-        var passedValidation              = validInput($stickyElement);
-
-        // the reference element is found in the dom
-
-        if ($referenceElement.length) {
-            stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementheight - topDistance;
-        }
-
-        // the reference element is the parent dom object of the sticky element,
-        // in this case, add the parent object's padding to the calculation
-
-        if ($referenceElement.length && options.reference === 'parent') {
-            stickStart = stickStart + parseInt($referenceElement.css('paddingTop'));
-            stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
-        }
-        
-        // write props data
-        
-        $stickyElement.data().props = {
-            passedValidation : passedValidation,
-            height           : stickyElementheight,
-            initialTopPos    : stickyElementInitialTopPos,
-            initialBottomPos : stickyElementInitialBottomPos,
-            topOffset        : topOffset,
-            topDistance      : topDistance,
-            stickStart       : stickStart,
-            stickStop        : stickStop
-        };
-        
-    }
-
-    function validInput($stickyElement) {
-
-        /**
-         *  Checks the input from the custom data-option interface and decides
-         *  weather it makes sense. For example it does not make sense if the
-         *  start position value is larger than the end position value. Stuff would break.
-         *  Returns true if the input is valid, false if not.
-         *
-         *  @param  {jQuery dom object} $stickyElement - the sticky element
-         *  @return {bool}                             - true if data is valid, false if data is invalid
-         */
-
-        var props      = $stickyElement.data().props;
-        var stickStart = props.stickStart;
-        var stickStop  = props.stickStop;
-        
-        if (stickStop < 1 || stickStart > stickStop || stickStart > $stickyElement.offset().top) {
-            return false;
-        } else {
-            return true;
-        }
-
-    }
-
-    function positionObserver($stickyElements) {
-
-        /**
-         *  Listens to the window resize event. If the event is fired, this function
-         *  updates the original $stickyElement data and updates the $stickyElementClone's
-         *  left position.
-         *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
-         */
-
-        $window.on('resize', function() {
-
-            $stickyElements.each(function(index) {
-
-                var $stickyElement      = $(this);
-                var $stickyElementClone = $('#stickyClone-' + index);
-
-                // if the sticky element passed validation (=> validInput),
-                // do the re-positioning
-
-                if (validInput($stickyElement)) {
-                    updateStickyElementProps($stickyElement);
-                    $stickyElementClone.css('left', $stickyElement.offset().left);
-                }
-
-            });
-
-        });
-
-    }
-
-    function stickObserver($stickyElements) {
-
-        /**
-         *  Listens to the window scroll event. If the event is fired, this function
-         *  observes all sticky elements and manipulates their position. If a sticky element
-         *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
-         *
-         *  @param {jQuery dom object} $stickyElements      - the sticky element(s)
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element(s)
-         */
-
-        $window.on('scroll', function() {
-
-            // store the scroll position
-
-            var scrollTop = $window.scrollTop();
-
-            // observe all sticky elements
-
-            $stickyElements.each(function(index) {
-
-                // variable assignments for better readability only
-                
-                // var topDistance                   = props.topDistance;
-                // var stickyElementheight           = props.height;
-                // var stickyElementInitialBottomPos = props.initialBottomPos;
-
-                var $stickyElement                = $(this);
-                var $stickyElementClone           = $('#stickyClone-' + index);
-                var props                         = $stickyElement.data().props;
-                var stickyElementInitialTopPos    = props.initialTopPos;
-                var stickStart                    = props.stickStart;
-                var stickStop                     = props.stickStop;
-                var topOffset                     = props.topOffset;
-                var cssPositionValue;
-                var cssTopValue;
-                
-                // proceed if the sticky element passed validation
-
-                if (props.passedValidation) {
-
-                    // re-position on scroll
-
-                    if (scrollTop < stickStart) {
-                        
-                        // outside top boundary
-
-                        cssPositionValue = 'absolute';
-                        cssTopValue      = stickyElementInitialTopPos;
-
-                    } else if (scrollTop > stickStop) {
-
-                        // outside bottom boundary
-
-                        cssPositionValue = 'absolute';
-                        cssTopValue      = stickStop + topOffset;
-
-                    } else {
-                        
-                        // inside boundaries
-
-                        cssPositionValue = 'fixed';
-                        cssTopValue      = 0 + topOffset;
-
-                    }
-
-                    // set the css
-
-                    $stickyElementClone.css({
-                        'position' : cssPositionValue,
-                        'top'      : cssTopValue
-                    });
-
-                }
-
-            });
-
-        });
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init: initialize
-    };
-
-})();
-/** toggleGroup.js */
-
-YOI.ToggleGroup = (function() {
-
-    // private vars
-    // ============
-
-    var toggleTargetGroupIteration;
-    var resetToggleDelayTime = 300;
-
-    // private functions
-    // =================
-
-    function initialize($toggleGroup, options) {
-
-        /**
-         *  Initialize the script.
-         *
-         *  @param {jQuery dom object} $toggleGroup
-         *  @param {object}            options
-         *
-         *  Available options:
-         *
-         *  @option {string} target          - CSS-selector for target element
-         *  @option {string} group           - a unique string to group toggle elements
-         *  @option {string} activeClassName - to highlight an "active" trigger, this
-         *                                     CSS class name is added to the trigger
-         */
-        
-        var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
-
-        if ($toggleGroup) $toggleGroup.each(function(index) {
-
-            var $thisTrigger      = $(this);
-            var options           = $thisTrigger.data().options;
-            var target            = options.target;
-            var group             = options.group;
-            var event             = options.event !== undefined ? options.event : 'mouseover';
-            var activeClassName   = options.activeClassName;
-            var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
-
-            // group related toggle elements for easy dom-access
-
-            $(target).addClass('toggleTargetGroup-' + group);
-            $thisTrigger.addClass('toggleTriggerGroup-' + group);
-
-            // toggle on event (default event = mouseover)
-
-            $thisTrigger.on(event, function(e) {
-                e.preventDefault();
-                toggle($thisTrigger);
-            });
-
-            if ($thisFallBackElem.length > 0 && event === 'mouseover') {
-
-                // If there is a fallback element defined,
-                // hide all targets since fallback is the first
-                // element to show. This only makes sense on
-                // mouseenter/mouseleave events, not on click.
-
-                $(target).hide();
-
-                // Add additional events to switch back
-                // to fallback element.
-
-                $thisTrigger
-                    .on('mouseenter', function() {
-                        YOI.clearDelay('resetToggleTimeout');
-                    })
-                    .on('mouseleave', function() {
-                        YOI.setDelay('resetToggleTimeout', resetToggleDelayTime, function(){
-                            reset($thisTrigger);
-                        });
-                    });
-
-            } else {
-
-                if (toggleTargetGroupIteration !== group) {
-
-                    // If there is no fallback element defined,
-                    // each time we start a new toggle group,
-                    // hide all targets but the first one.
-
-                    toggleTargetGroupIteration = group;
-
-                    // If an "activeClassName" was defined, add it
-                    // to the first trigger element.
-
-                    if (activeClassName !== undefined)
-                        $thisTrigger.addClass(activeClassName);
-
-                } else {
-
-                    // If a fall back element exists, hide all
-                    // target elements to only show the fall
-                    // back element.
-
-                    $(target).hide();
-                }
-
-            }
-
-        });
-
-    }
-
-    function toggle($thisTrigger) {
-
-        /**
-         *  Toggle a group, read required data from the trigger.
-         *
-         *  @param {jQuery dom object} $thisTrigger - the trigger
-         */
-
-        var options           = $thisTrigger.data().options;
-        var target            = options.target;
-        var group             = options.group;
-        var activeClassName   = options.activeClassName;
-
-        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
-
-        // Hide all elements from the same toggle group and
-        // show the target element.
-
-        $('.toggleTargetGroup-' + group).hide();
-        $(target).show();
-
-        if (activeClassName !== undefined) {
-            $('.toggleTriggerGroup-' + group).removeClass(activeClassName);
-            $thisTrigger.addClass(activeClassName);
-        }
-
-        // If there is a fall back element, hide it.
-
-        if ($thisFallBackElem !== undefined)
-            $thisFallBackElem.hide();
-        
-        // trigger custom event
-        
-        $thisTrigger.trigger('yoi-togglegroup:change');
-
-    }
-
-    function reset($thisTrigger) {
-
-        /**
-         *  Reset a group, read required data from the trigger.
-         *
-         *  @param {jQuery dom object} $thisTrigger - the trigger
-         */
-
-        var options           = $thisTrigger.data().options;
-        var group             = options.group;
-        var activeClassName   = options.activeClassName;
-
-        var $thisFallBackElem = $('[yoi-toggle-fallback="' + group + '"]');
-
-        // Remove active class name from trigger.
-
-        if (activeClassName !== undefined)
-            $('.toggleTriggerGroup-' + group).removeClass(activeClassName);
-
-        // Hide all elements from the same toggle group.
-
-        $('.toggleTargetGroup-' + group).hide();
-
-        // If there is a fall back element, show it.
-
-        if ($thisFallBackElem.length > 0)
-            $thisFallBackElem.fadeIn();
-        
-        // trigger custom event
-        
-        $thisTrigger.trigger('yoi-togglegroup:reset');
-
-    }
-
-    // initialize
-    // ==========
-
-    initialize();
-
-    // public functions
-    // ================
-
-    return {
-        init  : initialize,
-        reset : reset
     };
 
 })();

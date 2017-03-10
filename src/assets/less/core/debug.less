@@ -1,5 +1,16 @@
 /** debug.less */
 
+// debug options
+// =============
+
+@debugMediaquery   : true;
+@debugGrid         : false;
+@debugBemElements  : false;
+@debugBemModifiers : false;
+@debugImages       : false;
+@debugFloats       : false;
+@showCenterGuides  : false;
+
 // grid
 // ====
 
@@ -108,7 +119,7 @@ html::before when (@showCenterGuides = true) {
 // =============
 
 // "broadcast" the active mediaquery to JavaScript
-// --> helpers.js / currentBreakpoint()
+// --> YOI.currentBreakpoint()
 
 body::after when (@broadCastActiveMediaqueryToJs = true) {
 
@@ -131,25 +142,29 @@ body::after when (@broadCastActiveMediaqueryToJs = true) {
 // display the active media query for debugging
 
 body::after when (@debugMediaquery = true) {
-
+    
     .mixin-defaultBorderRadius;
-    background: #00ff8a;
-    bottom: 1rem;
-    color: #1f4f39;
-    content: 'none';
-    font-size: 1.5rem;
-    height: auto;
-    left: 1rem;
-    line-height: 2rem;
+    background: #111;
+    bottom: 2rem;
+    color: #690;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 1.2em;
+    height: 5rem;
+    left: 2rem;
+    line-height: 3;
     opacity: 1;
-    padding: 1rem;
+    padding: 0 2rem;
     position: fixed;
     width: auto;
-    z-index: 1000;
+    z-index: 999;
 
     @media @bp-only-s  { content: 'small';  }
     @media @bp-only-m  { content: 'medium'; }
     @media @bp-only-l  { content: 'large';  }
     @media @bp-only-xl { content: 'xlarge'; }
+    @bp-from-s         { content: 'from-small'; }
+    @bp-from-m         { content: 'from-medium'; }
+    @bp-from-l         { content: 'from-large'; }
+    @bp-from-xl        { content: 'from-xlarge'; }
 
 }

@@ -1,19 +1,22 @@
 /** forms.js */
 
-YOI.CustomFormElements = (function() {
+YOI.element.CustomFormElements = (function() {
 
     // private vars
     // ============
     
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change yoi-input:change');
+            $(this).find('input').trigger('change');
         });
 
     var $radioBtnWrapper = $('<span class="radio"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change yoi-input:change');
+            $(this).find('input').trigger('change');
         });
+        
+    var $selectWrapper = $('<span class="select"></span>');
+    var $selectIcon    = $('<span class="select__icon"></span>');
 
     // private functions
     // =================
@@ -43,106 +46,137 @@ YOI.CustomFormElements = (function() {
         var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
         var selects     = $(scope + 'select:not(.js-fallback)');
 
-        // prepare custom form elements
+        // checkboxes
 
         checkBoxes.each(function() {
 
-            var isWrappedInLabel = $(this).parents().index('label');
+            var $thisCheckbox    = $(this);
+            var isWrappedInLabel = $thisCheckbox.parents().index('label');
 
             if (isWrappedInLabel === -1) {
-                $(this).wrap($checkBoxWrapper.clone(true)); // clone with events
+                $thisCheckbox.wrap($checkBoxWrapper.clone(true)); // clone with events
             } else {
-                $(this).wrap($checkBoxWrapper.clone());     // clone without events
+                $thisCheckbox.wrap($checkBoxWrapper.clone());     // clone without events
             }
+            
+            // attach events
+            
+            $thisCheckbox.on({
+                'focus': function() {
+                    $thisCheckbox.parent().addClass('is--focus');
+                    $thisCheckbox.trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $thisCheckbox.parent().removeClass('is--focus');
+                    $thisCheckbox.trigger('yoi-input:blur');
+                },
+                'change': function(e) {
+                    $thisCheckbox.parent().toggleClass('is--checked');
+                    $thisCheckbox.trigger('yoi-input:change');
+                }
+            });
 
         });
+        
+        // radio buttons
 
         radioBtns.each(function() {
 
-            var isWrappedInLabel = $(this).parents().index('label');
+            var $thisRadioBtn    = $(this);
+            var isWrappedInLabel = $thisRadioBtn.parents().index('label');
 
             if (isWrappedInLabel === -1) {
-                $(this).wrap($radioBtnWrapper.clone(true)); // clone with events
+                $thisRadioBtn.wrap($radioBtnWrapper.clone(true)); // clone with events
             } else {
-                $(this).wrap($radioBtnWrapper.clone());     // clone without events
+                $thisRadioBtn.wrap($radioBtnWrapper.clone());     // clone without events
             }
+            
+            // attach events
+            
+            $thisRadioBtn.on({
+                'focus': function() {
+                    $thisRadioBtn.parent().addClass('is--focus');
+                    $thisRadioBtn.trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $thisRadioBtn.parent().removeClass('is--focus');
+                    $thisRadioBtn.trigger('yoi-input:blur');
+                },
+                'change': function(e) {
+                
+                    var groupName    = $thisRadioBtn.attr('name');
+                    var $groupedBtns = $('[name="' + groupName + '"]');
+
+                    $groupedBtns.parent().removeClass('is--checked');
+                    $thisRadioBtn.parent().addClass('is--checked');
+                    $thisRadioBtn.trigger('yoi-input:change');
+                
+                }
+            });
 
         });
+        
+        // selects
 
+        selects.each(function() {
+
+            var $thisSelect        = $(this);
+            var $thisSelectWrapper = $selectWrapper.clone();
+            var $thisSelectIcon    = $selectIcon.clone();
+
+            // prepare wrapper, keep modifiers
+
+            $thisSelectWrapper.addClass($thisSelect.attr('class'));
+
+            // inject elements
+
+            $thisSelect.wrap($thisSelectWrapper);
+            $thisSelect.parent().append($thisSelectIcon);
+
+            // remove classNames (modifiers) from select element
+
+            $thisSelect.removeAttr('class');
+            
+            // add events
+            
+            $thisSelect.on({
+                'focus': function() {
+                    $(this).parent().addClass('is--focus');
+                    $(this).trigger('yoi-input:focus');
+                },
+                'blur': function() {
+                    $(this).parent().removeClass('is--focus');
+                    $(this).trigger('yoi-input:blur');
+                },
+                'change': function() {
+                    $(this).trigger('yoi-input:change');
+                }
+            });
+
+        });
+        
+        // add css class names to check element wrappers
+        
         checkElemns.each(function() {
 
             var thisWrapper = $(this).parent();
 
-            // move class names from checkbox/radio-button
-            // to the wrapper
+            // move class names from an checkbox/radio-button/select
+            // element to it's wrapper
 
             thisWrapper.addClass($(this).attr('class'));
             $(this).removeAttr('class');
 
-            // checked?
+            // if the check element is already checked,
+            // add the "is--checked" modifier
 
             if ($(this).is(':checked')) {
                 thisWrapper.addClass('is--checked');
             }
 
         });
-
-        checkElemns.on({
-            'focus': function() {
-                $(this).parent().addClass('is--focus');
-                $(this).trigger('yoi-input:focus');
-            },
-            'blur': function() {
-                $(this).parent().removeClass('is--focus');
-                $(this).trigger('yoi-input:blur');
-            },
-            'change': function(e) {
-                $(this).parent().toggleClass('is--checked');
-                $(this).trigger('yoi-input:change');
-            }
-        });
-
-        selects.each(function() {
-
-            var $thisSelect    = $(this);
-            var $selectWrapper = $('<span></span>');
-            var $icon          = $('<span class="select__icon"></span>');
-
-            // prepare wrapper, keep modifiers
-
-            $selectWrapper.addClass($thisSelect.attr('class'));
-
-            // inject elements
-
-            $thisSelect.wrap($selectWrapper);
-            $thisSelect.parent().append($icon);
-
-            // remove classNames (modifiers) from select element
-
-            $thisSelect.removeAttr('class');
-
-        });
-
-        selects.on({
-            'focus': function() {
-                $(this).parent().addClass('is--focus');
-                $(this).trigger('yoi-input:focus');
-            },
-            'blur': function() {
-                $(this).parent().removeClass('is--focus');
-                $(this).trigger('yoi-input:blur');
-            },
-            'change': function() {
-                $(this).trigger('yoi-input:change');
-            }
-        });
-
+        
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

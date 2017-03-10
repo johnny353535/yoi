@@ -1,6 +1,6 @@
 /** pieChart.js */
 
-YOI.PieChart = (function() {
+YOI.element.PieChart = (function() {
 
     // private vars
     // ============
@@ -34,14 +34,11 @@ YOI.PieChart = (function() {
          *  @option {string} baseColor - hsl color as array string, eg: [130,25,50] - default is [208,50,60].
          *                               Sets the base color, used to calculate a unique color for each
          *                               slice of the pie chart.
-         *
          *  @option {bool}   highlight - Default is true. Set to false if you wish to disable highlighting individual
          *                               slices on mouse over.
-         *
          *  @option {string} palette   - "fixed" || "random" || "shades" || "unique" - default is "shades".
          *                               Selects the formula used to calculate the unique color for
          *                               each slice of the pie chart.
-         *
          *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
         
@@ -379,11 +376,6 @@ YOI.PieChart = (function() {
         $thisRecords.fadeTo(300, 1);
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

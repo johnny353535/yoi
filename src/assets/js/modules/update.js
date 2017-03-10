@@ -1,6 +1,6 @@
-/** microSubmit.js */
+/** update.js */
 
-YOI.MicroSubmit = (function() {
+YOI.module.Update = (function() {
 
     // private vars
     // ============
@@ -80,11 +80,6 @@ YOI.MicroSubmit = (function() {
         });
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

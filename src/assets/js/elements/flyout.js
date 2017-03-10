@@ -1,6 +1,6 @@
 /** flyouts.js */
 
-YOI.Flyout = (function() {
+YOI.element.Flyout = (function() {
 
     // private functions
     // =================
@@ -96,11 +96,6 @@ YOI.Flyout = (function() {
         $thisFlyout.data().state = 'hidden';
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

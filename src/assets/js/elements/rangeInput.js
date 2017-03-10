@@ -1,6 +1,6 @@
 /** rangeInput.js */
 
-YOI.RangeInput = (function() {
+YOI.element.RangeInput = (function() {
 
     // private vars
     // ============
@@ -358,11 +358,6 @@ YOI.RangeInput = (function() {
         }
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
 

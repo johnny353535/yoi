@@ -1,10 +1,12 @@
 /** countdown.js */
 
-YOI.Countdown = (function() {
+YOI.element.Countdown = (function() {
 
-    // countdown clock labels
-
-    var clockLabels = {
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
         'en' : {
             'days'    : 'Days',
             'hours'   : 'Hours',
@@ -49,6 +51,16 @@ YOI.Countdown = (function() {
          *
          *  @param {jQuery dom object} $countdown
          *  @param {object}            options
+         *
+         *  Available options:
+         *
+         *  @option {string} timezone - ISO 8601 time zone
+         *  @option {string} year     - end year (ISO 8601)
+         *  @option {string} month    - end month (ISO 8601)
+         *  @option {string} day      - end day (ISO 8601)
+         *  @option {string} hour     - end hour (ISO 8601)
+         *  @option {string} minute   - end minute (ISO 8601)
+         *  @option {string} second   - end second (ISO 8601)
          */
         
         var $countdown = YOI.createCollection('countdown', $countdown, options);
@@ -312,18 +324,12 @@ YOI.Countdown = (function() {
          */
 
         var $label   = $countdownCharacterLabel.clone();
-        var language = YOI.locale();
 
-        $label.text(clockLabels[language][unit]);
+        $label.text(localization[language][unit]);
 
         return $label;
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

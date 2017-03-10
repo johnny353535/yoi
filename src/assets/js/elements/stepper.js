@@ -1,21 +1,35 @@
 /** stepper.js */
 
-YOI.Stepper = (function() {
+YOI.element.Stepper = (function() {
 
     // private vars
     // ============
-
-    var btnLabelMore = YOI.locale === 'de' ? 'mehr'    : 'more';
-    var btnLabelLess = YOI.locale === 'de' ? 'weniger' : 'less';
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'btnLabelMore' : 'more',
+            'btnLabelLess' : 'less'
+        },
+        'de' : {
+            'btnLabelMore' : 'mehr',
+            'btnLabelLess' : 'weniger'
+        }
+    };
+    
+    // templates
 
     var $stepperBtns = $('\
         <div class="stepper__btnPlus">\
             <span class="stepper__iconPlus"></span>\
-            <span class="hidden">' + btnLabelMore + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelMore'] + '</span>\
         </div>\
         <div class="stepper__btnMinus">\
             <span class="stepper__iconMinus"></span>\
-            <span class="hidden">' + btnLabelLess + '</span>\
+            <span class="hidden">' + localization[language]['btnLabelLess'] + '</span>\
         </div>\
     ');
 
@@ -56,14 +70,6 @@ YOI.Stepper = (function() {
             $thisStepper.find('.stepper__input').blur(function() {
                 checkInput($thisStepper);
             });
-
-            // $thisStepper
-            //     .on('swipeleft', function(e) {
-            //         decreaseItemCount($thisStepper);
-            //     })
-            //     .on('swiperight', function(e) {
-            //         increaseItemCount($thisStepper);
-            //     });
 
         });
 
@@ -140,11 +146,6 @@ YOI.Stepper = (function() {
         }
 
     }
-
-    // initialize
-    // ==========
-
-    initialize();
 
     // public functions
     // ================

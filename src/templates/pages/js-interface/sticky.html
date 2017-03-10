@@ -8,11 +8,20 @@ Make any element on the page **stick** while scrolling past a certain threshold,
 |         |                                                                |
 | -       | -                                                              |
 | Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/modules/sticky.js) |
-| Hooks   | `yoi-sticky`                                                  |
+| Hooks   | `yoi-sticky`                                                   |
 
 ### Simple Example
 Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky*. While scrolling the page down, as soon as the vieport’s top border *touches* the element, it *sticks* at the viewport top while scrolling. If no other parameter is provided, the element *sticks as long as the page can be scrolled*. However, in this first simple example, one parameter is provided: *stop*.
 {% endmarkdown %}
+
+<div class="documentation__block">
+    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
+        <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
+        <div class="box h-40 w-20 p-1" id="myReferenceElement-1">
+            <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-1</span>
+        </div>
+    </div>
+</div>
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
@@ -27,19 +36,19 @@ Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky
 A very useful feature of this script is the *reference element*. A valid reference element is any element on the page which is top-aligned with the sticky element and which is taller than the sticky element.
 
 You can provide a reference element by adding a CSS-selector as a value for the option *reference*:
-{% endmarkdown %}
 
-<div class="documentation__block"><code class="language-js"><pre>yoi-sticky="reference:#myReferenceElement;"</pre></code></div>
+```html
+yoi-sticky="reference:#myReferenceElement;"
+```
 
-{% markdown %}
 The script selects the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* as long as it’s bottom aligns with the reference element’s bottom.
 {% endmarkdown %}
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement;"></div>
-        <div class="box h-40 w-20 p-1" id="myReferenceElement">
-            <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement</span>
+        <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-2;"></div>
+        <div class="box h-40 w-20 p-1" id="myReferenceElement-2">
+            <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-2</span>
         </div>
     </div>
 </div>
@@ -47,11 +56,10 @@ The script selects the first matching element on the page and references it’s 
 {% markdown %}
 #### The Parent Keyword
 Another possible value for the reference-parameter is the keyword `parent`:
-{% endmarkdown %}
 
-<div class="documentation__block"><code class="language-js"><pre>yoi-sticky="reference:parent;"</pre></code></div>
-
-{% markdown %}
+```html
+yoi-sticky="reference:parent;"
+```
 By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks *inside it’s parent element* as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.
 {% endmarkdown %}
 
@@ -60,7 +68,7 @@ By using this keyword, the script selects the sticky element’s surrounding ele
         <div class="w-30 p-r-4">
             <div class="box h-30 p-2">
                 <span class="tc-gray-15 fs-15 pos-tr m-t-1 m-r-2">parent element</span>
-                <div class="w-6 h-6 p-2 bg-red-15 br" xxyoi-sticky="reference:parent;"></div>
+                <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="reference:parent;"></div>
             </div>
         </div>
     </div>
@@ -100,25 +108,25 @@ The default value for `start` is 0. The default value for `stop` is the body hei
             <div class="w-1-4 p-r-4">
                 <p class="tc-gray-15 fs-15 m-b-4">start: none;<br />stop: 200;</p>
                 <div class="h-40 pos-rel" id="example-1">
-                    <div class="w-6 h-6 p-2 bg-red-15 br" xxyoi-sticky="stop:200;"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:200;"></div>
                 </div>
             </div>
             <div class="w-1-4 p-r-4">
                 <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 200;</p>
                 <div class="h-40 pos-rel" id="example-2">
-                    <div class="w-6 h-6 p-2 bg-red-15 br" xxyoi-sticky="start:30; stop:200;"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:200;"></div>
                 </div>
             </div>
             <div class="w-1-4 p-r-4">
                 <p class="tc-gray-15 fs-15 m-b-4">start: 180;<br />stop: 200;</p>
                 <div class="h-40 pos-rel" id="example-3">
-                    <div class="w-6 h-6 p-2 bg-red-15 br" xxyoi-sticky="start:180; stop:200;"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:180; stop:200;"></div>
                 </div>
             </div>
             <div class="w-1-4 p-r-4">
                 <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 350;</p>
                 <div class="h-40 pos-rel" id="example-4">
-                    <div class="w-6 h-6 p-2 bg-red-15 br" xxyoi-sticky="start:30; stop:350;"></div>
+                    <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:350;"></div>
                 </div>
             </div>
         </div>
@@ -133,7 +141,7 @@ The most obvious use case for this script might be a menu that sticks while scro
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">
         <div class="m-b-4 clearfix">
-            <div class="fl-l w-4 m-r-2" xxyoi-sticky="reference:parent">
+            <div class="fl-l w-4 m-r-2" yoi-sticky="reference:parent">
                 <div class="p-2 bg-blue-22 tc-blue-5 fw-bold br al-c">A</div>
             </div>
             <div class="fl-l w-1-2">
@@ -151,7 +159,7 @@ The most obvious use case for this script might be a menu that sticks while scro
             </div>
         </div>
         <div class="m-b-4 clearfix">
-            <div class="fl-l w-4 m-r-2" xxyoi-sticky="reference:parent">
+            <div class="fl-l w-4 m-r-2" yoi-sticky="reference:parent">
                 <div class="p-2 bg-blue-22 tc-blue-5 fw-bold br al-c">B</div>
             </div>
             <div class="fl-l w-1-2">
@@ -172,7 +180,7 @@ The most obvious use case for this script might be a menu that sticks while scro
             </div>
         </div>
         <div class="m-b-4 clearfix">
-            <div class="fl-l w-4 m-r-2" xxyoi-sticky="reference:parent">
+            <div class="fl-l w-4 m-r-2" yoi-sticky="reference:parent">
                 <div class="p-2 bg-blue-22 tc-blue-5 fw-bold br al-c">C</div>
             </div>
             <div class="fl-l w-1-2">
@@ -211,7 +219,7 @@ The most obvious use case for this script might be a menu that sticks while scro
             </div>
         </div>
         <div class="m-b-4 clearfix">
-            <div class="fl-l w-4 m-r-2" xxyoi-sticky="reference:parent">
+            <div class="fl-l w-4 m-r-2" yoi-sticky="reference:parent">
                 <div class="p-2 bg-blue-22 tc-blue-5 fw-bold br al-c">D</div>
             </div>
             <div class="fl-l w-1-2">

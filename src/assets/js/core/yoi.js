@@ -1,9 +1,9 @@
 /** yoi.js */
 
 var YOI = (function() {
-    
+
     return {
-        
+    
         // helpers
 
         stringContains : function(input, searchString) {
@@ -30,7 +30,7 @@ var YOI = (function() {
             }
 
         },
-        
+    
         zeroPad : function(num, digits) {
 
             /**
@@ -54,7 +54,7 @@ var YOI = (function() {
             return (leadingZeros + num).slice(-digits-1);
 
         },
-        
+    
         foundModule : function(module) {
 
             /**
@@ -64,7 +64,7 @@ var YOI = (function() {
              *  @return {bool}
              */
 
-            if (typeof window.YOI[module] === 'object') {
+            if (typeof window.YOI.module[module] === 'object') {
                 return true;
             } else {
                 return false;
@@ -72,6 +72,23 @@ var YOI = (function() {
 
         },
         
+        foundElement : function(element) {
+
+            /**
+             *  Syntax sugar to test if an element is available.
+             *
+             *  @param  {string} element - the exact name of the element variable
+             *  @return {bool}
+             */
+
+            if (typeof window.YOI.element[element] === 'object') {
+                return true;
+            } else {
+                return false;
+            }
+
+        },
+    
         setDelay : function(delayName, delayTime, delayFunction) {
 
             /**
@@ -146,7 +163,7 @@ var YOI = (function() {
             }
 
         },
-        
+    
         toObject : function(input) {
 
             /*
@@ -174,14 +191,14 @@ var YOI = (function() {
             var properObject = {};
 
             if (YOI.stringContains(input, ':')) {
-                
+            
                 // set the start- and end-markers for values
                 // note: if the value contains at least one colon, wrap the value
                 // in single quotes
-                
+            
                 var valueStartMarker;
                 var keyValuePairEndMarker;
-                
+            
                 if (YOI.stringContains(input, "'") && YOI.stringContains(input, ';')) {
                     valueStartMarker      = ":'";
                     keyValuePairEndMarker = "';";
@@ -192,19 +209,15 @@ var YOI = (function() {
 
                 // clean up input, replace multiple whitespace characters with a single white space
                 // eg. "    " is turned into " "
-                
+            
                 input = (input || '').replace(/\s+/g,' ').split(keyValuePairEndMarker);
 
                 // turn input into a proper object by creating key/value
                 // pairs by splitting the input at any occurance of a startMarker,
                 // remove leading and trailing white space (JS native trim function)
                 // and finally turning the resulting strings into a simple JS object notation
-                
+            
                 for (var i = 0; i < input.length; i++) {
-                    
-                    // console.log(keyValuePair);
-                    
-                    // if (YOI.stringContains(keyValuePair, ':')) console.log('#');
 
                     keyValuePair = input[i].split(valueStartMarker);
 
@@ -224,7 +237,7 @@ var YOI = (function() {
         },
 
         getAttribute : function($element) {
-            
+        
             /**
              *  Searches for custom "yoi-*" attributes inside an alement's markup
              *  and returns the value of the first matching attribute.
@@ -232,20 +245,20 @@ var YOI = (function() {
              *  @param  {jQuery dom object} $element
              *  @return {string}            yoiAttributeValue - the attribute's content / value
              */
-        
+    
             var yoiAttributeValue;
-        
+    
             $.each($element[0].attributes, function(index, attribute) {
                 if (attribute.name.match('^yoi-')) {
                     yoiAttributeValue = attribute.value;
                     return false;
                 }
             });
-            
-            return yoiAttributeValue;
-            
-        },
         
+            return yoiAttributeValue;
+        
+        },
+    
         hide : function($target) {
 
             /**
@@ -320,17 +333,19 @@ var YOI = (function() {
         environment : function(envName) {
 
             /**
-             *  Get an "environment" flag, useful to tag pages
-             *  that are designed for a specific screen or platform.
+             *  Read and return the "yoi-environment" attribute of a page or check
+             *  for a given envName.
              *
              *  @param  {string} envName - the environment name to check for
-             *  @return {bool}
+             *  @return {string | bool}  - a) the page environment string (eg. "mobile")
+             *                             b) checks against the given envName parameter
+             *                                and returns true/false
              */
-
-            if ($('body').data('environment') === envName) {
-                return true;
+        
+            if (envName === undefined) {
+                return $('body').attr('yoi-environment');
             } else {
-                return false;
+                return $('body').attr('yoi-environment') === envName;
             }
 
         },
@@ -347,15 +362,23 @@ var YOI = (function() {
 
         },
 
-        locale : function() {
+        locale : function(language) {
 
             /**
-             *  Read and return the "lang" attribute of a page.
+             *  Read and return the "lang" attribute of a page or check
+             *  for a given language.
              *
-             *  @return {string} - the page language as ISO language code
+             *  @return {string}        - the page language as ISO language code
+             *  @return {string | bool} - a) the page language as ISO language code
+             *                            b) checks against the given language parameter
+             *                               and returns true/false
              */
-
-            return $('html').attr('lang');
+        
+            if (language === undefined) {
+                return $('html').attr('lang');
+            } else {
+                return $('html').attr('lang') === language;
+            }
 
         },
 
@@ -404,7 +427,7 @@ var YOI = (function() {
                 .animate({ opacity:  1 }, 300);
 
         },
-        
+    
         // YOI interface
 
         updateOptions : function($element, options) {
@@ -417,36 +440,36 @@ var YOI = (function() {
              *  @param {jQuery dom object} $element
              *  @param {object}            options
              */
-            
+        
             // if not already present, create "options" object
-            
+        
             if ($element.data().options === undefined)
                 $element.data().options = {};
             
             if (options === undefined) {
-                
+            
                 // if the "options" parameter is omitted on function call, read the
                 // options from the element's yoi-* attribute
-                
-                var options = YOI.toObject(YOI.getAttribute($element));
-                
-            }
             
+                var options = YOI.toObject(YOI.getAttribute($element));
+            
+            }
+        
             if (typeof options === 'object') {
-                
+            
                 // if "options" is a valid object, attach the options to
                 // the element via jQuery's data() function
-                
+            
                 $.each(options, function(key, value) {
                     $element.data().options[key] = value;
                 });
                 
             }
-            
-        },
         
+        },
+    
         updateProps : function($element, props) {
-            
+        
             /**
              *  Props are simple key/value pairs that define properties of a
              *  component. For example an $element's size or position.
@@ -456,40 +479,40 @@ var YOI = (function() {
              *  @param  {object}             props
              *  @return {jQuery data object} props
              */
-            
+        
             // if not already present, create "props" object
-            
+        
             if ($element.data().props === undefined)
                 $element.data().props = {};
 
             if (typeof props === 'object') {
-                
+            
                 // if the new props differ from the already attached props,
                 // fire a custom event
-                
+            
                 if (props !== $element.data().props) {
                     $element.trigger('YOI.props:change');
                 }
-                
+            
                 // if "props" is a valid object, attach the value to
                 // the element via jQuery's data() function
-                
+            
                 $.each(props, function(key, value) {
                     $element.data().props[key] = value;
                 });
-                
-                // trigger custom event
-                
-                $element.trigger('YOI.props:update');
-                
-            }
             
+                // trigger custom event
+            
+                $element.trigger('YOI.props:update');
+            
+            }
+        
             return $element.data().props;
 
         },
-        
+    
         updateState : function($element, state) {
-            
+        
             /**
              *  Each $element can have one state. For example "visible" or "hidden".
              *  The state is attached to an $element via jQuery's data() method.
@@ -498,34 +521,34 @@ var YOI = (function() {
              *  @param  {string}             state
              *  @return {jQuery data object} state
              */
-            
+        
             // if not already present, create "state" object
-            
+        
             if ($element.data().state === undefined)
                 $element.data().state = {};
 
             if (typeof state === 'string') {
-                
+            
                 // if the new props differ from the already attached props,
                 // fire a custom event
-                
+            
                 if (state !== $element.data().state) {
                     $element.trigger('YOI.state:change');
                 }
-                
+            
                 // if "state" is a valid string, attach the value to
                 // the element via jQuery's data() function
-                
+            
                 $element.data().state = state;
-                
+            
                 // trigger custom event
-                
+            
                 $element.trigger('YOI.state:update');
-                
+            
             }
-            
+        
             return $element.data().state;
-            
+        
         },
 
         createCollection : function(identifier, $element, options, state, props) {
@@ -542,48 +565,72 @@ var YOI = (function() {
              */
             
             // if it does not exist, create a new collection of jQuery objects
-            
+        
             if (YOI.elementCollection[identifier] === undefined)
                 YOI.elementCollection[identifier] = $([]);
-            
-            if (!($element instanceof jQuery)) {
         
+            if (!($element instanceof jQuery)) {
+                
+                
                 // if the createCollection() is called without a valid matching jQuery element,
                 // gather the matching elements from the dom
-        
+    
                 YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
-                
+            
                 // if no elements are found, return false ...
-                
+            
                 if (!YOI.elementCollection[identifier].length) return false;
-        
+    
                 // ... otherwise add data (options, state, props) to each element in the collection
-                
+            
                 YOI.elementCollection[identifier].each(function() {
                     YOI.updateOptions($(this), options);
                     YOI.updateState($(this), state);
                     YOI.updateProps($(this), props);
                 });
-        
+    
             } else if ($element instanceof jQuery) {
-        
+                
                 // if the createCollection() is called with a valid matching jQuery element,
                 // set it's options and add it to the element collection
-        
-                YOI.updateOptions($(this), options);
+                
+                YOI.updateOptions($element, options);
                 YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
-            
+        
             }
-            
+        
             return YOI.elementCollection[identifier];
-        
+    
         }
-        
+    
     };
-
+    
 })();
 
 // create an object to store jQuery
 // element collections
 
 YOI.elementCollection = {};
+
+// create objects for all
+// YOI.element and YOI.module
+
+YOI.element = {};
+YOI.module  = {};
+
+// initialize all
+// YOI.element and YOI.module
+
+$(function() {
+
+    $.each(YOI.element, function() {
+        try { this.init(); } catch(e) {}
+    });
+
+    $.each(YOI.module, function() {
+        try { this.init(); } catch(e) {}
+    });
+    
+    YOI.Documentation.init();
+
+});

@@ -140,12 +140,12 @@
             </div>
         </div>
         <script src="assets/js/libs/jquery.js"></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
         <script src="assets/js/libs/beautify.js"></script>
         <script src="assets/js/libs/prism.js" yoi-manual></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
         <script>
-            (function() {
-
+            $(window).on('load', function() {
+                
                 /**
                  *  Hightlight the current menu item and expand the
                  *  parent accordion section.
@@ -162,12 +162,11 @@
 
                     if (YOI.stringContains(currentPagePath, thisHref)) {
                         $this.parent().addClass('is--active');
-                        YOI.Accordion.toggle($this.closest('.accordion__section'));
+                        YOI.element.Accordion.toggle($this.closest('.accordion__section'));
                     }
 
                 });
-
-            })();
+            });
         </script>
         {% block customScripts %}{% endblock %}
     </body>

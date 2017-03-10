@@ -482,11 +482,6 @@ YOI.Documentation = (function() {
 
     }
     
-    // initialize
-    // ==========
-
-    initializeDocumentation();
-
     // public functions
     // ================
 
