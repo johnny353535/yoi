@@ -8023,7 +8023,7 @@ YOI.element.Slider = (function() {
         
         $document.on('yoi-keypressed:arrowleft', function() {
             var $activeSlider = $(document.activeElement);
-            if ($activeSlide.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'prev');
+            if ($activeSlider.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'prev');
         });
         
         // right arrow key
