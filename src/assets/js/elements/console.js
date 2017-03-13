@@ -11,7 +11,6 @@ YOI.element.Console = (function() {
     // make the console listen to these events:
     
     var yoiEvents = [
-        
         'yoi-accordion:close',
         'yoi-accordion:open',
         'yoi-countdown:expire',
@@ -26,6 +25,13 @@ YOI.element.Console = (function() {
         'yoi-input:blur',
         'yoi-input:change',
         'yoi-input:focus',
+        'yoi-keypressed:arrowdown',
+        'yoi-keypressed:arrowleft',
+        'yoi-keypressed:arrowright',
+        'yoi-keypressed:arrowup',
+        'yoi-keypressed:enter',
+        'yoi-keypressed:escape',
+        'yoi-keypressed:space',
         'yoi-modal:error',
         'yoi-modal:hide',
         'yoi-modal:load',

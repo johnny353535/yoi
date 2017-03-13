@@ -58,14 +58,23 @@
     animation-iteration-count: infinite;
     animation-name: customFocus;
     animation-timing-function: ease-out;
-    outline-color: @color-main-10;
+    outline-color: @focusColor;
     outline-offset: 0.4rem;
     outline-radius: @borderRadius * 1px;
     outline-style: solid;
     outline-width: 0.2rem;
 }
 
-@keyframes customFocus { // :focus animation
+.mixin-focus-inset() {
+    box-shadow:
+        inset 2px 0 0 @focusColor,
+        inset 0 2px 0 @focusColor,
+        inset -2px 0 @focusColor,
+        inset 0 -2px 0 @focusColor
+    ;
+}
+
+@keyframes customFocus {
     from {
         outline-color: @focusColor;
     } to {

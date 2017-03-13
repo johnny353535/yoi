@@ -5,6 +5,7 @@
         "./src/assets/js/modules/browserHistory.js",
         "./src/assets/js/modules/dismiss.js",
         "./src/assets/js/modules/hide.js",
+        "./src/assets/js/modules/keyboardAgent.js",
         "./src/assets/js/modules/lazyload.js",
         "./src/assets/js/modules/remove.js",
         "./src/assets/js/modules/reveal.js",

@@ -55,12 +55,16 @@ YOI.element.Accordion = (function() {
 
                 $thisHeader.on(eventType, function(e) {
                     e.preventDefault();
-                    toggleAccordionSection($thisSection);
+                    toggleSection($thisSection);
                 });
 
             });
 
         });
+        
+        // add keyboard events
+        
+        if ($accordion) addKeyboardEvents($accordion);
 
     }
 
@@ -84,7 +88,7 @@ YOI.element.Accordion = (function() {
 
     }
 
-    function toggleAccordionSection($section) {
+    function toggleSection($section) {
 
         /**
          *  Opens or closes a given accordion section.
@@ -206,6 +210,38 @@ YOI.element.Accordion = (function() {
         });
 
     }
+    
+    function addKeyboardEvents($accordion) {
+
+        /**
+         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
+         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        // add tab index
+        
+        $accordion.find('.accordion__header')
+            .attr('tabindex','0')
+            .on('focus', function() { $(this).addClass('focus-inset') })
+            .on('blur', function() { $(this).removeClass('focus-inset') })
+            .on('mousedown', function() { $(this).removeClass('focus-inset') });
+        
+        // space key
+        
+        $document.on('yoi-keypressed:space', function(e) {
+            
+            var $activeElement = $(document.activeElement);
+            var $section       = $activeElement.closest('.accordion__section');
+            
+            if ($activeElement.hasClass('accordion__header')) {
+                toggleSection($section);
+            }
+            
+        });
+
+    }
 
     // public functions
     // ================
@@ -216,7 +252,7 @@ YOI.element.Accordion = (function() {
         open         : openSection,
         closeAll     : closeAllSections,
         openAll      : openAllSections,
-        toggle       : toggleAccordionSection
+        toggle       : toggleSection
     };
 
 })();

@@ -99,7 +99,7 @@ YOI.module.Lazyload = (function() {
             // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
             
             if (newImage[0].complete) {
-                newImage.load();
+                newImage.trigger('load');
             }
 
         });

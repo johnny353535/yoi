@@ -5,7 +5,8 @@ YOI.element.Slider = (function() {
     // private vars
     // ============
 
-    var $window = $(window);
+    var $document = $(document);
+    var $window   = $(window);
     
     // localization
     
@@ -247,7 +248,7 @@ YOI.element.Slider = (function() {
                     showSlide($thisSlider, 'prev');
                 });
             }
-
+            
             // enable auto play
 
             if (options.autoplay !== undefined) {
@@ -255,11 +256,15 @@ YOI.element.Slider = (function() {
             }
 
         });
+        
+        // add keyboard events
+        
+        if ($slider) addKeyboardEvents($slider);
 
     }
 
     function showSlide($thisSlider, target) {
-
+        
         /**
          *  Show a slide.
          *
@@ -477,6 +482,38 @@ YOI.element.Slider = (function() {
         }
 
         $thisSlidesWrapper.css({ 'height': slideHeight });
+
+    }
+    
+    function addKeyboardEvents($slider) {
+
+        /**
+         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
+         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        // add tab index and toggle focus styles
+        
+        $slider
+            .attr('tabindex','0')
+            .on('focus', function() { $(this).addClass('focus'); })
+            .on('blur', function() { $(this).removeClass('focus'); });
+        
+        // left arrow key
+        
+        $document.on('yoi-keypressed:arrowleft', function() {
+            var $activeSlider = $(document.activeElement);
+            if ($activeSlide.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'prev');
+        });
+        
+        // right arrow key
+
+        $document.on('yoi-keypressed:arrowright', function() {
+            var $activeSlider = $(document.activeElement);
+            if ($activeSlider.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'next');
+        });
 
     }
 

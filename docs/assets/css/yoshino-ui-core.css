@@ -3772,6 +3772,20 @@ body {
 .hvr-opacity-1:hover {
   opacity: .1 !important;
 }
+.focus {
+  animation-duration: 1s !important;
+  animation-iteration-count: infinite !important;
+  animation-name: customFocus !important;
+  animation-timing-function: ease-out !important;
+  outline-color: #8572c0 !important;
+  outline-offset: 0.4rem !important;
+  outline-radius: 2px !important;
+  outline-style: solid !important;
+  outline-width: 0.2rem !important;
+}
+.focus-inset {
+  box-shadow: inset 2px 0 0 #8572c0, inset 0 2px 0 #8572c0, inset -2px 0 #8572c0, inset 0 -2px 0 #8572c0 !important;
+}
 .tween-fast {
   transition: all 100ms ease-out !important;
 }
@@ -16380,6 +16394,9 @@ body {
 .accordion__header:hover {
   background: #faf9f7;
 }
+.accordion__header:focus {
+  outline: none;
+}
 .accordion__header::after {
   margin-top: -1.6rem;
   position: absolute;
@@ -16909,7 +16926,7 @@ a:visited.btn {
   animation-iteration-count: infinite;
   animation-name: customFocus;
   animation-timing-function: ease-out;
-  outline-color: #676665;
+  outline-color: #8572c0;
   outline-offset: 0.4rem;
   outline-radius: 2px;
   outline-style: solid;
@@ -18092,7 +18109,7 @@ a:visited.btn.btn--outline.btn--positive {
   animation-iteration-count: infinite;
   animation-name: customFocus;
   animation-timing-function: ease-out;
-  outline-color: #676665;
+  outline-color: #8572c0;
   outline-offset: 0.4rem;
   outline-radius: 2px;
   outline-style: solid;
@@ -18151,7 +18168,7 @@ a:visited.btn.btn--outline.btn--positive {
   animation-iteration-count: infinite;
   animation-name: customFocus;
   animation-timing-function: ease-out;
-  outline-color: #676665;
+  outline-color: #8572c0;
   outline-offset: 0.4rem;
   outline-radius: 2px;
   outline-style: solid;
@@ -18233,7 +18250,7 @@ a:visited.btn.btn--outline.btn--positive {
   animation-iteration-count: infinite;
   animation-name: customFocus;
   animation-timing-function: ease-out;
-  outline-color: #676665;
+  outline-color: #8572c0;
   outline-offset: 0.4rem;
   outline-radius: 2px;
   outline-style: solid;
@@ -18919,7 +18936,7 @@ textarea:focus {
   animation-iteration-count: infinite;
   animation-name: customFocus;
   animation-timing-function: ease-out;
-  outline-color: #676665;
+  outline-color: #8572c0;
   outline-offset: 0.4rem;
   outline-radius: 2px;
   outline-style: solid;

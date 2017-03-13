@@ -1333,6 +1333,70 @@ YOI.module.Hide = (function() {
     };
 
 })();
+/** keyboardAgent.js */
+
+YOI.KeyboardAgent = (function() {
+
+    // private vars
+    // ============
+    
+    var $document = $(document);
+    
+    // lookup table for relevant keys
+    
+    var keys = {
+        38 : 'arrowup',
+        39 : 'arrowright',
+        40 : 'arrowdown',
+        37 : 'arrowleft',
+        13 : 'enter',
+        32 : 'space',
+        27 : 'escape'
+    }
+    
+    // private functions
+    // =================
+    
+    function initialize() {
+    
+        /**
+         *  Initialize the script. Listen for key presses and
+         *  trigger the corresponding custom events.
+         */
+        
+        $document
+            .on('keydown', function(e) {
+                
+                // if the space key was pressed and any yoi-element has focus,
+                // prevent the page from scrolling
+                
+                if (e.which === 32 && e.target !== document.body) e.preventDefault();
+                
+            })
+            .on('keyup', function(e) {
+                
+                // trigger the custom "yoi-keypressed" event
+                
+                var keyCode = e.which;
+                if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed:' + keys[keyCode]);
+                
+            });
+        
+    }
+    
+    // initialize
+    // ==========
+    
+    initialize();
+    
+    // public functions
+    // ================
+    
+    return {
+        init: initialize
+    }
+
+})();
 /** lazyload.js */
 
 YOI.module.Lazyload = (function() {
@@ -1434,7 +1498,7 @@ YOI.module.Lazyload = (function() {
             // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
             
             if (newImage[0].complete) {
-                newImage.load();
+                newImage.trigger('load');
             }
 
         });
@@ -2668,12 +2732,16 @@ YOI.element.Accordion = (function() {
 
                 $thisHeader.on(eventType, function(e) {
                     e.preventDefault();
-                    toggleAccordionSection($thisSection);
+                    toggleSection($thisSection);
                 });
 
             });
 
         });
+        
+        // add keyboard events
+        
+        if ($accordion) addKeyboardEvents($accordion);
 
     }
 
@@ -2697,7 +2765,7 @@ YOI.element.Accordion = (function() {
 
     }
 
-    function toggleAccordionSection($section) {
+    function toggleSection($section) {
 
         /**
          *  Opens or closes a given accordion section.
@@ -2819,6 +2887,38 @@ YOI.element.Accordion = (function() {
         });
 
     }
+    
+    function addKeyboardEvents($accordion) {
+
+        /**
+         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
+         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        // add tab index
+        
+        $accordion.find('.accordion__header')
+            .attr('tabindex','0')
+            .on('focus', function() { $(this).addClass('focus-inset') })
+            .on('blur', function() { $(this).removeClass('focus-inset') })
+            .on('mousedown', function() { $(this).removeClass('focus-inset') });
+        
+        // space key
+        
+        $document.on('yoi-keypressed:space', function(e) {
+            
+            var $activeElement = $(document.activeElement);
+            var $section       = $activeElement.closest('.accordion__section');
+            
+            if ($activeElement.hasClass('accordion__header')) {
+                toggleSection($section);
+            }
+            
+        });
+
+    }
 
     // public functions
     // ================
@@ -2829,7 +2929,7 @@ YOI.element.Accordion = (function() {
         open         : openSection,
         closeAll     : closeAllSections,
         openAll      : openAllSections,
-        toggle       : toggleAccordionSection
+        toggle       : toggleSection
     };
 
 })();
@@ -2847,7 +2947,6 @@ YOI.element.Console = (function() {
     // make the console listen to these events:
     
     var yoiEvents = [
-        
         'yoi-accordion:close',
         'yoi-accordion:open',
         'yoi-countdown:expire',
@@ -2862,6 +2961,13 @@ YOI.element.Console = (function() {
         'yoi-input:blur',
         'yoi-input:change',
         'yoi-input:focus',
+        'yoi-keypressed:arrowdown',
+        'yoi-keypressed:arrowleft',
+        'yoi-keypressed:arrowright',
+        'yoi-keypressed:arrowup',
+        'yoi-keypressed:enter',
+        'yoi-keypressed:escape',
+        'yoi-keypressed:space',
         'yoi-modal:error',
         'yoi-modal:hide',
         'yoi-modal:load',
@@ -7396,7 +7502,8 @@ YOI.element.Slider = (function() {
     // private vars
     // ============
 
-    var $window = $(window);
+    var $document = $(document);
+    var $window   = $(window);
     
     // localization
     
@@ -7638,7 +7745,7 @@ YOI.element.Slider = (function() {
                     showSlide($thisSlider, 'prev');
                 });
             }
-
+            
             // enable auto play
 
             if (options.autoplay !== undefined) {
@@ -7646,11 +7753,15 @@ YOI.element.Slider = (function() {
             }
 
         });
+        
+        // add keyboard events
+        
+        if ($slider) addKeyboardEvents($slider);
 
     }
 
     function showSlide($thisSlider, target) {
-
+        
         /**
          *  Show a slide.
          *
@@ -7868,6 +7979,38 @@ YOI.element.Slider = (function() {
         }
 
         $thisSlidesWrapper.css({ 'height': slideHeight });
+
+    }
+    
+    function addKeyboardEvents($slider) {
+
+        /**
+         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
+         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *
+         *  @param {jQuery dom object} $slider
+         */
+        
+        // add tab index and toggle focus styles
+        
+        $slider
+            .attr('tabindex','0')
+            .on('focus', function() { $(this).addClass('focus'); })
+            .on('blur', function() { $(this).removeClass('focus'); });
+        
+        // left arrow key
+        
+        $document.on('yoi-keypressed:arrowleft', function() {
+            var $activeSlider = $(document.activeElement);
+            if ($activeSlide.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'prev');
+        });
+        
+        // right arrow key
+
+        $document.on('yoi-keypressed:arrowright', function() {
+            var $activeSlider = $(document.activeElement);
+            if ($activeSlider.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'next');
+        });
 
     }
 
