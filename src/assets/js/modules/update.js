@@ -4,78 +4,96 @@ YOI.module.Update = (function() {
 
     // private vars
     // ============
-
-    var $response = $('\
-        <span class="tc-green-12 fw-bold">OK</span>\
+    
+    // localization
+    
+    var language = YOI.locale();
+    
+    var localization = {
+        'en' : {
+            'errorTitle' : 'Fehler',
+            'errorMsg' : 'Leider konnte der angeforderte Inhalt nicht geladen werden. Unser Team wurde informiert. Tipp: Stellen Sie sicher, dass eine Internetverbindung besteht.'
+        },
+        'de' : {
+            'errorTitle' : 'Error',
+            'errorMsg' : 'Could not load data. A notice was sent to our support team. Hint: Are you sure your internet connection is working?'
+        }
+    };
+    
+    // templates
+    
+    var $errorMsg = $('\
+        <div class="note note--error note--large">\
+            <h3 class="note__headline">' + localization[language].errorTitle + '</h3>\
+            <div class="note__body">\
+                <p>' + localization[language].errorMsg + '</p>\
+            </div>\
+        </div>\
     ');
 
     // private functions
     // =================
 
-    function initialize($microSubmit, options) {
+    function initialize($updateTrigger, options) {
 
-        /**
-         *  Initialize all form[yoi-microsubmit] found in the document (= function call without parameters)
-         *  or target one or more specific form[yoi-microsubmit] (= function call with $microSubmit).
-         *  $microSubmit must be a jQuery object or jQuery object collection.
-         *
-         *  @param {jQuery dom object} $microSubmit - the micro submit form(s)
-         *
-         *  Options are passed to the script as custom data values, eg:
-         *
-         *  <form data-microsubmit="response:#myCustomResponse;"></form>
-         *
-         *  Available options:
-         *
-         *  @option {string} response - a CSS selector (most likely an #id) to select the dom
-         *                              element which is displayed after submit
-         */
+       /**
+        *  Initialize the script.
+        *
+        *  @param {jQuery dom object} $updateTrigger
+        *  @param {object}            options
+        *
+        *  Available options:
+        *
+        *  @option {string} requestUrl  - the url for the ajax request
+        *  @option {string} requestType - optional request type ("POST" or "GET"), default: "GET"
+        */
+       
+        var $updateTrigger = YOI.createCollection('update', $updateTrigger, options);
 
-        if (!($microSubmit instanceof jQuery)) {
-            $microSubmit = $('form[yoi-microsubmit]');
-        }
+        if ($updateTrigger) $updateTrigger.each(function() {
+            
+            // proceed
 
-        $microSubmit.each(function() {
+            var $thisTrigger = $(this);
+            var options      = $thisTrigger.data().options;
+            var requestType  = options.type !== undefined ? options.type : false;
+            var requestUrl   = options.url !== undefined ? options.url : false;
+            var $target      = options.target !== undefined ? $(options.target) : false;
 
-            var $thisForm       = $(this);
-            var options         = options === undefined ? YOI.toObject($thisForm.data('microsubmit')) : options;
-            var receiver        = $thisForm.attr('action') !== undefined ? $thisForm.attr('action') : false;
-            var thisMessage     = $thisForm.find('input').val();
-            var $thisResponse   = $(options.response).length ? $(options.response) : $response.clone();
+            // validate request type
 
-            // hide response content first
+            if (!requestType) {
+                requestType = 'GET';
+            } else if (requestType.toLowerCase() === 'get' || requestType.toLowerCase() === 'post') {
+                requestType = requestType.toUpperCase();
+            }
 
-            YOI.hide($thisResponse);
+            // proceed if requestUrl was provided and
+            // $target is a proper jQuery object
 
-            // cancel if no target url (for ajax send) was found
-
-            if (!receiver) return false;
-
-            // submit form, show msg
-
-            $thisForm.submit(function(e) {
-
-                e.preventDefault();
-
-                $.ajax({
-                    url: receiver,
-                    type: 'POST',
-                    data: {
-                        input: thisMessage
-                    },
-                    complete: function(response){
-                        $thisForm.replaceWith($thisResponse);
-                        YOI.show($thisResponse);
-                    }
+            if (requestUrl || $target instanceof jQuery) {
+                $thisTrigger.on('click', function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: requestUrl,
+                        cache: false,
+                        type: requestType,
+                        beforeSend: function(){
+                            $target.addClass('loading');
+                        },
+                        error: function() {
+                            $target.html($errorMsg.clone());
+                        },
+                        success: function(data) {
+                            var $responseMarkup = $(data).filter('#ajaxContent');
+                            $target.html($responseMarkup);
+                        },
+                        complete: function(response){
+                            $target.removeClass('loading');
+                        }
+                    });
                 });
-
-            });
-
-            /**
-             *  It doesn't add any value to display an error message.
-             *  Even if the submission fails, let's pretend it worked all fine.
-             *  It's much better to track these errors internally.
-             */
+            }
 
         });
 

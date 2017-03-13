@@ -13604,6 +13604,9 @@ body {
 .b-l {
   border-left: #ecebea 1px solid !important;
 }
+.b-ghost {
+  border: #d7d6d5 1px dashed !important;
+}
 .bw-1 {
   border-width: 1px !important;
 }
@@ -19466,51 +19469,30 @@ a:visited:hover {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-009-s&f=%23cdcccb&s=%23000&w=24px&h=24px) center center no-repeat;
 }
 /** loading.less */
-.loading {
-  border-radius: 2px;
-  background: #fffbd0;
-  border: #eee8aa 1px solid;
+.loading::after {
+  animation: spin 1s infinite linear;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #ecebea;
+  border-top-color: #8572c0;
   box-sizing: border-box;
+  content: ' ';
   display: inline-block;
-  min-height: 30px;
-  min-width: 30px;
-  padding: 5px;
-}
-.loading .msg {
-  color: #888244;
-  margin-left: 25px;
-}
-.loading .pulse {
-  background: #dad496;
-}
-.pulse {
-  animation-name: pulse;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-  background: #343332;
-  border-radius: 1rem;
-  display: block;
-  height: 20px;
+  height: 3rem;
+  left: 50%;
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
   position: absolute;
-  width: 20px;
+  top: 50%;
+  width: 3rem;
 }
-@keyframes pulse {
-  from {
-    opacity: 1;
-    transform: scale(1);
+@keyframes spin {
+  0% {
+    transform: rotate(0);
   }
-  to {
-    opacity: .5;
-    transform: scale(0.5);
+  100% {
+    transform: rotate(360deg);
   }
-}
-.loadingImg {
-  background: #faf9f7 url(../img/bg-loadAni-50x50.gif) no-repeat center center;
-  display: inherit;
-}
-.loadingImg img {
-  display: block;
 }
 /** mainMenu.less */
 .mainMenu {

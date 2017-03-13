@@ -224,9 +224,12 @@ YOI.element.Accordion = (function() {
         
         $accordion.find('.accordion__header')
             .attr('tabindex','0')
+            .on('mousedown', function() {
+                $(this).removeClass('focus-inset')
+                return false;
+            })
             .on('focus', function() { $(this).addClass('focus-inset') })
-            .on('blur', function() { $(this).removeClass('focus-inset') })
-            .on('mousedown', function() { $(this).removeClass('focus-inset') });
+            .on('blur', function() { $(this).removeClass('focus-inset') });
         
         // space key
         
