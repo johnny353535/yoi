@@ -601,6 +601,55 @@ var YOI = (function() {
         
             return YOI.elementCollection[identifier];
     
+        },
+        
+        startDomObserver : function() {
+            
+            /**
+             *  Starts the global MutationObserver instance.
+             */
+            
+            var $document = $(document);
+            var observer  = window.MutationObserver || window.WebKitMutationObserver;
+            var target    = document.body;
+
+            this.observer = new observer(function(mutations) {
+                mutations.forEach(function(mutation) {
+
+                    if (mutation.addedNodes.length) {
+                        $document.trigger('yoi-dom:add');
+                        // console.log('added:');
+                        // console.log(mutation.target);
+                    }
+                    
+                    if (mutation.removedNodes.length) {
+                        $document.trigger('yoi-dom:remove');
+                        // console.log('removed:');
+                        // console.log(mutation.target);
+                    }
+                    
+                });
+            });
+
+            this.observer.observe(target, {
+                subtree       : true,
+                attributes    : true,
+                childList     : true,
+                characterData : true
+            });
+            
+        },
+            
+        stopDomObserver : function() {
+            
+            /**
+             *  Stops the global MutationObserver instance.
+             */
+            
+            if (this.observer !== undefined) {
+                this.observer.disconnect();
+            }
+            
         }
     
     };
@@ -623,7 +672,7 @@ YOI.module  = {};
 
 $(function() {
     
-    YOI.Documentation.init();
+    //YOI.Documentation.init();
 
     $.each(YOI.element, function() {
         try { this.init(); } catch(e) {}
@@ -634,6 +683,11 @@ $(function() {
     });
 
 });
+
+// start the global MutationObserver
+// learn more: https://developer.mozilla.org/en/docs/Web/API/MutationObserver
+
+YOI.startDomObserver();
 /** documentation.js */
 
 YOI.Documentation = (function() {
@@ -1708,7 +1762,7 @@ YOI.module.ScrollAgent = (function() {
                 .on('scroll', function() {
                     observe($targetElement);
                 });
-            
+
         }
     
     }
@@ -1723,33 +1777,33 @@ YOI.module.ScrollAgent = (function() {
          */
         
         // update the viewport height
-        
+    
         viewPortHeight = $window.height();
-        
+    
         // update all target elements
-        
+    
         $targetElements.each(function() {
-            
+        
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
             var thisInitialPosY    = $thisTargetElement.offset().top;
-        
+    
             // write data
 
             $thisTargetElement.data().props = {
                 'height'      : thisHeight,
                 'initialPosY' : thisInitialPosY
             };
-            
-            // set the initial state
         
+            // set the initial state
+    
             if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {
                 $thisTargetElement.data().state = 'in';
                 $thisTargetElement.trigger('yoi-viewport:in');
             } else {
                 $thisTargetElement.data().state = 'out';
             }
-        
+    
         });
 
     }
@@ -2179,8 +2233,8 @@ YOI.module.Sticky = (function() {
             'height'                      : $stickyElement.outerHeight(),
             'top'                         : $stickyElement.offset().top,
             'left'                        : $stickyElement.offset().left,
-            'backface-visibility'         : 'hidden',
-            '-webkit-backface-visibility' : 'hidden'
+             // make it work smoothly on iOS Safari
+            '-webkit-transform'           : 'translate3d(0,0,0)'
         });
 
         // append the cloned element
@@ -2328,12 +2382,6 @@ YOI.module.Sticky = (function() {
 
             $stickyElements.each(function(index) {
 
-                // variable assignments for better readability only
-                
-                // var topDistance                   = props.topDistance;
-                // var stickyElementheight           = props.height;
-                // var stickyElementInitialBottomPos = props.initialBottomPos;
-
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
                 var props                         = $stickyElement.data().props;
@@ -2343,7 +2391,7 @@ YOI.module.Sticky = (function() {
                 var topOffset                     = props.topOffset;
                 var cssPositionValue;
                 var cssTopValue;
-                
+            
                 // proceed if the sticky element passed validation
 
                 if (props.passedValidation) {
@@ -2351,7 +2399,7 @@ YOI.module.Sticky = (function() {
                     // re-position on scroll
 
                     if (scrollTop < stickStart) {
-                        
+                    
                         // outside top boundary
 
                         cssPositionValue = 'absolute';
@@ -2365,7 +2413,7 @@ YOI.module.Sticky = (function() {
                         cssTopValue      = stickStop + topOffset;
 
                     } else {
-                        
+                    
                         // inside boundaries
 
                         cssPositionValue = 'fixed';

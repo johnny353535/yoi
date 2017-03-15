@@ -601,6 +601,55 @@ var YOI = (function() {
         
             return YOI.elementCollection[identifier];
     
+        },
+        
+        startDomObserver : function() {
+            
+            /**
+             *  Starts the global MutationObserver instance.
+             */
+            
+            var $document = $(document);
+            var observer  = window.MutationObserver || window.WebKitMutationObserver;
+            var target    = document.body;
+
+            this.observer = new observer(function(mutations) {
+                mutations.forEach(function(mutation) {
+
+                    if (mutation.addedNodes.length) {
+                        $document.trigger('yoi-dom:add');
+                        // console.log('added:');
+                        // console.log(mutation.target);
+                    }
+                    
+                    if (mutation.removedNodes.length) {
+                        $document.trigger('yoi-dom:remove');
+                        // console.log('removed:');
+                        // console.log(mutation.target);
+                    }
+                    
+                });
+            });
+
+            this.observer.observe(target, {
+                subtree       : true,
+                attributes    : true,
+                childList     : true,
+                characterData : true
+            });
+            
+        },
+            
+        stopDomObserver : function() {
+            
+            /**
+             *  Stops the global MutationObserver instance.
+             */
+            
+            if (this.observer !== undefined) {
+                this.observer.disconnect();
+            }
+            
         }
     
     };
@@ -623,7 +672,7 @@ YOI.module  = {};
 
 $(function() {
     
-    YOI.Documentation.init();
+    //YOI.Documentation.init();
 
     $.each(YOI.element, function() {
         try { this.init(); } catch(e) {}
@@ -634,3 +683,8 @@ $(function() {
     });
 
 });
+
+// start the global MutationObserver
+// learn more: https://developer.mozilla.org/en/docs/Web/API/MutationObserver
+
+YOI.startDomObserver();

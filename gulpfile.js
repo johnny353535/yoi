@@ -16,8 +16,8 @@ var gulp        = require('gulp');
 var gutil       = require('gulp-util');
 var imagemin    = require('gulp-imagemin');
 var less        = require('gulp-less');
-var markdown    = require('nunjucks-markdown');
-var marked      = require('marked');
+// var markdown    = require('nunjucks-markdown');
+
 var merge       = require('merge-stream');
 var nunjucks    = require('gulp-nunjucks-html');
 var runsequence = require('run-sequence');
@@ -198,17 +198,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/assets/js/libs/'))
         .pipe(gulp.dest('./docs/assets/js/libs/'));
 
-    var prism = gulp.src(libs.prism)
-        .pipe(concat('prism.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs/'))
-        .pipe(gulp.dest('./docs/assets/js/libs/'));
-
-    var beautify = gulp.src(libs.beautify)
-        .pipe(concat('beautify.js'))
-        .pipe(gulp.dest('./dist/assets/js/libs/'))
-        .pipe(gulp.dest('./docs/assets/js/libs/'));
-
-    return merge(yoshinoUiCore, jQuery, prism, beautify);
+    return merge(yoshinoUiCore, jQuery);
 
 });
 
@@ -258,12 +248,13 @@ gulp.task('templates', function() {
     var nunjucksGenerateMenu  = require('./src/dev/nunjucks-extentions.js').nunjucksGenerateMenu;
     var nunjucksIncludeRemote = require('./src/dev/nunjucks-extentions.js').nunjucksIncludeRemote;
     var nunjucksIcon          = require('./src/dev/nunjucks-extentions.js').nunjucksIcon;
+    var nunjucksMarkdown      = require('./src/dev/nunjucks-extentions.js').nunjucksMarkdown;
     
     // nunjucks filters
     
-    var nunjucksFixed        = require('./src/dev/nunjucks-filters.js').nunjucksFixed;
-    var nunjucksPad          = require('./src/dev/nunjucks-filters.js').nunjucksPad;
-    var nunjucksRandom       = require('./src/dev/nunjucks-filters.js').nunjucksRandom;
+    var nunjucksFixed  = require('./src/dev/nunjucks-filters.js').nunjucksFixed;
+    var nunjucksPad    = require('./src/dev/nunjucks-filters.js').nunjucksPad;
+    var nunjucksRandom = require('./src/dev/nunjucks-filters.js').nunjucksRandom;
     
     return gulp.src([
         '!./src/templates/**/layouts/**/*',
@@ -271,25 +262,9 @@ gulp.task('templates', function() {
         './src/templates/**/*.html'
     ])
     .pipe(nunjucks({
-        
         searchPaths: ['./src/templates/'],
         locals: { basePath: basePath },
         setUp: function(env) {
-
-            // configure markdown
-            
-            marked.setOptions({
-                renderer: new marked.Renderer(),
-                gfm         : true,
-                tables      : true,
-                breaks      : false,
-                pendantic   : false,
-                sanitize    : false,
-                smartLists  : true,
-                smartypants : true
-            });
-
-            markdown.register(env, marked);
 
             // add filters
   
@@ -302,6 +277,7 @@ gulp.task('templates', function() {
             env.addExtension('menu', new nunjucksGenerateMenu(), true);
             env.addExtension('remote', new nunjucksIncludeRemote(), true);
             env.addExtension('icon', new nunjucksIcon(), true);
+            env.addExtension('markdown', new nunjucksMarkdown(), true);
 
             // return
             

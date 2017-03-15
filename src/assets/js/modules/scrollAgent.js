@@ -52,7 +52,7 @@ YOI.module.ScrollAgent = (function() {
                 .on('scroll', function() {
                     observe($targetElement);
                 });
-            
+
         }
     
     }
@@ -67,33 +67,33 @@ YOI.module.ScrollAgent = (function() {
          */
         
         // update the viewport height
-        
+    
         viewPortHeight = $window.height();
-        
+    
         // update all target elements
-        
+    
         $targetElements.each(function() {
-            
+        
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
             var thisInitialPosY    = $thisTargetElement.offset().top;
-        
+    
             // write data
 
             $thisTargetElement.data().props = {
                 'height'      : thisHeight,
                 'initialPosY' : thisInitialPosY
             };
-            
-            // set the initial state
         
+            // set the initial state
+    
             if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {
                 $thisTargetElement.data().state = 'in';
                 $thisTargetElement.trigger('yoi-viewport:in');
             } else {
                 $thisTargetElement.data().state = 'out';
             }
-        
+    
         });
 
     }

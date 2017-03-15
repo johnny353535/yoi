@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% block main %}
-
 {% markdown %}
+
 ## Element Name
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -14,29 +14,15 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ### Basic Example
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<div class="h-5 w-5 br bg-green-23 tc-green-10">element</div>
+
+```html-example
+<div class="h-5 w-5 br bg-green-23 tc-green-10">
+    <p>element</p>
+        <p>Wie ich es will?</p>
+</div>
+```
+
 {% endmarkdown %}
-
-<div class="documentation__block">
-    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <span class="elementClassname">element</span>
-    </div>
-</div>
-
-{% markdown %}
-### Modifiers
-{% endmarkdown %}
-
-<div class="documentation__block">
-    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <span class="elementClassname">element</span>
-    </div>
-</div>
-
-<div class="note note--subtle note--large">
-    <h3 class="note__headline">Some Important Note</h3>
-    <div class="note__body">
-        <p>This is very important.</p>
-    </div>
-</div>
-
 {% endblock %}

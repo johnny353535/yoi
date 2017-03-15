@@ -81,8 +81,8 @@ YOI.module.Sticky = (function() {
             'height'                      : $stickyElement.outerHeight(),
             'top'                         : $stickyElement.offset().top,
             'left'                        : $stickyElement.offset().left,
-            'backface-visibility'         : 'hidden',
-            '-webkit-backface-visibility' : 'hidden'
+             // make it work smoothly on iOS Safari
+            '-webkit-transform'           : 'translate3d(0,0,0)'
         });
 
         // append the cloned element
@@ -230,12 +230,6 @@ YOI.module.Sticky = (function() {
 
             $stickyElements.each(function(index) {
 
-                // variable assignments for better readability only
-                
-                // var topDistance                   = props.topDistance;
-                // var stickyElementheight           = props.height;
-                // var stickyElementInitialBottomPos = props.initialBottomPos;
-
                 var $stickyElement                = $(this);
                 var $stickyElementClone           = $('#stickyClone-' + index);
                 var props                         = $stickyElement.data().props;
@@ -245,7 +239,7 @@ YOI.module.Sticky = (function() {
                 var topOffset                     = props.topOffset;
                 var cssPositionValue;
                 var cssTopValue;
-                
+            
                 // proceed if the sticky element passed validation
 
                 if (props.passedValidation) {
@@ -253,7 +247,7 @@ YOI.module.Sticky = (function() {
                     // re-position on scroll
 
                     if (scrollTop < stickStart) {
-                        
+                    
                         // outside top boundary
 
                         cssPositionValue = 'absolute';
@@ -267,7 +261,7 @@ YOI.module.Sticky = (function() {
                         cssTopValue      = stickStop + topOffset;
 
                     } else {
-                        
+                    
                         // inside boundaries
 
                         cssPositionValue = 'fixed';
