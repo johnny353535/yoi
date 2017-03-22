@@ -14,13 +14,15 @@
     "test",
     "tests",
     "docs",
-    "src/assets/img",
+    "src/templates",
     "src/assets/less/theme",
-    "src/assets/less/index.less",
+    "src/assets/less/yoshino-ui-core.less",
+    "src/assets/js/yoshino-ui-core.json",
     "gulpfile.js",
     "package.json"
   ],
   "dependencies": {
-    "jquery": "^3.0.0"
+    "jquery": "^3.0.0",
+    "normalize-css": "^4.2.0"
   }
 }

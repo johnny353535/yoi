@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+    <head>
+        <meta charset="utf-8">
+        <title>YOI – Yoshino UI Core | {{ page.title | default: "Documentation" }}</title>
+        <base href="">
+        <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    </head>
+    <body class="noJs" yoi-environment="desktop">
+        <script>document.body.className='js';</script>
+        <div class="documentation">
+            <div class="center grid-flex flex-directionRowReverse">
+                <div class="documentation__menu w-1-4 p-l-5 p-t-4">
+                    // menu
+                </div>
+                <div class="article documentation__article w-3-4 p-r-8">
+                    {{ content }}
+                </div>
+                <footer class="documentation__footer">
+                    &copy; Yoshino.digital GmbH
+                </footer>
+                <div class="console" yoi-console yoi-dismissable>
+                    <div class="console__body">
+                        <p>Listening</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/yoshino-ui-core.js"></script>
+        <script>
+            $(window).on('load', function() {
+                
+                /**
+                 *  Hightlight the current menu item and expand the
+                 *  parent accordion section.
+                 */
+
+                var $menu           = $('.documentation__menu').first();
+                var $menuLinks      = $menu.find('.linkList__link');
+                var currentPagePath = window.location.pathname;
+
+                $menuLinks.each(function() {
+
+                    var $this    = $(this);
+                    var thisHref = $this.attr('href').slice(1);
+
+                    if (YOI.stringContains(currentPagePath, thisHref)) {
+                        $this.parent().addClass('is--active');
+                        YOI.element.Accordion.toggle($this.closest('.accordion__section'));
+                    }
+
+                });
+            });
+            (function() {
+                
+                var $code  = $('.language-html');
+                
+                $.each($code, function() {
+                    
+                    var tag              = '<!-- example -->';
+                    var $thisCodeWrapper = $(this);
+                    var $thisCode        = $thisCodeWrapper.find('code');
+                    var $example         = $thisCode.text().split(tag) !== -1 ? $($thisCode.text().split(tag)[1]) : false;
+                    var cleanCode        = $thisCode.text().split(tag)[1];
+                    
+                    if ($example) {
+                        $thisCodeWrapper.prepend($example);
+                        $thisCode.text(cleanCode);
+                    }
+                    
+                });
+                
+            })();
+        </script>
+    </body>
+</html>

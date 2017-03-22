@@ -1,0 +1,20 @@
+# General Settings
+
+title: Your awesome title
+description: >
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # e.g. /blog
+url: "" # e.g. http://example.com
+twitter_username: yoshino-digital
+github_username:  yoshino-digital
+
+# Build Settings
+
+markdown: kramdown
+exclude:
+  - package.json
+  - node_modules
+  - Gemfile
+  - Gemfile.lock

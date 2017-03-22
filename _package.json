@@ -1,0 +1,43 @@
+{
+  "name": "yoshino-ui-core",
+  "version": "0.1.0",
+  "description": "The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "bower install && gulp serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshino-digital/ui-core.git"
+  },
+  "author": "yoshino.digital dev team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoshino-digital/ui-core/issues"
+  },
+  "homepage": "https://github.com/yoshino-digital/ui-core#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.11.0",
+    "del": "^2.2.0",
+    "eclint": "^1.1.5",
+    "glob": "^6.0.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-less": "^3.0.5",
+    "gulp-nunjucks-html": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "highlight.js": "^9.10.0",
+    "merge-stream": "^1.0.0",
+    "node-slack": "0.0.7",
+    "remarkable": "^1.7.1",
+    "request": "^2.79.0",
+    "run-sequence": "^1.1.5"
+  }
+}
