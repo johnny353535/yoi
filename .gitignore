@@ -1,7 +1,6 @@
 .DS_Store
-.jekyll-metadata
-.sass-cache
 bower_components
-credentials.json
 node_modules
-_site/
+docs/.jekyll-metadata
+docs/.sass-cache
+docs/_site/

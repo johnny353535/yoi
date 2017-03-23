@@ -1,4 +1,4 @@
-# Yoshino UI Core
+# YOI - the Yoshino Frontend Foundation
 
 The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.
 
@@ -9,5 +9,5 @@ The Yoshino Frontend UI components. Markup, scripts, styles, build-process and d
 * [February 10 – March 01 2017] implement custom event API
 * [February 10 – March 01 2017] create & implement new icons
 * [March 01 2017] rename to "YOI"
-* [March 01 2017] "silent" alpha release
+* [April 01 2017] "silent" alpha release
 * [later in 2017] implement accessability aids
