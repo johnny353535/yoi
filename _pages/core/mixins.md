@@ -1,7 +1,9 @@
-{% extends 'layouts/base.html' %}
-{% block main %}
+---
+layout: base
+title: Mixins
+permalink: core/mixins
+---
 
-{% markdown %}
 ## Mixins
 Mixins are reusable snippets of CSS code. They are a [Less language feature](http://lesscss.org/features/#mixins-feature).
 
@@ -22,7 +24,3 @@ Use this mixin to disable the default browser styling for certain elements – e
 
 #### .mixin-defaultBorderRadius
 Use this mixin to add the default border radius (as declared in [theme/options.less](/docs/pages/theme/options.html)) to all four corners of your element.
-
-{% endmarkdown %}
-
-{% endblock %}

@@ -1,9 +1,10 @@
-{% extends 'layouts/base.html' %}
-{% block main %}
+---
+layout: base
+title: Root
+permalink: core/root
+---
 
-{% markdown %}
 ## Root
-{% endmarkdown %}
 
 <div class="note note--subtle note--large">
     <h3 class="note__headline">Documentation Incomplete</h3>
@@ -11,5 +12,3 @@
         <p>To be completed soon.</p>
     </div>
 </div>
-
-{% endblock %}

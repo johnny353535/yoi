@@ -1,0 +1,13 @@
+# General Settings
+
+title: YOI - the Yoshino Frontend Foundation
+description: An easy to learn, yet powerful set of modules to build and design web pages directly in the browser.
+url: "https://yoshino-digital.github.io"
+github_username: yoshino-digital
+
+# Build Settings
+
+baseurl: ""
+markdown: kramdown
+include: ['_pages']
+exclude: ['package.json', 'node_modules', 'Gemfile', 'Gemfile.lock']

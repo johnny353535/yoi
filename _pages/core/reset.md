@@ -1,7 +1,9 @@
-{% extends 'layouts/base.html' %}
-{% block main %}
+---
+layout: base
+title: Reset
+permalink: core/reset
+---
 
-{% markdown %}
 ## Reset & Normalize
 
 We _normalize_ and _reset_ default browser stylings to provide consistent styling across different browsers and devices.
@@ -22,7 +24,3 @@ We use _normalize.css_. From the project’s [official website](https://necolas.
 ### Reset
 
 Additionally, we use a very small reset stylesheet – mostly to set margin and padding to zero for all block-level elements.
-
-{% endmarkdown %}
-
-{% endblock %}

@@ -4,4 +4,4 @@
 bower_components
 credentials.json
 node_modules
-_site
+_site/

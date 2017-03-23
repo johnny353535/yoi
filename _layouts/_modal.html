@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Juvalis</title>
-        <base href="{{ basePath }}" />
-        <link href="assets/css/yoshino-ui-core.css" rel="stylesheet" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href="{{ site.baseurl }}dist/css/yoshino-ui-core.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="{{ site.baseurl }}favicon.ico" type="image/x-icon" />
     </head>
     <body class="noJs" yoi-environment="modal-desktop">
         <script>document.body.className='js';</script>
@@ -16,7 +15,7 @@
             </a>
             {% block main %}{% endblock %}
         </div>
-        <script src="assets/js/libs/jquery.js"></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
+        <script src="{{ site.baseurl }}dist/js/libs/jquery.js"></script>
+        <script src="{{ site.baseurl }}dist/js/yoshino-ui-core.js"></script>
     </body>
 </html>
