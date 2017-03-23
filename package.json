@@ -15,35 +15,27 @@
   },
   "scripts": {
     "preinstall": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll && npm install -g bower && bower update",
-   
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
     "build-jekyll": "cd docs && jekyll build --config _config.yml --incremental",
     "build-scripts": "uglifyjs src/js/**/*.js --beautify -o dist/js/yoi.js && npm run copy-scripts",
-    "build-styles": "lessc src/less/index.less dist/css/yoi.css --source-map-map-inline && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css",
-    
+    "build-styles": "lessc src/less/index.less dist/css/yoi.css --source-map-map-inline && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css && npm run copy-styles",
     "clean": "npm run clean-dist && npm run clean-docs",
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/audio dist/css dist/img dist/js",
     "clean-docs": "rm -rf docs/_site && mkdir docs/_site && rm -rf docs/assets && mkdir docs/assets && mkdir docs/assets/audio docs/assets/css docs/assets/js",
-    
     "compress-scripts": "uglifyjs src/js/**/*.js --source-map-inline -o dist/js/yoi.js",
     "compress-styles": "cssnano < dist/css/yoi.css > dist/css/yoshino-ui-core.min.css --svgo",
-    
     "copy":"npm run copy-audio && npm run copy-favicon && npm run copy-scripts && npm run copy-styles",
     "copy-audio": "cp src/audio/* dist/audio/ && cp dist/audio/* docs/assets/audio/",
     "copy-favicon": "cp src/img/favicon.ico docs/_site/",
     "copy-scripts": "cp dist/js/* docs/assets/js/ && cp bower_components/jquery/dist/jquery.min.js docs/assets/js/",
     "copy-styles": "cp dist/css/* docs/assets/css/",
-    
     "deploy": "npm run clean && npm run deploy-scripts && npm run deploy-styles && npm run compress-styles && npm run copy-images && npm run copy-favicon && npm run build-jekyll",
     "deploy-scripts": "uglifyjs src/js/**/*.js -o dist/js/yoi.js",
     "deploy-styles": "lessc src/less/index.less dist/css/yoi.css && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css",
-    
     "serve": "npm run watch & browser-sync start --server 'docs/_site'",
-    
     "watch": "npm run watch-styles & npm run watch-jekyll & npm run watch-scripts",
-    "watch-jekyll": "chokidar 'index.md' '_includes/' '_layouts/' '_pages/' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
-    "watch-scripts": "chokidar 'src/scripts/*' -c 'npm run build-scripts && browser-sync reload'",
-    "watch-styles": "chokidar 'src/less/**/*' -c 'npm run build-styles && browser-sync reload'"
-    
+    "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_includes/' 'docs/_layouts/' 'docs/_pages/' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
+    "watch-scripts": "chokidar 'src/scripts/*' -c 'npm run build-scripts'",
+    "watch-styles": "chokidar 'src/less/**/*' -c 'npm run build-styles'"
   }
 }

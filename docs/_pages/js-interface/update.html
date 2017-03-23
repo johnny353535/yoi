@@ -1,7 +1,9 @@
-{% extends 'layouts/base.html' %}
-{% block main %}
+---
+layout: base
+title: Update
+permalink: js-interface/update
+---
 
-{% markdown %}
 ## Update
 This script provides a simple interface to post to a given endpoint (eg. some backend script) and inject the retrieved markup back into the document.
 
@@ -11,21 +13,16 @@ This script provides a simple interface to post to a given endpoint (eg. some ba
 | Hooks   | `yoi-update`                                                   |
 
 ### Simple Example
-{% endmarkdown %}
 
-<div class="documentation__block">
-    <div class="documentation__example" yoi-printcode="language:markup; print:true;">
-        <div class="btns">
-            <button class="btn btn--large" yoi-update="url:demos/ajaxSource-1.html;target:#container;">What is Valium?</button>
-            <button class="btn btn--large" yoi-update="url:demos/ajaxSource-2.html;target:#container;">What is Strychnine?</button>
-            <button class="btn btn--large" yoi-update="url:demos/ajaxSource-xyz.html;target:#container;">Why 42?</button>
-        </div>
-        <div id="container" class="pos-rel m-t-4">
-            <div class="p-4 b-ghost br">
-                <p class="fs-15">Response goes here …</p>
-            </div>
-        </div>
+```html
+<div class="btns">
+    <button class="btn btn--large" yoi-update="url:demos/ajaxSource-1.html;target:#container;">What is Valium?</button>
+    <button class="btn btn--large" yoi-update="url:demos/ajaxSource-2.html;target:#container;">What is Strychnine?</button>
+    <button class="btn btn--large" yoi-update="url:demos/ajaxSource-xyz.html;target:#container;">Why 42?</button>
+</div>
+<div id="container" class="pos-rel m-t-4">
+    <div class="p-4 b-ghost br">
+        <p class="fs-15">Response goes here …</p>
     </div>
 </div>
-
-{% endblock %}
+```

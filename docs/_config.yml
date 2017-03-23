@@ -5,9 +5,16 @@ description: An easy to learn, yet powerful set of modules to build and design w
 url: "https://yoshino-digital.github.io"
 github_username: yoshino-digital
 
+# Site Variables
+
+icon: "http://cdn.yoshino.digital/svg.php?id=icon-"
+
 # Build Settings
 
-baseurl: ""
+baseurl: "/" # "yoi"
 markdown: kramdown
 include: ['_pages']
 exclude: ['Gemfile','Gemfile.lock']
+
+# Learn more about configuring jekyll for github pages:
+# http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/

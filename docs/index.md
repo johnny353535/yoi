@@ -20,9 +20,7 @@ This is the base Jekyll theme. You can find out more info about customizing your
 
 
 
-![foo](http://cdn.yoshino.digital/svg.php?id=icon-008-s&w=256&h=256&f=#000&s=#000)
-
-
+<object class="icon icon--xlarge icon--attention" type="image/svg+xml" data="{{ site.icon }}008-s"></object>
 
 You can find the source code for the Jekyll new theme at:
 [minima](https://github.com/jekyll/minima)
