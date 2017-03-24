@@ -206,8 +206,8 @@ The most obvious use case for this script might be a menu that sticks while scro
 </div>
 ```
 
+{% raw %}
 <style type="text/css" media="screen">
-
     *[id*="example-"]::after {
         border-top: #ff6830 1px dashed;
         content: ' ';
@@ -217,9 +217,8 @@ The most obvious use case for this script might be a menu that sticks while scro
         top: 200px;
         z-index: 10;
     }
-
     #example-4::after {
         top: 350px;
     }
-
 </style>
+{% endraw %}

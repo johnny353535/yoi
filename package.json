@@ -2,16 +2,16 @@
   "name": "yoi",
   "version": "0.0.1",
   "dependencies": {
-    "bower": "^1.8.0"
-  },
-  "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "browser-sync": "^2.18.8",
-    "chokidar-cli": "^1.2.0",
+    "bower": "^1.8.0",
     "cssnano-cli": "^1.0.5",
     "less": "^2.7.2",
     "postcss-cli": "^3.0.0",
     "uglify-js": "^2.8.14"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "chokidar-cli": "^1.2.0"
   },
   "scripts": {
     "preinstall": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll && npm install -g bower && bower update",
