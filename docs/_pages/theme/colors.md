@@ -1,5 +1,6 @@
 ---
 layout: base
+group: theme
 title: Colors
 permalink: theme/colors
 ---

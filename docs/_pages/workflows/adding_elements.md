@@ -1,5 +1,6 @@
 ---
 layout: base
+group: workflows
 title: Adding Elements
 permalink: workflows/adding_elements
 ---

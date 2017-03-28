@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Callout
 permalink: elements/callout
 ---

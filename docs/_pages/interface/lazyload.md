@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: Lazyload
-permalink: js-interface/lazyload
+permalink: interface/lazyload
 ---
 
 ## Lazyload

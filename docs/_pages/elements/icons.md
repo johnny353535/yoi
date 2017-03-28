@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Icons
 permalink: elements/icons
 ---

@@ -1,5 +1,6 @@
 ---
 layout: base
+group: workflows
 title: Custom Branding
 permalink: workflows/custom_branding
 ---

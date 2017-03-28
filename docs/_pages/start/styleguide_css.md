@@ -1,7 +1,8 @@
 ---
 layout: base
+group: start
 title: CSS Styleguide
-permalink: introduction/styleguide_css
+permalink: start/styleguide_css
 ---
 
 ## CSS / Less Style Guide

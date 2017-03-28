@@ -1,14 +1,13 @@
 ---
 layout: base
+group: interface
 title: Sticky
-permalink: js-interface/sticky
+permalink: interface/sticky
 ---
 
 ## Sticky
 Make any element on the page **stick** while scrolling past a certain threshold, which can be defined per element.
 
-|         |                                                                |
-| -       | -                                                              |
 | Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/modules/sticky.js) |
 | Hooks   | `yoi-sticky`                                                   |
 
@@ -16,10 +15,13 @@ Make any element on the page **stick** while scrolling past a certain threshold,
 Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky*. While scrolling the page down, as soon as the vieport’s top border *touches* the element, it *sticks* at the viewport top while scrolling. If no other parameter is provided, the element *sticks as long as the page can be scrolled*. However, in this first simple example, one parameter is provided: *stop*.
 
 ```html
+<!-- example -->
 <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
+
 <div class="box h-40 w-20 p-1" id="myReferenceElement-1">
     <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-1</span>
 </div>
+
 <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:100;"></div>
 ```
 

@@ -1,5 +1,6 @@
 ---
 layout: base
+group: utilities
 title: Interaction
 permalink: utilities/interaction
 ---

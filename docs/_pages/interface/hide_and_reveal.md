@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: Hide & Reveal
-permalink: js-interface/hide_and_reveal
+permalink: interface/hide_and_reveal
 ---
 
 ## Hide & Reveal

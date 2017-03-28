@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Tool Tip
 permalink: elements/tooltip
 ---

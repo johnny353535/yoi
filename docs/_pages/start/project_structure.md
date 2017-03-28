@@ -1,7 +1,8 @@
 ---
 layout: base
+group: start
 title: Project Structure
-permalink: introduction/project_structure
+permalink: start/project_structure
 ---
 
 ## Project Structure

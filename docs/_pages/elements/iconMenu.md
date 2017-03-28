@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: IconMenu
 permalink: elements/iconMenu
 ---

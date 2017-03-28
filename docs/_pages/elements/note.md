@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Note
 permalink: elements/note
 ---

@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Box
 permalink: elements/box
 ---

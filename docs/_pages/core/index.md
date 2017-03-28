@@ -1,5 +1,6 @@
 ---
 layout: base
+group: core
 title: Introduction
 permalink: core/
 ---

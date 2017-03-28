@@ -1,5 +1,6 @@
 ---
 layout: base
+group: utilities
 title: Interface
 permalink: utilities/interface
 ---

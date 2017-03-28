@@ -1,4 +1,9 @@
-
+---
+layout: base
+group: elements
+title: Menu
+permalink: elements/menu
+---
 
 ## Menu
 Use this element to create a simple menu. It is designed to include *up to three levels of sub menus* and features *optional pointers* on either the right or left side.

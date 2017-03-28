@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Pop-Over
 permalink: elements/popover
 ---

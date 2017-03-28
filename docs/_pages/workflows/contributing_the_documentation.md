@@ -1,5 +1,6 @@
 ---
 layout: base
+group: workflows
 title: Contributing the Documentation
 permalink: workflows/contributing_documentation
 ---

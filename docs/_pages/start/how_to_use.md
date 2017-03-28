@@ -1,7 +1,8 @@
 ---
 layout: base
+group: start
 title: How to Use This Documentation
-permalink: introduction/how_to_use
+permalink: start/how_to_use
 ---
 
 ## How to Use This Documentation

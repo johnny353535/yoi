@@ -1,5 +1,6 @@
 ---
 layout: base
+group: workflows
 title: Adding Icons
 permalink: workflows/adding_icons
 ---

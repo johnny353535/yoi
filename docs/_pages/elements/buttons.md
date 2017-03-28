@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Buttons
 permalink: elements/buttons
 ---

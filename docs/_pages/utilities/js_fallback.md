@@ -1,5 +1,6 @@
 ---
 layout: base
+group: utilities
 title: JS-Fallback
 permalink: utilities/js_fallback
 ---

@@ -1,5 +1,6 @@
 ---
 layout: base
+group: core
 title: Reset
 permalink: core/reset
 ---

@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: Remove
-permalink: js-interface/remove
+permalink: interface/remove
 ---
 
 ## Remove

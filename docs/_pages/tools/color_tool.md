@@ -1,5 +1,6 @@
 ---
 layout: base
+group: tools
 title: Color Tool
 permalink: tools/color_tool
 ---

@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: ScrollTo
-permalink: js-interface/scrollto
+permalink: interface/scrollto
 ---
 
 ## scrollTo

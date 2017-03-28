@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: CheckList
 permalink: elements/checkList
 ---

@@ -1,16 +1,15 @@
 ---
 layout: base
+group: core
 title: Debugging
-permalink: core/debug
+permalink: core/debugging
 ---
 
 ## Visual Debugging
 Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.
 
-|                |                                                                      |
-| -              | -                                                                    |
-| Less-File      | [debug.less]({{ pathToSourceFile }}assets/less/core/debug.less)      |
-| Less-File      | [options.less]({{ pathToSourceFile }}assets/less/theme/options.less) |
+| Less-File | [debug.less]({{ pathToSourceFile }}assets/less/core/debug.less)      |
+| Less-File | [options.less]({{ pathToSourceFile }}assets/less/theme/options.less) |
 
 <div class="documentation__block">
     <div class="documentation__example" yoi-printcode="language:markup; print:true;">

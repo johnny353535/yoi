@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: Update
-permalink: js-interface/update
+permalink: interface/update
 ---
 
 ## Update

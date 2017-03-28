@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: ScrollAgent
-permalink: js-interface/scrollagent
+permalink: interface/scrollagent
 ---
 
 ## ScrollAgent

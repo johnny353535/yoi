@@ -1,10 +1,10 @@
 ---
 layout: base
-group: theme
+group: start
 title: Introduction
-permalink: theme/
+permalink: start/
 ---
 
-## Introduction to Custom Themes
+## Introduction
 
 <p class="hint hint--error">No documentation yet.</p>

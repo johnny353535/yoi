@@ -1,5 +1,6 @@
 ---
 layout: base
+group: core
 title: Root
 permalink: core/root
 ---

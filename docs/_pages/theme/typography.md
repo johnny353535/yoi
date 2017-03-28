@@ -1,6 +1,7 @@
 ---
 layout: base
-title: Styling
+group: theme
+title: Typography
 permalink: theme/typography
 ---
 

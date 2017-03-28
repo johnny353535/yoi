@@ -1,5 +1,6 @@
 ---
 layout: base
+group: elements
 title: Pie Chart
 permalink: elements/piechart
 ---

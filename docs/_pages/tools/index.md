@@ -1,10 +1,10 @@
 ---
 layout: base
-group: elements
-title: Loading
-permalink: elements/loading
+group: tools
+title: Introduction
+permalink: tools/
 ---
 
-## Loading
+## Introduction
 
 <p class="hint hint--error">No documentation yet.</p>

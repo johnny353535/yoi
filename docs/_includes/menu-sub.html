@@ -1,0 +1,14 @@
+<ul class="linkList linkList--large bg-transparent b-0 br-0">
+    {% for group in site.data.sitemap %}
+        <li class="linkList__item fw-bold">
+            <a class="linkList__link" href="{{ site.baseurl }}{{ group.first }}/">{{ group.first | capitalize }}</a>
+        </li>
+        {% if page.group == group.first %}
+            {% for groupPage in site.data.sitemap[page.group] %}
+                <li class="linkList__item{% if page.url contains groupPage %} is--active{% endif %}">
+                    <a class="linkList__link" href="{{ site.baseurl }}{{ page.group }}/{{ groupPage }}.html">{% if groupPage == "index" %}Introduction{% else %}{{ groupPage | replace: "_", " " | capitalize }}{% endif %}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</ul>

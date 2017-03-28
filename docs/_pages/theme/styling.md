@@ -1,5 +1,6 @@
 ---
 layout: base
+group: theme
 title: Styling
 permalink: theme/styling
 ---

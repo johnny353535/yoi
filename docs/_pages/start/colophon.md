@@ -1,7 +1,8 @@
 ---
 layout: base
+group: start
 title: Colophon
-permalink: introduction/colophon
+permalink: start/colophon
 ---
 
 ## Colophon

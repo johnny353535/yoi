@@ -1,5 +1,6 @@
 ---
 layout: base
+group: tools
 title: Buttons Kitchensink
 permalink: tools/buttonskitchensink
 ---

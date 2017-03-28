@@ -1,7 +1,8 @@
 ---
 layout: base
+group: interface
 title: Toggle Group
-permalink: js-interface/togglegroup
+permalink: interface/togglegroup
 ---
 
 ## Toggle Group

@@ -1,7 +1,8 @@
 ---
 layout: base
+group: start
 title: CSS Styleguide
-permalink: introduction/styleguide_js
+permalink: start/styleguide_js
 ---
 
 ## JavaScript Style Guide

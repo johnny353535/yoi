@@ -1,7 +1,8 @@
 ---
 layout: base
+group: workflows
 title: Introduction
-permalink: js-interface/
+permalink: workflows/
 ---
 
 ## Introduction
