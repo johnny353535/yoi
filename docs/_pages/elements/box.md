@@ -15,6 +15,7 @@ permalink: elements/box
 ### Basic Example
 
 ```html
+<!-- example -->
 <div class="box">
     <h4 class="box__header">Optional Headline</h4>
     <div class="box__body">
@@ -27,6 +28,7 @@ permalink: elements/box
 Each `.box` can have multiple `.box__body`s. This is handy if you wish to group elements inside a single `.box` but only use one `.box__header`. Like this:
 
 ```html
+<!-- example -->
 <div class="box">
     <h4 class="box__header">Headline</h4>
     <div class="box__body">
@@ -41,6 +43,7 @@ Each `.box` can have multiple `.box__body`s. This is handy if you wish to group 
 Sometimes you may wish to group different `.box`es. You can easily do so by wrapping them inside `<div class="boxes">` (notice the plural!). Of course you can also nest multiple bodies:
 
 ```html
+<!-- example -->
 <div class="boxes">
     <div class="box">
         <h4 class="box__header">Headline</h4>

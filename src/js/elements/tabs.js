@@ -1,6 +1,11 @@
 /** tabs.js */
 
 YOI.element.Tabs = (function() {
+    
+    // private vars
+    // ============
+    
+    var $window = $(window);
 
     // private functions
     // =================
@@ -27,7 +32,7 @@ YOI.element.Tabs = (function() {
          *    the first tab menu item is shown.
          *
          *  - If location.hash matches a tab page inside the document, the initial tab page
-         *    gets overridden by the tabs page matching the hash. Additionally, the tab page
+         *    gets overwritten by the tabs page matching the hash. Additionally, the tab page
          *    gets scrolled into the viewport.
          */
         
@@ -36,37 +41,36 @@ YOI.element.Tabs = (function() {
         if ($tabsMenu) $tabsMenu.each(function(){
             
             var $thisTabsMenu = $(this);
-
-            // read start tab from markup ...
-
-            var thisStartTabId = $thisTabsMenu.find('.is--active').length ? $thisTabsMenu.find('.is--active a')[0].hash : $thisTabsMenu.find('a').first()[0].hash;
-
-            // read start tab from url ...
-
-            var urlTabId = window.location.hash;
-
-            // ... and finally define the target tab
-
-            var targetTabId = $thisTabsMenu.find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
-
-            // switch to target tab
-
-            switchTo(targetTabId);
-
-            // if start tab was in hash, scroll to start tab
             
-            if (YOI.foundModule('ScrollTo') && urlTabId !== '')
-                YOI.module.ScrollTo.target(urlTabId);
-
-            // attach click event to menu items
+            // get the start tab
+            
+            var urlTabId       = window.location.hash;
+            var firstTabId     = $thisTabsMenu.find('a').first()[0].hash;
+            var hashMatchesTab = $thisTabsMenu.find('a[href="' + urlTabId + '"]').length;
+            var hasActiveTab   = $thisTabsMenu.has('.tabs__item.is--active').length;
+            var startTabId     = hashMatchesTab ? urlTabId : firstTabId;
+            
+            // if the hash does not match any tab and if the
+            // tabs menu has an active tab already set in markup,
+            // overwrite startTabId with the id of the active tab
+            
+            if (hasActiveTab && !hashMatchesTab) {
+                startTabId = $thisTabsMenu.find('.tabs__item.is--active a').first()[0].hash;
+            }
+            
+            // switch to start tab
+            
+            switchTo(startTabId);
+            
+            // attach events
 
             $thisTabsMenu.find('a').on('click', function(e) {
                 e.preventDefault();
-                switchTo($(this)[0].hash);
+                switchTo(this.hash);
             });
 
         });
-
+    
     }
 
     function switchTo(thisTargetTabId) {
@@ -77,7 +81,7 @@ YOI.element.Tabs = (function() {
          *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
 
-        var $thisTabsMenuItem         = $('a[href*="' + thisTargetTabId + '"]').parent('li');
+        var $thisTabsMenuItem         = $('a[href="' + thisTargetTabId + '"]').parent('li');
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
         var $thisTargetTab            = $(thisTargetTabId);
         

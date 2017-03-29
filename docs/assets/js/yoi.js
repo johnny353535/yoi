@@ -254,8 +254,6 @@ $(function() {
     });
 });
 
-YOI.startDomObserver();
-
 YOI.element.Accordion = function() {
     function initializeAccordion($accordion, options) {
         var $accordion = YOI.createCollection("accordion", $accordion, options);
@@ -313,14 +311,18 @@ YOI.element.Accordion = function() {
         var $thisSection = $section;
         var $thisBody = $section.find(".accordion__body");
         $thisSection.removeClass("is--closed").addClass("is--open");
-        $thisBody.stop().slideDown("fast");
+        $thisBody.stop().slideDown("fast").promise().then(function() {
+            $thisSection.trigger("yoi-accordion:done");
+        });
         $thisSection.trigger("yoi-accordion:open");
         $thisSection.data().state = "open";
     }
     function closeSection($section) {
         var $thisSection = $section;
         var $thisBody = $section.find(".accordion__body");
-        $thisSection.removeClass("is--open").addClass("is--closed");
+        $thisSection.removeClass("is--open").addClass("is--closed").promise().then(function() {
+            $thisSection.trigger("yoi-accordion:done");
+        });
         $thisBody.stop().slideUp("fast");
         $thisSection.trigger("yoi-accordion:close");
         $thisSection.data().state = "closed";
@@ -2621,23 +2623,28 @@ YOI.element.Table = function() {
 }();
 
 YOI.element.Tabs = function() {
+    var $window = $(window);
     function initialize($tabsMenu, options) {
         var $tabsMenu = YOI.createCollection("tabs", $tabsMenu, options);
         if ($tabsMenu) $tabsMenu.each(function() {
             var $thisTabsMenu = $(this);
-            var thisStartTabId = $thisTabsMenu.find(".is--active").length ? $thisTabsMenu.find(".is--active a")[0].hash : $thisTabsMenu.find("a").first()[0].hash;
             var urlTabId = window.location.hash;
-            var targetTabId = $thisTabsMenu.find('a[href*="' + urlTabId + '"]').length > 0 ? urlTabId : thisStartTabId;
-            switchTo(targetTabId);
-            if (YOI.foundModule("ScrollTo") && urlTabId !== "") YOI.module.ScrollTo.target(urlTabId);
+            var firstTabId = $thisTabsMenu.find("a").first()[0].hash;
+            var hashMatchesTab = $thisTabsMenu.find('a[href="' + urlTabId + '"]').length;
+            var hasActiveTab = $thisTabsMenu.has(".tabs__item.is--active").length;
+            var startTabId = hashMatchesTab ? urlTabId : firstTabId;
+            if (hasActiveTab && !hashMatchesTab) {
+                startTabId = $thisTabsMenu.find(".tabs__item.is--active a").first()[0].hash;
+            }
+            switchTo(startTabId);
             $thisTabsMenu.find("a").on("click", function(e) {
                 e.preventDefault();
-                switchTo($(this)[0].hash);
+                switchTo(this.hash);
             });
         });
     }
     function switchTo(thisTargetTabId) {
-        var $thisTabsMenuItem = $('a[href*="' + thisTargetTabId + '"]').parent("li");
+        var $thisTabsMenuItem = $('a[href="' + thisTargetTabId + '"]').parent("li");
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest(".tabs__menu").find("li");
         var $thisTargetTab = $(thisTargetTabId);
         $thisRelatedTabsMenuItems.each(function() {
@@ -3230,7 +3237,7 @@ YOI.module.Sticky = function() {
         }
     }
     function positionObserver($stickyElements) {
-        $window.on("resize", function() {
+        $window.on("resize yoi-accordion:done yoi-tabs:change", function() {
             $stickyElements.each(function(index) {
                 var $stickyElement = $(this);
                 var $stickyElementClone = $("#stickyClone-" + index);

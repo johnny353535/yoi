@@ -35,7 +35,7 @@
     "serve": "npm run watch & browser-sync start --server 'docs/_site'",
     "watch": "npm run watch-styles & npm run watch-jekyll & npm run watch-scripts",
     "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_includes/' 'docs/_layouts/' 'docs/_pages/' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
-    "watch-scripts": "chokidar 'src/scripts/*' -c 'npm run build-scripts'",
+    "watch-scripts": "chokidar 'src/js/**/*' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' -c 'npm run build-styles'"
   }
 }

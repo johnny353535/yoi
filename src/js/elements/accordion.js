@@ -134,7 +134,9 @@ YOI.element.Accordion = (function() {
 
         $thisBody
             .stop()
-            .slideDown('fast');
+            .slideDown('fast')
+            .promise()
+            .then(function() { $thisSection.trigger('yoi-accordion:done') });
 
         $thisSection.trigger('yoi-accordion:open');
         $thisSection.data().state = 'open';
@@ -154,7 +156,9 @@ YOI.element.Accordion = (function() {
         
         $thisSection
             .removeClass('is--open')
-            .addClass('is--closed');
+            .addClass('is--closed')
+            .promise()
+            .then(function() { $thisSection.trigger('yoi-accordion:done') });
     
         $thisBody
             .stop()

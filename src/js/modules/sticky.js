@@ -188,7 +188,7 @@ YOI.module.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
 
-        $window.on('resize', function() {
+        $window.on('resize yoi-accordion:done yoi-tabs:change', function() {
             
             $stickyElements.each(function(index) {
 

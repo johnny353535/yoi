@@ -687,4 +687,4 @@ $(function() {
 // start the global MutationObserver
 // learn more: https://developer.mozilla.org/en/docs/Web/API/MutationObserver
 
-YOI.startDomObserver();
+// YOI.startDomObserver();

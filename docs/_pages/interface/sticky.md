@@ -17,11 +17,13 @@ Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky
 ```html
 <!-- example -->
 <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
-
 <div class="box h-40 w-20 p-1" id="myReferenceElement-1">
     <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-1</span>
 </div>
+```
 
+```html
+<!-- example -->
 <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:100;"></div>
 ```
 
@@ -39,6 +41,7 @@ yoi-sticky="reference:#myReferenceElement;"
 The script selects the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* as long as it’s bottom aligns with the reference element’s bottom.
 
 ```html
+<!-- example -->
 <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-2;"></div>
 <div class="box h-40 w-20 p-1" id="myReferenceElement-2">
     <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-2</span>
@@ -49,11 +52,12 @@ The script selects the first matching element on the page and references it’s 
 Another possible value for the reference-parameter is the keyword `parent`:
 
 ```html
-yoi-sticky="reference:parent;"
+<div yoi-sticky="reference:parent;"></div>
 ```
 By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks *inside it’s parent element* as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.
 
 ```html
+<!-- example -->
 <div class="w-30 p-r-4">
     <div class="box h-30 p-2">
         <span class="tc-gray-15 fs-15 pos-tr m-t-1 m-r-2">parent element</span>
@@ -77,7 +81,9 @@ If you don not define any values for start and stop, the sticky element will sta
 #### Default Values
 The default value for `start` is 0. The default value for `stop` is the body height – in this case the element sticks as long as the page can be scrolled.
 
+
 ```html
+<!-- example -->
 <div class="grid-float">
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-15 m-b-4">start: none;<br />stop: 200;</p>
@@ -110,6 +116,7 @@ The default value for `start` is 0. The default value for `stop` is the body hei
 The most obvious use case for this script might be a menu that sticks while scrolling past the content area. However, it is flexible enough to use it for many other scenarios, too. Maybe stick the letter-labels on a large alphabetically ordered list while scrolling:
 
 ```html
+<!-- example -->
 <div class="m-b-4 clearfix">
     <div class="fl-l w-4 m-r-2" yoi-sticky="reference:parent">
         <div class="p-2 bg-blue-22 tc-blue-5 fw-bold br al-c">A</div>

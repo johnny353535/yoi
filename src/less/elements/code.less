@@ -16,13 +16,18 @@ code {
 
 pre {
     .mixin-defaultBorderRadius;
-    padding: 1rem;
     background: @gray-24;
+    padding: 1rem;
 }
 
 pre code {
     display: block;
     overflow-x: scroll;
+}
+
+.codeExample pre,
+.codeExample code {
+    background: transparent;
 }
 
 // code highlighting (via http://rouge.jneen.net)

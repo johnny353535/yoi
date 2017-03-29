@@ -14,6 +14,10 @@
                 line-height: 1.5;
             }
             
+            .codeExample {
+                margin: 2rem 0;
+            }
+            
         </style>
     </head>
     <body class="noJs" yoi-environment="desktop">
@@ -21,11 +25,11 @@
         <div class="documentation">
             <div class="center grid-flex p-t-10">
                 <!-- main content -->
-                <div class="article w-3-4 p-r-10" style="min-height: 80vh;">
+                <div class="article w-3-4" style="min-height: 80vh;">
                     {{ content }}
                 </div>
                 <!-- sub menu -->
-                <div class="w-1-4 m-t-3">
+                <div class="w-1-4 m-t-3 p-l-10">
                     {% include menu-sub.html %}
                 </div>
                 <!-- footer -->
@@ -39,34 +43,57 @@
             </div>
         </div>
         <script src="{{ site.baseurl }}assets/js/jquery.min.js"></script>
-        <script src="{{ site.baseurl }}assets/js/yoi.js"></script>
         <script>
             (function() {
                 
-                var $code = $('.language-html');
+                var $codeWrapper = $('div[class*="highlighter"]');
+                var tabPageIndex = 0;
                 
-                $.each($code, function() {
+                $.each($codeWrapper, function(index) {
                     
-                    var tag             = '<!-- example -->';
-                    var $codeWrapper    = $(this);
-                    var $code           = $codeWrapper.find('code');
-                    var $exampleWrapper = $('<div class="box p-2"></div>');
-                    var $example        = $code.text().split(tag) !== -1 ? $($code.text().split(tag)[1]) : false;
-                    var cleanCode       = $code.html().split(tag)[1];
+                    var tag                 = '<!-- example -->';
+                    var $thisCodeWrapper    = $(this);
+                    var $thisCode           = $thisCodeWrapper.find('code');
+                    var thisExample         = $thisCode.text().split(tag).length > 1 ? $thisCode.text().split(tag)[1] : false;
                     
-                    if ($example) {
-                        var foo = $example.wrap($exampleWrapper);
-                        $codeWrapper.before(foo);
-                        $code.text(cleanCode);
+                    if (thisExample) {
+                        
+                        var firstIndex  = ++tabPageIndex;
+                        var secondIndex = ++tabPageIndex;
+                        
+                        // $thisCodeWrapper.find('.c:contains("' + tag + '")').remove();
+
+                        var markup =    '<div class="codeExample tabs">';
+                            markup +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
+                            markup +=           '<ul class="tabs__items">';
+                            markup +=               '<li class="tabs__item">';
+                            markup +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
+                            markup +=               '</li>';
+                            markup +=               '<li class="tabs__item">';
+                            markup +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
+                            markup +=               '</li>';
+                            markup +=           '</ul>';
+                            markup +=       '</div>';
+                            markup +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page">';
+                            markup +=           thisExample;
+                            markup +=       '</div>';
+                            markup +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page">';
+                            markup +=           $thisCodeWrapper.html();
+                            markup +=       '</div>';
+                            markup +=   '</div>';
+                        
+                        $thisCodeWrapper.replaceWith(markup);
+                        
                     }
-                    
-                    // remove the tag
-                    
-                    $code.find('.c:contains("' + tag + '")').remove();
+
+                    // remove the "tag" and the first line break
+                    // $thisCode.find('.c:contains("' + tag + '")').remove();
+                    // $thisCode.html($thisCode.html().replace(/^.*?\r?\n/, ''));
                     
                 });
                 
             })();
         </script>
+        <script src="{{ site.baseurl }}assets/js/yoi.js"></script>
     </body>
 </html>
