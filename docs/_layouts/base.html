@@ -5,6 +5,8 @@
         <title>YOI – Yoshino UI Core | {{ page.title | default: "Documentation" }}</title>
         {% if jekyll.environment == "production" %}
             <base href="/ui-core" />
+        {% else %}
+            <base href="/" />
         {% endif %}
         <link href="{{ site.baseurl }}assets/css/yoi.css" rel="stylesheet" />
         <link href="{{ site.baseurl }}css/documentation.css" rel="stylesheet" />
