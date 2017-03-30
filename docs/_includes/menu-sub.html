@@ -7,7 +7,7 @@
         {% if page.group == group.first %}
             {% for groupPage in site.data.sitemap[page.group] %}
                 <li class="linkList__item{% if (page.url contains groupPage) or (urlLastChar == "/" and groupPage == "index") %} is--active{% endif %}">
-                    <a class="linkList__link" href="{{ site.github.url }}/{{ page.group }}/{{ groupPage }}.html">{% if groupPage == "index" %}Introduction{% else %}{{ groupPage | replace: "_", " " | capitalize }}{% endif %}</a>
+                    <a class="linkList__link" href="{{ site.github.url }}/{{ page.group }}/{{ groupPage | downcase }}.html">{% if groupPage == "index" %}Introduction{% else %}{{ groupPage | replace: "_", " " | capitalize }}{% endif %}</a>
                 </li>
             {% endfor %}
         {% endif %}
