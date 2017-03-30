@@ -1,89 +1,152 @@
----
-layout: base
-group: tools
-title: Color Tool
-permalink: tools/color_tool
----
+/** documentation.js */
 
-## Color Tool
-Our color gradients were not created using [Less’ internal color blending functions](http://lesscss.org/functions/#color-blending) because they do not produce gradients with **constant luminosity**. Instead, certain shades would always pop out and feel wrong because they are over-saturated.
+// code examples
+// =============
 
-We solved this problem with a custom algorithm which basically mimics [Photoshop’s »color« blend mode](http://www.beneaththewaves.net/Photography/Secrets_of_Photoshops_Colour_Blend_Mode_Revealed_Sort_Of.html). Use the tool below to generate color shades.
-The color variables (less) for the Yoshino frontend are based on 25-step gradients. The higher the number, the lighter the color (eg. `@blue-0` vs. `@blue-25`).
+(function() {
+    
+    /**
+     *  Formats <code> tags with html content. Listens for specially formatted html-comments as flags:
+     *
+     *  <!-- example -->      = injects the markup above the <code> tag
+     *  <!-- example:tabs --> = replaces the <code> tag with a tabbed widget (rendered markup + code)
+     */
+    
+    var $window      = $(window);
+    var $codeWrapper = $('div[class*="highlighter"]');
+    var tabPageIndex = 0;
+    
+    $.each($codeWrapper, function(index) {
+        
+        var $thisCodeWrapper    = $(this);
+        var $thisCode           = $thisCodeWrapper.find('code');
+        var exampleTag          = '<!-- example -->';
+        var exampleTagTabbed    = '<!-- example:tabs -->';
+        var thisExample         = $thisCode.text().split(exampleTag).length > 1 ? $thisCode.text().split(exampleTag)[1] : false;
+        var thisExampleTabbed   = $thisCode.text().split(exampleTagTabbed).length > 1 ? $thisCode.text().split(exampleTagTabbed)[1] : false;
+        
+        if (thisExampleTabbed) {
+            
+            // set indexes to generate unique ids
+            // for tab pages
+            
+            var firstIndex  = ++tabPageIndex;
+            var secondIndex = ++tabPageIndex;
+            
+        }
+        
+        if (thisExample) {
+            
+            // markup variable
+            
+            var _ = '';
+            
+            // remove the "exampleTagTabbed" and the first line break
+            
+            $thisCode.find('.c:contains("' + exampleTag + '")').remove();
+            
+            // template for tabbed code preview
 
-<div class="boxes">
-    <div class="w-1-1 box">
-        <div class="grid-float">
-        <div class="w-1-5 fl-l p-4">
-            <form id="colorForm" action="#">
-                <label for="referenceColor">Reference color</label>
-                <input class="input--large m-b-2" type="text" id="referenceColor" value="#7ebaf0" />
-                <label for="lessVarBasename">Var base name</label>
-                <input class="input--large m-b-2" type="text" id="lessVarBasename" value="color" />
-                <label for="steps">Gradient steps</label>
-                <input class="input--large m-b-2" type="text" id="steps" value="25" />
-                <input class="btn btn--large btn--dark w-1-1 al-c" id="btnSubmit" type="submit" value="Run" />
-            </form>
-            <div class="m-t-4" id="presets">
-                <label class="m-b-2">Or pick a preset:</label>
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#8572c0',26);ColorMath.generateCode()">Purple</button><br />
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#7ebaf0',26);ColorMath.generateCode()">Blue</button><br />
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#b7e7cd',26);ColorMath.generateCode()">Green</button><br />
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#f84502',26);ColorMath.generateCode()">Red</button><br />
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#fff9bb',26);ColorMath.generateCode()">Yellow</button><br />
-                <button class="btn btn--flat btn--rounded btn--light m-b-2" onclick="ColorMath.paintGradient('#979797',26);ColorMath.generateCode()">Grey</button>
-            </div>
-        </div>
-        <div class="w-4-5 fl-r p-4">
-            <div id="gradient"></div>
-        </div>
-        </div>
-    </div>
-    <div class="box" id="codepanel">
-        <code class="tc-main-8 d-blk"></code>
-    </div>
-</div>
+            _ =    '<div class="documentation__example">';
+            _ +=       '<div>';
+            _ +=           thisExample;
+            _ +=       '</div>';
+            _ +=       '<div class="m-t-6">';
+            _ +=           $thisCodeWrapper.html();
+            _ +=       '</div>';
+            _ +=   '</div>';
+        
+        }
+        
+        if (thisExampleTabbed) {
+            
+            // markup variable
+            
+            var _ = '';
+            
+            // remove the "exampleTagTabbed" and the first line break
+        
+            $thisCode.find('.c:contains("' + exampleTagTabbed + '")').remove();
+            
+            // template for tabbed code preview
 
-{% raw %}
-<style type="text/css" media="screen">
+            _ =    '<div class="documentation__example tabs">';
+            _ +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
+            _ +=           '<ul class="tabs__items">';
+            _ +=               '<li class="tabs__item">';
+            _ +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
+            _ +=               '</li>';
+            _ +=               '<li class="tabs__item">';
+            _ +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
+            _ +=               '</li>';
+            _ +=           '</ul>';
+            _ +=       '</div>';
+            _ +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page">';
+            _ +=           thisExampleTabbed;
+            _ +=       '</div>';
+            _ +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page">';
+            _ +=           $thisCodeWrapper.html();
+            _ +=       '</div>';
+            _ +=   '</div>';
+            
+        }
+        
+        if (thisExample || thisExampleTabbed) {
+            $thisCodeWrapper.replaceWith(_);
+        }
+        
+    });
+    
+})();
 
-    .shade {
-        height: 4rem;
-        text-align: right;
-    }
+// tools/buttons.md
+// ================
 
-    .shade p {
-        background: rgba(0,0,0,.4);
-        color: #fff;
-        display: inline-block;
-        font: normal 1.5rem/4rem monospace;
-        height: 100%;
-        padding: 0 1.5rem;
-    }
+(function() {
 
-    #gradient {
-        display: none;
-    }
+    $('[data-modifier]').on('change', function() {
 
-    #codepanel {
-        display: none;
-    }
+        var $this = $(this);
 
-    #codepanel code {
-        margin: 0;
-        padding: 2rem;
-        white-space: pre;
-    }
+        var allButtons       = $this.parent().next('.documentation__blocks').find('.btn');
+        var modifierClasses  = $this.data('modifier');
+        var selectedModifier = $this.find('option:selected').val();
+        var dependendSelect  = $this.nextAll('span').first().find('[role="customSelect"]');
 
-</style>
-<script>
+        allButtons.each(function() {
 
+            var $this = $(this);
+
+            $this.removeClass(modifierClasses);
+            $this.addClass(selectedModifier);
+
+            // special case because of flat/subtle depedency
+
+            if (selectedModifier === 'btn--subtle') {
+                dependendSelect.addClass('btn--disabled');
+                dependendSelect.find('select').prop('disabled', true);
+                dependendSelect.find('option').prop('selected', false);
+                $this.removeClass('btn--rounded btn--flat btn--outline');
+            } else {
+                dependendSelect.removeClass('btn--disabled');
+                dependendSelect.find('select').prop('disabled', false);
+            }
+
+        });
+
+    });
+
+})();
+
+// tools/gradient.md
+// =================
+
+(function() {
+    
     var ColorMath = {
 
         global: {
-
             generatedCode: ''
-
         },
 
         init: function(){
@@ -248,6 +311,5 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
 
     window.ColorMath = ColorMath;
     ColorMath.init();
-
-</script>
-{% endraw %}
+    
+})();

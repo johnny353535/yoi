@@ -87,25 +87,25 @@ The default value for `start` is 0. The default value for `stop` is the body hei
 <div class="grid-float">
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-15 m-b-4">start: none;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-1">
+        <div class="h-40 pos-rel" id="example-sticky-1">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-2">
+        <div class="h-40 pos-rel" id="example-sticky-2">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-15 m-b-4">start: 180;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-3">
+        <div class="h-40 pos-rel" id="example-sticky-3">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:180; stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 350;</p>
-        <div class="h-40 pos-rel" id="example-4">
+        <div class="h-40 pos-rel" id="example-sticky-4">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:350;"></div>
         </div>
     </div>
@@ -214,20 +214,3 @@ The most obvious use case for this script might be a menu that sticks while scro
     </div>
 </div>
 ```
-
-{% raw %}
-<style type="text/css" media="screen">
-    *[id*="example-"]::after {
-        border-top: #ff6830 1px dashed;
-        content: ' ';
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 200px;
-        z-index: 10;
-    }
-    #example-4::after {
-        top: 350px;
-    }
-</style>
-{% endraw %}

@@ -3,97 +3,37 @@
     <head>
         <meta charset="utf-8">
         <title>YOI – Yoshino UI Core | {{ page.title | default: "Documentation" }}</title>
+        {% if jekyll.environment == "github" %}
+            <base href="/yoshino-ui-core">
+        {% endif %}
         <link href="{{ site.baseurl }}assets/css/yoi.css" rel="stylesheet" />
+        <link href="{{ site.baseurl }}css/documentation.css" rel="stylesheet" />
         <link href="{{ site.baseurl }}favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <style type="text/css" media="screen">
-        
-            /* intro paragraph */
-            
-            h2:first-child + p {
-                font-size: 2rem;
-                line-height: 1.5;
-            }
-            
-            .codeExample {
-                margin: 2rem 0;
-            }
-            
-        </style>
     </head>
     <body class="noJs" yoi-environment="desktop">
         <script>document.body.className='js';</script>
-        <div class="documentation">
-            <div class="center grid-flex p-t-10">
-                <!-- main content -->
-                <div class="article w-3-4" style="min-height: 80vh;">
-                    {{ content }}
-                </div>
-                <!-- sub menu -->
-                <div class="w-1-4 m-t-3 p-l-10">
-                    {% include menu-sub.html %}
-                </div>
-                <!-- footer -->
-                <footer class="w-1-1 tc-gray-18 m-tb-6">&copy; Yoshino.digital GmbH</footer>
-            </div>
-            <!-- console -->
-            <div class="console" yoi-console yoi-dismissable>
-                <div class="console__body">
-                    <p>Listening</p>
-                </div>
+        <div class="center grid-flex p-t-10">
+            <!-- header -->
+            <header class="documentation__header w-1-1"></header>
+            <!-- main content -->
+            <article class="documentation__article article w-3-4">
+                {{ content }}
+            </article>
+            <!-- sub menu -->
+            <nav class="documentation__menu w-1-4 m-t-3 p-l-10">
+                {% include menu-sub.html %}
+            </nav>
+            <!-- footer -->
+            <footer class="documentation__footer w-1-1 tc-gray-18 m-tb-10">&copy; Yoshino.digital GmbH</footer>
+        </div>
+        <!-- console -->
+        <div class="console" yoi-console yoi-dismissable>
+            <div class="console__body">
+                <p>Listening</p>
             </div>
         </div>
         <script src="{{ site.baseurl }}assets/js/jquery.min.js"></script>
-        <script>
-            (function() {
-                
-                var $codeWrapper = $('div[class*="highlighter"]');
-                var tabPageIndex = 0;
-                
-                $.each($codeWrapper, function(index) {
-                    
-                    var tag                 = '<!-- example -->';
-                    var $thisCodeWrapper    = $(this);
-                    var $thisCode           = $thisCodeWrapper.find('code');
-                    var thisExample         = $thisCode.text().split(tag).length > 1 ? $thisCode.text().split(tag)[1] : false;
-                    
-                    if (thisExample) {
-                        
-                        var firstIndex  = ++tabPageIndex;
-                        var secondIndex = ++tabPageIndex;
-                        
-                        // $thisCodeWrapper.find('.c:contains("' + tag + '")').remove();
-
-                        var markup =    '<div class="codeExample tabs">';
-                            markup +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
-                            markup +=           '<ul class="tabs__items">';
-                            markup +=               '<li class="tabs__item">';
-                            markup +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
-                            markup +=               '</li>';
-                            markup +=               '<li class="tabs__item">';
-                            markup +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
-                            markup +=               '</li>';
-                            markup +=           '</ul>';
-                            markup +=       '</div>';
-                            markup +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page">';
-                            markup +=           thisExample;
-                            markup +=       '</div>';
-                            markup +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page">';
-                            markup +=           $thisCodeWrapper.html();
-                            markup +=       '</div>';
-                            markup +=   '</div>';
-                        
-                        $thisCodeWrapper.replaceWith(markup);
-                        
-                    }
-
-                    // remove the "tag" and the first line break
-                    // $thisCode.find('.c:contains("' + tag + '")').remove();
-                    // $thisCode.html($thisCode.html().replace(/^.*?\r?\n/, ''));
-                    
-                });
-                
-            })();
-        </script>
+        <script src="{{ site.baseurl }}js/documentation.js"></script>
         <script src="{{ site.baseurl }}assets/js/yoi.js"></script>
     </body>
 </html>

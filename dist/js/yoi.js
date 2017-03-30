@@ -3237,7 +3237,7 @@ YOI.module.Sticky = function() {
         }
     }
     function positionObserver($stickyElements) {
-        $window.on("resize yoi-accordion:done yoi-tabs:change", function() {
+        $window.on("resize", function() {
             $stickyElements.each(function(index) {
                 var $stickyElement = $(this);
                 var $stickyElementClone = $("#stickyClone-" + index);

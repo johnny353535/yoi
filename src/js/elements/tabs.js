@@ -80,7 +80,7 @@ YOI.element.Tabs = (function() {
          *
          *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
-
+        
         var $thisTabsMenuItem         = $('a[href="' + thisTargetTabId + '"]').parent('li');
         var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
         var $thisTargetTab            = $(thisTargetTabId);

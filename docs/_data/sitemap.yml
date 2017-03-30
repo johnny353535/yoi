@@ -106,5 +106,5 @@ workflows:
     - custom_branding
 tools:
     - index
-    - buttons_kitchensink
-    - color_tool
+    - buttons
+    - gradient

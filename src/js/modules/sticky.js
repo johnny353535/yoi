@@ -112,7 +112,7 @@ YOI.module.Sticky = (function() {
          *
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
-
+        
         var options                       = $stickyElement.data().options;
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
         var stickyElementheight           = $stickyElement.outerHeight();
@@ -188,13 +188,13 @@ YOI.module.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
 
-        $window.on('resize yoi-accordion:done yoi-tabs:change', function() {
-            
+        $window.on('resize', function() {
+                
             $stickyElements.each(function(index) {
 
                 var $stickyElement      = $(this);
                 var $stickyElementClone = $('#stickyClone-' + index);
-
+                
                 // if the sticky element passed validation (=> validInput),
                 // do the re-positioning
 
@@ -230,13 +230,13 @@ YOI.module.Sticky = (function() {
 
             $stickyElements.each(function(index) {
 
-                var $stickyElement                = $(this);
-                var $stickyElementClone           = $('#stickyClone-' + index);
-                var props                         = $stickyElement.data().props;
-                var stickyElementInitialTopPos    = props.initialTopPos;
-                var stickStart                    = props.stickStart;
-                var stickStop                     = props.stickStop;
-                var topOffset                     = props.topOffset;
+                var $stickyElement             = $(this);
+                var $stickyElementClone        = $('#stickyClone-' + index);
+                var props                      = $stickyElement.data().props;
+                var stickyElementInitialTopPos = props.initialTopPos;
+                var stickStart                 = props.stickStart;
+                var stickStop                  = props.stickStop;
+                var topOffset                  = props.topOffset;
                 var cssPositionValue;
                 var cssTopValue;
             

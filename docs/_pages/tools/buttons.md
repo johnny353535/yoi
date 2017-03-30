@@ -1,17 +1,17 @@
 ---
 layout: base
 group: tools
-title: Buttons Kitchensink
-permalink: tools/buttonskitchensink
+title: Buttons Tool
+permalink: tools/buttons
 ---
 
 {% raw %}
 
-## Buttons Kitchensink
+## Buttons Tool
 ### Single Buttons
 
 <form class="m-tb-4">
-    <span yoi-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
@@ -23,7 +23,7 @@ permalink: tools/buttonskitchensink
         </select>
     </span>
     <b class="p-lr-1">+</b>
-    <span yoi-modifier="btn--rounded btn--flat btn--outline">
+    <span data-modifier="btn--rounded btn--flat btn--outline">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
@@ -34,7 +34,7 @@ permalink: tools/buttonskitchensink
         </select>
     </span>
     <b class="p-lr-1">+</b>
-    <span yoi-modifier="btn--small btn--medium btn--large">
+    <span data-modifier="btn--small btn--medium btn--large">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--small">small</option>
@@ -77,7 +77,7 @@ permalink: tools/buttonskitchensink
 ### Large Icons Inside Large Buttons
 
 <form class="m-tb-4">
-    <span yoi-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
@@ -89,7 +89,7 @@ permalink: tools/buttonskitchensink
         </select>
     </span>
     <b class="p-lr-1">+</b>
-    <span yoi-modifier="btn--rounded btn--flat btn--outline">
+    <span data-modifier="btn--rounded btn--flat btn--outline">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
@@ -153,7 +153,7 @@ permalink: tools/buttonskitchensink
 ### Button Groups
 
 <form class="m-tb-4">
-    <span yoi-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
+    <span data-modifier="btn--light btn--dark btn--attention btn--negative btn--positive btn--subtle">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--light">light</option>
@@ -165,7 +165,7 @@ permalink: tools/buttonskitchensink
         </select>
     </span>
     <b class="p-lr-1">+</b>
-    <span yoi-modifier="btn--rounded btn--flat btn--outline">
+    <span data-modifier="btn--rounded btn--flat btn--outline">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--rounded">rounded</option>
@@ -176,7 +176,7 @@ permalink: tools/buttonskitchensink
         </select>
     </span>
     <b class="p-lr-1">+</b>
-    <span yoi-modifier="btn--small btn--medium btn--large">
+    <span data-modifier="btn--small btn--medium btn--large">
         <select class="select select--large">
             <option value="">none</option>
             <option value="btn--small">small</option>
@@ -337,49 +337,4 @@ permalink: tools/buttonskitchensink
         </div>
     </div>
 </div>
-
-<script>
-    (function() {
-
-        function initKitchensink() {
-
-            $('[yoi-modifier]').on('change', function() {
-
-                var $this = $(this);
-
-                var allButtons       = $this.parent().next('.documentation__blocks').find('.btn');
-                var modifierClasses  = $this.data('modifier');
-                var selectedModifier = $this.find('option:selected').val();
-                var dependendSelect  = $this.nextAll('span').first().find('[role="customSelect"]');
-
-                allButtons.each(function() {
-
-                    var $this = $(this);
-
-                    $this.removeClass(modifierClasses);
-                    $this.addClass(selectedModifier);
-
-                    // special case because of flat/subtle depedency
-
-                    if (selectedModifier === 'btn--subtle') {
-                        dependendSelect.addClass('btn--disabled');
-                        dependendSelect.find('select').prop('disabled', true);
-                        dependendSelect.find('option').prop('selected', false);
-                        $this.removeClass('btn--rounded btn--flat btn--outline');
-                    } else {
-                        dependendSelect.removeClass('btn--disabled');
-                        dependendSelect.find('select').prop('disabled', false);
-                    }
-
-                });
-
-            });
-
-        }
-
-        $(document).ready(initKitchensink);
-
-    })();
-</script>
 {% endraw %}
-
