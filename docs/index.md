@@ -4,3 +4,4 @@ title: About
 ---
 
 {{ jekyll.environment }}
+{{ site.github.url }}
