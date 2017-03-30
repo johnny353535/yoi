@@ -28,7 +28,7 @@
     "copy-scripts": "cp dist/js/* docs/assets/js/ && cp bower_components/jquery/dist/jquery.min.js docs/assets/js/",
     "copy-styles": "cp dist/css/* docs/assets/css/",
     "deploy": "npm run clean && npm run deploy-scripts && npm run deploy-styles && npm run copy && npm run deploy-jekyll",
-    "deploy-jekyll" : "cd docs && JEKYLL_ENV=github jekyll build --config _config.yml",
+    "deploy-jekyll" : "cd docs && JEKYLL_ENV=production jekyll build --config _config.yml",
     "deploy-scripts": "uglifyjs src/js/**/*.js --beautify -o dist/js/yoi.js && npm run copy-scripts",
     "deploy-styles": "lessc src/less/index.less dist/css/yoi.css && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css && cssnano dist/css/yoi.css dist/css/yoi.css --svgo && npm run copy-styles",
     "serve": "npm run watch & browser-sync start --server 'docs/_site'",
