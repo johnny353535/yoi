@@ -11,8 +11,8 @@ We _normalize_ and _reset_ default browser stylings to provide consistent stylin
 
 |                |                                                                                               |
 | -              | -                                                                                             |
-| Less-File      | [normalize.css](https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css) via CDN |
-| Less-File      | [reset.less]({{ pathToSourceFile }}assets/less/core/reset.less)                               |
+| Styles         | [normalize.css](https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css) via CDN |
+| Styles         | [reset.less]({{ pathToSourceFile }}assets/less/core/reset.less)                               |
 
 ### Normalize
 

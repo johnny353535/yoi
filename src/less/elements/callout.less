@@ -4,16 +4,16 @@
 // =====
 
 .callout {
-    background: @color-white;
+    background: @color-main-23;
     border-radius: 50%;
-    color: @color-main-10;
+    color: @color-main-8;
     display: table;
     font: bold 1.3rem/1.5rem @font-sansserif;
-    height: 13rem;
+    height: 10rem;
     margin: 0;
     text-align: center;
     text-shadow: none;
-    width: 13rem;
+    width: 10rem;
     z-index: 5;
 }
 
@@ -29,14 +29,6 @@
 // modifiers
 // =========
 
-// large
-
-.callout--large {
-    font: bold 1.5rem/2rem @font-sansserif;
-    height: 17rem;
-    width: 17rem;
-}
-
 // rotation
 
 .callout--rot-l { transform: rotate(-10deg); }
@@ -46,6 +38,10 @@
 
 .callout--dark {
     .calloutTheme(@color-white, @color-main-10);
+}
+
+.callout--light {
+    .calloutTheme(@color-main-10, @color-white);
 }
 
 .callout--attention {

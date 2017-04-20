@@ -6,16 +6,18 @@ permalink: elements/breadcrumbs
 ---
 
 ## Breadcrumbs
-`.breadcrumbs` aid navigation by displaying the »path« to web page. This is a very simple element, it’s merely a container with an unordered list of links inside. The
-breadcrumbs element does not have any modifier.
+Use this element to improve navigation by displaying the *path* to the current page.
 
-| Less-File      | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/elements/breadcrumbs.less) |
+| Styles         | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/elements/breadcrumbs.less) |
 | Base CSS-Class | `.breadcrumbs`                                                                  |
-| Modifiers      | `none`                                                                          |
+| Modifiers      | `-`                                                                          |
 
 ### Example
 
+This is how breadcrumbs look like and how you write the markup:
+
 ```html
+<!-- example -->
 <nav class="breadcrumbs">
     <ul>
         <li class="breadcrumbs__item">

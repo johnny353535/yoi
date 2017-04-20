@@ -6,13 +6,14 @@ permalink: elements/box
 ---
 
 ## Box
-`.box` is a versatile container. Use it to wrap navigational elements, products or to build asides. Chose from the available variations to achieve different grades of emphasis – some pop out, others appear more subtle.
+Use this element to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.
 
-| Less-File      | [box.less]({{ pathToSourceFile }}assets/less/elements/box.less) |
+| Styles         | [box.less]({{ pathToSourceFile }}assets/less/elements/box.less) |
 | Base CSS-Class | `.box`                                                          |
 | Modifiers      | `-`                                                             |
 
 ### Basic Example
+This is how a basic `.box` looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -71,6 +72,20 @@ Sometimes you may wish to group different `.box`es. You can easily do so by wrap
         <div class="box__body">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
+    </div>
+</div>
+```
+
+### Custom Variations
+
+Use the [CSS-utility-classes](utilities/) to create custom variations. In the following example, text-, border- and background-color is set to shades of red:
+
+```html
+<!-- example -->
+<div class="box bc-red-22 tc-red-10">
+    <h4 class="box__header bg-red-24 bc-red-22">Headline</h4>
+    <div class="box__body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
     </div>
 </div>
 ```

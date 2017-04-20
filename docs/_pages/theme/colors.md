@@ -55,6 +55,14 @@ Apart from the four base colors, there are some more color variables for special
 @color-gold:               #eac310;
 ```
 
+### List of *Semantic Colors*
+
+- attention
+- positive / success
+- negative / error
+- dark
+- light
+
 ### Color Utility Classes
 
 In addition to the Less color variables (which can only be used in Less style sheets), there are **color utility classes** which can be used in any template / markup. [Learn more about utilities](/pages/css-interface/utilities.html).

@@ -8,8 +8,8 @@ permalink: elements/tables
 ## Tables
 Tables come with a few handy modifiers, eg. to render zebra-striped tables, tables with fixed width, etc. Tables can also be interactive (selectable or deletable rows), using the `yoi-table` hook.
 
-| Less-File      | [tables.less]({{ pathToSourceFile }}assets/less/elements/tables.less)                                                            |
-| JS-File        | [tables.js]({{ pathToSourceFile }}assets/js/elements/tables.js)                                                                  |
+| Styles         | [tables.less]({{ pathToSourceFile }}assets/less/elements/tables.less)                                                            |
+| Script         | [tables.js]({{ pathToSourceFile }}assets/js/elements/tables.js)                                                                  |
 | Base CSS-Class | none (just the table-tag) or `.table`                                                                                            |
 | Modifiers      | `.table--borderless, .table--colHeader, .table--compressed, .table--fixed, .table--simpleHeader, .table--stripped, .table-zebra` |
 

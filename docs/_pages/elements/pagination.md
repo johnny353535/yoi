@@ -8,7 +8,7 @@ permalink: elements/pagination
 ## Pagination
 Straightforward pagination element with page- and browse links.
 
-| Less-File      | [pagination.less]({{ pathToSourceFile }}assets/less/elements/pagination.less) |
+| Styles         | [pagination.less]({{ pathToSourceFile }}assets/less/elements/pagination.less) |
 | Base CSS-Class | `.pagination`                                                                 |
 | Modifiers      | `-`                                                                           |
 

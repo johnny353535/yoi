@@ -8,8 +8,8 @@ permalink: elements/flyout
 ## Flyout
 Use this element to display a small tab and text label that is pinned to either the left or right side of the screen and displays a small panel on click. You should **use only one flyout per page** and **only for important information** (such as feedback / help / contact links) since the sticky labels on the side of the screen appera rather prominent to the user. This element was **designed for large screens only** and should not be used on mobile pages.
 
-| Less-File      | [flyout.less]({{ pathToSourceFile }}assets/less/elements/flyout.less) |
-| JS-File        | [flyout.js]({{ pathToSourceFile }}assets/js/elements/flyout.js)       |
+| Styles         | [flyout.less]({{ pathToSourceFile }}assets/less/elements/flyout.less) |
+| Script         | [flyout.js]({{ pathToSourceFile }}assets/js/elements/flyout.js)       |
 | Base CSS-Class | `.flyout`                                                             |
 | Modifiers      | `.flyout--left, .flyout--right`                                       |
 

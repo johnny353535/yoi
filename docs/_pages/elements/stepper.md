@@ -8,8 +8,8 @@ permalink: elements/stepper
 ## Stepper
 This element combines a (numeric) input-field with control buttons to de- or increase the input value and an (optional) submit-button. It’s mainly designed to add a certain amount of items to the shopping cart.
 
-| Less-File      | [stepper.less]({{ pathToSourceFile }}assets/less/elements/stepper.less) |
-| JS-File        | [stepper.js]({{ pathToSourceFile }}assets/js/elements/stepper.js)       |
+| Styles         | [stepper.less]({{ pathToSourceFile }}assets/less/elements/stepper.less) |
+| Script         | [stepper.js]({{ pathToSourceFile }}assets/js/elements/stepper.js)       |
 | Base CSS-Class | `.stepper`                                                              |
 | Modifiers      | `.stepper--light, .stepper--touch`                                      |
 

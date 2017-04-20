@@ -8,8 +8,8 @@ permalink: elements/filterbtns
 ## FilterBtns
 Use this element to display a horizontal list of filters. Each filter should be a link, pointing to a static page with the pre-rendered, filtered content. However, `.filterBtns` are most likely to be used without page reload with the resulting content being loaded via AJAX.
 
-| Less-File      | [filterBtns.less]({{ pathToSourceFile }}assets/less/elements/filterBtns.less) |
-| JS-File        | [filterBtns.js]({{ pathToSourceFile }}assets/js/elements/filterBtns.js)       |
+| Styles         | [filterBtns.less]({{ pathToSourceFile }}assets/less/elements/filterBtns.less) |
+| Script         | [filterBtns.js]({{ pathToSourceFile }}assets/js/elements/filterBtns.js)       |
 | Base CSS-Class | `.filterBtns`                                                                 |
 | Modifiers      | `.filterBtns--dark, .filterBtns--removeable`                                  |
 

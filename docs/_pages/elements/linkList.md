@@ -8,7 +8,7 @@ permalink: elements/linklist
 ## Link List
 Use this element to create a vertical menu-like list of links. Modifiers add options for different sizes and arrows.
 
-| Less-File      | [linkList.less]({{ pathToSourceFile }}assets/less/elements/linkList.less)                                                                                                                                 |
+| Styles         | [linkList.less]({{ pathToSourceFile }}assets/less/elements/linkList.less)                                                                                                                                 |
 | Base CSS-Class | `.linkList`                                                                                                                                                                                               |
 | Modifiers      | `.is--active, .linkList--large, .linkList--dark, .linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--arrowsLeftDown, .linkList--arrowsRight, .linkList--arrowsRightUp, .linkList--arrowsRightDown` |
 

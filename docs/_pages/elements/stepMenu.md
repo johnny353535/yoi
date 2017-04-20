@@ -7,7 +7,7 @@ permalink: elements/stepmenu
 
 ## StepMenu
 
-| Less-File      | [stepMenu.less]({{ pathToSourceFile }}assets/less/elements/stepMenu.less) |
+| Styles         | [stepMenu.less]({{ pathToSourceFile }}assets/less/elements/stepMenu.less) |
 | Base CSS-Class | `.stepMenu`                                                               |
 | Modifiers      | `.stepMenu--step1, […], .stepMenu--step5`                                 |
 

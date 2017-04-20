@@ -8,8 +8,8 @@ permalink: elements/imgmagnifier
 ## ImgMagnifier
 Use this element to create an *amazon-style* image zoomer. It’s very lightweight and only needs two elements with no further parameters: a preview image and a zoom image.
 
-| Less-File      | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/elements/imgMagnifier.less) |
-| JS-File        | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/elements/imgMagnifier.js)       |
+| Styles         | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/elements/imgMagnifier.less) |
+| Script         | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/elements/imgMagnifier.js)       |
 | Base CSS-Class | `.imgMagnifier`                                                                   |
 
 ### Example

@@ -8,8 +8,8 @@ permalink: elements/tooltip
 ## Tool Tip
 Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the yoi-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
 
-| Less-File      | [toolTip.less]({{ pathToSourceFile }}assets/less/elements/toolTip.less)      |
-| JS-File        | [toolTip.js]({{ pathToSourceFile }}assets/js/elements/toolTip.js)            |
+| Styles         | [toolTip.less]({{ pathToSourceFile }}assets/less/elements/toolTip.less)      |
+| Script         | [toolTip.js]({{ pathToSourceFile }}assets/js/elements/toolTip.js)            |
 | Base CSS-Class | `.tooltip--attention`                                                        |
 | Modifiers      | `.tooltip--error, .tooltip--negative, .tooltip--success, .tooltip--positive` |
 

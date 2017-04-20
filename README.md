@@ -14,6 +14,15 @@ The Yoshino Frontend UI components. Markup, scripts, styles, build-process and d
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
+Dokumentation
+=============
+
+- direkte ansprache "you"
+- so einfach wie möglich formulieren
+- niemals "easy" schreiben, lieber "basic"
+- einleitung: use this element to ...
+- erstes beispiel: this is how a basic xxx looks like and how you write the markup:
+
 Notizen
 =======
 

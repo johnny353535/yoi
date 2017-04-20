@@ -8,8 +8,8 @@ permalink: elements/datepicker
 ## Date Picker
 Use this element to provide an easy and comfortable way to enter dates into input fields. It was **designed for use on desktop browsers only**. On mobile browsers it makes more sense to use the native input widgets.
 
-| Less-File      | [datePicker.less]({{ pathToSourceFile }}assets/less/elements/datePicker.less) |
-| JS-File        | [datePicker.js]({{ pathToSourceFile }}assets/js/elements/datePicker.js)       |
+| Styles         | [datePicker.less]({{ pathToSourceFile }}assets/less/elements/datePicker.less) |
+| Script         | [datePicker.js]({{ pathToSourceFile }}assets/js/elements/datePicker.js)       |
 | Base CSS-Class | `.datePicker`                                                                 |
 | Modifiers      | `none`                                                                        |
 

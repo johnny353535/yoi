@@ -6,22 +6,24 @@ permalink: elements/buttons
 ---
 
 ## Buttons
-Buttons are very flexible and versatile. They come with many different styles, four different sizes and they may include one or more icons. To try out all possible combinations, use the [buttons kitchensink](/pages/tools/buttons_kitchensink.html).
+The button element features different types (eg. rounded, flat, …) and four different sizes. A button may include one or more icons.
 
-| Less-File      | [buttons.less]({{ pathToSourceFile }}assets/less/elements/buttons.less)                                                                                                                                                                          |
-| Base CSS-Class | `.btn`                                                                                                                                                                                                                                           |
-| Modifiers      | `.btn--attention, .btn--clip, .btn--dark, .btn--disabled, .btn--error, .btn--flat, .btn--focus, .btn--large, .btn--light, .btn--medium, .btn--negative, .btn--positive, .btn--rounded, .btn--small, .btn--subtle, .btn--success`                 |
+| Styles         | [buttons.less]({{ pathToSourceFile }}assets/less/elements/buttons.less) |
+| Base CSS-Class | `.btn`                                                                  |
+| Modifiers      | [see below]({{ page.url }}.html#modifiers)                              |
 
-Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a nicely styled button. There is a large list of modifiers. Let’s take a look at the most basic example first:
+Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. You get a large variety by combining the many button-modifiers. This is how you render the most basic button:
 
 ```html
-<button class="btn">A Simple Button</button>
+<!-- example -->
+<button class="btn">Basic Button</button>
 ```
 
 ### Icons inside Buttons
-You can use any [icon](/pages/elements/icons.html) inside any kind of button. You can place them left or right (= first or last in markup) or only use icons and no label text. Some examples:
+You can use any [icon](elements/icons.html) inside any kind of button. You can place them left or right (= first or last in markup) or only use icons and no label text. Some examples:
 
 ```html
+<!-- example -->
 <button class="btn">
     <span class="icon"></span>
     <span>Icon Left</span>
@@ -35,15 +37,17 @@ You can use any [icon](/pages/elements/icons.html) inside any kind of button. Yo
 If you wish to create an icon-only button, use the css-class `hidden` for the label. Im your markup, make sure to **put the label before the icon**. Icon-only buttons **only work well when you use a single icon**.
 
 ```html
+<!-- example -->
 <button class="btn">
     <span class="hidden">Hidden Label Text</span>
     <span class="icon"></span>
 </button>
 ```
 
-You can use **more than one icon** per button. But **this rarely makes much sense**.
+Technically, you can use **more than one icon** per button. But **this rarely makes much sense**.
 
 ```html
+<!-- example -->
 <button class="btn">
     <span class="icon"></span>
     <span>Many Icons Left And Right</span>
@@ -53,10 +57,11 @@ You can use **more than one icon** per button. But **this rarely makes much sens
 </button>
 ```
 
-### `input[type="submit"]` and Other Elements As Button
-You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons](/pages/elements/icons.html), you need a wrapper element around the button label and icon. Some examples:
+### Other HTML-Elements As Button
+You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons](elements/icons.html), you need a wrapper element around the button label and icon. Some examples:
 
 ```html
+<!-- example -->
 <a class="btn m-t-1" href="#">
     <span>a-tag and .btn plus .icon</span>
     <span class="icon"></span>
@@ -80,23 +85,30 @@ If you use **icons inside of buttons**, make sure you **always wrap the button l
 
 ### Modifiers
 
-| Size-Modifiers   | `.btn--medium, .btn--large, .btn--small` |
-| Color-Modifiers  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive .btn--success` |
-| Status-Modifiers | `.btn--active, .btn--disabled, .btn--focus`|
-| Other Modifiers  | `.btn--flat, .btn--rounded, .btn--subtle, .btn--clip` |
+| Size   | `.btn--medium, .btn--large, .btn--small` |
+| Color  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive .btn--success` |
+| Type   | `.btn--flat, .btn--rounded, .btn--subtle` |
+| State  | `.btn--active, .btn--disabled, .btn--focus`|
+| Other  | `.btn--clip` |
 
+<p class="hint hint--attention">Have a look at the <a href="tools/buttons.html">buttons tool</a> to try out all possible combinations.</p>
+
+#### Size
 Buttons come in **four different sizes**: *small*, *(default)*, *medium* and *large*.
 
 ```html
+<!-- example -->
 <button class="btn btn--small">Small Button</button>
-<button class="btn">Button</button>
+<button class="btn">(Default) Button</button>
 <button class="btn btn--medium">Medium Button</button>
 <button class="btn btn--large">Large Button</button>
 ```
 
+#### Color
 There are **six different color styles** available – while `.btn--subtle` is a fully transparent button, only showing the button label:
 
 ```html
+<!-- example -->
 <button class="btn btn--large btn--subtle">Button</button>
 <button class="btn btn--large btn--light">Button</button>
 <button class="btn btn--large">Button</button>
@@ -106,9 +118,13 @@ There are **six different color styles** available – while `.btn--subtle` is a
 <button class="btn btn--large btn--positive">Button</button>
 ```
 
-In addition to the default appearance, buttons can be either ***flat* or *outlined***. Please note: You **cannot combine `.btn--flat` with `.btn--outline`** or either one of these modifiers with `.btn--subtle`.
+#### Type
+In addition to the default appearance, buttons can be either *flat*, *rounded* or *outlined*.
+
+<p class="hint hint--negative">Please note: You can’t combine <code>.btn--flat</code> with <code>.btn--outline</code> or either one of these modifiers with <code>.btn--subtle</code>.</p>
 
 ```html
+<!-- example -->
 <button class="btn btn--flat btn--large btn--light">Button</button>
 <button class="btn btn--flat btn--large">Button</button>
 <button class="btn btn--flat btn--large btn--dark">Button</button>
@@ -118,6 +134,7 @@ In addition to the default appearance, buttons can be either ***flat* or *outlin
 ```
 
 ```html
+<!-- example -->
 <button class="btn btn--outline btn--large">Button</button>
 <button class="btn btn--outline btn--large btn--dark">Button</button>
 <button class="btn btn--outline btn--large btn--attention">Button</button>
@@ -125,33 +142,71 @@ In addition to the default appearance, buttons can be either ***flat* or *outlin
 <button class="btn btn--outline btn--large btn--positive">Button</button>
 ```
 
-If you combine `.btn--outline` and `.btn--light`, make sure you **put the button against a dark background**.
+<p class="hint hint--attention">If you combine <code>.btn--outline</code> and <code>.btn--light</code>, make sure you put the button against a dark background.</p>
 
 ```html
-<button class="btn btn--outline btn--large btn--light">Button</button>
+<!-- example -->
+<div class="p-4 bg-purple-13 br">
+    <button class="btn btn--outline btn--large btn--light">Button</button>
+</div>
 ```
 
-All button styles can be combined with .btn--rounded to create **pill-shaped buttons**.
+All button styles can be combined with `.btn--rounded` to create **pill-shaped buttons**.
 
 ```html
+<!-- example -->
 <button class="btn btn--large btn--outline btn--rounded">Button</button>
 <button class="btn btn--large btn--flat btn--rounded">Button</button>
 <button class="btn btn--large btn--rounded">Button</button>
 ```
 
+#### State
 All buttons have **three state-modifiers** which simply reflect the same styling which applies to the corresponding CSS-pseudo-selectors: `.btn--disabled, .btn--active, .btn--focus`.
 
 ```html
+<!-- example -->
 <button class="btn btn--large btn--active">Active</button>
 <button class="btn btn--large btn--disabled">Disabled</button>
 <button class="btn btn--large btn--focus">Focused</button>
 ```
 
+#### Other Modifiers
 It’s possible to **shorten very long button labels** by adding the modifier `.btn--clip`.
 
 ```html
+<!-- example -->
 <button class="btn btn--medium w-10 btn--clip">Very Long Button Label Text foo foo bar bar</button>
 ```
 
-### Try Out Different Combinations
-Have a look at the [Buttons Kitchensink](/pages/tools/buttons_kitchensink.html) to try out all possible combinations.
+### Button Groups
+Wrap a group of buttons inside a container with the class `.btns`:
+
+```html
+<!-- example -->
+<div class="btns">
+    <button class="btn btn--large">1</button>
+    <button class="btn btn--large">2</button>
+    <button class="btn btn--large">3</button>
+</div>
+```
+
+You may also create vertically grouped button blocks by adding the modifier `.btns--vertical`:
+
+```html
+<!-- example -->
+<div class="btns btns--vertical">
+    <button class="btn btn--large">Aluminium</button>
+    <button class="btn btn--large">Iron</button>
+    <button class="btn btn--large">Lead</button>
+</div>
+```
+
+### Custom Modification Through Utility-Classes
+Use [YOI Utility Classes](utilities/) to override button styles and create custom buttons. Use this option wisely and only for special cases where no standard button style works for you!
+
+```html
+<!-- example -->
+<button class="btn btn--rounded btn--large br-tl-0 m-r-2">Straight Top Left Corner</button>
+<button class="btn btn--large tc-red-15 m-r-2">Red Text Color</button>
+<button class="btn btn--large hvr-tc-blue-13 m-r-2">Blue Text Color On Hover</button>
+```

@@ -8,8 +8,8 @@ permalink: elements/slider
 ## Slider
 Sliders are simple slide show elements that can contain images, text or both. A few options are available – like *autoplay*, *transition style* and a few more. For each `.slide`, you can chose from a few different *control elements*.
 
-| Less-File      | [slider.less]({{ pathToSourceFile }}assets/less/elements/slider.less) |
-| JS-File        | [slider.js]({{ pathToSourceFile }}assets/js/elements/slider.js)       |
+| Styles         | [slider.less]({{ pathToSourceFile }}assets/less/elements/slider.less) |
+| Script         | [slider.js]({{ pathToSourceFile }}assets/js/elements/slider.js)       |
 | Base CSS-Class | `.slider`                                                             |
 | Modifiers      | `.slider--dark, .slider--super`                                       |
 

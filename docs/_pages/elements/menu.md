@@ -8,7 +8,7 @@ permalink: elements/menu
 ## Menu
 Use this element to create a simple menu. It is designed to include *up to three levels of sub menus* and features *optional pointers* on either the right or left side.
 
-| Less-File      | [menu.less]({{ pathToSourceFile }}assets/less/elements/menu.less) |
+| Styles         | [menu.less]({{ pathToSourceFile }}assets/less/elements/menu.less) |
 | Base CSS-Class | `.menu`                                                           |
 | Modifiers      | `.menu--pointRight, .menu--pointLeft, .is--active`                |
 

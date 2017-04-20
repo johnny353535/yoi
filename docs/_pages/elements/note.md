@@ -10,8 +10,8 @@ Use notes to display system messages, eg. for form validation, status messages (
 
 |                |                                                                                                                                                                                                          |
 | -              | -                                                                                                                                                                                                        |
-| Less-File      | [note.less]({{ pathToSourceFile }}assets/less/elements/note.less)                                                                                                                                        |
-| JS-File        | [dismiss.js]({{ pathToSourceFile }}assets/js/modules/dismiss.js)                                                                                                                                         |
+| Styles         | [note.less]({{ pathToSourceFile }}assets/less/elements/note.less)                                                                                                                                        |
+| Script         | [dismiss.js]({{ pathToSourceFile }}assets/js/modules/dismiss.js)                                                                                                                                         |
 | Base CSS-Class | `.note`                                                                                                                                                                                                  |
 | Modifiers      | `.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--large, .note--light, .note--negative, .note--positive, .note--prescription, .note--success` |
 

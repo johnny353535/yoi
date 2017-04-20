@@ -10,7 +10,7 @@ This element renders text on top of a darkened image, resembling a movie poster.
 
 |                |                                                                                   |
 | -              | -                                                                                 |
-| Less-File      | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
+| Styles         | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
 | Base CSS-Class | `.posterTeaser`                                                                   |
 | Modifiers      | `.posterTeaser--bottom, .fx--slide, .fx--blur`                                    |
 

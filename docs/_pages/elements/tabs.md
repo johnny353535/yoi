@@ -8,8 +8,8 @@ permalink: elements/tabs
 ## Tabs
 Yoshino tabs have some powerful features. You can choose from different layouts. You can define a start tab per tab group (by default, the first tab in the markup is the start tab). And since the JavaScript is modular, other scripts can use tab functions. For example if you use a scroll-to-anchor button and the target element is a (hidden) tab, the button will switch the target tab to visible.
 
-| Less-File      | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
-| JS-File        | [tabs.js]({{ pathToSourceFile }}assets/js/elements/tabs.js)                             |
+| Styles         | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
+| Script         | [tabs.js]({{ pathToSourceFile }}assets/js/elements/tabs.js)                             |
 | Base CSS-Class | `.tabs, .tabs__menu`                                                                    |
 | Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows` |
 

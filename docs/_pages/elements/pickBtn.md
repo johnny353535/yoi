@@ -8,8 +8,8 @@ permalink: elements/pickbtn
 ## PickBtn
 Use this element to create prominent radio buttons. It’s basically a visual candy wrapper around a `<label>` and an `input[type="radio"]`.
 
-| Less-File      | [pickBtn.less]({{ pathToSourceFile }}assets/less/elements/pickBtn.less) |
-| JS-File        | [pickBtn.js]({{ pathToSourceFile }}assets/js/elements/pickBtn.js)       |
+| Styles         | [pickBtn.less]({{ pathToSourceFile }}assets/less/elements/pickBtn.less) |
+| Script         | [pickBtn.js]({{ pathToSourceFile }}assets/js/elements/pickBtn.js)       |
 | Base CSS-Class | `.pickBtn`                                                              |
 | Modifiers      | `-`                                                                     |
 

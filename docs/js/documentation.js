@@ -41,17 +41,17 @@
             
             var _ = '';
             
-            // remove the "exampleTagTabbed" and the first line break
+            // remove the "exampleTag" and the first line break
             
             $thisCode.find('.c:contains("' + exampleTag + '")').remove();
             
             // template for tabbed code preview
 
             _ =    '<div class="documentation__example">';
-            _ +=       '<div>';
+            _ +=       '<div class="documentation__result">';
             _ +=           thisExample;
             _ +=       '</div>';
-            _ +=       '<div class="m-t-6">';
+            _ +=       '<div class="documentation__code">';
             _ +=           $thisCodeWrapper.html();
             _ +=       '</div>';
             _ +=   '</div>';

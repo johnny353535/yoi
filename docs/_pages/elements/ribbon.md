@@ -8,7 +8,7 @@ permalink: elements/ribbon
 ## Ribbon
 Use this element to display to display a 45° rotated ribbon in the the upper left or right corner of any container element. Since it is a very prominent element, use it wisely. It’s best suited to display a »Special Offer« badge.
 
-| Less-File      | [ribbon.less]({{ pathToSourceFile }}assets/less/elements/ribbon.less)                     |
+| Styles         | [ribbon.less]({{ pathToSourceFile }}assets/less/elements/ribbon.less)                     |
 | Base CSS-Class | `.ribbon`                                                                                 |
 | Modifiers      | `.ribbon--attention, .ribbon--dark, .ribbon--light, .ribbon--negative, .ribbon--positive` |
 

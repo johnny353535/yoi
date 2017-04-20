@@ -6,19 +6,19 @@ permalink: elements/accordion
 ---
 
 ## Accordion
-Use this element to create one or several grouped sections that expand or collapse content, once a section header is clicked.
+Use this element to create one or several grouped sections that expand or collapse, once a section header is clicked.
 
-|                |                                                                             |
-| -              | -                                                                           |
-| Less-File      | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
-| JS-File        | [accordion.js]({{ pathToSourceFile }}assets/js/elements/accordion.js)       |
+| Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
+| Script         | [accordion.js]({{ pathToSourceFile }}assets/js/elements/accordion.js)       |
+| Script Hook    | `yoi-accordion`                                                             |
 | Base CSS-Class | `.accordion`                                                                |
 | Modifiers      | `-`                                                                         |
 
-### Simple Example
-This is the markup for the most basic example of an accordion. Don’t forget to add the custom yoi-attribute `accordion`.
+### Basic Example
+This is how a basic accordion looks like and how you write the markup:
 
 ```html
+<!-- example -->
 <div class="accordion" yoi-accordion>
     <div class="accordion__section">
         <div class="accordion__header">
@@ -48,9 +48,10 @@ This is the markup for the most basic example of an accordion. Don’t forget to
 ```
 
 ### Controlling Accordion Sections
-By default, all accordion sections are closed on page load. However, you can define which section should stay expanded/open. To do so, add the modifier `.is--open` to the very `.accordion__section` element you picked.
+Initially, all accordion sections are closed. However, you can define which section should start expanded/open. To do so, add the modifier `.is--open` to the very `.accordion__section`:
 
 ```html
+<!-- example -->
 <div class="accordion" yoi-accordion>
     <div class="accordion__section">
         <div class="accordion__header">
@@ -71,16 +72,17 @@ By default, all accordion sections are closed on page load. However, you can def
 </div>
 ```
 
-Another feature allows you to **open or close all accordions on the page**. You may call the according functions in your JavaScript:
+You may also **open or close all accordions on the page** by using these function exposed by the JavaScript API:
 
 ```js
 Accordion.openAll();  // opens all accordion sections found in DOM
 Accordion.closeAll(); // closes all accordion sections found in DOM
 ```
 
-Alternatively, you can assign the function calls to elements like buttons by tagging them with the custom yoi-attribute `yoi-action` and the according value like `yoi-action="openAllAccordions"` or `yoi-action="closeAllAccordions"`.
+Alternatively, you can assign the function calls to elements (eg. buttons) by adding `yoi-action="openAllAccordions"` or `yoi-action="closeAllAccordions"`.
 
 ```html
+<!-- example -->
 <p class="btns">
     <button class="btn btn--large" yoi-action="openAllAccordions">Open All Accordions</button>
     <button class="btn btn--large" yoi-action="closeAllAccordions">Close All Accordions</button>
@@ -88,9 +90,10 @@ Alternatively, you can assign the function calls to elements like buttons by tag
 ```
 
 ### Linked Accordion Sections
-It’s a common UI pattern to close all accordion sections but the one the user wishes to open. This behaviour is optional and may be enabled by adding `linked:true` to the custom yoi-attribute `yoi-accordion`:
+It’s a common UI pattern to close all accordion sections but the currently expanded one. This behaviour is optional. Enable it by adding `linked:true` to the custom attribute `yoi-accordion`:
 
 ```html
+<!-- example -->
 <div class="accordion" yoi-accordion="linked:true;">
     <div class="accordion__section is--open">
         <div class="accordion__header">

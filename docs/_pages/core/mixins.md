@@ -10,7 +10,7 @@ Mixins are reusable snippets of CSS code. They are a [Less language feature](htt
 
 |                |                                                                   |
 | -              | -                                                                 |
-| Less-File      | [mixins.less]({{ pathToSourceFile }}assets/less/core/mixins.less) |
+| Styles         | [mixins.less]({{ pathToSourceFile }}assets/less/core/mixins.less) |
 
 ### Helper Mixins
 

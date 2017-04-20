@@ -7,8 +7,8 @@ permalink: elements/filters
 
 ## Filters
 
-| Less-File      | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
-| JS-File        | [filters.js]({{ pathToSourceFile }}assets/js/elements/filters.js)       |
+| Styles         | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
+| Script         | [filters.js]({{ pathToSourceFile }}assets/js/elements/filters.js)       |
 | Base CSS-Class | `.filters`                                                              |
 | Modifiers      | `.filters--disabled`                                                    |
 

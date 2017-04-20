@@ -6,13 +6,17 @@ permalink: elements/checkList
 ---
 
 ## CheckList
-Use `.checkList` to format an unordered list and add check-icons to each list item without the need of additional markup.
+Use `.checkList` to render an unordered list into a styled list with checkmarks.
 
-| Less-File      | [checkList.less]({{ pathToSourceFile }}assets/less/elements/checkList.less) |
+| Styles         | [checkList.less]({{ pathToSourceFile }}assets/less/elements/checkList.less) |
 | Base CSS-Class | `.checkList`                                                                |
-| Modifiers      | `-`                                                      |
+| Modifiers      | `-`                                                                         |
+
+### Basic Example
+This is how a basic `.checkList` looks like and how you write the markup:
 
 ```html
+<!-- example -->
 <ul class="checkList">
     <li>Aspirin</li>
     <li>Ibuprofen</li>
