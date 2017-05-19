@@ -18,6 +18,7 @@ This is the basic example of a `.menu` instance. You are free to use any markup 
 <p class="hint">Click the menu items on this example page to add the .is--active modifier class.</p>
 
 ```html
+<!-- example -->
 <ul class="menu">
     <li class="menu__item">
         <a class="menu__link" href="#">Kontrolllösungen</a>
@@ -37,6 +38,7 @@ As mentioned above, a `.menu` instance may have up to three levels of nested sub
 <p class="hint hint--attention"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
 
 ```html
+<!-- example:tabs -->
 <ul class="menu">
     <li class="menu__item">
         <a class="menu__link" href="#">Blutzuckermessung</a>
@@ -124,6 +126,7 @@ As mentioned above, a `.menu` instance may have up to three levels of nested sub
 Add optional pointers to the currently selected (`.is--active`) element. Chose from pinters to the left (`.menu--pointLeft`) and pointers to the right (`.menu--pointRight`).
 
 ```html
+<!-- example:tabs -->
 <ul class="menu menu--pointLeft">
     <li class="menu__item">
         <a class="menu__link" href="#">Blutzuckermessung</a>
@@ -187,6 +190,7 @@ Add optional pointers to the currently selected (`.is--active`) element. Chose f
 The following example combines the `.menu` with the [toggleGroup interface](/pages/js-interface/toggleGroup.html) to create a simple, *tab-able* widget.
 
 ```html
+<!-- example:tabs -->
 <div class="box grid-float">
     <div class="w-1-3">
         <ul class="menu menu--pointRight br-0 b-0 b-r">

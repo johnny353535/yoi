@@ -197,7 +197,7 @@ YOI.element.DatePicker = (function() {
                             // reset the month table to the selected date
 
                             $thisDatePicker.find('.datePicker__days').replaceWith(renderMonthTable($thisDatePicker, thisDateInputProps.selectedYear, thisDateInputProps.selectedMonth));
-                            $thisDatePicker.find('.datePicker__header').text(getMonthName(thisDateInputProps.selectedMonth) + ' ' + thisDateInputProps.selectedYear);
+                            $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][thisDateInputProps.selectedMonth] + ' ' + thisDateInputProps.selectedYear);
 
                         });
                         

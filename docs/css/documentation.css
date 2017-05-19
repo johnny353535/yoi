@@ -17,14 +17,14 @@
 
 /* intro paragraph */
 
-.documentation__article h2:first-child + p {
+.documentation__article > h2:first-child + p {
     font-size: 2rem;
     line-height: 1.5;
 }
 
 /* intro table */
 
-table:first-of-type td:first-child {
+.documentation__article > h2:first-child + p + table td:first-child {
     width: 15rem;
 }
 
@@ -51,9 +51,17 @@ table:first-of-type td:first-child {
 }
 
 .documentation__example pre code {
-    background: transparent;
     border-radius: 0;
     margin-top: -1.5rem;
+}
+
+.documentation__example pre {
+    padding: 2rem;
+}
+
+.documentation__example pre,
+.documentation__example code {
+    background: transparent;
 }
 
 .documentation__example .documentation__code {

@@ -10,6 +10,7 @@ permalink: elements/mainmenu
 <p class="hint hint--error">Documentation incomplete.</p>
 
 ```html
+<!-- example:tabs -->
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>
@@ -26,6 +27,7 @@ permalink: elements/mainmenu
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="mainMenu mainMenu--expand">
     <ul class="mainMenu__menu">
         <li>
@@ -42,6 +44,7 @@ permalink: elements/mainmenu
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>
@@ -151,6 +154,7 @@ permalink: elements/mainmenu
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>

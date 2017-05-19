@@ -17,6 +17,7 @@ This is a simple SVG pie chart, dynamically generated on page load. It reads the
 Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` hook so never forget to inlcude it in your markup.
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart>
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -52,6 +53,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Unique Color Palette
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="palette:unique;">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -79,6 +81,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="palette:unique; baseColor:[50,70,60]">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -108,6 +111,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Random Color Palette
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="palette:random;">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -129,6 +133,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Fixed Color Palette
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="palette:fixed;">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -170,6 +175,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ### Different Sizes (and Random Color Palettes)
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="size:100; palette:random;">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -189,6 +195,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="size:300; palette:random;">
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -211,6 +218,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 You may **change the order of label and value** for each `.pieChart__record` **or hide the value** when it makes sense by adding the global modifier `.hidden`.
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart>
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -230,6 +238,7 @@ You may **change the order of label and value** for each `.pieChart__record` **o
 ```
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart>
     <div class="pieChart__data">
         <p class="pieChart__record">
@@ -252,6 +261,7 @@ You may **change the order of label and value** for each `.pieChart__record` **o
 Set `highlight` to `false` if you wish to **disable highlighting** individual slices on mouseover and click.
 
 ```html
+<!-- example:tabs -->
 <div class="pieChart" yoi-piechart="highlight:false;">
     <div class="pieChart__data">
         <p class="pieChart__record">

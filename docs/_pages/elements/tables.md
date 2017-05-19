@@ -16,6 +16,7 @@ Tables come with a few handy modifiers, eg. to render zebra-striped tables, tabl
 ### Simple Table
 
 ```html
+<!-- example -->
 <table>
     <tr>
         <th>Header</th>
@@ -51,6 +52,7 @@ Add one or more of the available modifier classes to change the appearance of a 
 Use the modifier `table--borderless`:
 
 ```html
+<!-- example -->
 <table class="table--borderless">
     <tr>
         <th>Header</th>
@@ -83,6 +85,7 @@ Use the modifier `table--borderless`:
 Use the modifier `table--colHeader` and change the markup, so that each `<tr>` contains one `<th>`:
 
 ```html
+<!-- example -->
 <table class="table--colHeader">
     <tr>
         <th scope="row">Key</th>
@@ -103,6 +106,7 @@ Use the modifier `table--colHeader` and change the markup, so that each `<tr>` c
 Use the modifier `table--compressed`:
 
 ```html
+<!-- example -->
 <table class="table--compressed">
     <tr>
         <th>Header</th>
@@ -135,6 +139,7 @@ Use the modifier `table--compressed`:
 Use the modifier `table--fixed`:
 
 ```html
+<!-- example -->
 <table class="table--fixed">
     <tr>
         <th>Header</th>
@@ -167,6 +172,7 @@ Use the modifier `table--fixed`:
 Use the modifier `table--simpleHeader`:
 
 ```html
+<!-- example -->
 <table class="table--simpleHeader">
     <tr>
         <th>Header</th>
@@ -199,6 +205,7 @@ Use the modifier `table--simpleHeader`:
 Use the modifier `table--stripped`:
 
 ```html
+<!-- example -->
 <table class="table--stripped">
     <tr>
         <th>Header</th>
@@ -231,6 +238,7 @@ Use the modifier `table--stripped`:
 Use the modifier `table--zebra`:
 
 ```html
+<!-- example -->
 <table class="table--zebra">
     <tr>
         <th>Header</th>
@@ -264,6 +272,7 @@ Use the modifier `table--zebra`:
 Use this option by adding `selectable:true;` as a value to the custom yoi-attribute.
 
 ```html
+<!-- example -->
 <table yoi-table="selectable:true;">
     <tr>
         <th class="w-20">Artikel</th>
@@ -292,6 +301,7 @@ Use this option by adding `selectable:true;` as a value to the custom yoi-attrib
 Use this option by adding `selectable:multi;` as a value to the custom yoi-attribute.
 
 ```html
+<!-- example -->
 <table yoi-table="selectable:multi;">
     <tr>
         <th class="w-20">Artikel</th>
@@ -320,6 +330,7 @@ Use this option by adding `selectable:multi;` as a value to the custom yoi-attri
 Use this option by adding `removeable:true;` as a value to the custom yoi-attribute.
 
 ```html
+<!-- example -->
 <table yoi-table="removeable:true;">
     <tr>
         <th class="w-20">Artikel</th>

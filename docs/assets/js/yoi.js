@@ -698,7 +698,7 @@ YOI.element.DatePicker = function() {
                     var thisDateInputProps = $thisDateInput.data().props;
                     $thisDateInput.next(".datePicker").fadeOut("fast", function() {
                         $thisDatePicker.find(".datePicker__days").replaceWith(renderMonthTable($thisDatePicker, thisDateInputProps.selectedYear, thisDateInputProps.selectedMonth));
-                        $thisDatePicker.find(".datePicker__header").text(getMonthName(thisDateInputProps.selectedMonth) + " " + thisDateInputProps.selectedYear);
+                        $thisDatePicker.find(".datePicker__header").text(localization[language]["monthNames"][thisDateInputProps.selectedMonth] + " " + thisDateInputProps.selectedYear);
                     });
                     $document.trigger("yoi-datepicker:hide");
                 });

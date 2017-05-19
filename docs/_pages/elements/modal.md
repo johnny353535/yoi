@@ -18,6 +18,7 @@ Modal pages must at least have an element with the CSS-class `.modal`. Everythin
 The following is an example for a typical modal page. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a>.
 
 ```html
+<!-- example -->
 <div class="h-30 p-tb-3">
     <div class="modal">
         <div class="modal__header">
@@ -38,6 +39,7 @@ The following is an example for a typical modal page. You may want to <a href="d
 There is only one modifier available: `.modal--small`. It affects the modal width:
 
 ```html
+<!-- example -->
 <div class="h-28 p-tb-3">
     <div class="modal modal--small">
         <div class="modal__header">
@@ -67,6 +69,7 @@ If you wish to reference to a modal page to show it as a modal, you need to appl
 ### Generate a Simple Modal
 
 ```html
+<!-- example -->
 <button class="btn btn--large" yoi-modal="generate:true; title:Generated Modal; body:This is a generated modal. It is really basic, there is not much you can do with this thing.; modifiers:modal--small;">Generate Modal</button>
 ```
 

@@ -13,12 +13,15 @@ Use this element to link any trigger (eg. a button) to a _pop-over_ which appear
 | Base CSS-Class | `.popOver`                                                              |
 | Modifiers      | `-`                                                                     |
 
+{% include icon.html w="32" h="32" c="#ccc" %}
+
 ### Basic Example
 To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `yoi-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
 
 This example uses the pop-over to display a small menu:
 
 ```html
+<!-- example -->
 <a class="btn btn--large" href="#examplePopOver-1" yoi-popover="target:#examplePopOver-1;">Show pop-over</a>
 <div class="popOver" id="examplePopOver-1">
     <p class="p-4 fs-15 lh-20">Hello.</p>
@@ -66,6 +69,7 @@ By default, the trigger’s default event (eg. `click` if you use an anchor like
 The following examples illustrate how to position the pop-overs.
 
 ```html
+<!-- example -->
 <a href="#examplePopOver-2" class="btn btn--large" yoi-popover="target:#examplePopOver-2;">Pop-over at default Position</a>
 <div class="popOver" id="examplePopOver-2">
     <p class="p-4 fs-15 lh-20">Hello.</p>
@@ -90,6 +94,7 @@ The following examples illustrate how to position the pop-overs.
 Use the option `toggleClass` to **add any css class name to the trigger** when the menu is visible.
 
 ```html
+<!-- example -->
 <div class="popOver" id="examplePopOver-6-a">
     <p class="p-4 fs-15 lh-20">Hallo.</p>
 </div>
@@ -107,6 +112,7 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 #### Show a Menu on Click
 
 ```html
+<!-- example -->
 <a class="btn btn--large" href="#examplePopOver-7" yoi-popover="target:#examplePopOver-7; eventShow:click;">
     <i aria-hidden="true" class="icon--067-s"></i>
     <span>Menu</span>
@@ -132,6 +138,7 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 #### Show Table-Column Modifiers (sorting/searching/filtering etc.) on Click
 
 ```html
+<!-- example -->
 <table>
     <tr>
         <th class="crsr-pntr" yoi-popover="target:#examplePopOver-8; pos:bl; eventShow:click;">Date</th>
