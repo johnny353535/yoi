@@ -10,9 +10,9 @@ The button element features different types (eg. rounded, flat, …) and four di
 
 | Styles         | [buttons.less]({{ pathToSourceFile }}assets/less/elements/buttons.less) |
 | Base CSS-Class | `.btn`                                                                  |
-| Modifiers      | [see below]({{ page.url }}.html#modifiers)                              |
+| Modifiers      | [jump to #modifiers]({{ page.url }}.html#modifiers)                     |
 
-Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. You get a large variety by combining the many button-modifiers. This is how you render the most basic button:
+Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. You get a large variety by combining the many button-modifiers. This is how you create the most basic button:
 
 ```html
 <!-- example -->

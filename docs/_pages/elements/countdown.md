@@ -34,7 +34,7 @@ Add an element with the css class name `countdown__title` to add an optional tit
 ```
 
 ### Expired Countdown
-Once the countdown expired, the display will reset and the *custom event* `countdown:expired` *will fire* (JavaScript).
+Once the countdown expired, the display will reset and the *custom event* `yoi-countdown:expire` *will fire* (JavaScript).
 
 ```html
 <!-- example -->

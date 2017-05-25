@@ -894,7 +894,6 @@ YOI.element.DatePicker = function() {
     }
     return {
         init: initialize,
-        render: renderDatePicker,
         hide: hideAllDatePickers
     };
 }();

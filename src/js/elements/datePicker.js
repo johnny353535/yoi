@@ -782,9 +782,8 @@ YOI.element.DatePicker = (function() {
     // ================
 
     return {
-        init   : initialize,
-        render : renderDatePicker,
-        hide   : hideAllDatePickers
+        init : initialize,
+        hide : hideAllDatePickers
     };
 
 })();

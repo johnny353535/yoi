@@ -77,6 +77,10 @@
     background: transparent;
 }
 
+.documentation__example.tabs pre {
+    padding: 0;
+}
+
 .documentation__example > .tabs__menu,
 .documentation__example > .tabs__menu .tabs__item {
     border-color: #f6f5f4;

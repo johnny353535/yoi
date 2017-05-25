@@ -6,11 +6,11 @@ permalink: elements/breadcrumbs
 ---
 
 ## Breadcrumbs
-Use this element to improve navigation by displaying the *path* to the current page.
+Use this element to displaying the path to the current page.
 
 | Styles         | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/elements/breadcrumbs.less) |
 | Base CSS-Class | `.breadcrumbs`                                                                  |
-| Modifiers      | `-`                                                                          |
+| Modifiers      | `-`                                                                             |
 
 ### Example
 

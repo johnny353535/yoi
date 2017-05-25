@@ -62,11 +62,15 @@
 
 .breadcrumbs__link {
 
-    color: @color-main-8;
     display: inline-block;
     padding: 0 3rem 0 0;
     position: relative;
     text-decoration: none;
+    
+    &:link, &:visited,
+    &:hover, &:active {
+        color: @color-main-8;
+    }
 
     // pointy right edge
 

@@ -150,20 +150,24 @@
         },
 
         init: function(){
+            
+            if ($('#colorForm').length) {
+                
+                document.getElementById('colorForm').addEventListener('submit', function(e){
 
-            document.getElementById('colorForm').addEventListener('submit', function(e){
+                    e.preventDefault();
 
-                e.preventDefault();
+                    var referenceColor = document.getElementById('referenceColor').value;
+                    var steps = document.getElementById('steps').value * 1 + 1;
 
-                var referenceColor = document.getElementById('referenceColor').value;
-                var steps = document.getElementById('steps').value * 1 + 1;
+                    document.querySelector("#btnSubmit").value = 'Refresh';
 
-                document.querySelector("#btnSubmit").value = 'Refresh';
+                    ColorMath.paintGradient(referenceColor,steps);
+                    ColorMath.generateCode();
 
-                ColorMath.paintGradient(referenceColor,steps);
-                ColorMath.generateCode();
-
-            });
+                });
+                
+            }
 
         },
 
