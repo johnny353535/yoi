@@ -30,8 +30,7 @@
     padding: 0 1rem;
 }
 
-.filters__resetBtn,
-.filters__resetBtn:link {
+.filters__resetBtn {
     
     .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-10);
     background-position: 0 center;
@@ -41,11 +40,15 @@
     height: 4rem;
     line-height: 4rem;
     padding: 0 1rem 0 3.2rem;
-    text-decoration: none;
+    
+    &:link, &:active, &:visited {
+        color: @color-main-8;
+        text-decoration: none;
+    }
 
     &:hover {
-        background-color: @color-negative-24;
-        color: @color-negative-5;
+        background-color: fade(@color-main-25,50%);
+        color: @color-main-5;
     }
     
     & + .filters__header {
@@ -154,7 +157,8 @@
     padding: .5rem 3rem;
     position: relative;
 
-    &:link {
+    &:link, &:active, &:visited {
+        color: @color-main-8;
         text-decoration: none;
     }
 
@@ -163,13 +167,15 @@
     }
 
     &.is--active {
-        background: @color-attention-22;
+        color: @color-main-5;
+        font-weight: bold;
     }
 
     // counter
 
     .filter__counter {
         color: @color-main-15;
+        font-weight: normal;
         position: absolute;
         right: .5rem;
         top: .5rem;
@@ -201,18 +207,13 @@
         }
 
         &.is--active::before {
-            .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-attention-13);
+            .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-positive-13);
             border: 0;
             content: ' ';
             height: 3.2rem;
             left: 0;
             top: -.1rem;
             width: 3.3rem;
-        }
-
-        &.is--active:hover {
-            color: @color-negative-5;
-            background: @color-negative-24;
         }
 
         &.is--active:hover::before {
@@ -235,7 +236,7 @@
         }
 
         &.is--active::before {
-            background: @color-attention-13;
+            background: @color-positive-13;
             border: none;
         }
 

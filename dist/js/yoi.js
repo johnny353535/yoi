@@ -993,7 +993,6 @@ YOI.element.FilterBtns = function() {
 
 YOI.element.Filters = function() {
     var filterGroupMaxHeight = 210;
-    var loadResultsIsRunning = false;
     var language = YOI.locale();
     var localization = {
         en: {
@@ -1093,9 +1092,6 @@ YOI.element.Filters = function() {
         }
     }
     function toggleFilter($thisFilter) {
-        if (loadResultsIsRunning) {
-            return false;
-        }
         var $thisFilterGroup = $thisFilter.closest(".filterGroup");
         var props = $thisFilterGroup.data().props;
         var $thisFilters = $thisFilter.closest(".filters");
@@ -1146,6 +1142,7 @@ YOI.element.Filters = function() {
     }
     return {
         init: initialize,
+        toggle: toggleFilter,
         reset: reset
     };
 }();

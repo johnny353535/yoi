@@ -6,31 +6,35 @@ permalink: elements/filters
 ---
 
 ## Filters
+Use this element to display a powerful filter widget.
 
 | Styles         | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
 | Script         | [filters.js]({{ pathToSourceFile }}assets/js/elements/filters.js)       |
 | Base CSS-Class | `.filters`                                                              |
-| Modifiers      | `.filters--disabled`                                                    |
+| Child-Elements | `.filterGroup`                                                          |
+| Modifiers      | `.filters--collapsed`                                                   |
 
 ### Basic Example
+This is how your filter widget may look like. Switch to the code-tab to see the markup. This example also contains a [rangeInput element](elements/rangeInput.html).
 
 ```html
+<!-- example:tabs -->
 <div class="w-40">
-    <div class="filters" yoi-filters yoi-searchdisplay="{{ searchDisplay }}">
-        <div class="filters__header">Filtern nach …</div>
+    <div class="filters" yoi-filters>
+        <div class="filters__header">Filter the result:</div>
         <div class="filterGroup">
             <div class="filterGroup__header">
-                <h4>Preis</h4>
+                <h4>Price</h4>
             </div>
             <div class="filterGroup__body">
                 <div class="filter filter__range">
                     <div class="rangeInput m-tb-4" yoi-rangeinput="min:1; max:100; absMin:1; absMax:100;">
                         <div class="js-fallback">
-                            <label for="min">Mindestpreis</label>
+                            <label for="min">Min</label>
                             <input type="text" value="10" name="min" />
-                            <label for="max">Höchstpreis</label>
+                            <label for="max">Max</label>
                             <input type="text" value="500" name="max" />
-                            <input class="btn" type="submit" value="Anwenden" />
+                            <input class="btn" type="submit" value="Apply" />
                         </div>
                     </div>
                 </div>
@@ -38,117 +42,94 @@ permalink: elements/filters
         </div>
         <div class="filterGroup filterGroup--collapsed">
             <div class="filterGroup__header">
-                <h4>Optionen</h4>
+                <h4>Options</h4>
             </div>
             <div class="filterGroup__body">
                 <a class="filter filter--single" href="#">
-                    Nur Einzelpackungen
+                    Single packages
                     <span class="filter__counter">2</span>
                 </a>
                 <a class="filter filter--single" href="#">
-                    Nur Kombipackungen
+                    Combo packages
                     <span class="filter__counter">11</span>
                 </a>
             </div>
         </div>
-        <div class="filterGroup filterGroup--collapsed">
+        <div class="filterGroup">
             <div class="filterGroup__header">
-                <h4>Darreichungsform</h4>
+                <h4>Ingredients</h4>
             </div>
             <div class="filterGroup__body">
                 <a class="filter filter--multi" href="#">
-                    Augen- und Nasensalbe
+                    Acetic anhydride
                     <span class="filter__counter">2</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Brausetabletten
+                    Acetone
                     <span class="filter__counter">11</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Granulat
+                    Benzyl chloride
                     <span class="filter__counter">33</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Granulat zur Herstellung einer Suspension zum Einnehmen
+                    Ethyl ether
                     <span class="filter__counter">888</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Kautabletten
+                    Potassium permanganate
                     <span class="filter__counter">22</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Pulver zur Herstellung einer Infusionslösung
+                    Toluene
                     <span class="filter__counter">22</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Tabletten
+                    Sulfuric acid
                     <span class="filter__counter">22</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Tabletten magensaftresistent
+                    Methyl isobutyl ketone
                     <span class="filter__counter">22</span>
                 </a>
                 <a class="filter filter--multi" href="#">
-                    Überzogene Tabletten
+                    Sodium permanganate
                     <span class="filter__counter">22</span>
                 </a>
             </div>
         </div>
         <div class="filterGroup filterGroup--collapsed">
             <div class="filterGroup__header">
-                <h4>Hersteller</h4>
-            </div>
-            <div class="filterGroup__body">
-                <a class="filter filter--multi" href="#">
-                    Novartis
-                    <span class="filter__counter">99</span>
-                </a>
-                <a class="filter filter--multi" href="#">
-                    Ratiopharm
-                    <span class="filter__counter">7</span>
-                </a>
-                <a class="filter filter--multi" href="#">
-                    Bayer
-                    <span class="filter__counter">13</span>
-                </a>
-                <a class="filter filter--multi" href="#">
-                    Trommsdorf
-                    <span class="filter__counter">55</span>
-                </a>
-            </div>
-        </div>
-        <div class="filterGroup filterGroup--collapsed">
-            <div class="filterGroup__header">
-                <h4>Bewertung</h4>
+                <h4>Rating</h4>
             </div>
             <div class="filterGroup__body">
                 <a class="filter filter--multi" href="#">
                     <span class="rating rating--small rating--5">
-                        <span class="rating__stars">5 von 5 Sternen</span>
+                        <span class="rating__stars">5 out of 5</span>
                     </span>
                     <span class="filter__counter">8</span>
                 </a>
                 <a class="filter filter--multi" href="#">
                     <span class="rating rating--small rating--4">
-                        <span class="rating__stars">4 von 5 Sternen</span>
+                        <span class="rating__stars">4 out of 5</span>
                     </span>
                     <span class="filter__counter">2</span>
                 </a>
                 <a class="filter filter--multi" href="#">
                     <span class="rating rating--small rating--3">
-                        <span class="rating__stars">3 von 5 Sternen</span>
+                        <span class="rating__stars">3 out of 5</span>
                     </span>
                     <span class="filter__counter">12</span>
                 </a>
                 <a class="filter filter--multi" href="#">
                     <span class="rating rating--small rating--2">
-                        <span class="rating__stars">2 von 5 Sternen</span>
+                        <span class="rating__stars">2 out of 5n</span>
                     </span>
                     <span class="filter__counter">2</span>
                 </a>
                 <a class="filter filter--multi" href="#">
                     <span class="rating rating--small rating--1">
-                        <span class="rating__stars">1 von 5 Sternen</span>
+                        <span class="rating__stars">1 out of 5</span>
                     </span>
                     <span class="filter__counter">9</span>
                 </a>
@@ -156,5 +137,123 @@ permalink: elements/filters
         </div>
     </div>
 </div>
-<div class="box m-t-4 pos-rel h-30 w-40 p-4" id="#searchDisplay">Search Result</div>
+```
+
+### Controlling Filter Groups
+You can control weather a filter group is **collapsed** or **expanded** on page load. If you wish to close a `.filterGroup` on page load, add the CSS-class `.filterGroup--collapsed` as modifier to your markup. By default, each `.filterGroup` is expanded (open) on page load.
+
+```html
+<!-- this filter group is collapsed (closed) on page load -->
+<div class="filterGroup filterGroup--collapsed">…</div>
+
+<!-- these filter groups are expanded (open) on page load -->
+<div class="filterGroup filterGroup--expanded">…</div>
+<div class="filterGroup">…</div>
+```
+
+<p class="hint"><b>Hint:</b> The modifier <code>.filterGroup--expanded</code> is only used internally. Simply ignore it.</p>
+
+### Filter Types
+You can use two different types of filters, both of them behave slightly different.
+
+#### Single-Selection Filters
+Use these filters like you would use the HTML-element `<input type="radio">`. These filters get grouped and only one filter of this group can be active at a time.
+
+```html
+<!-- example -->
+<div class="w-25">
+    <div class="filters" yoi-filters>
+        <div class="filterGroup">
+            <div class="filterGroup__body">
+                <a class="filter filter--single" href="#">
+                    Organic Chemicals
+                    <span class="filter__counter">62</span>
+                </a>
+                <a class="filter filter--single" href="#">
+                    Inorganic Chemicals
+                    <span class="filter__counter">35</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+#### Multiple-Selection Filters
+Use these filters like you would use the HTML-element `<input type="checkbox">`. Any number of these filters can be active at the same time.
+
+```html
+<!-- example -->
+<div class="w-25">
+    <div class="filters" yoi-filters>
+        <div class="filterGroup">
+            <div class="filterGroup__body">
+                <a class="filter filter--multi" href="#">
+                    Acetic anhydride
+                    <span class="filter__counter">2</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Acetone
+                    <span class="filter__counter">11</span>
+                </a>
+                <a class="filter filter--multi" href="#">
+                    Benzyl chloride
+                    <span class="filter__counter">33</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### JavaScript-API
+
+#### initialize()
+On each page load, all `<div class="filters" yoi-filters>` get initialized. However, if you dynamically add new `.filters` to the page, call this function from your JavaScript to select and initialize them.
+
+```js
+YOI.element.Filters.initialize()
+ 
+/**
+ *  Initialize the script.
+ *  No additional options.
+ *
+ *  @param {jQuery dom object} $filters
+ */
+```
+
+#### toggle()
+Use this function to select a filter (`<a class="filter>`) and toggle it’s state (*active* or *inactive*).
+
+```js
+YOI.element.Filters.toggle()
+ 
+/**
+ *  Toggle the state of a selected filter.
+ *  No additional options.
+ *
+ *  @param {jQuery dom object} $filter
+ */
+```
+
+#### reset()
+Call this function from your JavaScript to deactivate all active filters (`<a class="filter>`) of a `.filters`-instance.
+
+```js
+YOI.element.Filters.reset()
+
+/**
+ *  Reset a selected instance of filters.
+ *
+ *  @param {jQuery dom object} $filters
+ */
+````
+
+#### JavaScript Custom Events
+Each `.filters` fires custom events your script can listen to:
+
+```
+yoi-filters:change // fires immedeately after a filter changed
+yoi-filters:update // fires after a short threshhold after a filter changed
+yoi-filters:reset  // fires immmedeately after a filter reset
 ```

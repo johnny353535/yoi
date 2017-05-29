@@ -100,7 +100,7 @@ YOI.element.DatePicker.hideAll()
 
 #### JavaScript Custom Events
 
-Each `.datePicker` can fire two custom events your script can listen to:
+Each `.datePicker` fires custom events your script can listen to:
 
 ```
 yoi-datepicker:show // datePicker was shown

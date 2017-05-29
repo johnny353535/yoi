@@ -6,7 +6,6 @@ YOI.element.Filters = (function() {
     // ============
 
     var filterGroupMaxHeight = 210;
-    var loadResultsIsRunning = false;
     
     // localization
     
@@ -35,7 +34,7 @@ YOI.element.Filters = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $accordion
+         *  @param {jQuery dom object} $filters
          *  @param {object}            options
          */
         
@@ -228,12 +227,6 @@ YOI.element.Filters = (function() {
          *  @param {jQuery dom object} $thisFilter - the filter
          */
 
-        // cancel if results update is running
-
-        if (loadResultsIsRunning) {
-            return false;
-        }
-
         var $thisFilterGroup = $thisFilter.closest('.filterGroup');
         var props            = $thisFilterGroup.data().props;
         var $thisFilters     = $thisFilter.closest('.filters');
@@ -351,6 +344,7 @@ YOI.element.Filters = (function() {
 
     return {
         init   : initialize,
+        toggle : toggleFilter,
         reset  : reset
     };
 
