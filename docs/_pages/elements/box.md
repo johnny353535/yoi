@@ -76,7 +76,7 @@ Sometimes you may wish to group different `.box`es. You can easily do so by wrap
 </div>
 ```
 
-### Custom Variations
+### Modification
 
 Use the [CSS-utility-classes](utilities/) to create custom variations. In the following example, text-, border- and background-color is set to shades of red:
 

@@ -14,7 +14,7 @@ Use this element to create an overlay which is docked to the right or left side 
 | Modifiers      | `.dock--left, .dock--right`                                       |
 
 ### Basic Example
-This is the markup for a basic `.dock`:
+This is the markup for a basic `.dock` (you should see the rendered result on the left edge of this page):
 
 ```html
 <div class="dock" yoi-dock>
@@ -23,7 +23,6 @@ This is the markup for a basic `.dock`:
 ```
 
 ### Modifiers
-
 Add `.dock--left` or `.dock--right` to attach the `.dock` to the left or right side of the viewport. By default – if you leave out a modifier – a dock is on the left side. A hidden `.dock` appears on *mouseover* and disappears after a short delay on *mouseout*.
 
 ```html
@@ -39,7 +38,6 @@ Add `.dock--left` or `.dock--right` to attach the `.dock` to the left or right s
 ```
 
 ### Options
-
 `.dock` has an optional autohide feature. It’s disabled by default but it makes most sense to always enable it, for example when you use it as a menu.
 
 The following code example is creating the dock you may actually see on the left side of this page:
@@ -68,7 +66,6 @@ The following code example is creating the dock you may actually see on the left
 ### JavaScript-API
 
 #### initialize()
-
 On each page load, all elements marked with `yoi-dock="autohide:true;"` are hidden and initialized. However, if you dynamically add a new elements to the page, call this function from your JavaScript to initialize any other `.dock`.
 
 ```js
@@ -86,7 +83,6 @@ YOI.element.Dock.initialize()
 ```
 
 #### hide() & show()
-
 Call this function from your JavaScript to hide all currently visible `.dock`-instances.
 
 ```js
@@ -108,7 +104,6 @@ YOI.element.Dock.show()
 ```
 
 #### JavaScript Custom Events
-
 Each `.dock` can fire two custom events your script can listen to:
 
 ```js

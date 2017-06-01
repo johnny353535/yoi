@@ -672,11 +672,20 @@ YOI.module  = {};
 
 $(function() {
     
-    //YOI.Documentation.init();
+    // run the YOI.element.Code before
+    // all other scripts, so that examples
+    // rendered by this script are
+    // initialized with the right timing
+
+    YOI.element.Code.start();
+    
+    // initialize all YOI elements
 
     $.each(YOI.element, function() {
         try { this.init(); } catch(e) {}
     });
+    
+    // initialize all YOI modules
 
     $.each(YOI.module, function() {
         try { this.init(); } catch(e) {}

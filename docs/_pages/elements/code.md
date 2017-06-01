@@ -1,10 +1,10 @@
 ---
 layout: base
 group: elements
-title: Console
-permalink: elements/console
+title: Code
+permalink: elements/code
 ---
 
-## Console
+## Code
 
 <p class="hint hint--error">No documentation yet.</p>

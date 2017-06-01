@@ -6,39 +6,36 @@ permalink: elements/flyout
 ---
 
 ## Flyout
-Use this element to display a small tab and text label that is pinned to either the left or right side of the screen and displays a small panel on click. You should **use only one flyout per page** and **only for important information** (such as feedback / help / contact links) since the sticky labels on the side of the screen appera rather prominent to the user. This element was **designed for large screens only** and should not be used on mobile pages.
+Use this element to display a label, pinned to either the left or right side of the screen, which reveals a small panel on click.
 
 | Styles         | [flyout.less]({{ pathToSourceFile }}assets/less/elements/flyout.less) |
 | Script         | [flyout.js]({{ pathToSourceFile }}assets/js/elements/flyout.js)       |
 | Base CSS-Class | `.flyout`                                                             |
 | Modifiers      | `.flyout--left, .flyout--right`                                       |
 
+<p class="hint hint--error"><b>Use sparely:</b> You should only use one flyout per page and only for important information since the sticky labels on the side of the screen appera rather prominent to the user.</p>
+<p class="hint hint--attention"><b>For large screens only:</b> This element was designed for use with large screens, it’s not recommended to use it on small screens.</p>
+
 ### Basic Example
-A flyout **can contain any content**. Since it’s a very prominent element on any page, use it very sparely and only where it makes sense. A perfectly valid scenario would be a flyout as a contact or feedback panel.
+This is the markup for a basic `.flyOut` (you should see the rendered result on the left edge of this page):
 
 ```html
+<!-- example -->
 <div class="flyout" yoi-flyout>
-    <h2 class="flyout__handle">Click Me</h2>
+    <h2 class="flyout__handle">Flyout</h2>
     <div class="flyout__body">
         <h3 class="ff-ss">This is an Example Flyout</h3>
-        <p class="fs-15 lh-20 m-tb-4">Use this element to display relevant information like contact links or such.</p>
-        <a href="#" class="btn btn--large d-blk w-1-1 m-b-2">
-            <i aria-hidden="true" class="icon--021"></i>
-            <span>Call-Back</span>
-        </a>
-        <a href="#" class="btn btn--large d-blk w-1-1">
-            <i aria-hidden="true" class="icon--038"></i>
-            <span>E-Mail</span>
-        </a>
+        <p class="fs-15 lh-20 m-tb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        <p class="btns btns--vertical">
+            <a href="#" class="btn btn--large">Advanced Chemistry</a>
+            <a href="#" class="btn btn--large">Rocket Science</a>
+        </p>
     </div>
 </div>
 ```
 
 ### Modifiers
-There are two modifiers available (`.flyout--left, .flyout--right`) to either **stick the flyout to the left or to the right side of the screen**. In the example above, neither `.flyout--left` nor `flyout--right` was used, still the flyout sits on the left side of the screen. **Left is the default position**, the modifier class got added since no position was defined.
-
-### Position in DOM
-To correctly position the flyout (to »pin« it while scrolling), `position:fixed` is applied. Since unexpected positioning are likely to occur due to the flyout’s position in the DOM, each flyout gets removed from it’s current position an re-injected at the end of the `body`. This means **you do not have to care where in your markup you put the flyout**.
+Add `.flyout--left` or `.flyout--right` to attach the `.flyout` to the left or right side of the viewport. By default – if you leave out a modifier – a flyout is on the left side.
 
 ### NoScript / Fall Back
-If JavaScript is not available, the flyout is a simple box and remains at it’s position in the DOM.
+If JavaScript is not available, the flyout is a simple box and remains at it’s original position in the document.

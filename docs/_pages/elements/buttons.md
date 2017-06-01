@@ -201,7 +201,7 @@ You may also create vertically grouped button blocks by adding the modifier `.bt
 </div>
 ```
 
-### Custom Modification Through Utility-Classes
+### Custom Modification
 Use [YOI Utility Classes](utilities/) to override button styles and create custom buttons. Use this option wisely and only for special cases where no standard button style works for you!
 
 ```html

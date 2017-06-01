@@ -242,6 +242,7 @@ YOI.element = {};
 YOI.module = {};
 
 $(function() {
+    YOI.element.Code.start();
     $.each(YOI.element, function() {
         try {
             this.init();
@@ -376,31 +377,63 @@ YOI.element.Accordion = function() {
     };
 }();
 
-YOI.element.Console = function() {
-    var $document = $(document);
-    var consoleLog = [];
-    var yoiEvents = [ "yoi-accordion:close", "yoi-accordion:open", "yoi-countdown:expire", "yoi-datepicker:hide", "yoi-datepicker:show", "yoi-filters:change", "yoi-filters:reset", "yoi-filters:update", "yoi-hide", "yoi-imgmagnifier:start", "yoi-imgmagnifier:stop", "yoi-input:blur", "yoi-input:change", "yoi-input:focus", "yoi-keypressed:arrowdown", "yoi-keypressed:arrowleft", "yoi-keypressed:arrowright", "yoi-keypressed:arrowup", "yoi-keypressed:enter", "yoi-keypressed:escape", "yoi-keypressed:space", "yoi-modal:error", "yoi-modal:hide", "yoi-modal:load", "yoi-modal:show", "yoi-pagerewind:end", "yoi-pagerewind:start", "yoi-pickbtn:change", "yoi-popover:hide", "yoi-popover:show", "yoi-rangeinput:change", "yoi-rangeinput:update", "yoi-rating:submit", "yoi-remove", "yoi-reveal", "yoi-scrollto:end", "yoi-scrollto:start", "yoi-slider:autoplaystart", "yoi-slider:autoplaystop", "yoi-slider:change", "yoi-stepper:down", "yoi-stepper:error", "yoi-stepper:up", "yoi-switch:off", "yoi-switch:on", "yoi-table:empty", "yoi-table:remove", "yoi-table:select", "yoi-tabs:change", "yoi-togglegroup:change", "yoi-togglegroup:reset", "yoi-tooltip:hide", "yoi-tooltip:show", "yoi-viewport:center", "yoi-viewport:in", "yoi-viewport:out" ];
+YOI.element.Code = function() {
     function initialize() {
-        $.each(yoiEvents, function(index, key) {
-            var eventName = key;
-            $document.on(eventName, function() {
-                consoleLog.unshift(eventName);
-                log(consoleLog);
-            });
-        });
-    }
-    function log(consoleLog) {
-        var $yoiConsole = $("[yoi-console]").first();
-        var $yoiConsoleBody = $yoiConsole.find(".console__body").first();
-        var consoleOutput = "";
-        $.each(consoleLog, function(index, key) {
-            consoleOutput += '<p><span class="console__label">' + YOI.zeroPad(consoleLog.length - index, 3) + "</span>" + consoleLog[index] + "</p>";
-            $yoiConsoleBody.html(consoleOutput);
+        var $window = $(window);
+        var $codeWrapper = $('div[class*="highlighter"]');
+        var tabPageIndex = 0;
+        $.each($codeWrapper, function(index) {
+            var $thisCodeWrapper = $(this);
+            var $thisCode = $thisCodeWrapper.find("code");
+            var exampleTag = "\x3c!-- example --\x3e";
+            var exampleTagTabbed = "\x3c!-- example:tabs --\x3e";
+            var thisExample = $thisCode.text().split(exampleTag).length > 1 ? $thisCode.text().split(exampleTag)[1] : false;
+            var thisExampleTabbed = $thisCode.text().split(exampleTagTabbed).length > 1 ? $thisCode.text().split(exampleTagTabbed)[1] : false;
+            if (thisExampleTabbed) {
+                var firstIndex = ++tabPageIndex;
+                var secondIndex = ++tabPageIndex;
+            }
+            if (thisExample) {
+                var _ = "";
+                $thisCode.find('.c:contains("' + exampleTag + '")').remove();
+                _ = '<div class="documentation__example">';
+                _ += '<div class="documentation__result">';
+                _ += thisExample;
+                _ += "</div>";
+                _ += '<div class="documentation__code">';
+                _ += $thisCodeWrapper.html();
+                _ += "</div>";
+                _ += "</div>";
+            }
+            if (thisExampleTabbed) {
+                var _ = "";
+                $thisCode.find('.c:contains("' + exampleTagTabbed + '")').remove();
+                _ = '<div class="documentation__example tabs">';
+                _ += '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
+                _ += '<ul class="tabs__items">';
+                _ += '<li class="tabs__item">';
+                _ += '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
+                _ += "</li>";
+                _ += '<li class="tabs__item">';
+                _ += '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
+                _ += "</li>";
+                _ += "</ul>";
+                _ += "</div>";
+                _ += '<div id="exampleTab-' + firstIndex + '" class="tabs__page">';
+                _ += thisExampleTabbed;
+                _ += "</div>";
+                _ += '<div id="exampleTab-' + secondIndex + '" class="tabs__page">';
+                _ += $thisCodeWrapper.html();
+                _ += "</div>";
+                _ += "</div>";
+            }
+            if (thisExample || thisExampleTabbed) {
+                $thisCodeWrapper.replaceWith(_);
+            }
         });
     }
     return {
-        init: initialize,
-        log: log
+        start: initialize
     };
 }();
 
@@ -1335,6 +1368,27 @@ YOI.element.ImgMagnifier = function() {
     return {
         init: initialize,
         destroy: destroy
+    };
+}();
+
+YOI.element.Log = function() {
+    var $document = $(document);
+    function write($log, logInput) {
+        if ($log === undefined || $log.length < 1) return false;
+        if ($log.data().memory === undefined) $log.data().memory = [];
+        $log.data().memory.unshift(logInput);
+        var $logBody = $log.find(".log__body").first();
+        var logMemory = $log.data().memory;
+        var logOutput = "";
+        $.each(logMemory, function(index, key) {
+            logOutput += '<p><span class="log__label">' + YOI.zeroPad(logMemory.length - index, 3) + "</span>" + logMemory[index] + "</p>";
+            $logBody.html(logOutput);
+        });
+    }
+    function clear() {}
+    return {
+        write: write,
+        clear: clear
     };
 }();
 

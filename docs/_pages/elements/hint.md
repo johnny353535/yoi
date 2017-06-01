@@ -8,6 +8,7 @@ permalink: elements/hint
 ## Hint
 
 ```html
+<!-- example -->
 <p class="hint">This is a hint.</p>
 <p class="hint hint--positive">This is a hint.</p>
 <p class="hint hint--negative">This is a hint.</p>

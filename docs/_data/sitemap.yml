@@ -29,7 +29,7 @@ elements:
     - buttons
     - callout
     - checkList
-    - console
+    - code
     - countdown
     - datePicker
     - dock
@@ -47,6 +47,7 @@ elements:
     - link
     - linkList
     - loading
+    - log
     - mainMenu
     - maxChars
     - menu
