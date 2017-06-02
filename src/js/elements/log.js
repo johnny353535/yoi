@@ -6,101 +6,17 @@ YOI.element.Log = (function() {
     // ============
     
     var $document  = $(document);
-
+    
     // private functions
     // =================
-    
-    // // function logCustomEvents($console) {
-    //
-    //     /**
-    //      *
-    //      */
-    //
-    //     var yoiEvents = [
-    //         'yoi-accordion:close',
-    //         'yoi-accordion:open',
-    //         'yoi-countdown:expire',
-    //         'yoi-datepicker:hide',
-    //         'yoi-datepicker:show',
-    //         'yoi-filters:change',
-    //         'yoi-filters:reset',
-    //         'yoi-filters:update',
-    //         'yoi-hide',
-    //         'yoi-imgmagnifier:start',
-    //         'yoi-imgmagnifier:stop',
-    //         'yoi-input:blur',
-    //         'yoi-input:change',
-    //         'yoi-input:focus',
-    //         'yoi-keypressed:arrowdown',
-    //         'yoi-keypressed:arrowleft',
-    //         'yoi-keypressed:arrowright',
-    //         'yoi-keypressed:arrowup',
-    //         'yoi-keypressed:enter',
-    //         'yoi-keypressed:escape',
-    //         'yoi-keypressed:space',
-    //         'yoi-modal:error',
-    //         'yoi-modal:hide',
-    //         'yoi-modal:load',
-    //         'yoi-modal:show',
-    //         'yoi-pagerewind:end',
-    //         'yoi-pagerewind:start',
-    //         'yoi-pickbtn:change',
-    //         'yoi-popover:hide',
-    //         'yoi-popover:show',
-    //         'yoi-rangeinput:change',
-    //         'yoi-rangeinput:update',
-    //         'yoi-rating:submit',
-    //         'yoi-remove',
-    //         'yoi-reveal',
-    //         'yoi-scrollto:end',
-    //         'yoi-scrollto:start',
-    //         'yoi-slider:autoplaystart',
-    //         'yoi-slider:autoplaystop',
-    //         'yoi-slider:change',
-    //         'yoi-stepper:down',
-    //         'yoi-stepper:error',
-    //         'yoi-stepper:up',
-    //         'yoi-switch:off',
-    //         'yoi-switch:on',
-    //         'yoi-table:empty',
-    //         'yoi-table:remove',
-    //         'yoi-table:select',
-    //         'yoi-tabs:change',
-    //         'yoi-togglegroup:change',
-    //         'yoi-togglegroup:reset',
-    //         'yoi-tooltip:hide',
-    //         'yoi-tooltip:show',
-    //         'yoi-viewport:center',
-    //         'yoi-viewport:in',
-    //         'yoi-viewport:out'
-    //         // 'yoi-scrolldirection:down',
-    //         // 'yoi-scrolldirection:up',
-    //     ];
-    //
-    //     $.each(yoiEvents, function(index, key) {
-    //
-    //         // on each custom "yoi-event", log the event name
-    //         // to the console
-    //
-    //         var eventName = key;
-    //
-    //         $document.on(eventName, function() {
-    //             consoleLog.unshift(eventName);
-    //             log($console, consoleLog);
-    //         });
-    //
-    //     });
-    //
-    // }
     
     function write($log, logInput) {
         
         /**
-         *  Append text to the log and display it in
-         *  the log in reverse order.
+         *  Append text to the log and display it in reverse order.
          *
          *  @param {jQuery dom object} $log
-         *  @param {string}            logInput - the content, appended to the log
+         *  @param {string | html}     logInput - the content, appended to the log
          */
         
         // cancel if no $log was found
@@ -130,7 +46,22 @@ YOI.element.Log = (function() {
         
     }
     
-    function clear() {
+    function clear($log) {
+        
+        /**
+         *  Clear the log's memory and display.
+         *
+         *  @param {jQuery dom object} $log
+         */
+        
+        // cancel if no $log was found
+
+        if ($log === undefined || $log.length < 1) return false;
+        
+        // clear the log's memory & the log's display
+        
+        $log.data().memory = [];
+        $log.find('.log__body').first().html('<p></p>');
         
     }
 

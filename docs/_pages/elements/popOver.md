@@ -10,6 +10,7 @@ Use this element to link any trigger (eg. a button) to a _pop-over_ which appear
 
 | Styles         | [popOver.less]({{ pathToSourceFile }}assets/less/elements/popOver.less) |
 | Script         | [popOver.js]({{ pathToSourceFile }}assets/js/elements/popOver.js)       |
+| Script Hook    | `yoi-popover`                                                           |
 | Base CSS-Class | `.popOver`                                                              |
 | Modifiers      | `-`                                                                     |
 

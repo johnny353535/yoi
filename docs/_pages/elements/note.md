@@ -8,8 +8,6 @@ permalink: elements/note
 ## Note
 Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be *dismissable*, they come in two text sizes and they can contain an icon.
 
-|                |                                                                                                                                                                                                          |
-| -              | -                                                                                                                                                                                                        |
 | Styles         | [note.less]({{ pathToSourceFile }}assets/less/elements/note.less)                                                                                                                                        |
 | Script         | [dismiss.js]({{ pathToSourceFile }}assets/js/modules/dismiss.js)                                                                                                                                         |
 | Base CSS-Class | `.note`                                                                                                                                                                                                  |

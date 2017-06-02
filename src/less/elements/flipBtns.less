@@ -18,8 +18,6 @@
 .flipBtns__btnPrev,
 .flipBtns__btnNext {
 
-    background: red;
-
     box-sizing: border-box;
     background: @color-white;
     border: @color-main-23 1px solid;
@@ -70,6 +68,24 @@
         .mixin-icon-bg(@id: 'icon-007-s', @fillColor: @color-main-8);
     }
 
+}
+
+// disabled flipBtns
+
+.flipBtns__btnPrev.is--disabled,
+.flipBtns__btnNext.is--disabled {
+    
+    &:hover {
+        background: transparent;
+        cursor: default;
+    }
+    
+    // icons
+    
+    &::after {
+        opacity: .3;
+    }
+    
 }
 
 // modifiers

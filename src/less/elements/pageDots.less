@@ -58,11 +58,11 @@
     .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-17);
 }
 
-.pageDots__dot.pageDots--active::after {
+.pageDots__dot.is--active::after {
     .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-8);
 }
 
-// chevron-left icon
+// arrow-left icon
 
 .pageDots__btnPrev::after {
     .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-15);
@@ -72,7 +72,7 @@
     .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-8);
 }
 
-// chevron-right icon
+// arrow-right icon
 
 .pageDots__btnNext::after {
     .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-15);
@@ -80,6 +80,22 @@
 
 .pageDots__btnNext:hover::after {
     .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-8);
+}
+
+// disabled
+
+.pageDots__btnPrev.is--disabled::after ,
+.pageDots__btnNext.is--disabled::after {
+    cursor: default;
+    opacity: .3;
+}
+
+.pageDots__btnPrev.is--disabled:hover::after {
+    .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-15);
+}
+
+.pageDots__btnNext.is--disabled:hover::after {
+    .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-15);
 }
 
 // modifiers
@@ -99,11 +115,11 @@
         .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-main-18);
     }
 
-    .pageDots__dot.pageDots--active::after {
+    .pageDots__dot.is--active::after {
         .mixin-icon-bg(@id: 'icon-079-s', @width: 24, @height: 24, @fillColor: @color-white);
     }
 
-    // chevron-left icon
+    // arrow-left icon
 
     .pageDots__btnPrev::after {
         .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-17);
@@ -113,7 +129,7 @@
         .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-23);
     }
 
-    // chevron-right icon
+    // arrow-right icon
 
     .pageDots__btnNext::after {
         .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-17);
@@ -121,6 +137,16 @@
 
     .pageDots__btnNext:hover::after {
         .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-23);
+    }
+
+    // disabled
+
+    .pageDots__btnPrev.is--disabled:hover::after {
+        .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-17);
+    }
+
+    .pageDots__btnNext.is--disabled:hover::after {
+        .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-17);
     }
 
 }

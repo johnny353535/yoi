@@ -10,6 +10,7 @@ Use this element to display a label, pinned to either the left or right side of 
 
 | Styles         | [flyout.less]({{ pathToSourceFile }}assets/less/elements/flyout.less) |
 | Script         | [flyout.js]({{ pathToSourceFile }}assets/js/elements/flyout.js)       |
+| Script Hook    | `yoi-flyout`                                                          |
 | Base CSS-Class | `.flyout`                                                             |
 | Modifiers      | `.flyout--left, .flyout--right`                                       |
 

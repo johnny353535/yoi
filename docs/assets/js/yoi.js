@@ -1385,7 +1385,11 @@ YOI.element.Log = function() {
             $logBody.html(logOutput);
         });
     }
-    function clear() {}
+    function clear($log) {
+        if ($log === undefined || $log.length < 1) return false;
+        $log.data().memory = [];
+        $log.find(".log__body").first().html("<p></p>");
+    }
     return {
         write: write,
         clear: clear
@@ -2280,7 +2284,10 @@ YOI.element.Slider = function() {
         }
     };
     var slideControls = {
-        pageBtns: $('            <div class="pageBtns">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
+        "pageBtns--tl": $('            <div class="pageBtns pageBtns--tl">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
+        "pageBtns--tr": $('            <div class="pageBtns pageBtns--tr">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
+        "pageBtns--br": $('            <div class="pageBtns pageBtns--br">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
+        "pageBtns--bl": $('            <div class="pageBtns pageBtns--bl">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
         flipBtns: $('            <div class="flipBtns">                <a class="flipBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="flipBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
         "flipBtns--inset": $('            <div class="flipBtns flipBtns--inset">                <a class="flipBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="flipBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
         pageDots: $('            <div class="pageDots">                <a class="pageDots__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="pageDots__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
@@ -2324,7 +2331,7 @@ YOI.element.Slider = function() {
                         $('<a class="pageDots__dot"><span class="hidden">' + (i + 1) + "</span></a>").insertBefore($(this).find(".pageDots__btnNext"));
                     }
                     paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-                    paginationLinks.first().addClass("pageDots--active");
+                    paginationLinks.first().addClass("is--active");
                     paginationLinks.on("click", function(e) {
                         e.preventDefault();
                         stopAutoplay($thisSlider);
@@ -2444,8 +2451,8 @@ YOI.element.Slider = function() {
     }
     function updatePagination($thisSlider, thisSlideIndex) {
         paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-        paginationLinks.removeClass("pageDots--active");
-        paginationLinks.eq(thisSlideIndex).addClass("pageDots--active");
+        paginationLinks.removeClass("is--active");
+        paginationLinks.eq(thisSlideIndex).addClass("is--active");
         $thisSlider.find(".pageBtns__currentPage").text(thisSlideIndex + 1);
     }
     function adjustHeight($thisSlider) {
@@ -2471,11 +2478,17 @@ YOI.element.Slider = function() {
         });
         $document.on("yoi-keypressed:arrowleft", function() {
             var $activeSlider = $(document.activeElement);
-            if ($activeSlider.attr("yoi-slider") !== undefined) showSlide($activeSlider, "prev");
+            if ($activeSlider.attr("yoi-slider") !== undefined) {
+                showSlide($activeSlider, "prev");
+                stopAutoplay($slider);
+            }
         });
         $document.on("yoi-keypressed:arrowright", function() {
             var $activeSlider = $(document.activeElement);
-            if ($activeSlider.attr("yoi-slider") !== undefined) showSlide($activeSlider, "next");
+            if ($activeSlider.attr("yoi-slider") !== undefined) {
+                showSlide($activeSlider, "next");
+                stopAutoplay($slider);
+            }
         });
     }
     return {

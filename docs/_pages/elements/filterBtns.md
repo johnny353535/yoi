@@ -10,6 +10,7 @@ Use this element to display a horizontal list of filter buttons.
 
 | Styles         | [filterBtns.less]({{ pathToSourceFile }}assets/less/elements/filterBtns.less) |
 | Script         | [filterBtns.js]({{ pathToSourceFile }}assets/js/elements/filterBtns.js)       |
+| Script Hook    | `yoi-filterbtns`                                                              |
 | Base CSS-Class | `.filterBtns`                                                                 |
 | Modifiers      | `.filterBtns--dark, .filterBtns--removeable`                                  |
 

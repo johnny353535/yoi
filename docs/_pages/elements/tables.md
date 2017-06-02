@@ -10,6 +10,7 @@ Tables come with a few handy modifiers, eg. to render zebra-striped tables, tabl
 
 | Styles         | [tables.less]({{ pathToSourceFile }}assets/less/elements/tables.less)                                                            |
 | Script         | [tables.js]({{ pathToSourceFile }}assets/js/elements/tables.js)                                                                  |
+| Script Hook    | `yoi-table`                                                                                                                      |
 | Base CSS-Class | none (just the table-tag) or `.table`                                                                                            |
 | Modifiers      | `.table--borderless, .table--colHeader, .table--compressed, .table--fixed, .table--simpleHeader, .table--stripped, .table-zebra` |
 

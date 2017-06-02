@@ -11,8 +11,7 @@
     color: @color-white;
     display: inline-block;
     font-size: 3rem;
-    line-height: 4rem;
-    padding: 0 .5rem;
+    height: 4rem;
     position: relative;
     text-shadow: none;
     white-space: nowrap;
@@ -21,7 +20,7 @@
 
     &:before,
     &:after {
-        background: @color-negative-15;
+        background: @red-15;
         border-radius: 1.5rem;
         content: ' ';
         display: block;
@@ -49,9 +48,13 @@
 
     display: block;
     font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-weight: bold;
+    line-height: 4rem;
     margin-bottom: 1rem;
+    padding: 0 1rem;
+    position: relative;
     text-align: center;
+    z-index: 2;
 
     sup {
         font-size: 1rem;
@@ -65,10 +68,10 @@
 // modifiers
 // =========
 
-.priceSticker--rot-r {
+.priceSticker--rotLeft {
     transform: rotate(5deg);
 }
 
-.priceSticker--rot-l {
+.priceSticker--rotRight {
     transform: rotate(-5deg);
 }

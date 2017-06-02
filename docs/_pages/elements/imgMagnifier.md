@@ -10,6 +10,7 @@ Use this element to create an *amazon-style* image zoomer. It’s very lightweig
 
 | Styles         | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/elements/imgMagnifier.less) |
 | Script         | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/elements/imgMagnifier.js)       |
+| Script Hook    | `yoi-imgmagnifier`                                                                |
 | Base CSS-Class | `.imgMagnifier`                                                                   |
 
 ### Example

@@ -29,8 +29,50 @@ YOI.element.Slider = (function() {
 
         // .pageBtns
 
-        'pageBtns': $('\
-            <div class="pageBtns">\
+        'pageBtns--tl': $('\
+            <div class="pageBtns pageBtns--tl">\
+                <button class="pageBtns__btnPrev">\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                </button>\
+                <span class="pageBtns__indicator">\
+                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                </span>\
+                <button class="pageBtns__btnNext">\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                </button>\
+            </div>\
+        '),
+        
+        'pageBtns--tr': $('\
+            <div class="pageBtns pageBtns--tr">\
+                <button class="pageBtns__btnPrev">\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                </button>\
+                <span class="pageBtns__indicator">\
+                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                </span>\
+                <button class="pageBtns__btnNext">\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                </button>\
+            </div>\
+        '),
+        
+        'pageBtns--br': $('\
+            <div class="pageBtns pageBtns--br">\
+                <button class="pageBtns__btnPrev">\
+                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                </button>\
+                <span class="pageBtns__indicator">\
+                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                </span>\
+                <button class="pageBtns__btnNext">\
+                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                </button>\
+            </div>\
+        '),
+        
+        'pageBtns--bl': $('\
+            <div class="pageBtns pageBtns--bl">\
                 <button class="pageBtns__btnPrev">\
                     <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
                 </button>\
@@ -119,7 +161,7 @@ YOI.element.Slider = (function() {
          *
          *  @option {number} autoplay   - interval in miliseconds to change the slides automatically
          *  @option {bool}   clickable  - click on a slide to switch to the next side
-         *  @option {string} controls   - keyword for the controls to add ["pageBtns" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {string} controls   - keyword for the controls to add ["pageBtns--tl" || "pageBtns--tr" || "pageBtns--br" || "pageBtns--bl" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
          *  @option {bool}   swipeable  - change the slide on swipe left/right
          *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
@@ -201,7 +243,7 @@ YOI.element.Slider = (function() {
                     // set up pagination
 
                     paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-                    paginationLinks.first().addClass('pageDots--active');
+                    paginationLinks.first().addClass('is--active');
 
                     paginationLinks.on('click', function(e) {
                         
@@ -454,8 +496,8 @@ YOI.element.Slider = (function() {
         // update page dots (.pageDots)
 
         paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
-        paginationLinks.removeClass('pageDots--active');
-        paginationLinks.eq(thisSlideIndex).addClass('pageDots--active');
+        paginationLinks.removeClass('is--active');
+        paginationLinks.eq(thisSlideIndex).addClass('is--active');
 
         // update page buttons (.pageBtns)
 
@@ -504,15 +546,27 @@ YOI.element.Slider = (function() {
         // left arrow key
         
         $document.on('yoi-keypressed:arrowleft', function() {
+            
             var $activeSlider = $(document.activeElement);
-            if ($activeSlider.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'prev');
+            
+            if ($activeSlider.attr('yoi-slider') !== undefined) {
+                showSlide($activeSlider, 'prev');
+                stopAutoplay($slider);
+            }
+            
         });
         
         // right arrow key
 
         $document.on('yoi-keypressed:arrowright', function() {
+            
             var $activeSlider = $(document.activeElement);
-            if ($activeSlider.attr('yoi-slider') !== undefined) showSlide($activeSlider, 'next');
+            
+            if ($activeSlider.attr('yoi-slider') !== undefined) {
+                showSlide($activeSlider, 'next');
+                stopAutoplay($slider);
+            }
+
         });
 
     }

@@ -6,6 +6,7 @@ permalink: elements/accordion
 ---
 
 ## Accordion
+
 Use this element to create one or several grouped sections that expand or collapse, once a section header is clicked.
 
 | Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
@@ -15,7 +16,8 @@ Use this element to create one or several grouped sections that expand or collap
 | Modifiers      | `-`                                                                         |
 
 ### Basic Example
-This is how a basic accordion looks like and how you write the markup:
+
+This is how a basic `.accordion` looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -48,6 +50,7 @@ This is how a basic accordion looks like and how you write the markup:
 ```
 
 ### Linked Accordion Sections
+
 It’s a common UI pattern to close all accordion sections but the currently expanded one. This behaviour is optional. Enable it by adding `linked:true` to the custom attribute `yoi-accordion`:
 
 ```html
@@ -81,6 +84,7 @@ It’s a common UI pattern to close all accordion sections but the currently exp
 ```
 
 ### Controlling Accordion Sections
+
 Initially, all accordion sections are closed. However, you can define which section should start expanded/open. To do so, add the modifier `.is--open` to the very `.accordion__section`:
 
 ```html
@@ -119,12 +123,32 @@ You can assign calls to the openAll and closeAll functions to elements (eg. butt
 
 ### JavaScript API
 
-You may also open or close all accordions on the page by using these function exposed by the JavaScript API:
+#### openAll()
+
+Open all accordions on the page by using this function exposed by the JavaScript API:
 
 ```js
-YOI.element.Accordion.openAll();  // opens all accordion sections found in DOM
-YOI.element.Accordion.closeAll(); // closes all accordion sections found in DOM
+YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
 ```
+
+#### closeAll()
+
+Open all accordions on the page by using this function:
+
+```js
+YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
+```
+
+#### JavaScript Custom Events
+
+Each `.accordion` fires custom events your script can listen to:
+
+```
+yoi-accordion:open  // datePicker expanded
+yoi-accordion:close // dataPicker collapsed
+```
+
+Try the example below and watch the custom events, printed to the [log element](elements/log.html):
 
 ```html
 <!-- example:tabs -->

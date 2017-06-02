@@ -10,6 +10,7 @@ Yoshino tabs have some powerful features. You can choose from different layouts.
 
 | Styles         | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
 | Script         | [tabs.js]({{ pathToSourceFile }}assets/js/elements/tabs.js)                             |
+| Script Hook    | `yoi-tabs`                                                                              |
 | Base CSS-Class | `.tabs, .tabs__menu`                                                                    |
 | Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows` |
 

@@ -6,15 +6,14 @@
 .pageBtns {
     .mixin-userSelectNone;
     background: fade(@color-main-8, 70%);
-    border-radius: 0 0 0 (@borderRadius * 1px);
+    border-radius: @borderRadius * 1px;
+    display: inline-block;
     height: 4rem;
     line-height: 4rem;
-    position: absolute;
-    right: 0;
+    min-width: 8rem;
+    position: relative;
     text-align: center;
     text-shadow: 0 1px 0 fade(@color-main-5, 30%);
-    top: 0;
-    z-index: 20;
 }
 
 // elements
@@ -32,8 +31,9 @@
     height: 4rem;
     line-height: 4rem;
     padding: 0;
+    position: absolute;
     text-align: center;
-    vertical-align: top;
+    top: 0;
     width: 4rem;
 
     &:hover {
@@ -53,6 +53,9 @@
 
 }
 
+.pageBtns__btnPrev { left: 0; }
+.pageBtns__btnNext { right: 0; }
+
 .pageBtns__btnPrev::after {
     .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @color-main-25);
 }
@@ -67,6 +70,59 @@
     font: bold 1.5rem/4rem @font-sansserif;
     height: 4rem;
     line-height: 4rem;
-    margin: 0 2rem;
-    vertical-align: top;
+    margin: 0 5rem;
+}
+
+// disabled pageBtns
+
+.pageBtns__btnPrev.is--disabled,
+.pageBtns__btnNext.is--disabled {
+    
+    &:hover {
+        background: transparent;
+        cursor: default;
+    }
+    
+    // icons
+    
+    &::after {
+        opacity: .3;
+    }
+    
+}
+
+// modifiers
+// =========
+
+.pageBtns--tl,
+.pageBtns--tr,
+.pageBtns--br,
+.pageBtns--bl {
+    position: absolute;
+    z-index: 20;
+}
+
+.pageBtns--tl {
+    border-radius: 0 0 0 (@borderRadius * 1px);
+    left: 0;
+    top: 0;
+}
+
+.pageBtns--tr {
+    border-radius: 0 0 (@borderRadius * 1px) 0;
+    right: 0;
+    top: 0;
+}
+
+.pageBtns--br {
+    border-radius: (@borderRadius * 1px) 0 0 0;
+    bottom: 0;
+    right: 0;
+
+}
+
+.pageBtns--bl {
+    border-radius: 0 (@borderRadius * 1px) 0 0;
+    bottom: 0;
+    left: 0;
 }

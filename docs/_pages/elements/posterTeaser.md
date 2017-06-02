@@ -6,6 +6,7 @@ permalink: elements/posterteaser
 ---
 
 ## PosterTeaser
+
 This element renders text on top of a darkened image, resembling a movie poster.
 
 |                |                                                                                   |
@@ -17,6 +18,7 @@ This element renders text on top of a darkened image, resembling a movie poster.
 ### Example
 
 ```html
+<!-- example -->
 <a class="posterTeaser">
     <div class="posterTeaser__body">
         <h2>Pain Reliev</h2>
@@ -32,9 +34,11 @@ This element renders text on top of a darkened image, resembling a movie poster.
 ### Modifiers
 
 #### posterTeaser\--bottom
+
 It makes the copy text align to the bottom.
 
 ```html
+<!-- example -->
 <a class="posterTeaser posterTeaser--bottom">
     <div class="posterTeaser__body">
         <h2>Pain Reliev</h2>
@@ -47,6 +51,7 @@ It makes the copy text align to the bottom.
 #### fx\--blur
 
 ```html
+<!-- example -->
 <a class="posterTeaser fx--blur">
     <div class="posterTeaser__body">
         <h2 class="posterTeaser__title">Pain Reliev</h2>
@@ -59,6 +64,7 @@ It makes the copy text align to the bottom.
 #### fx\--slide
 
 ```html
+<!-- example -->
 <a class="posterTeaser fx--slide">
     <div class="posterTeaser__body">
         <h2 class="posterTeaser__title">Pain Reliev</h2>
@@ -79,6 +85,7 @@ It makes the copy text align to the bottom.
 #### fx\--blur + fx\--slide
 
 ```html
+<!-- example -->
 <a class="posterTeaser posterTeaser--bottom fx--blur fx--slide">
     <div class="posterTeaser__body">
         <h2 class="posterTeaser__title">Pain Reliev</h2>

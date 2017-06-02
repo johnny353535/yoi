@@ -73,11 +73,11 @@
 .log--br,
 .log--bl {
     
+    height: 5rem;
     min-width: 30rem;
     position: fixed;
-    width: 33.3%;
-    height: 5rem;
     transition: height 200ms ease-out;
+    width: 33.3%;
     z-index: 999;
     
     &:hover {
@@ -109,20 +109,9 @@
 // keyframes
 
 @keyframes yoi-logCursor {
-    0% {
-        animation-timing-function: ease-in;
-        opacity: 1;
-    }
-    20% {
-        opacity: 1;
-    }
-    30% {
-        opacity: 0;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0%   { animation-timing-function: ease-in; opacity: 1; }
+    20%  { opacity: 1; }
+    30%  { opacity: 0; }
+    90%  { opacity: 0; }
+    100% { opacity: 1; }
 }

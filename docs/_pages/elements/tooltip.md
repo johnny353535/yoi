@@ -10,6 +10,7 @@ Tooltips are small portions of markup which are associated with a certain elemen
 
 | Styles         | [toolTip.less]({{ pathToSourceFile }}assets/less/elements/toolTip.less)      |
 | Script         | [toolTip.js]({{ pathToSourceFile }}assets/js/elements/toolTip.js)            |
+| Script Hook    | `yoi-tooltip`                                                                |
 | Base CSS-Class | `.tooltip--attention`                                                        |
 | Modifiers      | `.tooltip--error, .tooltip--negative, .tooltip--success, .tooltip--positive` |
 

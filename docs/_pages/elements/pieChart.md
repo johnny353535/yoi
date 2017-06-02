@@ -10,6 +10,7 @@ This is a simple SVG pie chart, dynamically generated on page load. It reads the
 
 | Styles         | [pieChart.less]({{ pathToSourceFile }}assets/less/elements/pieChart.less) |
 | Script         | [pieChart.js]({{ pathToSourceFile }}assets/js/elements/pieChart.js)       |
+| Script Hook    | `yoi-piechart`                                                            |
 | Base CSS-Class | `.pieChart`                                                               |
 | Modifiers      | n/a                                                                       |
 

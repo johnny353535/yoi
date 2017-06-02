@@ -10,6 +10,7 @@ Use this element to provide an easy way to enter dates into input fields.
 
 | Styles         | [datePicker.less]({{ pathToSourceFile }}assets/less/elements/datePicker.less) |
 | Script         | [datePicker.js]({{ pathToSourceFile }}assets/js/elements/datePicker.js)       |
+| Script Hook    | `yoi-datepicker`                                                              |
 | Base CSS-Class | `.datePicker`                                                                 |
 | Modifiers      | `-`                                                                           |
 
@@ -103,6 +104,6 @@ YOI.element.DatePicker.hideAll()
 Each `.datePicker` fires custom events your script can listen to:
 
 ```
-yoi-datepicker:show // datePicker was shown
-yoi-datepicker:hide // dataPicker was hidden
+yoi-datepicker:show // datePicker shown
+yoi-datepicker:hide // dataPicker hidden
 ```

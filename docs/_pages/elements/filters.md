@@ -10,6 +10,7 @@ Use this element to display a powerful filter widget.
 
 | Styles         | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
 | Script         | [filters.js]({{ pathToSourceFile }}assets/js/elements/filters.js)       |
+| Script Hook    | `yoi-filters`                                                           |
 | Base CSS-Class | `.filters`                                                              |
 | Child-Elements | `.filterGroup`                                                          |
 | Modifiers      | `.filters--collapsed`                                                   |

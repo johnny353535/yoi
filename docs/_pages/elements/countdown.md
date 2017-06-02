@@ -10,6 +10,7 @@ Use this element to create a countdown to a future date less than a year ahead. 
 
 | Styles         | [countdown.less]({{ pathToSourceFile }}assets/less/elements/countdown.less) |
 | Script         | [countdown.js]({{ pathToSourceFile }}assets/js/elements/countdown.js)       |
+| Script Hook    | `yoi-countdown`                                                             |
 | Base CSS-Class | `.countdown`                                                                |
 | Modifiers      | `-`                                                                         |
 

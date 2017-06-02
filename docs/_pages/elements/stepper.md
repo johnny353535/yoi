@@ -10,6 +10,7 @@ This element combines a (numeric) input-field with control buttons to de- or inc
 
 | Styles         | [stepper.less]({{ pathToSourceFile }}assets/less/elements/stepper.less) |
 | Script         | [stepper.js]({{ pathToSourceFile }}assets/js/elements/stepper.js)       |
+| Script Hook    | `yoi-stepper`                                                           |
 | Base CSS-Class | `.stepper`                                                              |
 | Modifiers      | `.stepper--light, .stepper--touch`                                      |
 
