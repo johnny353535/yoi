@@ -7,9 +7,9 @@
 
     counter-reset: i;
     display: inline-block;
+    font-size: 0;
     left: -.5rem;
     list-style: none;
-    overflow: hidden;
     padding-bottom: -.5rem;
     position: relative;
     white-space: nowrap;
@@ -18,7 +18,7 @@
 
     &::after {
         background: @color-main-23;
-        bottom: 0;
+        bottom: -.5rem;
         content: ' ';
         display: block;
         height: .2rem;
@@ -31,6 +31,8 @@
 
 // elements
 // ========
+
+// item
 
 .stepCrumb__item {
 
@@ -46,7 +48,7 @@
 
     // step number
 
-    &::before {
+    &::after {
         .mixin-defaultBorderRadius;
         background: @color-main-23;
         content: counter(i);
@@ -64,81 +66,104 @@
 
     // connecting line
 
-    &::after {
+    &::before {
         background: @color-main-23;
         bottom: -.5rem;
         content: ' ';
         display: block;
-        height: 2rem;
+        height: 1.5rem;
         left: 1.9rem;
         position: absolute;
         width: .2rem;
         z-index: 1;
     }
+    
+    // mouseover
+    
+    &:hover::after {
+        background: @color-main-22;
+    }
 
 }
 
-// last step
+// link
 
-.stepCrumb__item:last-child {
-
-    // step number
-
-    &::before {
-        left: auto;
-        right: .5rem;
-    }
-
-    // connecting line
-
-    &::after {
-        left: auto;
-        right: 1.9rem;
-    }
-
+.stepCrumb__link {
+    background: transparent;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
 }
 
 // label
 
 .stepCrumb__label {
+    color: @color-positive-8;
     display: none;
     padding: 0 0 0 1rem;
     text-decoration: none;
+    font-size: 1.5rem;
 }
+
+// last step label
+
+.stepCrumb__item:last-child .stepCrumb__label {
+    position: absolute;
+    top: -2.5rem;
+}
+
+// modifiers
+// =========
 
 // step highlighting
 
 .stepCrumb--step1 .stepCrumb__item:nth-child(1),
-.stepCrumb--step2 .stepCrumb__item:nth-child(1), .stepCrumb--step2 .stepCrumb__item:nth-child(2),
-.stepCrumb--step3 .stepCrumb__item:nth-child(1), .stepCrumb--step3 .stepCrumb__item:nth-child(2), .stepCrumb--step3 .stepCrumb__item:nth-child(3),
-.stepCrumb--step4 .stepCrumb__item:nth-child(1), .stepCrumb--step4 .stepCrumb__item:nth-child(2), .stepCrumb--step4 .stepCrumb__item:nth-child(3), .stepCrumb--step4 .stepCrumb__item:nth-child(4),
-.stepCrumb--step5 .stepCrumb__item:nth-child(1), .stepCrumb--step5 .stepCrumb__item:nth-child(2), .stepCrumb--step5 .stepCrumb__item:nth-child(3), .stepCrumb--step5 .stepCrumb__item:nth-child(4), .stepCrumb--step5 .stepCrumb__item:nth-child(5) {
+.stepCrumb--step2 .stepCrumb__item:nth-child(2),
+.stepCrumb--step3 .stepCrumb__item:nth-child(3),
+.stepCrumb--step4 .stepCrumb__item:nth-child(4),
+.stepCrumb--step5 .stepCrumb__item:nth-child(5),
+.stepCrumb--step6 .stepCrumb__item:nth-child(6),
+.stepCrumb--step7 .stepCrumb__item:nth-child(7),
+.stepCrumb--step8 .stepCrumb__item:nth-child(8),
+.stepCrumb--step9 .stepCrumb__item:nth-child(9),
+.stepCrumb--step10 .stepCrumb__item:nth-child(10) {
 
     color: @color-positive-8;
     padding: 0 .5rem 0 3.5rem;
     width: auto;
 
-    // if last step
-
-    &:last-child {
-        padding: 0 5rem 0 .5rem;
-    }
-
     // step number
 
-    &::before {
+    &::after {
         background: @color-positive-10;
         color: @color-positive-24;
     }
+    
+    &:hover::after {
+        background: @color-positive-8;
+    }
+    
+    // show the label, only on current step
+    
+    .stepCrumb__label {
+        display: inline;
+    }
+    
+    // adjust positioning
+    
+    .stepCrumb__link {
+        display: inline-block;
+        height: auto;
+        left: -3rem;
+        margin-right: -4rem;
+        padding-left: 3rem;
+        padding-right: 1rem;
+        position: relative;
+        text-decoration: none;
+        width: auto;
+    }
 
-}
-
-// show the label, only on current step
-
-.stepCrumb--step1 .stepCrumb__item:nth-child(1) .stepCrumb__label,
-.stepCrumb--step2 .stepCrumb__item:nth-child(2) .stepCrumb__label,
-.stepCrumb--step3 .stepCrumb__item:nth-child(3) .stepCrumb__label,
-.stepCrumb--step4 .stepCrumb__item:nth-child(4) .stepCrumb__label,
-.stepCrumb--step5 .stepCrumb__item:nth-child(5) .stepCrumb__label {
-    display: inline;
 }

@@ -10,6 +10,7 @@ permalink: elements/iconMenu
 <p class="hint hint--error">Documentation incomplete.</p>
 
 ```html
+<!-- example -->
 <ul class="iconMenu">
     <li class="iconMenu__item">
         <a class="iconMenu__link" href="#">

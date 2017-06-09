@@ -8,11 +8,14 @@ permalink: elements/badge
 ## Badge
 Use this element to display small bits of data, eg. inside a button. It’s perfect to create one-word labels or counters.
 
-| Styles         | [badge.less]({{ pathToSourceFile }}assets/less/elements/badge.less)                                                                                                                                                      |
-| Base CSS-Class | `.badge`                                                                                                                                                                                                                 |
+| Styles         | [badge.less]({{ pathToSourceFile }}assets/less/elements/badge.less)                                                                                                                 |
+| Base CSS-Class | `.badge`                                                                                                                                                                            |
 | Modifiers      | `.badge--small, .badge--medium, .badge--large, .badge--dark, .badge--light, .badge--attention, .badge--error, .badge--negative, .badge--success, .badge--positive, .badge--rounded` |
 
-### Available Sizes
+### Modifiers
+
+#### Size
+
 Badges are available in four different sizes.
 
 ```html
@@ -23,7 +26,8 @@ Badges are available in four different sizes.
 <span class="badge badge--large">24</span>
 ```
 
-### Rounded Badges
+#### Rounded
+
 Use the modifier `.badge--rounded` to render pill-shaped badges.
 
 ```html
@@ -34,7 +38,8 @@ Use the modifier `.badge--rounded` to render pill-shaped badges.
 <span class="badge badge--large badge--rounded">24</span>
 ```
 
-### Colors
+#### Colors
+
 All global [color modifiers](/theme/colors.html) are available for badges.
 
 ```html

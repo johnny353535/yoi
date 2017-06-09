@@ -16,12 +16,18 @@
 
 .stepMenu__label {
 
-    color: @color-main-15;
     display: block;
     font-size: 2rem;
     padding: 1.5rem 0 1.5rem 4rem;
-    text-decoration: none;
-
+    
+    &,
+    &:link,
+    &:visited,
+    &:active {
+        color: @color-main-15;
+        text-decoration: none;
+    }
+    
     a&:hover {
         color: @color-main-8;
     }
@@ -100,10 +106,15 @@
 // path highlighting
 
 .stepMenu--step1 .stepMenu__item:nth-child(1),
-.stepMenu--step2 .stepMenu__item:nth-child(1), .stepMenu--step2 .stepMenu__item:nth-child(2),
-.stepMenu--step3 .stepMenu__item:nth-child(1), .stepMenu--step3 .stepMenu__item:nth-child(2), .stepMenu--step3 .stepMenu__item:nth-child(3),
-.stepMenu--step4 .stepMenu__item:nth-child(1), .stepMenu--step4 .stepMenu__item:nth-child(2), .stepMenu--step4 .stepMenu__item:nth-child(3), .stepMenu--step4 .stepMenu__item:nth-child(4),
-.stepMenu--step5 .stepMenu__item:nth-child(1), .stepMenu--step5 .stepMenu__item:nth-child(2), .stepMenu--step5 .stepMenu__item:nth-child(3), .stepMenu--step5 .stepMenu__item:nth-child(4), .stepMenu--step5 .stepMenu__item:nth-child(5) {
+.stepMenu--step2 .stepMenu__item:nth-child(-n + 2),
+.stepMenu--step3 .stepMenu__item:nth-child(-n + 3),
+.stepMenu--step4 .stepMenu__item:nth-child(-n + 4),
+.stepMenu--step5 .stepMenu__item:nth-child(-n + 5),
+.stepMenu--step6 .stepMenu__item:nth-child(-n + 6),
+.stepMenu--step7 .stepMenu__item:nth-child(-n + 7),
+.stepMenu--step8 .stepMenu__item:nth-child(-n + 8),
+.stepMenu--step9 .stepMenu__item:nth-child(-n + 9),
+.stepMenu--step10 .stepMenu__item:nth-child(-n + 10) {
 
     &::after,
     &::before {
@@ -118,7 +129,12 @@
 .stepMenu--step2 .stepMenu__item:nth-child(2),
 .stepMenu--step3 .stepMenu__item:nth-child(3),
 .stepMenu--step4 .stepMenu__item:nth-child(4),
-.stepMenu--step5 .stepMenu__item:nth-child(5) {
+.stepMenu--step5 .stepMenu__item:nth-child(5),
+.stepMenu--step5 .stepMenu__item:nth-child(6),
+.stepMenu--step5 .stepMenu__item:nth-child(7),
+.stepMenu--step5 .stepMenu__item:nth-child(8),
+.stepMenu--step5 .stepMenu__item:nth-child(9),
+.stepMenu--step5 .stepMenu__item:nth-child(10) {
 
     .stepMenu__label {
         color: @color-main-8;
