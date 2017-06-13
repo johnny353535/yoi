@@ -7,4 +7,15 @@ permalink: elements/link
 
 ## Link
 
-<p class="hint hint--error">No documentation yet.</p>
+Styling for links.
+
+| Styles | [link.less]({{ pathToSourceFile }}assets/less/elements/link.less) |
+
+### Basic Example
+
+This is how a standard link looks like:
+
+```html
+<!-- example -->
+<a href="#">Link</a>
+```

@@ -6,7 +6,7 @@ permalink: elements/stepper
 ---
 
 ## Stepper
-This element combines a (numeric) input-field with control buttons to de- or increase the input value and an (optional) submit-button. It’s mainly designed to add a certain amount of items to the shopping cart.
+This element combines a (numeric) input-field with control buttons to de- or increase the input value.
 
 | Styles         | [stepper.less]({{ pathToSourceFile }}assets/less/elements/stepper.less) |
 | Script         | [stepper.js]({{ pathToSourceFile }}assets/js/elements/stepper.js)       |
@@ -14,113 +14,234 @@ This element combines a (numeric) input-field with control buttons to de- or inc
 | Base CSS-Class | `.stepper`                                                              |
 | Modifiers      | `.stepper--light, .stepper--touch`                                      |
 
-### Most Basic Example
-The most basic variant of this element is simply a `<div>` with the class name `stepper` and an input element inside with the class name `stepper__input`.
+### Basic Example
+
+This is how a basic `.stepper` looks like and how you write the markup:
 
 ```html
-<div class="stepper" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-</div>
-``
-
-### Enhanced With JavaScript
-Why not use a simple text input instead? Because this element is enhanced via JavaScript. The script injects control buttons (de- or increase the input value) and adds basic input validation. Try entering any non-integer into the input to see the validation in action.
-
-The example below shows the **resulting code after DOM manipulation**:
-
-```html
+<!-- example -->
 <div class="stepper" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
 ```
 
-### Variations / Modifiers
-`stepper` may be used with icons, text labels or any combination of these elements. There a three modifiers available: `stepper--light` (renders a white variant) and `stepper--touch` (renders larger, touch-friendly buttons).
+#### Submit-Button and Icons
 
-**Click »code«** on the upper right border of the block below **to reveal the code for all examples**.
+You can add a submit button to any `.stepper`:
 
 ```html
+<!-- example -->
 <div class="stepper" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
+    <input class="stepper__submit" type="submit" value="Add to Cart" />
 </div>
+```
 
-<div class="stepper" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
-</div>
+You can also add icons:
 
-<div class="stepper" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
-
+```html
+<!-- example -->
 <div class="stepper" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
     <span class="icon"></span>
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
+    <input class="stepper__submit" type="submit" value="Add to Cart" />
 </div>
+```
 
+It’s also possible to *hide the label text and only show the icon*. Use the [utility class](utilities/visibility.html) `.is--invisible` on the element `.stepper__submit` to do so:
+
+```html
+<!-- example -->
+<div class="stepper" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="1" />
+    <span class="icon"></span>
+    <input class="stepper__submit is--invisible" type="submit" value="Add to Cart" />
+</div>
+```
+
+### Modifiers
+
+#### Light
+
+Add the modifier `.stepper--light` to render a *lighter*, more subtle version:
+
+```html
+<!-- example -->
 <div class="stepper stepper--light" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
+```
 
-<div class="stepper stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
-</div>
+#### Large / Touch-friendly
 
-<div class="stepper stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
+Add the modifier `.stepper--touch` to render a version with larger, *touch-friendly* buttons:
 
-<div class="stepper stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
-
+```html
+<!-- example -->
 <div class="stepper stepper--touch" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
+```
 
-<div class="stepper stepper--touch" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
-</div>
+#### Combining Modifiers
 
-<div class="stepper stepper--touch" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
+As you’d expect, you can combine the modifiers to render a *light* and *touch-friendly* stepper:
 
-<div class="stepper stepper--touch" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
-
-<div class="stepper stepper--touch stepper--light" yoi-stepper>
+```html
+<!-- example -->
+<div class="stepper stepper--light stepper--touch" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
+```
 
-<div class="stepper stepper--touch stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit stepper__submit--hidden" type="submit" value="In den Warenkorb" />
-</div>
+### JavaScript API
 
-<div class="stepper stepper--touch stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
-</div>
+#### countUp()
 
-<div class="stepper stepper--touch stepper--light" yoi-stepper>
+Pick a `.stepper` and increase the value by 1:
+
+```html
+<!-- example:tabs -->
+<div id="exampleStepper-1" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit" type="submit" value="In den Warenkorb" />
 </div>
+<button id="exampleButton-1" class="btn btn--large val-t m-l-2">Count Up</button>
+<script>
+    $('#exampleButton-1').on('click', function() {
+        YOI.element.Stepper.countUp($('#exampleStepper-1'));
+    });
+</script>
+```
+
+#### countDown()
+
+Pick a `.stepper` and decrease the value by 1:
+
+```html
+<!-- example:tabs -->
+<div id="exampleStepper-2" class="stepper val-t" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="10" />
+</div>
+<button id="exampleButton-2" class="btn btn--large val-t m-l-2">Count Down</button>
+<script>
+    $('#exampleButton-2').on('click', function() {
+        YOI.element.Stepper.countDown($('#exampleStepper-2'));
+    });
+</script>
+```
+
+#### reset()
+
+Pick a `.stepper` and reset the value to 1:
+
+```html
+<!-- example:tabs -->
+<div id="exampleStepper-3" class="stepper val-t" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="10" />
+</div>
+<button id="exampleButton-3" class="btn btn--large val-t m-l-2">Reset</button>
+<script>
+    $('#exampleButton-3').on('click', function() {
+        YOI.element.Stepper.reset($('#exampleStepper-3'));
+    });
+</script>
+```
+
+#### clear()
+
+Pick a `.stepper` and reset the value to 0:
+
+```html
+<!-- example:tabs -->
+<div id="exampleStepper-4" class="stepper val-t" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="10" />
+</div>
+<button id="exampleButton-4" class="btn btn--large val-t m-l-2">Clear</button>
+<script>
+    $('#exampleButton-4').on('click', function() {
+        YOI.element.Stepper.clear($('#exampleStepper-4'));
+    });
+</script>
+```
+
+#### setTo()
+
+Pick a `.stepper` and set the value to a given input:
+
+```html
+<!-- example:tabs -->
+<div id="exampleStepper-5" class="stepper val-t" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="10" />
+</div>
+<button id="exampleButton-5" class="btn btn--large val-t m-l-2">Set to 42</button>
+<script>
+    $('#exampleButton-5').on('click', function() {
+        YOI.element.Stepper.setTo($('#exampleStepper-5'), 42);
+    });
+</script>
+```
+
+#### JavaScript Custom Events
+
+Each `.stepper` fires custom events your script can listen to:
+
+```
+yoi-stepper:up      // fired by countUp()
+yoi-stepper:down    // fired by countDown()
+yoi-stepper:reset   // fired by reset()
+yoi-stepper:clear   // fired by clear()
+yoi-stepper:change  // fired by reset(), clear() and setTo()
+yoi-stepper:valid   // fired by countUp() and countDown()
+yoi-stepper:invalid // fired by countUp() and countDown()
+```
+
+Try the example below and watch the custom events, printed to the [log element](elements/log.html):
+
+```html
+<!-- example:tabs -->
+<div id="myLog" class="log m-b-4" yoi-log>
+    <div class="log__body">
+        <p>Listening</p>
+    </div>
+</div>
+<div id="myStepper" class="stepper val-t" yoi-stepper>
+    <input class="stepper__input" type="text" maxlength="3" value="1" />
+</div>
+<div class="btns d-inlblk val-t m-l-2">
+    <button id="exampleButton-6" class="btn btn--large val-t">Reset</button>
+    <button id="exampleButton-7" class="btn btn--large val-t">Clear</button>
+    <button id="exampleButton-8" class="btn btn--large val-t">Set to 42</button>
+</div>
+<script>
+    $('#myStepper').on('yoi-stepper:up', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:up');
+    });
+    $('#myStepper').on('yoi-stepper:down', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:down');
+    });
+    $('#myStepper').on('yoi-stepper:reset', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:reset');
+    });
+    $('#myStepper').on('yoi-stepper:change', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:change');
+    });
+    $('#myStepper').on('yoi-stepper:clear', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:clear');
+    });
+    $('#myStepper').on('yoi-stepper:valid', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:valid');
+    });
+    $('#myStepper').on('yoi-stepper:invalid', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper:invalid');
+    });
+    $('#exampleButton-6').on('click', function() {
+        YOI.element.Stepper.reset($('#myStepper'));
+    });
+    $('#exampleButton-7').on('click', function() {
+        YOI.element.Stepper.clear($('#myStepper'));
+    });
+    $('#exampleButton-8').on('click', function() {
+        YOI.element.Stepper.setTo($('#myStepper'), 42);
+    });
+</script>
 ```

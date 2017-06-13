@@ -6,18 +6,21 @@ permalink: elements/pagination
 ---
 
 ## Pagination
-Straightforward pagination element with page- and browse links.
+
+Use this element to render a pagination with page links and browse buttons.
 
 | Styles         | [pagination.less]({{ pathToSourceFile }}assets/less/elements/pagination.less) |
 | Base CSS-Class | `.pagination`                                                                 |
-| Modifiers      | `-`                                                                           |
 
 ### Basic Example
 
+This is how a basic `.pagination` looks like and how you write the markup:
+
 ```html
+<!-- example -->
 <div class="pagination">
     <div class="pagination__load">
-        <a class="btn" href="#">Mehr anzeigen</a>
+        <a class="btn" href="#">Show more</a>
     </div>
     <ul class="pagination__items">
         <li class="pagination__item">
@@ -39,11 +42,11 @@ Straightforward pagination element with page- and browse links.
     <div class="pagination__nav">
         <div class="btns">
             <a class="btn" href="#">
-                <span class="hidden">vorherige Seite</span>
+                <span class="hidden">previous page</span>
                 <span class="icon"></span>
             </a>
             <a class="btn" href="#">
-                <span class="hidden">nächste Seite</span>
+                <span class="hidden">next page</span>
                 <span class="icon"></span>
             </a>
         </div>

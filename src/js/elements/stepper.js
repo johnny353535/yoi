@@ -68,7 +68,7 @@ YOI.element.Stepper = (function() {
             });
 
             $thisStepper.find('.stepper__input').blur(function() {
-                checkInput($thisStepper);
+                validateInput($thisStepper);
             });
 
         });
@@ -83,7 +83,7 @@ YOI.element.Stepper = (function() {
          *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($stepper);
+        validateInput($stepper);
         
         if ($stepper.data().state === 'error') return false;
 
@@ -108,7 +108,7 @@ YOI.element.Stepper = (function() {
          *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        checkInput($stepper);
+        validateInput($stepper);
         
         if ($stepper.data().state === 'error') return false;
 
@@ -124,27 +124,134 @@ YOI.element.Stepper = (function() {
         $stepper.trigger('yoi-stepper:down');
 
     }
+    
+    function resetItemCount($stepper) {
+        
+        /**
+         *  Reset the item count.
+         *
+         *  @param {jQuery dom object} $stepper - the stepper
+         */
 
-    function checkInput($stepper) {
+        setItemCount($stepper, 1);
+        
+        // remove error formatting
+        
+        removeErrorFormatting($stepper);
+
+        // trigger custom event
+        
+        $stepper.trigger('yoi-stepper:reset');
+        
+    }
+    
+    function clearItemCount($stepper) {
+        
+        /**
+         *  Set the item count to zero.
+         *
+         *  @param {jQuery dom object} $stepper - the stepper
+         */
+
+        setItemCount($stepper, 0);
+        
+        // remove error formatting
+        
+        removeErrorFormatting($stepper);
+
+        // trigger custom event
+        
+        $stepper.trigger('yoi-stepper:clear');
+        
+    }
+    
+    function setItemCount($stepper, val) {
+        
+        /**
+         *  Set the item count to a given value.
+         *
+         *  @param {jQuery dom object} $stepper - the stepper
+         *  @param {number}            val      - the value
+         */
+
+        if (YOI.isNumber(val)) {
+            
+            // remove error formatting
+        
+            removeErrorFormatting($stepper);
+            
+            // change the value
+            
+            $stepper.find('.stepper__input')[0].value = val;
+            $stepper.trigger('yoi-stepper:change');
+        
+        }
+
+    }
+
+    function validateInput($stepper) {
 
         /**
-         *  Check the .stepper input element.
+         *  Validate the .stepper input element.
          *
          *  @param {jQuery dom object} $stepper - the stepper
          */
 
         var $txtField = $stepper.find('.stepper__input');
-        var $input    = $stepper.find('.stepper__input')[0].value;
+        var inputVal  = $stepper.find('.stepper__input')[0].value;
 
-        if (!$input.match(/^[0-9]+$/)) {
-            $txtField.addClass('input--error');
-            $stepper.trigger('yoi-stepper:error');
-            $stepper.data().state = 'error';
+        if (YOI.isNumber(inputVal)) {
+            
+            // input is a natural number
+            
+            removeErrorFormatting($stepper);
+            
+            // trigger custom event
+        
+            $stepper.trigger('yoi-stepper:valid');
+            
         } else {
-            $txtField.removeClass('input--error');
-            $stepper.data().state = '';
+            
+            // input is invalid
+            
+            addErrorFormatting($stepper);
+            
+            // trigger custom event
+        
+            $stepper.trigger('yoi-stepper:invalid');
+            
         }
-
+        
+    }
+        
+    function addErrorFormatting($stepper) {
+        
+        /**
+         *  Add error formatting to a stepper.
+         *
+         *  @param {jQuery dom object} $stepper - the stepper
+         */
+        
+        var $txtField = $stepper.find('.stepper__input');
+        
+        $txtField.addClass('input--error');
+        $stepper.data().state = 'error';
+        
+    }
+    
+    function removeErrorFormatting($stepper) {
+        
+        /**
+         *  Remove error formatting on a stepper.
+         *
+         *  @param {jQuery dom object} $stepper - the stepper
+         */
+        
+        var $txtField = $stepper.find('.stepper__input');
+        
+        $txtField.removeClass('input--error');
+        $stepper.data().state = '';
+        
     }
 
     // public functions
@@ -153,7 +260,10 @@ YOI.element.Stepper = (function() {
     return {
         init      : initialize,
         countUp   : increaseItemCount,
-        countDown : decreaseItemCount
+        countDown : decreaseItemCount,
+        reset     : resetItemCount,
+        clear     : clearItemCount,
+        setTo     : setItemCount
     };
 
 })();

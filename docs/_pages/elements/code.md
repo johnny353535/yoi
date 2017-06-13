@@ -7,4 +7,4 @@ permalink: elements/code
 
 ## Code
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--error">Documentation incomplete.</p>

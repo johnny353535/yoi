@@ -5,7 +5,11 @@
 
 .ribbon {
     display: block;
+    left: -20rem;
     pointer-events: none;
+    position: absolute;
+    right: auto;
+    top: 3rem;
     width: 50rem;
 }
 
@@ -21,6 +25,7 @@
     text-align: center;
     white-space: nowrap;
 
+    .ribbon &,
     .ribbon--left & {
         transform-origin: 50% 50%;
         transform: rotate(-45deg);
@@ -36,17 +41,12 @@
 // modifiers
 // =========
 
-.ribbon--left,
-.ribbon--right {
-    position: absolute;
-    top: 3rem;
-}
-
 .ribbon--left {
-    left: -20rem;
+    // default
 }
 
 .ribbon--right {
+    left: auto;
     right: -20rem;
 }
 

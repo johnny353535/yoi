@@ -43,10 +43,8 @@ elements:
     - iconMenu
     - icons
     - imgMagnifier
-    - index
     - link
     - linkList
-    - loading
     - log
     - mainMenu
     - maxChars
@@ -71,7 +69,7 @@ elements:
     - searchPrompt
     - shelf
     - slider
-    - specialLinks
+    - spinner
     - stepCrumb
     - stepMenu
     - stepper
@@ -91,10 +89,15 @@ interface:
     - update
 utilities:
     - index
+    - fx
     - grid
     - interaction
     - interface
     - js_fallback
+    - layout
+    - responsive_layout
+    - responsive_spacing
+    - responsive_typography
     - spacing
     - styling
     - typography

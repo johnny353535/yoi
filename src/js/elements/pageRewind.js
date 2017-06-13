@@ -34,25 +34,31 @@ YOI.element.PageRewind = (function() {
          *  appears after a certain scroll-threshold and scrolls the
          *  scrolls the page back to the very top on click.
          */
+        
+        var enablePageRewind = $body.is('[yoi-pagerewind]');
+        
+        if (enablePageRewind) {
+        
+            $pageRewind = $(
+                '<a class="pageRewind" href="#">\
+                    <span class="hidden">' + localization[language]['labelTxt'] + '</span>\
+                </a>'
+            );
 
-        $pageRewind = $(
-            '<a class="pageRewind" href="#">\
-                <span class="hidden">' + localization[language]['labelTxt'] + '</span>\
-            </a>'
-        );
+            $pageRewind
+                .addClass('is--hidden')
+                .on('click', function(e) {
+                    e.preventDefault();
+                    run();
+                })
+                .appendTo($body);
 
-        $pageRewind
-            .addClass('is--hidden')
-            .on('click', function(e) {
-                e.preventDefault();
-                run();
-            })
-            .appendTo($body);
-
-        $window
-            .scroll(function() {
-                toggle();
-            });
+            $window
+                .scroll(function() {
+                    toggle();
+                });
+                
+        }
 
     }
 

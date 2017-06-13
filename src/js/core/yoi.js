@@ -327,6 +327,31 @@ var YOI = (function() {
             }
 
         },
+        
+        isNumber : function(inputVal) {
+            
+            /**
+             *  Returns TRUE if the input is a whole, positive number (= natural number).
+             *
+             *  @param {string} inputVal - the input value
+             */
+            
+            var pattern = /^(0|([1-9]\d*))$/;
+            var testVal;
+            
+            // convert input value
+            
+            if (typeof inputVal !== "string") {
+                testVal = inputVal.toString();
+            } else {
+                testVal = inputVal;
+            }
+            
+            // return test outcome
+            
+            return pattern.test(testVal);
+            
+        },
 
         // global attributes
 

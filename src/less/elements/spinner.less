@@ -1,10 +1,10 @@
-/** loading.less */
+/** spinner.less */
 
-.loading::after {
+.spinner::after {
     animation: spin 1s infinite linear;
-    background: #fff;
+    background: transparent;
     border-radius: 50%;
-    border: 2px solid @gray-23;
+    border: 3px solid @gray-23;
     border-top-color: @focusColor;
     box-sizing: border-box;
     content: ' ';
@@ -16,6 +16,11 @@
     position: absolute;
     top: 50%;
     width: 3rem;
+}
+
+.spinner--dark::after {
+    border-color: @focusColor;
+    border-top-color: @gray-23;
 }
 
 // animation

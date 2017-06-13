@@ -114,6 +114,16 @@ var YOI = function() {
                 $target.addClass($target.data("displayUtilityClass"));
             }
         },
+        isNumber: function(inputVal) {
+            var pattern = /^(0|([1-9]\d*))$/;
+            var testVal;
+            if (typeof inputVal !== "string") {
+                testVal = inputVal.toString();
+            } else {
+                testVal = inputVal;
+            }
+            return pattern.test(testVal);
+        },
         environment: function(envName) {
             if (envName === undefined) {
                 return $("body").attr("yoi-environment");
@@ -1663,14 +1673,17 @@ YOI.element.PageRewind = function() {
         }
     };
     function initialize() {
-        $pageRewind = $('<a class="pageRewind" href="#">                <span class="hidden">' + localization[language]["labelTxt"] + "</span>            </a>");
-        $pageRewind.addClass("is--hidden").on("click", function(e) {
-            e.preventDefault();
-            run();
-        }).appendTo($body);
-        $window.scroll(function() {
-            toggle();
-        });
+        var enablePageRewind = $body.is("[yoi-pagerewind]");
+        if (enablePageRewind) {
+            $pageRewind = $('<a class="pageRewind" href="#">                    <span class="hidden">' + localization[language]["labelTxt"] + "</span>                </a>");
+            $pageRewind.addClass("is--hidden").on("click", function(e) {
+                e.preventDefault();
+                run();
+            }).appendTo($body);
+            $window.scroll(function() {
+                toggle();
+            });
+        }
     }
     function run() {
         $document.trigger("yoi-pagerewind:start");
@@ -2527,12 +2540,12 @@ YOI.element.Stepper = function() {
                 decreaseItemCount($thisStepper);
             });
             $thisStepper.find(".stepper__input").blur(function() {
-                checkInput($thisStepper);
+                validateInput($thisStepper);
             });
         });
     }
     function increaseItemCount($stepper) {
-        checkInput($stepper);
+        validateInput($stepper);
         if ($stepper.data().state === "error") return false;
         var currentValue = $stepper.find(".stepper__input")[0].value;
         if (currentValue >= 0) {
@@ -2542,7 +2555,7 @@ YOI.element.Stepper = function() {
         $stepper.trigger("yoi-stepper:up");
     }
     function decreaseItemCount($stepper) {
-        checkInput($stepper);
+        validateInput($stepper);
         if ($stepper.data().state === "error") return false;
         var currentValue = $stepper.find(".stepper__input")[0].value;
         if (currentValue > 1) {
@@ -2551,22 +2564,51 @@ YOI.element.Stepper = function() {
         }
         $stepper.trigger("yoi-stepper:down");
     }
-    function checkInput($stepper) {
-        var $txtField = $stepper.find(".stepper__input");
-        var $input = $stepper.find(".stepper__input")[0].value;
-        if (!$input.match(/^[0-9]+$/)) {
-            $txtField.addClass("input--error");
-            $stepper.trigger("yoi-stepper:error");
-            $stepper.data().state = "error";
-        } else {
-            $txtField.removeClass("input--error");
-            $stepper.data().state = "";
+    function resetItemCount($stepper) {
+        setItemCount($stepper, 1);
+        removeErrorFormatting($stepper);
+        $stepper.trigger("yoi-stepper:reset");
+    }
+    function clearItemCount($stepper) {
+        setItemCount($stepper, 0);
+        removeErrorFormatting($stepper);
+        $stepper.trigger("yoi-stepper:clear");
+    }
+    function setItemCount($stepper, val) {
+        if (YOI.isNumber(val)) {
+            removeErrorFormatting($stepper);
+            $stepper.find(".stepper__input")[0].value = val;
+            $stepper.trigger("yoi-stepper:change");
         }
+    }
+    function validateInput($stepper) {
+        var $txtField = $stepper.find(".stepper__input");
+        var inputVal = $stepper.find(".stepper__input")[0].value;
+        if (YOI.isNumber(inputVal)) {
+            removeErrorFormatting($stepper);
+            $stepper.trigger("yoi-stepper:valid");
+        } else {
+            addErrorFormatting($stepper);
+            $stepper.trigger("yoi-stepper:invalid");
+        }
+    }
+    function addErrorFormatting($stepper) {
+        var $txtField = $stepper.find(".stepper__input");
+        $txtField.addClass("input--error");
+        $stepper.data().state = "error";
+    }
+    function removeErrorFormatting($stepper) {
+        var $txtField = $stepper.find(".stepper__input");
+        $txtField.removeClass("input--error");
+        $stepper.data().state = "";
     }
     return {
         init: initialize,
         countUp: increaseItemCount,
-        countDown: decreaseItemCount
+        countDown: decreaseItemCount,
+        reset: resetItemCount,
+        clear: clearItemCount,
+        setTo: setItemCount
     };
 }();
 

@@ -100,7 +100,7 @@ Pick a switch and set it to “off”:
 
 #### toggle()
 
-Pick a switch and toggle it’s state between “on” and “off”:
+Pick a `.switch` and toggle it’s state between “on” and “off”:
 
 ```html
 <!-- example:tabs -->
