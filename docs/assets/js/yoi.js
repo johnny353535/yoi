@@ -1229,6 +1229,35 @@ YOI.element.Flyout = function() {
     };
 }();
 
+YOI.element.Icon = function() {
+    function initialize($icon) {
+        var $icon = YOI.createCollection("icon", $icon);
+        if ($icon) $icon.each(function() {
+            var $thisIcon = $(this);
+            replace($thisIcon);
+        });
+    }
+    function replace($icon) {
+        var $iconSvg;
+        var iconClassNames = $icon.attr("class");
+        var source = $icon.attr("data") || $icon.attr("src");
+        if (source !== undefined) {
+            $.ajax({
+                url: source,
+                dataType: "text",
+                success: function(data) {
+                    $iconSvg = $(data).addClass(iconClassNames);
+                    $icon.replaceWith($iconSvg);
+                }
+            });
+        }
+    }
+    return {
+        init: initialize,
+        replace: replace
+    };
+}();
+
 YOI.element.ImgMagnifier = function() {
     var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');

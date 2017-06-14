@@ -34,7 +34,7 @@
     "deploy-jekyll" : "cd docs && JEKYLL_ENV=production jekyll build --config _config.yml",
     "deploy-scripts": "uglifyjs src/js/**/*.js --beautify -o dist/js/yoi.js && npm run copy-scripts",
     "deploy-styles": "lessc src/less/index.less dist/css/yoi.css && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css && cssnano dist/css/yoi.css dist/css/yoi.css --svgo && npm run copy-styles",
-    "serve": "npm run watch & browser-sync start --server 'docs/_site'",
+    "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors",
     "watch": "npm run watch-styles & npm run watch-jekyll & npm run watch-scripts",
     "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_includes/' 'docs/_layouts/' 'docs/_pages/' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'docs/js/*' -c 'npm run build-scripts'",
