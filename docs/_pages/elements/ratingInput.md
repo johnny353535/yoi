@@ -5,7 +5,7 @@ title: RatingInput
 permalink: elements/ratinginput
 ---
 
-## RatingInput
+# RatingInput
 
 <p class="hint hint--error">Documentation incomplete.</p>
 

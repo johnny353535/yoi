@@ -5,7 +5,8 @@ title: Slider
 permalink: elements/slider
 ---
 
-## Slider
+# Slider
+
 Sliders are simple slide show elements that can contain images, text or both. A few options are available – like *autoplay*, *transition style* and a few more. For each `.slide`, you can chose from a few different *control elements*.
 
 | Styles         | [slider.less]({{ pathToSourceFile }}assets/less/elements/slider.less) |
@@ -14,7 +15,7 @@ Sliders are simple slide show elements that can contain images, text or both. A 
 | Base CSS-Class | `.slider`                                                             |
 | Modifiers      | `.slider--dark, .slider--super`                                       |
 
-### JavaScript Interface
+## JavaScript Interface
 
 ```
 autoplay   : @param;
@@ -24,7 +25,7 @@ swipeable  : @param;
 transition : @param;
 ```
 
-### Super Slider With Autoplay and Animated Transition
+## Super Slider With Autoplay and Animated Transition
 
 ```html
 <!-- example -->
@@ -55,7 +56,7 @@ transition : @param;
 </div>
 ```
 
-### Super Slider With Control Element ”pageBtns“
+## Super Slider With Control Element ”pageBtns“
 
 ```html
 <!-- example -->
@@ -86,7 +87,7 @@ transition : @param;
 </div>
 ```
 
-### Super Slider With Control Element ”flipBtns“ and Animated Transition
+## Super Slider With Control Element ”flipBtns“ and Animated Transition
 
 ```html
 <!-- example -->
@@ -117,7 +118,7 @@ transition : @param;
 </div>
 ```
 
-### Slider With Control Element ”pageBtns“ and Fade-Transition
+## Slider With Control Element ”pageBtns“ and Fade-Transition
 
 ```html
 <!-- example -->
@@ -148,7 +149,7 @@ transition : @param;
 </div>
 ```
 
-### Slider With Control Element ”flipBtns“
+## Slider With Control Element ”flipBtns“
 
 ```html
 <!-- example -->
@@ -179,7 +180,7 @@ transition : @param;
 </div>
 ```
 
-### Slider With Control Element ”flipBtns--inset“
+## Slider With Control Element ”flipBtns--inset“
 
 ```html
 <!-- example -->
@@ -210,7 +211,7 @@ transition : @param;
 </div>
 ```
 
-### Slider With Control Element ”pageDots“ and Fade-Transition
+## Slider With Control Element ”pageDots“ and Fade-Transition
 
 ```html
 <!-- example -->
@@ -229,7 +230,7 @@ transition : @param;
 </div>
 ```
 
-### Slider With Control Element ”pageDots“, Only Text
+## Slider With Control Element ”pageDots“, Only Text
 
 ```html
 <!-- example -->
@@ -248,7 +249,7 @@ transition : @param;
 </div>
 ```
 
-### Dark Slider With Control Element ”pageDots“, Only Text
+## Dark Slider With Control Element ”pageDots“, Only Text
 
 ```html
 <!-- example -->

@@ -5,7 +5,7 @@ title: Log
 permalink: elements/log
 ---
 
-## Log
+# Log
 
 Use this element to log short messages in reverse-order.
 
@@ -16,7 +16,7 @@ Use this element to log short messages in reverse-order.
 
 <p class="hint"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.log` looks like and how you write the markup:
 
@@ -29,7 +29,22 @@ This is how a basic `.log` looks like and how you write the markup:
 </div>
 ```
 
-### Modifiers
+## Modifiers
+
+### Color
+
+Add the modifier `.log--light` to render a `.log` with a lighter color scheme:
+
+```html
+<!-- example -->
+<div class="log log--light">
+    <div class="log__body">
+        <p></p>
+    </div>
+</div>
+```
+
+### Position
 
 Add one of the four modifiers (`.log--tl`, `.log--tr`, `.log--br`, `.log--bl`) to *pin* a `.log` to one of the four corners of the viewport. The resulting `.log` is one line heigh and expands on mouse-over. The following code renders the example you should see in the bottom right corner of this page:
 
@@ -42,11 +57,11 @@ Add one of the four modifiers (`.log--tl`, `.log--tr`, `.log--br`, `.log--bl`) t
 </div>
 ```
 
-### JavaScript API
+## JavaScript API
 
 This element makes sense as soon as you start interacting with it through it’s JavaScript API. It’s designed for code documentation. For example, you could write to the log whenever a custom event is fired. All messages are displayd in **reverse-order** with the latest message always on top.
 
-#### write()
+### write()
 
 Use this function to add a message to the `.log`.
 
@@ -61,7 +76,7 @@ YOI.element.Log.write($('#myLog'), 'my message');
 
 <p class="hint"><b>Formatting:</b> You can write simple strings or fully formatted HTML to the log. However, this rarely makes much sense.</p>
 
-#### clear()
+### clear()
 
 Use this function to add a message to the `.log`.
 
@@ -73,7 +88,7 @@ Use this function to add a message to the `.log`.
 YOI.element.Log.clear($('#myLog'));
 ```
 
-#### Demo
+### Demo
 
 Take a look at the code for this example to get an idea how to use the `.log`:
 
@@ -85,7 +100,7 @@ Take a look at the code for this example to get an idea how to use the `.log`:
 </div>
 
 <!-- markup for buttons -->
-<div class="btns al-r">
+<div class="btns m-t-4">
     <button id="logBtn-write" class="btn btn--large br-tl-0">Fill the Log</button>
     <button id="logBtn-clear" class="btn btn--large br-tr-0">Clear the Log</button>
 </div>

@@ -5,7 +5,7 @@ title: StepCrumb
 permalink: elements/stepcrumb
 ---
 
-## StepCrumb
+# StepCrumb
 
 Use this element to create a compact horizontal chain of links to display a progress – eg. the current step of a register process.
 
@@ -13,7 +13,7 @@ Use this element to create a compact horizontal chain of links to display a prog
 | Base CSS-Class | `.stepCrumb`                                                                |
 | Modifiers      | `.stepCrumb--step1, […], .stepCrumb--step10`                                |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.stepCrumb` looks like and how you write the markup:
 
@@ -48,9 +48,9 @@ This is how a basic `.stepCrumb` looks like and how you write the markup:
 </ul>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Steps
+### Steps
 
 Use the modifiers `.stepCrumb--step1` up to `.stepCrumb--step10` to highlight the current step:
 
@@ -205,7 +205,7 @@ Use the modifiers `.stepCrumb--step1` up to `.stepCrumb--step10` to highlight th
 
 <p class="hint"><b>Accessability:</b> While only one <code>.stepCrumb__label</code> is visible at a time, all labels are always included in the markup to provide meaningful information, eg. for screenreaders.</p>
 
-### Markup
+## Markup
 
 It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated stylimg of this element, it’s recommended to explicitly disable it’s mouseover styles. You can do so by adding the [utility-class ”.pntr-none“](utilities/interface.html):
 

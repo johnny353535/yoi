@@ -5,7 +5,7 @@ title: Spinner
 permalink: elements/spinner
 ---
 
-## Spinner
+# Spinner
 
 Use this element to display an infinite loading animation.
 
@@ -13,7 +13,7 @@ Use this element to display an infinite loading animation.
 | Base CSS-Class | `.spinner`                                                              |
 | Modifiers      | `.spinner--dark`                                                        |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.spinner` looks like and how you write the markup:
 
@@ -26,9 +26,9 @@ This is how a basic `.spinner` looks like and how you write the markup:
 
 <p class="hint hint--negative"><b>Positioning:</b> A <code>.spinner</code> must always be placed inside a positioned element (eg. <code>position: relative;</code>).</p>
 
-### Modifiers
+## Modifiers
 
-#### Dark
+### Dark
 
 Add the modifier class `.spinner--dark` to create a spinner that looks better on dark backgrounds:
 

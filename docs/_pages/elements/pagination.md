@@ -5,14 +5,14 @@ title: Pagination
 permalink: elements/pagination
 ---
 
-## Pagination
+# Pagination
 
 Use this element to render a pagination with page links and browse buttons.
 
 | Styles         | [pagination.less]({{ pathToSourceFile }}assets/less/elements/pagination.less) |
 | Base CSS-Class | `.pagination`                                                                 |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.pagination` looks like and how you write the markup:
 

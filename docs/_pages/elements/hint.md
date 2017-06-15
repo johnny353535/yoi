@@ -5,7 +5,7 @@ title: Hint
 permalink: elements/hint
 ---
 
-## Hint
+# Hint
 
 Use this element to create emphasized paragraphs in four available different stylings.
 
@@ -13,7 +13,7 @@ Use this element to create emphasized paragraphs in four available different sty
 | Base CSS-Class | `.hint`                                                           |
 | Modifiers      | `.hint--positive, .hint--negative, .hint--attention`              |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.hint` looks like and how you write the markup:
 
@@ -22,9 +22,9 @@ This is how a basic `.hint` looks like and how you write the markup:
 <p class="hint">This is a hint.</p>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Colors
+### Colors
 
 Use the modifiers `.hint--positive, .hint--negative, .hint--attention` to change the colors. These colors are so-called [semantic colors](list-of-semantic-colors). Instead of merely being decorative, they actually add meaning:
 
@@ -36,7 +36,7 @@ Use the modifiers `.hint--positive, .hint--negative, .hint--attention` to change
 <p class="hint hint--attention m-b-2">This is an <i>important</i> hint.</p>
 ```
 
-#### Utilities
+### Utilities
 
 All [utility classes](/utilities/) are available to change font sizes, spacing, etc.:
 

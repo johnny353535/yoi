@@ -5,7 +5,8 @@ title: Tool Tip
 permalink: elements/tooltip
 ---
 
-## Tool Tip
+# Tool Tip
+
 Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the yoi-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
 
 | Styles         | [toolTip.less]({{ pathToSourceFile }}assets/less/elements/toolTip.less)      |
@@ -14,7 +15,8 @@ Tooltips are small portions of markup which are associated with a certain elemen
 | Base CSS-Class | `.tooltip--attention`                                                        |
 | Modifiers      | `.tooltip--error, .tooltip--negative, .tooltip--success, .tooltip--positive` |
 
-### Setting up a tooltip
+## Setting Up a Tooltip
+
 The following might be the element you wish to turn into a tooltip:
 
 ```html
@@ -42,7 +44,8 @@ Example: Using a .note as tooltip
 <div class="box p-4 w-10 h-10 al-c" yoi-tooltip="target:#hint-1;">Move Cursor here</div>
 ```
 
-### No JavaScript?
+## No JavaScript?
+
 If JavaScript was disabled, the example above would look like this:
 
 ```html
@@ -55,7 +58,8 @@ If JavaScript was disabled, the example above would look like this:
 <div class="box p-4 w-10 h-10 al-c">Move Cursor here</div>
 ```
 
-### Inheritance
+## Inheritance
+
 A tooltip will inherit certain sematic class names from it’s target (`*--attention`, `*--error`, `*--negative`, `*--positive`, `*--success`.). This is pretty much only useful to show tooltips in combination with `.hints` while showing input validation messages.
 
 ```html
@@ -70,5 +74,6 @@ A tooltip will inherit certain sematic class names from it’s target (`*--atten
 </form>
 ```
 
-### Positioning
+## Positioning
+
 Tooltips are displayed relative to the cursor position on mouseover. The script is smart enough to place the tooltip left/right or above/below the cursor automatically so the viewport does not cut it off.

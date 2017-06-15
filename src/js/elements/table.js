@@ -1,4 +1,4 @@
-/** tables.js */
+/** table.js */
 
 YOI.element.Table = (function() {
 

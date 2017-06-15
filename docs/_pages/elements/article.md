@@ -5,6 +5,6 @@ title: Article
 permalink: elements/article
 ---
 
-## Article
+# Article
 
 <p class="hint hint--error">No documentation yet.</p>

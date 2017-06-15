@@ -6,8 +6,8 @@
 .log {
     
     .mixin-defaultBorderRadius;
-    background: #111;
-    color: #690;
+    background-color: @gray-2;
+    color: @gray-20;
     height: 20rem;
     overflow: hidden;
     position: relative;
@@ -20,7 +20,7 @@
         animation-iteration-count: infinite;
         animation-name: yoi-logCursor;
         animation-timing-function: ease-out;
-        background: #690;
+        background: @purple-12;
         content: ' ';
         display: inline-block;
         height: 1.75rem;
@@ -49,7 +49,7 @@
 }
 
 .log__label {
-    color: #666;
+    color: @gray-10;
     margin-right: 1rem;
 }
 
@@ -60,13 +60,34 @@
     right: 1rem;
     
     &:hover {
-        background-color: #222;
+        background-color: @gray-5;
     }
     
 }
 
 // modifiers
 // =========
+
+.log--light {
+    
+    background: @gray-24;
+    color: @gray-10;
+    
+    .log__label {
+        color: @gray-18;
+    }
+    
+    // "cursor"
+    
+    p:first-child::after {
+        background: @purple-17;
+    }
+    
+    .btnDismiss:hover {
+        background-color: @gray-22;
+    }
+    
+}
 
 .log--tl,
 .log--tr,

@@ -5,7 +5,8 @@ title: Stepper
 permalink: elements/stepper
 ---
 
-## Stepper
+# Stepper
+
 This element combines a (numeric) input-field with control buttons to de- or increase the input value.
 
 | Styles         | [stepper.less]({{ pathToSourceFile }}assets/less/elements/stepper.less) |
@@ -14,7 +15,7 @@ This element combines a (numeric) input-field with control buttons to de- or inc
 | Base CSS-Class | `.stepper`                                                              |
 | Modifiers      | `.stepper--light, .stepper--touch`                                      |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.stepper` looks like and how you write the markup:
 
@@ -25,7 +26,7 @@ This is how a basic `.stepper` looks like and how you write the markup:
 </div>
 ```
 
-#### Submit-Button and Icons
+### Submit-Button and Icons
 
 You can add a submit button to any `.stepper`:
 
@@ -59,9 +60,9 @@ It’s also possible to *hide the label text and only show the icon*. Use the [u
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Light
+### Light
 
 Add the modifier `.stepper--light` to render a *lighter*, more subtle version:
 
@@ -72,7 +73,7 @@ Add the modifier `.stepper--light` to render a *lighter*, more subtle version:
 </div>
 ```
 
-#### Large / Touch-friendly
+### Large / Touch-friendly
 
 Add the modifier `.stepper--touch` to render a version with larger, *touch-friendly* buttons:
 
@@ -83,7 +84,7 @@ Add the modifier `.stepper--touch` to render a version with larger, *touch-frien
 </div>
 ```
 
-#### Combining Modifiers
+### Combining Modifiers
 
 As you’d expect, you can combine the modifiers to render a *light* and *touch-friendly* stepper:
 
@@ -94,9 +95,9 @@ As you’d expect, you can combine the modifiers to render a *light* and *touch-
 </div>
 ```
 
-### JavaScript API
+## JavaScript API
 
-#### countUp()
+### countUp()
 
 Pick a `.stepper` and increase the value by 1:
 
@@ -113,7 +114,7 @@ Pick a `.stepper` and increase the value by 1:
 </script>
 ```
 
-#### countDown()
+### countDown()
 
 Pick a `.stepper` and decrease the value by 1:
 
@@ -130,7 +131,7 @@ Pick a `.stepper` and decrease the value by 1:
 </script>
 ```
 
-#### reset()
+### reset()
 
 Pick a `.stepper` and reset the value to 1:
 
@@ -147,7 +148,7 @@ Pick a `.stepper` and reset the value to 1:
 </script>
 ```
 
-#### clear()
+### clear()
 
 Pick a `.stepper` and reset the value to 0:
 
@@ -164,7 +165,7 @@ Pick a `.stepper` and reset the value to 0:
 </script>
 ```
 
-#### setTo()
+### setTo()
 
 Pick a `.stepper` and set the value to a given input:
 
@@ -181,7 +182,7 @@ Pick a `.stepper` and set the value to a given input:
 </script>
 ```
 
-#### JavaScript Custom Events
+### Custom Events
 
 Each `.stepper` fires custom events your script can listen to:
 
@@ -199,7 +200,7 @@ Try the example below and watch the custom events, printed to the [log element](
 
 ```html
 <!-- example:tabs -->
-<div id="myLog" class="log m-b-4" yoi-log>
+<div id="myLog" class="log log--light m-b-4" yoi-log>
     <div class="log__body">
         <p>Listening</p>
     </div>

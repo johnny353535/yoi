@@ -1,14 +1,14 @@
 ---
 layout: base
 group: elements
-title: Buttons
-permalink: elements/buttons
+title: Button
+permalink: elements/button
 ---
 
-## Buttons
+# Button
 The button element features different types (eg. rounded, flat, …) and four different sizes. A button may include one or more icons.
 
-| Styles         | [buttons.less]({{ pathToSourceFile }}assets/less/elements/buttons.less) |
+| Styles         | [button.less]({{ pathToSourceFile }}assets/less/elements/button.less) |
 | Base CSS-Class | `.btn`                                                                  |
 | Modifiers      | [jump to #modifiers]({{ page.url }}.html#modifiers)                     |
 
@@ -19,7 +19,7 @@ Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` in
 <button class="btn">Basic Button</button>
 ```
 
-### Icons inside Buttons
+## Icons inside Buttons
 You can use any [icon](elements/icons.html) inside any kind of button. You can place them left or right (= first or last in markup) or only use icons and no label text. Some examples:
 
 ```html
@@ -57,7 +57,7 @@ Technically, you can use **more than one icon** per button. But **this rarely ma
 </button>
 ```
 
-### Other HTML-Elements As Button
+## Other HTML-Elements As Button
 You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons](elements/icons.html), you need a wrapper element around the button label and icon. Some examples:
 
 ```html
@@ -83,7 +83,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 If you use **icons inside of buttons**, make sure you **always wrap the button label text inside a `<span>`**. If you only use an icon but no label text, you can either discard the text or wrap a hidden label text inside `<span class="hidden">` – but make sure you **place the hidden label text *before* the icon** inside the button markup.
 
-### Modifiers
+## Modifiers
 
 | Size   | `.btn--medium, .btn--large, .btn--small` |
 | Color  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive .btn--success` |
@@ -93,7 +93,7 @@ If you use **icons inside of buttons**, make sure you **always wrap the button l
 
 <p class="hint hint--attention">Have a look at the <a href="tools/buttons.html">buttons tool</a> to try out all possible combinations.</p>
 
-#### Size
+### Size
 Buttons come in **four different sizes**: *small*, *(default)*, *medium* and *large*.
 
 ```html
@@ -104,7 +104,7 @@ Buttons come in **four different sizes**: *small*, *(default)*, *medium* and *la
 <button class="btn btn--large">Large Button</button>
 ```
 
-#### Color
+### Color
 There are **six different color styles** available – while `.btn--subtle` is a fully transparent button, only showing the button label:
 
 ```html
@@ -118,7 +118,7 @@ There are **six different color styles** available – while `.btn--subtle` is a
 <button class="btn btn--large btn--positive">Button</button>
 ```
 
-#### Type
+### Type
 In addition to the default appearance, buttons can be either *flat*, *rounded* or *outlined*.
 
 <p class="hint hint--negative">Please note: You can’t combine <code>.btn--flat</code> with <code>.btn--outline</code> or either one of these modifiers with <code>.btn--subtle</code>.</p>
@@ -160,7 +160,7 @@ All button styles can be combined with `.btn--rounded` to create **pill-shaped b
 <button class="btn btn--large btn--rounded">Button</button>
 ```
 
-#### State
+### State
 All buttons have **three state-modifiers** which simply reflect the same styling which applies to the corresponding CSS-pseudo-selectors: `.btn--disabled, .btn--active, .btn--focus`.
 
 ```html
@@ -170,7 +170,7 @@ All buttons have **three state-modifiers** which simply reflect the same styling
 <button class="btn btn--large btn--focus">Focused</button>
 ```
 
-#### Other Modifiers
+### Other Modifiers
 It’s possible to **shorten very long button labels** by adding the modifier `.btn--clip`.
 
 ```html
@@ -178,7 +178,7 @@ It’s possible to **shorten very long button labels** by adding the modifier `.
 <button class="btn btn--medium w-10 btn--clip">Very Long Button Label Text foo foo bar bar</button>
 ```
 
-### Button Groups
+## Button Groups
 Wrap a group of buttons inside a container with the class `.btns`:
 
 ```html
@@ -201,7 +201,7 @@ You may also create vertically grouped button blocks by adding the modifier `.bt
 </div>
 ```
 
-### Custom Modification
+## Modification
 Use [YOI Utility Classes](utilities/) to override button styles and create custom buttons. Use this option wisely and only for special cases where no standard button style works for you!
 
 ```html

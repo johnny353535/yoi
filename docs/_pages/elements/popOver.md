@@ -5,7 +5,8 @@ title: Pop-Over
 permalink: elements/popover
 ---
 
-## Pop-Over
+# Pop-Over
+
 Use this element to link any trigger (eg. a button) to a _pop-over_ which appears on mouse over.
 
 | Styles         | [popOver.less]({{ pathToSourceFile }}assets/less/elements/popOver.less) |
@@ -16,7 +17,8 @@ Use this element to link any trigger (eg. a button) to a _pop-over_ which appear
 
 {% include icon.html w="32" h="32" c="#ccc" %}
 
-### Basic Example
+## Basic Example
+
 To build a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Any element can be a trigger but links with the pop-over’s id as `href` value make the most sense in most cases. **To reference a pop-over**, add the `yoi-popover` hook to the trigger. This attribute **must contain at least one parameter: the target pop-over id**.
 
 This example uses the pop-over to display a small menu:
@@ -32,7 +34,8 @@ This example uses the pop-over to display a small menu:
 <p class="hint"><b>Use Any Element You Wish</b> Any element in the DOM</em> can be a trigger for a pop-over. <em>Any element in the DOM</em> can be a pop-over.</p>
 <p class="hint"><b>Reference the Same Pop-Over Multiple Times</b> It is absolutely possible (and recommended) to reference exactly the same pop-over through as many pop-over-triggers as you wish.</p>
 
-### Options
+## Options
+
 The pop-over hook accepts some parameters as options. Use **semicolon seperated key/value pairs** like `yoi-popover="target:#foo; pos:bl; ref:tl;"`. The **following options are available**:
 
 | Key            | Value                                                                                                                    | Description                                                                             |
@@ -45,28 +48,36 @@ The pop-over hook accepts some parameters as options. Use **semicolon seperated 
 | eventHide      | *string*, `'click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'` | Defines the event to hide the pop-over. The default is _mouseleave_.                    |
 | preventDefault | *bool*, `true/false`                                                                                                     | If true, the trigger’s default event (eg. click) gets prevented. The default is _true_. |
 
-#### target
+### target
+
 To link a trigger to it’s pop-over, you must **at least supply one parameter: the target’s id selector**.
 
-#### pos
+### pos
+
 By default, any pop-over will appear at the right side of the trigger with it’s top left edge right at the top right edge of the trigger. However, different positioning can be achieved if values for either `pos` or `ref` are set. `pos` sets **the pop-over’s position, relative to it’s trigger**.
 
-#### ref
+### ref
+
 This option defines the **pop-over’s reference point** and can be one of the four corners (tl = *top left*, tr = *top right*, br = *bottom right*, bl = *bottom left*).
 
-#### toggleClass
+### toggleClass
+
 Use this option if the **trigger** should get an **additional css class name while the menu is visible**, eg. to highlight it or to add a visual indication for *pressed* etc.
 
-#### eventShow
+### eventShow
+
 The default event for the trigger to show the pop-over is `mouseover`. Use this option to override it with another valid event.
 
-#### eventHide
+### eventHide
+
 The default event for the trigger to hide the pop-over is `mouseout`. Use this option to override it with another valid event.
 
-#### preventDefault
+### preventDefault
+
 By default, the trigger’s default event (eg. `click` if you use an anchor like `<a href="...">`) won’t fire (`event.preventDefault()`). Use this option with `true/false` to override this behaviour.
 
-### Positioning
+## Positioning
+
 The following examples illustrate how to position the pop-overs.
 
 ```html
@@ -87,7 +98,7 @@ The following examples illustrate how to position the pop-overs.
 </div>
 ```
 
-### Position in DOM
+## Position in DOM
 
 <p class="hint"><b>Pop-Over Position in Dom</b> Pop-overs do not have to directly follow their triggers in the DOM. In fact, they can be <em>placed anywhere in the markup</em>. Technically, each pop-over is first detached from the DOM and then re-injected into the body-tag to enable correct absolute positioning.</p>
 
@@ -105,12 +116,13 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 </div>
 ```
 
-### Changing the Default Events to Show or Hide the Pop-over
+## Changing the Default Events to Show or Hide the Pop-over
 
 <p class="hint hint--attention"><b>Attention</b> If you change the events to show/hide the pop-over, there is no internal test that prevents you from using illogical event-combinations. If you provide an invalid event (one not listet in the options-overview further above), the default event gets used.</p>
 
-### More Use Cases / Examples
-#### Show a Menu on Click
+## More Use Cases / Examples
+
+### Show a Menu on Click
 
 ```html
 <!-- example -->
@@ -136,7 +148,7 @@ Use the option `toggleClass` to **add any css class name to the trigger** when t
 </div>
 ```
 
-#### Show Table-Column Modifiers (sorting/searching/filtering etc.) on Click
+### Show Table-Column Modifiers (sorting/searching/filtering etc.) on Click
 
 ```html
 <!-- example -->

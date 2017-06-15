@@ -5,7 +5,7 @@ title: FilterBtns
 permalink: elements/filterbtns
 ---
 
-## FilterBtns
+# FilterBtns
 Use this element to display a horizontal list of filter buttons.
 
 | Styles         | [filterBtns.less]({{ pathToSourceFile }}assets/less/elements/filterBtns.less) |
@@ -14,11 +14,11 @@ Use this element to display a horizontal list of filter buttons.
 | Base CSS-Class | `.filterBtns`                                                                 |
 | Modifiers      | `.filterBtns--dark, .filterBtns--removeable`                                  |
 
-### Usage
+## Usage
 
 Ideally, each filter button should be a link, pointing to a static page with the pre-rendered, filtered content. However, `.filterBtns` are most likely to be used without page reload with the resulting content being loaded via JavaScript.
 
-### Toggleable Filter Buttons
+## Toggleable Filter Buttons
 Button filters can be used in *two different ways*. The *default* logic is a list of individual buttons the user can *toggle between active or inactive state*:
 
 ```html
@@ -48,7 +48,7 @@ Button filters can be used in *two different ways*. The *default* logic is a lis
 </ul>
 ```
 
-### Removeable Filter Buttons
+## Removeable Filter Buttons
 By adding the modifier `.filterBtns--removeable`, the button filters turn into something like a list of removeable tags:
 
 ```html
@@ -78,7 +78,7 @@ By adding the modifier `.filterBtns--removeable`, the button filters turn into s
 </ul>
 ```
 
-### Modifiers
+## Modifiers
 In addition to `.filterBtns--removeable`, a dark styling is available via `.filterBtns--dark`:
 
 ```html

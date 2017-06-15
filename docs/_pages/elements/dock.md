@@ -5,7 +5,7 @@ title: Dock
 permalink: elements/dock
 ---
 
-## Dock
+# Dock
 
 Use this element to create an overlay which is docked to the right or left side of the screen and takes up the whole viewport height.
 
@@ -15,7 +15,7 @@ Use this element to create an overlay which is docked to the right or left side 
 | Base CSS-Class | `.dock`                                                           |
 | Modifiers      | `.dock--left, .dock--right`                                       |
 
-### Basic Example
+## Basic Example
 
 This is the markup for a basic `.dock` (you should see the rendered result on the left edge of this page):
 
@@ -25,7 +25,7 @@ This is the markup for a basic `.dock` (you should see the rendered result on th
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
 Add `.dock--left` or `.dock--right` to attach the `.dock` to the left or right side of the viewport. By default – if you leave out a modifier – a dock is on the left side. A hidden `.dock` appears on *mouseover* and disappears after a short delay on *mouseout*.
 
@@ -41,7 +41,7 @@ Add `.dock--left` or `.dock--right` to attach the `.dock` to the left or right s
 </div>
 ```
 
-### Options
+## Options
 
 `.dock` has an optional autohide feature. It’s disabled by default but it makes most sense to always enable it, for example when you use it as a menu.
 
@@ -68,9 +68,9 @@ The following code example is creating the dock you may actually see on the left
 </div>
 ```
 
-### JavaScript-API
+## JavaScript-API
 
-#### initialize()
+### initialize()
 
 On each page load, all elements marked with `yoi-dock="autohide:true;"` are hidden and initialized. However, if you dynamically add a new elements to the page, call this function from your JavaScript to initialize any other `.dock`.
 
@@ -88,7 +88,7 @@ YOI.element.Dock.initialize()
  */
 ```
 
-#### hide()
+### hide()
 
 Call this function from your JavaScript to hide all currently visible `.dock`-instances.
 
@@ -102,7 +102,7 @@ YOI.element.Dock.hide()
  */
 ```
  
-#### show()
+### show()
 
 Call this function from your JavaScript to show all currently hidden `.dock`-instances.
 
@@ -116,7 +116,7 @@ YOI.element.Dock.show()
  */
 ```
 
-#### JavaScript Custom Events
+### Custom Events
 
 Each `.dock` fires custom events your script can listen to:
 

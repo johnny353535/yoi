@@ -1,20 +1,21 @@
 ---
 layout: base
 group: elements
-title: Tables
-permalink: elements/tables
+title: Table
+permalink: elements/table
 ---
 
-## Tables
+# Table
+
 Tables come with a few handy modifiers, eg. to render zebra-striped tables, tables with fixed width, etc. Tables can also be interactive (selectable or deletable rows), using the `yoi-table` hook.
 
-| Styles         | [tables.less]({{ pathToSourceFile }}assets/less/elements/tables.less)                                                            |
-| Script         | [tables.js]({{ pathToSourceFile }}assets/js/elements/tables.js)                                                                  |
+| Styles         | [table.less]({{ pathToSourceFile }}assets/less/elements/table.less)                                                              |
+| Script         | [table.js]({{ pathToSourceFile }}assets/js/elements/table.js)                                                                    |
 | Script Hook    | `yoi-table`                                                                                                                      |
 | Base CSS-Class | none (just the table-tag) or `.table`                                                                                            |
 | Modifiers      | `.table--borderless, .table--colHeader, .table--compressed, .table--fixed, .table--simpleHeader, .table--stripped, .table-zebra` |
 
-### Simple Table
+## Simple Table
 
 ```html
 <!-- example -->
@@ -46,10 +47,12 @@ Tables come with a few handy modifiers, eg. to render zebra-striped tables, tabl
 </table>
 ```
 
-### Modifiers
+## Modifiers
+
 Add one or more of the available modifier classes to change the appearance of a table.
 
-#### Table Without Any Borders
+### Borderless Table
+
 Use the modifier `table--borderless`:
 
 ```html
@@ -82,7 +85,8 @@ Use the modifier `table--borderless`:
 </table>
 ```
 
-#### Table With Headers Inside Rows
+### Table With Headers Inside Rows
+
 Use the modifier `table--colHeader` and change the markup, so that each `<tr>` contains one `<th>`:
 
 ```html
@@ -103,7 +107,8 @@ Use the modifier `table--colHeader` and change the markup, so that each `<tr>` c
 </table>
 ```
 
-#### Compressed Table
+### Compressed Table
+
 Use the modifier `table--compressed`:
 
 ```html
@@ -136,7 +141,8 @@ Use the modifier `table--compressed`:
 </table>
 ```
 
-#### Fixed-Width Table
+### Fixed-Width Table
+
 Use the modifier `table--fixed`:
 
 ```html
@@ -169,7 +175,8 @@ Use the modifier `table--fixed`:
 </table>
 ```
 
-#### Table With Simple Header
+### Table With Simple Header
+
 Use the modifier `table--simpleHeader`:
 
 ```html
@@ -202,7 +209,8 @@ Use the modifier `table--simpleHeader`:
 </table>
 ```
 
-#### Table Without Outer Borders
+### Table Without Outer Borders
+
 Use the modifier `table--stripped`:
 
 ```html
@@ -235,7 +243,8 @@ Use the modifier `table--stripped`:
 </table>
 ```
 
-#### Zebra-Striped Table
+### Zebra-Striped Table
+
 Use the modifier `table--zebra`:
 
 ```html
@@ -268,8 +277,10 @@ Use the modifier `table--zebra`:
 </table>
 ```
 
-### JavaScript Interface
-#### Table With Selectable Rows
+## JavaScript API
+
+### Table With Selectable Rows
+
 Use this option by adding `selectable:true;` as a value to the custom yoi-attribute.
 
 ```html
@@ -298,7 +309,8 @@ Use this option by adding `selectable:true;` as a value to the custom yoi-attrib
 </table>
 ```
 
-#### Table With Multiple Selectable Rows
+### Table With Multiple Selectable Rows
+
 Use this option by adding `selectable:multi;` as a value to the custom yoi-attribute.
 
 ```html
@@ -327,7 +339,8 @@ Use this option by adding `selectable:multi;` as a value to the custom yoi-attri
 </table>
 ```
 
-#### Table With Removeable Rows
+### Table With Removeable Rows
+
 Use this option by adding `removeable:true;` as a value to the custom yoi-attribute.
 
 ```html

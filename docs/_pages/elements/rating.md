@@ -5,7 +5,7 @@ title: Rating
 permalink: elements/rating
 ---
 
-## Rating
+# Rating
 
 Use this element to display a compact rating score – visualized by a number of stars between 1 and 5.
 
@@ -13,7 +13,7 @@ Use this element to display a compact rating score – visualized by a number of
 | Base CSS-Class | `.rating`                                                                                                |
 | Modifiers      | `.rating-1, .rating-2, .rating-3, .rating-4, .rating-5, .rating--small, .rating--medium, .rating--large` |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.rating` looks like and how you write the markup:
 
@@ -26,9 +26,9 @@ This is how a basic `.rating` looks like and how you write the markup:
 
 <p class="hint hint--negative"><b>Accessability:</b> To make sure that screen readers still receive meaningful data, always repeat the rating score as text inside <code>.rating__stars</code>. Feel free to chose any phrasing you like, eg. ”Five out of five stars“ and ”5 / 5“ both work equally fine.</p>
 
-### Modifiers
+## Modifiers
 
-#### Score
+### Score
 
 Use the modifiers `.rating-1, […], .rating-5` to render ratings with the corresponding number of stars. If you leave out the rating modifier, `.rating` will display zero stars by default:
 
@@ -66,7 +66,7 @@ Use the modifiers `.rating-1, […], .rating-5` to render ratings with the corre
 </p>
 ```
 
-#### Size
+### Size
 
 Use the modifiers `.rating--small, .rating--medium, .rating--large` to render ratings in different sizes. The default size of `.rating` is between ”medium“ and ”large“:
 

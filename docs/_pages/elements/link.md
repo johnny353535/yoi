@@ -5,13 +5,13 @@ title: Link
 permalink: elements/link
 ---
 
-## Link
+# Link
 
 Styling for links.
 
 | Styles | [link.less]({{ pathToSourceFile }}assets/less/elements/link.less) |
 
-### Basic Example
+## Basic Example
 
 This is how a standard link looks like:
 

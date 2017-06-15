@@ -5,12 +5,20 @@ title: MainMenu
 permalink: elements/mainmenu
 ---
 
-## MainMenu
+# MainMenu
 
-<p class="hint hint--error">Documentation incomplete.</p>
+Use this element to create a prominent horizontal menu.
+
+| Styles         | [mainMenu.less]({{ pathToSourceFile }}assets/less/elements/mainMenu.less) |
+| Script         | [mainMenu.js]({{ pathToSourceFile }}assets/js/elements/mainMenu.js)       |
+| Base CSS-Class | `.mainMenu`                                                               |
+
+## Basic Example
+
+This is how a basic `.mainMenu` looks like and how you write the markup:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>
@@ -26,8 +34,14 @@ permalink: elements/mainmenu
 </div>
 ```
 
+## Modifiers
+
+### Stretched Menu Items
+
+Add the modifier `.mainMenu--expanded` to force the menu items to take up all available horizontal space:
+
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="mainMenu mainMenu--expand">
     <ul class="mainMenu__menu">
         <li>
@@ -42,6 +56,10 @@ permalink: elements/mainmenu
     </ul>
 </div>
 ```
+
+## Submenus
+
+Use the [popOver element](elements/popover.html) to add submenus:
 
 ```html
 <!-- example:tabs -->
@@ -152,6 +170,10 @@ permalink: elements/mainmenu
     </div>
 </div>
 ```
+
+### Submenus and Accordions
+
+Add the [accordion element](elements/accordion.html) to create nicely structured, collapsable submenus:
 
 ```html
 <!-- example:tabs -->

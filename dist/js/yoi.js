@@ -1688,7 +1688,6 @@ YOI.element.Modal = function() {
 
 YOI.element.PageRewind = function() {
     var $pageRewind;
-    var $document = $(document);
     var $window = $(window);
     var $body = $("body");
     var threshold = 500;
@@ -1715,11 +1714,11 @@ YOI.element.PageRewind = function() {
         }
     }
     function run() {
-        $document.trigger("yoi-pagerewind:start");
+        $pageRewind.trigger("yoi-pagerewind:start");
         $("html,body").animate({
             scrollTop: 0
         }, 500).promise().then(function() {
-            $document.trigger("yoi-pagerewind:end");
+            $pageRewind.trigger("yoi-pagerewind:stop");
         });
     }
     function toggle() {
@@ -2098,6 +2097,7 @@ YOI.element.RangeInput = function() {
             var options = $thisRangeInput.data().options;
             rangeInputKnob.on("mousedown", function(e) {
                 var $thisKnob = $(this);
+                var $thisRangeInput = $(this).closest(".rangeInput");
                 storeCursorPos($thisRangeInput, $thisKnob, e.pageX);
                 $document.on("mousemove", function(e) {
                     $body.addClass("noSelect");
@@ -2139,9 +2139,6 @@ YOI.element.RangeInput = function() {
                 var $thisKnob = $(this);
                 moveKnob($thisRangeInput, $thisKnob);
             });
-            $thisRangeInput.on("yoi-rangeinput:reset", function() {
-                reset($thisRangeInput);
-            });
         });
     }
     function set($rangeInput, absMin, absMax, min, max) {
@@ -2156,6 +2153,7 @@ YOI.element.RangeInput = function() {
         };
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
+        $rangeInput.trigger("yoi-rangeinput:change");
     }
     function reset($rangeInput) {
         var $thisRangeInput = $rangeInput;
@@ -2168,6 +2166,7 @@ YOI.element.RangeInput = function() {
         props.max = thisAbsMax;
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
+        $rangeInput.trigger("yoi-rangeinput:reset");
     }
     function adjustLabels($rangeInput) {
         var $thisRangeInput = $rangeInput;
@@ -2196,10 +2195,6 @@ YOI.element.RangeInput = function() {
         if ($knob.hasClass("rangeInput__knob--max")) {
             newCursorPos = Math.floor(ePosX - props.offsetX) - props.maxPosX;
         }
-        if (props.cursorOffset != newCursorPos) {
-            props.cursorOffset = newCursorPos;
-            $rangeInput.trigger("yoi-rangeinput:change");
-        }
     }
     function moveKnob($rangeInput, $knob, e) {
         if ($rangeInput.data().props.absMin >= $rangeInput.data().props.absMax) return false;
@@ -2218,6 +2213,7 @@ YOI.element.RangeInput = function() {
             posX = Math.floor(Math.min(Math.max(0, e.pageX - props.offsetX), props.width));
             var factor = Math.floor(posX / props.width * 100);
             thisKnobValue = Math.floor((props.absMax - props.absMin) / 100 * factor + props.absMin * 1);
+            $thisRangeInput.trigger("yoi-rangeinput:change");
         } else {
             var inputValue;
             if (isMinKnob) inputValue = props.min;

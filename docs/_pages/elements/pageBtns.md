@@ -5,7 +5,7 @@ title: PageBtns
 permalink: elements/pageBtns
 ---
 
-## PageBtns
+# PageBtns
 
 Use this element to display previous- & next-buttons with a page indicator.
 
@@ -15,7 +15,7 @@ Use this element to display previous- & next-buttons with a page indicator.
 
 <p class="hint"><b>Use Cases:</b> <code>.pageBtns</code> are typically used in combination with the <a href="elements/slider.html">.slider</a> element.</p>
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.pageBtns` looks like and how you write the markup:
 
@@ -77,9 +77,9 @@ If you wish, you may leave out the indicator:
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Position
+### Position
 
 Use one of the modifiers `.pageBtns--tl, .pageBtns--tr, .pageBtns--br, .pageBtns--bl` to *pin* the element to one of the four corners of it’s container. Plase note: the container must be positioned (eg. `position:relative`) to provide a positioning-reference.
 
@@ -142,7 +142,7 @@ Use one of the modifiers `.pageBtns--tl, .pageBtns--tr, .pageBtns--br, .pageBtns
 </div>
 ```
 
-#### Disabled
+### Disabled
 
 Use the global modifier `.is--disabled` on the child elements `.pageBtns__btnPrev` or `.pageBtns__btnNext` to mark them as disabled:
 

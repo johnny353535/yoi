@@ -5,14 +5,14 @@ title: Quotation
 permalink: elements/quotation
 ---
 
-## Quotation
+# Quotation
 
 Use this element to create emphasized quotes.
 
 | Styles         | [quotation.less]({{ pathToSourceFile }}assets/less/elements/quotation.less) |
 | Base CSS-Class | `.quotation`                                                                |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.quotation` looks like and how you write the markup:
 
@@ -24,9 +24,9 @@ This is how a basic `.quotation` looks like and how you write the markup:
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Utilities
+### Utilities
 
 All [utility classes](/utilities/) are available to change font sizes, spacing, etc. In the following example, the text-size is increased and the author of the quote is styled differently:
 

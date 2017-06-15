@@ -5,17 +5,15 @@ title: PosterTeaser
 permalink: elements/posterteaser
 ---
 
-## PosterTeaser
+# PosterTeaser
 
 This element renders text on top of a darkened image, resembling a movie poster.
 
-|                |                                                                                   |
-| -              | -                                                                                 |
 | Styles         | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
 | Base CSS-Class | `.posterTeaser`                                                                   |
 | Modifiers      | `.posterTeaser--bottom, .fx--slide, .fx--blur`                                    |
 
-### Example
+## Example
 
 ```html
 <!-- example -->
@@ -31,9 +29,9 @@ This element renders text on top of a darkened image, resembling a movie poster.
 <p class="hint"><b>Markup</b> You can turn any HTML block-level element into a <em>.posterTeaser</em> but please note: only anchors get the hover effect.</p>
 <p class="hint"><b>Size</b> <em>.posterTeaser__image</em> sets the overall <em>.posterTeaser</em> width an height! Overflowing text will get cut off. Please also note, that <em>.posterTeaser</em> is set to <strong>inline-block</strong>. Wrap it inside another block-level element if you need to create a block.</p>
 
-### Modifiers
+## Modifiers
 
-#### posterTeaser\--bottom
+### posterTeaser\--bottom
 
 It makes the copy text align to the bottom.
 
@@ -48,7 +46,7 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-#### fx\--blur
+### fx\--blur
 
 ```html
 <!-- example -->
@@ -61,7 +59,7 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-#### fx\--slide
+### fx\--slide
 
 ```html
 <!-- example -->
@@ -82,7 +80,7 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-#### fx\--blur + fx\--slide
+### fx\--blur + fx\--slide
 
 ```html
 <!-- example -->

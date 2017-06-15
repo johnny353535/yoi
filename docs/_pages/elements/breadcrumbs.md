@@ -5,14 +5,14 @@ title: Breadcrumbs
 permalink: elements/breadcrumbs
 ---
 
-## Breadcrumbs
+# Breadcrumbs
 Use this element to displaying the path to the current page.
 
 | Styles         | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/elements/breadcrumbs.less) |
 | Base CSS-Class | `.breadcrumbs`                                                                  |
 | Modifiers      | `-`                                                                             |
 
-### Example
+## Example
 
 This is how breadcrumbs look like and how you write the markup:
 

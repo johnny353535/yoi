@@ -5,14 +5,14 @@ title: Callout
 permalink: elements/callout
 ---
 
-## Callout
+# Callout
 Use this element to emphasize a small portion of text. Superimpose it upon images or banners to make bits of information visually stand out.
 
 | Styles         | [callout.less]({{ pathToSourceFile }}assets/less/elements/callout.less)                                                                           |
 | Base CSS-Class | `.callout`                                                                                                                                        |
 | Modifiers      | `.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--light, .callout--attention, .callout--positive, .callout--negative` |
 
-### Basic Example
+## Basic Example
 The default `.callout` has dark text on light background. This is how it looks and how you write the markup:
 
 ```html
@@ -22,10 +22,10 @@ The default `.callout` has dark text on light background. This is how it looks a
 </p>
 ```
 
-### Modifiers
+## Modifiers
 Use the `.callout`’s modifier classes to add rotation or to render it in different colors.
 
-#### Rotation
+### Rotation
 Use the modifier class `.callout--rot-l` to rotate to the left, use `.callout--rot-r` to rotate to the right:
 
 ```html
@@ -42,7 +42,7 @@ Use the modifier class `.callout--rot-l` to rotate to the left, use `.callout--r
 </div>
 ```
 
-#### Color
+### Color
 Use the color modifier classes `.callout--dark`, `.callout--light`, `.callout--attention`, `.callout--positive` and `.callout--negative` to render `.callout` in different colors:
 
 ```html
@@ -74,9 +74,9 @@ Use the color modifier classes `.callout--dark`, `.callout--light`, `.callout--a
 </div>
 ```
 
-### Custom Styling With Utility Classes
+## Custom Styling With Utility Classes
 
-#### Shadows
+### Shadows
 You can use the [shadow utility classes](utilities/styling.html#shadows) in combination with `.callout`:
 
 ```html
@@ -103,7 +103,7 @@ You can use the [shadow utility classes](utilities/styling.html#shadows) in comb
 </div>
 ```
 
-#### Size and Custom Colors
+### Size and Custom Colors
 Combine [utility classes](utilities/) with `.callout` to create custom stylings:
 
 ```html

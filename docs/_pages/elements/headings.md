@@ -5,12 +5,14 @@ title: Headings
 permalink: elements/headings
 ---
 
-## Headings
+# Headings
+
 These are the headline-styles you can use in your documents.
 
 | Styles | [headings.less]({{ pathToSourceFile }}assets/less/elements/headings.less) |
 
-### Example
+## Example
+
 These are all available headline styles. Please note that level 4–6 have identical styling.
 
 ```html
@@ -23,7 +25,8 @@ These are all available headline styles. Please note that level 4–6 have ident
 <h6>Heading Level 6</h6>
 ```
 
-### Modification
+## Modification
+
 Headings do not have their own modifiers classes. Use [YOI Utility Classes](utilities/) to make modifications:
 
 ```html

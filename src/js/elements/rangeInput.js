@@ -47,6 +47,8 @@ YOI.element.RangeInput = (function() {
 
         if ($rangeInput) $rangeInput.each(function() {
 
+            // references
+
             var $thisRangeInput = $(this);
             var options         = $thisRangeInput.data().options;
 
@@ -54,10 +56,17 @@ YOI.element.RangeInput = (function() {
 
             rangeInputKnob
                 .on('mousedown', function(e) {
+                    
+                    // make sure the correct elements get referenced
 
-                    var $thisKnob = $(this);
+                    var $thisKnob       = $(this);
+                    var $thisRangeInput = $(this).closest('.rangeInput');
+                    
+                    // store cursor position
 
                     storeCursorPos($thisRangeInput, $thisKnob, e.pageX);
+
+                    // attach event listeners to the document
 
                     $document
                         .on('mousemove', function(e) {
@@ -121,12 +130,6 @@ YOI.element.RangeInput = (function() {
                 moveKnob($thisRangeInput, $thisKnob);
             });
 
-            // register reset event
-
-            $thisRangeInput.on('yoi-rangeinput:reset', function() {
-                reset($thisRangeInput);
-            });
-
         });
 
     }
@@ -156,6 +159,10 @@ YOI.element.RangeInput = (function() {
 
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
+        
+        // trigger custom event
+        
+        $rangeInput.trigger('yoi-rangeinput:change');
 
     }
 
@@ -180,6 +187,10 @@ YOI.element.RangeInput = (function() {
         
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
+        
+        // trigger custom event
+        
+        $rangeInput.trigger('yoi-rangeinput:reset');
 
     }
 
@@ -245,13 +256,6 @@ YOI.element.RangeInput = (function() {
             newCursorPos = Math.floor(ePosX - props.offsetX) - props.maxPosX;
         }
         
-        // update prop if value has changed and trigger custom event
-        
-        if (props.cursorOffset != newCursorPos) {
-            props.cursorOffset = newCursorPos;
-            $rangeInput.trigger('yoi-rangeinput:change');
-        }
-        
     }
 
     function moveKnob($rangeInput, $knob, e) {
@@ -295,6 +299,10 @@ YOI.element.RangeInput = (function() {
             posX          = Math.floor(Math.min(Math.max(0, (e.pageX - props.offsetX)), props.width));
             var factor    = Math.floor((posX / props.width) * 100);
             thisKnobValue = Math.floor(((props.absMax - props.absMin) / 100) * factor + (props.absMin * 1));
+            
+            // trigger custom event
+            
+            $thisRangeInput.trigger('yoi-rangeinput:change');
 
         } else {
 

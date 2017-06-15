@@ -5,7 +5,7 @@ title: Filters
 permalink: elements/filters
 ---
 
-## Filters
+# Filters
 Use this element to display a powerful filter widget.
 
 | Styles         | [filters.less]({{ pathToSourceFile }}assets/less/elements/filters.less) |
@@ -15,7 +15,7 @@ Use this element to display a powerful filter widget.
 | Child-Elements | `.filterGroup`                                                          |
 | Modifiers      | `.filters--collapsed`                                                   |
 
-### Basic Example
+## Basic Example
 This is how your filter widget may look like. Switch to the code-tab to see the markup. This example also contains a [rangeInput element](elements/rangeInput.html).
 
 ```html
@@ -140,7 +140,7 @@ This is how your filter widget may look like. Switch to the code-tab to see the 
 </div>
 ```
 
-### Controlling Filter Groups
+## Controlling Filter Groups
 You can control weather a filter group is **collapsed** or **expanded** on page load. If you wish to close a `.filterGroup` on page load, add the CSS-class `.filterGroup--collapsed` as modifier to your markup. By default, each `.filterGroup` is expanded (open) on page load.
 
 ```html
@@ -154,10 +154,10 @@ You can control weather a filter group is **collapsed** or **expanded** on page 
 
 <p class="hint"><b>Hint:</b> The modifier <code>.filterGroup--expanded</code> is only used internally. Simply ignore it.</p>
 
-### Filter Types
+## Filter Types
 You can use two different types of filters, both of them behave slightly different.
 
-#### Single-Selection Filters
+### Single-Selection Filters
 Use these filters like you would use the HTML-element `<input type="radio">`. These filters get grouped and only one filter of this group can be active at a time.
 
 ```html
@@ -180,7 +180,7 @@ Use these filters like you would use the HTML-element `<input type="radio">`. Th
 </div>
 ```
 
-#### Multiple-Selection Filters
+### Multiple-Selection Filters
 Use these filters like you would use the HTML-element `<input type="checkbox">`. Any number of these filters can be active at the same time.
 
 ```html
@@ -207,9 +207,9 @@ Use these filters like you would use the HTML-element `<input type="checkbox">`.
 </div>
 ```
 
-### JavaScript-API
+## JavaScript-API
 
-#### initialize()
+### initialize()
 On each page load, all `<div class="filters" yoi-filters>` get initialized. However, if you dynamically add new `.filters` to the page, call this function from your JavaScript to select and initialize them.
 
 ```js
@@ -223,7 +223,7 @@ YOI.element.Filters.initialize()
  */
 ```
 
-#### toggle()
+### toggle()
 Use this function to select a filter (`<a class="filter>`) and toggle it’s state (*active* or *inactive*).
 
 ```js
@@ -237,7 +237,7 @@ YOI.element.Filters.toggle()
  */
 ```
 
-#### reset()
+### reset()
 Call this function from your JavaScript to deactivate all active filters (`<a class="filter>`) of a `.filters`-instance.
 
 ```js
@@ -250,7 +250,7 @@ YOI.element.Filters.reset()
  */
 ````
 
-#### JavaScript Custom Events
+### Custom Events
 Each `.filters` fires custom events your script can listen to:
 
 ```

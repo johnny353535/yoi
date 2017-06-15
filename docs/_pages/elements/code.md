@@ -5,6 +5,6 @@ title: Code
 permalink: elements/code
 ---
 
-## Code
+# Code
 
 <p class="hint hint--error">Documentation incomplete.</p>

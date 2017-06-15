@@ -5,14 +5,14 @@ title: PriceSticker
 permalink: elements/pricesticker
 ---
 
-## PriceSticker
+# PriceSticker
 
 User this element to display a simple horizontal ruler.
 
 | Styles         | [priceSticker.less]({{ pathToSourceFile }}assets/less/elements/priceSticker.less) |
 | Base CSS-Class | `.priceSticker`                                                                   |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.priceSticker` looks like and how you write the markup:
 
@@ -23,9 +23,9 @@ This is how a basic `.priceSticker` looks like and how you write the markup:
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Rotate Left
+### Rotate Left
 
 Add the modifier `.priceSticker--rotLeft` to rotate it slightly to the left:
 
@@ -36,7 +36,7 @@ Add the modifier `.priceSticker--rotLeft` to rotate it slightly to the left:
 </div>
 ```
 
-#### Rotate Right
+### Rotate Right
 
 Add the modifier `.priceSticker--rotRight` to rotate it slightly to the right:
 

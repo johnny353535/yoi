@@ -5,7 +5,7 @@ title: Ribbon
 permalink: elements/ribbon
 ---
 
-## Ribbon
+# Ribbon
 
 Use this element to display to display a 45° rotated ribbon in the the upper left or right corner of any container element.
 
@@ -13,7 +13,7 @@ Use this element to display to display a 45° rotated ribbon in the the upper le
 | Base CSS-Class | `.ribbon`                                                                                                               |
 | Modifiers      | `.ribbon--left .ribbon--right, .ribbon--attention, .ribbon--dark, .ribbon--light, .ribbon--negative, .ribbon--positive` |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.ribbon` looks like and how you write the markup:
 
@@ -30,11 +30,11 @@ This is how a basic `.ribbon` looks like and how you write the markup:
 <p class="hint hint--negative"><b>Positioning</b> Always set the container’s position value to a relative or absolute to provide a reference to position the ribbon.</p>
 <p class="hint"><b>Character Limit</b> Ribbons are limited to display a **maximum of approx. 15 characters**.</p>
 
-### Modifiers
+## Modifiers
 
 There are tho types of modfifiers available. `.ribbon--left` and `.ribbon--right` are mandatory for positioning while the other modifiers are optional and only affect the ribbon’s color.
 
-#### Position
+### Position
 
 Use the modifiers `.ribbon--left` and `.ribbon--right` to pin the ribbon to the left or roght upper corner of it’s container. The default layout is left:
 
@@ -62,7 +62,7 @@ Use the modifiers `.ribbon--left` and `.ribbon--right` to pin the ribbon to the 
 </div>
 ```
 
-#### Colors
+### Colors
 
 Use the modifiers `.ribbon--attention`, `.ribbon--dark`, `.ribbon--light`, `.ribbon--negative` and `.ribbon--positive` to render the ribbon in different colors:
 

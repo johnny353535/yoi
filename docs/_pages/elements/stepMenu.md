@@ -5,7 +5,7 @@ title: StepMenu
 permalink: elements/stepmenu
 ---
 
-## StepMenu
+# StepMenu
 
 Use this element to create a prominent vertical chain of links to display a progress – eg. the current step of a register process.
 
@@ -13,7 +13,7 @@ Use this element to create a prominent vertical chain of links to display a prog
 | Base CSS-Class | `.stepMenu`                                                               |
 | Modifiers      | `.stepMenu--step1, […], .stepMenu--step5, .stepMenu--right`               |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.stepMenu` looks like and how you write the markup:
 
@@ -38,9 +38,9 @@ This is how a basic `.stepMenu` looks like and how you write the markup:
 </ul>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Steps
+### Steps
 
 Use the modifiers `.stepMenu--step1` up to `.stepMenu--step10` to highlight the current step:
 
@@ -83,7 +83,7 @@ Use the modifiers `.stepMenu--step1` up to `.stepMenu--step10` to highlight the 
 </ul>
 ```
 
-#### Alignment
+### Alignment
 
 Use the modifier `.stepMenu--right` to change the text-alignment from left (default) to right:
 
@@ -108,7 +108,7 @@ Use the modifier `.stepMenu--right` to change the text-alignment from left (defa
 </ul>
 ```
 
-### Markup
+## Markup
 
 It’s possible and sometimes perfectly suitable to use `.stepMenu` without links:
 

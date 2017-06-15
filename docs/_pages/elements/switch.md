@@ -5,7 +5,7 @@ title: Switch
 permalink: elements/switch
 ---
 
-## Switch
+# Switch
 
 Use this element to display animated binary switch buttons.
 
@@ -14,7 +14,7 @@ Use this element to display animated binary switch buttons.
 | Script Hook    | `yoi-switch`                                                          |
 | Modifiers      | `.switch--large`                                                      |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.switch` looks like and how you write the markup:
 
@@ -27,9 +27,9 @@ This is how a basic `.switch` looks like and how you write the markup:
 
 <p class="hint"><b>Accessability:</b> The <code>.switch</code> element is accessible by design since it’s just a wrapper around a standard <code>input type="radio"</code> element. So when JavaScript is disabled, it provides a graceful and accessible fallback.</p>
 
-### Modifiers
+## Modifiers
 
-#### Large
+### Large
 
 Use the modifier `.switch--large` to render a large switch:
 
@@ -40,7 +40,7 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-### Options
+## Options
 
 | Key | Value | Description |
 | - | - | - |
@@ -62,9 +62,9 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-### JavaScript API
+## JavaScript API
 
-#### on()
+### on()
 
 Pick a switch and set it to “on”:
 
@@ -81,7 +81,7 @@ Pick a switch and set it to “on”:
 </script>
 ```
 
-#### off()
+### off()
 
 Pick a switch and set it to “off”:
 
@@ -98,7 +98,7 @@ Pick a switch and set it to “off”:
 </script>
 ```
 
-#### toggle()
+### toggle()
 
 Pick a `.switch` and toggle it’s state between “on” and “off”:
 
@@ -115,7 +115,7 @@ Pick a `.switch` and toggle it’s state between “on” and “off”:
 </script>
 ```
 
-#### JavaScript Custom Events
+### Custom Events
 
 Each `.switch` fires custom events your script can listen to:
 
@@ -128,7 +128,7 @@ Try the example below and watch the custom events, printed to the [log element](
 
 ```html
 <!-- example:tabs -->
-<div id="myLog" class="log m-b-4" yoi-log>
+<div id="myLog" class="log log--light m-b-4" yoi-log>
     <div class="log__body">
         <p>Listening</p>
     </div>

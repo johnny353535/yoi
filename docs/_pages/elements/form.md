@@ -5,7 +5,7 @@ title: Form
 permalink: elements/form
 ---
 
-## Form
+# Form
 
 <p class="hint hint--error">Documentation incomplete.</p>
 

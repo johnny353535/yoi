@@ -5,7 +5,7 @@ title: MaxChars
 permalink: elements/maxchars
 ---
 
-## MaxChars
+# MaxChars
 
 ```html
 <textarea class="br-bl-0 br-br-0" rows="" cols="" maxlength="200" yoi-maxchars="display:#myDisplayElement; errorClass:tc-red-10;"></textarea>

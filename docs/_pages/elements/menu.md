@@ -5,14 +5,16 @@ title: Menu
 permalink: elements/menu
 ---
 
-## Menu
+# Menu
+
 Use this element to create a simple menu. It is designed to include *up to three levels of sub menus* and features *optional pointers* on either the right or left side.
 
 | Styles         | [menu.less]({{ pathToSourceFile }}assets/less/elements/menu.less) |
 | Base CSS-Class | `.menu`                                                           |
 | Modifiers      | `.menu--pointRight, .menu--pointLeft, .is--active`                |
 
-### Basic Example
+## Basic Example
+
 This is the basic example of a `.menu` instance. You are free to use any markup you like as long as you use the BEM class name provided by this example. After all, while that’s a feature, it’s a feature you might rarely need since simple lists (`<ul>` od `<ol>`) are semantically the correct choices in most scenarios.
 
 <p class="hint">Click the menu items on this example page to add the .is--active modifier class.</p>
@@ -32,7 +34,8 @@ This is the basic example of a `.menu` instance. You are free to use any markup 
 </ul>
 ```
 
-### Sub Menus
+## Sub-Menus
+
 As mentioned above, a `.menu` instance may have up to three levels of nested sub menus. See the folowing example.
 
 <p class="hint hint--attention"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
@@ -122,7 +125,8 @@ As mentioned above, a `.menu` instance may have up to three levels of nested sub
 </ul>
 ```
 
-### Pointers
+## Pointers
+
 Add optional pointers to the currently selected (`.is--active`) element. Chose from pinters to the left (`.menu--pointLeft`) and pointers to the right (`.menu--pointRight`).
 
 ```html
@@ -186,7 +190,8 @@ Add optional pointers to the currently selected (`.is--active`) element. Chose f
 </ul>
 ```
 
-### Advanced Usage
+## Advanced Usage
+
 The following example combines the `.menu` with the [toggleGroup interface](/pages/js-interface/toggleGroup.html) to create a simple, *tab-able* widget.
 
 ```html

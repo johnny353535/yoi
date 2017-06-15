@@ -5,7 +5,8 @@ title: Tabs
 permalink: elements/tabs
 ---
 
-## Tabs
+# Tabs
+
 Yoshino tabs have some powerful features. You can choose from different layouts. You can define a start tab per tab group (by default, the first tab in the markup is the start tab). And since the JavaScript is modular, other scripts can use tab functions. For example if you use a scroll-to-anchor button and the target element is a (hidden) tab, the button will switch the target tab to visible.
 
 | Styles         | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
@@ -14,7 +15,8 @@ Yoshino tabs have some powerful features. You can choose from different layouts.
 | Base CSS-Class | `.tabs, .tabs__menu`                                                                    |
 | Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows` |
 
-### Basic Example
+## Basic Example
+
 This is a basic example. Make sure to **add an #id to each tab** that you reference via the `.tabs__menu`.
 
 ```html
@@ -44,7 +46,8 @@ This is a basic example. Make sure to **add an #id to each tab** that you refere
 </div>
 ```
 
-### Fixed vs. Loose Layout
+## Fixed vs. Loose Layout
+
 By default, all tabs take up the same with, like cells within in table row. However, if you wish the tabs to be only as wide as their content, there is a modifier for that: `.tabs__menu--loose`:
 
 ```html
@@ -74,7 +77,8 @@ By default, all tabs take up the same with, like cells within in table row. Howe
 </div>
 ```
 
-### Tabs with Large Buttons
+## Tabs with Large Buttons
+
 Add the modifier `.tabs__menu--large` to the `.tabs__menu`.
 
 ```html
@@ -104,7 +108,8 @@ Add the modifier `.tabs__menu--large` to the `.tabs__menu`.
 </div>
 ```
 
-### Subtle Tabs Menu
+## Subtle Tabs Menu
+
 Use the modifier `.tabs__menu--subtle` to create a clean and subtle tab menu.
 
 ```html
@@ -132,7 +137,8 @@ Use the modifier `.tabs__menu--subtle` to create a clean and subtle tab menu.
 </div>
 ```
 
-### Check Marks
+## Check Marks
+
 Add the modifier `.tabs__menu--checkmarks` to the `.tabs__menu` to display a check mark on each active tab link.
 
 ```html
@@ -156,7 +162,8 @@ Add the modifier `.tabs__menu--checkmarks` to the `.tabs__menu` to display a che
 </div>
 ```
 
-### Scroll to Tab
+## Scroll to Tab
+
 Yoshino JavaScript is modular. This means, individual scripts expose some functions that other scripts can use. This allows you to use a scroll-to-anchor link to scroll to a target tab and switch it to visible.
 
 ```html
@@ -189,7 +196,8 @@ Yoshino JavaScript is modular. This means, individual scripts expose some functi
 </div>
 ```
 
-### Arrow Tabs
+## Arrow Tabs
+
 Add the modifier `.tabs__menu--arrows` to the `.tabs__menu` to get an alternative layout. Combine it with large SVG icons to create prominent tabs.
 
 ```html

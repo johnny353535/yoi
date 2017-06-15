@@ -17,14 +17,14 @@
 
 /* intro paragraph */
 
-.documentation__article > h2:first-child + p {
+.documentation__article > h1:first-child + p {
     font-size: 2rem;
     line-height: 1.5;
 }
 
 /* intro table */
 
-.documentation__article > h2:first-child + p + table td:first-child {
+.documentation__article > h1:first-child + p + table td:first-child {
     width: 15rem;
 }
 

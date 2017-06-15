@@ -5,7 +5,7 @@ title: PageDots
 permalink: elements/pagedots
 ---
 
-## PageDots
+# PageDots
 
 Use this element to display previous- & next-buttons with dots as page indicators.
 
@@ -15,7 +15,7 @@ Use this element to display previous- & next-buttons with dots as page indicator
 
 <p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="elements/slider.html">.slider</a> element.</p>
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.pageDots` looks like and how you write the markup:
 
@@ -44,9 +44,9 @@ This is how a basic `.pageDots` looks like and how you write the markup:
 
 <p class="hint hint--negative">All examples includes a wrapper element with light or dark gray background for demonstration purpose. The wrapper is not a part of <code>.pageDots</code>.</p>
 
-### Modifiers
+## Modifiers
 
-#### Dark
+### Dark
 
 Add the modifier `.pageDots--dark` to render a dark version:
 
@@ -73,7 +73,7 @@ Add the modifier `.pageDots--dark` to render a dark version:
 </div>
 ```
 
-#### Subtle
+### Subtle
 
 The default `.pageDots` background is white. Add the modifier `.pageDots--subtle` to render a tranparent version:
 
@@ -100,7 +100,7 @@ The default `.pageDots` background is white. Add the modifier `.pageDots--subtle
 </div>
 ```
 
-#### Disabled
+### Disabled
 
 Use the global modifier `.is--disabled` on the child elements `.pageDots__btnPrev` or `.pageDots__btnNext` to mark them as disabled:
 

@@ -5,7 +5,7 @@ title: Date Picker
 permalink: elements/datepicker
 ---
 
-## Date Picker
+# Date Picker
 Use this element to provide an easy way to enter dates into input fields.
 
 | Styles         | [datePicker.less]({{ pathToSourceFile }}assets/less/elements/datePicker.less) |
@@ -16,7 +16,7 @@ Use this element to provide an easy way to enter dates into input fields.
 
 <p class="hint hint--negative"><strong>The date picker is designed for use on desktop browsers.</strong> On mobile browsers it makes more sense to use the native input widgets.</p>
 
-### Basic Example
+## Basic Example
 Add the attribute `yoi-datepicker` to any `<input type="date" />` to make it show a date picker on focus:
 
 ```html
@@ -26,7 +26,7 @@ Add the attribute `yoi-datepicker` to any `<input type="date" />` to make it sho
 </form>
 ```
 
-### Set an Initial Date
+## Set an Initial Date
  By default, the date picker *will start with the current date*. However, you can add a date to the input field via markup:
 
 ```html
@@ -35,7 +35,7 @@ Add the attribute `yoi-datepicker` to any `<input type="date" />` to make it sho
     <input class="w-20" type="date" yoi-datepicker="year:2010; month:10; day:5;" />
 </form>
 ```
-#### Fallback
+### Fallback
 If you leave out a parameter, the date picker will fall back to the current date. Eg. if you *leave out the year*, the date picker will assume you wish to initialize it with the *current year*. The same goes for month and day.
 
 ```html
@@ -45,7 +45,7 @@ If you leave out a parameter, the date picker will fall back to the current date
 </form>
 ```
 
-### Positioning
+## Positioning
 By default, the date picker appears *below the date input field*. If the available space below the input is too low, the date picker appears *above the input field*. Try it out by scrolling the page so the input filed reaches the bottom of the browser window:
 
 ```html
@@ -55,7 +55,7 @@ By default, the date picker appears *below the date input field*. If the availab
 </form>
 ```
 
-### Large Input Fields
+## Large Input Fields
 The date picker works just fine with both *large* input fields.
 
 ```html
@@ -65,9 +65,9 @@ The date picker works just fine with both *large* input fields.
 </form>
 ```
 
-### JavaScript-API
+## JavaScript-API
 
-#### initialize()
+### initialize()
 
 On each page load, all correctly formatted `<input type="date"/>` fields marked with `yoi-datepicker` get initialized. However, if you dynamically add a new elements to the page, call this function from your JavaScript to select any `<input type="date" />` and attach a `.datePicker` to it.
 
@@ -86,7 +86,7 @@ YOI.element.DatePicker.initialize()
  */
 ```
 
-#### hideAll()
+### hideAll()
 
 Call this function from your JavaScript to hide all currently visible `.datePicker`-instances.
 
@@ -99,7 +99,7 @@ YOI.element.DatePicker.hideAll()
  */
 ````
 
-#### JavaScript Custom Events
+### Custom Events
 
 Each `.datePicker` fires custom events your script can listen to:
 

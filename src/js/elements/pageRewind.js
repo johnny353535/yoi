@@ -6,7 +6,6 @@ YOI.element.PageRewind = (function() {
     // ============
 
     var $pageRewind;
-    var $document = $(document);
     var $window   = $(window);
     var $body     = $('body');
     var threshold = 500;
@@ -70,7 +69,7 @@ YOI.element.PageRewind = (function() {
         
         // trigger the custom start event
         
-        $document.trigger('yoi-pagerewind:start');
+        $pageRewind.trigger('yoi-pagerewind:start');
 
         // scroll back to page top and
         // fire custom end event when done
@@ -80,7 +79,7 @@ YOI.element.PageRewind = (function() {
         }, 500)
         .promise()
         .then(function() {
-            $document.trigger('yoi-pagerewind:end');
+            $pageRewind.trigger('yoi-pagerewind:stop');
         });
 
     }

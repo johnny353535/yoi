@@ -5,7 +5,8 @@ title: Note
 permalink: elements/note
 ---
 
-## Note
+# Note
+
 Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be *dismissable*, they come in two text sizes and they can contain an icon.
 
 | Styles         | [note.less]({{ pathToSourceFile }}assets/less/elements/note.less)                                                                                                                                        |
@@ -13,7 +14,7 @@ Use notes to display system messages, eg. for form validation, status messages (
 | Base CSS-Class | `.note`                                                                                                                                                                                                  |
 | Modifiers      | `.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--large, .note--light, .note--negative, .note--positive, .note--prescription, .note--success` |
 
-### Simple Note
+## Simple Note
 
 ```html
 <!-- example -->
@@ -25,7 +26,8 @@ Use notes to display system messages, eg. for form validation, status messages (
 </div>
 ```
 
-### Basic Example
+## Basic Example
+
 If you wish to make a `.note` *dismissable*, use the `yoi-dismissable` hook to make a close button appear in the upper right corner.
 
 ```html
@@ -38,7 +40,8 @@ If you wish to make a `.note` *dismissable*, use the `yoi-dismissable` hook to m
 </div>
 ```
 
-### Large text
+## Large text
+
 Use the modifier `.note--large` to increase the font size.
 
 ```html
@@ -51,7 +54,7 @@ Use the modifier `.note--large` to increase the font size.
 </div>
 ```
 
-### Icons
+## Icons
 
 ```html
 <!-- example -->
@@ -79,7 +82,8 @@ Use the modifier `.note--large` to increase the font size.
 </div>
 ```
 
-### Colors
+## Colors
+
 Notes are available in **different color themes**. Weather you wish to display an error, a success message or just a subtle note, you can choose from the following options:
 
 ```html
@@ -139,7 +143,8 @@ Notes are available in **different color themes**. Weather you wish to display a
 </div>
 ```
 
-### Grouped Notes
+## Grouped Notes
+
 **Group notes** inside a container element with the css class name `.notes`. For example to group validation messages.
 
 ```html
@@ -163,7 +168,8 @@ Notes are available in **different color themes**. Weather you wish to display a
 </div>
 ```
 
-### Notes at Full Viewport Width
+## Notes at Full Viewport Width
+
 Use the modifier class `.note--fullWidth` to display a **note at full viewport width**, with it’s body centered and automatic margin to the left and right. A good example would be the cookie-policy at the very top of a page.
 
 ```html

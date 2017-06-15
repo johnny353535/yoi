@@ -5,14 +5,14 @@ title: SearchPrompt
 permalink: elements/searchprompt
 ---
 
-## SearchPrompt
+# SearchPrompt
 
 Use this element to create a prominent search input.
 
 | Styles         | [searchPrompt.less]({{ pathToSourceFile }}assets/less/elements/searchPrompt.less) |
 | Base CSS-Class | `.searchPrompt`                                                                   |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.searchPrompt` looks like and how you write the markup:
 

@@ -5,14 +5,14 @@ title: CheckList
 permalink: elements/checklist
 ---
 
-## CheckList
+# CheckList
 Use this element to render an unordered list into a styled list with checkmarks.
 
 | Styles         | [checkList.less]({{ pathToSourceFile }}assets/less/elements/checkList.less) |
 | Base CSS-Class | `.checkList`                                                                |
 | Modifiers      | `-`                                                                         |
 
-### Basic Example
+## Basic Example
 This is how a basic `.checkList` looks like and how you write the markup:
 
 ```html

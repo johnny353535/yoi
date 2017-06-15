@@ -5,14 +5,14 @@ title: Box
 permalink: elements/box
 ---
 
-## Box
+# Box
 Use this element to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.
 
 | Styles         | [box.less]({{ pathToSourceFile }}assets/less/elements/box.less) |
 | Base CSS-Class | `.box`                                                          |
 | Modifiers      | `-`                                                             |
 
-### Basic Example
+## Basic Example
 This is how a basic `.box` looks like and how you write the markup:
 
 ```html
@@ -25,7 +25,7 @@ This is how a basic `.box` looks like and how you write the markup:
 </div>
 ```
 
-### Grouping
+## Grouping
 Each `.box` can have multiple `.box__body`s. This is handy if you wish to group elements inside a single `.box` but only use one `.box__header`. Like this:
 
 ```html
@@ -76,7 +76,7 @@ Sometimes you may wish to group different `.box`es. You can easily do so by wrap
 </div>
 ```
 
-### Modification
+## Modification
 
 Use the [CSS-utility-classes](utilities/) to create custom variations. In the following example, text-, border- and background-color is set to shades of red:
 

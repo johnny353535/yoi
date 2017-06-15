@@ -5,7 +5,7 @@ title: Countdown
 permalink: elements/countdown
 ---
 
-## Countdown
+# Countdown
 Use this element to create a countdown to a future date less than a year ahead. The countdown is rendered as a lcd-style clock, yet fully accessible via screen readers.
 
 | Styles         | [countdown.less]({{ pathToSourceFile }}assets/less/elements/countdown.less) |
@@ -14,7 +14,7 @@ Use this element to create a countdown to a future date less than a year ahead. 
 | Base CSS-Class | `.countdown`                                                                |
 | Modifiers      | `-`                                                                         |
 
-### Basic Example
+## Basic Example
 This is how a basic `.countdown` looks like and how you write the markup:
 
 ```html
@@ -24,7 +24,7 @@ This is how a basic `.countdown` looks like and how you write the markup:
 
 <p class="hint hint--error"><b>Limitations</b> Please notice that while the countdown was <i>designed to count down to an event less than 12 months in the future</i>.</p>
 
-### Countdown With Optional Title
+## Countdown With Optional Title
 Add an element with the css class name `countdown__title` to add an optional title.
 
 ```html
@@ -34,7 +34,7 @@ Add an element with the css class name `countdown__title` to add an optional tit
 </div>
 ```
 
-### Expired Countdown
+## Expired Countdown
 Once the countdown expired, the display will reset and the *custom event* `yoi-countdown:expire` *will fire* (JavaScript).
 
 ```html
@@ -42,7 +42,7 @@ Once the countdown expired, the display will reset and the *custom event* `yoi-c
 <div class="countdown" yoi-countdown="year:2001; month:12; day:31; hour:15;"></div>
 ```
 
-### Progressive Enhancement, Accessibility & Fallback
+## Progressive Enhancement, Accessibility & Fallback
 Each lcd-style digit is an svg graphic. To make the countdown more accessible by default, the script inserts a visually hidden label with a well-readable string, representing the remaining time. However, it’s a good idea to always include this label to provide a meaningful noScript-fallback:
 
 ```html

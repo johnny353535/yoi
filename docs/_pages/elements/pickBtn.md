@@ -5,7 +5,7 @@ title: PickBtn
 permalink: elements/pickbtn
 ---
 
-## PickBtn
+# PickBtn
 
 Use this element to create prominent radio buttons. It’s basically a visual candy wrapper around a `<label>` and an `input[type="radio"]`.
 
@@ -15,7 +15,7 @@ Use this element to create prominent radio buttons. It’s basically a visual ca
 | Base CSS-Class | `.pickBtn`                                                              |
 | Modifiers      | `-`                                                                     |
 
-### Basic Example
+## Basic Example
 
 The script that controls `.pickBtn` instances assumes that we use *real* `input[type="radio"]` elements inside each `.pickBtn`. Once a button is active, the script activates the radio input inside, so you can work with it like you would expect working with a regular radio input.
 
@@ -39,7 +39,7 @@ The script that controls `.pickBtn` instances assumes that we use *real* `input[
 
 <p class="hint"><b>The Name Attribute</b> Regular radio inputs are logically grouped by their name-attribute. The script for these radio buttons follows the same logic, so <b>make sure you use the name attribute to group the radio buttons correctly</b>.</p>
 
-### Special Element: Toggle-Label
+## Special Element: Toggle-Label
 
 Sometimes you may wish to include an additional label and hide it, once a button is active. Therefore, you can use the element `.pickBtn__toggleLabel`, like this:
 

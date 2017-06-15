@@ -5,7 +5,8 @@ title: Pie Chart
 permalink: elements/piechart
 ---
 
-## Pie Chart
+# Pie Chart
+
 This is a simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/elements/barChart.html">Bar Chart</a>.
 
 | Styles         | [pieChart.less]({{ pathToSourceFile }}assets/less/elements/pieChart.less) |
@@ -14,7 +15,8 @@ This is a simple SVG pie chart, dynamically generated on page load. It reads the
 | Base CSS-Class | `.pieChart`                                                               |
 | Modifiers      | n/a                                                                       |
 
-### Most Basic Example
+## Most Basic Example
+
 Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` hook so never forget to inlcude it in your markup.
 
 ```html
@@ -41,7 +43,8 @@ Use this markup to generate a most simple pie chart with **all default options a
 </div>
 ```
 
-### Options
+## Options
+
 Option are written as **semicolon-seperated key/value pairs**:
 
 | Key       | Value                                               | Description                                                                                                                                                                                        |
@@ -51,7 +54,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 | palette   | *string*: `fixed, random, shades, unique`           | `fixed` = a predefined color palette, `random` = random rgb colors, `shades` = shades of supplied or default `baseColor`, `unique` = unique colors, calculated for supplied or default `baseColor` |
 | size      | *integer*                                           | the diameter of the pie chart in px                                                                                                                                                                |
 
-### Unique Color Palette
+## Unique Color Palette
 
 ```html
 <!-- example:tabs -->
@@ -109,7 +112,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 </div>
 ```
 
-### Random Color Palette
+## Random Color Palette
 
 ```html
 <!-- example:tabs -->
@@ -131,7 +134,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 </div>
 ```
 
-### Fixed Color Palette
+## Fixed Color Palette
 
 ```html
 <!-- example:tabs -->
@@ -173,7 +176,7 @@ Option are written as **semicolon-seperated key/value pairs**:
 </div>
 ```
 
-### Different Sizes (and Random Color Palettes)
+## Different Sizes (and Random Color Palettes)
 
 ```html
 <!-- example:tabs -->
@@ -215,7 +218,8 @@ Option are written as **semicolon-seperated key/value pairs**:
 </div>
 ```
 
-### Different Formatting of Records
+## Different Formatting of Records
+
 You may **change the order of label and value** for each `.pieChart__record` **or hide the value** when it makes sense by adding the global modifier `.hidden`.
 
 ```html
@@ -258,7 +262,8 @@ You may **change the order of label and value** for each `.pieChart__record` **o
 </div>
 ```
 
-### Disable Highlighting
+## Disable Highlighting
+
 Set `highlight` to `false` if you wish to **disable highlighting** individual slices on mouseover and click.
 
 ```html

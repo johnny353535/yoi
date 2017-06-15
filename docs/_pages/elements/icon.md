@@ -1,21 +1,21 @@
 ---
 layout: base
 group: elements
-title: Icons
-permalink: elements/icons
+title: Icon
+permalink: elements/icon
 ---
 
-## Icons
+# Icon
 
 Monochrome, SVG-based icons.
 
-| Styles         | [icons.less]({{ pathToSourceFile }}assets/less/elements/icons.less) |
-| Script         | [icons.js]({{ pathToSourceFile }}assets/js/elements/icons.js)       |
-| Script Hook    | `yoi-icon`                                                          |
-| Base CSS-Class | `.icon`                                                             |
-| Modifiers      | `.icon--small, .icon--large, .icon--xlarge`                         |
+| Styles         | [icon.less]({{ pathToSourceFile }}assets/less/elements/icon.less) |
+| Script         | [icon.js]({{ pathToSourceFile }}assets/js/elements/icon.js)       |
+| Script Hook    | `yoi-icon`                                                        |
+| Base CSS-Class | `.icon`                                                           |
+| Modifiers      | `.icon--small, .icon--large, .icon--xlarge`                       |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.icon` looks like and how you write the markup:
 
@@ -23,38 +23,38 @@ This is how a basic `.icon` looks like and how you write the markup:
 <!-- example -->
 <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-016" />
 ```
-### Modifiers
+## Modifiers
 
 Use the modifiers `.icon--small, .icon--large, .icon--xlarge` to render icons in different sizes:
 
 ```html
 <!-- example -->
-<img class="icon icon--small" src="http://cdn.yoshino.digital/svg.php?id=icon-016" />
+<img class="icon icon--small" src="http://cdn.yoshino.digital/svg.php?id=icon-016-s" />
 <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-016" />
 <img class="icon icon--large" src="http://cdn.yoshino.digital/svg.php?id=icon-016" />
 <img class="icon icon--xlarge" src="http://cdn.yoshino.digital/svg.php?id=icon-016" />
 ```
 
-### Icon CDN
+## Icon CDN
 
 We created a handy little online tool to generate our YOI-icons for you on the fly. You can request every icon of the set and manipulate it’s size and color via a simple URL:
 
-<div class="fs-15 m-t-3 m-b-4">
-    <span class="tc-blue-15">http://cdn.yoshino.digital/svg.php?</span>
-    <span class="tc-gray-15">+</span> <span class="tc-blue-15">id=<b class="tc-red-12">icon-001</b></span>
-    <span class="tc-gray-15">+</span> <span class="tc-blue-15">&f=<b class="tc-green-12">#ccff00</b></span>
-    <span class="tc-gray-15">+</span> <span class="tc-blue-15">&s=<b class="tc-green-12">#b00</b></span>
-    <span class="tc-gray-15">+</span> <span class="tc-blue-15">&w=<b class="tc-green-12">128</b></span>
-    <span class="tc-gray-15">+</span> <span class="tc-blue-15">&h=<b class="tc-green-12">128</b></span>
+<div class="box p-1 fs-15 m-t-3 m-b-4">
+    http://cdn.yoshino.digital/svg.php?
+    <span class="tc-gray-15">+</span> <span class="tc-gray-12">id=</span><b class="tc-red-12">icon-001</b>
+    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&f=</span><span class="tc-red-12">#ccff00</span>
+    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&s=</span><span class="tc-red-12">#b00</span>
+    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&w=</span><span class="tc-red-12">128</span>
+    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&h=</span><span class="tc-red-12">128</span>
 </div>
 
-| **id**    | Always required! The prefix “icon-” + a numeric id + the optional postfix “-s” for the small version. |
-| f         | Optional fill color, written as hex-value (eg. #aa3344 or shorthand #a34)                             |
-| s         | Optional stroke color, written as hex-value (eg. #aa3344 or shorthand #a34)                           |
-| w         | Optional width in pixels. Numeric value without unit (eg. 128).                                       |
-| h         | Optional height in pixels. Numeric value without unit (eg. 128).                                      |
+| **id** | Always required! The prefix “icon-” + a numeric id + the optional postfix “-s” for the small version. |
+| f      | Optional fill color, written as hex-value (eg. #aa3344 or shorthand #a34)                             |
+| s      | Optional stroke color, written as hex-value (eg. #aa3344 or shorthand #a34)                           |
+| w      | Optional width in pixels. Numeric value without unit (eg. 128).                                       |
+| h      | Optional height in pixels. Numeric value without unit (eg. 128).                                      |
 
-### SVG and HTML
+## SVG and HTML
 
 The YOI icons are SVG graphics. Generally speaking, there are two different ways to display SVG graphics on a web page. You may treat the SVG file like an `<image>` (or `<object>`) by using a HTML-tag with a source- (or data-) attribute:
 
@@ -80,9 +80,9 @@ The other option is writing the SVG markup inline, directly into the HTML:
 
 Writing the SVG markup by hand is not a good solution of course. In most cases, you can add icons to your page by using an `<image>`-tag. However, in some cases the only option is the inline method because styling the SVG via CSS only really works this way. See the following section [Inline-SVG Helper]({{ page.url }}.html#inline-svg-helper) for a another handy little tool.
 
-### JavaScript API
+## JavaScript API
 
-#### Inline-SVG Helper
+### Inline-SVG Helper
 
 If you need to embed SVG markup directly, add the script-hook `yoi-icon` to your `<img>` or `<object>` tag. No further settings required – the tag gets replaced instantly with the SVG markup:
     
@@ -91,7 +91,7 @@ If you need to embed SVG markup directly, add the script-hook `yoi-icon` to your
 <img class="icon icon--xlarge" src="http://cdn.yoshino.digital/svg.php?id=icon-015" yoi-icon />
 ```
 
-#### replace()
+### replace()
 
 The inline-SVG helper exposes a method to manually replace SVG images/objects with actual SVG markup. The method accepts only one parameter: a jQuery object, referencing the element you wish to replace:
 
@@ -101,7 +101,7 @@ The inline-SVG helper exposes a method to manually replace SVG images/objects wi
 <script>YOI.element.Icon.replace($('#myIcon'));</script>
 ```
 
-### A List of All Available Icons
+## A List of All Available Icons
 
 <table>
     <tr>

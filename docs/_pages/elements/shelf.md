@@ -5,14 +5,14 @@ title: Shelf
 permalink: elements/shelf
 ---
 
-## Shelf
+# Shelf
 
 Use this element to display a grid elements as a shelf.
 
 | Styles         | [shelf.less]({{ pathToSourceFile }}assets/less/elements/shelf.less) |
 | Base CSS-Class | `.shelf`                                                            |
 
-### Basic Example
+## Basic Example
 
 For this example, we use thumbnail-images inside shelf items. You could use any other item instead (see [examples below]({{ page.url }}.html#variations)). This is how a basic `.shelf` might look like and how you write the markup:
 
@@ -94,7 +94,7 @@ For this example, we use thumbnail-images inside shelf items. You could use any 
 </div>
 ```
 
-## Variations
+# Variations
 
 You could use any element or custom markup inside a `.shelf__item`. See the following examples for inspiration:
 

@@ -5,7 +5,7 @@ title: Accordion
 permalink: elements/accordion
 ---
 
-## Accordion
+# Accordion
 
 Use this element to create one or several grouped sections that expand or collapse, once a section header is clicked.
 
@@ -15,7 +15,7 @@ Use this element to create one or several grouped sections that expand or collap
 | Base CSS-Class | `.accordion`                                                                |
 | Modifiers      | `-`                                                                         |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.accordion` looks like and how you write the markup:
 
@@ -49,7 +49,7 @@ This is how a basic `.accordion` looks like and how you write the markup:
 </div>
 ```
 
-### Linked Accordion Sections
+## Linked Accordion Sections
 
 It’s a common UI pattern to close all accordion sections but the currently expanded one. This behaviour is optional. Enable it by adding `linked:true` to the custom attribute `yoi-accordion`:
 
@@ -83,7 +83,7 @@ It’s a common UI pattern to close all accordion sections but the currently exp
 </div>
 ```
 
-### Controlling Accordion Sections
+## Controlling Accordion Sections
 
 Initially, all accordion sections are closed. However, you can define which section should start expanded/open. To do so, add the modifier `.is--open` to the very `.accordion__section`:
 
@@ -109,7 +109,7 @@ Initially, all accordion sections are closed. However, you can define which sect
 </div>
 ```
 
-#### Controlling Accordions with Buttons
+### Controlling Accordions with Buttons
 
 You can assign calls to the openAll and closeAll functions to elements (eg. buttons) by adding `yoi-action="openAllAccordions"` or `yoi-action="closeAllAccordions"`. They are executed on click.
 
@@ -121,9 +121,9 @@ You can assign calls to the openAll and closeAll functions to elements (eg. butt
 </p>
 ```
 
-### JavaScript API
+## JavaScript API
 
-#### openAll()
+### openAll()
 
 Open all accordions on the page by using this function exposed by the JavaScript API:
 
@@ -131,7 +131,7 @@ Open all accordions on the page by using this function exposed by the JavaScript
 YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
 ```
 
-#### closeAll()
+### closeAll()
 
 Open all accordions on the page by using this function:
 
@@ -139,7 +139,7 @@ Open all accordions on the page by using this function:
 YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
 ```
 
-#### JavaScript Custom Events
+### Custom Events
 
 Each `.accordion` fires custom events your script can listen to:
 
@@ -152,7 +152,7 @@ Try the example below and watch the custom events, printed to the [log element](
 
 ```html
 <!-- example:tabs -->
-<div id="myLog" class="log m-b-4" yoi-log>
+<div id="myLog" class="log log--light m-b-4" yoi-log>
     <div class="log__body">
         <p>Listening</p>
     </div>

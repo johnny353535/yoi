@@ -5,7 +5,7 @@ title: Link List
 permalink: elements/linklist
 ---
 
-## Link List
+# Link List
 
 Use this element to create a vertical list of links.
 
@@ -13,7 +13,7 @@ Use this element to create a vertical list of links.
 | Base CSS-Class | `.linkList`                                                                                                                                                                                               |
 | Modifiers      | `.is--active, .linkList--large, .linkList--dark, .linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--arrowsLeftDown, .linkList--arrowsRight, .linkList--arrowsRightUp, .linkList--arrowsRightDown` |
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.linkList` looks like and how you write the markup:
 
@@ -35,9 +35,9 @@ This is how a basic `.linkList` looks like and how you write the markup:
 </ul>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Color
+### Color
 
 Add this modifier to render a dark `.linkList`:
 
@@ -59,7 +59,7 @@ Add this modifier to render a dark `.linkList`:
 </ul>
 ```
 
-#### Size
+### Size
 
 Add the modifiers `.linkList--large` to render a large `.linkList`:
 
@@ -81,7 +81,7 @@ Add the modifiers `.linkList--large` to render a large `.linkList`:
 </ul>
 ```
 
-#### Arrows
+### Arrows
 
 Add the modifiers `.linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--arrowsLeftDown, .linkList--arrowsRight, .linkList--arrowsRightUp, .linkList--arrowsRightDown` to add arrows:
 
@@ -173,7 +173,7 @@ Add the modifiers `.linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--ar
 </ul>
 ```
 
-#### Active List Item
+### Active List Item
 
 Add this modifier to a `<li class="linkList__item">` element inside the link list to mark it as _selected_:
 
@@ -195,7 +195,8 @@ Add this modifier to a `<li class="linkList__item">` element inside the link lis
 </ul>
 ```
 
-#### Combining Modifiers
+### Combining Modifiers
+
 Most link list modifiers can be combined as you’d expect. For example, it is possible to produce a _large dark link list with arrows pointing to the right_:
 
 ```html

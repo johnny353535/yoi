@@ -5,7 +5,7 @@ title: FlipBtns
 permalink: elements/flipbtns
 ---
 
-## FlipBtns
+# FlipBtns
 
 Use this element to display previous- & next-buttons on the left and right side of their container.
 
@@ -15,7 +15,7 @@ Use this element to display previous- & next-buttons on the left and right side 
 
 <p class="hint"><b>Use Cases:</b> <code>.flipBtns</code> are typically used in combination with the <a href="elements/slider.html">.slider</a> element.</p>
 
-### Basic Example
+## Basic Example
 
 This is how a basic `.flipBtns` looks like and how you write the markup:
 
@@ -33,9 +33,9 @@ This is how a basic `.flipBtns` looks like and how you write the markup:
 </div>
 ```
 
-### Modifiers
+## Modifiers
 
-#### Position
+### Position
 
 Use the modifier `.flipBtns--inset` to place the buttons on the inside of their container:
 
@@ -53,7 +53,7 @@ Use the modifier `.flipBtns--inset` to place the buttons on the inside of their 
 </div>
 ```
 
-#### Disabled
+### Disabled
 
 Use the global modifier `.is--disabled` on the child elements `.flipBtns__btnPrev` or `.flipBtns__btnNext` to mark them as disabled:
 
