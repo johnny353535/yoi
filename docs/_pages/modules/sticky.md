@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: Sticky
-permalink: interface/sticky
+permalink: modules/sticky
 ---
 
 ## Sticky

@@ -14,7 +14,7 @@ YOI.element.RangeInput = (function() {
     ');
 
     var rangeInputLabel = $('\
-        <span class="rangeInput__label">0</span>\
+        <span class="rangeInput__label"></span>\
     ');
 
     var rangeInputTrack = $('\
@@ -36,8 +36,8 @@ YOI.element.RangeInput = (function() {
          *
          *  Available options:
          *
-         *  @option {number} absMin - absolut min value
-         *  @option {number} absMax - absolut max value
+         *  @option {number} absMin - absolute min value
+         *  @option {number} absMax - absolute max value
          *  @option {number} min    - initial min value
          *  @option {number} max    - initial max value
          *  @option {string} unit   - a symbol for the unit ("$", "mm", etc.) as postfix for .rangeInput__label)
@@ -105,13 +105,13 @@ YOI.element.RangeInput = (function() {
             // provide default values for some properties
 
             $thisRangeInput.data().props = {
-                absMin     : (options.absMin !== undefined ? options.absMin : 0),
-                absMax     : (options.absMax !== undefined ? options.absMax : 100),
-                min        : (options.min !== undefined ? options.min : 0),
-                max        : (options.max !== undefined ? options.max : 100),
+                absMin     : (options.absMin || 0),
+                absMax     : (options.absMax || 100),
+                min        : (options.min || options.absMin || 0),
+                max        : (options.max || options.absMax || 100),
                 minValue   : null,
                 maxValue   : null,
-                unit       : (options.unit !== undefined ? options.unit : ''),
+                unit       : (options.unit || ''),
                 offsetX    : Math.floor($thisTrack.offset().left),
                 minPosX    : null,
                 maxPosX    : null,
@@ -120,9 +120,9 @@ YOI.element.RangeInput = (function() {
             };
             
             // calculate the knob offset
-            
-            knobOffset = $thisRangeInput.find('.rangeInput__knob').first().outerWidth() / 2;
 
+            knobOffset = $thisRangeInput.find('.rangeInput__knob').first().outerWidth() / 2;
+            
             // move knobs to initial position
 
             $thisRangeInput.find('.rangeInput__knob').each(function() {
@@ -195,7 +195,7 @@ YOI.element.RangeInput = (function() {
     }
 
     function adjustLabels($rangeInput) {
-
+        
         /**
          *  Position & center labels above knobs. If the knobs
          *  get too close, the individual labels get merged into
@@ -355,7 +355,7 @@ YOI.element.RangeInput = (function() {
 
         // update single label
 
-        var thisSingleLabelTxt = props.minValue + props.unit + ' – ' + props.maxValue + props.unit;
+        var thisSingleLabelTxt = props.minValue + props.unit + ' – ' + props.maxValue + ' ' + props.unit;
         $thisRangeInput.find('.rangeInput__label--single').text(thisSingleLabelTxt);
 
         // finally, move the knob and adjust the labels

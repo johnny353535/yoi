@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: Toggle Group
-permalink: interface/togglegroup
+permalink: modules/togglegroup
 ---
 
 ## Toggle Group

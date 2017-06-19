@@ -478,7 +478,7 @@ YOI.element.Countdown = function() {
             var defaultHour = 12;
             var defaultMinute = 0;
             var defaultSecond = 0;
-            var timezone = options.timezone === undefined ? defaultTimezone : options.timezone;
+            var timezone = options.timezone | defaultTimezone;
             var year = options.year === undefined ? defaultYear : parseInt(options.year);
             var month = options.month === undefined || parseInt(options.month) > 12 || parseInt(options.month) < 1 ? defaultMonth : parseInt(options.month);
             var day = options.day === undefined || parseInt(options.day) > 31 || parseInt(options.day) < 1 ? defaultDay : parseInt(options.day);
@@ -2088,7 +2088,7 @@ YOI.element.RangeInput = function() {
     var $document = $(document);
     var $body = $("body");
     var rangeInputKnob = $('        <div class="rangeInput__knob"></div>    ');
-    var rangeInputLabel = $('        <span class="rangeInput__label">0</span>    ');
+    var rangeInputLabel = $('        <span class="rangeInput__label"></span>    ');
     var rangeInputTrack = $('        <div class="rangeInput__track">            <div class="rangeInput__range"></div>        </div>    ');
     function initialize($rangeInput, options) {
         var $rangeInput = YOI.createCollection("rangeinput", $rangeInput, options);
@@ -2121,13 +2121,13 @@ YOI.element.RangeInput = function() {
             var $thisTrack = rangeInputTrack.clone();
             $thisRangeInput.append($thisMinKnob, $thisMaxKnob, $singleLabel, $thisTrack);
             $thisRangeInput.data().props = {
-                absMin: options.absMin !== undefined ? options.absMin : 0,
-                absMax: options.absMax !== undefined ? options.absMax : 100,
-                min: options.min !== undefined ? options.min : 0,
-                max: options.max !== undefined ? options.max : 100,
+                absMin: options.absMin || 0,
+                absMax: options.absMax || 100,
+                min: options.min || options.absMin || 0,
+                max: options.max || options.absMax || 100,
                 minValue: null,
                 maxValue: null,
-                unit: options.unit !== undefined ? options.unit : "",
+                unit: options.unit || "",
                 offsetX: Math.floor($thisTrack.offset().left),
                 minPosX: null,
                 maxPosX: null,
@@ -2243,7 +2243,7 @@ YOI.element.RangeInput = function() {
                 props.maxValue = thisKnobValue;
             }
         }
-        var thisSingleLabelTxt = props.minValue + props.unit + " – " + props.maxValue + props.unit;
+        var thisSingleLabelTxt = props.minValue + props.unit + " – " + props.maxValue + " " + props.unit;
         $thisRangeInput.find(".rangeInput__label--single").text(thisSingleLabelTxt);
         if (props.min < props.max) {
             $thisKnob.css("left", posX - knobOffset);
@@ -2735,6 +2735,13 @@ YOI.element.Table = function() {
         }
         $thisTable.trigger("yoi-table:select");
     }
+    function unselectRow($thisTr) {
+        var $thisTable = $thisTr.closest("table");
+        var $thisAllTr = $thisTable.find("tr");
+        var options = $thisTable.data().options;
+        $thisAllTr.removeClass("tr--active");
+        $thisTable.trigger("yoi-table:unselect");
+    }
     function removeRow($thisTr) {
         var $thisTable = $thisTr.closest("table");
         var totalTds = $thisTable.find("td").length;
@@ -2747,8 +2754,9 @@ YOI.element.Table = function() {
     }
     return {
         init: initialize,
-        selectRow: selectRow,
-        removeRow: removeRow
+        select: selectRow,
+        unselect: unselectRow,
+        remove: removeRow
     };
 }();
 
@@ -2775,9 +2783,10 @@ YOI.element.Tabs = function() {
     }
     function switchTo(thisTargetTabId) {
         var $thisTabsMenuItem = $('a[href="' + thisTargetTabId + '"]').parent("li");
-        var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest(".tabs__menu").find("li");
+        var $thisTabsMenu = $thisTabsMenuItem.closest(".tabs__menu");
+        var $thisTabsMenuItems = $thisTabsMenu.find("li");
         var $thisTargetTab = $(thisTargetTabId);
-        $thisRelatedTabsMenuItems.each(function() {
+        $thisTabsMenuItems.each(function() {
             var $thisMenuItem = $(this);
             var tabId = $thisMenuItem.find("a")[0].hash;
             $thisMenuItem.removeClass("is--active");
@@ -2785,7 +2794,7 @@ YOI.element.Tabs = function() {
         });
         $thisTabsMenuItem.addClass("is--active");
         $thisTargetTab.show();
-        $thisTargetTab.trigger("yoi-tabs:change");
+        $thisTabsMenu.trigger("yoi-tabs:change");
     }
     return {
         init: initialize,

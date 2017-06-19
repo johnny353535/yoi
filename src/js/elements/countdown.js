@@ -76,7 +76,7 @@ YOI.element.Countdown = (function() {
             var defaultHour     = 12;
             var defaultMinute   = 0;
             var defaultSecond   = 0;
-            var timezone        = options.timezone === undefined ? defaultTimezone : options.timezone;
+            var timezone        = options.timezone | defaultTimezone;
             var year            = options.year === undefined ? defaultYear : parseInt(options.year);
             var month           = options.month === undefined || parseInt(options.month) > 12 || parseInt(options.month) < 1 ? defaultMonth : parseInt(options.month);
             var day             = options.day === undefined || parseInt(options.day) > 31 || parseInt(options.day) < 1 ? defaultDay : parseInt(options.day);

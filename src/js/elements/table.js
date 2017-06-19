@@ -104,6 +104,28 @@ YOI.element.Table = (function() {
         $thisTable.trigger('yoi-table:select');
 
     }
+    
+    function unselectRow($thisTr) {
+
+        /**
+         *  Unselect a given table row.
+         *
+         *  @param {jQuery dom object} $thisTr - the table row
+         */
+
+        var $thisTable = $thisTr.closest('table');
+        var $thisAllTr = $thisTable.find('tr');
+        var options    = $thisTable.data().options;
+
+        // unselect row
+
+        $thisAllTr.removeClass('tr--active');
+        
+        // trigger custom event
+        
+        $thisTable.trigger('yoi-table:unselect');
+
+    }
 
     function removeRow($thisTr) {
 
@@ -138,9 +160,10 @@ YOI.element.Table = (function() {
     // ================
 
     return {
-        init      : initialize,
-        selectRow : selectRow,
-        removeRow : removeRow
+        init     : initialize,
+        select   : selectRow,
+        unselect : unselectRow,
+        remove   : removeRow
     };
 
 })();

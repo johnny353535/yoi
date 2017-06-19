@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: Hide & Reveal
-permalink: interface/hide_and_reveal
+permalink: modules/hide_and_reveal
 ---
 
 ## Hide & Reveal

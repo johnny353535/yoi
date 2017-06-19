@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: Update
-permalink: interface/update
+permalink: modules/update
 ---
 
 ## Update

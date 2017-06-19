@@ -1,8 +1,8 @@
 ---
 layout: base
-group: workflows
+group: modules
 title: Introduction
-permalink: workflows/
+permalink: modules/
 ---
 
 ## Introduction

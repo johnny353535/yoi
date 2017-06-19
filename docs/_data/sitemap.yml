@@ -1,10 +1,7 @@
 start:
     - index
-    - colophon
     - how_to_use
-    - project_structure
-    - styleguide_css
-    - styleguide_js
+    - setup
 core:
     - index
     - mixins
@@ -19,6 +16,21 @@ theme:
     - options
     - styling
     - typography
+utilities:
+    - index
+    - fx
+    - grid
+    - interaction
+    - interface
+    - js_fallback
+    - layout
+    - responsive_layout
+    - responsive_spacing
+    - responsive_typography
+    - spacing
+    - styling
+    - typography
+    - visibility
 elements:
     - index
     - accordion
@@ -77,7 +89,7 @@ elements:
     - table
     - tabs
     - tooltip
-interface:
+modules:
     - index
     - hide_and_reveal
     - lazyload
@@ -87,27 +99,6 @@ interface:
     - sticky
     - toggleGroup
     - update
-utilities:
-    - index
-    - fx
-    - grid
-    - interaction
-    - interface
-    - js_fallback
-    - layout
-    - responsive_layout
-    - responsive_spacing
-    - responsive_typography
-    - spacing
-    - styling
-    - typography
-    - visibility
-workflows:
-    - index
-    - adding_elements
-    - adding_icons
-    - contributing_the_documentation
-    - custom_branding
 tools:
     - index
     - buttons

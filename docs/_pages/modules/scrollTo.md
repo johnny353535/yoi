@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: ScrollTo
-permalink: interface/scrollto
+permalink: modules/scrollto
 ---
 
 ## scrollTo

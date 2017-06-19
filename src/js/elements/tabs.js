@@ -81,14 +81,15 @@ YOI.element.Tabs = (function() {
          *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
         
-        var $thisTabsMenuItem         = $('a[href="' + thisTargetTabId + '"]').parent('li');
-        var $thisRelatedTabsMenuItems = $thisTabsMenuItem.closest('.tabs__menu').find('li');
-        var $thisTargetTab            = $(thisTargetTabId);
+        var $thisTabsMenuItem  = $('a[href="' + thisTargetTabId + '"]').parent('li');
+        var $thisTabsMenu      = $thisTabsMenuItem.closest('.tabs__menu');
+        var $thisTabsMenuItems = $thisTabsMenu.find('li');
+        var $thisTargetTab     = $(thisTargetTabId);
         
         // remove '.is--active' from all related menu items,
         // hide all related tabs
 
-        $thisRelatedTabsMenuItems.each(function() {
+        $thisTabsMenuItems.each(function() {
             
             var $thisMenuItem = $(this);
             var tabId         = $thisMenuItem.find('a')[0].hash;
@@ -105,7 +106,7 @@ YOI.element.Tabs = (function() {
         
         // trigger custom event
         
-        $thisTargetTab.trigger('yoi-tabs:change');
+        $thisTabsMenu.trigger('yoi-tabs:change');
 
     }
 

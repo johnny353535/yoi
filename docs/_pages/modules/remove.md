@@ -1,8 +1,8 @@
 ---
 layout: base
-group: interface
+group: modules
 title: Remove
-permalink: interface/remove
+permalink: modules/remove
 ---
 
 ## Remove
