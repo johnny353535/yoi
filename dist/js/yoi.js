@@ -1262,13 +1262,13 @@ YOI.element.ImgMagnifier = function() {
     var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
-    var defaultStartViewerDelayTime = 600;
+    var defaultStartViewerDelayTime = 250;
     function initialize($imgMagnifier, options) {
         var $imgMagnifier = YOI.createCollection("imgmagnifier", $imgMagnifier, options);
         if ($imgMagnifier) $imgMagnifier.each(function() {
             var $thisImgMagnifier = $(this);
-            var $thisCursor = $cursor.clone().hide();
-            var $thisViewer = $viewer.clone().hide();
+            var $thisCursor = $cursor.clone().fadeOut(0);
+            var $thisViewer = $viewer.clone().fadeOut(0);
             $thisImgMagnifier.append($thisCursor);
             $thisImgMagnifier.append($thisViewer);
             $thisImgMagnifier.find("a").on("click", function(e) {
@@ -1316,10 +1316,10 @@ YOI.element.ImgMagnifier = function() {
             $thisImgMagnifier.off();
             $thisImgMagnifier.find("*").off();
         });
-        return false;
     }
     function setZoomImage($thisImgMagnifier) {
-        var thisZoomImagePath = $thisImgMagnifier.find("a").attr("href");
+        var options = $thisImgMagnifier.data().options;
+        var thisZoomImagePath = options.zoomImage || $thisImgMagnifier.find("a").attr("href");
         var $thisViewer = $thisImgMagnifier.find(".imgMagnifier__viewer");
         var $thisPreviewImage = $thisImgMagnifier.find(".imgMagnifier__previewImage");
         var thisZoomImage = new Image();
@@ -1373,10 +1373,10 @@ YOI.element.ImgMagnifier = function() {
         var $thisViewer = $thisImgMagnifier.find(".imgMagnifier__viewer");
         var $thisCursor = $thisImgMagnifier.find(".imgMagnifier__cursor");
         var options = $thisImgMagnifier.data().options;
-        var delay = options.delay !== undefined ? parseInt(options.delay) : defaultStartViewerDelayTime;
+        var delay = options.delay || parseInt(options.delay) || defaultStartViewerDelayTime;
         YOI.setDelay("imgMagnifierDelay", delay, function() {
-            $thisViewer.fadeIn();
-            $thisCursor.fadeIn();
+            $thisViewer.fadeIn(250);
+            $thisCursor.fadeIn(100);
             $thisViewer.trigger("yoi-imgmagnifier:start");
         });
     }
@@ -1384,8 +1384,8 @@ YOI.element.ImgMagnifier = function() {
         YOI.clearDelay("imgMagnifierDelay");
         var $thisViewer = $thisImgMagnifier.find(".imgMagnifier__viewer");
         var $thisCursor = $thisImgMagnifier.find(".imgMagnifier__cursor");
-        $thisViewer.fadeOut("fast");
-        $thisCursor.fadeOut("fast");
+        $thisViewer.fadeOut(50);
+        $thisCursor.fadeOut(150);
         $thisViewer.trigger("yoi-imgmagnifier:stop");
     }
     function moveMagnifier($thisImgMagnifier, e) {
@@ -1405,8 +1405,7 @@ YOI.element.ImgMagnifier = function() {
         if (minX && maxX) $thisZoomImage.css("left", xPos * cursorProps.xRatio * -1);
     }
     return {
-        init: initialize,
-        destroy: destroy
+        init: initialize
     };
 }();
 
@@ -1436,73 +1435,60 @@ YOI.element.Log = function() {
 }();
 
 YOI.element.MaxChars = function() {
-    var defaultMaxLength = 100;
+    var defaultMaxLength = 200;
     function initialize($inputElement, options) {
         var $inputElement = YOI.createCollection("maxchars", $inputElement, options);
         if ($inputElement) $inputElement.each(function() {
             var $thisInputElement = $(this);
-            setMaxLength($thisInputElement);
+            updateProps($thisInputElement);
             displayCharsLeft($thisInputElement);
             $thisInputElement.on("input", function() {
-                observeInput($thisInputElement);
+                updateInputElement($thisInputElement);
             });
         });
     }
-    function setMaxLength($inputElement) {
-        var $thisInputElement = $inputElement;
-        var options = $thisInputElement.data().options;
-        var maxLengthValue = parseInt($inputElement.attr("maxlength"));
-        if (maxLengthValue !== undefined && maxLengthValue > 0) {
-            $thisInputElement.data().options.maxLength = maxLengthValue;
-        } else if (options.maxLength === undefined) {
-            $thisInputElement.data().options.maxLength = defaultMaxLength;
-        }
+    function updateProps($inputElement) {
+        var options = $inputElement.data().options;
+        $inputElement.data().props = {
+            maxLength: parseInt($inputElement.attr("maxlength")) || parseInt(options.maxLength) || defaultMaxLength,
+            display: options.display || false,
+            errorClassNames: options.errorClass || false
+        };
     }
-    function inputUnderLimit($inputElement) {
-        var maxLength = $inputElement.data().options.maxLength;
+    function updateInputElement($inputElement) {
+        var props = $inputElement.data().props;
+        var $displayElement = $(props.display);
         var inputLength = $inputElement[0].value.length;
-        if (inputLength >= maxLength) {
-            return false;
-        } else {
-            return true;
+        if (inputLength > props.maxLength) {
+            $inputElement.val($inputElement.val().slice(0, -1));
         }
-    }
-    function observeInput($inputElement) {
-        var $displayElement = $($inputElement.data().options.display);
-        var errorClassProvided = $inputElement.data().options.errorClass !== false;
-        if (!$displayElement.length) return false;
-        if (inputUnderLimit($inputElement) && errorClassProvided) {
-            removeErrorStyling($inputElement);
-            $inputElement.data().state = "underlimit";
-        } else if (errorClassProvided) {
-            addErrorStyling($inputElement);
-            $inputElement.data().state = "overlimit";
-            $inputElement.trigger("yoi-maxchars:exceed");
+        if ($displayElement.length) {
+            if (inputLength >= props.maxLength) {
+                $displayElement.addClass(props.errorClassNames);
+                $inputElement.trigger("yoi-maxchars:reset");
+            } else {
+                $displayElement.removeClass(props.errorClassNames);
+            }
+            displayCharsLeft($inputElement);
         }
-        displayCharsLeft($inputElement);
     }
     function displayCharsLeft($inputElement) {
-        var $displayElement = $($inputElement.data().options.display);
-        var charsLeft = $inputElement.data().options.maxLength - $inputElement[0].value.length;
-        if (!$displayElement.length) return false;
-        $displayElement.text(charsLeft);
+        var props = $inputElement.data().props;
+        var $displayElement = $(props.display);
+        var charsLeft = props.maxLength - $inputElement[0].value.length;
+        if ($displayElement.length) $displayElement.text(charsLeft);
     }
-    function addErrorStyling($inputElement) {
-        var errorClass = $inputElement.data().options.errorClass;
-        var $displayElement = $($inputElement.data().options.display);
-        if ($displayElement) $displayElement.addClass(errorClass);
-    }
-    function removeErrorStyling($inputElement) {
-        var errorClass = $inputElement.data().options.errorClassNames;
-        var $displayElement = $($inputElement.data().options.displaySelector);
-        if (!$displayElement.length) return false;
-        $displayElement.removeClass(errorClass);
+    function reset($inputElement) {
+        var props = $inputElement.data().props;
+        var $displayElement = $(props.display);
+        $inputElement.val("");
+        $displayElement.text(props.maxLength);
+        $displayElement.removeClass(props.errorClassNames);
+        $inputElement.trigger("yoi-maxchars:reset");
     }
     return {
         init: initialize,
-        display: displayCharsLeft,
-        addError: addErrorStyling,
-        removeError: removeErrorStyling
+        reset: reset
     };
 }();
 
@@ -2095,6 +2081,10 @@ YOI.element.RangeInput = function() {
         if ($rangeInput) $rangeInput.each(function() {
             var $thisRangeInput = $(this);
             var options = $thisRangeInput.data().options;
+            var $thisMinKnob;
+            var $thisMaxKnob;
+            var $singleLabel;
+            var $thisTrack;
             rangeInputKnob.on("mousedown", function(e) {
                 var $thisKnob = $(this);
                 var $thisRangeInput = $(this).closest(".rangeInput");
@@ -2115,10 +2105,10 @@ YOI.element.RangeInput = function() {
                 $thisKnob.siblings(".rangeInput__knob").removeClass("rangeInput__knob--topMost");
                 $thisKnob.addClass("rangeInput__knob--topMost");
             });
-            var $thisMinKnob = rangeInputKnob.clone("true").addClass("rangeInput__knob--min").append(rangeInputLabel.clone());
-            var $thisMaxKnob = rangeInputKnob.clone("true").addClass("rangeInput__knob--max").append(rangeInputLabel.clone());
-            var $singleLabel = rangeInputLabel.clone().addClass("rangeInput__label--single");
-            var $thisTrack = rangeInputTrack.clone();
+            $thisMinKnob = rangeInputKnob.clone("true").addClass("rangeInput__knob--min").append(rangeInputLabel.clone());
+            $thisMaxKnob = rangeInputKnob.clone("true").addClass("rangeInput__knob--max").append(rangeInputLabel.clone());
+            $singleLabel = rangeInputLabel.clone().addClass("rangeInput__label--single");
+            $thisTrack = rangeInputTrack.clone();
             $thisRangeInput.append($thisMinKnob, $thisMaxKnob, $singleLabel, $thisTrack);
             $thisRangeInput.data().props = {
                 absMin: options.absMin || 0,
@@ -2135,51 +2125,55 @@ YOI.element.RangeInput = function() {
                 width: $thisTrack.width()
             };
             knobOffset = $thisRangeInput.find(".rangeInput__knob").first().outerWidth() / 2;
-            $thisRangeInput.find(".rangeInput__knob").each(function() {
-                var $thisKnob = $(this);
-                moveKnob($thisRangeInput, $thisKnob);
-            });
+            set($thisRangeInput, $thisRangeInput.data().props.absMin, $thisRangeInput.data().props.absMax, $thisRangeInput.data().props.min, $thisRangeInput.data().props.max);
         });
     }
     function set($rangeInput, absMin, absMax, min, max) {
         var $thisRangeInput = $rangeInput;
         var $thisMinKnob = $thisRangeInput.find(".rangeInput__knob--min");
         var $thisMaxKnob = $thisRangeInput.find(".rangeInput__knob--max");
-        $thisRangeInput.data().props = {
-            absMin: absMin,
-            absMax: absMax,
-            min: min,
-            max: max
-        };
+        var thisProps = $thisRangeInput.data().props;
+        thisProps.absMin = absMin;
+        thisProps.absMax = absMax;
+        thisProps.min = min;
+        thisProps.max = max;
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
         $rangeInput.trigger("yoi-rangeinput:change");
     }
     function reset($rangeInput) {
         var $thisRangeInput = $rangeInput;
-        var props = $thisRangeInput.data().props;
+        var thisProps = $thisRangeInput.data().props;
         var $thisMinKnob = $thisRangeInput.find(".rangeInput__knob--min");
         var $thisMaxKnob = $thisRangeInput.find(".rangeInput__knob--max");
         var thisAbsMin = props.absMin;
         var thisAbsMax = props.absMax;
-        props.min = thisAbsMin;
-        props.max = thisAbsMax;
+        thisProps.min = thisAbsMin;
+        thisProps.max = thisAbsMax;
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
         $rangeInput.trigger("yoi-rangeinput:reset");
     }
     function adjustLabels($rangeInput) {
         var $thisRangeInput = $rangeInput;
-        var props = $thisRangeInput.data().props;
         var $thisMinLabel = $thisRangeInput.find(".rangeInput__knob--min .rangeInput__label");
         var $thisMaxLabel = $thisRangeInput.find(".rangeInput__knob--max .rangeInput__label");
         var $thisSingleLabel = $thisRangeInput.find(".rangeInput__label--single");
-        $thisMinLabel.css("left", $thisMinLabel.outerWidth() / -2 + knobOffset);
-        $thisMaxLabel.css("left", $thisMaxLabel.outerWidth() / -2 + knobOffset);
-        $thisSingleLabel.css("left", props.minPosX + (props.maxPosX - props.minPosX) / 2 - $thisSingleLabel.outerWidth() / 2);
+        var props = $thisRangeInput.data().props;
+        var minKnobRightEdge;
+        var maxKnobLeftEdge;
+        $thisMinLabel.text(props.min + " " + props.unit);
+        $thisMaxLabel.text(props.max + " " + props.unit);
+        $thisSingleLabel.text(props.minValue + props.unit + " – " + props.maxValue + " " + props.unit);
+        var minLabelWidth = $thisMinLabel.outerWidth();
+        var maxLabelWidth = $thisMaxLabel.outerWidth();
+        var singleLabelWidth = $thisSingleLabel.outerWidth();
+        $thisMinLabel.css("left", minLabelWidth / -2 + knobOffset);
+        $thisMaxLabel.css("left", maxLabelWidth / -2 + knobOffset);
+        $thisSingleLabel.css("left", props.minPosX + (props.maxPosX - props.minPosX) / 2 - singleLabelWidth / 2);
         if (props.minPosX === null || props.maxPosX === null) return;
-        var minKnobRightEdge = props.minPosX + $thisMinLabel.outerWidth() / 2;
-        var maxKnobLeftEdge = props.maxPosX - $thisMaxLabel.outerWidth() / 2;
+        minKnobRightEdge = props.minPosX + minLabelWidth / 2;
+        maxKnobLeftEdge = props.maxPosX - maxLabelWidth / 2;
         if (minKnobRightEdge >= maxKnobLeftEdge) {
             $thisRangeInput.addClass("rangeInput--mergedLabels");
         } else {
@@ -2207,27 +2201,29 @@ YOI.element.RangeInput = function() {
         var isMaxKnob = $thisKnob.hasClass("rangeInput__knob--max");
         var posX = 0;
         var thisKnobValue = null;
+        var thisSingleLabelTxt;
+        var factor;
+        var inputValue;
+        var range;
         if (e !== undefined) {
             if (props.cursorOffset > 0) e.pageX = e.pageX - props.cursorOffset;
             if (props.cursorOffset < 0) e.pageX = e.pageX + props.cursorOffset * -1;
             posX = Math.floor(Math.min(Math.max(0, e.pageX - props.offsetX), props.width));
-            var factor = Math.floor(posX / props.width * 100);
+            factor = Math.floor(posX / props.width * 100);
             thisKnobValue = Math.floor((props.absMax - props.absMin) / 100 * factor + props.absMin * 1);
             $thisRangeInput.trigger("yoi-rangeinput:change");
         } else {
-            var inputValue;
             if (isMinKnob) inputValue = props.min;
             if (isMaxKnob) inputValue = props.max;
-            var range = props.absMax - props.absMin;
-            var factor = props.width / range;
-            var posX = Math.ceil(factor * (inputValue - props.absMin));
+            range = props.absMax - props.absMin;
+            factor = Math.ceil(props.width / range);
+            posX = factor * (inputValue - props.absMin);
             thisKnobValue = inputValue;
         }
         if (isMinKnob) {
             if (e !== undefined) props.min = thisKnobValue;
             if (props.min < props.max) {
                 $thisRangeInput.find(".rangeInput__range").css("left", posX);
-                $thisKnob.find(".rangeInput__label").text(thisKnobValue + " " + props.unit);
                 $thisMinInput.val(thisKnobValue);
                 props.minPosX = posX;
                 props.minValue = thisKnobValue;
@@ -2237,14 +2233,11 @@ YOI.element.RangeInput = function() {
             if (e !== undefined) props.max = thisKnobValue;
             if (props.min < props.max) {
                 $thisRangeInput.find(".rangeInput__range").css("right", props.width - posX);
-                $thisKnob.find(".rangeInput__label").text(thisKnobValue + " " + props.unit);
                 $thisMaxInput.val(thisKnobValue);
                 props.maxPosX = posX;
                 props.maxValue = thisKnobValue;
             }
         }
-        var thisSingleLabelTxt = props.minValue + props.unit + " – " + props.maxValue + " " + props.unit;
-        $thisRangeInput.find(".rangeInput__label--single").text(thisSingleLabelTxt);
         if (props.min < props.max) {
             $thisKnob.css("left", posX - knobOffset);
             adjustLabels($thisRangeInput);
@@ -2997,9 +2990,7 @@ YOI.KeyboardAgent = function() {
         27: "escape"
     };
     function initialize() {
-        $document.on("keydown", function(e) {
-            if (e.which === 32 && e.target !== document.body) e.preventDefault();
-        }).on("keyup", function(e) {
+        $document.on("keyup", function(e) {
             var keyCode = e.which;
             if (keys[keyCode] !== undefined) $document.trigger("yoi-keypressed:" + keys[keyCode]);
         });

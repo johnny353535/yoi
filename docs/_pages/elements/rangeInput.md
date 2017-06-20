@@ -64,21 +64,43 @@ Set the unit to any (short) string – eg. “€”, “$” or “mm”:
 <div id="foo" class="rangeInput m-4" yoi-rangeinput="unit:mm"></div>
 ```
 
-
 ### Methods
-
-...
 
 #### set()
 
-...
+Pick a `.rangeInput` and set the range to the provided value:
+
+```js
+/*
+ * @param {jQuery dom object} $rangeInput - the range input
+ * @param {number}            absMin      - absolute min value
+ * @param {number}            absMax      - absolute max value
+ * @param {number}            min         - min value
+ * @param {number}            max         - max value
+ */
+
+// example call
+
+YOI.element.RangeInput.set($('#myRangeInput'), 0, 100, 12, 33);
+```
 
 #### reset()
 
-...
+Pick a `.rangeInput` and reset the range to absolute min and absolute max values:
 
-#### Accessing Data
+```js
+/*
+ *  @param {jQuery dom object} $rangeInput - the range input
+ */
 
+// example call
+
+YOI.element.RangeInput.reset($('#myRangeInput'));
+```
+
+#### Accessing Values
+
+To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput:change` event and read the keys `min` and `max` from the `.data().props` object:
 
 ```html
 <!-- example:tabs -->
@@ -97,8 +119,27 @@ Set the unit to any (short) string – eg. “€”, “$” or “mm”:
 
 ### Custom Events
 
-:change
-:reset
+`.rangeInput` fires custom events your script can listen to:
+
+| event name              | fires when …                                          |
+| ----------------------- | ----------------------------------------------------- |
+| `yoi-rangeinput:change` | knob moved or YOI.element.RangeInput.set() got called |
+| `yoi-rangeinput:reset`  | YOI.element.RangeInput.reset() got called             |
 
 ## Fallback
 
+To provide a usable interface when JavaScript is not available, place the markup for your fallback (eg. form fields) inside the `.rangeInput` element. Use the [utility](utilities/js_fallback.html) `.js-fallback` to hide the fallback markup when JavaScript is available:
+
+```html
+<!-- example -->
+<div class="rangeInput" yoi-rangeinput>
+    <form class="js-fallback">
+        <label>
+            Min: <input type="number" value="0" />
+        </label>
+        <label>
+            Max: <input type="number" value="10" />
+        </label>
+    </form>
+</div>
+```

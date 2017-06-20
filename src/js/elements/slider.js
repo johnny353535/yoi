@@ -150,7 +150,7 @@ YOI.element.Slider = (function() {
     // =================
 
     function initialize($slider, options) {
-
+        
         /**
          *  Initialize the script.
          *

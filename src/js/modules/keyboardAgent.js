@@ -29,23 +29,14 @@ YOI.KeyboardAgent = (function() {
          *  trigger the corresponding custom events.
          */
         
-        $document
-            .on('keydown', function(e) {
+        $document.on('keyup', function(e) {
                 
-                // if the space key was pressed and any yoi-element has focus,
-                // prevent the page from scrolling
-                
-                if (e.which === 32 && e.target !== document.body) e.preventDefault();
-                
-            })
-            .on('keyup', function(e) {
-                
-                // trigger the custom "yoi-keypressed" event
-                
-                var keyCode = e.which;
-                if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed:' + keys[keyCode]);
-                
-            });
+            // trigger the custom "yoi-keypressed" event
+            
+            var keyCode = e.which;
+            if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed:' + keys[keyCode]);
+            
+        });
         
     }
     

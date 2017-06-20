@@ -8,7 +8,7 @@ YOI.element.ImgMagnifier = (function(){
     var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
-    var defaultStartViewerDelayTime = 600;
+    var defaultStartViewerDelayTime = 250;
 
     // private functions
 
@@ -26,8 +26,8 @@ YOI.element.ImgMagnifier = (function(){
         if ($imgMagnifier) $imgMagnifier.each(function() {
 
             var $thisImgMagnifier = $(this);
-            var $thisCursor       = $cursor.clone().hide();
-            var $thisViewer       = $viewer.clone().hide();
+            var $thisCursor       = $cursor.clone().fadeOut(0);
+            var $thisViewer       = $viewer.clone().fadeOut(0);
 
             // append elements
 
@@ -106,8 +106,7 @@ YOI.element.ImgMagnifier = (function(){
         /**
          *  Remove all injected elements and detach all events.
          *
-         *  @param  {jQuery dom object} $imgMagnifier - all image magnifiers
-         *  @return {bool false}
+         *  @param {jQuery dom object} $imgMagnifier - all image magnifiers
          */
 
         if (!($imgMagnifier instanceof jQuery)) {
@@ -125,8 +124,6 @@ YOI.element.ImgMagnifier = (function(){
 
         });
 
-        return false;
-
     }
 
     function setZoomImage($thisImgMagnifier) {
@@ -138,9 +135,10 @@ YOI.element.ImgMagnifier = (function(){
          *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
          */
 
-        var thisZoomImagePath   = $thisImgMagnifier.find('a').attr('href');
-        var $thisViewer         = $thisImgMagnifier.find('.imgMagnifier__viewer');
-        var $thisPreviewImage   = $thisImgMagnifier.find('.imgMagnifier__previewImage');
+        var options              = $thisImgMagnifier.data().options;
+        var thisZoomImagePath    = options.zoomImage || $thisImgMagnifier.find('a').attr('href');
+        var $thisViewer          = $thisImgMagnifier.find('.imgMagnifier__viewer');
+        var $thisPreviewImage    = $thisImgMagnifier.find('.imgMagnifier__previewImage');
 
         // prepare the zoom image, get size before injecting into DOM
 
@@ -173,7 +171,7 @@ YOI.element.ImgMagnifier = (function(){
 
                 setCursor($thisImgMagnifier);
 
-                // If the zoom image is smaller than the preview image, destory
+                // If the zoom image is smaller than the preview image, destroy
                 // the image magnifier.
 
                 if ($thisImgMagnifier.data().props.yRatio >= 1 || $thisImgMagnifier.data().props.yRatio >= 1) {
@@ -244,11 +242,11 @@ YOI.element.ImgMagnifier = (function(){
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var options     = $thisImgMagnifier.data().options;
-        var delay       = options.delay !== undefined ? parseInt(options.delay) : defaultStartViewerDelayTime;
+        var delay       = options.delay || parseInt(options.delay) || defaultStartViewerDelayTime;
 
         YOI.setDelay('imgMagnifierDelay', delay, function() {
-            $thisViewer.fadeIn();
-            $thisCursor.fadeIn();
+            $thisViewer.fadeIn(250);
+            $thisCursor.fadeIn(100);
             $thisViewer.trigger('yoi-imgmagnifier:start');
         });
 
@@ -267,8 +265,8 @@ YOI.element.ImgMagnifier = (function(){
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
         var $thisCursor = $thisImgMagnifier.find('.imgMagnifier__cursor');
 
-        $thisViewer.fadeOut('fast');
-        $thisCursor.fadeOut('fast');
+        $thisViewer.fadeOut(50);
+        $thisCursor.fadeOut(150);
         
         $thisViewer.trigger('yoi-imgmagnifier:stop');
         
@@ -317,8 +315,7 @@ YOI.element.ImgMagnifier = (function(){
     // ================
 
     return {
-        init    : initialize,
-        destroy : destroy
+        init : initialize
     };
 
 })();

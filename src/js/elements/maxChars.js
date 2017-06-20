@@ -5,7 +5,7 @@ YOI.element.MaxChars = (function() {
     // private vars
     // ============
 
-    var defaultMaxLength = 100;
+    var defaultMaxLength = 200;
 
     // private functions
     // =================
@@ -30,10 +30,10 @@ YOI.element.MaxChars = (function() {
         if ($inputElement) $inputElement.each(function() {
             
             var $thisInputElement = $(this);
+
+            // update properties
             
-            // set the max length
-            
-            setMaxLength($thisInputElement);
+            updateProps($thisInputElement);
             
             // set the display
 
@@ -42,168 +42,122 @@ YOI.element.MaxChars = (function() {
             // attach event
 
             $thisInputElement.on('input', function() {
-                observeInput($thisInputElement);
+                updateInputElement($thisInputElement);
             });
 
         });
 
     }
     
-    function setMaxLength($inputElement) {
+    function updateProps($inputElement) {
         
         /**
-         *  Sets the maximum character length. The maxlength-attribute in markup
-         *  overrides the value passed in via the options interface. If no value
-         *  was provided or the value is below 1, it falls back to a default value.
+         *  Assign values from options directly to the $inputElement
+         *  jQuery-data-object.
          *
-         *  @param  {jQuery dom object} $inputElement
+         *  @param {jQuery dom object} $inputElement
          */
         
-        var $thisInputElement = $inputElement;
-        var options           = $thisInputElement.data().options;
-        var maxLengthValue    = parseInt($inputElement.attr('maxlength'));
+        var options = $inputElement.data().options;
         
-        if (maxLengthValue !== undefined && maxLengthValue > 0) {
-            $thisInputElement.data().options.maxLength = maxLengthValue;
-        } else if (options.maxLength === undefined) {
-            $thisInputElement.data().options.maxLength = defaultMaxLength;
+        $inputElement.data().props = {
+            maxLength       : parseInt($inputElement.attr('maxlength')) || parseInt(options.maxLength) || defaultMaxLength,
+            display         : options.display || false,
+            errorClassNames : options.errorClass || false
         }
         
     }
 
-    function inputUnderLimit($inputElement) {
+    function updateInputElement($inputElement) {
 
         /**
-         *  Checks if the current character input inside the input element
-         *  is under a given limit.
-         *
-         *  @param  {jQuery dom object} $inputElement - the maxchar element
-         *  @return {boolean}                     - "true" if under limit, "false" if over limit
-         */
-
-        // TODO => set default maxlenght
-
-        var maxLength   = $inputElement.data().options.maxLength;
-        var inputLength = $inputElement[0].value.length;
-
-        if (inputLength >= maxLength) {
-            return false;
-        } else {
-            return true;
-        }
-
-    }
-
-    function observeInput($inputElement) {
-
-        /**
-         *  Watches the input element and provides visual feedback so
+         *  Watch the input element and provide visual feedback so
          *  the user knows how many characters are left.
          *
          *  @param  {jQuery dom object} $inputElement - the maxchar element
-         *  @return {boolean}                     - "false" if no display element was found
          */
         
-        var $displayElement    = $($inputElement.data().options.display);
-        var errorClassProvided = $inputElement.data().options.errorClass !== false;
+        var props           = $inputElement.data().props;
+        var $displayElement = $(props.display);
+        var inputLength     = $inputElement[0].value.length;
         
-        // cancel if no display element was found
-
-        if (!$displayElement.length) return false;
-
-        // add or remove the error styling
-
-        if (inputUnderLimit($inputElement) && errorClassProvided) {
-            removeErrorStyling($inputElement);
-            $inputElement.data().state = 'underlimit';
-        } else if (errorClassProvided) {
-            addErrorStyling($inputElement);
-            $inputElement.data().state = 'overlimit';
-            $inputElement.trigger('yoi-maxchars:exceed');
+        // don't accept input if over maxlength
+        
+        if (inputLength > props.maxLength) {
+            $inputElement.val($inputElement.val().slice(0, -1));
         }
-
-        // display how many characters are left
-
-        displayCharsLeft($inputElement);
+        
+        if ($displayElement.length) {
+            
+            if (inputLength >= props.maxLength) {
+                
+                // add error class and trigger custom event
+                
+                $displayElement.addClass(props.errorClassNames);
+                $inputElement.trigger('yoi-maxchars:reset');
+                
+            } else {
+                
+                // remove error class
+                
+                $displayElement.removeClass(props.errorClassNames);
+                
+            }
+        
+            // show how many chars are left
+        
+            displayCharsLeft($inputElement);
+            
+        }
 
     }
 
     function displayCharsLeft($inputElement) {
 
         /**
-         *  Writes how many characters are left to the display element.
+         *  Write how many characters are left to the display element.
          *
          *  @param  {jQuery dom object} $inputElement - the maxchar element
-         *  @return {boolean}                     - "false" if no display element was found
          */
+
+        var props           = $inputElement.data().props;
+        var $displayElement = $(props.display);
+        var charsLeft       = props.maxLength - $inputElement[0].value.length;
         
-        // TODO => set default display element?
-
-        var $displayElement = $($inputElement.data().options.display);
-        var charsLeft       = $inputElement.data().options.maxLength - $inputElement[0].value.length;
-
-        // cancel if no display element was found
-
-        if (!$displayElement.length) return false;
-
         // write how many characters are left to the display element
 
-        $displayElement.text(charsLeft);
+        if ($displayElement.length) $displayElement.text(charsLeft);
 
     }
 
-    function addErrorStyling($inputElement) {
-
+    
+    function reset($inputElement) {
+        
         /**
-         *  Adds the provided CSS class names to the display element if the
-         *  input's character count exceeds the given limit.
+         *  Reset the input and display element.
          *
          *  @param  {jQuery dom object} $inputElement - the maxchar element
-         *  @return {boolean}                     - "false" if no display element was found
-         */
-
-        var errorClass      = $inputElement.data().options.errorClass;
-        var $displayElement = $($inputElement.data().options.display);
-
-        // add the CSS error class names
-
-        if ($displayElement) $displayElement.addClass(errorClass);
-
-    }
-
-    function removeErrorStyling($inputElement) {
-
-        /**
-         *  Removes the provided CSS class names from the display element if the
-         *  input's character count is under the given limit.
-         *
-         *  @param  {jQuery dom object} $inputElement - the maxchar element
-         *  @return {boolean}                     - "false" if no display element was found
          */
         
-        // TODO => set default error class?
-
-        var errorClass      = $inputElement.data().options.errorClassNames;
-        var $displayElement = $($inputElement.data().options.displaySelector);
-
-        // cancel if no display element was found
-
-        if (!$displayElement.length) return false;
-
-        // remove the CSS error class names
-
-        $displayElement.removeClass(errorClass);
-
+        var props           = $inputElement.data().props;
+        var $displayElement = $(props.display);
+        
+        $inputElement.val('');
+        $displayElement.text(props.maxLength);
+        $displayElement.removeClass(props.errorClassNames);
+        
+        // trigger custom event
+        
+        $inputElement.trigger('yoi-maxchars:reset');
+        
     }
 
     // public functions
     // ================
 
     return {
-        init        : initialize,
-        display     : displayCharsLeft,
-        addError    : addErrorStyling,
-        removeError : removeErrorStyling
+        init  : initialize,
+        reset : reset
     };
 
 })();

@@ -51,6 +51,11 @@ YOI.element.RangeInput = (function() {
 
             var $thisRangeInput = $(this);
             var options         = $thisRangeInput.data().options;
+            
+            var $thisMinKnob;
+            var $thisMaxKnob;
+            var $singleLabel;
+            var $thisTrack;
 
             // attach events to range knobs
 
@@ -94,11 +99,11 @@ YOI.element.RangeInput = (function() {
 
             // clone & append objects
 
-            var $thisMinKnob = rangeInputKnob.clone('true').addClass('rangeInput__knob--min').append(rangeInputLabel.clone());
-            var $thisMaxKnob = rangeInputKnob.clone('true').addClass('rangeInput__knob--max').append(rangeInputLabel.clone());
-            var $singleLabel = rangeInputLabel.clone().addClass('rangeInput__label--single');
-            var $thisTrack   = rangeInputTrack.clone();
-
+            $thisMinKnob = rangeInputKnob.clone('true').addClass('rangeInput__knob--min').append(rangeInputLabel.clone());
+            $thisMaxKnob = rangeInputKnob.clone('true').addClass('rangeInput__knob--max').append(rangeInputLabel.clone());
+            $singleLabel = rangeInputLabel.clone().addClass('rangeInput__label--single');
+            $thisTrack   = rangeInputTrack.clone();
+            
             $thisRangeInput.append($thisMinKnob, $thisMaxKnob, $singleLabel, $thisTrack);
 
             // assign values to range input data().props object,
@@ -119,23 +124,26 @@ YOI.element.RangeInput = (function() {
                 width      : $thisTrack.width()
             };
             
-            // calculate the knob offset
+            // calculate the knob offset, save to global variable
 
             knobOffset = $thisRangeInput.find('.rangeInput__knob').first().outerWidth() / 2;
             
             // move knobs to initial position
 
-            $thisRangeInput.find('.rangeInput__knob').each(function() {
-                var $thisKnob = $(this);
-                moveKnob($thisRangeInput, $thisKnob);
-            });
+            set(
+                $thisRangeInput,
+                $thisRangeInput.data().props.absMin,
+                $thisRangeInput.data().props.absMax,
+                $thisRangeInput.data().props.min,
+                $thisRangeInput.data().props.max
+            );
 
         });
 
     }
 
     function set($rangeInput, absMin, absMax, min, max) {
-
+        
         /**
          *  Set the range input to the provided values.
          *
@@ -149,13 +157,16 @@ YOI.element.RangeInput = (function() {
         var $thisRangeInput = $rangeInput;
         var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
         var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
-
-        $thisRangeInput.data().props = {
-            absMin : absMin,
-            absMax : absMax,
-            min    : min,
-            max    : max
-        };
+        var thisProps       = $thisRangeInput.data().props;
+        
+        // update props
+        
+        thisProps.absMin    = absMin
+        thisProps.absMax    = absMax
+        thisProps.min       = min
+        thisProps.max       = max
+        
+        // move knobs
 
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
@@ -176,14 +187,14 @@ YOI.element.RangeInput = (function() {
          */
 
         var $thisRangeInput = $rangeInput;
-        var props           = $thisRangeInput.data().props;
+        var thisProps       = $thisRangeInput.data().props;
         var $thisMinKnob    = $thisRangeInput.find('.rangeInput__knob--min');
         var $thisMaxKnob    = $thisRangeInput.find('.rangeInput__knob--max');
         var thisAbsMin      = props.absMin;
         var thisAbsMax      = props.absMax;
         
-        props.min = thisAbsMin;
-        props.max = thisAbsMax;
+        thisProps.min = thisAbsMin;
+        thisProps.max = thisAbsMax;
         
         moveKnob($thisRangeInput, $thisMinKnob);
         moveKnob($thisRangeInput, $thisMaxKnob);
@@ -199,30 +210,43 @@ YOI.element.RangeInput = (function() {
         /**
          *  Position & center labels above knobs. If the knobs
          *  get too close, the individual labels get merged into
-         *  a single label.
+         *  a single label. Also update the label text.
          *
          *  @param {jQuery dom object} $rangeInput - the range input
          */
 
         var $thisRangeInput  = $rangeInput;
-        var props            = $thisRangeInput.data().props;
         var $thisMinLabel    = $thisRangeInput.find('.rangeInput__knob--min .rangeInput__label');
         var $thisMaxLabel    = $thisRangeInput.find('.rangeInput__knob--max .rangeInput__label');
         var $thisSingleLabel = $thisRangeInput.find('.rangeInput__label--single');
+        var props            = $thisRangeInput.data().props;
+        
+        var minKnobRightEdge;
+        var maxKnobLeftEdge;
+        
+        // update label text
+        
+        $thisMinLabel.text(props.min + ' ' + props.unit);
+        $thisMaxLabel.text(props.max + ' ' + props.unit);
+        $thisSingleLabel.text(props.minValue + props.unit + ' – ' + props.maxValue + ' ' + props.unit);
 
         // center labels
+        
+        var minLabelWidth    = $thisMinLabel.outerWidth();
+        var maxLabelWidth    = $thisMaxLabel.outerWidth();
+        var singleLabelWidth = $thisSingleLabel.outerWidth();
 
-        $thisMinLabel.css('left', (($thisMinLabel.outerWidth() / -2) + knobOffset));
-        $thisMaxLabel.css('left', (($thisMaxLabel.outerWidth() / -2) + knobOffset));
-        $thisSingleLabel.css('left', (props.minPosX + (props.maxPosX - props.minPosX) / 2) - ($thisSingleLabel.outerWidth() / 2));
-
+        $thisMinLabel.css('left', ((minLabelWidth / -2) + knobOffset));
+        $thisMaxLabel.css('left', ((maxLabelWidth / -2) + knobOffset));
+        $thisSingleLabel.css('left', (props.minPosX + (props.maxPosX - props.minPosX) / 2) - (singleLabelWidth / 2));
+        
         // if labels "collide", switch to a single label
         // or cancel if minPosX or maxPosX is not yet defined
 
         if (props.minPosX === null || props.maxPosX === null) return;
 
-        var minKnobRightEdge = props.minPosX + $thisMinLabel.outerWidth() / 2;
-        var maxKnobLeftEdge  = props.maxPosX - $thisMaxLabel.outerWidth() / 2;
+        minKnobRightEdge = props.minPosX + minLabelWidth / 2;
+        maxKnobLeftEdge  = props.maxPosX - maxLabelWidth / 2;
 
         if (minKnobRightEdge >= maxKnobLeftEdge) {
             $thisRangeInput.addClass('rangeInput--mergedLabels');
@@ -285,7 +309,12 @@ YOI.element.RangeInput = (function() {
         var isMaxKnob       = $thisKnob.hasClass('rangeInput__knob--max');
         var posX            = 0;
         var thisKnobValue   = null;
-
+        
+        var thisSingleLabelTxt;
+        var factor;
+        var inputValue;
+        var range;
+        
         if (e !== undefined) {
             
             // set knob position & value via dragging,
@@ -297,7 +326,7 @@ YOI.element.RangeInput = (function() {
             // set position & value if knob is beeing dragged
 
             posX          = Math.floor(Math.min(Math.max(0, (e.pageX - props.offsetX)), props.width));
-            var factor    = Math.floor((posX / props.width) * 100);
+            factor        = Math.floor((posX / props.width) * 100);
             thisKnobValue = Math.floor(((props.absMax - props.absMin) / 100) * factor + (props.absMin * 1));
             
             // trigger custom event
@@ -307,16 +336,13 @@ YOI.element.RangeInput = (function() {
         } else {
 
             // set position & value directly on function call
-
-            var inputValue;
-
+            
             if (isMinKnob) inputValue = props.min;
             if (isMaxKnob) inputValue = props.max;
 
-            var range   = props.absMax - props.absMin;
-            var factor  = props.width / range;
-            var posX    = Math.ceil(factor * (inputValue - props.absMin));
-
+            range         = props.absMax - props.absMin;
+            factor        = Math.ceil(props.width / range);
+            posX          = factor * (inputValue - props.absMin);
             thisKnobValue = inputValue;
 
         }
@@ -328,11 +354,13 @@ YOI.element.RangeInput = (function() {
             if (e !== undefined) props.min = thisKnobValue;
             
             if (props.min < props.max) {
+                
                 $thisRangeInput.find('.rangeInput__range').css('left', posX);
-                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + props.unit);
                 $thisMinInput.val(thisKnobValue);
+                
                 props.minPosX  = posX;
                 props.minValue = thisKnobValue;
+                
             }
 
         }
@@ -344,19 +372,16 @@ YOI.element.RangeInput = (function() {
             if (e !== undefined) props.max = thisKnobValue;
 
             if (props.min < props.max) {
+                
                 $thisRangeInput.find('.rangeInput__range').css('right', props.width - posX);
-                $thisKnob.find('.rangeInput__label').text(thisKnobValue + ' ' + props.unit);
                 $thisMaxInput.val(thisKnobValue);
+                
                 props.maxPosX  = posX;
                 props.maxValue = thisKnobValue;
+                
             }
 
         }
-
-        // update single label
-
-        var thisSingleLabelTxt = props.minValue + props.unit + ' – ' + props.maxValue + ' ' + props.unit;
-        $thisRangeInput.find('.rangeInput__label--single').text(thisSingleLabelTxt);
 
         // finally, move the knob and adjust the labels
 
