@@ -1,0 +1,137 @@
+/** textInputs.less */
+
+// blocks
+// ======
+
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+    .mixin-clearAppearance;
+    .mixin-defaultBorderRadius;
+    background: @color-white;
+    border: @color-main-20 1px solid;
+    box-shadow: 0 1px 0 @color-main-24 inset;
+    box-sizing: border-box;
+    color: @color-main-8;
+    font: normal 1.3rem/2.5rem @font-sansserif;
+    height: 2.5rem;
+    padding: 0 .5rem;
+    width: 100%;
+}
+
+textarea {
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    line-height: 2rem;
+    max-width: 100%;
+    min-height: 10rem;
+    padding: .5rem;
+    resize: vertical;
+}
+
+// modifiers
+// =========
+
+// size
+
+input.input--large {
+    font-size: 1.5rem;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem;
+}
+
+textarea.input--large {
+    font-size: 1.5rem;
+    height: auto;
+    line-height: 2rem;
+    padding: 1rem;
+}
+
+// validation
+
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+
+    // error
+
+    &.input--error,
+    .input--error & {
+        border-color: @color-negative-15;
+        color: @color-negative-8;
+    }
+
+    // success
+
+    &.input--success,
+    .input--success & {
+        border-color: @color-positive-15;
+        color: @color-positive-8;
+    }
+
+}
+
+// interactive states
+
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+
+    &.input--focus,
+    &:focus {
+        background: @color-white;
+        border-color: @blue-18;
+        box-shadow: @blue-22 0 0 10px;
+        color: @color-main-8;
+        outline: 0;
+    }
+
+    &.input--disabled,
+    &[disabled] {
+        background: @color-white;
+        background: @color-white;
+        border: @color-main-20 1px solid;
+        color: @color-main-8;
+        cursor: default;
+        opacity: .5;
+    }
+
+    &.input--disabled {
+        color: @color-main-17;
+    }
+
+    &.input--readonly,
+    &[readonly] {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        cursor: default;
+    }
+    
+    &[required] {}
+
+}
+
+// placeholders
+
+::-webkit-input-placeholder                { color: @color-main-8; }
+.input--error::-webkit-input-placeholder   { color: @color-negative-8; }
+.input--success::-webkit-input-placeholder { color: @color-positive-8; }
+
+:-moz-placeholder                          { color: @color-main-8; }
+.input--error::-moz-input-placeholder      { color: @color-negative-8; }
+.input--success::-moz-input-placeholder    { color: @color-positive-8; }

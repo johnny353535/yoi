@@ -1,4 +1,4 @@
-/** forms.js */
+/** customFormElements.js */
 
 YOI.element.CustomFormElements = (function() {
 
@@ -63,15 +63,15 @@ YOI.element.CustomFormElements = (function() {
             
             $thisCheckbox.on({
                 'focus': function() {
-                    $thisCheckbox.parent().addClass('is--focus');
+                    $thisCheckbox.parent().addClass('input--focus');
                     $thisCheckbox.trigger('yoi-input:focus');
                 },
                 'blur': function() {
-                    $thisCheckbox.parent().removeClass('is--focus');
+                    $thisCheckbox.parent().removeClass('input--focus');
                     $thisCheckbox.trigger('yoi-input:blur');
                 },
                 'change': function(e) {
-                    $thisCheckbox.parent().toggleClass('is--checked');
+                    $thisCheckbox.parent().toggleClass('input--checked');
                     $thisCheckbox.trigger('yoi-input:change');
                 }
             });
@@ -95,11 +95,11 @@ YOI.element.CustomFormElements = (function() {
             
             $thisRadioBtn.on({
                 'focus': function() {
-                    $thisRadioBtn.parent().addClass('is--focus');
+                    $thisRadioBtn.parent().addClass('input--focus');
                     $thisRadioBtn.trigger('yoi-input:focus');
                 },
                 'blur': function() {
-                    $thisRadioBtn.parent().removeClass('is--focus');
+                    $thisRadioBtn.parent().removeClass('input--focus');
                     $thisRadioBtn.trigger('yoi-input:blur');
                 },
                 'change': function(e) {
@@ -107,8 +107,8 @@ YOI.element.CustomFormElements = (function() {
                     var groupName    = $thisRadioBtn.attr('name');
                     var $groupedBtns = $('[name="' + groupName + '"]');
 
-                    $groupedBtns.parent().removeClass('is--checked');
-                    $thisRadioBtn.parent().addClass('is--checked');
+                    $groupedBtns.parent().removeClass('input--checked');
+                    $thisRadioBtn.parent().addClass('input--checked');
                     $thisRadioBtn.trigger('yoi-input:change');
                 
                 }
@@ -141,11 +141,11 @@ YOI.element.CustomFormElements = (function() {
             
             $thisSelect.on({
                 'focus': function() {
-                    $(this).parent().addClass('is--focus');
+                    $(this).parent().addClass('input--focus');
                     $(this).trigger('yoi-input:focus');
                 },
                 'blur': function() {
-                    $(this).parent().removeClass('is--focus');
+                    $(this).parent().removeClass('input--focus');
                     $(this).trigger('yoi-input:blur');
                 },
                 'change': function() {
@@ -168,10 +168,10 @@ YOI.element.CustomFormElements = (function() {
             $(this).removeAttr('class');
 
             // if the check element is already checked,
-            // add the "is--checked" modifier
+            // add the "input--checked" modifier
 
             if ($(this).is(':checked')) {
-                thisWrapper.addClass('is--checked');
+                thisWrapper.addClass('input--checked');
             }
 
         });

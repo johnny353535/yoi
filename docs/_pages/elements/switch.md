@@ -29,7 +29,7 @@ This is how a basic `.switch` looks like and how you write the markup:
 
 ## Modifiers
 
-### Large
+### Size
 
 Use the modifier `.switch--large` to render a large switch:
 
@@ -40,7 +40,9 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-## Options
+## JavaScript API
+
+### Hook
 
 | Key | Value | Description |
 | - | - | - |
@@ -62,9 +64,9 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-## JavaScript API
+### Methods
 
-### on()
+#### on()
 
 Pick a switch and set it to “on”:
 
@@ -81,7 +83,7 @@ Pick a switch and set it to “on”:
 </script>
 ```
 
-### off()
+#### off()
 
 Pick a switch and set it to “off”:
 
@@ -98,7 +100,7 @@ Pick a switch and set it to “off”:
 </script>
 ```
 
-### toggle()
+#### toggle()
 
 Pick a `.switch` and toggle it’s state between “on” and “off”:
 

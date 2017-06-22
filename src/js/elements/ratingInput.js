@@ -45,6 +45,12 @@ YOI.element.RatingInput = (function() {
             // set the initial rating score
 
             setScore($thisRatingInput);
+            
+            // set the initial state
+            
+            if ($thisRatingInput.hasClass('ratingInput--locked')) {
+                $thisRatingInput.data().state = 'locked';
+            }
 
             // add events to the rating stars
 
@@ -76,6 +82,10 @@ YOI.element.RatingInput = (function() {
 
         $ratingInput.addClass('ratingInput--locked');
         $ratingInput.data().state = 'locked';
+        
+        // fire custom event
+        
+        $ratingInput.trigger('yoi-rating:lock');
 
     }
 
@@ -89,6 +99,10 @@ YOI.element.RatingInput = (function() {
 
         $ratingInput.removeClass('ratingInput--locked');
         $ratingInput.data().state = 'unlocked';
+        
+        // fire custom event
+        
+        $ratingInput.trigger('yoi-rating:unlock');
 
     }
 
@@ -105,8 +119,8 @@ YOI.element.RatingInput = (function() {
 
         var options = $ratingInput.data().options;
         var state   = $ratingInput.data().state;
-        var score   = score !== undefined ? score : options.score;
-
+        var score   = score || options.score || getScoreFromModifier($ratingInput) || 0;
+        
         if (state !== 'locked') {
 
             // update the score
@@ -118,8 +132,33 @@ YOI.element.RatingInput = (function() {
             $ratingInput.removeClass('ratingInput--rated-1 ratingInput--rated-2 ratingInput--rated-3 ratingInput--rated-4 ratingInput--rated-5');
             $ratingInput.addClass('ratingInput--rated-' + score);
 
+            // fire custom event
+        
+            $ratingInput.trigger('yoi-rating:change');
+        
         }
 
+    }
+    
+    function getScoreFromModifier($ratingInput) {
+        
+        /**
+         *  Read the score from the .ratingInput--score-* modifier class.
+         *
+         *  @param  {jQuery dom object} $ratingInput - the rating input
+         *  @return {number}            score        - the score
+         */
+        
+        var score = null;
+        
+        if ($ratingInput.hasClass('ratingInput--rated-1')) score = 1;
+        if ($ratingInput.hasClass('ratingInput--rated-2')) score = 2;
+        if ($ratingInput.hasClass('ratingInput--rated-3')) score = 3;
+        if ($ratingInput.hasClass('ratingInput--rated-4')) score = 4;
+        if ($ratingInput.hasClass('ratingInput--rated-5')) score = 5;
+        
+        return score;
+        
     }
 
     function submitScore($ratingInput) {
@@ -133,9 +172,9 @@ YOI.element.RatingInput = (function() {
         
         var options = $ratingInput.data().options;
         var uid     = options.uid;
-        var score   = options.score === undefined ? 0 : options.score;
+        var score   = options.score | 0;
         
-        // log custom event
+        // fire custom event
         
         $ratingInput.trigger('yoi-rating:submit');
 

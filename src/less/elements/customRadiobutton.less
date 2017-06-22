@@ -35,20 +35,37 @@
 // modifiers
 // =========
 
-.radio--large {
+// size
+
+.radio.input--large {
     height: 3rem;
     width: 3rem;
 }
 
-.radio.is--focus {
-    .mixin-focus;
+// validation
+
+.radio.input--error {
+    border-color: @color-negative-15;
+    color: @color-negative-8;
 }
 
-.radio.is--checked {
+.radio.input--success {
+    border-color: @color-positive-15;
+    color: @color-positive-8;
+}
+
+// interactive states
+
+.radio.input--checked {
     background: @color-positive-22;
     border: @color-main-10 .5rem solid;
 }
 
-.radio.radio--large.is--checked {
+.radio.input--large.input--checked {
     border-width: .9rem;
+}
+
+.radio.input--focus {
+    border-color: @blue-18;
+    box-shadow: @blue-22 0 0 10px;
 }

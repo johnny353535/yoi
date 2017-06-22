@@ -177,3 +177,13 @@
     }
 
 }
+
+// hacks
+// =====
+
+// disable native date pickers
+// on desktop browsers
+
+[yoi-environment="desktop"] ::-webkit-calendar-picker-indicator {
+    display: none;
+}

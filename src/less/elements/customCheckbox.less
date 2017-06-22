@@ -33,16 +33,28 @@
 // modifiers
 // =========
 
-.checkbox--large {
+// size
+
+.checkbox.input--large {
     height: 3rem;
     width: 3rem;
 }
 
-.checkbox.is--focus {
-    .mixin-focus;
+// validation
+
+.checkbox.input--error {
+    border-color: @color-negative-15;
+    color: @color-negative-8;
 }
 
-.checkbox.is--checked {
+.checkbox.input--success {
+    border-color: @color-positive-15;
+    color: @color-positive-8;
+}
+
+// interactive states
+
+.checkbox.input--checked {
 
     box-shadow: none;
     background: @color-main-10;
@@ -62,7 +74,7 @@
     
     // icon large
     
-    &.checkbox--large::after {
+    &.input--large::after {
         .mixin-icon-bg(@id: 'icon-011', @width: 21, @height: 21, @fillColor: @color-positive-22);
         height: 2.4rem;
         left: .3rem;
@@ -70,4 +82,9 @@
         width: 2.4rem;
     }
 
+}
+
+.checkbox.input--focus {
+    border-color: @blue-18;
+    box-shadow: @blue-22 0 0 10px;
 }

@@ -19,6 +19,12 @@ YOI.element.ImgMagnifier = (function(){
          *
          *  @param {jQuery dom object} $dock
          *  @param {object}            options
+        
+         *  Available options:
+         *
+         *  @option {number} zoomImage - path to the identical yet larger image, if not supplied,
+         *                               the script will look for a link / href inside .imgMagnifier
+         *  @option {number} delay     - delay after which the magnifyer appears (milliseconds)
          */
 
         var $imgMagnifier = YOI.createCollection('imgmagnifier', $imgMagnifier, options);

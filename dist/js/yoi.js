@@ -622,15 +622,15 @@ YOI.element.CustomFormElements = function() {
             }
             $thisCheckbox.on({
                 focus: function() {
-                    $thisCheckbox.parent().addClass("is--focus");
+                    $thisCheckbox.parent().addClass("input--focus");
                     $thisCheckbox.trigger("yoi-input:focus");
                 },
                 blur: function() {
-                    $thisCheckbox.parent().removeClass("is--focus");
+                    $thisCheckbox.parent().removeClass("input--focus");
                     $thisCheckbox.trigger("yoi-input:blur");
                 },
                 change: function(e) {
-                    $thisCheckbox.parent().toggleClass("is--checked");
+                    $thisCheckbox.parent().toggleClass("input--checked");
                     $thisCheckbox.trigger("yoi-input:change");
                 }
             });
@@ -645,18 +645,18 @@ YOI.element.CustomFormElements = function() {
             }
             $thisRadioBtn.on({
                 focus: function() {
-                    $thisRadioBtn.parent().addClass("is--focus");
+                    $thisRadioBtn.parent().addClass("input--focus");
                     $thisRadioBtn.trigger("yoi-input:focus");
                 },
                 blur: function() {
-                    $thisRadioBtn.parent().removeClass("is--focus");
+                    $thisRadioBtn.parent().removeClass("input--focus");
                     $thisRadioBtn.trigger("yoi-input:blur");
                 },
                 change: function(e) {
                     var groupName = $thisRadioBtn.attr("name");
                     var $groupedBtns = $('[name="' + groupName + '"]');
-                    $groupedBtns.parent().removeClass("is--checked");
-                    $thisRadioBtn.parent().addClass("is--checked");
+                    $groupedBtns.parent().removeClass("input--checked");
+                    $thisRadioBtn.parent().addClass("input--checked");
                     $thisRadioBtn.trigger("yoi-input:change");
                 }
             });
@@ -671,11 +671,11 @@ YOI.element.CustomFormElements = function() {
             $thisSelect.removeAttr("class");
             $thisSelect.on({
                 focus: function() {
-                    $(this).parent().addClass("is--focus");
+                    $(this).parent().addClass("input--focus");
                     $(this).trigger("yoi-input:focus");
                 },
                 blur: function() {
-                    $(this).parent().removeClass("is--focus");
+                    $(this).parent().removeClass("input--focus");
                     $(this).trigger("yoi-input:blur");
                 },
                 change: function() {
@@ -688,7 +688,7 @@ YOI.element.CustomFormElements = function() {
             thisWrapper.addClass($(this).attr("class"));
             $(this).removeAttr("class");
             if ($(this).is(":checked")) {
-                thisWrapper.addClass("is--checked");
+                thisWrapper.addClass("input--checked");
             }
         });
     }
@@ -2259,6 +2259,9 @@ YOI.element.RatingInput = function() {
             var $thisRatingSelect = $ratingSelect.clone();
             var $thisRatingStars = $thisRatingSelect.find(".ratingInput__star");
             setScore($thisRatingInput);
+            if ($thisRatingInput.hasClass("ratingInput--locked")) {
+                $thisRatingInput.data().state = "locked";
+            }
             $thisRatingStars.on("mouseover", function() {
                 setScore($thisRatingInput, $(this).index() + 1);
             }).on("click", function() {
@@ -2271,25 +2274,37 @@ YOI.element.RatingInput = function() {
     function lock($ratingInput) {
         $ratingInput.addClass("ratingInput--locked");
         $ratingInput.data().state = "locked";
+        $ratingInput.trigger("yoi-rating:lock");
     }
     function unlock($ratingInput) {
         $ratingInput.removeClass("ratingInput--locked");
         $ratingInput.data().state = "unlocked";
+        $ratingInput.trigger("yoi-rating:unlock");
     }
     function setScore($ratingInput, score) {
         var options = $ratingInput.data().options;
         var state = $ratingInput.data().state;
-        var score = score !== undefined ? score : options.score;
+        var score = score || options.score || getScoreFromModifier($ratingInput) || 0;
         if (state !== "locked") {
             $ratingInput.data().options.score = score;
             $ratingInput.removeClass("ratingInput--rated-1 ratingInput--rated-2 ratingInput--rated-3 ratingInput--rated-4 ratingInput--rated-5");
             $ratingInput.addClass("ratingInput--rated-" + score);
+            $ratingInput.trigger("yoi-rating:change");
         }
+    }
+    function getScoreFromModifier($ratingInput) {
+        var score = null;
+        if ($ratingInput.hasClass("ratingInput--rated-1")) score = 1;
+        if ($ratingInput.hasClass("ratingInput--rated-2")) score = 2;
+        if ($ratingInput.hasClass("ratingInput--rated-3")) score = 3;
+        if ($ratingInput.hasClass("ratingInput--rated-4")) score = 4;
+        if ($ratingInput.hasClass("ratingInput--rated-5")) score = 5;
+        return score;
     }
     function submitScore($ratingInput) {
         var options = $ratingInput.data().options;
         var uid = options.uid;
-        var score = options.score === undefined ? 0 : options.score;
+        var score = options.score | 0;
         $ratingInput.trigger("yoi-rating:submit");
     }
     return {

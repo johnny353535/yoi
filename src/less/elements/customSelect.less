@@ -17,7 +17,7 @@
     display: inline-block;
     font-family: @font-sansserif;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: normal;
     height: 2.5rem;
     line-height: 2.3rem;
     position: relative;
@@ -28,15 +28,16 @@
     // inner select element
 
     select {
-
+        
         .mixin-clearAppearance;
         background: transparent;
         border: 0;
         color: inherit;
         cursor: pointer;
         display: inline-block;
-        padding: 0 3.3rem 0 1rem;
-        position: relative;
+        left: 0;
+        padding: 0 3.3rem 0 .5rem;
+        width: 100%;
 
         &:active,
         &:focus {
@@ -65,14 +66,16 @@
 // modifiers
 // =========
 
-.select--large {
+// size
+
+.select.input--large {
 
     font-size: 1.5rem;
     height: 4rem;
     line-height: 3.8rem;
 
     select {
-        padding: 0 6rem 0 2rem;
+        padding: 0 6rem 0 1rem;
     }
 
     .select__icon {
@@ -82,8 +85,23 @@
 
 }
 
-// focus
+// validation
 
-.select.is--focus {
-    .mixin-focus;
+.select.input--error {
+    border-color: @color-negative-15;
+    color: @color-negative-8;
+}
+
+.select.input--success {
+    border-color: @color-positive-15;
+    color: @color-positive-8;
+}
+
+// interactive states
+
+.select.input--focus {
+    background: @color-white;
+    border-color: @blue-18;
+    box-shadow: @blue-22 0 0 10px;
+    color: @color-main-8;
 }
