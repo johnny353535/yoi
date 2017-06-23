@@ -6,7 +6,8 @@ permalink: elements/breadcrumbs
 ---
 
 # Breadcrumbs
-Use this element to displaying the path to the current page.
+
+<p class="intro">Use this element to displaying the path to the current page.</p>
 
 | Styles         | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/elements/breadcrumbs.less) |
 | Base CSS-Class | `.breadcrumbs`                                                                  |

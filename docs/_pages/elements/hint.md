@@ -7,7 +7,7 @@ permalink: elements/hint
 
 # Hint
 
-Use this element to create emphasized paragraphs in four available different stylings.
+<p class="intro">Use this element to create emphasized paragraphs in four available different stylings.</p>
 
 | Styles         | [hint.less]({{ pathToSourceFile }}assets/less/elements/hint.less) |
 | Base CSS-Class | `.hint`                                                           |

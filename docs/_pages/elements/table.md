@@ -7,7 +7,7 @@ permalink: elements/table
 
 # Table
 
-Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.
+<p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
 
 | Styles         | [table.less]({{ pathToSourceFile }}assets/less/elements/table.less)                                                              |
 | Script         | [table.js]({{ pathToSourceFile }}assets/js/elements/table.js)                                                                    |

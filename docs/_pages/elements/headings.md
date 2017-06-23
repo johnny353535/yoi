@@ -7,7 +7,7 @@ permalink: elements/headings
 
 # Headings
 
-These are the headline-styles you can use in your documents.
+<p class="intro">These are the headline-styles you can use in your documents.</p>
 
 | Styles | [headings.less]({{ pathToSourceFile }}assets/less/elements/headings.less) |
 

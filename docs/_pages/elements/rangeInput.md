@@ -7,7 +7,7 @@ permalink: elements/rangeinput
 
 # RangeInput
 
-Use this element to create a custom range input.
+<p class="intro">Use this element to create a custom range input.</p>
 
 | Styles         | [rangeInput.less]({{ pathToSourceFile }}assets/less/elements/rangeInput.less) |
 | Script         | [rangeInput.js]({{ pathToSourceFile }}assets/js/elements/rangeInput.js)       |

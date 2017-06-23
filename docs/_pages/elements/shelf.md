@@ -7,7 +7,7 @@ permalink: elements/shelf
 
 # Shelf
 
-Use this element to display a grid elements as a shelf.
+<p class="intro">Use this element to display a grid elements as a shelf.</p>
 
 | Styles         | [shelf.less]({{ pathToSourceFile }}assets/less/elements/shelf.less) |
 | Base CSS-Class | `.shelf`                                                            |

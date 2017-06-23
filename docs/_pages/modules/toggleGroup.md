@@ -6,7 +6,8 @@ permalink: modules/togglegroup
 ---
 
 ## Toggle Group
-This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.
+
+<p class="intro">This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.</p>
 
 |                              |                                                                          |
 | -                            | -                                                                        |
@@ -15,6 +16,7 @@ This script provides simple hooks you can use to logically group elements anywhe
 | Options (for `yoi-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)           |
 
 ### Example with mouseover and Fall Back Element
+
 If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.
 
 ```html
@@ -46,6 +48,7 @@ If you provide no event in the options JSON, the default event to trigger a togg
 ```
 
 ### Example with click event
+
 This is basically the same thing like a [`.tab`](/pages/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`](/pages/components/buttons.html) and provide an *activeClassName* to mark them as active once pressed.
 
 ```html

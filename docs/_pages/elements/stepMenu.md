@@ -7,7 +7,7 @@ permalink: elements/stepmenu
 
 # StepMenu
 
-Use this element to create a prominent vertical chain of links to display a progress – eg. the current step of a register process.
+<p class="intro">Use this element to create a prominent vertical chain of links to display a progress – eg. the current step of a register process.</p>
 
 | Styles         | [stepMenu.less]({{ pathToSourceFile }}assets/less/elements/stepMenu.less) |
 | Base CSS-Class | `.stepMenu`                                                               |

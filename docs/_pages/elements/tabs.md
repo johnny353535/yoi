@@ -7,7 +7,7 @@ permalink: elements/tabs
 
 # Tabs
 
-User this element to create tab menus that switch the content in pre-defined regions on a page.
+<p class="intro">User this element to create tab menus that switch the content in pre-defined regions on a page.</p>
 
 | Styles         | [tabs.less]({{ pathToSourceFile }}assets/less/elements/tabs.less)                       |
 | Script         | [tabs.js]({{ pathToSourceFile }}assets/js/elements/tabs.js)                             |

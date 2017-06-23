@@ -7,7 +7,7 @@ permalink: elements/log
 
 # Log
 
-Use this element to log short messages in reverse-order.
+<p class="intro">Use this element to log short messages in reverse-order.</p>
 
 | Styles         | [log.less]({{ pathToSourceFile }}assets/less/elements/log.less) |
 | Script         | [log.js]({{ pathToSourceFile }}assets/js/elements/log.js)       |

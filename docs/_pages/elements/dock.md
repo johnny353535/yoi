@@ -7,7 +7,7 @@ permalink: elements/dock
 
 # Dock
 
-Use this element to create an overlay which is docked to the right or left side of the screen and takes up the whole viewport height.
+<p class="intro">Use this element to create an overlay which is docked to the right or left side of the screen and takes up the whole viewport height.</p>
 
 | Styles         | [dock.less]({{ pathToSourceFile }}assets/less/elements/dock.less) |
 | Script         | [dock.js]({{ pathToSourceFile }}assets/js/elements/dock.js)       |

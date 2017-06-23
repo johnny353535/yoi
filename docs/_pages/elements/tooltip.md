@@ -7,7 +7,7 @@ permalink: elements/tooltip
 
 # Tool Tip
 
-Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the yoi-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.
+<p class="intro">Tooltips are small portions of markup which are associated with a certain element on the page. They are hidden on page load and get revealed on mouseover. **Tooltips can be any markup you wish!** Simply give the markup you want to turn into a tooltip a unique id and »link« it to another element by referring to it through the yoi-tooltip attribute. This way the tooltip markup can be placed anywhere in your markup.</p>
 
 | Styles         | [toolTip.less]({{ pathToSourceFile }}assets/less/elements/toolTip.less)      |
 | Script         | [toolTip.js]({{ pathToSourceFile }}assets/js/elements/toolTip.js)            |
@@ -35,6 +35,7 @@ In the following example, a `.note` element is used as a tooltip. If JavaScript 
 Example: Using a .note as tooltip
 
 ```html
+<!-- example -->
 <div class="note m-b-2" id="hint-1">
     <h3 class="note__headline">Attention!</h3>
     <div class="note__body">

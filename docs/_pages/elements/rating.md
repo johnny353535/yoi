@@ -7,7 +7,7 @@ permalink: elements/rating
 
 # Rating
 
-Use this element to display a compact rating score – visualized by a number of stars between 1 and 5.
+<p class="intro">Use this element to display a compact rating score – visualized by a number of stars between 1 and 5.</p>
 
 | Styles         | [rating.less]({{ pathToSourceFile }}assets/less/elements/accordion.less)                                 |
 | Base CSS-Class | `.rating`                                                                                                |

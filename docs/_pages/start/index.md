@@ -5,6 +5,11 @@ title: Introduction
 permalink: start/
 ---
 
-## Introduction
+# Introduction
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--error">To be written …</p>
+
+<!--
+    * What is YOI?
+    * For whom is YOI?
+-->

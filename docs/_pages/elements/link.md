@@ -7,7 +7,7 @@ permalink: elements/link
 
 # Link
 
-Styling for links.
+<p class="intro">Styling for links.</p>
 
 | Styles | [link.less]({{ pathToSourceFile }}assets/less/elements/link.less) |
 

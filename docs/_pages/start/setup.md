@@ -5,6 +5,12 @@ title: Setup
 permalink: start/setup
 ---
 
-## Introduction
+# Setup
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--error">To be written …</p>
+
+<!--
+    * CSS & JS via CDN
+    * jsFiddle
+    * local setup
+-->

@@ -7,7 +7,7 @@ permalink: elements/linklist
 
 # Link List
 
-Use this element to create a vertical list of links.
+<p class="intro">Use this element to create a vertical list of links.</p>
 
 | Styles         | [linkList.less]({{ pathToSourceFile }}assets/less/elements/linkList.less)                                                                                                                                 |
 | Base CSS-Class | `.linkList`                                                                                                                                                                                               |

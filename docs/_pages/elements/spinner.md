@@ -7,7 +7,7 @@ permalink: elements/spinner
 
 # Spinner
 
-Use this element to display an infinite loading animation.
+<p class="intro">Use this element to display an infinite loading animation.</p>
 
 | Styles         | [spinner.less]({{ pathToSourceFile }}assets/less/elements/spinner.less) |
 | Base CSS-Class | `.spinner`                                                              |

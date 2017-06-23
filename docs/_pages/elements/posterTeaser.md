@@ -7,7 +7,7 @@ permalink: elements/posterteaser
 
 # PosterTeaser
 
-This element renders text on top of a darkened image, resembling a movie poster.
+<p class="intro">This element renders text on top of a darkened image, resembling a movie poster.</p>
 
 | Styles         | [posterTeaser.less]({{ pathToSourceFile }}assets/less/elements/posterTeaser.less) |
 | Base CSS-Class | `.posterTeaser`                                                                   |

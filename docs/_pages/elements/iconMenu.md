@@ -7,7 +7,7 @@ permalink: elements/iconmenu
 
 # IconMenu
 
-Use this element to create a large vertical menu with large icons.
+<p class="intro">Use this element to create a large vertical menu with large icons.</p>
 
 | Styles         | [iconMenu.less]({{ pathToSourceFile }}assets/less/elements/iconMenu.less) |
 | Script         | [iconMenu.js]({{ pathToSourceFile }}assets/js/elements/iconMenu.js)       |

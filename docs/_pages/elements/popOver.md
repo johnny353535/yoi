@@ -7,7 +7,7 @@ permalink: elements/popover
 
 # Pop-Over
 
-Use this element to link any trigger (eg. a button) to a _pop-over_ which appears on mouse over.
+<p class="intro">Use this element to link any trigger (eg. a button) to a _pop-over_ which appears on mouse over.</p>
 
 | Styles         | [popOver.less]({{ pathToSourceFile }}assets/less/elements/popOver.less) |
 | Script         | [popOver.js]({{ pathToSourceFile }}assets/js/elements/popOver.js)       |

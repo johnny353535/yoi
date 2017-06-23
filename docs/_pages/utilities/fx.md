@@ -5,6 +5,6 @@ title: Fx
 permalink: utilities/fx
 ---
 
-## Fx
+# Fx
 
 <p class="hint hint--error">No documentation yet.</p>

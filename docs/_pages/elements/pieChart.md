@@ -7,7 +7,7 @@ permalink: elements/piechart
 
 # Pie Chart
 
-This is a simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/elements/barChart.html">Bar Chart</a>.
+<p class="intro">This is a simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/elements/barChart.html">Bar Chart</a>.</p>
 
 | Styles         | [pieChart.less]({{ pathToSourceFile }}assets/less/elements/pieChart.less) |
 | Script         | [pieChart.js]({{ pathToSourceFile }}assets/js/elements/pieChart.js)       |

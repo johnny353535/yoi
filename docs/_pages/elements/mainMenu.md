@@ -7,7 +7,7 @@ permalink: elements/mainmenu
 
 # MainMenu
 
-Use this element to create a prominent horizontal menu.
+<p class="intro">Use this element to create a prominent horizontal menu.</p>
 
 | Styles         | [mainMenu.less]({{ pathToSourceFile }}assets/less/elements/mainMenu.less) |
 | Script         | [mainMenu.js]({{ pathToSourceFile }}assets/js/elements/mainMenu.js)       |

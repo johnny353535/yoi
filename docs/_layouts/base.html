@@ -12,20 +12,23 @@
     </head>
     <body class="noJs" yoi-environment="desktop" yoi-pagerewind>
         <script>document.body.className='js';</script>
-        <div class="center grid-flex p-t-10">
-            <!-- header -->
-            <header class="documentation__header w-1-1"></header>
-            <!-- main content -->
-            <article class="documentation__article article w-3-4">
-                {{ content }}
-            </article>
-            <!-- sub menu -->
-            <nav class="documentation__menu w-1-4 m-t-3 p-l-10">
+        <header class="h-20 m-tb-4 b-b">
+            <div class="center grid-float">
+                <img class="d-blk w-10 h-20" src="{{ site.github.url }}/assets/img/yoi-logo.svg" />
+            </div>
+        </header>
+        <div class="center grid-float">
+            <nav class="w-1-5 m-t-6">
                 {% include menu-sub.html %}
             </nav>
-            <!-- footer -->
-            <footer class="documentation__footer w-1-1 tc-gray-18 m-tb-10">&copy; Yoshino.digital GmbH</footer>
+            <article class="article w-4-5 p-l-10">
+                {{ content }}
+            </article>
         </div>
+        <footer class="center grid-float tc-gray-18 m-tb-15">
+            <div class="w-1-2">YOI – the Yoshino Component Library.</div>
+            <div class="w-1-2 al-r">&copy; Yoshino.digital GmbH</div>
+        </footer>
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/js/documentation.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>

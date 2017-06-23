@@ -7,7 +7,7 @@ permalink: elements/flipbtns
 
 # FlipBtns
 
-Use this element to display previous- & next-buttons on the left and right side of their container.
+<p class="intro">Use this element to display previous- & next-buttons on the left and right side of their container.</p>
 
 | Styles         | [flipBtns.less]({{ pathToSourceFile }}assets/less/elements/flipBtns.less) |
 | Base CSS-Class | `.flipBtns`                                                               |

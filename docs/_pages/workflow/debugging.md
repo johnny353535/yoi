@@ -1,11 +1,12 @@
 ---
 layout: base
-group: core
+group: workflow
 title: Debugging
-permalink: core/debugging
+permalink: workflow/debugging
 ---
 
 ## Visual Debugging
+
 Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.
 
 | Less-File | [debug.less]({{ pathToSourceFile }}assets/less/core/debug.less)      |

@@ -406,11 +406,11 @@ YOI.element.Code = function() {
             if (thisExample) {
                 var _ = "";
                 $thisCode.find('.c:contains("' + exampleTag + '")').remove();
-                _ = '<div class="documentation__example">';
-                _ += '<div class="documentation__result">';
+                _ = '<div class="code__example">';
+                _ += '<div class="code__result">';
                 _ += thisExample;
                 _ += "</div>";
-                _ += '<div class="documentation__code">';
+                _ += '<div class="code__source">';
                 _ += $thisCodeWrapper.html();
                 _ += "</div>";
                 _ += "</div>";
@@ -418,7 +418,7 @@ YOI.element.Code = function() {
             if (thisExampleTabbed) {
                 var _ = "";
                 $thisCode.find('.c:contains("' + exampleTagTabbed + '")').remove();
-                _ = '<div class="documentation__example tabs">';
+                _ = '<div class="code__example tabs">';
                 _ += '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
                 _ += '<ul class="tabs__items">';
                 _ += '<li class="tabs__item">';

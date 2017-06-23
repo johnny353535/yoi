@@ -7,7 +7,7 @@ permalink: elements/imgmagnifier
 
 # ImgMagnifier
 
-Use this element to add a magnifyer function to an image.
+<p class="intro">Use this element to add a magnifyer function to an image.</p>
 
 | Styles         | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/elements/imgMagnifier.less) |
 | Script         | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/elements/imgMagnifier.js)       |

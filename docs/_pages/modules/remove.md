@@ -6,7 +6,8 @@ permalink: modules/remove
 ---
 
 ## Remove
-Create elements (eg. buttons) that remove their parent element or any other target-element from the current document/page.
+
+<p class="intro">Create elements (eg. buttons) that remove their parent element or any other target-element from the current document/page.</p>
 
 |         |                                                                |
 | -       | -                                                              |
@@ -17,6 +18,7 @@ Create elements (eg. buttons) that remove their parent element or any other targ
 Use any element as a trigger by adding the custom yoi-attribute `yoi-remove`. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.
 
 ```html
+<!-- example -->
 <div class="box w-30 h-20 p-2">
     <button class="btn pos-tr m-2" yoi-remove>Remove my Parent Element</button>
 </div>
@@ -25,6 +27,7 @@ Use any element as a trigger by adding the custom yoi-attribute `yoi-remove`. In
 If you wish to remove any other element in the dom, refer to it through the trigger element by adding the value `target:` + a CSS-selector for the target element:
 
 ```html
+<!-- example -->
 <!-- the trigger element: -->
 <div class="m-b-2">
     <button class="btn" yoi-remove="target:#myTargetElement">Remove my Target Element</button>
@@ -38,6 +41,7 @@ If you wish to remove any other element in the dom, refer to it through the trig
 If you wish to remove a collection of elements from the dom, refer to them throught the trigger element by adding the value `target:` + a CSS-selector for the target elements. You may use any valid CSS-selector – id, class name, tag name, attribute, etc. – plus any combination. Some examples:
 
 ```html
+<!-- example -->
 <!-- the trigger element: -->
 <div class="m-b-2">
     <button class="btn" yoi-remove="target:.myTargetElement">Remove My Many Target Elements</button>

@@ -7,7 +7,7 @@ permalink: elements/maxchars
 
 # MaxChars
 
-Use the [hook](/) `yoi-maxchars` to limit the maximum characters for a textarea or text input and create a display of the remaining characters.
+<p class="intro">Use the [hook](/) `yoi-maxchars` to limit the maximum characters for a textarea or text input and create a display of the remaining characters.</p>
 
 | Styles         | [maxChars.less]({{ pathToSourceFile }}assets/less/elements/maxChars.less) |
 | Script         | [maxChars.js]({{ pathToSourceFile }}assets/js/elements/maxChars.js)       |

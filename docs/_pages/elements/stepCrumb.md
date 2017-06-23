@@ -7,7 +7,7 @@ permalink: elements/stepcrumb
 
 # StepCrumb
 
-Use this element to create a compact horizontal chain of links to display a progress – eg. the current step of a register process.
+<p class="intro">Use this element to create a compact horizontal chain of links to display a progress – eg. the current step of a register process.</p>
 
 | Styles         | [stepCrumb.less]({{ pathToSourceFile }}assets/less/elements/stepCrumb.less) |
 | Base CSS-Class | `.stepCrumb`                                                                |

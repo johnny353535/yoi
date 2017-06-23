@@ -1,8 +1,8 @@
 {% assign urlLastChar = page.url | slice: -1 1 %}
 <ul class="linkList linkList--large bg-transparent b-0 br-0">
     {% for group in site.data.sitemap %}
-        <li class="linkList__item fw-bold">
-            <a class="linkList__link" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
+        <li class="linkList__item">
+            <a class="linkList__link tc-purple-11 fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
         </li>
         {% if page.group == group.first %}
             {% for pageName in site.data.sitemap[page.group] %}

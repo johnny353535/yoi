@@ -7,7 +7,7 @@ permalink: elements/pagerewind
 
 # PageRewind
 
-Use this element to create a _scroll-to-top-button_ at the bottom of a page.
+<p class="intro">Use this element to create a _scroll-to-top-button_ at the bottom of a page.</p>
 
 | Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
 | Script         | [accordion.js]({{ pathToSourceFile }}assets/js/elements/accordion.js)       |

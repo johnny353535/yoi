@@ -7,7 +7,7 @@ permalink: elements/searchprompt
 
 # SearchPrompt
 
-Use this element to create a prominent search input.
+<p class="intro">Use this element to create a prominent search input.</p>
 
 | Styles         | [searchPrompt.less]({{ pathToSourceFile }}assets/less/elements/searchPrompt.less) |
 | Base CSS-Class | `.searchPrompt`                                                                   |

@@ -1,21 +1,10 @@
 start:
     - index
-    - how_to_use
     - setup
-core:
+workflow:
     - index
-    - mixins
+    - customizing
     - debugging
-    - reset
-    - root
-theme:
-    - index
-    - breakpoints
-    - colors
-    - dimensions
-    - options
-    - styling
-    - typography
 utilities:
     - index
     - fx

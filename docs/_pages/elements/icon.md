@@ -7,7 +7,7 @@ permalink: elements/icon
 
 # Icon
 
-Monochrome, SVG-based icons.
+<p class="intro">Monochrome, SVG-based icons.</p>
 
 | Styles         | [icon.less]({{ pathToSourceFile }}assets/less/elements/icon.less) |
 | Script         | [icon.js]({{ pathToSourceFile }}assets/js/elements/icon.js)       |

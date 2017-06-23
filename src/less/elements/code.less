@@ -1,11 +1,16 @@
 /** code.less */
 
+// basic elements
+// ==============
+
 code {
     .mixin-defaultBorderRadius;
     background: @gray-25;
-    color: #929292;
+    color: #9e4181;
     direction: ltr;
     font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-style: normal;
+    font-weight: normal;
     hyphens: none;
     line-height: inherit;
     tab-size: 4;
@@ -25,7 +30,59 @@ pre code {
     overflow-x: scroll;
 }
 
+// tweak font size
+
+p, td, li {
+    > code {
+        font-size: .9em;
+    }
+}
+
+// code example
+// ============
+
+.code__example {
+    border-radius: 2px;
+    border: @gray-23 1px solid;
+}
+
+.code__example pre code {
+    border-radius: 0;
+    margin-top: -1.5rem;
+}
+
+.code__example pre {
+    padding: 2rem;
+}
+
+.code__example pre,
+.code__example code {
+    background: transparent;
+    font-size: 1.3rem;
+}
+
+.code__example .code__source {}
+
+.code__example .code__result {
+    padding: 2rem;
+}
+
+.code__example.tabs pre,
+.code__example.tabs code {
+    background: transparent;
+}
+
+.code__example.tabs pre {
+    padding: 0;
+}
+
+.code__example > .tabs__menu,
+.code__example > .tabs__menu .tabs__item {
+    border-color: @gray-23;
+}
+
 // code highlighting (via http://rouge.jneen.net)
+// ==============================================
 
 .highlight {
     .hll { background-color: #EFEFEF; }

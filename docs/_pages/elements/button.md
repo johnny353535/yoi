@@ -7,7 +7,7 @@ permalink: elements/button
 
 # Button
 
-Create buttons in different styles and sizes.
+<p class="intro">Create buttons in different styles and sizes.</p>
 
 | Styles         | [button.less]({{ pathToSourceFile }}assets/less/elements/button.less) |
 | Base CSS-Class | `.btn`                                                                |

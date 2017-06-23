@@ -6,7 +6,8 @@ permalink: elements/badge
 ---
 
 # Badge
-Use this element to display small bits of data, eg. inside a button. It’s perfect to create one-word labels or counters.
+
+<p class="intro">Use this element to display small bits of data, eg. inside a button. It’s perfect to create one-word labels or counters.</p>
 
 | Styles         | [badge.less]({{ pathToSourceFile }}assets/less/elements/badge.less)                                                                                                                 |
 | Base CSS-Class | `.badge`                                                                                                                                                                            |

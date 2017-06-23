@@ -7,7 +7,7 @@ permalink: elements/flyout
 
 # Flyout
 
-Use this element to display a label, pinned to either the left or right side of the screen, which reveals a small panel on click.
+<p class="intro">Use this element to display a label, pinned to either the left or right side of the screen, which reveals a small panel on click.</p>
 
 | Styles         | [flyout.less]({{ pathToSourceFile }}assets/less/elements/flyout.less) |
 | Script         | [flyout.js]({{ pathToSourceFile }}assets/js/elements/flyout.js)       |

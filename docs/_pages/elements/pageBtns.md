@@ -7,7 +7,7 @@ permalink: elements/pageBtns
 
 # PageBtns
 
-Use this element to display previous- & next-buttons with a page indicator.
+<p class="intro">Use this element to display previous- & next-buttons with a page indicator.</p>
 
 | Styles         | [pageBtns.less]({{ pathToSourceFile }}assets/less/elements/flipBtns.less) |
 | Base CSS-Class | `.pageBtns`                                                               |

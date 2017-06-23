@@ -7,7 +7,7 @@ permalink: elements/ribbon
 
 # Ribbon
 
-Use this element to display to display a 45° rotated ribbon in the the upper left or right corner of any container element.
+<p class="intro">Use this element to display to display a 45° rotated ribbon in the the upper left or right corner of any container element.</p>
 
 | Styles         | [ribbon.less]({{ pathToSourceFile }}assets/less/elements/ribbon.less)                                                   |
 | Base CSS-Class | `.ribbon`                                                                                                               |

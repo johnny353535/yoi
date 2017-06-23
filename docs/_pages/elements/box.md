@@ -6,13 +6,15 @@ permalink: elements/box
 ---
 
 # Box
-Use this element to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.
+
+<p class="intro">Use this element to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.</p>
 
 | Styles         | [box.less]({{ pathToSourceFile }}assets/less/elements/box.less) |
 | Base CSS-Class | `.box`                                                          |
 | Modifiers      | `-`                                                             |
 
 ## Basic Example
+
 This is how a basic `.box` looks like and how you write the markup:
 
 ```html
@@ -26,6 +28,7 @@ This is how a basic `.box` looks like and how you write the markup:
 ```
 
 ## Grouping
+
 Each `.box` can have multiple `.box__body`s. This is handy if you wish to group elements inside a single `.box` but only use one `.box__header`. Like this:
 
 ```html

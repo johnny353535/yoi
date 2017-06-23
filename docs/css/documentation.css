@@ -1,97 +1,16 @@
 /** documentation.css */
 
-/* base layout */
+/* page layout */
 /* =========== */
-
-/* header */
-
-.documentation__header {
-    height: 10rem;
-}
-
-/* article */
-
-.documentation__article {
-    min-height: 80vh;
-}
-
-/* intro paragraph */
-
-.documentation__article > h1:first-child + p {
-    font-size: 2rem;
-    line-height: 1.5;
-}
 
 /* intro table */
 
-.documentation__article > h1:first-child + p + table td:first-child {
+.article > h1:first-child + p + table td:first-child {
     width: 15rem;
 }
 
-/* code in copy text */
-
-.documentation__article p > code,
-.documentation__article table code,
-.documentation__article p > strong > code,
-.documentation__article p > b > code,
-.documentation__article p > em > code,
-.documentation__article p > i > code {
-    color: #9e4181;
-    font-size: .9em;
-    font-style: normal;
-    font-weight: normal;
-}
-
-/* code examples */
-
-.documentation__example {
-    border-radius: 2px;
-    border: #f6f5f4 1px solid;
-    margin: 2rem 0;
-}
-
-.documentation__example pre code {
-    border-radius: 0;
-    margin-top: -1.5rem;
-}
-
-.documentation__example pre {
-    padding: 2rem;
-}
-
-.documentation__example pre,
-.documentation__example code {
-    background: transparent;
-}
-
-.documentation__example .documentation__code {
-    
-}
-
-.documentation__example .documentation__result {
-    padding: 2rem;
-}
-
-.documentation__example.tabs pre,
-.documentation__example.tabs code {
-    background: transparent;
-}
-
-.documentation__example.tabs pre {
-    padding: 0;
-}
-
-.documentation__example > .tabs__menu,
-.documentation__example > .tabs__menu .tabs__item {
-    border-color: #f6f5f4;
-}
-
-/* footer */
-
-.documentation__footer {}
-
-/* individual examples */
-/* =================== */
+/* individual pages */
+/* ================ */
 
 /* interface/sticky.md */
 

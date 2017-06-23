@@ -7,7 +7,7 @@ permalink: elements/pagedots
 
 # PageDots
 
-Use this element to display previous- & next-buttons with dots as page indicators.
+<p class="intro">Use this element to display previous- & next-buttons with dots as page indicators.</p>
 
 | Styles         | [pageDots.less]({{ pathToSourceFile }}assets/less/elements/pageDots.less) |
 | Base CSS-Class | `.pageDots`                                                               |

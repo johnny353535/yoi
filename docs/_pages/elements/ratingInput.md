@@ -7,7 +7,7 @@ permalink: elements/ratinginput
 
 # RatingInput
 
-Use `.ratingInput` to create a compact 5-star rating mechanism.
+<p class="intro">Use `.ratingInput` to create a compact 5-star rating mechanism.</p>
 
 | Styles         | [ratingInput.less]({{ pathToSourceFile }}assets/less/elements/ratingInput.less) |
 | Script         | [ratingInput.js]({{ pathToSourceFile }}assets/js/elements/ratingInput.js)       |

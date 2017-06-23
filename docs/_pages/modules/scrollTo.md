@@ -6,7 +6,8 @@ permalink: modules/scrollto
 ---
 
 ## scrollTo
-This script provides a simple interface to set smooth automated scrolls to target anchors within the same document.
+
+<p class="intro">This script provides a simple interface to set smooth automated scrolls to target anchors within the same document.</p>
 
 |         |                                                                    |
 | -       | -                                                                  |
@@ -15,6 +16,7 @@ This script provides a simple interface to set smooth automated scrolls to targe
 | Options | `highlight: [blink / pulse]`                                       |
 
 ### Smoothly Scroll to an Anchor
+
 In order to set a smooth automated scroll (to a target element within the same document), add the yoi-attribute `yoi-scrollto` to the link.
 
 ```html
@@ -25,6 +27,7 @@ In order to set a smooth automated scroll (to a target element within the same d
 ```
 
 ### Highlighting Effects
+
 If you wish to highlight the target element once the autometed scroll finished, add one of the two available highlight animation types – `blink` and `pulse` to the `yoi-scrollto`-attribute.
 
 ```html
@@ -35,6 +38,7 @@ If you wish to highlight the target element once the autometed scroll finished, 
 ```
 
 ### Scroll a Container
+
 The target element may sit inside a container with hidden or scrollable overflow. In this case, instead of scrolling the whole page, only the container scrolls.
 
 <p class="hint"><b>Positioning / Context</b> Note: In order to scroll a container, the container itself must provide a context for positioning. This means it must be set to either <code>position:relative</code>, <code>position:absolute</code> or <code>position:fixed</code>.</p>

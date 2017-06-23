@@ -8,6 +8,7 @@ permalink: tools/buttons
 {% raw %}
 
 ## Buttons Tool
+
 ### Single Buttons
 
 <form class="m-tb-4">

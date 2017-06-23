@@ -7,7 +7,7 @@ permalink: elements/accordion
 
 # Accordion
 
-Use this element to create one or several grouped sections that expand or collapse, once a section header is clicked.
+<p class="intro">Use this element to create one or several grouped sections that expand or collapse, once a section header is clicked.</p>
 
 | Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
 | Script         | [accordion.js]({{ pathToSourceFile }}assets/js/elements/accordion.js)       |

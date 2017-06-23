@@ -7,7 +7,7 @@ permalink: elements/modal
 
 # Modal
 
-Modals are simple, regular pages, referenced by either `href`-attributes or a path via a `yoi-modal`-attribute. Any element may reference a modal. Modals are loaded asynchronically (ajax) and injected into the dom.
+<p class="intro">Modals are simple, regular pages, referenced by either `href`-attributes or a path via a `yoi-modal`-attribute. Any element may reference a modal. Modals are loaded asynchronically (ajax) and injected into the dom.</p>
 
 | Styles         | [modal.less]({{ pathToSourceFile }}assets/less/elements/modal.less) |
 | Script         | [modal.js]({{ pathToSourceFile }}assets/js/elements/modal.js)       |

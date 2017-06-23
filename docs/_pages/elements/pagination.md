@@ -7,7 +7,7 @@ permalink: elements/pagination
 
 # Pagination
 
-Use this element to render a pagination with page links and browse buttons.
+<p class="intro">Use this element to render a pagination with page links and browse buttons.</p>
 
 | Styles         | [pagination.less]({{ pathToSourceFile }}assets/less/elements/pagination.less) |
 | Base CSS-Class | `.pagination`                                                                 |

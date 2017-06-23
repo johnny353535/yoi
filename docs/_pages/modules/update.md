@@ -6,7 +6,8 @@ permalink: modules/update
 ---
 
 ## Update
-This script provides a simple interface to post to a given endpoint (eg. some backend script) and inject the retrieved markup back into the document.
+
+<p class="intro">This script provides a simple interface to post to a given endpoint (eg. some backend script) and inject the retrieved markup back into the document.</p>
 
 | Js-File | [update.js]({{ pathToSourceFile }}assets/js/modules/update.js) |
 | Hooks   | `yoi-update`                                                   |

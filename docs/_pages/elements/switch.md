@@ -7,7 +7,7 @@ permalink: elements/switch
 
 # Switch
 
-Use this element to display animated binary switch buttons.
+<p class="intro">Use this element to display animated binary switch buttons.</p>
 
 | Styles         | [switch.less]({{ pathToSourceFile }}assets/less/elements/switch.less) |
 | Base CSS-Class | `.switch`                                                             |

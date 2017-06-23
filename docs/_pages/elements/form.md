@@ -7,7 +7,7 @@ permalink: elements/form
 
 # Form
 
-All text inputs, textareas, checkboxes, radio buttons and selects get custom styling — no additional classnames needed. However, modifiers for state, color and size are available.
+<p class="intro">All text inputs, textareas, checkboxes, radio buttons and selects get custom styling — no additional classnames needed. However, modifiers for state, color and size are available.</p>
 
 | Styles         | [form.less]({{ pathToSourceFile }}assets/less/elements/form.less), [textInputs.less]({{ pathToSourceFile }}assets/less/elements/textInputs.less), [customCheckbox.less]({{ pathToSourceFile }}assets/less/elements/customCheckbox.less), [customRadiobutton.less]({{ pathToSourceFile }}assets/less/elements/customRadiobutton.less), [customSelect.less]({{ pathToSourceFile }}assets/less/elements/customSelect.less) |
 | Script         | [customFormElements.js]({{ pathToSourceFile }}assets/js/elements/customFormElements.js)                             |

@@ -7,7 +7,7 @@ permalink: elements/quotation
 
 # Quotation
 
-Use this element to create emphasized quotes.
+<p class="intro">Use this element to create emphasized quotes.</p>
 
 | Styles         | [quotation.less]({{ pathToSourceFile }}assets/less/elements/quotation.less) |
 | Base CSS-Class | `.quotation`                                                                |
