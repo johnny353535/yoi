@@ -10,7 +10,7 @@
                 {% assign currentPage  = page.url | split: "/" | last | replace: "_", " " %}
                 {% assign thisPageName = menuLabel | downcase %}
                 <li class="linkList__item{% if (currentPage == thisPageName) or (urlLastChar == "/" and menuLabel contains "index") %} is--active{% endif %}">
-                    <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName }}.html">{% if menuLabel contains "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}
+                    <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName | downcase | append: ".html" }}">{% if menuLabel contains "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}
                     </a>
                 </li>
             {% endfor %}
