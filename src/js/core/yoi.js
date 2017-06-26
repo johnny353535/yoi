@@ -399,7 +399,7 @@ var YOI = (function() {
              *                               and returns true/false
              */
             
-            var currentanguage = $('html').attr('lang') | "en";
+            var currentanguage = $('html').attr('lang') || "en";
         
             if (language === undefined) {
                 return currentanguage;
