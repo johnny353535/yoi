@@ -7,4 +7,4 @@ permalink: workflow/
 
 # Introduction
 
-<p class="hint hint--error">To be written …</p>
+<p class="hint hint--error">Documentation incomplete.</p>

@@ -5,6 +5,6 @@ title: Interface
 permalink: utilities/interface
 ---
 
-## Interface
+# Interface
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--error">Documentation incomplete.</p>

@@ -13,9 +13,6 @@ utilities:
     - interface
     - js_fallback
     - layout
-    - responsive_layout
-    - responsive_spacing
-    - responsive_typography
     - spacing
     - styling
     - typography

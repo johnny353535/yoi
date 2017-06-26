@@ -5,9 +5,11 @@ title: Debugging
 permalink: workflow/debugging
 ---
 
-## Visual Debugging
+# Visual Debugging
 
-Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.
+<p class="hint hint--error">Documentation incomplete.</p>
+
+<p class="intro">Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.</p>
 
 | Less-File | [debug.less]({{ pathToSourceFile }}assets/less/core/debug.less)      |
 | Less-File | [options.less]({{ pathToSourceFile }}assets/less/theme/options.less) |

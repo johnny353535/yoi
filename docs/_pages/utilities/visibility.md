@@ -5,6 +5,6 @@ title: Visibility
 permalink: utilities/visibility
 ---
 
-## Visibility
+# Visibility
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--error">Documentation incomplete.</p>

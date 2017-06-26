@@ -5,9 +5,9 @@ title: Introduction
 permalink: start/
 ---
 
-# Introduction
+# What is YOI?
 
-<p class="intro">YOI is our custom-built frontend component library. It enables our team to design and build web pages directly in the browser – up and ready for production.</p>
+<p class="intro">YOI is Yoshino’s custom-built frontend component library. It enables our team to design, build and test and iterate web pages directly in the browser. This workflow saves time and may even produce production-ready results.</p>
 
 ## Easy to Learn
 
@@ -15,17 +15,17 @@ If you are already familiar with the basics of HTML, you will quickly learn how 
 
 We kept things simple because we designed this system with _non-programmers_ in mind. While recent frameworks like React are exiting and push the limits of modern web development, they are designed to build rich JavaScript-only web applications, come with a steep learning curve and aim at more experienced developers.
 
-## Simple yet Powerful
+## Easy to Use
 
-### Ready-to-Use _Elements_
+### Pre-Built Collection of _Elements_
 
 This system offers you many [pre-built elements](elements/) that you can mix & match to build almost any layout you wish. Think of them as Lego-blocks. But even better, imagine you could also slightly tweak your lego blocks instead of merely combining them. Ever needed a block of unusual size or color? That’s exactly what we’ve got you covered. 
 
 ### Fine-Grain Control with _Utilities_
 
-By adding utility-classes to an element, you can override styling like colors, width, margin, etc. to fine-tune your layout or even build new custom elements. Or you can use utility classes to create up complex, even responsive layouts withput the need to write CSS.
+By adding utility-classes to an element, you can override styling like colors, width, margin, etc. to fine-tune your layout or even build new custom elements. Or you can use utility classes to create up complex, even responsive layouts without writing CSS.
 
-## Build Interaction Without Writing JavaScript
+## Interactive (Without Writing JavaScript)
 
 ### Hooks
 

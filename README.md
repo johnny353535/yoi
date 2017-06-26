@@ -1,6 +1,4 @@
-# YOI - the Yoshino Frontend Foundation
-
-The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.
+# YOI - the Yoshino Frontend Component Library
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

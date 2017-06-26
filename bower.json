@@ -1,11 +1,11 @@
 {
-  "name": "yoshino-ui-core",
-  "description": "The Yoshino Frontend UI components. Markup, scripts, styles, build-process and documentation.",
+  "name": "yoshino-yoi",
+  "description": "The Yoshino Frontend Component Library. Markup, scripts, styles, build-process and documentation.",
   "authors": [
     "yoshino.digital dev team"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/yoshino-digital/ui-core",
+  "homepage": "https://github.com/yoshino-digital/yoi",
   "private": false,
   "ignore": [
     "**/.*",

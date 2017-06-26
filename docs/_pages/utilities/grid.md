@@ -5,8 +5,9 @@ title: Grid
 permalink: utilities/grid
 ---
 
-## Layout and Grid
-This framework does not implement a traditional layout grid. Instead, it contains utility classes for fractional widths as well as utility classes for absolute widths and heighs. These classes are simple yet powerful enough to compose almost every desired layouts.
+# Layout and Grid
+
+<p class="intro">This framework does not implement a traditional layout grid. Instead, it contains utility classes for fractional widths as well as utility classes for absolute widths and heighs. These classes are simple yet powerful enough to compose almost every desired layouts.</p>
 
 |           |                                                                                              |
 | -         | -                                                                                            |
@@ -14,10 +15,11 @@ This framework does not implement a traditional layout grid. Instead, it contain
 | Less-File | [layout.less]({{ pathToSourceFile }}assets/less/utilities/layout.less)                       |
 | Less-File | [responsive-layout.less]({{ pathToSourceFile }}assets/less/utilities/responsive-layout.less) |
 
-### Center
+## Center
+
 Use the `.center` utility class to vertically center a container and set it to the pre-defined [global width](/pages/css-variables/dimensions.html).
 
-### Fractional Widths
+## Fractional Widths
 
 Use fractional width utility classes to create layout containers. By default, these containers render as _display:block_. Read further to learn how to create grids with fractional layout containers.
 
@@ -48,7 +50,8 @@ Use fractional width utility classes to create layout containers. By default, th
 <div class="w-1-5"></div>
 ```
 
-### Grids
+## Grids
+
 Grids can be composed by using the available utility classes. It’s possible to use the _float-helpers_ to place containers next to each other.
 
 ```html
@@ -65,7 +68,8 @@ Grids can be composed by using the available utility classes. It’s possible to
 
 Note: Always border-box.
 
-### Nesting
+## Nesting
+
 Layout containers can be nested. It’s possible to either use fractional widths inside absolute widths, the other way around or any combination of these.
 
 ```html
@@ -79,11 +83,11 @@ Layout containers can be nested. It’s possible to either use fractional widths
 </div>
 ```
 
-### Pulls
+## Pulls
 
-### Absolute Width and Height
+## Absolute Width and Height
 
-### Examples
+## Examples
 
 ```html
 <div class="grid-float">
@@ -92,7 +96,7 @@ Layout containers can be nested. It’s possible to either use fractional widths
 </div>
 ```
 
-### Absolute Width
+## Absolute Width
 
 ```html
 <div class="w-1"></div>
@@ -104,7 +108,7 @@ Layout containers can be nested. It’s possible to either use fractional widths
 <div class="w-60"></div>
 ```
 
-### Absolute Height
+## Absolute Height
 
 ```html
 <div class="h-1"></div>
@@ -116,7 +120,7 @@ Layout containers can be nested. It’s possible to either use fractional widths
 <div class="h-60"></div>
 ```
 
-### Flex Grid
+## Flex Grid
 
 ```html
 <div class="grid-flex flex-alignCenter">
@@ -129,7 +133,8 @@ Layout containers can be nested. It’s possible to either use fractional widths
 </div>
 ```
 
-### Debugging
+## Debugging
+
 Set the debug flag `@debugGrid` in [options.less](assets/less/variables/options.less) to `true` to draw outlines around any element which uses a grid-class – pretty much like in the examples on this very page.
 
 <style type="text/css" media="screen">
