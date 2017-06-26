@@ -398,9 +398,11 @@ var YOI = (function() {
              *                            b) checks against the given language parameter
              *                               and returns true/false
              */
+            
+            var currentanguage = $('html').attr('lang') | "en";
         
             if (language === undefined) {
-                return $('html').attr('lang');
+                return currentanguage;
             } else {
                 return $('html').attr('lang') === language;
             }

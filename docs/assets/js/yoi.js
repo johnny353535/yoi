@@ -135,8 +135,9 @@ var YOI = function() {
             return window.getComputedStyle(document.body, ":after").getPropertyValue("content").replace(/\"/g, "");
         },
         locale: function(language) {
+            var currentanguage = $("html").attr("lang") | "en";
             if (language === undefined) {
-                return $("html").attr("lang");
+                return currentanguage;
             } else {
                 return $("html").attr("lang") === language;
             }
