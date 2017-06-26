@@ -125,22 +125,25 @@ var YOI = function() {
             return pattern.test(testVal);
         },
         environment: function(envName) {
+            var defaultEnvironment = "desktop";
+            var currentEnvironment = $("body").attr("yoi-environment") || defaultEnvironment;
             if (envName === undefined) {
-                return $("body").attr("yoi-environment");
+                return currentEnvironment;
             } else {
                 return $("body").attr("yoi-environment") === envName;
             }
         },
-        currentBreakpoint: function() {
-            return window.getComputedStyle(document.body, ":after").getPropertyValue("content").replace(/\"/g, "");
-        },
         locale: function(language) {
-            var currentanguage = $("html").attr("lang") | "en";
+            var defaultLanguage = "en";
+            var currentLanguage = $("html").attr("lang") || defaultLanguage;
             if (language === undefined) {
-                return currentanguage;
+                return currentLanguage;
             } else {
                 return $("html").attr("lang") === language;
             }
+        },
+        currentBreakpoint: function() {
+            return window.getComputedStyle(document.body, ":after").getPropertyValue("content").replace(/\"/g, "");
         },
         blink: function(elem) {
             if (!(elem instanceof jQuery) || elem === undefined) return false;

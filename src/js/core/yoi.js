@@ -366,24 +366,15 @@ var YOI = (function() {
              *                             b) checks against the given envName parameter
              *                                and returns true/false
              */
+            
+            var defaultEnvironment = 'desktop';
+            var currentEnvironment = $('body').attr('yoi-environment') || defaultEnvironment;
         
             if (envName === undefined) {
-                return $('body').attr('yoi-environment');
+                return currentEnvironment;
             } else {
                 return $('body').attr('yoi-environment') === envName;
             }
-
-        },
-
-        currentBreakpoint : function() {
-
-            /**
-             *  Read and return the currently active media-query.
-             *
-             *  @return {string} - the active media query name
-             */
-
-            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
 
         },
 
@@ -399,13 +390,26 @@ var YOI = (function() {
              *                               and returns true/false
              */
             
-            var currentanguage = $('html').attr('lang') || "en";
+            var defaultLanguage = 'en';
+            var currentLanguage = $('html').attr('lang') || defaultLanguage;
         
             if (language === undefined) {
-                return currentanguage;
+                return currentLanguage;
             } else {
                 return $('html').attr('lang') === language;
             }
+
+        },
+        
+        currentBreakpoint : function() {
+
+            /**
+             *  Read and return the currently active media-query.
+             *
+             *  @return {string} - the active media query name
+             */
+
+            return window.getComputedStyle(document.body,':after').getPropertyValue('content').replace(/\"/g, '');
 
         },
 
