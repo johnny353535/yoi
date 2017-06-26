@@ -2,7 +2,7 @@
 layout: base
 group: elements
 title: PageBtns
-permalink: elements/pageBtns
+permalink: elements/pagebtns
 ---
 
 # PageBtns

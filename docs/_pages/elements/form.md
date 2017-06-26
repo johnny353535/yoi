@@ -21,7 +21,7 @@ This is how a `<input type="text">` and `<textarea>` looks like:
 
 ```html
 <!-- example:tabs -->
-<div class="w-1-3">
+<div class="w-30">
     <div class="m-b-2">
         <input type="text" />
     </div>
@@ -84,7 +84,7 @@ Use the modifiers `.input--success` and `.input--error` to visualize input valid
 
 ```html
 <!-- example:tabs -->
-<div class="w-1-3">
+<div class="w-30">
     <div class="m-b-2">
         <input class="input--success" type="text" value="some text" />
     </div>
@@ -124,7 +124,7 @@ You can use the modifiers `.input--focus`, `.input--disabled` and `.input--reado
 
 ```html
 <!-- example:tabs -->
-<div class="w-1-3">
+<div class="w-30">
     <div class="m-b-2">
         <input class="input--focus" type="text" value="modifier .input--focus" />
     </div>
@@ -149,10 +149,10 @@ Use the modifier `.input--large` for all interactive form elements to increase s
 
 ```html
 <!-- example:tabs -->
-<div class="m-b-2 w-1-3">
+<div class="m-b-2 w-30">
     <input class="input--large" type="text" value="some text" />
 </div>
-<div class="m-b-2 w-1-3">
+<div class="m-b-2 w-30">
     <select class="input--large">
         <option>Dysprosium</option>
         <option>Aluminium</option>
