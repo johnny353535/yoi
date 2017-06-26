@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: Introduction
-permalink: modules/
+permalink: actions/
 ---
 
 ## Introduction

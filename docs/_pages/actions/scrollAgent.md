@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: ScrollAgent
-permalink: modules/scrollagent
+permalink: actions/scrollagent
 ---
 
 ## ScrollAgent

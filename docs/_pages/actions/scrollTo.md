@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: ScrollTo
-permalink: modules/scrollto
+permalink: actions/scrollto
 ---
 
 ## scrollTo

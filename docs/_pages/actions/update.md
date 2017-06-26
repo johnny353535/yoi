@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: Update
-permalink: modules/update
+permalink: actions/update
 ---
 
 ## Update

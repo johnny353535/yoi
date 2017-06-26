@@ -205,7 +205,7 @@ Most link list modifiers can be combined as you’d expect. For example, it is p
     <li class="linkList__item">
         <a class="linkList__link" href="#">Oxygen</a>
     </li>
-    <li class="linkList__item">
+    <li class="linkList__item is--active">
         <a class="linkList__link" href="#">Potassium</a>
     </li>
     <li class="linkList__item">

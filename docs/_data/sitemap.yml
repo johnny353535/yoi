@@ -78,7 +78,7 @@ elements:
     - table
     - tabs
     - tooltip
-modules:
+actions:
     - index
     - hide_and_reveal
     - lazyload

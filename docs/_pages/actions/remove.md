@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: Remove
-permalink: modules/remove
+permalink: actions/remove
 ---
 
 ## Remove

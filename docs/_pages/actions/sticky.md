@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: Sticky
-permalink: modules/sticky
+permalink: actions/sticky
 ---
 
 ## Sticky

@@ -1,8 +1,8 @@
 ---
 layout: base
-group: modules
+group: actions
 title: Lazyload
-permalink: modules/lazyload
+permalink: actions/lazyload
 ---
 
 ## Lazyload

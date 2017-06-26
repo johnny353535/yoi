@@ -52,8 +52,14 @@
 
 // active
 
-.is--active .linkList__link {
-    background: @color-main-24;
+.is--active .linkList__link::before {
+    background: @color-main-8;
+    bottom: 0;
+    content: ' ';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2px;
 }
 
 // icons
@@ -97,9 +103,9 @@
     .linkList__link:hover {
         background: @color-main-11;
     }
-
-    .is--active .linkList__link {
-        background: @color-main-9;
+    
+    .is--active .linkList__link::before {
+        background: @color-main-22;
     }
 
 }
