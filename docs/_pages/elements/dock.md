@@ -49,7 +49,7 @@ The following code example is creating the dock you may actually see on the left
 
 ```html
 <!-- example -->
-<div class="dock dock--left" yoi-dock="autohide:true;">
+<div id="exampleDock" class="dock dock--left" yoi-dock="autohide:true;">
     <h4>Table of Content</h4>
     <ul class="linkList linkList--large b-0 m-t-4">
         <li class="linkList__item">
@@ -124,3 +124,19 @@ Each `.dock` fires custom events your script can listen to:
 yoi-dock:show // dock was shown
 yoi-dock:hide // dock was hidden
 ```
+
+## Test
+
+### show / hide dock on mouseover(mouseout)
+
+<button class="btn btn--large" yoi-action-1="Dock.show:#exampleDock; on:mouseover; foo:bar; bar:baz;" yoi-action-2="Dock.hide:#exampleDock; on:mouseout;">Show #myDock</button>
+
+### poop
+
+<button class="btn btn--large" yoi-action-1="Hide:#boo; on:mouseout; transition:slideUp;" yoi-action-2="Show:#boo; on:mouseover; transition:slideDown;">Toggle #boo</button>
+
+<div class="box h-20 p-4">
+    <p class="hint jsHidden" id="boo">Boo!</p>
+    <p class="hint" yoi-action-1="Hide:self; on:yoi-dock-show; transition:fadeOut;" yoi-action-2="Show:self; on:yoi-dock-hide; transition:fadeIn;">I am only visible when the dock is hidden.</p>
+</div>
+

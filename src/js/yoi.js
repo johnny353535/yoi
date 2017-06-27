@@ -3,7 +3,7 @@
 var YOI = (function() {
 
     return {
-    
+
         // helpers
 
         stringContains : function(input, searchString) {
@@ -30,7 +30,7 @@ var YOI = (function() {
             }
 
         },
-    
+
         zeroPad : function(num, digits) {
 
             /**
@@ -54,7 +54,7 @@ var YOI = (function() {
             return (leadingZeros + num).slice(-digits-1);
 
         },
-    
+
         foundModule : function(module) {
 
             /**
@@ -71,7 +71,7 @@ var YOI = (function() {
             }
 
         },
-        
+
         foundElement : function(element) {
 
             /**
@@ -88,7 +88,7 @@ var YOI = (function() {
             }
 
         },
-    
+
         setDelay : function(delayName, delayTime, delayFunction) {
 
             /**
@@ -163,7 +163,7 @@ var YOI = (function() {
             }
 
         },
-    
+
         toObject : function(input) {
 
             /*
@@ -258,7 +258,7 @@ var YOI = (function() {
             return yoiAttributeValue;
         
         },
-    
+
         hide : function($target) {
 
             /**
@@ -327,7 +327,7 @@ var YOI = (function() {
             }
 
         },
-        
+
         isNumber : function(inputVal) {
             
             /**
@@ -400,7 +400,7 @@ var YOI = (function() {
             }
 
         },
-        
+
         currentBreakpoint : function() {
 
             /**
@@ -458,7 +458,7 @@ var YOI = (function() {
                 .animate({ opacity:  1 }, 300);
 
         },
-    
+
         // YOI interface
 
         updateOptions : function($element, options) {
@@ -498,7 +498,7 @@ var YOI = (function() {
             }
         
         },
-    
+
         updateProps : function($element, props) {
         
             /**
@@ -541,7 +541,7 @@ var YOI = (function() {
             return $element.data().props;
 
         },
-    
+
         updateState : function($element, state) {
         
             /**
@@ -633,7 +633,87 @@ var YOI = (function() {
             return YOI.elementCollection[identifier];
     
         },
+
+        bindAction: function($element, hook) {
+            
+            /**
+             *  Reads function and event type from the hook parameters and binds
+             *  them to a given jQuery $element.
+             *
+             *  @param {jQuery dom object} $element
+             *  @param {string}            hook
+             */
+            
+            var params         = YOI.toObject($element.attr(hook));
+            var action         = Object.keys(params)[0];
+            var hostObject     = action.split('.')[0];
+            var publicFunction = action.split('.')[1];
+            var event          = params.on || 'click';
+            var options        = {};
+            
+            // the keyword "self" switches the target element to $element
+            
+            var target = params[action] === 'self' ? $element : params[action];
+            
+            // the keyword "self" witches the trigger element to $(window)
+            
+            var trigger = params[action] === 'self' ? $(window) : $element;
+            
+            // store options in new object
+            
+            $.map(params, function(value, key) {
+                if (key !== action && key !== 'on') {
+                    options[key] = value;
+                }
+            });
+            
+            // the function to be called belongs to an 'element'
         
+            if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {
+                trigger.on(event, function() {
+                    YOI['element'][hostObject][publicFunction]($(target));
+                });
+            }
+
+            // the function to be called is a simple 'action'
+        
+            if (typeof YOI['action'][action] === 'function') {
+                trigger.on(event, function() {
+                    YOI['action'][action]($(target), options);
+                });
+            }
+
+        },
+
+        mapActions : function() {
+            
+            /**
+             *  Simple wrapper function to apply YOI.bindAction() to
+             *  a set of DOM elements.
+             */
+            
+            $('[yoi-action]').each(function() {
+                YOI.bindAction($(this), 'yoi-action');
+            });
+            
+            $('[yoi-action-1]').each(function() {
+                YOI.bindAction($(this), 'yoi-action-1');
+            });
+            
+            $('[yoi-action-2]').each(function() {
+                YOI.bindAction($(this), 'yoi-action-2');
+            });
+            
+            $('[yoi-action-3]').each(function() {
+                YOI.bindAction($(this), 'yoi-action-3');
+            });
+            
+            $('[yoi-action-4]').each(function() {
+                YOI.bindAction($(this), 'yoi-action-4');
+            });
+            
+        },
+
         startDomObserver : function() {
             
             /**
@@ -670,7 +750,7 @@ var YOI = (function() {
             });
             
         },
-            
+
         stopDomObserver : function() {
             
             /**
@@ -697,6 +777,8 @@ YOI.elementCollection = {};
 
 YOI.element = {};
 YOI.module  = {};
+YOI.action  = {};
+YOI.feature = {};
 
 // initialize all
 // YOI.element and YOI.module
@@ -721,6 +803,15 @@ $(function() {
     $.each(YOI.module, function() {
         try { this.init(); } catch(e) {}
     });
+
+    // map actions
+
+    YOI.mapActions();
+    
+    // initially hide all elements with the utility class
+    // "jsHidden" so that jQuery's show() function works properly
+
+    $('.jsHidden').hide();
 
 });
 

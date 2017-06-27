@@ -58,7 +58,7 @@ YOI.element.Dock = (function() {
          */
 
         $thisDock.addClass('is--hidden');
-        $thisDock.trigger('yoi-dock:hide');
+        $thisDock.trigger('yoi-dock-hide');
         $thisDock.data().state = 'hidden';
         
     }
@@ -72,7 +72,7 @@ YOI.element.Dock = (function() {
          */
 
         $thisDock.removeClass('is--hidden');
-        $thisDock.trigger('yoi-dock:show');
+        $thisDock.trigger('yoi-dock-show');
         $thisDock.data().state = 'visible';
         
     }

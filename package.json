@@ -20,7 +20,9 @@
     "install-gems": "cd docs && bundle install",
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
     "build-jekyll": "cd docs && jekyll build --config _config.yml",
-    "build-scripts": "uglifyjs src/js/**/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
+    
+    "build-scripts": "uglifyjs src/js/yoi.js src/js/elements/*.js src/js/features/*.js src/js/actions/*.js src/js/modules/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
+    
     "build-styles": "lessc src/less/index.less dist/css/yoi.css --source-map-map-inline && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css && npm run copy-styles",
     "clean": "npm run clean-dist && npm run clean-docs",
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/audio dist/css dist/img dist/js",
@@ -33,7 +35,9 @@
     "copy-styles": "cp dist/css/* docs/assets/css/",
     "deploy": "npm run clean && npm run deploy-scripts && npm run deploy-styles && npm run copy && npm run deploy-jekyll",
     "deploy-jekyll" : "cd docs && JEKYLL_ENV=production jekyll build --config _config.yml",
-    "deploy-scripts": "uglifyjs src/js/**/*.js --beautify -o dist/js/yoi.js && npm run copy-scripts",
+    
+    "deploy-scripts": "uglifyjs src/js/yoi.js src/js/elements/*.js src/js/features/*.js src/js/actions/*.js src/js/modules/*.js --compress -o dist/js/yoi.js && npm run copy-scripts",
+    
     "deploy-styles": "lessc src/less/index.less dist/css/yoi.css && postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css && cssnano dist/css/yoi.css dist/css/yoi.css --svgo && npm run copy-styles",
     "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors",
     "watch": "npm run watch-styles & npm run watch-jekyll & npm run watch-scripts",
