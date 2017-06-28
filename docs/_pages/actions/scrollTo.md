@@ -20,7 +20,8 @@ permalink: actions/scrollto
 In order to set a smooth automated scroll (to a target element within the same document), add the yoi-attribute `yoi-scrollto` to the link.
 
 ```html
-<a class="btn btn--large" href="#target-1" yoi-scrollto>Scroll to Target #1</a>
+<!-- example -->
+<a class="btn btn--large" href="#target-1" yoi-action="ScrollTo:#target-1;">Scroll to Target #1</a>
 <div class="m-tb-20">
     <div id="target-1" class="w-20 al-c p-8 br bg-purple-15 tc-purple-24 fs-15">Target #1</div>
 </div>
@@ -31,8 +32,9 @@ In order to set a smooth automated scroll (to a target element within the same d
 If you wish to highlight the target element once the autometed scroll finished, add one of the two available highlight animation types – `blink` and `pulse` to the `yoi-scrollto`-attribute.
 
 ```html
-<a class="btn btn--large" href="#target-2" yoi-scrollto="highlight:blink">Scroll to Target #2</a>
-<a class="btn btn--large" href="#target-3" yoi-scrollto="highlight:pulse">Scroll to Target #3</a>
+<!-- example -->
+<a class="btn btn--large" href="#target-2" yoi-action="ScrollTo:#target-2; highlight:blink">Scroll to Target #2</a>
+<a class="btn btn--large" href="#target-3" yoi-action="ScrollTo:#target-3; highlight:pulse">Scroll to Target #3</a>
 <div id="target-2" class="w-20 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-15">Target #2</div>
 <div id="target-3" class="w-20 al-c p-8 br bg-red-17 tc-red-24 fs-15">Target #3</div>
 ```
@@ -44,8 +46,9 @@ The target element may sit inside a container with hidden or scrollable overflow
 <p class="hint"><b>Positioning / Context</b> Note: In order to scroll a container, the container itself must provide a context for positioning. This means it must be set to either <code>position:relative</code>, <code>position:absolute</code> or <code>position:fixed</code>.</p>
 
 ```html
-<a class="btn btn--large" href="#target-4" yoi-scrollto>Scroll Container to Target #4</a>
-<a class="btn btn--large" href="#target-5" yoi-scrollto>Scroll Container to Target #5</a>
+<!-- example -->
+<a class="btn btn--large" href="#target-4" yoi-action="ScrollTo:#target-4;">Scroll Container to Target #4</a>
+<a class="btn btn--large" href="#target-5" yoi-action="ScrollTo:#target-5;">Scroll Container to Target #5</a>
 ```
 
 <div class="m-t-4 h-40 p-4 br b-all bc-main-22 pos-rel scrl-y">

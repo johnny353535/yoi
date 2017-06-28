@@ -1,6 +1,6 @@
 /** toggleGroup.js */
 
-YOI.module.ToggleGroup = (function() {
+YOI.element.ToggleGroup = (function() {
 
     // private vars
     // ============

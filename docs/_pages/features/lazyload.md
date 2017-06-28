@@ -1,8 +1,8 @@
 ---
 layout: base
-group: actions
+group: features
 title: Lazyload
-permalink: actions/lazyload
+permalink: features/lazyload
 ---
 
 ## Lazyload

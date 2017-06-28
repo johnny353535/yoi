@@ -1,19 +1,19 @@
 ---
 layout: base
-group: actions
+group: elements
 title: Toggle Group
-permalink: actions/togglegroup
+permalink: elements/togglegroup
 ---
 
 ## Toggle Group
 
 <p class="intro">This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.</p>
 
-|                              |                                                                          |
-| -                            | -                                                                        |
-| Js-File                      | [toggleGroup.js]({{ pathToSourceFile }}assets/js/modules/toggleGroup.js) |
-| Hooks                        | `yoi-toggle, yoi-toggle-fallback`                                        |
-| Options (for `yoi-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)           |
+|                              |                                                                           |
+| -                            | -                                                                         |
+| Js-File                      | [toggleGroup.js]({{ pathToSourceFile }}assets/js/elements/toggleGroup.js) |
+| Hooks                        | `yoi-toggle, yoi-toggle-fallback`                                         |
+| Options (for `yoi-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)            |
 
 ### Example with mouseover and Fall Back Element
 

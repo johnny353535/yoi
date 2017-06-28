@@ -74,17 +74,21 @@ elements:
     - switch
     - table
     - tabs
+    - toggleGroup
     - tooltip
 actions:
     - index
-    - hide_and_reveal
-    - lazyload
+    - hide
+    - show
     - remove
-    - scrollAgent
     - scrollTo
-    - sticky
-    - toggleGroup
     - update
+features:
+    - index
+    - dismiss
+    - lazyload
+    - scrollFx
+    - sticky
 tools:
     - index
     - buttons

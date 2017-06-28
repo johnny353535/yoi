@@ -1,8 +1,8 @@
 ---
 layout: base
 group: actions
-title: Hide & Reveal
-permalink: actions/hide_and_reveal
+title: Show
+permalink: actions/show
 ---
 
 ## Hide & Reveal

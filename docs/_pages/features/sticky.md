@@ -1,16 +1,16 @@
 ---
 layout: base
-group: actions
+group: features
 title: Sticky
-permalink: actions/sticky
+permalink: features/sticky
 ---
 
 ## Sticky
 
 <p class="intro">Make any element on the page **stick** while scrolling past a certain threshold, which can be defined per element.</p>
 
-| Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/modules/sticky.js) |
-| Hooks   | `yoi-sticky`                                                   |
+| Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/features/sticky.js) |
+| Hooks   | `yoi-sticky`                                                    |
 
 ### Simple Example
 

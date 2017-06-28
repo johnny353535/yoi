@@ -20,7 +20,7 @@ Use any element as a trigger by adding the custom yoi-attribute `yoi-remove`. In
 ```html
 <!-- example -->
 <div class="box w-30 h-20 p-2">
-    <button class="btn pos-tr m-2" yoi-remove>Remove my Parent Element</button>
+    <button class="btn pos-tr m-2" yoi-action="Remove:parent;">Remove my Parent Element</button>
 </div>
 ```
 
@@ -30,7 +30,7 @@ If you wish to remove any other element in the dom, refer to it through the trig
 <!-- example -->
 <!-- the trigger element: -->
 <div class="m-b-2">
-    <button class="btn" yoi-remove="target:#myTargetElement">Remove my Target Element</button>
+    <button class="btn" yoi-action="Remove:#myTargetElement;">Remove my Target Element</button>
 </div>
 <!-- the target element: -->
 <div id="myTargetElement" class="w-30 h-20 p-2 br bg-green-16 tc-white">
@@ -44,7 +44,7 @@ If you wish to remove a collection of elements from the dom, refer to them throu
 <!-- example -->
 <!-- the trigger element: -->
 <div class="m-b-2">
-    <button class="btn" yoi-remove="target:.myTargetElement">Remove My Many Target Elements</button>
+    <button class="btn" yoi-action="Remove:.myTargetElement;">Remove My Many Target Elements</button>
 </div>
 <!-- the target elements: -->
 <div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
@@ -61,13 +61,13 @@ If you wish to remove a collection of elements from the dom, refer to them throu
 </div>
 <!-- the trigger element: -->
 <div class="m-b-2">
-    <button class="btn" yoi-remove="target:.documentation__example ul,[href*=http]">Remove All Unordered Lists and External Links</button>
+    <button class="btn" yoi-action="Remove:ol,[href*=http];">Remove All Ordered Lists and External Links</button>
 </div>
 <!-- the target elements: -->
-<ul class="p-l-4 m-t-4 m-b-2">
+<ol class="p-l-4 m-t-4 m-b-2">
     <li>Manganese</li>
     <li>Gold</li>
     <li>Calcium</li>
-</ul>
+</ol>
 <a href="http://yoshino.digital">Yoshino Digital</a>
 ```

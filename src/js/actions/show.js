@@ -1,11 +1,12 @@
 /** show.js */
 
-YOI.action.Show = function($target, options) {
+YOI.action.Show = function($trigger, $target, options) {
 
     /**
      *  Reveals the target element.
      *
-     *  @param {jQuery dom object} $target
+     *  @param {jQuery dom object} $trigger - the element which triggered the script
+     *  @param {jQuery dom object} $target  - the target element
      *  @param {object}            options
      *
      *  Available options:

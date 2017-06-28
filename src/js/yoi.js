@@ -655,9 +655,13 @@ var YOI = (function() {
             
             var target = params[action] === 'self' ? $element : params[action];
             
+            // the keyword "parent" switches the target element to $element.parent()
+            
+            var target = params[action] === 'parent' ? $element.parent() : params[action];
+            
             // the keyword "self" witches the trigger element to $(window)
             
-            var trigger = params[action] === 'self' ? $(window) : $element;
+            var $trigger = params[action] === 'self' ? $(window) : $element;
             
             // store options in new object
             
@@ -670,7 +674,8 @@ var YOI = (function() {
             // the function to be called belongs to an 'element'
         
             if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {
-                trigger.on(event, function() {
+                $trigger.on(event, function(e) {
+                    e.preventDefault();
                     YOI['element'][hostObject][publicFunction]($(target));
                 });
             }
@@ -678,8 +683,9 @@ var YOI = (function() {
             // the function to be called is a simple 'action'
         
             if (typeof YOI['action'][action] === 'function') {
-                trigger.on(event, function() {
-                    YOI['action'][action]($(target), options);
+                $trigger.on(event, function(e) {
+                    e.preventDefault();
+                    YOI['action'][action]($trigger, $(target), options);
                 });
             }
 
@@ -775,10 +781,10 @@ YOI.elementCollection = {};
 // create objects for all
 // YOI.element and YOI.module
 
-YOI.element = {};
-YOI.module  = {};
 YOI.action  = {};
+YOI.element = {};
 YOI.feature = {};
+YOI.module  = {};
 
 // initialize all
 // YOI.element and YOI.module
@@ -795,6 +801,12 @@ $(function() {
     // initialize all YOI elements
 
     $.each(YOI.element, function() {
+        try { this.init(); } catch(e) {}
+    });
+    
+    // initialize all YOI features
+
+    $.each(YOI.feature, function() {
         try { this.init(); } catch(e) {}
     });
     
