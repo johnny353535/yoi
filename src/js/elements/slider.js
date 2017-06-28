@@ -366,7 +366,7 @@ YOI.element.Slider = (function() {
         
         // trigger custom event
         
-        $thisSlider.trigger('yoi-slider:change');
+        $thisSlider.trigger('yoi-slider-change');
 
     }
 
@@ -461,7 +461,7 @@ YOI.element.Slider = (function() {
 
         // trigger custom event
 
-        $slider.trigger('yoi-slider:autoplaystart');
+        $slider.trigger('yoi-slider-autoplaystart');
         
     }
     
@@ -480,7 +480,7 @@ YOI.element.Slider = (function() {
 
         // trigger custom event
 
-        $slider.trigger('yoi-slider:autoplaystop');
+        $slider.trigger('yoi-slider-autoplaystop');
 
     }
 
@@ -545,7 +545,7 @@ YOI.element.Slider = (function() {
         
         // left arrow key
         
-        $document.on('yoi-keypressed:arrowleft', function() {
+        $document.on('yoi-keypressed-arrowleft', function() {
             
             var $activeSlider = $(document.activeElement);
             
@@ -558,7 +558,7 @@ YOI.element.Slider = (function() {
         
         // right arrow key
 
-        $document.on('yoi-keypressed:arrowright', function() {
+        $document.on('yoi-keypressed-arrowright', function() {
             
             var $activeSlider = $(document.activeElement);
             

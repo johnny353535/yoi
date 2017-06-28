@@ -64,15 +64,15 @@ YOI.element.CustomFormElements = (function() {
             $thisCheckbox.on({
                 'focus': function() {
                     $thisCheckbox.parent().addClass('input--focus');
-                    $thisCheckbox.trigger('yoi-input:focus');
+                    $thisCheckbox.trigger('yoi-input-focus');
                 },
                 'blur': function() {
                     $thisCheckbox.parent().removeClass('input--focus');
-                    $thisCheckbox.trigger('yoi-input:blur');
+                    $thisCheckbox.trigger('yoi-input-blur');
                 },
                 'change': function(e) {
                     $thisCheckbox.parent().toggleClass('input--checked');
-                    $thisCheckbox.trigger('yoi-input:change');
+                    $thisCheckbox.trigger('yoi-input-change');
                 }
             });
 
@@ -96,11 +96,11 @@ YOI.element.CustomFormElements = (function() {
             $thisRadioBtn.on({
                 'focus': function() {
                     $thisRadioBtn.parent().addClass('input--focus');
-                    $thisRadioBtn.trigger('yoi-input:focus');
+                    $thisRadioBtn.trigger('yoi-input-focus');
                 },
                 'blur': function() {
                     $thisRadioBtn.parent().removeClass('input--focus');
-                    $thisRadioBtn.trigger('yoi-input:blur');
+                    $thisRadioBtn.trigger('yoi-input-blur');
                 },
                 'change': function(e) {
                 
@@ -109,7 +109,7 @@ YOI.element.CustomFormElements = (function() {
 
                     $groupedBtns.parent().removeClass('input--checked');
                     $thisRadioBtn.parent().addClass('input--checked');
-                    $thisRadioBtn.trigger('yoi-input:change');
+                    $thisRadioBtn.trigger('yoi-input-change');
                 
                 }
             });
@@ -142,14 +142,14 @@ YOI.element.CustomFormElements = (function() {
             $thisSelect.on({
                 'focus': function() {
                     $(this).parent().addClass('input--focus');
-                    $(this).trigger('yoi-input:focus');
+                    $(this).trigger('yoi-input-focus');
                 },
                 'blur': function() {
                     $(this).parent().removeClass('input--focus');
-                    $(this).trigger('yoi-input:blur');
+                    $(this).trigger('yoi-input-blur');
                 },
                 'change': function() {
-                    $(this).trigger('yoi-input:change');
+                    $(this).trigger('yoi-input-change');
                 }
             });
 

@@ -94,7 +94,7 @@ YOI.element.MaxChars = (function() {
                 // add error class and trigger custom event
                 
                 $displayElement.addClass(props.errorClassNames);
-                $inputElement.trigger('yoi-maxchars:reset');
+                $inputElement.trigger('yoi-maxchars-reset');
                 
             } else {
                 
@@ -148,7 +148,7 @@ YOI.element.MaxChars = (function() {
         
         // trigger custom event
         
-        $inputElement.trigger('yoi-maxchars:reset');
+        $inputElement.trigger('yoi-maxchars-reset');
         
     }
 

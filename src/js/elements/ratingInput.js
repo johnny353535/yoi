@@ -85,7 +85,7 @@ YOI.element.RatingInput = (function() {
         
         // fire custom event
         
-        $ratingInput.trigger('yoi-rating:lock');
+        $ratingInput.trigger('yoi-rating-lock');
 
     }
 
@@ -102,7 +102,7 @@ YOI.element.RatingInput = (function() {
         
         // fire custom event
         
-        $ratingInput.trigger('yoi-rating:unlock');
+        $ratingInput.trigger('yoi-rating-unlock');
 
     }
 
@@ -134,7 +134,7 @@ YOI.element.RatingInput = (function() {
 
             // fire custom event
         
-            $ratingInput.trigger('yoi-rating:change');
+            $ratingInput.trigger('yoi-rating-change');
         
         }
 
@@ -176,7 +176,7 @@ YOI.element.RatingInput = (function() {
         
         // fire custom event
         
-        $ratingInput.trigger('yoi-rating:submit');
+        $ratingInput.trigger('yoi-rating-submit');
 
     }
 

@@ -522,7 +522,7 @@ var YOI = (function() {
                 // fire a custom event
             
                 if (props !== $element.data().props) {
-                    $element.trigger('YOI.props:change');
+                    $element.trigger('yoi-props-change');
                 }
             
                 // if "props" is a valid object, attach the value to
@@ -534,7 +534,7 @@ var YOI = (function() {
             
                 // trigger custom event
             
-                $element.trigger('YOI.props:update');
+                $element.trigger('yoi-props-update');
             
             }
         
@@ -564,7 +564,7 @@ var YOI = (function() {
                 // fire a custom event
             
                 if (state !== $element.data().state) {
-                    $element.trigger('YOI.state:change');
+                    $element.trigger('yoi-state-change');
                 }
             
                 // if "state" is a valid string, attach the value to
@@ -574,7 +574,7 @@ var YOI = (function() {
             
                 // trigger custom event
             
-                $element.trigger('YOI.state:update');
+                $element.trigger('yoi-state-update');
             
             }
         
@@ -650,19 +650,29 @@ var YOI = (function() {
             var publicFunction = action.split('.')[1];
             var event          = params.on || 'click';
             var options        = {};
+            var $trigger       = event.match(/yoi-/) ? $('body') : $element;
+            var target         = params[action];
+
+            // define the target
             
-            // the keyword "self" switches the target element to $element
-            
-            var target = params[action] === 'self' ? $element : params[action];
-            
-            // the keyword "parent" switches the target element to $element.parent()
-            
-            var target = params[action] === 'parent' ? $element.parent() : params[action];
-            
-            // the keyword "self" witches the trigger element to $(window)
-            
-            var $trigger = params[action] === 'self' ? $(window) : $element;
-            
+            switch (params[action]) {
+                
+                // the keyword "self" switches the target element to $element
+                // and the trigger element to $(window)
+                
+                case 'self':
+                    target   = $element;
+                    break;
+                    
+                // the keyword "parent" switches the target element
+                // to $element.parent()
+                    
+                case 'parent':
+                    target = $element.parent();
+                    break;
+
+            }
+
             // store options in new object
             
             $.map(params, function(value, key) {
@@ -670,7 +680,7 @@ var YOI = (function() {
                     options[key] = value;
                 }
             });
-            
+
             // the function to be called belongs to an 'element'
         
             if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {
@@ -734,13 +744,13 @@ var YOI = (function() {
                 mutations.forEach(function(mutation) {
 
                     if (mutation.addedNodes.length) {
-                        $document.trigger('yoi-dom:add');
+                        $document.trigger('yoi-dom-add');
                         // console.log('added:');
                         // console.log(mutation.target);
                     }
                     
                     if (mutation.removedNodes.length) {
-                        $document.trigger('yoi-dom:remove');
+                        $document.trigger('yoi-dom-remove');
                         // console.log('removed:');
                         // console.log(mutation.target);
                     }
@@ -768,9 +778,9 @@ var YOI = (function() {
             }
             
         }
-    
+
     };
-    
+
 })();
 
 // create an object to store jQuery

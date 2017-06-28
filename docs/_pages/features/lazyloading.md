@@ -1,11 +1,11 @@
 ---
 layout: base
 group: features
-title: Lazyload
-permalink: features/lazyload
+title: Lazyloading
+permalink: features/lazyloading
 ---
 
-## Lazyload
+## Lazyloading
 
 <div>
     <noscript yoi-lazyload="

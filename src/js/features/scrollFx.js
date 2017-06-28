@@ -77,7 +77,7 @@ YOI.feature.ScrollFx = (function() {
             var speed          = options.speed !== undefined ? options.speed : false;
             var repeat         = options.repeat !== undefined ? options.repeat : true;
             
-            $targetElement.on('yoi-viewport:in', function() {
+            $targetElement.on('yoi-viewport-in', function() {
                 
                 // add inFx
                 
@@ -94,7 +94,7 @@ YOI.feature.ScrollFx = (function() {
                 
             });
             
-            $targetElement.on('yoi-viewport:center', function() {
+            $targetElement.on('yoi-viewport-center', function() {
                 
                 // add centerFx
 
@@ -111,7 +111,7 @@ YOI.feature.ScrollFx = (function() {
 
             });
             
-            $targetElement.on('yoi-viewport:out', function() {
+            $targetElement.on('yoi-viewport-out', function() {
                 
                 // add initial css
                 

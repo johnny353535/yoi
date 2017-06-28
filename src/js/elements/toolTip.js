@@ -198,7 +198,7 @@ YOI.element.Tooltip = (function() {
                     .fadeIn(200)
                     .promise()
                     .then(function() {
-                        $thisTarget.trigger('yoi-tooltip:show');
+                        $thisTarget.trigger('yoi-tooltip-show');
                     });
             });
 
@@ -223,7 +223,7 @@ YOI.element.Tooltip = (function() {
 
             YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
                 $('.tooltip').hide();
-                $thisTarget.trigger('yoi-tooltip:hide');
+                $thisTarget.trigger('yoi-tooltip-hide');
             });
 
         } else if (action === 'stop') {

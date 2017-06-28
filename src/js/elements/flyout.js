@@ -74,7 +74,7 @@ YOI.element.Flyout = (function() {
         $thisFlyout
             .removeClass('flyout--hidden')
             .addClass('flyout--visible')
-            .trigger('yoi-flyout:visible');
+            .trigger('yoi-flyout-visible');
             
         $thisFlyout.data().state = 'visible';
         
@@ -91,7 +91,7 @@ YOI.element.Flyout = (function() {
         $thisFlyout
             .removeClass('flyout--visible')
             .addClass('flyout--hidden')
-            .trigger('yoi-flyout:hidden');
+            .trigger('yoi-flyout-hidden');
             
         $thisFlyout.data().state = 'hidden';
 

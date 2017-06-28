@@ -12,6 +12,8 @@ YOI.action.Remove = function($trigger, $target, options) {
     
     if ($target instanceof jQuery) {
 
+        // remove the target
+
         $target.fadeOut(function() {
             $target.trigger('yoi-remove');
             $target.remove();

@@ -20,6 +20,7 @@ permalink: elements/togglegroup
 If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.
 
 ```html
+<!-- example -->
 <div class="box w-20 h-20" yoi-toggle-fallback="toggleGroup-1">
     <div class="box__body h-10">
         Move your cursor over the buttons below to show different images.
@@ -52,6 +53,7 @@ If you provide no event in the options JSON, the default event to trigger a togg
 This is basically the same thing like a [`.tab`](/pages/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`](/pages/components/buttons.html) and provide an *activeClassName* to mark them as active once pressed.
 
 ```html
+<!-- example -->
 <div class="box">
     <div class="box__body">
         <div class="btns">

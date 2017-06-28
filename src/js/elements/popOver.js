@@ -153,7 +153,7 @@ YOI.element.PopOver = (function() {
             
             // trigger custom event
         
-            $thisPopOverTrigger.trigger('yoi-popover:show');
+            $thisPopOverTrigger.trigger('yoi-popover-show');
 
         });
 
@@ -175,7 +175,7 @@ YOI.element.PopOver = (function() {
             
             // trigger custom event
         
-            $thisPopOverTrigger.trigger('yoi-popover:hide');
+            $thisPopOverTrigger.trigger('yoi-popover-hide');
             
         });
 

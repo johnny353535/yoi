@@ -171,7 +171,7 @@ YOI.element.Countdown = (function() {
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
-            $thisCountdown.trigger('yoi-countdown:expire');
+            $thisCountdown.trigger('yoi-countdown-expire');
         }
         
         // get lcd character map

@@ -69,7 +69,7 @@ YOI.element.PageRewind = (function() {
         
         // trigger the custom start event
         
-        $pageRewind.trigger('yoi-pagerewind:start');
+        $pageRewind.trigger('yoi-pagerewind-start');
 
         // scroll back to page top and
         // fire custom end event when done
@@ -79,7 +79,7 @@ YOI.element.PageRewind = (function() {
         }, 500)
         .promise()
         .then(function() {
-            $pageRewind.trigger('yoi-pagerewind:stop');
+            $pageRewind.trigger('yoi-pagerewind-stop');
         });
 
     }

@@ -95,14 +95,14 @@ YOI.element.FilterBtns = (function() {
         if (state === 'on') {
             $thisBtn.removeClass('is--active');
             $thisBtn.removeClass('filterBtns__btn--debounce');
-            $thisBtn.trigger('yoi-filterbtn:on');
+            $thisBtn.trigger('yoi-filterbtn-on');
             $thisBtn.data().state = 'off';
         }
         
         if (state === 'off') {
             $thisBtn.addClass('is--active');
             $thisBtn.addClass('filterBtns__btn--debounce');
-            $thisBtn.trigger('yoi-filterbtn:off');
+            $thisBtn.trigger('yoi-filterbtn-off');
             $thisBtn.data().state = 'on';
         }
 
@@ -117,7 +117,7 @@ YOI.element.FilterBtns = (function() {
          */
 
         $thisBtn.fadeOut('fast');
-        $thisBtn.trigger('yoi-filterbtn:remove');
+        $thisBtn.trigger('yoi-filterbtn-remove');
 
     }
 

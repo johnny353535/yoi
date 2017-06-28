@@ -275,7 +275,7 @@ YOI.element.Modal = (function() {
                             callback();
                         }
                         
-                        $document.trigger('yoi-modal:load');
+                        $document.trigger('yoi-modal-load');
 
                     } else {
 
@@ -290,7 +290,7 @@ YOI.element.Modal = (function() {
 
                     // fail silently
                     
-                    $window.trigger('yoi-modal:error');
+                    $window.trigger('yoi-modal-error');
 
                 }
 
@@ -332,7 +332,7 @@ YOI.element.Modal = (function() {
                 $('body').scrollTop(0);
             }
             
-            $document.trigger('yoi-modal:show');
+            $document.trigger('yoi-modal-show');
 
         } else {
 
@@ -390,7 +390,7 @@ YOI.element.Modal = (function() {
             YOI.module.BrowserHistory.clearHash();
         }
         
-        $document.trigger('yoi-modal:hide');
+        $document.trigger('yoi-modal-hide');
         
     }
 

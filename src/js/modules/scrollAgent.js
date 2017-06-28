@@ -89,7 +89,7 @@ YOI.module.ScrollAgent = (function() {
     
             if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {
                 $thisTargetElement.data().state = 'in';
-                $thisTargetElement.trigger('yoi-viewport:in');
+                $thisTargetElement.trigger('yoi-viewport-in');
             } else {
                 $thisTargetElement.data().state = 'out';
             }
@@ -131,9 +131,9 @@ YOI.module.ScrollAgent = (function() {
             
             // trigger custom viewport-events
             
-            if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport:in');
-            if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport:center');
-            if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport:out');
+            if (viewportIn && state === 'out') $targetElement.trigger('yoi-viewport-in');
+            if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport-center');
+            if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport-out');
             
             // trigger scroll direction event
 
@@ -163,15 +163,15 @@ YOI.module.ScrollAgent = (function() {
 
             var $targetElement = $(this);
 
-            $targetElement.on('yoi-viewport:in', function() {
+            $targetElement.on('yoi-viewport-in', function() {
                 $targetElement.data().state = 'in';
             });
             
-            $targetElement.on('yoi-viewport:center', function() {
+            $targetElement.on('yoi-viewport-center', function() {
                 $targetElement.data().state = 'center';
             });
 
-            $targetElement.on('yoi-viewport:out', function() {
+            $targetElement.on('yoi-viewport-out', function() {
                 $targetElement.data().state = 'out';
             });
 

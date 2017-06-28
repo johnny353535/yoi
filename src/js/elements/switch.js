@@ -102,7 +102,7 @@ YOI.element.Switch = (function() {
         
         // trigger custom event
         
-        $switch.trigger('yoi-switch:on');
+        $switch.trigger('yoi-switch-on');
 
     }
 
@@ -121,7 +121,7 @@ YOI.element.Switch = (function() {
         
         // trigger custom event
         
-        $switch.trigger('yoi-switch:off');
+        $switch.trigger('yoi-switch-off');
 
     }
 

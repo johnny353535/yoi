@@ -96,18 +96,16 @@ YOI.element.Filters = (function() {
                 toggleFilter($thisFilter);
             });
 
-            $thisFilters.on('yoi-filters:reset', function() {
+            $thisFilters.on('yoi-filters-reset', function() {
                 reset($thisFilters);
                 removeResetBtn($thisFilters);
             });
             
-            $thisFilters.on('yoi-filters:update', function() {
+            $thisFilters.on('yoi-filters-update', function() {
                 addResetBtn($thisFilters);
             });
             
-            // if a foo
-            
-            $thisFilters.on('yoi-rangeinput:change', function() {
+            $thisFilters.on('yoi-rangeinput-change', function() {
                 addResetBtn($thisFilters);
             });
 
@@ -147,11 +145,11 @@ YOI.element.Filters = (function() {
 
         // fire reset event on range inputs
 
-        $thisFilters.find('.rangeInput').trigger('yoi-rangeinput:reset');
+        $thisFilters.find('.rangeInput').trigger('yoi-rangeinput-reset');
 
         // trigger custom event
 
-        $thisFilters.trigger('yoi-filters:update');
+        $thisFilters.trigger('yoi-filters-update');
 
     }
 
@@ -240,7 +238,7 @@ YOI.element.Filters = (function() {
         
         // trigger custom event
         
-        $thisFilter.trigger('yoi-filters:change');
+        $thisFilter.trigger('yoi-filters-change');
 
         // axecute after delay
 
@@ -257,7 +255,7 @@ YOI.element.Filters = (function() {
 
             // trigger custom event
 
-            $thisFilters.trigger('yoi-filters:update');
+            $thisFilters.trigger('yoi-filters-update');
 
         });
 
@@ -280,7 +278,7 @@ YOI.element.Filters = (function() {
                 .prependTo($thisFilters)
                 .on('click', function(e) {
                     e.preventDefault();
-                    $thisFilters.trigger('yoi-filters:reset');
+                    $thisFilters.trigger('yoi-filters-reset');
                 });
         }
         

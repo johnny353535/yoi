@@ -101,7 +101,7 @@ YOI.element.Table = (function() {
         
         // trigger custom event
         
-        $thisTable.trigger('yoi-table:select');
+        $thisTable.trigger('yoi-table-select');
 
     }
     
@@ -123,7 +123,7 @@ YOI.element.Table = (function() {
         
         // trigger custom event
         
-        $thisTable.trigger('yoi-table:unselect');
+        $thisTable.trigger('yoi-table-unselect');
 
     }
 
@@ -146,13 +146,13 @@ YOI.element.Table = (function() {
             // custom event other scripts can subscribe to:
             // the last row got removed, table is empty
 
-            if (tableIsEmpty) $thisTable.trigger('yoi-table:empty');
+            if (tableIsEmpty) $thisTable.trigger('yoi-table-empty');
 
         });
         
         // trigger custom event
         
-        $thisTable.trigger('yoi-table:remove');
+        $thisTable.trigger('yoi-table-remove');
 
     }
 

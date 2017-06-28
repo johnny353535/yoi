@@ -136,9 +136,9 @@ YOI.element.Accordion = (function() {
             .stop()
             .slideDown('fast')
             .promise()
-            .then(function() { $thisSection.trigger('yoi-accordion:done') });
+            .then(function() { $thisSection.trigger('yoi-accordion-done') });
 
-        $thisSection.trigger('yoi-accordion:open');
+        $thisSection.trigger('yoi-accordion-open');
         $thisSection.data().state = 'open';
 
     }
@@ -158,13 +158,13 @@ YOI.element.Accordion = (function() {
             .removeClass('is--open')
             .addClass('is--closed')
             .promise()
-            .then(function() { $thisSection.trigger('yoi-accordion:done') });
+            .then(function() { $thisSection.trigger('yoi-accordion-done') });
     
         $thisBody
             .stop()
             .slideUp('fast');
         
-        $thisSection.trigger('yoi-accordion:close');
+        $thisSection.trigger('yoi-accordion-close');
         $thisSection.data().state = 'closed';
         
     }
@@ -237,7 +237,7 @@ YOI.element.Accordion = (function() {
         
         // space key
         
-        $document.on('yoi-keypressed:space', function(e) {
+        $document.on('yoi-keypressed-space', function(e) {
             
             var $activeElement = $(document.activeElement);
             var $section       = $activeElement.closest('.accordion__section');

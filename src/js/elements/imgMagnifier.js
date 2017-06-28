@@ -253,7 +253,7 @@ YOI.element.ImgMagnifier = (function(){
         YOI.setDelay('imgMagnifierDelay', delay, function() {
             $thisViewer.fadeIn(250);
             $thisCursor.fadeIn(100);
-            $thisViewer.trigger('yoi-imgmagnifier:start');
+            $thisViewer.trigger('yoi-imgmagnifier-start');
         });
 
     }
@@ -274,7 +274,7 @@ YOI.element.ImgMagnifier = (function(){
         $thisViewer.fadeOut(50);
         $thisCursor.fadeOut(150);
         
-        $thisViewer.trigger('yoi-imgmagnifier:stop');
+        $thisViewer.trigger('yoi-imgmagnifier-stop');
         
     }
 

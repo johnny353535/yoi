@@ -106,7 +106,7 @@ YOI.element.Tabs = (function() {
         
         // trigger custom event
         
-        $thisTabsMenu.trigger('yoi-tabs:change');
+        $thisTabsMenu.trigger('yoi-tabs-change');
 
     }
 

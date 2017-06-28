@@ -173,7 +173,7 @@ YOI.element.RangeInput = (function() {
         
         // trigger custom event
         
-        $rangeInput.trigger('yoi-rangeinput:change');
+        $rangeInput.trigger('yoi-rangeinput-change');
 
     }
 
@@ -201,7 +201,7 @@ YOI.element.RangeInput = (function() {
         
         // trigger custom event
         
-        $rangeInput.trigger('yoi-rangeinput:reset');
+        $rangeInput.trigger('yoi-rangeinput-reset');
 
     }
 
@@ -331,7 +331,7 @@ YOI.element.RangeInput = (function() {
             
             // trigger custom event
             
-            $thisRangeInput.trigger('yoi-rangeinput:change');
+            $thisRangeInput.trigger('yoi-rangeinput-change');
 
         } else {
 

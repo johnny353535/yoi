@@ -96,7 +96,7 @@ YOI.element.Stepper = (function() {
         
         // trigger custom event
         
-        $stepper.trigger('yoi-stepper:up');
+        $stepper.trigger('yoi-stepper-up');
 
     }
 
@@ -121,7 +121,7 @@ YOI.element.Stepper = (function() {
         
         // trigger custom event
         
-        $stepper.trigger('yoi-stepper:down');
+        $stepper.trigger('yoi-stepper-down');
 
     }
     
@@ -141,7 +141,7 @@ YOI.element.Stepper = (function() {
 
         // trigger custom event
         
-        $stepper.trigger('yoi-stepper:reset');
+        $stepper.trigger('yoi-stepper-reset');
         
     }
     
@@ -161,7 +161,7 @@ YOI.element.Stepper = (function() {
 
         // trigger custom event
         
-        $stepper.trigger('yoi-stepper:clear');
+        $stepper.trigger('yoi-stepper-clear');
         
     }
     
@@ -183,7 +183,7 @@ YOI.element.Stepper = (function() {
             // change the value
             
             $stepper.find('.stepper__input')[0].value = val;
-            $stepper.trigger('yoi-stepper:change');
+            $stepper.trigger('yoi-stepper-change');
         
         }
 
@@ -208,7 +208,7 @@ YOI.element.Stepper = (function() {
             
             // trigger custom event
         
-            $stepper.trigger('yoi-stepper:valid');
+            $stepper.trigger('yoi-stepper-valid');
             
         } else {
             
@@ -218,7 +218,7 @@ YOI.element.Stepper = (function() {
             
             // trigger custom event
         
-            $stepper.trigger('yoi-stepper:invalid');
+            $stepper.trigger('yoi-stepper-invalid');
             
         }
         

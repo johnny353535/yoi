@@ -137,7 +137,7 @@ YOI.element.ToggleGroup = (function() {
         
         // trigger custom event
         
-        $thisTrigger.trigger('yoi-togglegroup:change');
+        $thisTrigger.trigger('yoi-togglegroup-change');
 
     }
 
@@ -171,7 +171,7 @@ YOI.element.ToggleGroup = (function() {
         
         // trigger custom event
         
-        $thisTrigger.trigger('yoi-togglegroup:reset');
+        $thisTrigger.trigger('yoi-togglegroup-reset');
 
     }
 

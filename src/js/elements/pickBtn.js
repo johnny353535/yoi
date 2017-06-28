@@ -39,7 +39,7 @@ YOI.element.PickBtn = (function() {
             $thisPickBtn.on('click', function(e) {
                 e.preventDefault();
                 activate($thisPickBtn);
-                $thisPickBtn.trigger('yoi-pickbtn:change');
+                $thisPickBtn.trigger('yoi-pickbtn-change');
             });
 
         });

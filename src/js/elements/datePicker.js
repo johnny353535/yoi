@@ -203,7 +203,7 @@ YOI.element.DatePicker = (function() {
                         
                         // fire custom event
         
-                        $document.trigger('yoi-datepicker:hide');
+                        $document.trigger('yoi-datepicker-hide');
 
                     });
 
@@ -227,7 +227,7 @@ YOI.element.DatePicker = (function() {
         
                     // fire custom event
         
-                    $document.trigger('yoi-datepicker:show');
+                    $document.trigger('yoi-datepicker-show');
 
                 });
 
@@ -655,7 +655,7 @@ YOI.element.DatePicker = (function() {
          */
 
         $('.datePicker__wrapper .datePicker').hide();
-        $document.trigger('yoi-datepicker:hide');
+        $document.trigger('yoi-datepicker-hide');
         
     }
 

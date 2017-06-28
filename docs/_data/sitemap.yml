@@ -85,8 +85,8 @@ actions:
     - update
 features:
     - index
-    - dismiss
-    - lazyload
+    - dismissable
+    - lazyloading
     - scrollFx
     - sticky
 tools:

@@ -13,7 +13,7 @@ YOI.action.Hide = function($trigger, $target, options) {
      *
      *  @option {string} transition - Chose from two jQuery animations: 'fadeOut' and 'slideUp'.
      */
-
+    
     if ($target instanceof jQuery) {
 
         // hide the target
