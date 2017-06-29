@@ -1,11 +1,6 @@
 /** tabs.js */
 
 YOI.element.Tabs = (function() {
-    
-    // private vars
-    // ============
-    
-    var $window = $(window);
 
     // private functions
     // =================

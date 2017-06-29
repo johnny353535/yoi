@@ -2,12 +2,6 @@
 
 YOI.element.BrowserHistory = (function() {
 
-    // private vars
-    // ============
-
-    var currentScrollTop;
-    var $window = $(window);
-
     // private functions
     // =================
 

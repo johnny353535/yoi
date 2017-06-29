@@ -51,7 +51,7 @@ YOI.element.PieChart = (function() {
             var $thisPieChartSvg     = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             var options              = $thisPieChart.data().options;
             var size                 = options.size !== undefined ? options.size : 200;
-            var highlight            = options.highlight !== undefined ? (options.highlight == true) : true;
+            var highlight            = options.highlight !== undefined ? (options.highlight === true) : true;
             var palette              = options.palette !== undefined ? options.palette : 'shades';
 
             // store props

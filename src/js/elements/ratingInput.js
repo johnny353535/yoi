@@ -170,10 +170,6 @@ YOI.element.RatingInput = (function() {
          *  @param {jQuery dom object} $ratingInput - the rating input
          */
         
-        var options = $ratingInput.data().options;
-        var uid     = options.uid;
-        var score   = options.score | 0;
-        
         // fire custom event
         
         $ratingInput.trigger('yoi-rating-submit');

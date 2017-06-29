@@ -100,7 +100,7 @@ YOI.element.RangeInput.reset($('#myRangeInput'));
 
 #### Accessing Values
 
-To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput:change` event and read the keys `min` and `max` from the `.data().props` object:
+To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput-change` event and read the keys `min` and `max` from the `.data().props` object:
 
 ```html
 <!-- example:tabs -->
@@ -110,7 +110,7 @@ To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput
 </div>
 <div id="myRangeInput" class="rangeInput m-4" yoi-rangeinput></div>
 <script>
-    $('#myRangeInput').on('yoi-rangeinput:change', function() {
+    $('#myRangeInput').on('yoi-rangeinput-change', function() {
         $('#minMonitor').text('min = ' + $(this).data().props.min);
         $('#maxMonitor').text('max = ' + $(this).data().props.max);
     });
@@ -123,8 +123,8 @@ To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput
 
 | event name              | fires when …                                          |
 | ----------------------- | ----------------------------------------------------- |
-| `yoi-rangeinput:change` | knob moved or YOI.element.RangeInput.set() got called |
-| `yoi-rangeinput:reset`  | YOI.element.RangeInput.reset() got called             |
+| `yoi-rangeinput-change` | knob moved or YOI.element.RangeInput.set() got called |
+| `yoi-rangeinput-reset`  | YOI.element.RangeInput.reset() got called             |
 
 ## Fallback
 

@@ -1,12 +1,7 @@
 /** log.js */
 
 YOI.element.Log = (function() {
-    
-    // private vars
-    // ============
-    
-    var $document  = $(document);
-    
+
     // private functions
     // =================
     

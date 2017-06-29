@@ -14,7 +14,6 @@ YOI.element.Code = (function() {
          *  <!-- example:tabs --> = replaces the <code> tag with a tabbed widget (rendered markup + code)
          */
 
-        var $window      = $(window);
         var $codeWrapper = $('div[class*="highlighter"]');
         var tabPageIndex = 0;
 

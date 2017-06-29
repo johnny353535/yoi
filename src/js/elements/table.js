@@ -115,7 +115,6 @@ YOI.element.Table = (function() {
 
         var $thisTable = $thisTr.closest('table');
         var $thisAllTr = $thisTable.find('tr');
-        var options    = $thisTable.data().options;
 
         // unselect row
 

@@ -309,8 +309,6 @@ YOI.element.RangeInput = (function() {
         var isMaxKnob       = $thisKnob.hasClass('rangeInput__knob--max');
         var posX            = 0;
         var thisKnobValue   = null;
-        
-        var thisSingleLabelTxt;
         var factor;
         var inputValue;
         var range;

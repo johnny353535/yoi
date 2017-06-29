@@ -394,22 +394,22 @@ YOI.element.Modal = (function() {
         
     }
 
-    function detachAll() {
-
-        /**
-         *  Close and remove all modals.
-         */
-
-        $('#modalContainer .modal, #modalCover').fadeOut('fast',function() {
-
-            $('#modalContainer').empty().hide();
-            $('body').css('overflow','auto');
-
-            modalActive = false;
-
-        });
-
-    }
+    // function detachAll() {
+    //
+    //     /**
+    //      *  Close and remove all modals.
+    //      */
+    //
+    //     $('#modalContainer .modal, #modalCover').fadeOut('fast',function() {
+    //
+    //         $('#modalContainer').empty().hide();
+    //         $('body').css('overflow','auto');
+    //
+    //         modalActive = false;
+    //
+    //     });
+    //
+    // }
 
     function generateId() {
 

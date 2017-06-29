@@ -149,11 +149,6 @@ YOI.element.DatePicker = (function() {
 
             var $thisDatePicker = renderDatePicker(inputYear, inputMonth, inputDay);
 
-            // get month table and month table data
-
-            var $thisMonthTable     = $thisDatePicker.find('.datePicker__days');
-            var thisMonthTableProps = $thisMonthTable.data().props;
-
             // add a wrapper to aid positioning
 
             $thisDateInput.wrap('<div class="datePicker__wrapper"></div>');
@@ -287,10 +282,6 @@ YOI.element.DatePicker = (function() {
             var month = now.month;
 
         }
-
-        // get the month name
-
-        var monthName = localization[language]['monthNames'][month];
 
         // get the first day of the month
 
@@ -503,10 +494,6 @@ YOI.element.DatePicker = (function() {
 
         $thisDatePicker.append($thisMonthTable);
 
-        // get month table data
-
-        var thisMonthTableProps = $thisMonthTable.data().props;
-
         // set year and month
 
         if (month === undefined) month = now.month;
@@ -601,10 +588,6 @@ YOI.element.DatePicker = (function() {
 
         var $thisDatePicker = $thisMonthTable.closest('.datePicker');
         var $thisDateInput  = $thisDatePicker.prev('input[yoi-datepicker]');
-
-        // access the month table data
-
-        var thisMonthTableProps = $thisMonthTable.data().props;
 
         // add a class to the day cell to visualize selection
 

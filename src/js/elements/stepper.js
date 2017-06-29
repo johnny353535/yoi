@@ -197,7 +197,6 @@ YOI.element.Stepper = (function() {
          *  @param {jQuery dom object} $stepper - the stepper
          */
 
-        var $txtField = $stepper.find('.stepper__input');
         var inputVal  = $stepper.find('.stepper__input')[0].value;
 
         if (YOI.isNumber(inputVal)) {

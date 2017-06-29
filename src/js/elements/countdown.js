@@ -206,24 +206,24 @@ YOI.element.Countdown = (function() {
         
     }
 
-    function getTime() {
-
-        /**
-         *  Get and return the formatted current time.
-         *
-         *  @return {object} currentTime - the formatted time
-         */
-
-        var today       = new Date();
-        var currentTime = {};
-
-        currentTime.hours   = YOI.zeroPad(today.getHours()).toString();
-        currentTime.minutes = YOI.zeroPad(today.getMinutes()).toString();
-        currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
-
-        return currentTime;
-
-    }
+    // function getTime() {
+    //
+    //     /**
+    //      *  Get and return the formatted current time.
+    //      *
+    //      *  @return {object} currentTime - the formatted time
+    //      */
+    //
+    //     var today       = new Date();
+    //     var currentTime = {};
+    //
+    //     currentTime.hours   = YOI.zeroPad(today.getHours()).toString();
+    //     currentTime.minutes = YOI.zeroPad(today.getMinutes()).toString();
+    //     currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
+    //
+    //     return currentTime;
+    //
+    // }
     
     function getDateString(month, day, year, hour, minute, second, timezone) {
         
