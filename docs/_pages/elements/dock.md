@@ -127,16 +127,11 @@ yoi-dock:hide // dock was hidden
 
 ## Test
 
-### show / hide dock on mouseover(mouseout)
-
-<button class="btn btn--large" yoi-action-1="Dock.show:#exampleDock; on:mouseover; foo:bar; bar:baz;" yoi-action-2="Dock.hide:#exampleDock; on:mouseout;">Show #myDock</button>
-
-### poop
-
-<button class="btn btn--large" yoi-action-1="Hide:#boo; on:mouseout; transition:slideUp;" yoi-action-2="Show:#boo; on:mouseover; transition:slideDown;">Toggle #boo</button>
-
+<div class="btns m-b-3">
+    <button class="btn btn--large" yoi-action-1="Dock.show:#exampleDock; on:mouseover; foo:bar; bar:baz;" yoi-action-2="Dock.hide:#exampleDock; on:mouseout;">Show #myDock</button>
+    <button class="btn btn--large" yoi-action-1="Hide:#boo; on:mouseout; transition:slideUp;" yoi-action-2="Show:#boo; on:mouseover; transition:slideDown;">Toggle #boo</button>
+</div>
 <div class="box h-20 p-4">
     <p class="hint jsHidden" id="boo">Boo!</p>
-    <p class="hint" yoi-action-1="Hide:self; on:yoi-dock-show; transition:fadeOut;" yoi-action-2="Show:self; on:yoi-dock-hide; transition:fadeIn;">I am only visible when the dock is hidden.</p>
+    <p class="hint" yoi-action-1="Hide:self; on:yoi-dock-show; trigger:body; transition:fadeOut;" yoi-action-2="Show:self; on:yoi-dock-hide; trigger:body; transition:fadeIn;">I am only visible when the dock is hidden.</p>
 </div>
-

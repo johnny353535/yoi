@@ -644,10 +644,10 @@ var YOI = (function() {
              *  @param {string}            hook
              */
             
-            var params         = YOI.toObject($element.attr(hook));
-            var action         = Object.keys(params)[0];
-            var hostObject     = action.split('.')[0];
-            var publicFunction = action.split('.')[1];
+            var params         = YOI.toObject($element.attr(hook)) || $element.attr(hook).replace(";", "");
+            var action         = typeof params === 'object' ? Object.keys(params)[0] : params;
+            var hostObject     = action.split('.')[0] || false;
+            var publicFunction = action.split('.')[1] || false;
             var event          = params.on || 'click';
             var options        = {};
             var $target        = $(params[action]);
@@ -672,15 +672,17 @@ var YOI = (function() {
                     break;
 
             }
-
+            
             // store options in new object
             
-            $.map(params, function(value, key) {
-                if (key !== action && key !== 'on') {
-                    options[key] = value;
-                }
-            });
-
+            if (typeof params === 'object') {
+                $.map(params, function(value, key) {
+                    if (key !== action && key !== 'on') {
+                        options[key] = value;
+                    }
+                });
+            }
+            
             // the function to be called belongs to an 'element'
 
             if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {

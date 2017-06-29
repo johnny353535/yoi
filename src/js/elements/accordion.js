@@ -21,7 +21,7 @@ YOI.element.Accordion = (function() {
         
         var $accordion = YOI.createCollection('accordion', $accordion, options);
         
-        if ($accordion) initializeAccordionTriggers();
+        // if ($accordion) initializeAccordionTriggers();
 
         if ($accordion) $accordion.each(function() {
 
@@ -68,25 +68,25 @@ YOI.element.Accordion = (function() {
 
     }
 
-    function initializeAccordionTriggers() {
-
-        /**
-         *  Gather all elements in DOM which are tagged with the custom
-         *  data-attributes "action". Attach events accordingly to the values
-         *  "openAllAccordions" and "closeAllAccordions".
-         */
-
-        $('[yoi-action="openAllAccordions"]').on('click', function(e) {
-            e.preventDefault();
-            openAllSections();
-        });
-
-        $('[yoi-action="closeAllAccordions"]').on('click', function(e) {
-            e.preventDefault();
-            closeAllSections();
-        });
-
-    }
+    // function initializeAccordionTriggers() {
+    //
+    //     /**
+    //      *  Gather all elements in DOM which are tagged with the custom
+    //      *  data-attributes "action". Attach events accordingly to the values
+    //      *  "openAllAccordions" and "closeAllAccordions".
+    //      */
+    //
+    //     $('[yoi-action="openAllAccordions"]').on('click', function(e) {
+    //         e.preventDefault();
+    //         openAllSections();
+    //     });
+    //
+    //     $('[yoi-action="closeAllAccordions"]').on('click', function(e) {
+    //         e.preventDefault();
+    //         closeAllSections();
+    //     });
+    //
+    // }
 
     function toggleSection($section) {
 
@@ -183,7 +183,7 @@ YOI.element.Accordion = (function() {
         if ($accordion === undefined) {
             $targets = $('[yoi-accordion] .accordion__section');
         } else {
-            $targets = $accordion.find('.accordion__section');
+            $targets = $('.accordion__section');
         }
 
         $targets.each(function() {
@@ -193,12 +193,12 @@ YOI.element.Accordion = (function() {
     }
 
     function openAllSections($accordion) {
-
+        
         /**
          *  If $accordion is omitted on function call, all accordion sections found
          *  in DOM are opened. Otherwise all sections of a given $accordion are opened.
          *
-         *  @param {jQuery dom object} $$accordion - the accordion
+         *  @param {jQuery dom object} $accordion - the accordion
          */
         
         var $targets;
@@ -206,7 +206,7 @@ YOI.element.Accordion = (function() {
         if ($accordion === undefined) {
             $targets = $('[yoi-accordion] .accordion__section');
         } else {
-            $targets = $accordion.find('.accordion__section');
+            $targets = $('.accordion__section');
         }
 
         $targets.each(function() {

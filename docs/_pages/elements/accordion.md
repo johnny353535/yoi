@@ -109,44 +109,41 @@ Initially, all accordion sections are closed. However, you can define which sect
 </div>
 ```
 
-### Controlling Accordions with Buttons
+## Actions
 
-You can assign calls to the openAll and closeAll functions to elements (eg. buttons) by adding `yoi-action="openAllAccordions"` or `yoi-action="closeAllAccordions"`. They are executed on click.
+### Accordion.openAll
+
+Open all accordions on the page by using the [action](actions/) `Accordion.openAll`:
 
 ```html
 <!-- example -->
-<p class="btns">
-    <button class="btn btn--large" yoi-action="openAllAccordions">Open All Accordions</button>
-    <button class="btn btn--large" yoi-action="closeAllAccordions">Close All Accordions</button>
-</p>
+<button class="btn btn--large" yoi-action="Accordion.openAll;">Open All Accordions</button>
 ```
 
-## JavaScript API
+### Accordion.closeAll
 
-### openAll()
+Close all accordions on the page by using the [action](actions/) `Accordion.closeAll`:
 
-Open all accordions on the page by using this function exposed by the JavaScript API:
-
-```js
-YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Accordion.closeAll:void; on:dblclick;">Close All Accordions on Double-Click</button>
 ```
 
-### closeAll()
+<p class="hint hint--error"><b>Calling the action on a specific event:</b> The open-/closeAll actions are special since they do not need a <a href="actions/index.html#the-target-parameter">target selector</a>. If you wish to listen to another event, make sure you provide the value <code>void</code> like in the example below:</p>
 
-Open all accordions on the page by using this function:
-
-```js
-YOI.element.Accordion.openAll(); // opens all accordion sections found in the document
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Accordion.openAll:void; on:dblclick;">Open All Accordions on Double-Click</button>
 ```
 
 ### Custom Events
 
-Each `.accordion` fires custom events your script can listen to:
+Each `.accordion` fires custom events:
 
-```
-yoi-accordion:open  // datePicker expanded
-yoi-accordion:close // dataPicker collapsed
-```
+| event name            | fires when …                 |
+| --------------------- | ---------------------------- |
+| `yoi-accordion-open`  | An accordion section opens.  |
+| `yoi-accordion-close` | An accordion section closes. |
 
 Try the example below and watch the custom events, printed to the [log element](elements/log.html):
 
@@ -176,11 +173,11 @@ Try the example below and watch the custom events, printed to the [log element](
     </div>
 </div>
 <script>
-    $('#myAccordion').on('yoi-accordion:open', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-accordion:open');
+    $('#myAccordion').on('yoi-accordion-open', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-accordion-open');
     });
-    $('#myAccordion').on('yoi-accordion:close', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-accordion:close');
+    $('#myAccordion').on('yoi-accordion-close', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-accordion-close');
     });
 </script>
 ```

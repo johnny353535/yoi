@@ -75,9 +75,9 @@ Set the delay (in milliseconds) after which the magnifyer appears. In the follow
 
 ### Custom Events
 
-`.rangeInput` fires custom events your script can listen to:
+`.imgMagnifier` fires custom events:
 
 | event name               | fires when …                                       |
 | ------------------------ | -------------------------------------------------- |
-| `yoi-imgmagnifier:start` | after initial delay, when magnifying starts        |
-| `yoi-imgmagnifier:stop`  | immediately after cursor leaves the original image |
+| `yoi-imgmagnifier-start` | after initial delay, when magnifying starts        |
+| `yoi-imgmagnifier-stop`  | immediately after cursor leaves the original image |
