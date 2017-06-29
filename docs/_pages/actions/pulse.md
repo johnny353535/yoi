@@ -1,10 +1,10 @@
 ---
 layout: base
 group: actions
-title: Show
-permalink: actions/show
+title: Pulse
+permalink: actions/pulse
 ---
 
-## Show
+## Pulse
 
 <p class="hint hint--error">No documentation yet.</p>

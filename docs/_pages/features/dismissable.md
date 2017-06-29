@@ -5,4 +5,6 @@ title: Dismissable
 permalink: features/dismissable
 ---
 
-## Dismissable
+# Dismissable
+
+<p class="hint hint--error">Documentation incomplete.</p>

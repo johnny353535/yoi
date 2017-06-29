@@ -1,10 +1,10 @@
 ---
 layout: base
 group: actions
-title: Show
-permalink: actions/show
+title: Blink
+permalink: actions/blink
 ---
 
-## Show
+## Blink
 
 <p class="hint hint--error">No documentation yet.</p>

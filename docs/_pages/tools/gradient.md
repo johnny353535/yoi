@@ -7,6 +7,10 @@ permalink: tools/gradient
 
 # Gradient Tool
 
+<p class="hint hint--error">Documentation incomplete.</p>
+
+{% comment %}
+
 <p class="intro">Our color gradients were not created using [Less’ internal color blending functions](http://lesscss.org/functions/#color-blending) because they do not produce gradients with *constant luminosity*. Instead, certain shades would always pop out and feel wrong because they are over-saturated.</p>
 
 We solved this problem with a custom algorithm which basically mimics [Photoshop’s »color« blend mode](http://www.beneaththewaves.net/Photography/Secrets_of_Photoshops_Colour_Blend_Mode_Revealed_Sort_Of.html). Use the tool below to generate color shades.
@@ -44,3 +48,5 @@ The color variables (less) for the Yoshino frontend are based on 25-step gradien
         <code class="tc-main-8 d-blk"></code>
     </div>
 </div>
+
+{% endcomment %}

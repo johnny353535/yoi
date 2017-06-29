@@ -5,9 +5,12 @@ title: Buttons Tool
 permalink: tools/buttons
 ---
 
-{% raw %}
+# Buttons Tool
 
-## Buttons Tool
+<p class="hint hint--error">Documentation incomplete.</p>
+
+{% comment %}
+{% raw %}
 
 ### Single Buttons
 
@@ -338,4 +341,6 @@ permalink: tools/buttons
         </div>
     </div>
 </div>
+
 {% endraw %}
+{% endcomment %}

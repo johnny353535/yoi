@@ -650,8 +650,8 @@ var YOI = (function() {
             var publicFunction = action.split('.')[1];
             var event          = params.on || 'click';
             var options        = {};
-            var $trigger       = event.match(/yoi-/) ? $('body') : $element;
-            var target         = params[action];
+            var $target        = $(params[action]);
+            var $trigger       = params.trigger !== undefined ? $(params.trigger) : $element;
 
             // define the target
             
@@ -661,14 +661,14 @@ var YOI = (function() {
                 // and the trigger element to $(window)
                 
                 case 'self':
-                    target   = $element;
+                    $target = $element;
                     break;
                     
                 // the keyword "parent" switches the target element
                 // to $element.parent()
                     
                 case 'parent':
-                    target = $element.parent();
+                    $target = $element.parent();
                     break;
 
             }
@@ -682,20 +682,20 @@ var YOI = (function() {
             });
 
             // the function to be called belongs to an 'element'
-        
+
             if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {
                 $trigger.on(event, function(e) {
                     e.preventDefault();
-                    YOI['element'][hostObject][publicFunction]($(target));
+                    YOI['element'][hostObject][publicFunction]($target);
                 });
             }
 
             // the function to be called is a simple 'action'
-        
+
             if (typeof YOI['action'][action] === 'function') {
                 $trigger.on(event, function(e) {
                     e.preventDefault();
-                    YOI['action'][action]($trigger, $(target), options);
+                    YOI['action'][action]($trigger, $target, options);
                 });
             }
 

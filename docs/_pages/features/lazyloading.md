@@ -5,7 +5,11 @@ title: Lazyloading
 permalink: features/lazyloading
 ---
 
-## Lazyloading
+# Lazyloading
+
+<p class="hint hint--error">Documentation incomplete.</p>
+
+<!--
 
 <div>
     <noscript yoi-lazyload="
@@ -58,3 +62,5 @@ permalink: features/lazyloading
         <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
     </noscript>
 </div>
+
+-->

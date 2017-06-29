@@ -5,6 +5,6 @@ title: Hide
 permalink: actions/hide
 ---
 
-## Hide & Reveal
+## Hide
 
 <p class="hint hint--error">No documentation yet.</p>

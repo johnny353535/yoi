@@ -78,7 +78,9 @@ elements:
     - tooltip
 actions:
     - index
+    - blink
     - hide
+    - pulse
     - show
     - remove
     - scrollTo

@@ -5,69 +5,83 @@ title: Remove
 permalink: actions/remove
 ---
 
-## Remove
+# Remove
 
-<p class="intro">Create elements (eg. buttons) that remove their parent element or any other target-element from the current document/page.</p>
+<p class="intro">Add this action to en element (eg. a button) to remove it’s parent element or any other target-element.</p>
 
-|         |                                                                |
-| -       | -                                                              |
-| Js-File | [remove.js]({{ pathToSourceFile }}assets/js/modules/remove.js) |
-| Hooks   | `yoi-remove`                                                   |
+| Js-File | [remove.js]({{ pathToSourceFile }}assets/js/actions/remove.js) |
 
-### Examples
-Use any element as a trigger by adding the custom yoi-attribute `yoi-remove`. In this most basic example, the trigger’s parent element will get removed from the dom, once the trigger is clicked. This is the default behaviour.
+## Examples
+
+Use `yoi-action="Remove:CssSelector"` to remove a target element from the document.
+
+```html
+<!-- example -->
+<div class="m-b-2">
+    <button class="btn btn--large" yoi-action="Remove:#exampleTarget-1;">Remove #exampleTarget-1</button>
+</div>
+<div id="exampleTarget-1" class="box w-30 h-20 p-4 tc-gray-15 fs-15">
+    <p>#exampleTarget-1</p>
+</div>
+```
+
+Use the keyword `parent` to remove the parent (=sourrounding) element:
 
 ```html
 <!-- example -->
 <div class="box w-30 h-20 p-2">
-    <button class="btn pos-tr m-2" yoi-action="Remove:parent;">Remove my Parent Element</button>
+    <button class="btn btn--large pos-tr m-2" yoi-action="Remove:parent;">Remove the Parent Element</button>
 </div>
 ```
 
-If you wish to remove any other element in the dom, refer to it through the trigger element by adding the value `target:` + a CSS-selector for the target element:
+Use the keyword `self` to remove the element itself:
 
 ```html
 <!-- example -->
-<!-- the trigger element: -->
-<div class="m-b-2">
-    <button class="btn" yoi-action="Remove:#myTargetElement;">Remove my Target Element</button>
-</div>
-<!-- the target element: -->
-<div id="myTargetElement" class="w-30 h-20 p-2 br bg-green-16 tc-white">
-    <p>My Target Element</p>
-</div>
+<button class="btn btn--large" yoi-action="Remove:self;">Remove Self</button>
 ```
 
-If you wish to remove a collection of elements from the dom, refer to them throught the trigger element by adding the value `target:` + a CSS-selector for the target elements. You may use any valid CSS-selector – id, class name, tag name, attribute, etc. – plus any combination. Some examples:
+You may use any valid CSS-selector – id, class name, tag name, attribute, etc. – plus any combination. Hence it’s possible to select many elements at once. Some examples:
 
 ```html
-<!-- example -->
-<!-- the trigger element: -->
+<!-- example:tabs -->
 <div class="m-b-2">
-    <button class="btn" yoi-action="Remove:.myTargetElement;">Remove My Many Target Elements</button>
+    <button class="btn btn--large" yoi-action="Remove:.myTargetElement;">Remove My Many Target Elements</button>
 </div>
-<!-- the target elements: -->
-<div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 br bg-red-16 tc-white">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 br bg-red-16 tc-white">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
     <p>One of My Many Target Elements</p>
 </div>
-<!-- the trigger element: -->
+<hr class="ruler m-tb-4" />
 <div class="m-b-2">
-    <button class="btn" yoi-action="Remove:ol,[href*=http];">Remove All Ordered Lists and External Links</button>
+    <button class="btn btn--large" yoi-action="Remove:ol,[href*=http];">Remove All Ordered Lists and External Links</button>
 </div>
-<!-- the target elements: -->
 <ol class="p-l-4 m-t-4 m-b-2">
     <li>Manganese</li>
     <li>Gold</li>
     <li>Calcium</li>
 </ol>
 <a href="http://yoshino.digital">Yoshino Digital</a>
+```
+
+## Events
+
+You can listen to any event you wish by using the [_on_-parameter](actions/index.html#the-on-parameter):
+
+```html
+<!-- example -->
+<div class="m-b-2">
+    <button class="btn btn--large" yoi-action="Remove:#exampleTarget-2; on:dblclick;">Remove #exampleTarget-2 on Double-Click</button>
+</div>
+<div id="exampleTarget-2" class="box w-30 h-20 p-4 tc-gray-15 fs-15">
+    <p>#exampleTarget-2</p>
+</div>
 ```

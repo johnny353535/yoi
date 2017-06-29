@@ -5,6 +5,6 @@ title: Introduction
 permalink: features/
 ---
 
-## Introduction
+# Introduction
 
 <p class="hint hint--error">No documentation yet.</p>

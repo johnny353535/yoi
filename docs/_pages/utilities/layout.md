@@ -9,4 +9,6 @@ permalink: utilities/layout
 
 <p class="hint hint--error">Documentation incomplete.</p>
 
-<!-- + responsive -->
+<!--
+    + responsive
+-->

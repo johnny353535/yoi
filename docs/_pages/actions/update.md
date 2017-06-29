@@ -5,25 +5,36 @@ title: Update
 permalink: actions/update
 ---
 
-## Update
+# Update
 
-<p class="intro">This script provides a simple interface to post to a given endpoint (eg. some backend script) and inject the retrieved markup back into the document.</p>
+<p class="intro">Use this action to request remote content and inject it into any target element.</p>
 
-| Js-File | [update.js]({{ pathToSourceFile }}assets/js/modules/update.js) |
-| Hooks   | `yoi-update`                                                   |
+| Js-File | [update.js]({{ pathToSourceFile }}assets/js/actions/update.js) |
 
-### Simple Example
+## Basic Example
+
+Use `yoi-action="Update:CssSelector; url:'https://someAdress.com';"` to request data and inject it into the target element.
+
+In the following example, each button calls the _action_ `Update` to load different content into the example container below. The last button points to an invalid address and therefore demonstrates an error message:
 
 ```html
 <!-- example -->
 <div class="btns">
-    <button class="btn btn--large" yoi-action="Update:#container; url:demos/ajaxSource-1.html;">What is Valium?</button>
-    <button class="btn btn--large" yoi-action="Update:#container; url:demos/ajaxSource-2.html;">What is Strychnine?</button>
-    <button class="btn btn--large" yoi-action="Update:#container; url:demos/ajaxSource-xyz.html;">Why 42?</button>
+    <button class="btn btn--large" yoi-action="Update:#exampleContainer; url:demos/ajaxSource-1.html;">What is Valium?</button>
+    <button class="btn btn--large" yoi-action="Update:#exampleContainer; url:demos/ajaxSource-2.html;">What is Strychnine?</button>
+    <button class="btn btn--large" yoi-action="Update:#exampleContainer; url:demos/ajaxSource-xyz.html;">42?</button>
 </div>
-<div id="container" class="pos-rel m-t-4">
+<div id="exampleContainer" class="pos-rel m-t-4">
     <div class="p-4 b-ghost br">
         <p class="fs-15">Response goes here …</p>
     </div>
 </div>
 ```
+
+## Parameters
+
+| parameter | description                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------- |
+| on        | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |
+| url       | required – the url for the ajax request                                                                 |
+| type      | optional – the request type `POST` or `GET`. The default is `GET`.                                      |

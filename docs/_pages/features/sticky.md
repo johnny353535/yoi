@@ -5,7 +5,11 @@ title: Sticky
 permalink: features/sticky
 ---
 
-## Sticky
+# Sticky
+
+<p class="hint hint--error">Documentation incomplete.</p>
+
+{% comment %}
 
 <p class="intro">Make any element on the page **stick** while scrolling past a certain threshold, which can be defined per element.</p>
 
@@ -223,3 +227,5 @@ The most obvious use case for this script might be a menu that sticks while scro
     </div>
 </div>
 ```
+
+{% endcomment %}
