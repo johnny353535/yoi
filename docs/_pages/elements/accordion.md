@@ -138,8 +138,6 @@ Close all accordions on the page by using the [action](actions/) `Accordion.clos
 
 ### Custom Events
 
-Each `.accordion` fires custom events:
-
 | event name            | fires when …                 |
 | --------------------- | ---------------------------- |
 | `yoi-accordion-open`  | An accordion section opens.  |

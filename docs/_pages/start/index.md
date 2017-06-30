@@ -7,11 +7,11 @@ permalink: start/
 
 # What is YOI?
 
-<p class="intro">YOI is Yoshino’s custom-built frontend component library. It enables our team to design, build and test and iterate web pages directly in the browser. Working with YOI saves time and leads to production-ready web pages rather than static design comps.</p>
+<p class="intro">YOI is Yoshino’s custom-built frontend component library. It enables our team to design, build, test and iterate web pages <i>directly in the browser</i>. Working with YOI saves time and can produce production-ready web pages rather than static design comps.</p>
 
 ## Quick to Learn
 
-If you are already familiar with the basics of HTML, you will quickly learn how to use YOI since _you will only write HTML_. No CSS. And not a single line of JavaScript. We kept things simple because we designed this system with _non-programmers_ in mind.
+If you are already familiar with the [basics of HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics), you will quickly learn how to use YOI since _you will only write HTML_. No CSS. And not a single line of JavaScript. We kept things simple because we designed this system with _non-programmers_ in mind.
 
 ## Easy to Use
 

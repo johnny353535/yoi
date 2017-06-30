@@ -54,7 +54,6 @@ YOI.element.Countdown = (function() {
          *
          *  Available options:
          *
-         *  @option {string} timezone - ISO 8601 time zone
          *  @option {string} year     - end year (ISO 8601)
          *  @option {string} month    - end month (ISO 8601)
          *  @option {string} day      - end day (ISO 8601)
@@ -62,7 +61,7 @@ YOI.element.Countdown = (function() {
          *  @option {string} minute   - end minute (ISO 8601)
          *  @option {string} second   - end second (ISO 8601)
          */
-        
+                
         var $countdown = YOI.createCollection('countdown', $countdown, options);
 
         if ($countdown) $countdown.each(function(index) {
@@ -76,7 +75,6 @@ YOI.element.Countdown = (function() {
             var defaultHour     = 12;
             var defaultMinute   = 0;
             var defaultSecond   = 0;
-            var timezone        = options.timezone | defaultTimezone;
             var year            = options.year === undefined ? defaultYear : parseInt(options.year);
             var month           = options.month === undefined || parseInt(options.month) > 12 || parseInt(options.month) < 1 ? defaultMonth : parseInt(options.month);
             var day             = options.day === undefined || parseInt(options.day) > 31 || parseInt(options.day) < 1 ? defaultDay : parseInt(options.day);
@@ -87,7 +85,7 @@ YOI.element.Countdown = (function() {
             // write props
         
             $thisCountdown.data().props = {
-                'endTime' : getDateString(month, day, year, hour, minute, second, timezone),
+                'endTime' : getDateString(month, day, year, hour, minute, second),
                 'index'   : index
             };
             
@@ -137,7 +135,7 @@ YOI.element.Countdown = (function() {
 
             $countdownChars.append($countdownLabel);
             $thisCountdownClock.append($countdownChars);
-
+            
         }
 
         // add the countdown clock
@@ -205,27 +203,8 @@ YOI.element.Countdown = (function() {
         $hiddenLabel.text(labelTxt[language]);
         
     }
-
-    // function getTime() {
-    //
-    //     /**
-    //      *  Get and return the formatted current time.
-    //      *
-    //      *  @return {object} currentTime - the formatted time
-    //      */
-    //
-    //     var today       = new Date();
-    //     var currentTime = {};
-    //
-    //     currentTime.hours   = YOI.zeroPad(today.getHours()).toString();
-    //     currentTime.minutes = YOI.zeroPad(today.getMinutes()).toString();
-    //     currentTime.seconds = YOI.zeroPad(today.getSeconds()).toString();
-    //
-    //     return currentTime;
-    //
-    // }
     
-    function getDateString(month, day, year, hour, minute, second, timezone) {
+    function getDateString(month, day, year, hour, minute, second) {
         
         /**
          *  
@@ -249,7 +228,7 @@ YOI.element.Countdown = (function() {
             'December'
         ];
         
-        var endTimeIsoString = months[month - 1] + ' ' + day + ' ' + year + ' ' + hour + ':' + minute + ':' + second + ' ' + timezone;
+        var endTimeIsoString = months[month - 1] + ' ' + day + ' ' + year + ' ' + hour + ':' + minute + ':' + second;
         
         return endTimeIsoString;
 

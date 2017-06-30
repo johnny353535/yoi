@@ -21,4 +21,6 @@ Notizen
     - tables vereinheitlichen
     - link zu source files: immer git
 
+- https://github.com/felixrieseberg/windows-development-environment
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

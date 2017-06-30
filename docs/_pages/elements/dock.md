@@ -68,70 +68,29 @@ The following code example is creating the dock you may actually see on the left
 </div>
 ```
 
-## JavaScript-API
+## Actions
 
-### initialize()
+### Dock.hide
 
-On each page load, all elements marked with `yoi-dock="autohide:true;"` are hidden and initialized. However, if you dynamically add a new elements to the page, call this function from your JavaScript to initialize any other `.dock`.
+Call this action to hide a `.dock`:
 
-```js
-YOI.element.Dock.initialize()
-
-/**
- *  @param {jQuery dom object} $dock
- *  @param {object}            options
- *
- *  Available options:
- *
- *  @option {bool} autohide - if TRUE, dock is initially hidden
- *                            default: FALSE
- */
-```
-
-### hide()
-
-Call this function from your JavaScript to hide all currently visible `.dock`-instances.
-
-```js
-YOI.element.Dock.hide()
-
-/**
- *  Hide the dock.
- *
- *  @param {jQuery dom object} $thisDock - the dock
- */
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
 ```
  
-### show()
+### Dock.show
 
-Call this function from your JavaScript to show all currently hidden `.dock`-instances.
+Call this action to show a `.dock`:
 
-```
-YOI.element.Dock.show()
-
-/**
- *  Show the dock.
- *
- *  @param {jQuery dom object} $thisDock - the dock
- */
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Dock.show:#exampleDock;">Show Dock</button>
 ```
 
 ### Custom Events
 
-Each `.dock` fires custom events your script can listen to:
-
-```js
-yoi-dock:show // dock was shown
-yoi-dock:hide // dock was hidden
-```
-
-## Test
-
-<div class="btns m-b-3">
-    <button class="btn btn--large" yoi-action-1="Dock.show:#exampleDock; on:mouseover; foo:bar; bar:baz;" yoi-action-2="Dock.hide:#exampleDock; on:mouseout;">Show #myDock</button>
-    <button class="btn btn--large" yoi-action-1="Hide:#boo; on:mouseout; transition:slideUp;" yoi-action-2="Show:#boo; on:mouseover; transition:slideDown;">Toggle #boo</button>
-</div>
-<div class="box h-20 p-4">
-    <p class="hint jsHidden" id="boo">Boo!</p>
-    <p class="hint" yoi-action-1="Hide:self; on:yoi-dock-show; trigger:body; transition:fadeOut;" yoi-action-2="Show:self; on:yoi-dock-hide; trigger:body; transition:fadeIn;">I am only visible when the dock is hidden.</p>
-</div>
+| event name      | fires when …     |
+| --------------- | ---------------- |
+| `yoi-dock-show` | Dock is visible. |
+| `yoi-dock-hide` | Dock is hidden.  |

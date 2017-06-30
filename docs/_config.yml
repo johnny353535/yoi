@@ -1,13 +1,9 @@
 # General Settings
 
-title: YOI - the Yoshino Frontend Foundation
-description: An easy to learn, yet powerful set of modules to build and design web pages directly in the browser.
-url: "https://yoshino-digital.github.io"
+title: YOI - the Yoshino Frontend Component Library
+description: A quick-to-learn, yet powerful set of elements and utilities for building and designing web pages directly in the browser.
+url: "https://yoshino-digital.github.io/yoi/"
 github_username: yoshino-digital
-
-# Site Variables
-
-icon: "http://cdn.yoshino.digital/svg.php?id=icon-"
 
 # Build Settings
 

@@ -1,6 +1,7 @@
 start:
     - index
     - setup
+    - learning_basics
 workflow:
     - index
     - customizing
