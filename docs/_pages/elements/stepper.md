@@ -95,9 +95,9 @@ As you’d expect, you can combine the modifiers to render a *light* and *touch-
 </div>
 ```
 
-## JavaScript API
+## Actions
 
-### countUp()
+### Stepper.countUp
 
 Pick a `.stepper` and increase the value by 1:
 
@@ -106,15 +106,10 @@ Pick a `.stepper` and increase the value by 1:
 <div id="exampleStepper-1" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
-<button id="exampleButton-1" class="btn btn--large val-t m-l-2">Count Up</button>
-<script>
-    $('#exampleButton-1').on('click', function() {
-        YOI.element.Stepper.countUp($('#exampleStepper-1'));
-    });
-</script>
+<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.countUp:#exampleStepper-1;">Count Up</button>
 ```
 
-### countDown()
+### Stepper.countDown
 
 Pick a `.stepper` and decrease the value by 1:
 
@@ -123,15 +118,10 @@ Pick a `.stepper` and decrease the value by 1:
 <div id="exampleStepper-2" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button id="exampleButton-2" class="btn btn--large val-t m-l-2">Count Down</button>
-<script>
-    $('#exampleButton-2').on('click', function() {
-        YOI.element.Stepper.countDown($('#exampleStepper-2'));
-    });
-</script>
+<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.countDown:#exampleStepper-2;">Count Down</button>
 ```
 
-### reset()
+### Stepper.reset
 
 Pick a `.stepper` and reset the value to 1:
 
@@ -140,15 +130,10 @@ Pick a `.stepper` and reset the value to 1:
 <div id="exampleStepper-3" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button id="exampleButton-3" class="btn btn--large val-t m-l-2">Reset</button>
-<script>
-    $('#exampleButton-3').on('click', function() {
-        YOI.element.Stepper.reset($('#exampleStepper-3'));
-    });
-</script>
+<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.reset:#exampleStepper-3;">Reset</button>
 ```
 
-### clear()
+### Stepper.clear
 
 Pick a `.stepper` and reset the value to 0:
 
@@ -157,15 +142,10 @@ Pick a `.stepper` and reset the value to 0:
 <div id="exampleStepper-4" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button id="exampleButton-4" class="btn btn--large val-t m-l-2">Clear</button>
-<script>
-    $('#exampleButton-4').on('click', function() {
-        YOI.element.Stepper.clear($('#exampleStepper-4'));
-    });
-</script>
+<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.clear:#exampleStepper-4;">Clear</button>
 ```
 
-### setTo()
+### Stepper.setTo
 
 Pick a `.stepper` and set the value to a given input:
 
@@ -174,27 +154,20 @@ Pick a `.stepper` and set the value to a given input:
 <div id="exampleStepper-5" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button id="exampleButton-5" class="btn btn--large val-t m-l-2">Set to 42</button>
-<script>
-    $('#exampleButton-5').on('click', function() {
-        YOI.element.Stepper.setTo($('#exampleStepper-5'), 42);
-    });
-</script>
+<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.setTo:#exampleStepper-5, 42;">Set to 42</button>
 ```
 
 ### Custom Events
 
-Each `.stepper` fires custom events your script can listen to:
-
-```
-yoi-stepper:up      // fired by countUp()
-yoi-stepper:down    // fired by countDown()
-yoi-stepper:reset   // fired by reset()
-yoi-stepper:clear   // fired by clear()
-yoi-stepper:change  // fired by reset(), clear() and setTo()
-yoi-stepper:valid   // fired by countUp() and countDown()
-yoi-stepper:invalid // fired by countUp() and countDown()
-```
+| event name            | fires when …                          |
+| --------------------- | ------------------------------------- |
+| `yoi-stepper-up`      | fired by countUp()                    |
+| `yoi-stepper-down`    | fired by countDown()                  |
+| `yoi-stepper-reset`   | fired by reset()                      |
+| `yoi-stepper-clear`   | fired by clear()                      |
+| `yoi-stepper-change`  | fired by reset(), clear() and setTo() |
+| `yoi-stepper-valid`   | fired by countUp() and countDown()    |
+| `yoi-stepper-invalid` | fired by countUp() and countDown()    |
 
 Try the example below and watch the custom events, printed to the [log element](elements/log.html):
 
@@ -214,26 +187,26 @@ Try the example below and watch the custom events, printed to the [log element](
     <button id="exampleButton-8" class="btn btn--large val-t">Set to 42</button>
 </div>
 <script>
-    $('#myStepper').on('yoi-stepper:up', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:up');
+    $('#myStepper').on('yoi-stepper-up', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-up');
     });
-    $('#myStepper').on('yoi-stepper:down', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:down');
+    $('#myStepper').on('yoi-stepper-down', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-down');
     });
-    $('#myStepper').on('yoi-stepper:reset', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:reset');
+    $('#myStepper').on('yoi-stepper-reset', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-reset');
     });
-    $('#myStepper').on('yoi-stepper:change', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:change');
+    $('#myStepper').on('yoi-stepper-change', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-change');
     });
-    $('#myStepper').on('yoi-stepper:clear', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:clear');
+    $('#myStepper').on('yoi-stepper-clear', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-clear');
     });
-    $('#myStepper').on('yoi-stepper:valid', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:valid');
+    $('#myStepper').on('yoi-stepper-valid', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-valid');
     });
-    $('#myStepper').on('yoi-stepper:invalid', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-stepper:invalid');
+    $('#myStepper').on('yoi-stepper-invalid', function() {
+        YOI.element.Log.write($('#myLog'), 'yoi-stepper-invalid');
     });
     $('#exampleButton-6').on('click', function() {
         YOI.element.Stepper.reset($('#myStepper'));

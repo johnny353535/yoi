@@ -1,11 +1,11 @@
 ---
 layout: base
 group: start
-title: Learning Basics
-permalink: start/learning_basics
+title: Start Learning
+permalink: start/start_learning
 ---
 
-# Learning the Basics of HTML & CSS
+# Start Learning
 
 <p class="intro">YOI is quick to learn and was designed for people who do not need to have a background in programming. However, you will have to write HTML. This page offers some recources for you to start learning or simply refresh your knowledge.</p>
 

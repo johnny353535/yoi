@@ -1,20 +1,15 @@
 /** article.less */
 
 .article {
+    
+    // increased line-height
+    
+    line-height: 1.75;
 
     // headlines
 
     > h1, > h2, > h3, > h4, > h5, > h6 {
         @verticalRhythm();
-        line-height: 1;
-    }
-    
-    // adjecent headlines and paragraphs
-    
-    > h2, > h3, > h4, > h5, > h6 {
-        & + p {
-            margin-top: 0;
-        }
     }
 
     // other block-level elements
@@ -30,7 +25,7 @@
     // adjacent paragraphs
     
     > p + p {
-        margin-top: 0;
+        margin-top: 2rem;
     }
     
     // intro (-paragraph)
@@ -90,9 +85,10 @@
         padding-left: 2.5rem;
     }
     
-    // code examples
+    // code
     
-    > .code__example {
+    > .code__example,
+    > div[class*=highlighter] {
         @verticalRhythm();
     }
 

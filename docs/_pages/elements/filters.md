@@ -213,58 +213,16 @@ Use these filters like you would use the HTML-element `<input type="checkbox">`.
 </div>
 ```
 
-## JavaScript-API
+## Actions
 
-### initialize()
+### Filters.toggle
 
-On each page load, all `<div class="filters" yoi-filters>` get initialized. However, if you dynamically add new `.filters` to the page, call this function from your JavaScript to select and initialize them.
-
-```js
-YOI.element.Filters.initialize()
- 
-/**
- *  Initialize the script.
- *  No additional options.
- *
- *  @param {jQuery dom object} $filters
- */
-```
-
-### toggle()
-
-Use this function to select a filter (`<a class="filter>`) and toggle it’s state (*active* or *inactive*).
-
-```js
-YOI.element.Filters.toggle()
- 
-/**
- *  Toggle the state of a selected filter.
- *  No additional options.
- *
- *  @param {jQuery dom object} $filter
- */
-```
-
-### reset()
-
-Call this function from your JavaScript to deactivate all active filters (`<a class="filter>`) of a `.filters`-instance.
-
-```js
-YOI.element.Filters.reset()
-
-/**
- *  Reset a selected instance of filters.
- *
- *  @param {jQuery dom object} $filters
- */
-````
+### Filters.reset
 
 ### Custom Events
 
-Each `.filters` fires custom events your script can listen to:
-
-```
-yoi-filters:change // fires immedeately after a filter changed
-yoi-filters:update // fires after a short threshhold after a filter changed
-yoi-filters:reset  // fires immmedeately after a filter reset
-```
+| event name           | fires when …                                    |
+| -------------------- | ----------------------------------------------- |
+| `yoi-filters-change` | A filter state changed (active/inactive)        |
+| `yoi-filters-update` | After a short delay after the last change fired |
+| `yoi-filters-reset`  | After all filters were reset                    |

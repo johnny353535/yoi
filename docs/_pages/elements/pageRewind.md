@@ -9,11 +9,10 @@ permalink: elements/pagerewind
 
 <p class="intro">Use this element to create a _scroll-to-top-button_ at the bottom of a page.</p>
 
-| Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/elements/accordion.less) |
-| Script         | [accordion.js]({{ pathToSourceFile }}assets/js/elements/accordion.js)       |
-| Script Hook    | `yoi-accordion`                                                             |
-| Base CSS-Class | `.accordion`                                                                |
-| Modifiers      | `-`                                                                         |
+| Styles         | [pageRewind.less]({{ pathToSourceFile }}assets/less/elements/pageRewind.less) |
+| Script         | [pageRewind.js]({{ pathToSourceFile }}assets/js/elements/pageRewind.js)       |
+| Script Hook    | `yoi-pagerewind`                                                              |
+| Base CSS-Class | `.pageRewind`                                                                 |
 
 ## Usage
 
@@ -25,44 +24,20 @@ The element is created and injected into the page via JavaScript. If you wish to
 
 You can see the element in action on this page.
 
-## JavaScript-API
+## Actions
 
-### run()
+### PageRewind.run
 
 If you wish to scroll the page back to top via JavaScript, you can do so by calling this function:
 
-```js
-YOI.element.PageRewind.run();
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="PageRewind.run;">Scroll to Top</button>
 ```
 
 ### Custom Events
 
-`.pageRewind` fires custom events your script can listen to:
-
-```
-yoi-pagerewind:start
-yoi-pagerewind:stop
-```
-
-Try it out and see the events logged here:
-
-```html
-<!-- example:tabs -->
-<div id="myLog" class="log log--light m-b-4" yoi-log>
-    <div class="log__body">
-        <p>Listening</p>
-    </div>
-</div>
-<button id="exampleBtn" class="btn btn--large">Scroll to top</button>
-<script>
-    $('#exampleBtn').on('click', function() {
-        YOI.element.PageRewind.run();
-    });
-    $(document).on('yoi-pagerewind:start', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-pagerewind:start');
-    });
-    $(document).on('yoi-pagerewind:stop', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-pagerewind:stop');
-    });
-</script>
-```
+| event name             | fires when …               |
+| ---------------------- | -------------------------- |
+| `yoi-pagerewind-start` | The page started scrolling |
+| `yoi-pagerewind-stop`  | The page stopped scrolling |

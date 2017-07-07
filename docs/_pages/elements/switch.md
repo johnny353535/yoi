@@ -40,9 +40,7 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-## JavaScript API
-
-### Hook
+## Hook
 
 | Key | Value | Description |
 | - | - | - |
@@ -64,9 +62,9 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-### Methods
+## Actions
 
-#### on()
+### Switch.on
 
 Pick a switch and set it to “on”:
 
@@ -75,15 +73,10 @@ Pick a switch and set it to “on”:
 <div id="exampleSwitch-1" class="switch switch--large" yoi-switch>
     <input type="checkbox" />
 </div>
-<button id="exampleButton-1" class="btn btn--medium m-l-2">Switch on</button>
-<script>
-    $('#exampleButton-1').on('click', function() {
-        YOI.element.Switch.on($('#exampleSwitch-1'));
-    });
-</script>
+<button class="btn btn--medium m-l-2" yoi-action="Switch.on:#exampleSwitch-1;">Switch On</button>
 ```
 
-#### off()
+### Switch.off
 
 Pick a switch and set it to “off”:
 
@@ -92,15 +85,10 @@ Pick a switch and set it to “off”:
 <div id="exampleSwitch-2" class="switch switch--large" yoi-switch="state:on">
     <input type="checkbox" />
 </div>
-<button id="exampleButton-2" class="btn btn--medium m-l-2">Switch off</button>
-<script>
-    $('#exampleButton-2').on('click', function() {
-        YOI.element.Switch.off($('#exampleSwitch-2'));
-    });
-</script>
+<button class="btn btn--medium m-l-2" yoi-action="Switch.off:#exampleSwitch-2;">Switch Off</button>
 ```
 
-#### toggle()
+### Switch.toggle
 
 Pick a `.switch` and toggle it’s state between “on” and “off”:
 
@@ -109,41 +97,12 @@ Pick a `.switch` and toggle it’s state between “on” and “off”:
 <div id="exampleSwitch-3" class="switch switch--large" yoi-switch>
     <input type="checkbox" />
 </div>
-<button id="exampleButton-3" class="btn btn--medium m-l-2">Toggle switch</button>
-<script>
-    $('#exampleButton-3').on('click', function() {
-        YOI.element.Switch.toggle($('#exampleSwitch-3'));
-    });
-</script>
+<button class="btn btn--medium m-l-2" yoi-action="Switch.toggle:#exampleSwitch-3;">Switch Toggle</button>
 ```
 
 ### Custom Events
 
-Each `.switch` fires custom events your script can listen to:
-
-```
-yoi-switch:on  // switched on
-yoi-switch:off // switched off
-```
-
-Try the example below and watch the custom events, printed to the [log element](elements/log.html):
-
-```html
-<!-- example:tabs -->
-<div id="myLog" class="log log--light m-b-4" yoi-log>
-    <div class="log__body">
-        <p>Listening</p>
-    </div>
-</div>
-<div id="mySwitch" class="switch switch--large" yoi-switch>
-    <input type="checkbox" />
-</div>
-<script>
-    $('#mySwitch').on('yoi-switch:on', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-switch:on');
-    });
-    $('#mySwitch').on('yoi-switch:off', function() {
-        YOI.element.Log.write($('#myLog'), 'yoi-switch:off');
-    });
-</script>
-```
+| event name       | fires when …            |
+| ---------------- | ----------------------- |
+| `yoi-switch-on`  | A switch was turned on  |
+| `yoi-switch-off` | A switch was tuened off |
