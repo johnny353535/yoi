@@ -1,6 +1,6 @@
 /** dismiss.js */
 
-YOI.feature.Dismiss = (function() {
+YOI.behaviour.Dismiss = (function() {
 
     // private vars
     // ============

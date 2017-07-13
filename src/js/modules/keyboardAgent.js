@@ -1,6 +1,11 @@
 /** keyboardAgent.js */
 
 YOI.KeyboardAgent = (function() {
+    
+    /**
+     *  A wrapper for keyboard access. Triggers a custom event
+     *  for each key of a curated list.
+     */
 
     // private vars
     // ============
@@ -34,7 +39,7 @@ YOI.KeyboardAgent = (function() {
             // trigger the custom "yoi-keypressed" event
             
             var keyCode = e.which;
-            if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed:' + keys[keyCode]);
+            if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed-' + keys[keyCode]);
             
         });
         

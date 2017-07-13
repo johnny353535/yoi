@@ -7,7 +7,7 @@ permalink: actions/hide
 
 # Hide
 
-<p class="intro">Use this action to show an invisible element.</p>
+<p class="intro">Use this action to hide an element.</p>
 
 | Js-File | [hide.js]({{ pathToSourceFile }}assets/js/actions/hide.js) |
 

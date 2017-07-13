@@ -1,6 +1,13 @@
 /** yoi.js */
 
+/**
+ *  The main script to initialize all other YOI scripts plus
+ *  some small helper functions bound to the global YOI object.
+ */
+
 var YOI = (function() {
+    
+    // "public" functions, bound to the global YOI object
 
     return {
 
@@ -182,6 +189,10 @@ var YOI = (function() {
              *  foo:something;bar:somethingelse;
              *  foo:'something';
              *  foo:'some:thing:with:colons';
+             *  foobar; foo:bar;
+             *  foo:bar; foobar;
+             *  foo; bar; foobar;
+             *  ...
              *
              *  @param  {string} input                      - the input to process, see example above
              *  @return {object || bool false} properObject - a proper JS object notation
@@ -189,45 +200,64 @@ var YOI = (function() {
 
             var keyValuePair;
             var properObject = {};
-
-            if (YOI.stringContains(input, ':')) {
+            
+            if (YOI.stringContains(input, ':') || YOI.stringContains(input, ';')) {
             
                 // set the start- and end-markers for values
-                // note: if the value contains at least one colon, wrap the value
-                // in single quotes
             
                 var valueStartMarker;
                 var keyValuePairEndMarker;
             
                 if (YOI.stringContains(input, "'") && YOI.stringContains(input, ';')) {
+                    
+                    // at least one value is wrapped in single
+                    // quotation marks (to escape certain characters)
+                    
                     valueStartMarker      = ":'";
                     keyValuePairEndMarker = "';";
+                    
                 } else {
+                    
+                    // no single quotation marks found
+                    
                     valueStartMarker      = ':';
                     keyValuePairEndMarker = ';';
+                    
                 }
 
                 // clean up input, replace multiple whitespace characters with a single white space
                 // eg. "    " is turned into " "
-            
+                
                 input = (input || '').replace(/\s+/g,' ').split(keyValuePairEndMarker);
 
-                // turn input into a proper object by creating key/value
-                // pairs by splitting the input at any occurance of a startMarker,
-                // remove leading and trailing white space (JS native trim function)
-                // and finally turning the resulting strings into a simple JS object notation
-            
-                for (var i = 0; i < input.length; i++) {
+                // since the last item in the resulting array will always be an empty string, restrict
+                // the for-loop to input.length - 1
+                
+                for (var i = 0; i < input.length - 1; i++) {
+                    
+                    // create key/value pairs
 
                     keyValuePair = input[i].split(valueStartMarker);
+                    
+                    if (keyValuePair.length === 1) {
 
-                    if (keyValuePair[1] !== undefined)
+                        // If there is only a single string instead of a key/value pair,
+                        // create the key "action" and assign the value of the given string.
+
+                        properObject['action'] = input[0];
+
+                    } else if (keyValuePair.length === 2) {
+
+                        // If there is a proper key/value pair, add it to the properObject.
+
                         properObject[keyValuePair[0].trim()] = keyValuePair[1].trim();
 
+                    }
+
                 }
-
+                
                 return properObject;
-
+            
             } else {
 
                 return false;
@@ -415,51 +445,71 @@ var YOI = (function() {
 
         // animations
 
-        blink : function(elem) {
+        blink : function($elem, times) {
 
             /**
              *  Blink animation.
              *
-             *  @param  {jQuery dom object} elem - the element to blink
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             *  @param  {jQuery dom object} $elem - the element to blink
+             *  @param  {number} times            - number of times the animation gets played, default is 2
+             *  @return {bool false}              - return false if elem is not a jQuery dom object
              */
+            
+            // cancel if $elem is not a jQuery object
 
-            // cancel if elem is not a jQuery object
-
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
-
-            // animate
-
-            elem.animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100)
-                .animate({ opacity: 0 }, 100)
-                .animate({ opacity: 1 }, 100);
+            if (!($elem instanceof jQuery) || $elem === undefined) return false;
+            
+            // set times to default value
+            
+            var times = times || 2;
+            
+            // stop the element animation first
+            
+            $elem.stop(true, true);
+            
+            // run the blink animation
+            
+            for (var i = 0; i < times; i++) {
+                $elem
+                    .animate({ opacity: 0 }, 100)
+                    .animate({ opacity: 1 }, 100);
+            }
 
         },
 
-        pulse : function(elem) {
+        pulse : function($elem, times) {
 
             /**
              *  Pulse animation.
              *
-             *  @param  {jQuery dom object} elem - the element to pulse
-             *  @return {bool false}             - return false if elem is not a jQuery dom object
+             *  @param  {jQuery dom object} $elem - the element to pulse
+             *  @param  {number} times            - number of times the animation gets played, default is 2
+             *  @return {bool false}              - return false if elem is not a jQuery dom object
              */
 
-            // cancel if elem is not a jQuery object
+            // cancel if $elem is not a jQuery object
 
-            if (!(elem instanceof jQuery) || elem === undefined) return false;
+            if (!($elem instanceof jQuery) || $elem === undefined) return false;
+            
+            // set times to default value
+            
+            var times = times || 2;
+            
+            // stop the element animation first
+            
+            $elem.stop(true, true);
 
-            // animate
-
-            elem.animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300)
-                .animate({ opacity: .2 }, 300)
-                .animate({ opacity:  1 }, 300);
+            // run the pulse animation
+            
+            for (var i = 0; i < times; i++) {
+                $elem
+                    .animate({ opacity: .2 }, 300)
+                    .animate({ opacity:  1 }, 300);
+            }
 
         },
 
-        // YOI interface
+        // YOI elements
 
         updateOptions : function($element, options) {
             
@@ -633,7 +683,9 @@ var YOI = (function() {
             return YOI.elementCollection[identifier];
     
         },
-
+        
+        // YOI actions
+        
         bindAction: function($element, hook) {
             
             /**
@@ -644,15 +696,15 @@ var YOI = (function() {
              *  @param {string}            hook
              */
             
-            var params         = YOI.toObject($element.attr(hook)) || $element.attr(hook).replace(";", "");
-            var action         = typeof params === 'object' ? Object.keys(params)[0] : params;
+            var params         = YOI.toObject($element.attr(hook));
+            var action         = params['action'] || Object.keys(params)[0];
             var hostObject     = action.split('.')[0] || false;
             var publicFunction = action.split('.')[1] || false;
             var event          = params.on || 'click';
             var options        = {};
             var $target        = $(params[action]);
             var $trigger       = params.trigger !== undefined ? $(params.trigger) : $element;
-
+            
             // define the target
             
             switch (params[action]) {
@@ -710,27 +762,21 @@ var YOI = (function() {
              *  a set of DOM elements.
              */
             
-            $('[yoi-action]').each(function() {
-                YOI.bindAction($(this), 'yoi-action');
-            });
-            
-            $('[yoi-action-1]').each(function() {
-                YOI.bindAction($(this), 'yoi-action-1');
-            });
-            
-            $('[yoi-action-2]').each(function() {
-                YOI.bindAction($(this), 'yoi-action-2');
-            });
-            
-            $('[yoi-action-3]').each(function() {
-                YOI.bindAction($(this), 'yoi-action-3');
-            });
-            
-            $('[yoi-action-4]').each(function() {
-                YOI.bindAction($(this), 'yoi-action-4');
+            $('[yoi-action], [yoi-action-1], [yoi-action-2], [yoi-action-3], [yoi-action-4]').each(function() {
+                
+                var $this = $(this);
+                
+                if ($this.is('[yoi-action]'))   YOI.bindAction($this, 'yoi-action');
+                if ($this.is('[yoi-action-1]')) YOI.bindAction($this, 'yoi-action-1');
+                if ($this.is('[yoi-action-2]')) YOI.bindAction($this, 'yoi-action-2');
+                if ($this.is('[yoi-action-3]')) YOI.bindAction($this, 'yoi-action-3');
+                if ($this.is('[yoi-action-4]')) YOI.bindAction($this, 'yoi-action-4');
+                
             });
             
         },
+        
+        // dom observer
 
         startDomObserver : function() {
             
@@ -785,28 +831,24 @@ var YOI = (function() {
 
 })();
 
-// create an object to store jQuery
+// create objects to store jQuery
 // element collections
 
 YOI.elementCollection = {};
-
-// create objects for all
-// YOI.element and YOI.module
-
-YOI.action  = {};
-YOI.element = {};
-YOI.feature = {};
-YOI.module  = {};
+YOI.action            = {};
+YOI.behaviour         = {};
+YOI.element           = {};
+YOI.module            = {};
 
 // initialize all
 // YOI.element and YOI.module
 
 $(function() {
     
-    // run the YOI.element.Code before
-    // all other scripts, so that examples
-    // rendered by this script are
-    // initialized with the right timing
+    // run YOI.element.Code before
+    // all other scripts, so that code
+    // example in docs rendered by this script
+    // initialize with the right timing
 
     YOI.element.Code.start();
     
@@ -816,9 +858,9 @@ $(function() {
         try { this.init(); } catch(e) {}
     });
     
-    // initialize all YOI features
+    // initialize all YOI behaviours
 
-    $.each(YOI.feature, function() {
+    $.each(YOI.behaviour, function() {
         try { this.init(); } catch(e) {}
     });
     

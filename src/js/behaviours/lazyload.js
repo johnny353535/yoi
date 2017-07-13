@@ -1,6 +1,6 @@
 /** lazyload.js */
 
-YOI.feature.Lazyload = (function() {
+YOI.behaviour.Lazyload = (function() {
 
     // private vars
     // ============

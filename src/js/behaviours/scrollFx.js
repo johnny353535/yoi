@@ -1,6 +1,6 @@
 /** scrollFx.js */
 
-YOI.feature.ScrollFx = (function() {
+YOI.behaviour.ScrollFx = (function() {
 
     // private functions
     // =================
@@ -48,8 +48,8 @@ YOI.feature.ScrollFx = (function() {
          */
         
         var options  = $targetElement.data().options;
-        var inFx     = options.in === undefined ? false : options.in;
-        var centerFx = options.center === undefined ? false : options.center;
+        var inFx     = options.in || false;
+        var centerFx = options.center || false;
         
         if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
         if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
@@ -72,10 +72,10 @@ YOI.feature.ScrollFx = (function() {
             
             var $targetElement = $(this);
             var options        = $targetElement.data().options;
-            var inFx           = options.in !== undefined ? options.in : false;
-            var centerFx       = options.center !== undefined ? options.center : false;
-            var speed          = options.speed !== undefined ? options.speed : false;
-            var repeat         = options.repeat !== undefined ? options.repeat : true;
+            var inFx           = options.in || false;
+            var centerFx       = options.center || false;
+            var speed          = options.speed || false;
+            var repeat         = options.repeat || true;
             
             $targetElement.on('yoi-viewport-in', function() {
                 

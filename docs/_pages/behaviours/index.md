@@ -1,8 +1,8 @@
 ---
 layout: base
-group: features
+group: behaviours
 title: Introduction
-permalink: features/
+permalink: behaviours/
 ---
 
 # Introduction

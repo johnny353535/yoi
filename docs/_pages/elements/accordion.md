@@ -126,14 +126,14 @@ Close all accordions on the page by using the [action](actions/) `Accordion.clos
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Accordion.closeAll:void; on:dblclick;">Close All Accordions on Double-Click</button>
+<button class="btn btn--large" yoi-action="Accordion.closeAll; on:dblclick;">Close All Accordions on Double-Click</button>
 ```
 
-<p class="hint hint--error"><b>Calling the action on a specific event:</b> The open-/closeAll actions are special since they do not need a <a href="actions/index.html#the-target-parameter">target selector</a>. If you wish to listen to another event, make sure you provide the value <code>void</code> like in the example below:</p>
+<!-- <p class="hint hint--error"><b>Calling the action on a specific event:</b> The open-/closeAll actions are special since they do not need a <a href="actions/index.html#the-target-parameter">target selector</a>. If you wish to listen to another event, make sure you provide the value <code>void</code> like in the example below:</p> -->
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Accordion.openAll:void; on:dblclick;">Open All Accordions on Double-Click</button>
+<button class="btn btn--large" yoi-action="Accordion.openAll; on:dblclick;">Open All Accordions on Double-Click</button>
 ```
 
 ### Custom Events

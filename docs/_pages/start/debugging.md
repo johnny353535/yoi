@@ -1,8 +1,8 @@
 ---
 layout: base
-group: workflow
+group: start
 title: Debugging
-permalink: workflow/debugging
+permalink: start/debugging
 ---
 
 # Visual Debugging

@@ -9,9 +9,9 @@ YOI.action.Pulse = function($trigger, $target, options) {
      *  @param {jQuery dom object} $target  - the target element
      *  @param {object}            options
      */
-    
+
     if ($target instanceof jQuery) {
-        YOI.pulse($target);
+        YOI.pulse($target, options.times);
     }
 
 }

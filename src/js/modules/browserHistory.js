@@ -1,6 +1,10 @@
 /** browserHistory.js */
 
 YOI.element.BrowserHistory = (function() {
+    
+    /**
+     *  A simple wrapper for the browser history.
+     */
 
     // private functions
     // =================

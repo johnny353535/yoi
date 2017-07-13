@@ -16,7 +16,7 @@ If you work on a Windows machine, you might be interested in [this article about
 
 ## Developing
 
-During development, you can use the following NPM scripts.
+During development, you can use the following NPM scripts:
 
 ### Build & Serve
 
@@ -27,6 +27,7 @@ During development, you can use the following NPM scripts.
 ### Deploy & Commit
 
 - Once you are ready to publish your changes, run the deploy process: `npm run deploy`
+- Add your changes: `git add *`
 - Commit your changes: `git commit -m "your commit message"`
 - And finally push your changes to the repository on GitHub: `git push`
 

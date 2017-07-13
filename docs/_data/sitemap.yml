@@ -2,8 +2,6 @@ start:
     - index
     - setup
     - start_learning
-workflow:
-    - index
     - customizing
     - debugging
 utilities:
@@ -77,6 +75,12 @@ elements:
     - tabs
     - toggleGroup
     - tooltip
+behaviours:
+    - index
+    - dismissable
+    - lazyloading
+    - scrollFx
+    - sticky
 actions:
     - index
     - blink
@@ -86,12 +90,6 @@ actions:
     - remove
     - scrollTo
     - update
-features:
-    - index
-    - dismissable
-    - lazyloading
-    - scrollFx
-    - sticky
 tools:
     - index
     - buttons

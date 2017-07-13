@@ -1,8 +1,8 @@
 ---
 layout: base
-group: workflow
+group: start
 title: Customizing
-permalink: workflow/customizing
+permalink: start/customizing
 ---
 
 # Customizing

@@ -1,8 +1,8 @@
 ---
 layout: base
-group: features
+group: behaviours
 title: Dismissable
-permalink: features/dismissable
+permalink: behaviours/dismissable
 ---
 
 # Dismissable

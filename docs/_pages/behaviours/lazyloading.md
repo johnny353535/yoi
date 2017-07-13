@@ -1,8 +1,8 @@
 ---
 layout: base
-group: features
+group: behaviours
 title: Lazyloading
-permalink: features/lazyloading
+permalink: behaviours/lazyloading
 ---
 
 # Lazyloading

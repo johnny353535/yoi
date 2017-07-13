@@ -1,6 +1,6 @@
 /** sticky.js */
 
-YOI.feature.Sticky = (function() {
+YOI.behaviour.Sticky = (function() {
 
     // private vars
     // ============

@@ -9,9 +9,9 @@ YOI.action.Blink = function($trigger, $target, options) {
      *  @param {jQuery dom object} $target  - the target element
      *  @param {object}            options
      */
-    
+
     if ($target instanceof jQuery) {
-        YOI.blink($target);
+        YOI.blink($target, options.times);
     }
 
 }

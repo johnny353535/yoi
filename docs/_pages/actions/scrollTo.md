@@ -7,7 +7,7 @@ permalink: actions/scrollto
 
 # ScrollTo
 
-<p class="intro">Use this action to smoothly scroll to any target element.</p>
+<p class="intro">Use this action to smoothly scroll to a target element.</p>
 
 | Js-File | [scrollTo.js]({{ pathToSourceFile }}assets/js/actions/scrollTo.js) |
 

@@ -1,8 +1,8 @@
 ---
 layout: base
-group: features
+group: behaviours
 title: Sticky
-permalink: features/sticky
+permalink: behaviours/sticky
 ---
 
 # Sticky
