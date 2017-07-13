@@ -90,7 +90,3 @@ actions:
     - remove
     - scrollTo
     - update
-tools:
-    - index
-    - buttons
-    - gradient

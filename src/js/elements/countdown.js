@@ -68,7 +68,6 @@ YOI.element.Countdown = (function() {
             
             var $thisCountdown  = $(this);
             var options         = $thisCountdown.data().options;
-            var defaultTimezone = "GMT+0002";
             var defaultYear     = new Date().getFullYear();
             var defaultMonth    = 1;
             var defaultDay      = 1;
