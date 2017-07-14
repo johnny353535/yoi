@@ -41,6 +41,12 @@ YOI.behaviour.Dismiss = (function() {
         if ($dismissableElement) $dismissableElement.each(function() {
 
             var $thisDismissableElement = $(this);
+            var positionStatic          = window.getComputedStyle(this).position === 'static';
+            
+            // to correctly (absolutely) position $btnDismiss, make sure
+            // $thisDismissableElement provides positioning context
+            
+            if (positionStatic) $thisDismissableElement.css('position','relative');
 
             // attach button and events
 
@@ -77,8 +83,7 @@ YOI.behaviour.Dismiss = (function() {
     // ================
 
     return {
-        init  : initialize,
-        apply : dismiss
+        init  : initialize
     };
 
 })();

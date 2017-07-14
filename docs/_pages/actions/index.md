@@ -9,6 +9,10 @@ permalink: actions/
 
 <p class="intro">YOI provides a powerful HTML-based interface to call JavaScript functions that interact with elements on your web page. We call these functions <i>actions</i>.</p>
 
+## Purpose
+
+Use an _action_ if you want a specific element control other elements on the page. Eg. add an action to hide a specific element to a button.
+
 ## Logic
 
 No matter what _action_ you wish to call, the logic is always the same. To attach an action to an element (eg. a `<button>`), add the `yoi-action` attribute and provide at least two parameters as a key/value pair: 1. the _action name_ (always uppercase!) and 2. a _CSS selector for the target element_:
@@ -54,7 +58,7 @@ Make sure you write the parameters correctly, otherwise the action just does not
 * Paramaters must be _formatted correctly_. They are written as key/value pairs. Keys are seperated from values with a colon. Each key/value pair must end with a semicolon: `key:value;`.
 * If values include special characters – for example URLS with slashes, colons etc. – wrap them in _single quotation marks_: `key:'some//value:with_special?charactes'`.
 * Values can _not include single nor double quotation marks_.
-* The _order of the parameters matters_, the first parameter must alyways be: `ActionName:targetSelector;`.
+* The _order of the parameters matters_, the first parameter must alyways be: `ActionName:targetSelector;` or `ActionName`.
 + All following parameters are optional and can follow in any order you prefer.
 * Action names must _begin with an upper case character_.
 

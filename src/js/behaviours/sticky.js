@@ -102,7 +102,7 @@ YOI.behaviour.Sticky = (function() {
         // empty the original element
 
         $stickyElement.empty();
-
+        
     }
 
     function updateStickyElementProps($stickyElement) {
