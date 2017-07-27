@@ -33,8 +33,6 @@ In the following example, each button calls the _action_ `Update` to load differ
 
 ## Parameters
 
-| parameter | description                                                                                             |
-| --------- | ------------------------------------------------------------------------------------------------------- |
-| on        | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |
-| url       | required – the url for the ajax request                                                                 |
-| type      | optional – the request type `POST` or `GET`. The default is `GET`.                                      |
+| `on`   | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |
+| `url`  | required – The url for the ajax request                                                                 |
+| `type` | optional – The request type `POST` or `GET`. The default is `GET`.                                      |

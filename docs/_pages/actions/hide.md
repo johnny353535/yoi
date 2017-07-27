@@ -25,6 +25,4 @@ Use `yoi-action="Hide:CssSelector;"` to hide an element:
 
 ## Parameters
 
-| parameter | description                                                                                             |
-| --------- | ------------------------------------------------------------------------------------------------------- |
-| on        | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |
+| `on` | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |

@@ -72,16 +72,6 @@ You may use any valid CSS-selector – id, class name, tag name, attribute, etc.
 <a href="http://yoshino.digital">Yoshino Digital</a>
 ```
 
-## Events
+## Parameters
 
-You can listen to any event you wish by using the [_on_-parameter](actions/index.html#the-on-parameter):
-
-```html
-<!-- example -->
-<div class="m-b-2">
-    <button class="btn btn--large" yoi-action="Remove:#exampleTarget-2; on:dblclick;">Remove #exampleTarget-2 on Double-Click</button>
-</div>
-<div id="exampleTarget-2" class="box w-30 h-20 p-4 tc-gray-15 fs-15">
-    <p>#exampleTarget-2</p>
-</div>
-```
+| `on` | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |

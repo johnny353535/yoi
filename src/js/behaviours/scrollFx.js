@@ -18,6 +18,8 @@ YOI.behaviour.ScrollFx = (function() {
         *  @option {string} in     - yoi fx css class name on viewport:in
         *  @option {string} center - yoi fx css class name on viewport:center
         *  @option {string} out    - yoi fx css class name on viewport:out
+        *  @option {string} repeat - repeats the fx each time, default is "true"
+        *  @option {string} speed  - change the default speed to "slow" or "fast"
         */
         
         var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
@@ -72,58 +74,60 @@ YOI.behaviour.ScrollFx = (function() {
             
             var $targetElement = $(this);
             var options        = $targetElement.data().options;
+            var props          = $targetElement.data().props;
             var inFx           = options.in || false;
             var centerFx       = options.center || false;
             var speed          = options.speed || false;
             var repeat         = options.repeat || true;
             
-            $targetElement.on('yoi-viewport-in', function() {
+            if (repeat !== 'false') {
                 
-                // add inFx
+                $targetElement.on('yoi-viewport-in', function() {
+                    applyFx($targetElement, inFx, speed);
+                });
                 
-                if (inFx) {
-                    $targetElement.removeClass('fx-' + inFx + '-initial');
-                    $targetElement.addClass('fx-' + inFx);
-                }
+                $targetElement.on('yoi-viewport-center', function() {
+                    applyFx($targetElement, centerFx, speed);
+                });
                 
-                // set speed
+                $targetElement.on('yoi-viewport-out', function() {
+                    addTargetElementInitialCss($targetElement);
+                });
                 
-                if (speed) {
-                    $targetElement.addClass('fx-' + speed);
-                }
+            } else {
                 
-            });
-            
-            $targetElement.on('yoi-viewport-center', function() {
+                $targetElement.one('yoi-viewport-in', function() {
+                    applyFx($targetElement, inFx, speed);
+                });
                 
-                // add centerFx
+                $targetElement.one('yoi-viewport-center', function() {
+                    applyFx($targetElement, centerFx, speed);
+                });
 
-                if (centerFx) {
-                    $targetElement.removeClass('fx-' + centerFx + '-initial');
-                    $targetElement.addClass('fx-' + centerFx);
-                }
+            }
 
-                // set speed
-
-                if (speed) {
-                    $targetElement.addClass('fx-' + speed);
-                }
-
-            });
-            
-            $targetElement.on('yoi-viewport-out', function() {
-                
-                // add initial css
-                
-                addTargetElementInitialCss($targetElement);
-                
-                // no reapeat
-                
-                if (repeat !== true) $targetElement.addClass('fx-off');
-                
-            });
-            
         });
+        
+    }
+    
+    function applyFx($targetElement, fx, speed) {
+        
+        /**
+         *  Applies the given fx and play it at the given speed.
+         *
+         *  @param {jQuery dom object} $targetElement - the target element
+         *  @param {string}            fx             - the fx css class to apply
+         *  @param {string}            speed          - the speed css class to apply
+         */
+        
+        if (fx) {
+            $targetElement.removeClass('fx-' + fx + '-initial');
+            $targetElement.addClass('fx-' + fx);
+        }
+
+        if (speed) {
+            $targetElement.addClass('fx-' + speed);
+        }
         
     }
     

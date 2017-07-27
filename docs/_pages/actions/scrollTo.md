@@ -53,11 +53,9 @@ The target element may sit inside a container with hidden or scrollable overflow
 
 ## Parameters
 
-| parameter | description                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------- |
-| on        | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`.          |
-| highlight | optional – `blink` or `pulse` – a highlight animation on the target element that starts after scrolling.         |
-| offset    | optional – A number to set the offset between the target element and the viewport’s top edge. The default is 20. |
+| `on`        | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`.          |
+| `highlight` | optional – `blink` or `pulse` – a highlight animation on the target element that starts after scrolling.         |
+| `offset`    | optional – A number to set the offset between the target element and the viewport’s top edge. The default is 20. |
 
 ### Highlight
 

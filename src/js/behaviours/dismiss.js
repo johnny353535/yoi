@@ -54,7 +54,7 @@ YOI.behaviour.Dismiss = (function() {
                 .clone()
                 .on('click', function(e) {
                     e.preventDefault();
-                    dismiss($thisDismissableElement);
+                    dismiss($(this).parent());
                 })
                 .appendTo($thisDismissableElement);
 

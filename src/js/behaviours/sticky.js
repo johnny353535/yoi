@@ -43,7 +43,7 @@ YOI.behaviour.Sticky = (function() {
         if ($stickyElement) $stickyElement.each(function(index) {
 
             var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone().removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
+            var $thisStickyElementClone = $thisStickyElement.clone(true).removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
             
             // update each sticky element's data
 

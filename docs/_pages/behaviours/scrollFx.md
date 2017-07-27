@@ -7,15 +7,67 @@ permalink: behaviours/scrollfx
 
 # ScrollFx
 
-<p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="intro">Adds effects or transitions to elements, when they enter or leave the viewport while scrolling.</p>
 
-| Js-File | [scrollAgent.js]({{ pathToSourceFile }}assets/js/modules/scrollAgent.js) |
-| Js-File | [scrollFx.js]({{ pathToSourceFile }}assets/js/features/scrollFx.js)      |
-| Hooks   | `yoi-scrollfx`                                                           |
+| Js-Files | [scrollAgent.js]({{ pathToSourceFile }}assets/js/modules/scrollAgent.js), [scrollFx.js]({{ pathToSourceFile }}assets/js/features/scrollFx.js) |
 
-<div style="margin: 1000px 0;">
-    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" yoi-scrollfx="in:fade-in; speed:slow;">in</div>
-    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" yoi-scrollfx="center:flip-in-y; speed:slow;">center</div>
-    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" yoi-scrollfx="center:slide-in-left; speed:slow;">center</div>
-    <div class="p-4 bg-green-15 b-0 br tc-green-24 fw-bold m-b-2 h-10" yoi-scrollfx="center:slide-in-right; speed:slow;">center</div>
-</div>
+## Parameters
+
+| `in`     | The effect to apply when the element scrolls into the viewport                                                                    |
+| `center` | The effect to apply when the element is at the center of the viewport                                                             |
+| `out`    | The effect to apply when the element scrolls out of the viewport                                                                  |
+| `speed`  | Change the default speed af the effects to `fast` or `slow`                                                                       |
+| `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
+
+### In, Center, Out
+
+Each element can have up to three effects. One for `in`, `center` and `out`. The keywords target the element according to their position relative to the viewport while scrolling. That means that an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area) and `center` applies the effect when the element is right in the vertical center of the visible area. 
+
+The following example will apply a fade-in effect when the element reaches the center of the viewport:
+
+```html
+<!-- example -->
+<div class="bg-green-15 br h-10" yoi-scrollfx="center:fade-in;"></div>
+```
+
+### Speed
+
+You can change the default speed of the effect to either `slow` or `fast`:
+
+```html
+<!-- example -->
+<div class="bg-blue-17 br m-b-2 h-10" yoi-scrollfx="center:slide-in-left; speed:slow;"></div>
+<div class="bg-yellow-18 br h-10" yoi-scrollfx="center:slide-in-right; speed:fast;"></div>
+```
+
+### Repeat
+
+By default, the effects play each time the according keywords (`in, center, out`) apply. If you wish to play them only once, set `repeat` to `false`:
+
+```html
+<!-- example -->
+<div class="bg-purple-18 br h-10" yoi-scrollfx="center:flip-in-x; repeat:false;"></div>
+```
+
+### Available Effects
+
+You can use all [fx utility classes](utilities/fx.html):
+
+| `fx-fade-in`          | fades in                       |
+| `fx-fade-out`         | fades out                      |
+| `fx-scale-up`         | grows                          |
+| `fx-scale-down`       | shrinks                        |
+| `fx-slide-in-top`     | moves in from the top          |
+| `fx-slide-out-top`    | moves out to the top           |
+| `fx-slide-in-bottom`  | moves in from the bottom       |
+| `fx-slide-out-bottom` | moves out to the bottom        |
+| `fx-slide-in-left`    | moves in from the left         |
+| `fx-slide-out-left`   | moves out to the left          |
+| `fx-slide-in-right`   | moves in from the right        |
+| `fx-slide-out-right`  | moves out to the right         |
+| `fx-flip-in-x`        | 3d-flip in on horizontal axis  |
+| `fx-flip-out-x`       | 3d-flip out on horizontal axis |
+| `fx-flip-in-y`        | 3d-flip in on vertical axis    |
+| `fx-flip-out-y`       | 3d-flip out on vertical axis   |
+| `fx-shake`            | shakes                         |
+| `fx-pulse`            | pulses                         |

@@ -78,7 +78,7 @@ elements:
 behaviours:
     - index
     - dismissable
-    - lazyloading
+    - lazyload
     - scrollFx
     - sticky
 actions:
