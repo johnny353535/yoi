@@ -17,7 +17,6 @@ utilities:
     - typography
     - visibility
 elements:
-    - index
     - accordion
     - article
     - badge

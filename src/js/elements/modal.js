@@ -394,23 +394,6 @@ YOI.element.Modal = (function() {
         
     }
 
-    // function detachAll() {
-    //
-    //     /**
-    //      *  Close and remove all modals.
-    //      */
-    //
-    //     $('#modalContainer .modal, #modalCover').fadeOut('fast',function() {
-    //
-    //         $('#modalContainer').empty().hide();
-    //         $('body').css('overflow','auto');
-    //
-    //         modalActive = false;
-    //
-    //     });
-    //
-    // }
-
     function generateId() {
 
         /**
@@ -440,9 +423,9 @@ YOI.element.Modal = (function() {
     // ==============
 
     return {
-        init      : initialize,
-        show      : show,
-        close     : closeAll
+        init  : initialize,
+        show  : show,
+        close : closeAll
     };
 
 })();

@@ -1,17 +1,28 @@
 {% assign urlLastChar = page.url | slice: -1 1 %}
 <ul class="linkList linkList--large bg-transparent b-0 br-0">
     {% for group in site.data.sitemap %}
-        <li class="linkList__item">
-            <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
-        </li>
+        {% comment %}
+        - - - - - - - - - - - - Menu level 1 - - - - - - - - - - - - 
+        {% endcomment %}
+        {% if group.first == "elements" %}
+            <li class="linkList__item">
+                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/{{ site.data.sitemap.elements.first | append: ".html" }}">{{ group.first | capitalize }}</a>
+            </li>
+        {% else %}
+            <li class="linkList__item">
+                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
+            </li>
+        {% endif %}
+        {% comment %}
+        - - - - - - - - - - - - Menu level 2 - - - - - - - - - - - - 
+        {% endcomment %}
         {% if page.group == group.first %}
             {% for pageName in site.data.sitemap[page.group] %}
                 {% assign menuLabel    = pageName | replace: "_", " " %}
                 {% assign currentPage  = page.url | split: "/" | last | replace: "_", " " %}
                 {% assign thisPageName = menuLabel | downcase %}
                 <li class="linkList__item{% if (currentPage == thisPageName) or (urlLastChar == "/" and menuLabel contains "index") %} is--active{% endif %}">
-                    <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName | downcase | append: ".html" }}">{% if menuLabel contains "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}
-                    </a>
+                    <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName | downcase | append: ".html" }}">{% if menuLabel contains "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}</a>
                 </li>
             {% endfor %}
         {% endif %}

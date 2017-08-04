@@ -93,11 +93,10 @@ textarea {
 
     &.input--focus,
     &:focus {
+        .mixin-defaultFocus;
         background: @color-white;
         border-color: @blue-18;
-        box-shadow: @blue-22 0 0 10px;
         color: @color-main-8;
-        outline: 0;
     }
 
     &.input--disabled,

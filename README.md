@@ -58,6 +58,11 @@ Notizen
     - tables vereinheitlichen
     - link zu source files: immer git
 
+- responsive
+    - option für jedes util, responsive classes zu erzeugen
+    - dazu vars als flags!
+    - breakpoints -> auch hier flags setzen für breakpoints, so dass nur der code erzeugt wird, der benötigt wird
+
 - https://github.com/felixrieseberg/windows-development-environment
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

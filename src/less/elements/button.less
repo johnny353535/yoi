@@ -91,6 +91,11 @@
         box-shadow: none;
         text-shadow: none;
     }
+    
+    &:focus,
+    &.btn--focus {
+        .mixin-defaultFocus;
+    }
 
     &.btn--disabled,
     &.btn--disabled:hover,

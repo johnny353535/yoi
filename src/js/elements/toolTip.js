@@ -11,56 +11,56 @@ YOI.element.Tooltip = (function() {
     // private functions
     // =================
 
-    function initialize($tooltip, options) {
+    function initialize($tooltipTrigger, options) {
 
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $tooltip
+         *  @param {jQuery dom object} $tooltipTrigger
          *  @param {object}            options
          *
          *  Available options:
          *
-         *  @option {string} target - a CSS selector (most likely an #id) to select the dom
-         *                            element which gets turned into a tooltip
+         *  @option {string} target       - a CSS selector (most likely an #id) to select the dom
+         *                                  element which gets turned into a tooltip
+         *  @option {string} followCursor - set to 'false' to disable repositioning
+         *                                  on mousemove, default is true
          */
 
-        var $tooltip = YOI.createCollection('tooltip', $tooltip, options);
+        var $tooltipTrigger = YOI.createCollection('tooltip', $tooltipTrigger, options);
 
-        if ($tooltip) $tooltip.each(function() {
+        if ($tooltipTrigger) $tooltipTrigger.each(function() {
 
             // set up vars
 
-            var $thisTooltip = $(this);
-            var options      = $thisTooltip.data().options;
-            var $target      = options.target !== undefined ? $(options.target) : $thisTooltip.find('.tooltip');
+            var $thisTooltipTrigger = $(this);
+            var options             = $thisTooltipTrigger.data().options;
+            var followCursor        = options.followCursor || true;
+            var $thisTooltip        = $(options.target) || $thisTooltipTrigger.find('.tooltip');
 
             // prepare the target element
 
-            $target = prepareTarget($target);
+            $thisTooltip = prepareTooltip($thisTooltip);
 
-            // add event to trigger
+            // add events
 
-            $thisTooltip.on('mouseover', function(e) {
-
-                // positioning
-
-                setPosition($target, e);
-
-                // hide all other tooltips
-
+            $thisTooltipTrigger.on('mouseenter', function(e) {
+                setPosition($thisTooltip, e);
                 hideAll();
-                hideWithDelay($target, 'stop');
-                showWithDelay($target, 'start');
-
+                hideWithDelay($thisTooltip, 'stop');
+                showWithDelay($thisTooltip, 'start');
             });
 
-            $thisTooltip.on('mouseout', function() {
-
-                hideWithDelay($target, 'start');
-                showWithDelay($target, 'stop');
-
+            $thisTooltipTrigger.on('mouseleave', function() {
+                hideWithDelay($thisTooltip, 'start');
+                showWithDelay($thisTooltip, 'stop');
             });
+            
+            if (followCursor === true) {
+                $thisTooltipTrigger.on('mousemove', function(e) {
+                    setPosition($thisTooltip, e);
+                });
+            }
 
         });
 
@@ -91,30 +91,30 @@ YOI.element.Tooltip = (function() {
 
     }
 
-    function prepareTarget($thisTarget) {
+    function prepareTooltip($thisTooltip) {
 
         /**
-         *  Prepare the target.
+         *  Turns the given target element into a proper tooltip.
          *
          *  Remove original target element from the DOM,
          *  clean up the content, inject it into a new
          *  tooltip-element and attach that to the DOM.
          *
-         *  @param  {jQuery dom object} $thisTarget - the target
-         *  @return {jQuery dom object} $thisTarget - the prepared target
+         *  @param  {jQuery dom object} $thisTooltip - the target element to transform into a tooltip
+         *  @return {jQuery dom object} $thisTooltip - the properly prepared tooltip
          */
 
-        var $thisTmpTarget = $thisTarget.detach();
+        var $thisTmpTooltip = $thisTooltip.detach();
 
-        if ($thisTarget.attr('id') !== undefined) {
-            targetId = 'id="' + $thisTarget.attr('id') + '" ';
+        if ($thisTooltip.attr('id') !== undefined) {
+            targetId = 'id="' + $thisTooltip.attr('id') + '" ';
         } else {
             targetId = '';
         }
 
-        $thisTarget = $('<div ' + targetId + 'class="tooltip">' + $thisTarget.html() +'</div>').appendTo($(document.body)).hide();
+        $thisTooltip = $('<div ' + targetId + 'class="tooltip">' + $thisTooltip.html() +'</div>').appendTo($(document.body)).hide();
 
-        if ($thisTmpTarget.attr('class') !== undefined) {
+        if ($thisTmpTooltip.attr('class') !== undefined) {
 
             // add compatible modifiers
 
@@ -129,11 +129,11 @@ YOI.element.Tooltip = (function() {
             for (var i = 0; i < compatibleModifiers.length; i++) {
 
                 var thisModifier            = compatibleModifiers[i];
-                var thisTmpTargetClassnames = $thisTmpTarget.attr('class');
+                var thisTmpTargetClassnames = $thisTmpTooltip.attr('class');
 
                 if (thisTmpTargetClassnames.indexOf(thisModifier) > 0) {
                     thisModifier = 'tooltip--' + thisModifier.split('--')[1];
-                    $thisTarget.addClass(thisModifier);
+                    $thisTooltip.addClass(thisModifier);
                 }
 
             }
@@ -142,17 +142,17 @@ YOI.element.Tooltip = (function() {
 
         // return the prepared target
 
-        return $thisTarget;
+        return $thisTooltip;
 
     }
 
-    function setPosition($thisTarget, e) {
+    function setPosition($thisTooltip, e) {
 
         /**
-         *  Set the tool tip position.
+         *  Set the tooltip position.
          *
-         *  @param {jQuery dom object} $thisTarget - the target element
-         *  @param {event}             e           - the trigger event
+         *  @param {jQuery dom object} $thisTooltip - the tooltip
+         *  @param {event}             e            - the trigger event
          */
 
         // calculate dimensions and positions
@@ -160,12 +160,12 @@ YOI.element.Tooltip = (function() {
         var padding        = 20;
         var cursorY        = e.pageY;
         var cursorX        = e.pageX;
-        var tooltipWidth   = $thisTarget.width();
-        var tooltipHeight  = $thisTarget.height();
+        var tooltipWidth   = $thisTooltip.width();
+        var tooltipHeight  = $thisTooltip.height();
         var viewPortWidth  = $(window).width();
         var viewPortHeight = $(window).height();
         var scrollTop      = $(window).scrollTop();
-
+        
         // calculate position for tooltip
 
         var tooltipLeft = cursorX + tooltipWidth > viewPortWidth ? cursorX - tooltipWidth - padding + 'px' : cursorX  + 'px';
@@ -173,7 +173,7 @@ YOI.element.Tooltip = (function() {
 
         // set position for tooltip
 
-        $thisTarget
+        $thisTooltip
             .css({
                 'position': 'absolute',
                 'left': tooltipLeft,
@@ -182,23 +182,23 @@ YOI.element.Tooltip = (function() {
 
     }
 
-    function showWithDelay($thisTarget, action) {
+    function showWithDelay($thisTooltip, action) {
 
         /**
-         *  Show a tool tip with delay.
+         *  Show a tooltip with delay.
          *
-         *  @param {jQuery dom object} $thisTarget - the target element
-         *  @param {string}            action      - keyword, "start" || "stop"
+         *  @param {jQuery dom object} $thisTooltip - the tooltip
+         *  @param {string}            action       - keyword, "start" || "stop"
          */
 
         if (action === 'start') {
-
+            
             YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
-                $thisTarget
+                $thisTooltip
                     .fadeIn(200)
                     .promise()
                     .then(function() {
-                        $thisTarget.trigger('yoi-tooltip-show');
+                        $thisTooltip.trigger('yoi-tooltip-show');
                     });
             });
 
@@ -211,7 +211,7 @@ YOI.element.Tooltip = (function() {
 
     }
 
-    function hideWithDelay($thisTarget, action) {
+    function hideWithDelay($thisTooltip, action) {
 
         /**
          *  Hide a tool tip with delay.
@@ -223,7 +223,7 @@ YOI.element.Tooltip = (function() {
 
             YOI.setDelay('tooltipHideDelay', hideDelayDuration, function(){
                 $('.tooltip').hide();
-                $thisTarget.trigger('yoi-tooltip-hide');
+                $thisTooltip.trigger('yoi-tooltip-hide');
             });
 
         } else if (action === 'stop') {

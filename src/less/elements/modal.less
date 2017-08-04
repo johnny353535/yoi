@@ -4,23 +4,23 @@
 // =====
 
 .modal {
+    
     .mixin-defaultBorderRadius;
     background: @color-main-25;
     border: @color-main-23 1px solid;
     box-sizing: border-box;
-    left: 50%;
-    margin-left: -30rem;
-    position: absolute;
+    position: relative;
     text-align: left;
     width: 60rem;
-}
-
-// only modals opend via JS (and therefore placed inside
-// .modal__container) should have a shadow but no border
-
-.modal__container .modal {
-    .mixin-shadow-4;
-    border: 0;
+    
+    .modal__container & {
+        .mixin-shadow-4;
+        border: 0;
+        left: 50%;
+        margin-left: -30rem;
+        position: absolute;
+    }
+    
 }
 
 // elements
@@ -52,7 +52,7 @@
 
 .modal__footer {
     .mixin-clearfix;
-    border-top: @color-main-22 1px solid;
+    border-top: @color-main-23 1px solid;
     margin-top: 1rem;
     padding: 1rem;
     overflow: hidden;
@@ -82,6 +82,11 @@
 // =========
 
 .modal--small {
+    
     width: 30rem;
-    margin-left: -15rem;
+    
+    .modal__container & {
+        margin-left: -15rem;
+    }
+    
 }

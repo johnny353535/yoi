@@ -53,6 +53,11 @@
     border-radius: (@borderRadius * 1px);
 }
 
+.mixin-defaultFocus() {
+    box-shadow: @focusColor 0 0 10px;
+    outline: 0;
+}
+
 .mixin-tabFocus() {
     animation-duration: 1s;
     animation-iteration-count: infinite;

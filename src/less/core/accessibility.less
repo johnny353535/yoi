@@ -1,0 +1,18 @@
+/** accessibility.less */
+
+// focus
+// =====
+
+:focus {
+    .mixin-defaultFocus;
+}
+
+[tabindex]:focus {
+    .mixin-tabFocus;
+    box-shadow: none;
+}
+
+/*
+   To learn more about tabindex behaviour in
+   different browsers, see http://www.alexlande.com/articles/cross-browser-tabindex-woes/
+*/

@@ -697,7 +697,7 @@ var YOI = (function() {
              */
             
             var params         = YOI.toObject($element.attr(hook));
-            var action         = params['action'] || Object.keys(params)[0];
+            var action         = params['action'] || Object.keys(params)[0] || '';
             var hostObject     = action.split('.')[0] || false;
             var publicFunction = action.split('.')[1] || false;
             var event          = params.on || 'click';

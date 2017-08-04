@@ -20,13 +20,12 @@ YOI.element.PopOver = (function() {
          *
          *  Available options:
          *
-         *  @option {string} target         - The target pop-over id selector.
-         *  @option {string} pos            - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
-         *  @option {string} ref            - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
-         *  @option {string} toggleClass    - Css class name added to trigger if pop-over is currently shown.
-         *  @option {string} eventShow      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
-         *  @option {string} eventHide      - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to hide the pop-over. The default is mouseleave.
-         *  @option {bool}   preventDefault - If true, the trigger’s default event (eg. click) gets prevented. The default is true.
+         *  @option {string} target              - The target pop-over id selector.
+         *  @option {string} pos                 - ['tl','tr','br','bl'] Pop-over position relative to trigger. The default is 'tr'.
+         *  @option {string} ref                 - ['tl','tr','br','bl'] Pop-over reference point. The default is 'tl'.
+         *  @option {string} toggleClass         - Css class name added to trigger if pop-over is currently shown.
+         *  @option {string} on                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
+         *  @option {bool}   preventDefaultClick - If true, the trigger’s default click-event is prevented. The default is true.
          */
         
         var $popOverTrigger = YOI.createCollection('popover', $popOverTrigger, options);
@@ -68,33 +67,34 @@ YOI.element.PopOver = (function() {
             // prevent default event option,
             // default is TRUE
 
-            var preventDefault = options.preventDefault !== undefined ? options.preventDefault : true;
+            var preventDefaultClick = options.preventDefaultClick || true;
 
             // get the events to show and hide the popover
             // defaults are 'mouseover' for show and 'mouseout' for hide
 
-            var eventShow = $.inArray(options.eventShow, validEvents) > -1 ? options.eventShow : 'mouseenter';
-            var eventHide = $.inArray(options.eventHide, validEvents) > -1 ? options.eventShow : 'mouseleave';
+            var eventShow = $.inArray(options.on, validEvents) > -1 ? options.on : 'mouseenter';
+            var eventHide = 'mouseleave';
 
+            // attach events to pop-over trigger
+            
+            if (preventDefaultClick === true || preventDefaultClick === 'true') {
+                $thisPopOverTrigger.on('click', function(e) {
+                    e.preventDefault();
+                });
+            };
+            
             // attach events to pop-over trigger
 
             $thisPopOverTrigger
                 .on(eventShow, function(e) {
-
-                    if (preventDefault !== 'false') e.preventDefault();
-
                     hideAll();
                     removeToggleClass();
                     show($thisPopOverTrigger, $thisPopOver);
 
                 })
                 .on(eventHide, function(e) {
-
-                    if (preventDefault !== 'false') e.preventDefault();
-
                     YOI.clearInterval('popOverShowTimeout');
                     hide($thisPopOverTrigger, $thisPopOver);
-
                 });
 
             // attach events to pop-over
