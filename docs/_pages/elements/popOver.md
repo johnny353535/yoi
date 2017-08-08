@@ -111,7 +111,7 @@ Show a menu on click:
 ```html
 <!-- example:tabs -->
 <a class="btn btn--large" href="#examplePopOver-7" yoi-popover="target:#examplePopOver-7; eventShow:click;">
-    <i aria-hidden="true" class="icon--067-s"></i>
+    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-067-s" yoi-icon />
     <span>Menu</span>
 </a>
 <div class="popOver" id="examplePopOver-7">

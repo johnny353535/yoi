@@ -6,7 +6,7 @@
 .modal {
     
     .mixin-defaultBorderRadius;
-    background: @color-main-25;
+    background: @color-white;
     border: @color-main-23 1px solid;
     box-sizing: border-box;
     position: relative;
@@ -27,7 +27,7 @@
 // ========
 
 .modal__header {
-    border-bottom: @color-main-23 1px solid;
+    border-bottom: @color-main-24 1px solid;
     border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
     margin: 0 0 1rem 0;
     padding: 0 1rem;
@@ -52,14 +52,14 @@
 
 .modal__footer {
     .mixin-clearfix;
-    border-top: @color-main-23 1px solid;
+    border-top: @color-main-24 1px solid;
     margin-top: 1rem;
     padding: 1rem;
     overflow: hidden;
 }
 
 .modal__cover {
-    background: fade(@color-main-5,80%);
+    background: fade(@color-main-5,50%);
     height: 100%;
     left: 0;
     position: fixed;

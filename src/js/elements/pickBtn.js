@@ -22,6 +22,12 @@ YOI.element.PickBtn = (function() {
         var $pickBtn = YOI.createCollection('pickBtn', $pickBtn);
 
         if ($pickBtn) $pickBtn.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisPickBtn = $(this);
 
@@ -41,6 +47,10 @@ YOI.element.PickBtn = (function() {
                 activate($thisPickBtn);
                 $thisPickBtn.trigger('yoi-pickbtn-change');
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

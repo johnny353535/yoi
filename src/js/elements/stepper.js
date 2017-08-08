@@ -48,6 +48,12 @@ YOI.element.Stepper = (function() {
         var $stepper = YOI.createCollection('stepper', $stepper, options);
 
         if ($stepper) $stepper.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisStepper = $(this);
 
@@ -70,6 +76,10 @@ YOI.element.Stepper = (function() {
             $thisStepper.find('.stepper__input').blur(function() {
                 validateInput($thisStepper);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

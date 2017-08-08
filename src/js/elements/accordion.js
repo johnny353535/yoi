@@ -24,6 +24,12 @@ YOI.element.Accordion = (function() {
         // if ($accordion) initializeAccordionTriggers();
 
         if ($accordion) $accordion.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisAccordion = $(this);
             var $thisSections  = $thisAccordion.find('.accordion__section');
@@ -59,6 +65,10 @@ YOI.element.Accordion = (function() {
                 });
 
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         
@@ -67,26 +77,6 @@ YOI.element.Accordion = (function() {
         if ($accordion) addKeyboardEvents($accordion);
 
     }
-
-    // function initializeAccordionTriggers() {
-    //
-    //     /**
-    //      *  Gather all elements in DOM which are tagged with the custom
-    //      *  data-attributes "action". Attach events accordingly to the values
-    //      *  "openAllAccordions" and "closeAllAccordions".
-    //      */
-    //
-    //     $('[yoi-action="openAllAccordions"]').on('click', function(e) {
-    //         e.preventDefault();
-    //         openAllSections();
-    //     });
-    //
-    //     $('[yoi-action="closeAllAccordions"]').on('click', function(e) {
-    //         e.preventDefault();
-    //         closeAllSections();
-    //     });
-    //
-    // }
 
     function toggleSection($section) {
 

@@ -122,7 +122,11 @@ YOI.element.DatePicker = (function() {
         var $datepicker = YOI.createCollection('datepicker', $datepicker, options);
 
         if ($datepicker) $datepicker.each(function(index) {
-
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
             // get date input & date input data
 
             var $thisDateInput = $(this);
@@ -225,9 +229,13 @@ YOI.element.DatePicker = (function() {
                     $document.trigger('yoi-datepicker-show');
 
                 });
+                
+            // set initialized
+    
+            YOI.setReady($(this));
 
         });
-
+        
     }
 
     function updateDatePicker($thisDatePicker, selectedYear, selectedMonth, selectedDay) {

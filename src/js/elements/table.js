@@ -22,6 +22,12 @@ YOI.element.Table = (function() {
         var $table = YOI.createCollection('table', $table, options);
         
         if ($table) $table.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisTable = $(this);
             var options    = $thisTable.data().options;
@@ -73,7 +79,11 @@ YOI.element.Table = (function() {
                 });
 
             }
-
+            
+            // set initialized
+            
+            YOI.setReady($(this));
+            
         });
 
     }

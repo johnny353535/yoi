@@ -7,17 +7,22 @@ permalink: elements/modal
 
 # Modal
 
-<p class="intro">Modals are simple, regular pages, referenced by either `href`-attributes or a path via a `yoi-modal`-attribute. Any element may reference a modal. Modals are loaded asynchronically (ajax) and injected into the dom.</p>
+<p class="intro">Use this element to create a smaller window, overlaying and blocking the rest of the page.</p>
 
-| Styles         | [modal.less]({{ pathToSourceFile }}assets/less/elements/modal.less) |
-| Script         | [modal.js]({{ pathToSourceFile }}assets/js/elements/modal.js)       |
-| Base CSS-Class | `.modal`                                                            |
-| Modifiers      | `.modal--small`                                                     |
+## Basic Example
 
-## Modal Page
+Tis is how a basic modal looks like and how ou write the markup:
 
-Modal pages must at least have an element with the CSS-class `.modal`. Everything else is optional.
-The following is an example for a typical modal page. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a>.
+```html
+<!-- example -->
+<a class="btn btn--large" href="demos/modal.html" yoi-modal>Open demos/modal.html as Modal</a>
+```
+
+## Modal Pages
+
+YOI modals are designed to be regular pages, referenced, optionally preloaded and injected into the page. Modal pages must at least have an element with the CSS-class `.modal`.
+
+The following is an example for a typical modal markup. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a> to 
 
 ```html
 <!-- example -->
@@ -109,3 +114,8 @@ path:desktop/pages/modal_demo.html; cache:true; …
 
 If you reference a modal page that is either ill-formatted, isn’t a modal page or simply does not exist, the modal won’t be shown.
 Instead, if the trigger element is a link, it will fall back to it’s default behaviour (open the location provided via `href`-attribute, even if the page does not exist). If the trigger element is not a link (modal path via `yoiyoi-ons`-attribute), nothing will happen on click.
+
+## Associated Files
+
+| Styles  | [modal.less]({{ pathToSourceFile }}assets/less/elements/modal.less) |
+| Scripts | [modal.js]({{ pathToSourceFile }}assets/js/elements/modal.js)       |

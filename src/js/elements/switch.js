@@ -48,6 +48,12 @@ YOI.element.Switch = (function() {
         var $switch = YOI.createCollection('switch', $switch, options);
 
         if ($switch) $switch.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisSwitch = $(this);
             var options     = $thisSwitch.data().options;
@@ -82,6 +88,10 @@ YOI.element.Switch = (function() {
             $thisSwitch.on('click', function(e) {
                 setToggle($thisSwitch);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

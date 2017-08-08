@@ -508,9 +508,60 @@ var YOI = (function() {
             }
 
         },
+        
+        // dom observer
 
+        startDomObserver : function() {
+            
+            /**
+             *  Starts the global MutationObserver instance.
+             */
+            
+            var $document = $(document);
+            var observer  = window.MutationObserver || window.WebKitMutationObserver;
+            var target    = document.body;
+
+            this.observer = new observer(function(mutations) {
+                mutations.forEach(function(mutation) {
+
+                    if (mutation.addedNodes.length) {
+                        $document.trigger('yoi-dom-add');
+                        // console.log('added:');
+                        // console.log(mutation.target);
+                    }
+                    
+                    if (mutation.removedNodes.length) {
+                        $document.trigger('yoi-dom-remove');
+                        // console.log('removed:');
+                        // console.log(mutation.target);
+                    }
+                    
+                });
+            });
+
+            this.observer.observe(target, {
+                subtree       : true,
+                attributes    : true,
+                childList     : true,
+                characterData : true
+            });
+            
+        },
+
+        stopDomObserver : function() {
+            
+            /**
+             *  Stops the global MutationObserver instance.
+             */
+            
+            if (this.observer !== undefined) {
+                this.observer.disconnect();
+            }
+            
+        },
+        
         // YOI elements
-
+        
         updateOptions : function($element, options) {
             
             /**
@@ -558,7 +609,6 @@ var YOI = (function() {
              *
              *  @param  {jQuery dom object}  $element
              *  @param  {object}             props
-             *  @return {jQuery data object} props
              */
         
             // if not already present, create "props" object
@@ -588,7 +638,7 @@ var YOI = (function() {
             
             }
         
-            return $element.data().props;
+            // return $element.data().props;
 
         },
 
@@ -600,13 +650,11 @@ var YOI = (function() {
              *
              *  @param  {jQuery dom object}  $element
              *  @param  {string}             state
-             *  @return {jQuery data object} state
              */
         
-            // if not already present, create "state" object
-        
-            if ($element.data().state === undefined)
-                $element.data().state = {};
+            if (!$element.data().hasOwnProperty('state')) {
+                $element.data().state = '';
+            }
 
             if (typeof state === 'string') {
             
@@ -628,8 +676,6 @@ var YOI = (function() {
             
             }
         
-            return $element.data().state;
-        
         },
 
         createCollection : function(identifier, $element, options, state, props) {
@@ -647,11 +693,11 @@ var YOI = (function() {
             
             // if it does not exist, create a new collection of jQuery objects
         
-            if (YOI.elementCollection[identifier] === undefined)
+            if (YOI.elementCollection[identifier] === undefined) {
                 YOI.elementCollection[identifier] = $([]);
+            }
         
             if (!($element instanceof jQuery)) {
-                
                 
                 // if the createCollection() is called without a valid matching jQuery element,
                 // gather the matching elements from the dom
@@ -776,57 +822,75 @@ var YOI = (function() {
             
         },
         
-        // dom observer
-
-        startDomObserver : function() {
+        // YOI initialize
+        
+        setReady : function($element) {
             
             /**
-             *  Starts the global MutationObserver instance.
+             *  
+             *
+             *  @param  {}  - 
+             *  @return {}  - 
              */
             
-            var $document = $(document);
-            var observer  = window.MutationObserver || window.WebKitMutationObserver;
-            var target    = document.body;
-
-            this.observer = new observer(function(mutations) {
-                mutations.forEach(function(mutation) {
-
-                    if (mutation.addedNodes.length) {
-                        $document.trigger('yoi-dom-add');
-                        // console.log('added:');
-                        // console.log(mutation.target);
-                    }
-                    
-                    if (mutation.removedNodes.length) {
-                        $document.trigger('yoi-dom-remove');
-                        // console.log('removed:');
-                        // console.log(mutation.target);
-                    }
-                    
-                });
-            });
-
-            this.observer.observe(target, {
-                subtree       : true,
-                attributes    : true,
-                childList     : true,
-                characterData : true
-            });
+            $element.data().props.initialized = true;
             
         },
-
-        stopDomObserver : function() {
+        
+        isReady : function($element) {
             
             /**
-             *  Stops the global MutationObserver instance.
+             *  
+             *
+             *  @param  {}  - 
+             *  @return {}  - 
              */
             
-            if (this.observer !== undefined) {
-                this.observer.disconnect();
+            var state;
+            
+            if ($element.data().props.initialized) {
+                state = true;
+            } else {
+                state = false;
             }
             
-        }
+            return state;
+            
+        },
+        
+        initialize : function(context) {
+            
+            /**
+             *  
+             *
+             *  @param  {}  - 
+             *  @return {}  - 
+             */
+            
+            // initialize all YOI elements
 
+            $.each(YOI.element, function() {
+                try { this.init(); } catch(e) {}
+            });
+    
+            // initialize all YOI behaviours
+
+            $.each(YOI.behaviour, function() {
+                try { this.init(); } catch(e) {}
+            });
+    
+            // initialize all YOI modules
+
+            $.each(YOI.module, function() {
+                try { this.init(); } catch(e) {}
+            });
+            
+            // map actions
+
+            YOI.mapActions();
+            
+        }
+        
     };
 
 })();
@@ -840,9 +904,6 @@ YOI.behaviour         = {};
 YOI.element           = {};
 YOI.module            = {};
 
-// initialize all
-// YOI.element and YOI.module
-
 $(function() {
     
     // run YOI.element.Code before
@@ -854,26 +915,8 @@ $(function() {
     
     // initialize all YOI elements
 
-    $.each(YOI.element, function() {
-        try { this.init(); } catch(e) {}
-    });
-    
-    // initialize all YOI behaviours
+    YOI.initialize();
 
-    $.each(YOI.behaviour, function() {
-        try { this.init(); } catch(e) {}
-    });
-    
-    // initialize all YOI modules
-
-    $.each(YOI.module, function() {
-        try { this.init(); } catch(e) {}
-    });
-
-    // map actions
-
-    YOI.mapActions();
-    
     // initially hide all elements with the utility class
     // "jsHidden" so that jQuery's show() function works properly
 

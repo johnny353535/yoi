@@ -74,7 +74,6 @@ YOI.behaviour.ScrollFx = (function() {
             
             var $targetElement = $(this);
             var options        = $targetElement.data().options;
-            var props          = $targetElement.data().props;
             var inFx           = options.in || false;
             var centerFx       = options.center || false;
             var speed          = options.speed || false;

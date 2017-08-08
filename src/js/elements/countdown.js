@@ -66,6 +66,12 @@ YOI.element.Countdown = (function() {
 
         if ($countdown) $countdown.each(function(index) {
             
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
+            
             var $thisCountdown  = $(this);
             var options         = $thisCountdown.data().options;
             var defaultYear     = new Date().getFullYear();
@@ -97,6 +103,10 @@ YOI.element.Countdown = (function() {
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
                 update($thisCountdown);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

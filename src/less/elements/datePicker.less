@@ -7,10 +7,11 @@
     .mixin-defaultBorderRadius;
     .mixin-shadow-3;
     background: @color-white;
-    border: @color-main-20 1px solid;
+    border: @color-main-23 1px solid;
     box-sizing: border-box;
     overflow: hidden;
     position: absolute;
+    width: 30rem;
     z-index: 10;
 }
 
@@ -87,11 +88,17 @@
     border-radius: 0;
     border-right: 0;
     border-color: @color-main-24;
+    table-layout: fixed;
     width: 100%;
 
     th,
     td {
         border: 0;
+    }
+    
+    th {
+        color: @color-main-15;
+        font-weight: normal;
     }
 
     td {

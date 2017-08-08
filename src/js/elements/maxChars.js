@@ -29,6 +29,12 @@ YOI.element.MaxChars = (function() {
 
         if ($inputElement) $inputElement.each(function() {
             
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
+            
             var $thisInputElement = $(this);
 
             // update properties
@@ -44,6 +50,10 @@ YOI.element.MaxChars = (function() {
             $thisInputElement.on('input', function() {
                 updateInputElement($thisInputElement);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

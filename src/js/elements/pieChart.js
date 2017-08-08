@@ -45,6 +45,12 @@ YOI.element.PieChart = (function() {
         var $pieChart = YOI.createCollection('piechart', $pieChart, options);
 
         if ($pieChart) $pieChart.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisPieChart        = $(this);
             var $thisPieChartRecords = $thisPieChart.find('.pieChart__record');
@@ -117,6 +123,10 @@ YOI.element.PieChart = (function() {
             if (palette === 'random') setRandomSliceColors($thisPieChart);
             if (palette === 'shades') setSliceShades($thisPieChart);
             if (palette === 'unique') setUniqueSliceColors($thisPieChart);
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

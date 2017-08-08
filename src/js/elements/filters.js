@@ -41,6 +41,12 @@ YOI.element.Filters = (function() {
         var $filters = YOI.createCollection('filters', $filters, options);
 
         if ($filters) $filters.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisFilters            = $(this);
             var $thisFilterGroups       = $thisFilters.find('.filterGroup');
@@ -108,6 +114,10 @@ YOI.element.Filters = (function() {
             $thisFilters.on('yoi-rangeinput-change', function() {
                 addResetBtn($thisFilters);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

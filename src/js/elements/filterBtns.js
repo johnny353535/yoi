@@ -17,6 +17,12 @@ YOI.element.FilterBtns = (function() {
         var $filterBtns = YOI.createCollection('filterbtns', $filterBtns, options);
 
         if ($filterBtns) $filterBtns.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisFilterBtns = $(this);
 
@@ -76,6 +82,10 @@ YOI.element.FilterBtns = (function() {
                 });
 
             }
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

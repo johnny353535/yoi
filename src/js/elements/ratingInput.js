@@ -37,6 +37,12 @@ YOI.element.RatingInput = (function() {
         var $ratingInput = YOI.createCollection('ratinginput', $ratingInput, options);
 
         if ($ratingInput) $ratingInput.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisRatingInput  = $(this);
             var $thisRatingSelect = $ratingSelect.clone();
@@ -67,6 +73,10 @@ YOI.element.RatingInput = (function() {
             // each ratingInput
 
             $thisRatingInput.append($thisRatingSelect);
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

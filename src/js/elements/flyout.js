@@ -17,6 +17,12 @@ YOI.element.Flyout = (function() {
         var $flyout = YOI.createCollection('flyout', $flyout, options);
 
         if ($flyout) $flyout.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisFlyout   = $(this).detach();
             var $flyoutHandle = $thisFlyout.find('.flyout__handle');
@@ -42,6 +48,10 @@ YOI.element.Flyout = (function() {
             // direct child of the body
 
             $('body').append($thisFlyout);
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

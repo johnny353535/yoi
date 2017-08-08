@@ -22,6 +22,12 @@ YOI.element.Dock = (function() {
         var $dock = YOI.createCollection('dock', $dock, options);
 
         if ($dock) $dock.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisDock = $(this);
             var options   = $thisDock.data().options;
@@ -44,6 +50,10 @@ YOI.element.Dock = (function() {
                     });
 
             }
+            
+            // set initialized
+    
+            YOI.setReady($(this));
 
         });
 

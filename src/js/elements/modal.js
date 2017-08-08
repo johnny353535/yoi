@@ -86,6 +86,12 @@ YOI.element.Modal = (function() {
         // prepare modal links
 
         if ($modalTrigger) $modalTrigger.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisModalTrigger  = $(this);
             var options            = $thisModalTrigger.data().options;
@@ -114,6 +120,10 @@ YOI.element.Modal = (function() {
                 }
 
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 
@@ -333,6 +343,10 @@ YOI.element.Modal = (function() {
             }
             
             $document.trigger('yoi-modal-show');
+            
+            // re-initialize YOI elements
+            
+            YOI.initialize();
 
         } else {
 

@@ -31,6 +31,10 @@ YOI.element.PopOver = (function() {
         var $popOverTrigger = YOI.createCollection('popover', $popOverTrigger, options);
 
         if ($popOverTrigger) $popOverTrigger.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
 
             // reference the popover trigger
 
@@ -106,6 +110,10 @@ YOI.element.PopOver = (function() {
                 .on('mouseleave', function() {
                     hide($thisPopOverTrigger, $thisPopOver);
                 });
+                
+            // set initialized
+        
+            YOI.setReady($(this));
 
         });
 

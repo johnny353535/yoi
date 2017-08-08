@@ -18,6 +18,12 @@ YOI.element.Code = (function() {
         var tabPageIndex = 0;
 
         $.each($codeWrapper, function(index) {
+            
+            // // cancel if already initialized
+            //
+            // if (YOI.isReady($(this))) return false;
+            //
+            // // proceed
 
             var $thisCodeWrapper    = $(this);
             var $thisCode           = $thisCodeWrapper.find('code');
@@ -97,6 +103,10 @@ YOI.element.Code = (function() {
             }
    
         });
+        
+        // // set initialized
+        //
+        // YOI.setReady($(this));
         
     }
 

@@ -35,6 +35,12 @@ YOI.element.Tabs = (function() {
 
         if ($tabsMenu) $tabsMenu.each(function(){
             
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
+            
             var $thisTabsMenu = $(this);
             
             // get the start tab
@@ -63,6 +69,10 @@ YOI.element.Tabs = (function() {
                 e.preventDefault();
                 switchTo(this.hash);
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
     

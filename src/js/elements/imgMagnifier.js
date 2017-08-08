@@ -30,6 +30,12 @@ YOI.element.ImgMagnifier = (function(){
         var $imgMagnifier = YOI.createCollection('imgmagnifier', $imgMagnifier, options);
 
         if ($imgMagnifier) $imgMagnifier.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisImgMagnifier = $(this);
             var $thisCursor       = $cursor.clone().fadeOut(0);
@@ -77,6 +83,10 @@ YOI.element.ImgMagnifier = (function(){
                     reset();
                 });
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

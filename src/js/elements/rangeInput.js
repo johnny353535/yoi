@@ -46,8 +46,12 @@ YOI.element.RangeInput = (function() {
         var $rangeInput = YOI.createCollection('rangeinput', $rangeInput, options);
 
         if ($rangeInput) $rangeInput.each(function() {
-
-            // references
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisRangeInput = $(this);
             var options         = $thisRangeInput.data().options;
@@ -137,6 +141,10 @@ YOI.element.RangeInput = (function() {
                 $thisRangeInput.data().props.min,
                 $thisRangeInput.data().props.max
             );
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 

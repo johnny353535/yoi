@@ -169,6 +169,10 @@ YOI.element.Slider = (function() {
         var $slider = YOI.createCollection('slider', $slider, options);
 
         if ($slider) $slider.each(function(sliderIndex) {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
 
             // @param {number} sliderIndex
             //
@@ -296,6 +300,10 @@ YOI.element.Slider = (function() {
             if (options.autoplay !== undefined) {
                 startAutoplay($thisSlider);
             }
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         
@@ -535,6 +543,10 @@ YOI.element.Slider = (function() {
          *
          *  @param {jQuery dom object} $slider
          */
+        
+        // cancel if already initialized
+        
+        if (YOI.isReady($slider)) return false;
         
         // add tab index and toggle focus styles
         

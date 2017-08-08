@@ -30,6 +30,12 @@ YOI.element.ToggleGroup = (function() {
         var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
 
         if ($toggleGroup) $toggleGroup.each(function(index) {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisTrigger      = $(this);
             var options           = $thisTrigger.data().options;
@@ -99,6 +105,10 @@ YOI.element.ToggleGroup = (function() {
                 }
 
             }
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
 
