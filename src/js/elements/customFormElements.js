@@ -21,34 +21,28 @@ YOI.element.CustomFormElements = (function() {
     // private functions
     // =================
 
-    function initialize(scope) {
-
+    function initialize() {
+        
         /**
-         *  Set css-selector to either target all custom form elements
-         *  or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"]).
-         *
-         *  @param {string} scope - a jQuery selector to define the scope
+         *  Initialize the script.
          */
-
-        // set css-selector to either target all custom form elements
-        // or only the ones in a specified scope (e.g. #myContainer input[type="checkbox"])
-
-        if (scope === undefined) {
-            var scope = '';
-        } else {
-            scope += ' ';
-        }
 
         // select custom checkboxes and radio buttons
 
-        var checkElemns = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
-        var checkBoxes  = $(scope + 'input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var radioBtns   = $(scope + 'input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
-        var selects     = $(scope + 'select:not(.js-fallback)');
+        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $checkBoxes  = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
+        var $radioBtns   = $('input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $selects     = $('select:not(.js-fallback)');
 
         // checkboxes
 
-        checkBoxes.each(function() {
+        $checkBoxes.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisCheckbox    = $(this);
             var isWrappedInLabel = $thisCheckbox.parents().index('label');
@@ -75,12 +69,22 @@ YOI.element.CustomFormElements = (function() {
                     $thisCheckbox.trigger('yoi-input-change');
                 }
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         
         // radio buttons
 
-        radioBtns.each(function() {
+        $radioBtns.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisRadioBtn    = $(this);
             var isWrappedInLabel = $thisRadioBtn.parents().index('label');
@@ -113,12 +117,22 @@ YOI.element.CustomFormElements = (function() {
                 
                 }
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         
         // selects
 
-        selects.each(function() {
+        $selects.each(function() {
+            
+            // cancel if already initialized
+            
+            if (YOI.isReady($(this))) return false;
+            
+            // proceed
 
             var $thisSelect        = $(this);
             var $thisSelectWrapper = $selectWrapper.clone();
@@ -152,12 +166,16 @@ YOI.element.CustomFormElements = (function() {
                     $(this).trigger('yoi-input-change');
                 }
             });
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         
         // add css class names to check element wrappers
         
-        checkElemns.each(function() {
+        $checkElemns.each(function() {
 
             var thisWrapper = $(this).parent();
 
@@ -173,6 +191,10 @@ YOI.element.CustomFormElements = (function() {
             if ($(this).is(':checked')) {
                 thisWrapper.addClass('input--checked');
             }
+            
+            // set initialized
+            
+            YOI.setReady($(this));
 
         });
         

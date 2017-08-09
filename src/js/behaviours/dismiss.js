@@ -39,6 +39,12 @@ YOI.behaviour.Dismiss = (function() {
         var $dismissableElement = YOI.createCollection('dismissable', $dismissableElement, options);
 
         if ($dismissableElement) $dismissableElement.each(function() {
+            
+            // cancel if already initialized
+
+            if ($(this).data().props.isDismissable) return false;
+
+            // proceed
 
             var $thisDismissableElement = $(this);
             var positionStatic          = window.getComputedStyle(this).position === 'static';
@@ -57,7 +63,11 @@ YOI.behaviour.Dismiss = (function() {
                     dismiss($(this).parent());
                 })
                 .appendTo($thisDismissableElement);
-
+                
+            // set initialized
+                
+            $(this).data().props.isDismissable = true;
+            
         });
 
     }

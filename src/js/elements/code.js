@@ -16,14 +16,14 @@ YOI.element.Code = (function() {
 
         var $codeWrapper = $('div[class*="highlighter"]');
         var tabPageIndex = 0;
-
-        $.each($codeWrapper, function(index) {
+        
+        if ($codeWrapper) $codeWrapper.each(function(index) {
             
-            // // cancel if already initialized
-            //
-            // if (YOI.isReady($(this))) return false;
-            //
-            // // proceed
+            // cancel if already initialized
+
+            if (YOI.isReady($(this))) return false;
+
+            // proceed
 
             var $thisCodeWrapper    = $(this);
             var $thisCode           = $thisCodeWrapper.find('code');
@@ -101,20 +101,20 @@ YOI.element.Code = (function() {
             if (thisExample || thisExampleTabbed) {
                 $thisCodeWrapper.replaceWith(_);
             }
+            
+            // set initialized
+
+            YOI.setReady($(this));
    
         });
-        
-        // // set initialized
-        //
-        // YOI.setReady($(this));
-        
+
     }
 
     // public functions
     // ================
 
     return {
-        start : initialize
+        initialize : initialize
     };
 
 })();

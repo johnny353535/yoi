@@ -285,7 +285,10 @@ YOI.element.Modal = (function() {
                             callback();
                         }
                         
+                        // trigger load events
+                        
                         $document.trigger('yoi-modal-load');
+                        $(window).trigger('load');
 
                     } else {
 

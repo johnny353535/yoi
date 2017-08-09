@@ -26,6 +26,12 @@ YOI.behaviour.ScrollFx = (function() {
         
         if ($targetElement) $targetElement.each(function() {
             
+            // cancel if already initialized
+
+            if ($(this).data().props.hasScrollFx) return false;
+
+            // proceed
+            
             var $targetElement = $(this);
 
             YOI.module.ScrollAgent.init($targetElement, options);
@@ -35,6 +41,10 @@ YOI.behaviour.ScrollFx = (function() {
             // start listener
 
             listen($targetElement);
+            
+            // set initialized
+                
+            $(this).data().props.hasScrollFx = true;
 
         });
 

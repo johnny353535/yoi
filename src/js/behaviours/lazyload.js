@@ -35,6 +35,12 @@ YOI.behaviour.Lazyload = (function() {
         
         if ($lazyload) $lazyload.each(function() {
             
+            // cancel if already initialized
+
+            if ($(this).data().props.isLazyloading) return false;
+
+            // proceed
+            
             var $thisLazyload = $(this);
             var options       = $thisLazyload.data().options;
             var defaultImage  = options.src || extractImgSrcFromString($(this).html()) || false;
@@ -108,6 +114,10 @@ YOI.behaviour.Lazyload = (function() {
             if (newImage[0].complete) {
                 newImage.trigger('load');
             }
+            
+            // set initialized
+                
+            $(this).data().props.isLazyloading = true;
 
         });
         

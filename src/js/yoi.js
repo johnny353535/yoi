@@ -26,7 +26,7 @@ var YOI = (function() {
 
             // cancel if input is not valid
 
-            if (input === undefined || searchString === undefined) return false;
+            if (!input || !searchString) return false;
 
             // check for substring
 
@@ -49,7 +49,7 @@ var YOI = (function() {
              */
 
             var num = Math.abs(num);
-            var digits = digits !== undefined ? digits : 1;
+            var digits = digits || 1;
             var i = 1;
             var leadingZeros = '0';
 
@@ -339,8 +339,8 @@ var YOI = (function() {
             if (!($target instanceof jQuery)) {
                 return false;
             }
-
-            if ($target.data('displayUtilityClass') === undefined) {
+            
+            if (!$target.data().hasOwnProperty('displayUtilityClass')) {
 
                 // if $target's data('displayUtilityClass') is undefined,
                 // fall back to jQuery's $.show() method
@@ -400,7 +400,7 @@ var YOI = (function() {
             var defaultEnvironment = 'desktop';
             var currentEnvironment = $('body').attr('yoi-environment') || defaultEnvironment;
         
-            if (envName === undefined) {
+            if (!envName) {
                 return currentEnvironment;
             } else {
                 return $('body').attr('yoi-environment') === envName;
@@ -423,7 +423,7 @@ var YOI = (function() {
             var defaultLanguage = 'en';
             var currentLanguage = $('html').attr('lang') || defaultLanguage;
         
-            if (language === undefined) {
+            if (!language) {
                 return currentLanguage;
             } else {
                 return $('html').attr('lang') === language;
@@ -457,7 +457,7 @@ var YOI = (function() {
             
             // cancel if $elem is not a jQuery object
 
-            if (!($elem instanceof jQuery) || $elem === undefined) return false;
+            if (!($elem instanceof jQuery)) return false;
             
             // set times to default value
             
@@ -489,7 +489,7 @@ var YOI = (function() {
 
             // cancel if $elem is not a jQuery object
 
-            if (!($elem instanceof jQuery) || $elem === undefined) return false;
+            if (!($elem instanceof jQuery)) return false;
             
             // set times to default value
             
@@ -521,7 +521,7 @@ var YOI = (function() {
             var observer  = window.MutationObserver || window.WebKitMutationObserver;
             var target    = document.body;
 
-            this.observer = new observer(function(mutations) {
+            YOI.observer = new observer(function(mutations) {
                 mutations.forEach(function(mutation) {
 
                     if (mutation.addedNodes.length) {
@@ -539,7 +539,7 @@ var YOI = (function() {
                 });
             });
 
-            this.observer.observe(target, {
+            YOI.observer.observe(target, {
                 subtree       : true,
                 attributes    : true,
                 childList     : true,
@@ -554,8 +554,8 @@ var YOI = (function() {
              *  Stops the global MutationObserver instance.
              */
             
-            if (this.observer !== undefined) {
-                this.observer.disconnect();
+            if (YOI.hasOwnProperty('observer')) {
+                YOI.observer.disconnect();
             }
             
         },
@@ -575,10 +575,11 @@ var YOI = (function() {
         
             // if not already present, create "options" object
         
-            if ($element.data().options === undefined)
+            if (!$element.data().options) {
                 $element.data().options = {};
+            }
             
-            if (options === undefined) {
+            if (!options) {
             
                 // if the "options" parameter is omitted on function call, read the
                 // options from the element's yoi-* attribute
@@ -609,12 +610,14 @@ var YOI = (function() {
              *
              *  @param  {jQuery dom object}  $element
              *  @param  {object}             props
+             *  @return {object}             props
              */
         
             // if not already present, create "props" object
         
-            if ($element.data().props === undefined)
+            if (!$element.data().props) {
                 $element.data().props = {};
+            }
 
             if (typeof props === 'object') {
             
@@ -638,7 +641,7 @@ var YOI = (function() {
             
             }
         
-            // return $element.data().props;
+            return $element.data().props;
 
         },
 
@@ -650,6 +653,7 @@ var YOI = (function() {
              *
              *  @param  {jQuery dom object}  $element
              *  @param  {string}             state
+             *  @return {object}             state
              */
         
             if (!$element.data().hasOwnProperty('state')) {
@@ -675,6 +679,8 @@ var YOI = (function() {
                 $element.trigger('yoi-state-update');
             
             }
+            
+            return $element.data().state;
         
         },
 
@@ -693,7 +699,7 @@ var YOI = (function() {
             
             // if it does not exist, create a new collection of jQuery objects
         
-            if (YOI.elementCollection[identifier] === undefined) {
+            if (!YOI.elementCollection[identifier]) {
                 YOI.elementCollection[identifier] = $([]);
             }
         
@@ -749,7 +755,7 @@ var YOI = (function() {
             var event          = params.on || 'click';
             var options        = {};
             var $target        = $(params[action]);
-            var $trigger       = params.trigger !== undefined ? $(params.trigger) : $element;
+            var $trigger       = params.hasOwnProperty('trigger') ? $(params.trigger) : $element;
             
             // define the target
             
@@ -827,28 +833,27 @@ var YOI = (function() {
         setReady : function($element) {
             
             /**
-             *  
+             *  Set a "initialized" flag to a (jQuery-)element.
              *
-             *  @param  {}  - 
-             *  @return {}  - 
+             *  @param {jQuery dom object} $element
              */
             
-            $element.data().props.initialized = true;
+            $element.data().initialized = true;
             
         },
         
         isReady : function($element) {
             
             /**
-             *  
+             *  Test for a "initialized" flag on a (jQuery-)element.
              *
-             *  @param  {}  - 
-             *  @return {}  - 
+             *  @param  {jQuery dom object} $element
+             *  @return {bool}              state
              */
             
             var state;
             
-            if ($element.data().props.initialized) {
+            if ($element.data().initialized) {
                 state = true;
             } else {
                 state = false;
@@ -858,36 +863,43 @@ var YOI = (function() {
             
         },
         
-        initialize : function(context) {
+        initialize : function() {
             
             /**
-             *  
-             *
-             *  @param  {}  - 
-             *  @return {}  - 
+             *  Initializes all YOI elements, behaviours, modules ...
              */
+            
+            // initially hide all elements with the utility class
+            // "jsHidden" so that jQuery's show() function works properly
+
+            $('.jsHidden').hide();
             
             // initialize all YOI elements
 
             $.each(YOI.element, function() {
-                try { this.init(); } catch(e) {}
+                if (this.hasOwnProperty('init')) this.init();
             });
     
             // initialize all YOI behaviours
 
             $.each(YOI.behaviour, function() {
-                try { this.init(); } catch(e) {}
+                if (this.hasOwnProperty('init')) this.init();
             });
     
             // initialize all YOI modules
 
             $.each(YOI.module, function() {
-                try { this.init(); } catch(e) {}
+                if (this.hasOwnProperty('init')) this.init();
             });
             
             // map actions
 
             YOI.mapActions();
+            
+            // start the global MutationObserver
+            // learn more: https://developer.mozilla.org/en/docs/Web/API/MutationObserver
+
+            // YOI.startDomObserver();
             
         }
         
@@ -911,20 +923,10 @@ $(function() {
     // example in docs rendered by this script
     // initialize with the right timing
 
-    YOI.element.Code.start();
+    YOI.element.Code.initialize();
     
     // initialize all YOI elements
 
     YOI.initialize();
 
-    // initially hide all elements with the utility class
-    // "jsHidden" so that jQuery's show() function works properly
-
-    $('.jsHidden').hide();
-
 });
-
-// start the global MutationObserver
-// learn more: https://developer.mozilla.org/en/docs/Web/API/MutationObserver
-
-// YOI.startDomObserver();

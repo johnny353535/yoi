@@ -5,7 +5,7 @@ YOI.element.Accordion = (function() {
     // private functions
     // =================
 
-    function initializeAccordion($accordion, options) {
+    function initialize($accordion, options) {
 
         /**
          *  Initialize the script.
@@ -244,7 +244,7 @@ YOI.element.Accordion = (function() {
     // ================
 
     return {
-        init         : initializeAccordion,
+        init         : initialize,
         close        : closeSection,
         open         : openSection,
         closeAll     : closeAllSections,

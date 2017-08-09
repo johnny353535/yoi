@@ -301,15 +301,15 @@ YOI.element.Slider = (function() {
                 startAutoplay($thisSlider);
             }
             
+            // add keyboard events
+    
+            addKeyboardEvents($thisSlider);
+            
             // set initialized
             
             YOI.setReady($(this));
 
         });
-        
-        // add keyboard events
-        
-        if ($slider) addKeyboardEvents($slider);
 
     }
 
@@ -415,6 +415,7 @@ YOI.element.Slider = (function() {
                     .css({
                         'z-index': '10'
                     })
+                    .stop()
                     .animate({
                         'left': leftOffset // animate position
                     }, 300, function() {   // reset after animation is done
@@ -443,6 +444,7 @@ YOI.element.Slider = (function() {
 
             $thisSlides
                 .eq(currentSlideIndex)
+                .stop()
                 .fadeOut(100, function(){
                     $thisSlides.eq(nextSlideIndex).fadeIn(300);
                 });
@@ -535,22 +537,18 @@ YOI.element.Slider = (function() {
 
     }
     
-    function addKeyboardEvents($slider) {
+    function addKeyboardEvents($thisSlider) {
 
         /**
          *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
-         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *  if $thisSlider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
          *
-         *  @param {jQuery dom object} $slider
+         *  @param {jQuery dom object} $thisSlider
          */
-        
-        // cancel if already initialized
-        
-        if (YOI.isReady($slider)) return false;
         
         // add tab index and toggle focus styles
         
-        $slider
+        $thisSlider
             .attr('tabindex','0')
             .on('focus', function() { $(this).addClass('focus'); })
             .on('blur', function() { $(this).removeClass('focus'); });
@@ -559,11 +557,9 @@ YOI.element.Slider = (function() {
         
         $document.on('yoi-keypressed-arrowleft', function() {
             
-            var $activeSlider = $(document.activeElement);
-            
-            if ($activeSlider.attr('yoi-slider') !== undefined) {
-                showSlide($activeSlider, 'prev');
-                stopAutoplay($slider);
+            if ($thisSlider.is('.focus')) {
+                showSlide($thisSlider, 'prev');
+                stopAutoplay($thisSlider);
             }
             
         });
@@ -572,11 +568,9 @@ YOI.element.Slider = (function() {
 
         $document.on('yoi-keypressed-arrowright', function() {
             
-            var $activeSlider = $(document.activeElement);
-            
-            if ($activeSlider.attr('yoi-slider') !== undefined) {
-                showSlide($activeSlider, 'next');
-                stopAutoplay($slider);
+            if ($thisSlider.is('.focus')) {
+                showSlide($thisSlider, 'next');
+                stopAutoplay($thisSlider);
             }
 
         });

@@ -43,7 +43,7 @@ YOI.element.Filters = (function() {
         if ($filters) $filters.each(function() {
             
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
             
             // proceed
@@ -147,9 +147,10 @@ YOI.element.Filters = (function() {
             
             var $thisFilterGroup = $(this);
             var props            = $thisFilterGroup.data().props;
-            
-            if (props.isCollapsed)
+                        
+            if (props.isCollapsed) {
                 collapseFilterGroup($thisFilterGroup);
+            }
             
         });
 
@@ -216,7 +217,7 @@ YOI.element.Filters = (function() {
          */
         
         var props = $thisFilterGroup.data().props;
-
+        
         if (props.isCollapsed) {
             expandFilterGroup($thisFilterGroup);
         } else {
