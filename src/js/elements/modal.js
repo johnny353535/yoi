@@ -7,6 +7,7 @@ YOI.element.Modal = (function() {
 
     var $body         = $(document.body);
     var $document     = $(document);
+    var $window       = $(window);
     var modalActive   = false; // Is any modal currently visible?
     var loadedModals  = [];    // Which modals were loaded (ajax) so far?
     var scrollTop     = false; // How far is the page scrolled?
@@ -252,11 +253,14 @@ YOI.element.Modal = (function() {
 
                 if (status === 'success') {
 
-                    var thisModal = $(this).find('.modal').first();
+                    var $thisModal   = $(this).find('.modal').first();
+                    var $images      = $(this).find('img');
+                    var totalImages  = $images.length;
+                    var imageCounter = 0;
 
                     // if valid modal markup was found
 
-                    if (thisModal.length) {
+                    if ($thisModal.length) {
 
                         // register the modalId to an array of already loaded modals
 
@@ -264,21 +268,18 @@ YOI.element.Modal = (function() {
 
                         // prepare modal markup
 
-                        thisModal.attr('id', modalId.split('#')[1]);
-                        thisModal.find('.modal__header').append($modalCloseBtn.clone());
+                        $thisModal.attr('id', modalId.split('#')[1]);
+                        $thisModal.find('.modal__header').append($modalCloseBtn.clone());
 
                         // append to dom & hide
 
-                        $('#modalContainer').append(thisModal);
+                        $('#modalContainer').append($thisModal);
                         $(modalId).hide();
 
                         // update elements inside modal
 
                         initializeCloseTriggers(modalId);
-
-                        if (YOI.foundElement('CustomFormElements'))
-                            YOI.element.CustomFormElements.init(modalId);
-
+                        
                         // optional callback
 
                         if (typeof callback === 'function') {
@@ -286,13 +287,25 @@ YOI.element.Modal = (function() {
                         }
                         
                         // trigger load events
-                        
+                    
                         $document.trigger('yoi-modal-load');
-                        $(window).trigger('load');
+                        
+                        // trigger load event after all images loaded
+                        
+                        $images.on('load', function() {
+
+                            ++imageCounter;
+                            
+                            if (imageCounter === totalImages) {
+                                $window.trigger('load');
+                            }
+                            
+                        });
 
                     } else {
 
                         // treat as regular link
+                        
                         openFallbackLink(modalPath);
 
                     }
@@ -301,7 +314,7 @@ YOI.element.Modal = (function() {
 
                 if (status === 'error') {
 
-                    // fail silently
+                    // trigger error event
                     
                     $window.trigger('yoi-modal-error');
 

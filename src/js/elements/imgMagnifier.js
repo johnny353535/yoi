@@ -50,38 +50,39 @@ YOI.element.ImgMagnifier = (function(){
             // is wrapped inside a link to the zoom image. However, if JS
             // is enabled, the link should not open on click.
 
-            $thisImgMagnifier.find('a')
-                .on('click', function(e) {
-                    e.preventDefault();
-                });
+            $thisImgMagnifier.find('a').on('click', function(e) {
+                e.preventDefault();
+            });
 
-            // attach other events
-
-            $thisImgMagnifier
-                .on('mouseenter', function() {
-                    startViewer($thisImgMagnifier);
-                })
-                .on('mouseleave', function() {
-                    stopViewer($thisImgMagnifier);
-                })
-                .on('mousemove', function(e) {
-                    moveMagnifier($thisImgMagnifier, e);
-                });
-
-            // set up viewer and zoom image
-            
             $window.on('load', function() {
+                
+                // attach mouse events
+
+                $thisImgMagnifier
+                    .on('mouseenter', function() {
+                        startViewer($thisImgMagnifier);
+                    })
+                    .on('mouseleave', function() {
+                        stopViewer($thisImgMagnifier);
+                    })
+                    .on('mousemove', function(e) {
+                        moveMagnifier($thisImgMagnifier, e);
+                    });
+                    
+                // attach resize event
+        
+                $window.on('resize', function() {
+                    YOI.clearDelay('imgMagnifierResetDelay');
+                    YOI.setDelay('imgMagnifierResetDelay', 500, function() {
+                        reset();
+                    });
+                });
+                    
+                // set up viewer and zoom image
+                
                 setViewer($thisImgMagnifier);
                 setZoomImage($thisImgMagnifier);
-            });
-            
-            // reset the image viewer on window resize
-            
-            $window.on('resize', function() {
-                YOI.clearDelay('imgMagnifierResetDelay');
-                YOI.setDelay('imgMagnifierResetDelay', 500, function() {
-                    reset();
-                });
+                
             });
             
             // set initialized

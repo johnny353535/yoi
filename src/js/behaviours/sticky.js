@@ -45,13 +45,13 @@ YOI.behaviour.Sticky = (function() {
             var $thisStickyElement      = $(this);
             var $thisStickyElementClone = $thisStickyElement.clone(true).removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
             
-            // update each sticky element's data
+            // update each sticky element's data and
+            // do the necessary dom manipulation on load
 
-            updateStickyElementProps($thisStickyElement);
-
-            // do the necessary dom manipulation
-
-            manipulateDom($thisStickyElement, $thisStickyElementClone);
+            $(window).on('load', function() {
+                updateStickyElementProps($thisStickyElement);
+                manipulateDom($thisStickyElement, $thisStickyElementClone);
+            });
 
         });
 
@@ -83,8 +83,7 @@ YOI.behaviour.Sticky = (function() {
             'height'                      : $stickyElement.outerHeight(),
             'top'                         : $stickyElement.offset().top,
             'left'                        : $stickyElement.offset().left,
-             // make it work smoothly on iOS Safari
-            '-webkit-transform'           : 'translate3d(0,0,0)'
+            '-webkit-transform'           : 'translate3d(0,0,0)' // make it work smoothly on iOS Safari
         });
 
         // append the cloned element
