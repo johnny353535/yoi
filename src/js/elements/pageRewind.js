@@ -6,9 +6,10 @@ YOI.element.PageRewind = (function() {
     // ============
 
     var $pageRewind;
-    var $window   = $(window);
-    var $body     = $('body');
-    var threshold = 500;
+    var $window     = $(window);
+    var $body       = $('body');
+    var threshold   = 500;
+    var initialized = false;
 
     // localization
     
@@ -36,7 +37,7 @@ YOI.element.PageRewind = (function() {
         
         var enablePageRewind = $body.is('[yoi-pagerewind]');
         
-        if (enablePageRewind) {
+        if (enablePageRewind && !initialized) {
         
             $pageRewind = $(
                 '<a class="pageRewind" href="#">\
@@ -56,6 +57,10 @@ YOI.element.PageRewind = (function() {
                 .scroll(function() {
                     toggle();
                 });
+                
+            // set initialized flag
+                
+            initialized = true;
                 
         }
 

@@ -1,6 +1,11 @@
 /** accordion.js */
 
 YOI.element.Accordion = (function() {
+    
+    // private vars
+    // ============
+    
+    var keyboadEventsAdded = false;
 
     // private functions
     // =================
@@ -57,7 +62,7 @@ YOI.element.Accordion = (function() {
                     $thisSection.data().state = 'open';
                 }
 
-                // attach event
+                // attach events
 
                 $thisHeader.on(eventType, function(e) {
                     e.preventDefault();
@@ -72,9 +77,9 @@ YOI.element.Accordion = (function() {
 
         });
         
-        // add keyboard events
+        // add keyboad events
         
-        if ($accordion) addKeyboardEvents($accordion);
+        addKeyboardEvents();
 
     }
 
@@ -205,38 +210,38 @@ YOI.element.Accordion = (function() {
 
     }
     
-    function addKeyboardEvents($accordion) {
+    function addKeyboardEvents() {
 
         /**
-         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
-         *  if $slider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
-         *
-         *  @param {jQuery dom object} $slider
+         *  Attaches tabindex attribute to each $accordion__header and listens to custom
+         *  keyboard-events if $accordion__header has focus.
          */
         
-        // add tab index
-        
-        $accordion.find('.accordion__header')
-            .attr('tabindex','0')
-            .on('mousedown', function() {
-                $(this).removeClass('focus-inset')
-                return false;
-            })
-            .on('focus', function() { $(this).addClass('focus-inset') })
-            .on('blur', function() { $(this).removeClass('focus-inset') });
-        
-        // space key
-        
-        $document.on('yoi-keypressed-space', function(e) {
+        // add keyboard events
+
+        if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
             
-            var $activeElement = $(document.activeElement);
-            var $section       = $activeElement.closest('.accordion__section');
+            // tab key
             
-            if ($activeElement.hasClass('accordion__header')) {
-                toggleSection($section);
-            }
+            YOI.module.KeyboardAgent.addTabFocus($('.accordion__header'));
+        
+            // enter key
+        
+            $document.on('yoi-keypressed-enter', function() {
             
-        });
+                var $activeElement = $(document.activeElement);
+            
+                if ($activeElement.is('.accordion__header')) {
+                    toggleSection($activeElement.closest('.accordion__section'));
+                }
+            
+            });
+            
+        }
+        
+        // set flag
+        
+        keyboadEventsAdded = true;
 
     }
 

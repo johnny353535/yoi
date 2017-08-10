@@ -1,6 +1,6 @@
 /** browserHistory.js */
 
-YOI.element.BrowserHistory = (function() {
+YOI.module.BrowserHistory = (function() {
     
     /**
      *  A simple wrapper for the browser history.

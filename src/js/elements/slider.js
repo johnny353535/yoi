@@ -5,8 +5,9 @@ YOI.element.Slider = (function() {
     // private vars
     // ============
 
-    var $document = $(document);
-    var $window   = $(window);
+    var $document          = $(document);
+    var $window            = $(window);
+    var keyboadEventsAdded = false;
     
     // localization
     
@@ -301,15 +302,17 @@ YOI.element.Slider = (function() {
                 startAutoplay($thisSlider);
             }
             
-            // add keyboard events
-    
-            addKeyboardEvents($thisSlider);
+
             
             // set initialized
             
             YOI.setReady($(this));
 
         });
+        
+        // add keyboard events
+
+        if (!keyboadEventsAdded) addKeyboardEvents();
 
     }
 
@@ -537,43 +540,56 @@ YOI.element.Slider = (function() {
 
     }
     
-    function addKeyboardEvents($thisSlider) {
+    function addKeyboardEvents() {
 
         /**
          *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
          *  if $thisSlider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
-         *
-         *  @param {jQuery dom object} $thisSlider
          */
         
-        // add tab index and toggle focus styles
+        // 
         
-        $thisSlider
-            .attr('tabindex','0')
-            .on('focus', function() { $(this).addClass('focus'); })
-            .on('blur', function() { $(this).removeClass('focus'); });
+        // if (!YOI.foundModule('KeyboardAgent')) return false;
+        //
+        // // add keyboard events
+        //
+        // if (!keyboadEventsAdded) {
+        //
+        //     // tab key
+        //
+        //     YOI.module.KeyboardAgent.addTabFocus($('[yoi-slider]'));
+        //
+        //     // left arrow key
+        //
+        //     $document.on('yoi-keypressed-arrowleft', function() {
+        //
+        //         var $activeElement = $(document.activeElement);
+        //
+        //         if ($activeElement.is('[yoi-slider]')) {
+        //             showSlide($activeElement, 'prev');
+        //             stopAutoplay($activeElement);
+        //         }
+        //
+        //     });
+        //
+        //     // right arrow key
+        //
+        //     $document.on('yoi-keypressed-arrowright', function() {
+        //
+        //         var $activeElement = $(document.activeElement);
+        //
+        //         if ($activeElement.is('[yoi-slider]')) {
+        //             showSlide($activeElement, 'next');
+        //             stopAutoplay($activeElement);
+        //         }
+        //
+        //     });
+        //
+        // }
         
-        // left arrow key
+        // set flag
         
-        $document.on('yoi-keypressed-arrowleft', function() {
-            
-            if ($thisSlider.is('.focus')) {
-                showSlide($thisSlider, 'prev');
-                stopAutoplay($thisSlider);
-            }
-            
-        });
-        
-        // right arrow key
-
-        $document.on('yoi-keypressed-arrowright', function() {
-            
-            if ($thisSlider.is('.focus')) {
-                showSlide($thisSlider, 'next');
-                stopAutoplay($thisSlider);
-            }
-
-        });
+        //keyboadEventsAdded = true;
 
     }
 

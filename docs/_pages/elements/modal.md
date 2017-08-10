@@ -36,7 +36,7 @@ The following is an example for a typical modal markup. You may want to <a href=
         </div>
         <div class="modal__footer">
             <button class="btn btn--large btn--dark fl-r">OK</button>
-            <span class="btn btn--large btn--subtle fl-r m-r-1" yoi-action="closeModal">Cancel</span>
+            <span class="btn btn--large btn--light btn--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
         </div>
     </div>
 </div>
@@ -54,11 +54,11 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
             <h3 class="modal__title">Small Demo Modal</h3>
         </div>
         <div class="modal__body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
         </div>
         <div class="modal__footer">
             <button class="btn btn--large btn--dark fl-r">OK</button>
-            <span class="btn btn--large btn--subtle fl-r m-r-1" yoi-action="closeModal">Cancel</span>
+            <span class="btn btn--large btn--light btn--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
         </div>
     </div>
 </div>
@@ -79,7 +79,8 @@ If you wish to reference to a modal page to show it as a modal, you need to appl
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-modal="generate:true; title:Generated Modal; body:This is a generated modal. It is really basic, there is not much you can do with this thing.; modifiers:modal--small;">Generate Modal</button>
+<button class="btn btn--large" yoi-modal="generate:true; title:Generated Modal; body:This is a generated modal. Lorem ipsum dolor sit amet, consectetur adipisicing.; modifiers:modal--small;">Generate Small Modal With Title</button>
+<button class="btn btn--large" yoi-modal="generate:true; body:This is a generated modal without title. Lorem ipsum dolor sit amet, consectetur adipisicing.; modifiers:modal--small;">Generate Small Modal</button>
 ```
 
 In this most simple example, only two things are necessary: a valid link to a correctly formatted modal page and the `yoi-modal`-atribute.

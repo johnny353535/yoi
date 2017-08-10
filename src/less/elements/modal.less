@@ -43,6 +43,8 @@
 
 .modal__body {
     .mixin-clearfix;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
     padding: 0 1rem;
 }
 
@@ -87,6 +89,19 @@
     
     .modal__container & {
         margin-left: -15rem;
+    }
+    
+}
+
+.modal--simple {
+    
+    .modal__title {
+        display: none;
+    }
+    
+    .modal__body {
+        border: 0;
+        padding: 3rem;
     }
     
 }

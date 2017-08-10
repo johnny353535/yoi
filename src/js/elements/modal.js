@@ -5,13 +5,13 @@ YOI.element.Modal = (function() {
     // private vars
     // ============
 
-    var $body         = $(document.body);
-    var $document     = $(document);
-    var $window       = $(window);
-    var modalActive   = false; // Is any modal currently visible?
-    var loadedModals  = [];    // Which modals were loaded (ajax) so far?
-    var scrollTop     = false; // How far is the page scrolled?
-    var modalIdIndex  = 0;     // An index for internally generated modal ids.
+    var $body        = $(document.body);
+    var $document    = $(document);
+    var $window      = $(window);
+    var modalActive  = false;
+    var loadedModals = [];
+    var scrollTop    = false;
+    var initialized  = false;
 
     // localization
     
@@ -82,11 +82,13 @@ YOI.element.Modal = (function() {
 
         // prepare dom
 
-        if ($modalTrigger) prepareDom();
+        if ($modalTrigger && !initialized) {
+            prepareDom();
+        }
 
         // prepare modal links
 
-        if ($modalTrigger) $modalTrigger.each(function() {
+        if ($modalTrigger) $modalTrigger.each(function(index) {
             
             // cancel if already initialized
             
@@ -96,13 +98,13 @@ YOI.element.Modal = (function() {
 
             var $thisModalTrigger  = $(this);
             var options            = $thisModalTrigger.data().options;
-            var thisModalGenerate  = options.generate !== undefined ? options.generate : false;
-            var thisModalTitle     = options.title !== undefined ? options.title : false;
-            var thisModalBody      = options.body !== undefined ? options.body : false;
-            var thisModalId        = options.id !== undefined ? options.id : generateId();
-            var thisModalModifiers = options.modifiers !== undefined ? options.modifiers : false;
-            var thisModalPath      = options.path !== undefined ? options.path : $thisModalTrigger.attr('href');
-            var thisModalCache     = options.cache !== undefined ? options.cache : false;
+            var thisModalGenerate  = options.generate || false;
+            var thisModalTitle     = options.title || '';
+            var thisModalBody      = options.body || '';
+            var thisModalId        = options.id || '#modal-' + index;
+            var thisModalModifiers = options.modifiers || false;
+            var thisModalPath      = options.path || $thisModalTrigger.attr('href');
+            var thisModalCache     = options.cache || false;
 
             // preload/cache
 
@@ -130,21 +132,25 @@ YOI.element.Modal = (function() {
 
         // inititalize triggers to close all modals
 
-        initializeCloseTriggers();
+        if (!initialized) initializeCloseTriggers();
+        
+        // set initialized flag
+        
+        initialized = true;
 
     }
     
     function prepareDom() {
         
         /**
-         *  
-         *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *  Append and hide $modalCover
+         *  and $modalContainer.
          */
         
         $body.append($modalCover.clone().hide());
         $body.append($modalContainer.clone().hide());
+        
+        domPrepared = true;
         
     }
     
@@ -176,7 +182,7 @@ YOI.element.Modal = (function() {
 
         var triggers;
 
-        if (modalId !== undefined) {
+        if (modalId) {
             triggers = $(modalId).find('[yoi-action="closeModal"]');
         } else {
             triggers = $('[yoi-action="closeModal"]');
@@ -215,6 +221,10 @@ YOI.element.Modal = (function() {
         
         if (modifiers) {
             $thisModal.addClass(modifiers);
+        }
+        
+        if (!title) {
+            $thisModal.addClass('modal--simple');
         }
         
         // add modal to markup
@@ -368,7 +378,7 @@ YOI.element.Modal = (function() {
 
             // if the modal is not found in dom, load it first, then show it
 
-            load(modalId, modalPath, function(){
+            load(modalId, modalPath, function() {
                 show(modalId, modalPath);
             });
 
@@ -424,17 +434,17 @@ YOI.element.Modal = (function() {
         
     }
 
-    function generateId() {
-
-        /**
-         *  Generate a simple "unique" modal id for internal reference.
-         *
-         *  @return {string} - a unique modal id
-         */
-
-        return '#modal-' + modalIdIndex++;
-
-    }
+    // function generateId() {
+    //
+    //     /**
+    //      *  Generate a simple "unique" modal id for internal reference.
+    //      *
+    //      *  @return {string} - a unique modal id
+    //      */
+    //
+    //     return '#modal-' + modalIdIndex++;
+    //
+    // }
 
     function openFallbackLink(modalPath) {
 
