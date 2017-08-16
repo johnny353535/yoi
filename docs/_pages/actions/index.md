@@ -116,7 +116,7 @@ In the following example, the [switch](elements/switch.html) fires the events `y
 <!-- example:tabs -->
 <p class="fs-15 tc-gray-15 m-b-4">Use the switch to show or hide the example target:</p>
 <div class="switch switch--large" yoi-switch yoi-action-1="Show:#exampleTarget-3; on:yoi-switch-on;" yoi-action-2="Hide:#exampleTarget-3; on:yoi-switch-off;"></div>
-<div id="exampleTarget-3" class="m-t-4 jsHidden">
+<div id="exampleTarget-3" class="m-t-4">
     <div class="box p-4 tc-gray-15 fs-15">#exampleTarget-3</div>
 </div>
 ```
@@ -134,7 +134,7 @@ In all examples above, we used the first method. However, sometimes the second m
 <!-- example:tabs -->
 <p class="fs-15 tc-gray-15 m-b-4">An example element will <i>listen</i> to the <code>yoi-switch-on</code> and <code>yoi-switch-off</code> events and show or hide itself accordingly:</p>
 <div id="exampleTrigger-1" class="switch switch--large" yoi-switch></div>
-<div class="m-t-4 jsHidden" yoi-action-1="Show:self; on:yoi-switch-on; trigger:#exampleTrigger-1;" yoi-action-2="Hide:self; on:yoi-switch-off; trigger:#exampleTrigger-1;" >
+<div class="m-t-4" yoi-action-1="Show:self; on:yoi-switch-on; trigger:#exampleTrigger-1;" yoi-action-2="Hide:self; on:yoi-switch-off; trigger:#exampleTrigger-1;" >
     <div class="box p-4 tc-gray-15 fs-15">Hello.</div>
 </div>
 ```

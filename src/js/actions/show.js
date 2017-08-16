@@ -33,3 +33,32 @@ YOI.action.Show = function($trigger, $target, options) {
     }
 
 }
+
+YOI.action.Show.init = function() {
+    
+    /**
+     *  Prepares the target elements by initially hiding them.
+     */
+    
+    $('[yoi-action*="Show"], [yoi-action-1*="Show"], [yoi-action-2*="Show"], [yoi-action-3*="Show"], [yoi-action-4*="Show"]').each(function() {
+
+        var $this = $(this);
+        var selector;
+        
+        if ($this.is('[yoi-action*="Show"]'))   selector = YOI.toObject($this.attr('yoi-action')).Show;
+        if ($this.is('[yoi-action-1*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-1')).Show;
+        if ($this.is('[yoi-action-2*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-2')).Show;
+        if ($this.is('[yoi-action-3*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-3')).Show;
+        if ($this.is('[yoi-action-4*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-4')).Show;
+        
+        if (selector === 'self') {
+            $this.hide();
+        } else if (selector === 'parent') {
+            $this.parent().hide();
+        } else {
+            $(selector).hide();
+        }
+
+    });
+    
+}

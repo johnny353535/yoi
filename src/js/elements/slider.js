@@ -180,8 +180,8 @@ YOI.element.Slider = (function() {
             // sliderIndex is provided by jQuery's each() function. this script
             // uses it to reference the slider instances. (http://api.jquery.com/each/)
 
-            var $thisSlider        = $(this);
-            var $thisSlides        = $thisSlider.find('.slider__slide');
+            var $thisSlider = $(this);
+            var $thisSlides = $thisSlider.find('.slider__slide');
 
             // attach data to slider instance
             
@@ -301,8 +301,6 @@ YOI.element.Slider = (function() {
             if (options.autoplay !== undefined) {
                 startAutoplay($thisSlider);
             }
-            
-
             
             // set initialized
             
@@ -543,53 +541,58 @@ YOI.element.Slider = (function() {
     function addKeyboardEvents() {
 
         /**
-         *  Attaches tabindex attribute to each $slider and listens to custom keyboard-events
-         *  if $thisSlider is focussed. Left arrow key: previous slide. Right arrow key: next slide.
+         *  Adds keyboard events.
          */
+
+        if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
+            
+            // tab key
+            
+            YOI.module.KeyboardAgent.addTabFocus($('[yoi-slider]'));
         
-        // 
+            // enter key
         
-        // if (!YOI.foundModule('KeyboardAgent')) return false;
-        //
-        // // add keyboard events
-        //
-        // if (!keyboadEventsAdded) {
-        //
-        //     // tab key
-        //
-        //     YOI.module.KeyboardAgent.addTabFocus($('[yoi-slider]'));
-        //
-        //     // left arrow key
-        //
-        //     $document.on('yoi-keypressed-arrowleft', function() {
-        //
-        //         var $activeElement = $(document.activeElement);
-        //
-        //         if ($activeElement.is('[yoi-slider]')) {
-        //             showSlide($activeElement, 'prev');
-        //             stopAutoplay($activeElement);
-        //         }
-        //
-        //     });
-        //
-        //     // right arrow key
-        //
-        //     $document.on('yoi-keypressed-arrowright', function() {
-        //
-        //         var $activeElement = $(document.activeElement);
-        //
-        //         if ($activeElement.is('[yoi-slider]')) {
-        //             showSlide($activeElement, 'next');
-        //             stopAutoplay($activeElement);
-        //         }
-        //
-        //     });
-        //
-        // }
+            $document.on('yoi-keypressed-enter', function() {
+            
+                var $activeElement = $(document.activeElement);
+            
+                if ($activeElement.is('.accordion__header')) {
+                    toggleSection($activeElement.closest('.accordion__section'));
+                }
+            
+            });
+            
+            // left arrow key
+
+            $document.on('yoi-keypressed-arrowleft', function() {
+
+                var $activeElement = $(document.activeElement);
+
+                if ($activeElement.is('[yoi-slider]')) {
+                    showSlide($activeElement, 'prev');
+                    stopAutoplay($activeElement);
+                }
+
+            });
+
+            // right arrow key
+
+            $document.on('yoi-keypressed-arrowright', function() {
+
+                var $activeElement = $(document.activeElement);
+
+                if ($activeElement.is('[yoi-slider]')) {
+                    showSlide($activeElement, 'next');
+                    stopAutoplay($activeElement);
+                }
+
+            });
+            
+        }
         
         // set flag
         
-        //keyboadEventsAdded = true;
+        keyboadEventsAdded = true;
 
     }
 

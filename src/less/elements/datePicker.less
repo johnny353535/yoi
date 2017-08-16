@@ -5,7 +5,6 @@
 
 .datePicker {
     .mixin-defaultBorderRadius;
-    .mixin-shadow-3;
     background: @color-white;
     border: @color-main-23 1px solid;
     box-sizing: border-box;
@@ -13,6 +12,12 @@
     position: absolute;
     width: 30rem;
     z-index: 10;
+}
+
+.js .datePicker {
+    .mixin-shadow-3;
+    background-clip: padding-box;
+    border: fade(@color-main-20, 30%) 1px solid;
 }
 
 // elements

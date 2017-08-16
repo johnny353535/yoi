@@ -10,6 +10,9 @@ permalink: utilities/
 <p class="hint hint--error">Documentation incomplete.</p>
 
 <!--
+
+    Explain Naming convention/scheme!
+
     <p class="intro">Utilities are reusable, interoperable, immutable, unassuming single-purpose CSS-classes. Use them to compose pretty much any element you like without writing CSS.</p>
 
     ## Features and Benefits

@@ -1,0 +1,45 @@
+/** responsive-visibility.less */
+
+// visible *only* at specific breakpoints
+
+@media @bp-only-s {
+    .m--visible  { .mixin-hidden !important; }
+    .l--visible  { .mixin-hidden !important; }
+    .xl--visible { .mixin-hidden !important; }
+}
+
+@media @bp-only-m {
+    .s--visisble  { .mixin-hidden !important; }
+    .l--visisble  { .mixin-hidden !important; }
+    .xl--visisble { .mixin-hidden !important; }
+}
+
+@media @bp-only-l {
+    .s--visible  { .mixin-hidden !important; }
+    .m--visible  { .mixin-hidden !important; }
+    .xl--visible { .mixin-hidden !important; }
+}
+
+@media @bp-only-xl {
+    .s--visisble { .mixin-hidden !important; }
+    .m--visisble { .mixin-hidden !important; }
+    .l--visisble { .mixin-hidden !important; }
+}
+
+// hidden *only* at specific breakpoints
+
+@media @bp-only-s {
+    .s--hidden { .mixin-hidden !important; }
+}
+
+@media @bp-only-m {
+    .m--hidden { .mixin-hidden !important; }
+}
+
+@media @bp-only-l {
+    .l--hidden { .mixin-hidden !important; }
+}
+
+@media @bp-only-xl {
+    .xl--hidden { .mixin-hidden !important; }
+}

@@ -5,6 +5,8 @@
 
 .js .popOver {
     .mixin-shadow-3;
+    background-clip: padding-box;
+    border: fade(@color-main-20, 30%) 1px solid;
     position: absolute;
     z-index: 601;
 }
@@ -12,8 +14,7 @@
 .popOver {
     background: @color-main-25;
     border-radius: (@borderRadius * 1px);
-    border: @color-main-20 1px solid;
-    box-sizing: border-box;
+    border: @color-main-23 1px solid;
 }
 
 // elements

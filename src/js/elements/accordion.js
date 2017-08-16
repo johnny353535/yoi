@@ -213,11 +213,8 @@ YOI.element.Accordion = (function() {
     function addKeyboardEvents() {
 
         /**
-         *  Attaches tabindex attribute to each $accordion__header and listens to custom
-         *  keyboard-events if $accordion__header has focus.
+         *  Adds keyboard events.
          */
-        
-        // add keyboard events
 
         if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
             
@@ -249,12 +246,12 @@ YOI.element.Accordion = (function() {
     // ================
 
     return {
-        init         : initialize,
-        close        : closeSection,
-        open         : openSection,
-        closeAll     : closeAllSections,
-        openAll      : openAllSections,
-        toggle       : toggleSection
+        init     : initialize,
+        close    : closeSection,
+        open     : openSection,
+        closeAll : closeAllSections,
+        openAll  : openAllSections,
+        toggle   : toggleSection
     };
 
 })();

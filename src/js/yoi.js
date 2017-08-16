@@ -884,17 +884,18 @@ var YOI = {
     initialize : function() {
         
         /**
-         *  Initializes all YOI elements, behaviours, modules ...
+         *  Initializes all YOI elements, actions, behaviours, modules ...
          */
-        
-        // initially hide all elements with the utility class
-        // "jsHidden" so that jQuery's show() function works properly
-
-        $('.jsHidden').hide();
         
         // initialize all YOI elements
 
         $.each(YOI.element, function() {
+            if (this.hasOwnProperty('init')) this.init();
+        });
+        
+        // initialize all YOI actions
+
+        $.each(YOI.action, function() {
             if (this.hasOwnProperty('init')) this.init();
         });
 

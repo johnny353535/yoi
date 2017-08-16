@@ -15,16 +15,6 @@ permalink: elements/slider
 | Base CSS-Class | `.slider`                                                             |
 | Modifiers      | `.slider--dark, .slider--super`                                       |
 
-## JavaScript Interface
-
-```
-autoplay   : @param;
-clickable  : @param;
-controls   : @param;
-swipeable  : @param;
-transition : @param;
-```
-
 ## Super Slider With Autoplay and Animated Transition
 
 ```html
@@ -32,24 +22,24 @@ transition : @param;
 <div class="slider slider--super" yoi-slider="autoplay:5000; transition:animate;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Sodbrennen</h3>
-                <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                <h3>Consectetur</h3>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Migräne</h3>
-                <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                <h3>Lorem</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Chronische Venenerkrankung</h3>
-                <p>Was tun schweren Beinen und Krampfadern?</p>
+                <h3>Excepteur</h3>
+                <p> Excepteur sint occaecat cupidatat non proident.</p>
             </div>
         </div>
     </div>
@@ -60,27 +50,27 @@ transition : @param;
 
 ```html
 <!-- example -->
-<div class="slider slider--super" yoi-slider="control:pageBtns--br; clickable:true">
+<div class="slider slider--super" yoi-slider="control:pageBtns--br; clickable:true;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Sodbrennen</h3>
-                <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                <h3>Consectetur</h3>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Migräne</h3>
-                <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                <h3>Lorem</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Chronische Venenerkrankung</h3>
-                <p>Was tun schweren Beinen und Krampfadern?</p>
+                <h3>Excepteur</h3>
+                <p> Excepteur sint occaecat cupidatat non proident.</p>
             </div>
         </div>
     </div>
@@ -94,24 +84,24 @@ transition : @param;
 <div class="slider slider--super" yoi-slider="control:flipBtns; transition:animate;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Sodbrennen</h3>
-                <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                <h3>Consectetur</h3>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Migräne</h3>
-                <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                <h3>Lorem</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Chronische Venenerkrankung</h3>
-                <p>Was tun schweren Beinen und Krampfadern?</p>
+                <h3>Excepteur</h3>
+                <p> Excepteur sint occaecat cupidatat non proident.</p>
             </div>
         </div>
     </div>
@@ -125,24 +115,24 @@ transition : @param;
 <div class="slider" yoi-slider="control:pageBtns--tr; transition:fade;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Sodbrennen</h3>
-                <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                <h3>Consectetur</h3>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Migräne</h3>
-                <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                <h3>Lorem</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Chronische Venenerkrankung</h3>
-                <p>Was tun schweren Beinen und Krampfadern?</p>
+                <h3>Excepteur</h3>
+                <p> Excepteur sint occaecat cupidatat non proident.</p>
             </div>
         </div>
     </div>
@@ -153,27 +143,27 @@ transition : @param;
 
 ```html
 <!-- example -->
-<div class="slider" yoi-slider="control:pageBtns--tl; transition:fade;">
+<div class="slider" yoi-slider="control:flipBtns;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Sodbrennen</h3>
-                <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
+                <h3>Consectetur</h3>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Migräne</h3>
-                <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
+                <h3>Lorem</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
-                <h3>Chronische Venenerkrankung</h3>
-                <p>Was tun schweren Beinen und Krampfadern?</p>
+                <h3>Excepteur</h3>
+                <p> Excepteur sint occaecat cupidatat non proident.</p>
             </div>
         </div>
     </div>
@@ -187,21 +177,21 @@ transition : @param;
 <div class="slider" yoi-slider="control:flipBtns--inset;">
     <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
             <div class="slider__caption">
                 <h3>Sodbrennen</h3>
                 <p>Schmerzen in der Brust? Häufiges Aufstoßen? Wir sagen, was Sie gegen Sodbrennen tun können!</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
             <div class="slider__caption">
                 <h3>Migräne</h3>
                 <p>Hämmern, Pochen, Bohren – wie Sie den Schmerz in den Griff bekommen …</p>
             </div>
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
             <div class="slider__caption">
                 <h3>Chronische Venenerkrankung</h3>
                 <p>Was tun schweren Beinen und Krampfadern?</p>
@@ -215,54 +205,16 @@ transition : @param;
 
 ```html
 <!-- example -->
-<div class="slider p-b-1" yoi-slider="control:pageDots; clickable:true; transition:fade;">
-    <div class="slider__slides m-b-2">
+<div class="slider" yoi-slider="control:pageDots; clickable:true; transition:fade;">
+    <div class="slider__slides">
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/o0RZkkL072U/760x350" alt="" />
+            <img src="https://source.unsplash.com/zGnXou4siEI/760x350" alt="" />
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/sqL5xItVgpg/760x350" alt="" />
+            <img src="https://source.unsplash.com/GyDktTa0Nmw/760x350" alt="" />
         </div>
         <div class="slider__slide">
-            <img src="https://source.unsplash.com/zdXtC-jna3I/760x350" alt="" />
-        </div>
-    </div>
-</div>
-```
-
-## Slider With Control Element ”pageDots“, Only Text
-
-```html
-<!-- example -->
-<div class="slider p-b-1" yoi-slider="control:pageDots; clickable:true; transition:fade;">
-    <div class="slider__slides m-b-2">
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with text!</p>
-        </div>
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with more text!</p>
-        </div>
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with textIcon!</p>
-        </div>
-    </div>
-</div>
-```
-
-## Dark Slider With Control Element ”pageDots“, Only Text
-
-```html
-<!-- example -->
-<div class="slider slider--dark p-b-1" yoi-slider="control:pageDots--dark; clickable:true; transition:fade;">
-    <div class="slider__slides m-b-2">
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with text!</p>
-        </div>
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with more text!</p>
-        </div>
-        <div class="slider__slide">
-            <p class="fs-20 lh-25 p-4 al-c">Slide with text!</p>
+            <img src="https://source.unsplash.com/hNxDy-l07qY/760x350" alt="" />
         </div>
     </div>
 </div>

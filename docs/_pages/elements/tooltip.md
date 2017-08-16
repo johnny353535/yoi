@@ -49,7 +49,7 @@ Set the parameter `staticPosition` to `top`, `right`, `bottom`, `left` to create
 <span class="d-inlblk br p-2 tc-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
 <span class="d-inlblk br p-2 tc-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
 <!-- tooltip -->
-<div id="tooltip-2"><
+<div id="tooltip-2">
     <p>I won’t move.</p>
 </div>
 ```

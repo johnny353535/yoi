@@ -13,12 +13,12 @@ permalink: actions/show
 
 ## Basic Example
 
-Use `yoi-action="Show:CssSelector;"` to show an invisible element. To render the element invisible, you need to apply the [utility-class](utiities/visibility.html) `.jsHidden` first:
+Use `yoi-action="Show:CssSelector;"` to show an invisible element:
 
 ```html
 <!-- example -->
 <button class="btn btn--large" yoi-action="Show:#exampleContainer;">Show Example</button>
-<div id="exampleContainer" class="box p-4 m-t-4 jsHidden">
+<div id="exampleContainer" class="box p-4 m-t-4">
     <p class="fs-15">Boo.</p>
 </div>
 ```
