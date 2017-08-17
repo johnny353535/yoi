@@ -44,7 +44,7 @@ By default, the image source url is read from the `<img>`-tag. However, you can 
 
 ```html
 <!-- example -->
-<noscript yoi-lazyload="src:'https://source.unsplash.com/CS5vT_Kin3E/300x300';">
+<noscript yoi-lazyload="src:'https://source.unsplash.com/wTPp323zAEw/300x300';">
     <img src="https://source.unsplash.com/Volo9FYUAzU/300x300" />
 </noscript>
 ```

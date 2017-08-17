@@ -63,7 +63,7 @@ Use the modifiers `.stepMenu--step1` up to `.stepMenu--step10` to highlight the 
         <a href="#" class="stepMenu__label">Acceptance</a>
     </li>
 </ul>
-<p class="fs-20 m-b-4">…</p>
+<p class="fs-3 m-b-4">…</p>
 <ul class="stepMenu stepMenu--step5">
     <li class="stepMenu__item">
         <a href="#" class="stepMenu__label">Denial</a>

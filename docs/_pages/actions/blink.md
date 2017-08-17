@@ -18,7 +18,7 @@ Use `yoi-action="Bink:CssSelector;"` to make an element blink. By default, it wi
 ```html
 <!-- example -->
 <button class="btn btn--large" yoi-action="Blink:#exampleContainer-1;">Blink</button>
-<div id="exampleContainer-1" class="box p-4 m-t-4 fs-15">Blink.</div>
+<div id="exampleContainer-1" class="box p-4 m-t-4 fs-2">Blink.</div>
 ```
 
 Add the parameter `times` to define how many times the blink animation will play:
@@ -26,7 +26,7 @@ Add the parameter `times` to define how many times the blink animation will play
 ```html
 <!-- example -->
 <button class="btn btn--large" yoi-action="Blink:#exampleContainer-2; times:4;">Blink Four Times</button>
-<div id="exampleContainer-2" class="box p-4 m-t-4 fs-15">Blink.</div>
+<div id="exampleContainer-2" class="box p-4 m-t-4 fs-2">Blink.</div>
 ```
 
 ## Parameters

@@ -20,7 +20,7 @@ Use `yoi-action="Remove:CssSelector"` to remove a target element from the docume
 <div class="m-b-2">
     <button class="btn btn--large" yoi-action="Remove:#exampleTarget-1;">Remove #exampleTarget-1</button>
 </div>
-<div id="exampleTarget-1" class="box w-30 h-20 p-4 tc-gray-15 fs-15">
+<div id="exampleTarget-1" class="box w-30 h-20 p-4 tc-gray-15 fs-2">
     <p>#exampleTarget-1</p>
 </div>
 ```
@@ -48,16 +48,16 @@ You may use any valid CSS-selector – id, class name, tag name, attribute, etc.
 <div class="m-b-2">
     <button class="btn btn--large" yoi-action="Remove:.myTargetElement;">Remove My Many Target Elements</button>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-2">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-2">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-2">
     <p>One of My Many Target Elements</p>
 </div>
-<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-15">
+<div class="myTargetElement w-30 p-2 m-b-2 box p-2 tc-gray-15 fs-2">
     <p>One of My Many Target Elements</p>
 </div>
 <hr class="ruler m-tb-4" />

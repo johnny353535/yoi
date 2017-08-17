@@ -18,7 +18,7 @@ Use `yoi-action="Pulse:CssSelector;"` to make an element pulse. By default, it w
 ```html
 <!-- example -->
 <button class="btn btn--large" yoi-action="Pulse:#exampleContainer-1;">Pulse</button>
-<div id="exampleContainer-1" class="box p-4 m-t-4 fs-15">Pulse.</div>
+<div id="exampleContainer-1" class="box p-4 m-t-4 fs-2">Pulse.</div>
 ```
 
 Add the parameter `times` to define how many times the pulse animation will play:
@@ -26,7 +26,7 @@ Add the parameter `times` to define how many times the pulse animation will play
 ```html
 <!-- example -->
 <button class="btn btn--large" yoi-action="Pulse:#exampleContainer-2; times:4;">Pulse Four Times</button>
-<div id="exampleContainer-2" class="box p-4 m-t-4 fs-15">Pulse.</div>
+<div id="exampleContainer-2" class="box p-4 m-t-4 fs-2">Pulse.</div>
 ```
 
 ## Parameters

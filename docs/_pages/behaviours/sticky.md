@@ -45,7 +45,7 @@ The script selects the first matching element on the page and references it’s 
 <!-- example -->
 <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
 <div class="box h-40 w-20 p-1" id="myReferenceElement-1">
-    <span class="tc-gray-15 fs-15 m-l-1">#myReferenceElement-1</span>
+    <span class="tc-gray-15 fs-2 m-l-1">#myReferenceElement-1</span>
 </div>
 ```
 
@@ -62,7 +62,7 @@ By using this keyword, the script selects the sticky element’s surrounding ele
 <!-- example -->
 <div class="w-30 p-r-4">
     <div class="box h-30 p-2">
-        <span class="tc-gray-15 fs-15 pos-tr m-t-1 m-r-2">parent element</span>
+        <span class="tc-gray-15 fs-2 pos-tr m-t-1 m-r-2">parent element</span>
         <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="reference:parent;"></div>
     </div>
 </div>
@@ -91,25 +91,25 @@ The default value for `start` is 0. The default value for `stop` is the body hei
 <!-- example -->
 <div class="grid-float">
     <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-15 m-b-4">start: none;<br />stop: 200;</p>
+        <p class="tc-gray-15 fs-2 m-b-4">start: none;<br />stop: 200;</p>
         <div class="h-40 pos-rel" id="example-sticky-1">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 200;</p>
+        <p class="tc-gray-15 fs-2 m-b-4">start: 30;<br />stop: 200;</p>
         <div class="h-40 pos-rel" id="example-sticky-2">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-15 m-b-4">start: 180;<br />stop: 200;</p>
+        <p class="tc-gray-15 fs-2 m-b-4">start: 180;<br />stop: 200;</p>
         <div class="h-40 pos-rel" id="example-sticky-3">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:180; stop:200;"></div>
         </div>
     </div>
     <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-15 m-b-4">start: 30;<br />stop: 350;</p>
+        <p class="tc-gray-15 fs-2 m-b-4">start: 30;<br />stop: 350;</p>
         <div class="h-40 pos-rel" id="example-sticky-4">
             <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="start:30; stop:350;"></div>
         </div>

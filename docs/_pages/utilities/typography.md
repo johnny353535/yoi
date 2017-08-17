@@ -7,141 +7,129 @@ permalink: utilities/typography
 
 # Typography
 
-<p class="intro">Foo</p>
+<p class="hint hint--error">Documentation incomplete.</p>
 
 ## Utilities
 
 ### Headings
 
-| `.h1` | xxx |
-| `.h2` | xxx |
-| `.h3` | xxx |
-| `.h4` | xxx |
-| `.h5` | xxx |
-| `.h6` | xxx |
-
-
-<!-- Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua -->
+| `.h1` | … |
+| `.h2` | … |
+| `.h3` | … |
+| `.h4` | … |
+| `.h5` | … |
+| `.h6` | … |
 
 ```html
 <!-- example -->
-<p class="h1 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed</p>
-<p class="h2 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt</p>
-<p class="h3 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna</p>
-<p class="h4 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
-<p class="h5 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
-<p class="h6 m-tb-4">Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
+<p class="h1 m-tb-4">H1 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing</p>
+<p class="h2 m-tb-4">H2 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt</p>
+<p class="h3 m-tb-4">H3 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna</p>
+<p class="h4 m-tb-4">H4 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
+<p class="h5 m-tb-4">H5 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
+<p class="h6 m-tb-4">H6 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
 ```
 
-<p class="hint"> headings are not responsive, font-rhythm scales foo</p>
+<!-- <p class="hint">headings are not responsive, font-rhythm scales foo</p> -->
 
 ### Font Size
 
-| `.fs-0`  | foo foo     |
-| `.fs-10` | foo foo     |
-| `.fs-15` | foo foo     |
-| `.fs-20` | foo foo     |
-| `.fs-25` | foo foo     |
-| `.fs-30` | foo foo     |
-| `.fs-35` | foo foo     |
-| `.fs-40` | foo foo     |
-| `.fs-45` | foo foo     |
-| `.fs-50` | foo foo     |
+| `.fs-0` | … |
+| `.fs-1` | … |
+| `.fs-2` | … |
+| `.fs-3` | … |
+| `.fs-4` | … |
+| `.fs-5` | … |
+| `.fs-6` | … |
+| `.fs-7` | … |
+| `.fs-8` | … |
+| `.fs-9` | … |
 
 ### Responsive Font Size
 
-Use the prefixes foo foo
-
-| `.s--fs-*`  | * |
-| `.m--fs-*`  | * |
-| `.l--fs-*`  | * |
-| `.xl--fs-*` | * |
+| `.s--fs-*`  | … |
+| `.m--fs-*`  | … |
+| `.l--fs-*`  | … |
+| `.xl--fs-*` | … |
 
 ### Line Height
 
-| `.lh-0`  | xxx |
-| `.lh-10` | xxx |
-| `.lh-15` | xxx |
-| `.lh-20` | xxx |
-| `.lh-25` | xxx |
-| `.lh-30` | xxx |
-| `.lh-35` | xxx |
-| `.lh-40` | xxx |
-| `.lh-45` | xxx |
-| `.lh-50` | xxx |
-| `.lh-55` | xxx |
+| `.lh-0` | … |
+| `.lh-1` | … |
+| `.lh-2` | … |
+| `.lh-3` | … |
+| `.lh-4` | … |
+| `.lh-5` | … |
+| `.lh-6` | … |
+| `.lh-7` | … |
+| `.lh-8` | … |
+| `.lh-9` | … |
 
 ### Responsive Line Height
 
-Use the prefixes foo foo
-
-| `.s--lh-*`  | * |
-| `.m--lh-*`  | * |
-| `.l--lh-*`  | * |
-| `.xl--lh-*` | * |
+| `.s--lh-*`  | … |
+| `.m--lh-*`  | … |
+| `.l--lh-*`  | … |
+| `.xl--lh-*` | … |
 
 ### Font Family
 
-| `.ff-sr`   | xxx |
-| `.ff-ss`   | xxx |
-| `.ff-mono` | xxx |
+| `.ff-sr`   | … |
+| `.ff-ss`   | … |
+| `.ff-mono` | … |
 
 ### Font Weight
 
-| `.fw-normal` | xxx |
-| `.fw-bold`   | xxx |
+| `.fw-normal` | … |
+| `.fw-bold`   | … |
 
 ### Font Style
 
-| `.fst-no` | xxx |
-| `.fst-it` | xxx |
+| `.fst-no` | … |
+| `.fst-it` | … |
 
 ### Text Transform
 
-| `.tt-cp`   | xxx |
-| `.tt-lc`   | xxx |
-| `.tt-none` | xxx |
-| `.tt-uc`   | xxx |
+| `.tt-cp`   | … |
+| `.tt-lc`   | … |
+| `.tt-none` | … |
+| `.tt-uc`   | … |
 
 ### Text Alignment
 
-| `.al-r` | xxx |
-| `.al-l` | xxx |
-| `.al-c` | xxx |
+| `.al-r` | … |
+| `.al-l` | … |
+| `.al-c` | … |
 
 ### Responsive Text Alignment
 
-Use the prefixes foo foo
-
-| `.s--al-*`  | * |
-| `.m--al-*`  | * |
-| `.l--al-*`  | * |
-| `.xl--al-*` | * |
+| `.s--al-*`  | … |
+| `.m--al-*`  | … |
+| `.l--al-*`  | … |
+| `.xl--al-*` | … |
 
 ### Line Break
 
-| `.lbr-none` | xxx |
+| `.lbr-none` | … |
 
 ### Responsive Line Break
 
-Use the prefixes foo foo
-
-| `.s--lbr-none`  | * |
-| `.m--lbr-none`  | * |
-| `.l--lbr-none`  | * |
-| `.xl--lbr-none` | * |
+| `.s--lbr-none`  | … |
+| `.m--lbr-none`  | … |
+| `.l--lbr-none`  | … |
+| `.xl--lbr-none` | … |
 
 ### Text Decoration
 
-| `.tdcr-none` | xxx |
-| `.tdcr-undl` | xxx |
+| `.tdcr-none` | … |
+| `.tdcr-undl` | … |
 
 ### List Style
 
-| `.lst-none`   | xxx |
-| `.lst-square` | xxx |
-| `.lst-circle` | xxx |
-| `.lst-disc`   | xxx |
+| `.lst-none`   | … |
+| `.lst-square` | … |
+| `.lst-circle` | … |
+| `.lst-disc`   | … |
 
 ## Associated Files
 

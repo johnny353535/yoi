@@ -19,7 +19,7 @@ Use `yoi-action="Hide:CssSelector;"` to hide an element:
 <!-- example -->
 <button class="btn btn--large" yoi-action="Hide:#exampleContainer;">Hide Example</button>
 <div id="exampleContainer" class="box p-4 m-t-4">
-    <p class="fs-15">Hello.</p>
+    <p class="fs-2">Hello.</p>
 </div>
 ```
 

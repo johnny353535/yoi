@@ -17,13 +17,13 @@ Check out the following links to learn about the basics of HTML:
     <div class="w-1-2 p-r-2">
         <a class="box h-20 p-4 tdcr-none hvr-bg-gray-25" href="https://www.codecademy.com/courses/web-beginner-en-HZA3b/0/1">
            <h3 class="tc-gray-8">Learn HTML at Code Academy</h3>
-           <p class="fs-15 m-t-2 tc-gray-15">Code Academy offers free interactive online courses. This is an excellent beginner’s lesson for HTML.</p>
+           <p class="fs-2 m-t-2 tc-gray-15">Code Academy offers free interactive online courses. This is an excellent beginner’s lesson for HTML.</p>
         </a>
     </div>
     <div class="w-1-2 p-l-2">
         <a class="box h-20 p-4 tdcr-none hvr-bg-gray-25" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">
            <h3 class="tc-gray-8">Learn HTML at MDN</h3>
-           <p class="fs-15 m-t-2 tc-gray-15">Mozilla’s Developer Network offers a great introduction to the basic grammar of HTML.</p>
+           <p class="fs-2 m-t-2 tc-gray-15">Mozilla’s Developer Network offers a great introduction to the basic grammar of HTML.</p>
         </a>
     </div>
 </div>
@@ -36,13 +36,13 @@ You do not need to write CSS if you do not wish to change how YOI’s elements l
     <div class="w-1-2 p-r-2">
         <a class="box h-20 p-4 tdcr-none hvr-bg-gray-25" href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-basics">
            <h3 class="tc-gray-8">Learn CSS at Khan Academy</h3>
-           <p class="fs-15 m-t-2 tc-gray-15">Khan Academy offers free interactive courses with accompanying audio and video instructions.</p>
+           <p class="fs-2 m-t-2 tc-gray-15">Khan Academy offers free interactive courses with accompanying audio and video instructions.</p>
         </a>
     </div>
     <div class="w-1-2 p-l-2">
         <a class="box h-20 p-4 tdcr-none hvr-bg-gray-25" href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">
            <h3 class="tc-gray-8">Learn CSS at MDN</h3>
-           <p class="fs-15 m-t-2 tc-gray-15">Mozilla’s Developer Network gives a comprehensive introduction to CSS.</p>
+           <p class="fs-2 m-t-2 tc-gray-15">Mozilla’s Developer Network gives a comprehensive introduction to CSS.</p>
         </a>
     </div>
 </div>

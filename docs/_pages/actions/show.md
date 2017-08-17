@@ -19,7 +19,7 @@ Use `yoi-action="Show:CssSelector;"` to show an invisible element:
 <!-- example -->
 <button class="btn btn--large" yoi-action="Show:#exampleContainer;">Show Example</button>
 <div id="exampleContainer" class="box p-4 m-t-4">
-    <p class="fs-15">Boo.</p>
+    <p class="fs-2">Boo.</p>
 </div>
 ```
 

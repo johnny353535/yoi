@@ -57,7 +57,7 @@ permalink: utilities/js_fallback
 
     ```html
     <div class="js-only" id="jsOnlyElement">
-        <p class="fs-15 lh-20">Some element that only works with JavaScript enabled.</p>
+        <p class="fs-2 lh-3">Some element that only works with JavaScript enabled.</p>
     </div>
     ```
 

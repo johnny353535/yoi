@@ -28,7 +28,7 @@ This is the markup for a basic `.flyOut` (you should see the rendered result on 
     <h2 class="flyout__handle">Flyout</h2>
     <div class="flyout__body">
         <h3 class="ff-ss">This is an Example Flyout</h3>
-        <p class="fs-15 lh-20 m-tb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        <p class="fs-2 lh-3 m-tb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
         <p class="btns btns--vertical">
             <a href="#" class="btn btn--large">Advanced Chemistry</a>
             <a href="#" class="btn btn--large">Rocket Science</a>

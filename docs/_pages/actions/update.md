@@ -25,8 +25,8 @@ In the following example, each button calls the _action_ `Update` to load differ
     <button class="btn btn--large" yoi-action="Update:#exampleContainer; url:demos/ajaxSource-xyz.html;">42?</button>
 </div>
 <div id="exampleContainer" class="pos-rel m-t-4">
-    <div class="p-4 b-ghost br">
-        <p class="fs-15">Response goes here …</p>
+    <div class="p-4 b-dashed bc-main-20 bw-1 br">
+        <p class="fs-2">Response goes here …</p>
     </div>
 </div>
 ```

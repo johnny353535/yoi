@@ -19,7 +19,7 @@ Use `yoi-action="ScrollTo:CssSelector"` to smoothly scroll to the target element
 <!-- example -->
 <a class="btn btn--large" href="#exampleTarget-1" yoi-action="ScrollTo:#exampleTarget-1;">Scroll to #exampleTarget-1</a>
 <div class="m-tb-20">
-    <div id="exampleTarget-1" class="w-30 al-c p-8 br bg-purple-15 tc-purple-24 fs-15">#exampleTarget-1</div>
+    <div id="exampleTarget-1" class="w-30 al-c p-8 br bg-purple-15 tc-purple-24 fs-2">#exampleTarget-1</div>
 </div>
 ```
 
@@ -36,19 +36,19 @@ The target element may sit inside a container with hidden or scrollable overflow
 ```
 
 <div class="m-t-4 h-40 p-4 br b-all bc-main-22 pos-rel scrl-y">
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div id="exampleTarget-2" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-15">#exampleTarget-2</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-15">Placeholder</div>
-    <div id="exampleTarget-3" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-15">#exampleTarget-3</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div id="exampleTarget-2" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-2">#exampleTarget-2</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-main-23 tc-main-12 fs-2">Placeholder</div>
+    <div id="exampleTarget-3" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-2">#exampleTarget-3</div>
 </div>
 
 ## Parameters
@@ -66,8 +66,8 @@ If you wish to highlight the target element once the autometed scroll finished, 
 <a class="btn btn--large" href="#exampleTarget-4" yoi-action="ScrollTo:#exampleTarget-4; highlight:blink;">Scroll to #exampleTarget-4</a>
 <a class="btn btn--large" href="#exampleTarget-5" yoi-action="ScrollTo:#exampleTarget-5; highlight:pulse;">Scroll to #exampleTarget-5</a>
 <div class="m-tb-20">
-    <div id="exampleTarget-4" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-15">#exampleTarget-4</div>
-    <div id="exampleTarget-5" class="w-30 al-c p-8 br bg-red-17 tc-red-24 fs-15">#exampleTarget-5</div>
+    <div id="exampleTarget-4" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-2">#exampleTarget-4</div>
+    <div id="exampleTarget-5" class="w-30 al-c p-8 br bg-red-17 tc-red-24 fs-2">#exampleTarget-5</div>
 </div>
 ```
 
@@ -81,5 +81,5 @@ If you wish to add some distance between the viewport’s top edge and the targe
 ```
 
 <div style="margin:800px 0;">
-    <div id="exampleTarget-6" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-15">#exampleTarget-6</div>
+    <div id="exampleTarget-6" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-2">#exampleTarget-6</div>
 </div>

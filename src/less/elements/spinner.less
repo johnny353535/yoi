@@ -4,8 +4,8 @@
     animation: spin 1s infinite linear;
     background: transparent;
     border-radius: 50%;
-    border: 3px solid @gray-23;
-    border-top-color: @focusColor;
+    border: 3px solid @gray-24;
+    border-top-color: darken(@focusColor,15%);
     box-sizing: border-box;
     content: ' ';
     display: inline-block;
@@ -19,8 +19,8 @@
 }
 
 .spinner--dark::after {
-    border-color: @focusColor;
-    border-top-color: @gray-23;
+    border-color: fade(@gray-10,70%);
+    border-top-color: @focusColor;
 }
 
 // animation

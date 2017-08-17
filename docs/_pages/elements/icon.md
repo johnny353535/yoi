@@ -39,7 +39,7 @@ Use the modifiers `.icon--small, .icon--large, .icon--xlarge` to render icons in
 
 We created a handy little online tool to generate our YOI-icons for you on the fly. You can request every icon of the set and manipulate it’s size and color via a simple URL:
 
-<div class="box p-1 fs-15 m-t-3 m-b-4">
+<div class="box p-1 fs-2 m-t-3 m-b-4">
     http://cdn.yoshino.digital/svg.php?
     <span class="tc-gray-15">+</span> <span class="tc-gray-12">id=</span><b class="tc-red-12">icon-001</b>
     <span class="tc-gray-15">+</span> <span class="tc-gray-12">&f=</span><span class="tc-red-12">#ccff00</span>

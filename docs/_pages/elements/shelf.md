@@ -107,7 +107,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 <div class="box h-25 p-2 m-2">
                     <h3>Basic</h3>
                     <p class="m-tb-2">This affordable option is the most popular choice among our customers.</p>
-                    <p class="fs-20 al-c"><b>5 €</b></p>
+                    <p class="fs-3 al-c"><b>5 €</b></p>
                     <a class="btn btn--large btn--light al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
@@ -115,7 +115,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 <div class="box bg-yellow-21 bc-yellow-19 h-25 p-2 m-2 tc-yellow-5">
                     <h3>Professional</h3>
                     <p class="m-tb-2">The perfect option for our professional customers.</p>
-                    <p class="fs-20 al-c"><b>15 €</b></p>
+                    <p class="fs-3 al-c"><b>15 €</b></p>
                     <a class="btn btn--large btn--attention al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
@@ -123,7 +123,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 <div class="box bg-red-21 bc-red-19 h-25 p-2 m-2 tc-red-5">
                     <h3>Premium</h3>
                     <p class="m-tb-2">Everything you can imagine is covered by our premium plan.</p>
-                    <p class="fs-20 al-c"><b>500 €</b></p>
+                    <p class="fs-3 al-c"><b>500 €</b></p>
                     <a class="btn btn--large btn--negative al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
@@ -142,7 +142,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                     <img class="d-blk m-b-2" src="https://source.unsplash.com/kFCdfLbu6zA/265x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Yoga Master in 10 Days</h4>
-                        <p class="fs-15 lh-20">Turn healthy and become a yoga-master in just 10 days.</p>
+                        <p class="fs-2 lh-3">Turn healthy and become a yoga-master in just 10 days.</p>
                     </div>
                 </a>
             </div>
@@ -151,7 +151,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                     <img class="d-blk m-b-2" src="https://source.unsplash.com/-rWjydNhATw/266x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Running Like a Pro</h4>
-                        <p class="fs-15 lh-20">This short book teaches you just the right technique you needed to become a real pro-runner.</p>
+                        <p class="fs-2 lh-3">This short book teaches you just the right technique you needed to become a real pro-runner.</p>
                     </div>
                 </a>
             </div>

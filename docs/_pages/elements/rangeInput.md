@@ -104,7 +104,7 @@ To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput
 
 ```html
 <!-- example:tabs -->
-<div class="ff-mono fs-15">
+<div class="ff-mono fs-2">
     <p id="minMonitor">min: 0</p>
     <p id="maxMonitor">max: 100</p>
 </div>

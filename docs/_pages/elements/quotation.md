@@ -32,7 +32,7 @@ All [utility classes](/utilities/) are available to change font sizes, spacing, 
 
 ```html
 <!-- example -->
-<div class="quotation fs-20">
+<div class="quotation fs-3">
     <p>Thus the photons which constitute a ray of light behave like intelligent human beings: out of all possible curves, they always select the one which will take them most quickly to their goal.</p>
     <p class="tc-gray-15 al-r">Max Planck</p>
 </div>
@@ -44,7 +44,7 @@ In the following example, a quote is combined with an image and wrapped inside t
 <!-- example -->
 <div class="box">
     <img class="d-blk w-1-1" src="https://source.unsplash.com/dV9ZfzLxaQ4/700x400" alt="" />
-    <div class="quotation fs-20 br-0">
+    <div class="quotation fs-3 br-0">
         <p>Thus the photons which constitute a ray of light behave like intelligent human beings: out of all possible curves, they always select the one which will take them most quickly to their goal.</p>
         <p class="tc-gray-15 al-r">Max Planck</p>
     </div>
