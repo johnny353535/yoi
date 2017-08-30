@@ -27,11 +27,12 @@ YOI.element.Code = (function() {
 
             var $thisCodeWrapper    = $(this);
             var $thisCode           = $thisCodeWrapper.find('code');
-            var exampleTag          = '<!-- example -->';
-            var exampleTagTabbed    = '<!-- example:tabs -->';
+            var exampleTag          = "<!-- example -->";
+            var exampleTagTabbed    = "<!-- example:tabs -->";
             var thisExample         = $thisCode.text().split(exampleTag).length > 1 ? $thisCode.text().split(exampleTag)[1] : false;
             var thisExampleTabbed   = $thisCode.text().split(exampleTagTabbed).length > 1 ? $thisCode.text().split(exampleTagTabbed)[1] : false;
-
+            var markup;
+            
             if (thisExampleTabbed) {
 
                 // set indexes to generate unique ids
@@ -44,62 +45,64 @@ YOI.element.Code = (function() {
 
             if (thisExample) {
 
-                // markup variable
-
-                var _ = '';
-
-                // remove the "exampleTag" and the first line break
+                // remove the "exampleTag"
 
                 $thisCode.find('.c:contains("' + exampleTag + '")').remove();
 
                 // template for tabbed code preview
 
-                _ =    '<div class="code__example">';
-                _ +=       '<div class="code__result">';
-                _ +=           thisExample;
-                _ +=       '</div>';
-                _ +=       '<div class="code__source">';
-                _ +=           $thisCodeWrapper.html();
-                _ +=       '</div>';
-                _ +=   '</div>';
+                markup =    '<div class="code__example">';
+                markup +=       '<div class="code__result">';
+                markup +=           thisExample;
+                markup +=       '</div>';
+                markup +=       '<div class="code__source">';
+                markup +=           $thisCodeWrapper.html();
+                markup +=       '</div>';
+                markup +=   '</div>';
 
             }
 
             if (thisExampleTabbed) {
 
-                // markup variable
-
-                var _ = '';
-
-                // remove the "exampleTagTabbed" and the first line break
+                // remove the "exampleTagTabbed"
 
                 $thisCode.find('.c:contains("' + exampleTagTabbed + '")').remove();
 
                 // template for tabbed code preview
 
-                _ =    '<div class="code__example tabs">';
-                _ +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
-                _ +=           '<ul class="tabs__items">';
-                _ +=               '<li class="tabs__item">';
-                _ +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
-                _ +=               '</li>';
-                _ +=               '<li class="tabs__item">';
-                _ +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
-                _ +=               '</li>';
-                _ +=           '</ul>';
-                _ +=       '</div>';
-                _ +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page">';
-                _ +=           thisExampleTabbed;
-                _ +=       '</div>';
-                _ +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page">';
-                _ +=           $thisCodeWrapper.html();
-                _ +=       '</div>';
-                _ +=   '</div>';
+                markup =    '<div class="code__example tabs">';
+                markup +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
+                markup +=           '<ul class="tabs__items">';
+                markup +=               '<li class="tabs__item">';
+                markup +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
+                markup +=               '</li>';
+                markup +=               '<li class="tabs__item">';
+                markup +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
+                markup +=               '</li>';
+                markup +=           '</ul>';
+                markup +=       '</div>';
+                markup +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page code__result">';
+                markup +=           thisExampleTabbed;
+                markup +=       '</div>';
+                markup +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page code__source">';
+                markup +=           $thisCodeWrapper.html();
+                markup +=       '</div>';
+                markup +=   '</div>';
 
             }
+            
+            // add copy button
+            
+            if (thisExample || thisExampleTabbed) {
+                markup = addCopyBtn(markup);
+            } else {
+                markup = addCopyBtn($thisCodeWrapper);
+            }
+            
+            // inject markup
 
             if (thisExample || thisExampleTabbed) {
-                $thisCodeWrapper.replaceWith(_);
+                $thisCodeWrapper.replaceWith(markup);
             }
             
             // set initialized
@@ -108,6 +111,96 @@ YOI.element.Code = (function() {
    
         });
 
+    }
+    
+    function addCopyBtn(markup) {
+        
+        /**
+         *  Adds a copy-to-clipboard-button to a code example.
+         *
+         *  @param  {string}           markup  - the original markup (input)
+         *  @return {jQuery dom oject} $markup - the processed markup (output)
+         */
+        
+        var copyToClipboardSupported = document.queryCommandSupported && document.queryCommandSupported('copy');
+        
+        // return the unprocessed input (markup) if
+        // queryCommand is not supportetd
+        
+        if (!copyToClipboardSupported) return markup;
+
+        // proceed
+        
+        var $markup                = markup instanceof jQuery ? markup : $(markup);
+        var $copyBtn               = $('<button class="code__copyBtn btn btn--flat btn--light">Copy</button>');
+        var $codeSource            = $markup.find('.code__source');
+        var codeHasRenderedExample = $codeSource.length ? true : false;
+
+        // prepare the copy button
+
+        $copyBtn.on('click', function() {
+            prepareCopyBtn($(this));
+        });
+
+        // inject the copy button
+
+        if (codeHasRenderedExample) {
+            $markup.find('.code__source').append($copyBtn);
+        } else {
+            $markup.append($copyBtn);
+        }
+
+        // return the processed markup
+
+        return $markup;
+        
+    }
+    
+    function prepareCopyBtn($copyBtn) {
+        
+        /**
+         *  Attaches events to the $copyBtn.
+         *
+         *  @param {jQuery dom oject} $copyBtn
+         */
+        
+        // cancel if $copyBtn is missing
+        
+        if (!$copyBtn) return false;
+        
+        // find the code
+        
+        var $source = $copyBtn.parent().find('code').first();
+        
+        // copy code to clipboard
+        
+        copyCodeToClipBoard($source);
+        
+        // give visual feedback to user
+        
+        YOI.blink($copyBtn);
+        
+    }
+    
+    
+    function copyCodeToClipBoard($source) {
+        
+        /**
+         *  Copies the text content of a given $source to the clipboard.
+         *
+         *  @param {jQuery dom oject} $source
+         */
+
+        var selection = window.getSelection();
+        var range     = document.createRange();
+        
+        range.selectNodeContents($source[0]);
+        selection.addRange(range);
+        
+        document.execCommand('copy');
+        
+        selection.removeAllRanges();
+        
     }
 
     // public functions

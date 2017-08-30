@@ -42,6 +42,10 @@ We plan to release YOI under a Creative Commons Attribution-NonCommercial licens
 Notizen
 =======
 
+- code examples
+    - eventuell css-klassenenamen highlighten?
+    - copy & paste einbauen (https://alligator.io/js/copying-to-clipboard/)
+
 - build-process
     - braucht kein deploy, compress etc. da nur auf gh-pages?
     - nein: deploy ist für dest!

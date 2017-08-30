@@ -404,7 +404,7 @@ YOI.element.Modal = (function() {
 
         if (modalFitsIntoViewport) {
             $modal.css({'top': '1rem', 'marginTop': '0', 'position': 'absolute' }); // make "scrollable"
-            $('html,body').animate({scrollTop: 0}, 500); // "rewind" page to top
+            $('html,body').animate({scrollTop: 0}, 500);                            // "rewind" page to top
         } else {
             $modal.css({'top': '50%', 'marginTop': offSetY, 'position': 'fixed' });
         }
@@ -433,18 +433,6 @@ YOI.element.Modal = (function() {
         $document.trigger('yoi-modal-hide');
         
     }
-
-    // function generateId() {
-    //
-    //     /**
-    //      *  Generate a simple "unique" modal id for internal reference.
-    //      *
-    //      *  @return {string} - a unique modal id
-    //      */
-    //
-    //     return '#modal-' + modalIdIndex++;
-    //
-    // }
 
     function openFallbackLink(modalPath) {
 

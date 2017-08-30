@@ -21,6 +21,7 @@ code {
 
 pre {
     .mixin-defaultBorderRadius;
+    border-bottom-left-radius: 0;
     background: @gray-25;
     padding: 1rem;
 }
@@ -39,7 +40,6 @@ p, td, li {
 }
 
 // code example
-// ============
 
 .code__example {
     border-radius: 2px;
@@ -61,7 +61,7 @@ p, td, li {
     font-size: 1.3rem;
 }
 
-.code__example .code__source {}
+.code__source {}
 
 .code__example .code__result {
     padding: 2rem;
@@ -73,12 +73,40 @@ p, td, li {
 }
 
 .code__example.tabs pre {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
 }
 
 .code__example > .tabs__menu,
 .code__example > .tabs__menu .tabs__item {
     border-color: @gray-23;
+}
+
+.code__example .tabs__page {
+    position: relative;
+}
+
+// copy button
+
+.code__copyBtn {
+    
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    
+    .code__example & {
+        .mixin-defaultBorderRadius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+    
+    .tabs__page & {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+    }
+    
 }
 
 // code highlighting (via http://rouge.jneen.net)

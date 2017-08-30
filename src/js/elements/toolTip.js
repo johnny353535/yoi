@@ -1,6 +1,13 @@
 /** toolTip.js */
 
 YOI.element.Tooltip = (function() {
+    
+    // private vars
+    // ============
+    
+    var defaultFadeDuration = 200;
+    var defaultShowDelay    = 300;
+    var defaultHideDelay    = 200;
 
     // private functions
     // =================
@@ -98,6 +105,54 @@ YOI.element.Tooltip = (function() {
         // hide all tool tips
 
         $(scope + '.tooltip').hide();
+
+    }
+    
+    function createAndShowTooltip(id, xPos, yPos, content, fadeDuration) {
+
+        /**
+         *  Created and shows a tooltip.
+         *
+         *  @param {string} id           - required, unique id for the created tooltip
+         *  @param {number} xPos         - required, x-position
+         *  @param {number} yPos         - required, y-position
+         *  @param {string} content      - required, content for the tooltip 
+         *  @param {number} fadeDuration - optional, duration of fade-in transition in ms
+        
+         */
+        
+        // required parameters must be set
+        // if not - cancel
+        
+        if (!id || !xPos || !yPos || !content) return false;
+        
+        // cancel if tooltip is already in dom
+        
+        if ($('#' + id).length && $('#' + id).is('.toolTip')) return false;
+        
+        // get the fade transition duration
+        
+        var fadeDuration = fadeDuration || defaultFadeDuration;
+        
+        // append the tooltip
+        
+        $('<div id="' + id + '" class="tooltip">' + content +'</div>').appendTo($(document.body)).hide();
+        
+        var $thisTooltip = $('#' + id);
+        
+        // set tooltip position
+        
+        $thisTooltip
+            .css({
+                'position': 'absolute',
+                'left': xPos,
+                'top': yPos
+            })
+            .fadeIn(fadeDuration)
+            .promise()
+            .then(function() {
+                $thisTooltip.trigger('yoi-tooltip-show');
+            });
 
     }
 
@@ -226,13 +281,13 @@ YOI.element.Tooltip = (function() {
          */
         
         var options           = $thisTooltipTrigger.data().options;
-        var showDelayDuration = options.showDelay || 300;
+        var showDelayDuration = options.showDelay || defaultShowDelay;
 
         if (action === 'start') {
             
             YOI.setDelay('tooltipShowDelay', showDelayDuration, function(){
                 $thisTooltip
-                    .fadeIn(200)
+                    .fadeIn(defaultFadeDuration)
                     .promise()
                     .then(function() {
                         $thisTooltip.trigger('yoi-tooltip-show');
@@ -256,7 +311,7 @@ YOI.element.Tooltip = (function() {
          */
         
         var options           = $thisTooltipTrigger.data().options;
-        var hideDelayDuration = options.hideDelay || 200;
+        var hideDelayDuration = options.hideDelay || defaultHideDelay;
 
         if (action === 'start') {
 
@@ -278,6 +333,7 @@ YOI.element.Tooltip = (function() {
 
     return {
         init    : initialize,
+        create  : createAndShowTooltip,
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
