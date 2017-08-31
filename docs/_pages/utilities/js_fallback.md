@@ -9,6 +9,9 @@ permalink: utilities/js_fallback
 
 <p class="hint hint--error">Documentation incomplete.</p>
 
+| `.js-fallback` | … |
+| `.js-only`     | … |
+
 <!--
     <p class="intro">Use these utility-classes inside markup/templates to either display elements as _fallback if JavaScript is not available_ or to display certain elements  _only if JavaScript is enabled_.</p>
 

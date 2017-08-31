@@ -51,14 +51,14 @@ YOI.element.Code = (function() {
 
                 // template for tabbed code preview
 
-                markup =    '<div class="code__example">';
-                markup +=       '<div class="code__result">';
-                markup +=           thisExample;
-                markup +=       '</div>';
-                markup +=       '<div class="code__source">';
-                markup +=           $thisCodeWrapper.html();
-                markup +=       '</div>';
-                markup +=   '</div>';
+                markup =  '<div class="code__example">';
+                markup +=     '<div class="code__result">';
+                markup +=         thisExample;
+                markup +=     '</div>';
+                markup +=     '<div class="code__source">';
+                markup +=         $thisCodeWrapper.html();
+                markup +=     '</div>';
+                markup += '</div>';
 
             }
 
@@ -70,24 +70,24 @@ YOI.element.Code = (function() {
 
                 // template for tabbed code preview
 
-                markup =    '<div class="code__example tabs">';
-                markup +=       '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
-                markup +=           '<ul class="tabs__items">';
-                markup +=               '<li class="tabs__item">';
-                markup +=                   '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
-                markup +=               '</li>';
-                markup +=               '<li class="tabs__item">';
-                markup +=                   '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
-                markup +=               '</li>';
-                markup +=           '</ul>';
-                markup +=       '</div>';
-                markup +=       '<div id="exampleTab-' + firstIndex + '" class="tabs__page code__result">';
-                markup +=           thisExampleTabbed;
-                markup +=       '</div>';
-                markup +=       '<div id="exampleTab-' + secondIndex + '" class="tabs__page code__source">';
-                markup +=           $thisCodeWrapper.html();
-                markup +=       '</div>';
-                markup +=   '</div>';
+                markup =  '<div class="code__example tabs">';
+                markup +=     '<div class="tabs__menu tabs__menu--loose" yoi-tabs>';
+                markup +=         '<ul class="tabs__items">';
+                markup +=             '<li class="tabs__item">';
+                markup +=                 '<a class="tabs__link" href="#exampleTab-' + firstIndex + '">Example</a>';
+                markup +=             '</li>';
+                markup +=             '<li class="tabs__item">';
+                markup +=                 '<a class="tabs__link" href="#exampleTab-' + secondIndex + '">Code</a>';
+                markup +=             '</li>';
+                markup +=         '</ul>';
+                markup +=     '</div>';
+                markup +=     '<div id="exampleTab-' + firstIndex + '" class="tabs__page code__result">';
+                markup +=         thisExampleTabbed;
+                markup +=     '</div>';
+                markup +=     '<div id="exampleTab-' + secondIndex + '" class="tabs__page code__source">';
+                markup +=         $thisCodeWrapper.html();
+                markup +=     '</div>';
+                markup += '</div>';
 
             }
             
@@ -139,7 +139,19 @@ YOI.element.Code = (function() {
         // prepare the copy button
 
         $copyBtn.on('click', function() {
-            prepareCopyBtn($(this));
+        
+            // find the code
+        
+            var $code = $copyBtn.parent().find('code').first();
+        
+            // copy code to clipboard
+        
+            copyToClipBoard($code);
+        
+            // give visual feedback to user
+        
+            YOI.blink($copyBtn);
+            
         });
 
         // inject the copy button
@@ -156,34 +168,7 @@ YOI.element.Code = (function() {
         
     }
     
-    function prepareCopyBtn($copyBtn) {
-        
-        /**
-         *  Attaches events to the $copyBtn.
-         *
-         *  @param {jQuery dom oject} $copyBtn
-         */
-        
-        // cancel if $copyBtn is missing
-        
-        if (!$copyBtn) return false;
-        
-        // find the code
-        
-        var $source = $copyBtn.parent().find('code').first();
-        
-        // copy code to clipboard
-        
-        copyCodeToClipBoard($source);
-        
-        // give visual feedback to user
-        
-        YOI.blink($copyBtn);
-        
-    }
-    
-    
-    function copyCodeToClipBoard($source) {
+    function copyToClipBoard($source) {
         
         /**
          *  Copies the text content of a given $source to the clipboard.

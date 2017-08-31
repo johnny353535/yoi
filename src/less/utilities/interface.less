@@ -1,43 +1,5 @@
 /** interface.less */
 
-// cursor
-
-.crsr-alias   { cursor: alias !important; }
-.crsr-ascrl   { cursor: all-scroll !important; }
-.crsr-auto    { cursor: auto !important; }
-.crsr-cell    { cursor: cell !important; }
-.crsr-cntxt   { cursor: context-menu !important; }
-.crsr-copy    { cursor: copy !important; }
-.crsr-crshr   { cursor: crosshair !important; }
-.crsr-deflt   { cursor: default !important; }
-.crsr-ersz    { cursor: e-resize !important; }
-.crsr-ewrsz   { cursor: ew-resize !important; }
-.crsr-gbng    { cursor: grabbing !important; }
-.crsr-grab    { cursor: grab !important; }
-.crsr-move    { cursor: move !important; }
-.crsr-nalwd   { cursor: not-allowed !important; }
-.crsr-ndrp    { cursor: no-drop !important; }
-.crsr-nersz   { cursor: ne-resize !important; }
-.crsr-neswrsz { cursor: nesw-resize !important; }
-.crsr-none    { cursor: none !important; }
-.crsr-nrsz    { cursor: n-resize !important; }
-.crsr-nsrsz   { cursor: ns-resize !important; }
-.crsr-nwrsz   { cursor: nw-resize !important; }
-.crsr-nwsersz { cursor: nwse-resize !important; }
-.crsr-pntr    { cursor: pointer !important; }
-.crsr-prgrs   { cursor: progress !important; }
-.crsr-rsz     { cursor: resize !important; }
-.crsr-rwrsz   { cursor: row-resize !important; }
-.crsr-sersz   { cursor: se-resize !important; }
-.crsr-srsz    { cursor: s-resize !important; }
-.crsr-swrsz   { cursor: sw-resize !important; }
-.crsr-txt     { cursor: text !important; }
-.crsr-vtxt    { cursor: vertical-text !important; }
-.crsr-wait    { cursor: wait !important; }
-.crsr-wrsz    { cursor: w-resize !important; }
-.crsr-zmin    { cursor: zoom-in !important; }
-.crsr-zmot    { cursor: zoom-out !important; }
-
 // text selection
 
 .slct-none { .mixin-userSelectNone !important; }
@@ -51,3 +13,9 @@
 
 .scrl-x { overflow: hidden !important; overflow-x: auto !important; }
 .scrl-y { overflow: hidden !important; overflow-y: auto !important; }
+
+// focus
+
+.focus          { .mixin-defaultFocus !important; }
+.tabFocus       { .mixin-tabFocus !important; }
+.tabFocus-inset { .mixin-tabFocus-inset !important; }

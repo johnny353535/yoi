@@ -1,0 +1,43 @@
+/** border.less */
+
+// standard border
+
+.b-0   { border: 0 !important; }
+.b-t-0 { border-top: 0 !important; }
+.b-r-0 { border-right: 0 !important; }
+.b-b-0 { border-bottom: 0 !important; }
+.b-l-0 { border-left: 0 !important; }
+
+.b-all { border: @color-main-23 1px solid !important; }
+.b-t   { border-top: @color-main-23 1px solid !important; }
+.b-r   { border-right: @color-main-23 1px solid !important; }
+.b-b   { border-bottom: @color-main-23 1px solid !important; }
+.b-l   { border-left: @color-main-23 1px solid !important; }
+
+// border style
+
+.b-dashed { border-style: dashed !important; }
+.b-dotted { border-style: dotted !important; }
+.b-solid  { border-style: solid !important; }
+
+// border-width
+
+.bw-1 { border-width: 1px !important; }
+.bw-2 { border-width: 2px !important; }
+.bw-3 { border-width: 4px !important; }
+
+// border radius
+
+.br-all    { .mixin-defaultBorderRadius !important; }
+.br-circle { border-radius: 50% !important; overflow: hidden !important; }
+
+.br-tl     { border-top-left-radius: 1px * @borderRadius !important; }
+.br-tr     { border-top-right-radius: 1px * @borderRadius !important; }
+.br-br     { border-bottom-right-radius: 1px * @borderRadius !important; }
+.br-bl     { border-bottom-left-radius: 1px * @borderRadius !important; }
+
+.br-0      { border-radius: 0 !important; }
+.br-tl-0   { border-top-left-radius: 0 !important; }
+.br-tr-0   { border-top-right-radius: 0 !important; }
+.br-br-0   { border-bottom-right-radius: 0 !important; }
+.br-bl-0   { border-bottom-left-radius: 0 !important; }

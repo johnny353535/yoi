@@ -8,3 +8,23 @@ permalink: utilities/interface
 # Interface
 
 <p class="hint hint--error">Documentation incomplete.</p>
+
+## Text Selection
+
+| `.slct-none` | … |
+
+## Pointer Events
+
+| `.pntr-auto` | … |
+| `.pntr-none` | … |
+
+## Scroll
+
+| `.scrl-x` | … |
+| `.scrl-y` | … |
+
+## Focus
+
+| `.focus`          | … |
+| `.tabFocus`       | … |
+| `.tabFocus-inset` | … |

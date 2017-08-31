@@ -6,14 +6,20 @@ start:
     - debugging
 utilities:
     - index
+    - border
+    - color
+    - cursor
     - fx
+    - gradient
     - grid
-    - interaction
     - interface
     - js_fallback
     - layout
+    - opacity
+    - shadow
+    - sizing
     - spacing
-    - styling
+    - transition
     - typography
     - visibility
 elements:
