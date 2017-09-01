@@ -14,22 +14,22 @@ YOI.element.Icon = (function() {
          */
 
         var $icon = YOI.createCollection('icon', $icon);
-
+        
         if ($icon) $icon.each(function() {
-            
+        
             // cancel if already initialized
-            
+        
             if (YOI.isReady($(this))) return false;
-            
+        
             // proceed
-            
+        
             var $thisIcon = $(this);
             replace($thisIcon);
-            
+        
             // set initialized
-            
+        
             YOI.setReady($(this));
-            
+        
         });
 
     }

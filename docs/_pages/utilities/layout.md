@@ -28,18 +28,25 @@ permalink: utilities/layout
 
 ## Absolute Positioning
 
-| `.pos-t`   | … |
-| `.pos-r`   | … |
-| `.pos-b`   | … |
-| `.pos-l`   | … |
-| `.pos-tl`  | … |
-| `.pos-tr`  | … |
-| `.pos-br`  | … |
-| `.pos-bl`  | … |
-| `.pos-t-c` | … |
-| `.pos-r-c` | … |
-| `.pos-b-c` | … |
-| `.pos-l-c` | … |
+| `.pos-t`  | … |
+| `.pos-r`  | … |
+| `.pos-b`  | … |
+| `.pos-l`  | … |
+| `.pos-tl` | … |
+| `.pos-tr` | … |
+| `.pos-br` | … |
+| `.pos-bl` | … |
+
+## Fixed Positioning
+
+| `.pos-fix-t`  | … |
+| `.pos-fix-r`  | … |
+| `.pos-fix-b`  | … |
+| `.pos-fix-l`  | … |
+| `.pos-fix-tl` | … |
+| `.pos-fix-tr` | … |
+| `.pos-fix-br` | … |
+| `.pos-fix-bl` | … |
 
 ## “Push”-Utilities for Micro Layout Fixes
 
