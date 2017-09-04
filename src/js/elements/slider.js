@@ -5,9 +5,9 @@ YOI.element.Slider = (function() {
     // private vars
     // ============
 
-    var $document          = $(document);
-    var $window            = $(window);
-    var keyboadEventsAdded = false;
+    var $document           = $(document);
+    var $window             = $(window);
+    var keyboardEventsAdded = false;
     
     // localization
     
@@ -310,7 +310,7 @@ YOI.element.Slider = (function() {
         
         // add keyboard events
 
-        if (!keyboadEventsAdded) addKeyboardEvents();
+        if (!keyboardEventsAdded) addKeyboardEvents();
 
     }
 
@@ -544,23 +544,11 @@ YOI.element.Slider = (function() {
          *  Adds keyboard events.
          */
 
-        if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
+        if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
             
             // tab key
             
             YOI.module.KeyboardAgent.addTabFocus($('[yoi-slider]'));
-        
-            // enter key
-        
-            $document.on('yoi-keypressed-enter', function() {
-            
-                var $activeElement = $(document.activeElement);
-            
-                if ($activeElement.is('.accordion__header')) {
-                    toggleSection($activeElement.closest('.accordion__section'));
-                }
-            
-            });
             
             // left arrow key
 
@@ -592,7 +580,7 @@ YOI.element.Slider = (function() {
         
         // set flag
         
-        keyboadEventsAdded = true;
+        keyboardEventsAdded = true;
 
     }
 

@@ -382,6 +382,19 @@ var YOI = {
         return pattern.test(testVal);
         
     },
+    
+    noFocus : function() {
+        
+        /**
+         *  Returns true if the document's active element is the BODY -
+         *  which means that no other element has focus.
+         *
+         *  @return {bool} 
+         */
+        
+        return document.activeElement.tagName === 'BODY';
+        
+    },
 
     // global attributes
 

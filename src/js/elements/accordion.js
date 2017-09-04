@@ -5,7 +5,7 @@ YOI.element.Accordion = (function() {
     // private vars
     // ============
     
-    var keyboadEventsAdded = false;
+    var keyboardEventsAdded = false;
 
     // private functions
     // =================
@@ -216,7 +216,7 @@ YOI.element.Accordion = (function() {
          *  Adds keyboard events.
          */
 
-        if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
+        if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
             
             // tab key
             
@@ -238,7 +238,7 @@ YOI.element.Accordion = (function() {
         
         // set flag
         
-        keyboadEventsAdded = true;
+        keyboardEventsAdded = true;
 
     }
 

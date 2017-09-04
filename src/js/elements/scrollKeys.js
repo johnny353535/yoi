@@ -5,12 +5,12 @@ YOI.element.ScrollKeys = (function() {
     // private vars
     // ============
     
-    var initialized        = false;
-    var keyboadEventsAdded = false;
-    var $window            = $(window);
-    var $body              = $('body');
+    var initialized         = false;
+    var keyboardEventsAdded = false;
+    var $window             = $(window);
+    var $body               = $('body');
+    var currentHook         = -1;
     var totalHooks;
-    var currentHook;
     
     // settings
     
@@ -68,10 +68,9 @@ YOI.element.ScrollKeys = (function() {
             $hooks       = $(options.hooks).length ? $(options.hooks) : $hooks;
             totalHooks   = $hooks.length;
             
-            // set the current hook
+            // detect the current hook
             
-            setCurrentHook();
-            detectCurrentHookAfterScroll();
+            detectCurrentHook();
             
             // add keyboard events
             
@@ -119,14 +118,14 @@ YOI.element.ScrollKeys = (function() {
         if (!$hooks) return false;
         
         // set the current hook
-        
+
         setCurrentHook(direction);
-        
+
         // do the scrolling
         
         $.when(
             $body.stop().animate({
-                scrollTop : $hooks.eq(currentHook - 1).offset().top - offset
+                scrollTop : $hooks.eq(currentHook).offset().top - offset
             }, scrollSpeed)
         ).done(function(){
             $document.trigger('yoi-scrollKeys-' + direction);
@@ -140,20 +139,32 @@ YOI.element.ScrollKeys = (function() {
          *  Adds keyboard events.
          */
         
-        if (YOI.foundModule('KeyboardAgent') && !keyboadEventsAdded) {
-            $document.on('yoi-keypressed-arrowleft', function() {
-                scrollToHook('prev');
-                highlightBtn('prev');
-            });
-            $document.on('yoi-keypressed-arrowright', function() {
-                scrollToHook('next');
-                highlightBtn('next');
-            });
+        if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
+            $document
+                .on('yoi-keypressed-arrowleft', function() {
+                    if (YOI.noFocus()) {
+                        scrollToHook('prev');
+                        highlightBtn('prev');
+                    }
+                })
+                .on('yoi-keypressed-arrowright', function() {
+                    if (YOI.noFocus()) {
+                        scrollToHook('next');
+                        highlightBtn('next');
+                    }
+                })
+                .on('yoi-focus-change', function() {
+                    if (YOI.noFocus()) {
+                        $scrollButtons.stop().fadeIn();
+                    } else {
+                        $scrollButtons.stop().fadeOut();
+                    }
+                });
         }
         
         // set flag
         
-        keyboadEventsAdded = true;
+        keyboardEventsAdded = true;
 
     }
     
@@ -195,62 +206,52 @@ YOI.element.ScrollKeys = (function() {
          */
 
         if (direction === 'prev') {
-            
-            // go to previous hook
-            
             --currentHook;
-            if (currentHook < 1) currentHook = 1;
-            
-        } else if (direction === 'next') {
-            
-            // go to next hook
-            
+            if (currentHook < 0) currentHook = 0;
+        }
+        
+        if (direction === 'next') {
             ++currentHook;
-            if (currentHook > totalHooks) currentHook = totalHooks;
-            
-        } else {
-            
-            // no direction, reset currentHook
-            
-            currentHook = 0;
-            
+            if (currentHook === totalHooks) currentHook = totalHooks - 1;
         }
 
     }
-    
-    function detectCurrentHookAfterScroll() {
-        
+
+    function detectCurrentHook() {
+
         /**
-         *  Detects the current hook after scrolling. While it doubles the purpose of
-         *  setCurrentHook() to some degree, it's a practical solution to detect the
-         *  current hook after the user scrolled the page or when the url contained a hash.
+         *  Detects the current hook on interval. While it doubles the purpose of
+         *  setCurrentHook() to some degree, it's a practical solution to detect
+         *  the current hook after page scrolled or when the url contained a hash.
          */
-        
-        $(window).on('scroll', function() {
-        
-            // cancel if no hooks were found
-        
-            if (!$hooks) return false;
-        
-            // proceed
-        
-            YOI.clearDelay('scrollKeysScrollListenerDelay');
-        
-            YOI.setDelay('scrollKeysScrollListenerDelay', 500, function() {
-                $hooks.each(function(index) {
-                    
-                    // find the first hook which is visible in the viewport
-                    
-                    if ($(this).offset().top > $body.scrollTop()) {
-                        currentHook = index + 1;
-                        return false;
-                    }
-                    
-                });
+
+        // cancel if no hooks were found
+
+        if (!$hooks) return false;
+
+        // proceed
+
+        $window.on('yoi-scroll-stop', function() {
+            
+            // find the first hook which is visible in the viewport
+            // and return it's index
+            
+            $hooks.each(function(index) {
+                if ($(this).offset().top + offset > $body.scrollTop()) {
+                    currentHook = index;
+                    return false;
+                }
             });
-        
+            
+            // if the page is not scrolled past the first hook,
+            // reset currentHook
+            
+            if ($body.scrollTop() < $hooks.eq(0).offset().top - offset) {
+                currentHook = -1;
+            }
+            
         });
-        
+
     }
 
     // public functions

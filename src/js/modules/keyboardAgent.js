@@ -45,6 +45,12 @@ YOI.module.KeyboardAgent = (function() {
             
         });
         
+        // trigger the custom "yoi-focus-change" event
+        
+        $document.on('focusin focusout', function() {
+            $document.trigger('yoi-focus-change');
+        });
+        
         // set "initialized" flag
         
         initialized = true;

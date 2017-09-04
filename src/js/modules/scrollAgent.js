@@ -16,7 +16,6 @@ YOI.module.ScrollAgent = (function() {
     var viewPortHeight = $window.height();
     var lastScrollTop  = 0;
     var offset         = 0;
-    var scrollTop;
     var viewportIn;
     var viewportOut;
     var viewportCenter;
@@ -36,18 +35,27 @@ YOI.module.ScrollAgent = (function() {
         */
         
         var $targetElement = YOI.createCollection('scrollagent', $targetElement, options);
+        
+        // always run broadcastScrollEvents() on scroll
+        
+        $window.on('scroll', function() {
+            broadcastScrollEvents();
+        });
+        
+        // run update() observe() and listen() if
+        // target elements were found
 
         if ($targetElement) {
-            
+
             // initially update target elements
             
             update($targetElement);
 
             // start observer and listener
-            
+
             observe($targetElement);
             listen($targetElement);
-        
+
             // update target elements on load and resize,
             // run the observer on scroll
 
@@ -61,7 +69,7 @@ YOI.module.ScrollAgent = (function() {
                 });
 
         }
-    
+
     }
     
     function update($targetElements) {
@@ -115,9 +123,8 @@ YOI.module.ScrollAgent = (function() {
          */
             
         // get current scroll position & current scroll direction
-        
-        scrollTop       = $window.scrollTop();
-        scrollDirection = scrollTop >= lastScrollTop ? 'down' : 'up';
+
+        var currentScrollTop = $window.scrollTop();
         
         // observe all target elements
 
@@ -132,8 +139,8 @@ YOI.module.ScrollAgent = (function() {
             
             // calculate viewPortIn & viewPortOut
             
-            viewportIn     = (scrollTop + viewPortHeight) > (initialPosY + offset) && scrollTop + offset < (initialPosY + height);
-            viewportCenter = (scrollTop + viewPortHeight / 2) > initialPosY && (scrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
+            viewportIn     = (currentScrollTop + viewPortHeight) > (initialPosY + offset) && currentScrollTop + offset < (initialPosY + height);
+            viewportCenter = (currentScrollTop + viewPortHeight / 2) > initialPosY && (currentScrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
             viewportOut    = !viewportIn;
             
             // trigger custom viewport-events
@@ -142,17 +149,35 @@ YOI.module.ScrollAgent = (function() {
             if (viewportCenter && state !== 'center') $targetElement.trigger('yoi-viewport-center');
             if (viewportOut && state === 'in' || viewportOut && state === 'center') $targetElement.trigger('yoi-viewport-out');
             
-            // trigger scroll direction event
+        });
 
-            if (scrollDirection !== lastScrollDirection) {
-                $targetElement.trigger('yoi-scrolldirection:' + scrollDirection);
-            }
-            
-            // save the last scroll position and the last scroll direction
-            
-            lastScrollTop       = scrollTop > 0 ? scrollTop : 0;
-            lastScrollDirection = scrollDirection;
-            
+    }
+    
+    function broadcastScrollEvents() {
+        
+        /**
+         *  While scrolling, broadcast three custom events:
+         *
+         *  yoi-scrolling-down => page is scrolling down
+         *  yoi-scroll-up      => page is scrolling up
+         *  yoi-scroll-stop    => page stopped scrolling
+         */
+        
+        // scroll direction
+
+        var currentScrollTop = $window.scrollTop();
+        
+        if (currentScrollTop < lastScrollTop) $window.trigger('yoi-scroll-up');
+        if (currentScrollTop > lastScrollTop) $window.trigger('yoi-scroll-down');
+        
+        lastScrollTop = currentScrollTop;
+        
+        // scroll stop
+        
+        YOI.clearDelay('scrollObserverDelay');
+        
+        YOI.setDelay('scrollObserverDelay', 250, function() {
+            $window.trigger('yoi-scroll-stop');
         });
 
     }
@@ -190,7 +215,8 @@ YOI.module.ScrollAgent = (function() {
     // ================
     
     return {
-        init: initialize
+        init      : initialize,
+        boradcast : broadcastScrollEvents
     };
 
 })();

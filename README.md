@@ -27,9 +27,7 @@ During development, you can use the following NPM scripts:
 ### Deploy & Commit
 
 - Once you are ready to publish your changes, run the deploy process: `npm run deploy`
-- Add your changes: `git add *`
-- Commit your changes: `git commit -m "your commit message"`
-- And finally push your changes to the repository on GitHub: `git push`
+- After the deploy process is complete, you can push to the repository
 
 If you wish to learn more about using GIT and GitHub, [this website](http://rogerdudler.github.io/git-guide/) might be a valuable recource for you.
 
