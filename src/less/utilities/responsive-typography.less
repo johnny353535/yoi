@@ -1,169 +1,63 @@
 /** responsive-typography.less */
 
-// small
+// "constructor"
 
-@media @bp-only-s {
-
+.responsive-typography(@prefix) {
+    
     // font-size
 
-    .s--fs-0  { .fs-0; }
-    .s--fs-1 { .fs-1; }
-    .s--fs-2 { .fs-2; }
-    .s--fs-3 { .fs-3; }
-    .s--fs-4 { .fs-4; }
-    .s--fs-5 { .fs-5; }
-    .s--fs-6 { .fs-6; }
-    .s--fs-7 { .fs-7; }
-    .s--fs-8 { .fs-8; }
-    .s--fs-9 { .fs-9; }
+    .@{prefix}--fs-0 { .fs-0; }
+    .@{prefix}--fs-1 { .fs-1; }
+    .@{prefix}--fs-2 { .fs-2; }
+    .@{prefix}--fs-3 { .fs-3; }
+    .@{prefix}--fs-4 { .fs-4; }
+    .@{prefix}--fs-5 { .fs-5; }
+    .@{prefix}--fs-6 { .fs-6; }
+    .@{prefix}--fs-7 { .fs-7; }
+    .@{prefix}--fs-8 { .fs-8; }
+    .@{prefix}--fs-9 { .fs-9; }
 
     // line-height
 
-    .s--lh-0 { .lh-0; }
-    .s--lh-1 { .lh-1; }
-    .s--lh-2 { .lh-2; }
-    .s--lh-3 { .lh-3; }
-    .s--lh-4 { .lh-4; }
-    .s--lh-5 { .lh-5; }
-    .s--lh-6 { .lh-6; }
-    .s--lh-7 { .lh-7; }
-    .s--lh-8 { .lh-8; }
-    .s--lh-9 { .lh-9; }
+    .@{prefix}--lh-0 { .lh-0; }
+    .@{prefix}--lh-1 { .lh-1; }
+    .@{prefix}--lh-2 { .lh-2; }
+    .@{prefix}--lh-3 { .lh-3; }
+    .@{prefix}--lh-4 { .lh-4; }
+    .@{prefix}--lh-5 { .lh-5; }
+    .@{prefix}--lh-6 { .lh-6; }
+    .@{prefix}--lh-7 { .lh-7; }
+    .@{prefix}--lh-8 { .lh-8; }
+    .@{prefix}--lh-9 { .lh-9; }
 
     // text alignment
 
-    .s--al-r { .al-r; }
-    .s--al-l { .al-l; }
-    .s--al-c { .al-c; }
+    .@{prefix}--al-r { .al-r; }
+    .@{prefix}--al-l { .al-l; }
+    .@{prefix}--al-c { .al-c; }
 
     // line-break
 
-    .s--lbr-none { .lbr-none; }
+    .@{prefix}--lbr-none { .lbr-none; }
 
 }
+
+// small
+
+@media @bp-s { .responsive-typography(s); }
+@media @bp-only-s { .responsive-typography(only-s); }
 
 // medium
 
-@media @bp-only-m {
-
-    // font-size
-
-    .m--fs-0  { .fs-0; }
-    .m--fs-1 { .fs-1; }
-    .m--fs-2 { .fs-2; }
-    .m--fs-3 { .fs-3; }
-    .m--fs-4 { .fs-4; }
-    .m--fs-5 { .fs-5; }
-    .m--fs-6 { .fs-6; }
-    .m--fs-7 { .fs-7; }
-    .m--fs-8 { .fs-8; }
-    .m--fs-9 { .fs-9; }
-
-    // line-height
-
-    .m--lh-0 { .lh-0; }
-    .m--lh-1 { .lh-1; }
-    .m--lh-2 { .lh-2; }
-    .m--lh-3 { .lh-3; }
-    .m--lh-4 { .lh-4; }
-    .m--lh-5 { .lh-5; }
-    .m--lh-6 { .lh-6; }
-    .m--lh-7 { .lh-7; }
-    .m--lh-8 { .lh-8; }
-    .m--lh-9 { .lh-9; }
-
-    // text alignment
-
-    .m--al-r { .al-r; }
-    .m--al-l { .al-l; }
-    .m--al-c { .al-c; }
-
-    // line-break
-
-    .m--lbr-none { .lbr-none; }
-
-}
+@media @bp-m { .responsive-typography(m); }
+@media @bp-only-m { .responsive-typography(only-m); }
 
 // large
 
-@media @bp-only-l {
-
-    // font-size
-
-    .l--fs-0  { .fs-0; }
-    .l--fs-1 { .fs-1; }
-    .l--fs-2 { .fs-2; }
-    .l--fs-3 { .fs-3; }
-    .l--fs-4 { .fs-4; }
-    .l--fs-5 { .fs-5; }
-    .l--fs-6 { .fs-6; }
-    .l--fs-7 { .fs-7; }
-    .l--fs-8 { .fs-8; }
-    .l--fs-9 { .fs-9; }
-
-    // line-height
-
-    .l--lh-0 { .lh-0; }
-    .l--lh-1 { .lh-1; }
-    .l--lh-2 { .lh-2; }
-    .l--lh-3 { .lh-3; }
-    .l--lh-4 { .lh-4; }
-    .l--lh-5 { .lh-5; }
-    .l--lh-6 { .lh-6; }
-    .l--lh-7 { .lh-7; }
-    .l--lh-8 { .lh-8; }
-    .l--lh-9 { .lh-9; }
-
-    // text alignment
-
-    .l--al-r { .al-r; }
-    .l--al-l { .al-l; }
-    .l--al-c { .al-c; }
-
-    // line-break
-
-    .l--lbr-none { .lbr-none; }
-
-}
+@media @bp-l { .responsive-typography(l); }
+@media @bp-only-l { .responsive-typography(only-l); }
 
 // x-large
 
-@media @bp-only-xl {
-
-    // font-size
-
-    .xl--fs-0  { .fs-0; }
-    .xl--fs-1 { .fs-1; }
-    .xl--fs-2 { .fs-2; }
-    .xl--fs-3 { .fs-3; }
-    .xl--fs-4 { .fs-4; }
-    .xl--fs-5 { .fs-5; }
-    .xl--fs-6 { .fs-6; }
-    .xl--fs-7 { .fs-7; }
-    .xl--fs-8 { .fs-8; }
-    .xl--fs-9 { .fs-9; }
-
-    // line-height
-
-    .xl--lh-0 { .lh-0; }
-    .xl--lh-1 { .lh-1; }
-    .xl--lh-2 { .lh-2; }
-    .xl--lh-3 { .lh-3; }
-    .xl--lh-4 { .lh-4; }
-    .xl--lh-5 { .lh-5; }
-    .xl--lh-6 { .lh-6; }
-    .xl--lh-7 { .lh-7; }
-    .xl--lh-8 { .lh-8; }
-    .xl--lh-9 { .lh-9; }
-
-    // text alignment
-
-    .xl--al-r { .al-r; }
-    .xl--al-l { .al-l; }
-    .xl--al-c { .al-c; }
-
-    // line-break
-
-    .xl--lbr-none { .lbr-none; }
-
-}
+@media @bp-xl { .responsive-typography(xl); }
+@media @bp-only-xl { .responsive-typography(only-xl); }

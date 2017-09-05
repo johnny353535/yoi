@@ -56,7 +56,7 @@ Make sure you write the parameters correctly, otherwise the action just does not
 * An action may have _many parameters_.
 * An action must have _at least one parameter_.
 * Paramaters must be _formatted correctly_. They are written as key/value pairs. Keys are seperated from values with a colon. Each key/value pair must end with a semicolon: `key:value;`.
-* If values include special characters – for example URLS with slashes, colons etc. – wrap them in _single quotation marks_: `key:'some//value:with_special?charactes'`.
+* If at least one value includes special characters – for example URLS with slashes, colons etc. – wrap **all values** in _single quotation marks_: `foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'`. 
 * Values can _not include single nor double quotation marks_.
 * The _order of the parameters matters_, the first parameter must alyways be: `ActionName:targetSelector;` or `ActionName`.
 + All following parameters are optional and can follow in any order you prefer.

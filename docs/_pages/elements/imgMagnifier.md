@@ -58,7 +58,7 @@ I you wish to create an `.imgMagnifier` without the link, you need to provide th
 </div>
 ```
 
-<p class="hint hint--negative"><b>Use single quotation marks for complex values</b>: Whenever you set a value with special characters (eg. a full web address), you must wrap it in single quotation marks (eg. 'http://foo.com').</p>
+<p class="hint hint--negative"><b>Use single quotation marks</b>: Whenever you set a value with special characters (eg. a full web address), you must use single quotation marks for all values (eg. bar:'http://foo.com'; abc:'xyz';).</p>
 
 #### Delay
 

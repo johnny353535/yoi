@@ -49,8 +49,8 @@ We created a handy little online tool to generate our YOI-icons for you on the f
 </div>
 
 | **id** | Always required! The prefix “icon-” + a numeric id + the optional postfix “-s” for the small version. |
-| f      | Optional fill color, written as hex-value (eg. #aa3344 or shorthand #a34)                             |
-| s      | Optional stroke color, written as hex-value (eg. #aa3344 or shorthand #a34)                           |
+| f      | Optional fill color, written as hex-value (eg. aa3344 or shorthand a34)                               |
+| s      | Optional stroke color, written as hex-value (eg. aa3344 or shorthand a34)                             |
 | w      | Optional width in pixels. Numeric value without unit (eg. 128).                                       |
 | h      | Optional height in pixels. Numeric value without unit (eg. 128).                                      |
 

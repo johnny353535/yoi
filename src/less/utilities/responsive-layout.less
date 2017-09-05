@@ -1,40 +1,40 @@
 /** responsive-layout.less */
 
-// small
+// "contructor"
 
-@media @bp-only-s {
-
+.responsive-layout(@prefix) {
+    
     // display
 
-    .small-d-inl    { display: inline !important; }
-    .small-d-blk    { display: block !important; }
-    .small-d-inlblk { display: inline-block !important; }
+    .@{prefix}--d-inl    { display: inline !important; }
+    .@{prefix}--d-blk    { display: block !important; }
+    .@{prefix}--d-inlblk { display: inline-block !important; }
 
     // position type
 
-    .small-pos-abs  { position: absolute !important; }
-    .small-pos-rel  { position: relative !important; }
-    .small-pos-fix  { position: fixed !important; }
-    .small-pos-stc  { position: static !important; }
+    .@{prefix}--pos-abs  { position: absolute !important; }
+    .@{prefix}--pos-rel  { position: relative !important; }
+    .@{prefix}--pos-fix  { position: fixed !important; }
+    .@{prefix}--pos-stc  { position: static !important; }
 
     // absolute positioning
 
-    .small-pos-t    { position: absolute !important; top: 0 !important; }
-    .small-pos-r    { position: absolute !important; right: 0 !important; }
-    .small-pos-b    { position: absolute !important; bottom: 0 !important; }
-    .small-pos-l    { position: absolute !important; left: 0 !important; }
-    .small-pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .small-pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .small-pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .small-pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
-    .small-pos-t-c  { position: absolute !important; top: 50% !important; }
-    .small-pos-r-c  { position: absolute !important; right: 50% !important; }
-    .small-pos-b-c  { position: absolute !important; bottom: 50% !important; }
-    .small-pos-l-c  { position: absolute !important; left: 50% !important; }
+    .@{prefix}--pos-t    { position: absolute !important; top: 0 !important; }
+    .@{prefix}--pos-r    { position: absolute !important; right: 0 !important; }
+    .@{prefix}--pos-b    { position: absolute !important; bottom: 0 !important; }
+    .@{prefix}--pos-l    { position: absolute !important; left: 0 !important; }
+    .@{prefix}--pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
+    .@{prefix}--pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
+    .@{prefix}--pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
+    .@{prefix}--pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
+    .@{prefix}--pos-t-c  { position: absolute !important; top: 50% !important; }
+    .@{prefix}--pos-r-c  { position: absolute !important; right: 50% !important; }
+    .@{prefix}--pos-b-c  { position: absolute !important; bottom: 50% !important; }
+    .@{prefix}--pos-l-c  { position: absolute !important; left: 50% !important; }
 
     // horizontal centering
 
-    .small-center {
+    .@{prefix}--center {
         .mixin-clearfix;
         box-sizing: border-box;
         margin: 0 auto;
@@ -45,9 +45,9 @@
 
     // css columns
 
-    .small-cls-2,
-    .small-cls-3,
-    .small-cls-4 {
+    .@{prefix}--cls-2,
+    .@{prefix}--cls-3,
+    .@{prefix}--cls-4 {
 
         & > :first-child {
             margin-top: 0;
@@ -55,7 +55,7 @@
 
     }
 
-    .small-cls-2 {
+    .@{prefix}--cls-2 {
         column-count: 2;
         column-gap: 2rem;
         column-rule-color: none;
@@ -64,7 +64,7 @@
         column-width: 50%;
     }
 
-    .small-cls-3 {
+    .@{prefix}--cls-3 {
         column-count: 3;
         column-gap: 2rem;
         column-rule-color: none;
@@ -73,7 +73,7 @@
         column-width: 33.33%;
     }
 
-    .small-cls-4 {
+    .@{prefix}--cls-4 {
         column-count: 4;
         column-gap: 2rem;
         column-rule-color: none;
@@ -84,398 +84,58 @@
 
     // vertical alignment
 
-    .small-val-m { vertical-align: middle !important; }
-    .small-val-t { vertical-align: top !important; }
-    .small-val-b { vertical-align: bottom !important; }
+    .@{prefix}--val-m { vertical-align: middle !important; }
+    .@{prefix}--val-t { vertical-align: top !important; }
+    .@{prefix}--val-b { vertical-align: bottom !important; }
 
     // float & clear
 
-    .small-fl-r { float: right !important; }
-    .small-fl-l { float: left !important; }
+    .@{prefix}--fl-r { float: right !important; }
+    .@{prefix}--fl-l { float: left !important; }
 
-    .small-cl-r { clear: right !important; }
-    .small-cl-l { clear: left !important; }
-    .small-cl-b { clear: both !important; }
+    .@{prefix}--cl-r { clear: right !important; }
+    .@{prefix}--cl-l { clear: left !important; }
+    .@{prefix}--cl-b { clear: both !important; }
 
-    .small-clearfix { .mixin-clearfix; }
+    .@{prefix}--clearfix { .mixin-clearfix; }
 
     // overflow
 
-    .small-ovrfl-x-hide { overflow-x: hidden !important; }
-    .small-ovrfl-y-hide { overflow-y: hidden !important; }
-    .small-ovrfl-hidden   { overflow: hidden !important; }
+    .@{prefix}--ovrfl-x-hide { overflow-x: hidden !important; }
+    .@{prefix}--ovrfl-y-hide { overflow-y: hidden !important; }
+    .@{prefix}--ovrfl-hidden   { overflow: hidden !important; }
 
     // z-index
 
-    .small-z-1  { z-index: 100; }
-    .small-z-2  { z-index: 200; }
-    .small-z-3  { z-index: 300; }
-    .small-z-4  { z-index: 400; }
-    .small-z-5  { z-index: 500; }
-    .small-z-6  { z-index: 600; }
-    .small-z-7  { z-index: 700; }
-    .small-z-8  { z-index: 800; }
-    .small-z-9  { z-index: 900; }
-    .small-z-10 { z-index: 1000; }
-
+    .@{prefix}--z-1  { z-index: 100; }
+    .@{prefix}--z-2  { z-index: 200; }
+    .@{prefix}--z-3  { z-index: 300; }
+    .@{prefix}--z-4  { z-index: 400; }
+    .@{prefix}--z-5  { z-index: 500; }
+    .@{prefix}--z-6  { z-index: 600; }
+    .@{prefix}--z-7  { z-index: 700; }
+    .@{prefix}--z-8  { z-index: 800; }
+    .@{prefix}--z-9  { z-index: 900; }
+    .@{prefix}--z-10 { z-index: 1000; }
+    
 }
+
+// small
+
+@media @bp-s { .responsive-layout(s) }
+@media @bp-only-s { .responsive-layout(only-s) }
 
 // medium
 
-@media @bp-only-m {
-
-    // display
-
-    .medium-d-inl    { display: inline !important; }
-    .medium-d-blk    { display: block !important; }
-    .medium-d-inlblk { display: inline-block !important; }
-
-    // position type
-
-    .medium-pos-abs  { position: absolute !important; }
-    .medium-pos-rel  { position: relative !important; }
-    .medium-pos-fix  { position: fixed !important; }
-    .medium-pos-stc  { position: static !important; }
-
-    // absolute positioning
-
-    .medium-pos-t    { position: absolute !important; top: 0 !important; }
-    .medium-pos-r    { position: absolute !important; right: 0 !important; }
-    .medium-pos-b    { position: absolute !important; bottom: 0 !important; }
-    .medium-pos-l    { position: absolute !important; left: 0 !important; }
-    .medium-pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .medium-pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .medium-pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .medium-pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
-    .medium-pos-t-c  { position: absolute !important; top: 50% !important; }
-    .medium-pos-r-c  { position: absolute !important; right: 50% !important; }
-    .medium-pos-b-c  { position: absolute !important; bottom: 50% !important; }
-    .medium-pos-l-c  { position: absolute !important; left: 50% !important; }
-
-    // horizontal centering
-
-    .medium-center {
-        .mixin-clearfix;
-        box-sizing: border-box;
-        margin: 0 auto;
-        position: relative;
-        text-align: left;
-        width: @globalWidth;
-    }
-
-    // css columns
-
-    .medium-cls-2,
-    .medium-cls-3,
-    .medium-cls-4 {
-
-        & > :first-child {
-            margin-top: 0;
-        }
-
-    }
-
-    .medium-cls-2 {
-        column-count: 2;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 50%;
-    }
-
-    .medium-cls-3 {
-        column-count: 3;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 33.33%;
-    }
-
-    .medium-cls-4 {
-        column-count: 4;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 25%;
-    }
-
-    // vertical alignment
-
-    .medium-val-m { vertical-align: middle !important; }
-    .medium-val-t { vertical-align: top !important; }
-    .medium-val-b { vertical-align: bottom !important; }
-
-    // float & clear
-
-    .medium-fl-r { float: right !important; }
-    .medium-fl-l { float: left !important; }
-
-    .medium-cl-r { clear: right !important; }
-    .medium-cl-l { clear: left !important; }
-    .medium-cl-b { clear: both !important; }
-
-    .medium-clearfix { .mixin-clearfix; }
-
-    // overflow
-
-    .medium-ovrfl-x-hide { overflow-x: hidden !important; }
-    .medium-ovrfl-y-hide { overflow-y: hidden !important; }
-    .medium-ovrfl-hidden   { overflow: hidden !important; }
-
-    // z-index
-
-    .medium-z-1  { z-index: 100; }
-    .medium-z-2  { z-index: 200; }
-    .medium-z-3  { z-index: 300; }
-    .medium-z-4  { z-index: 400; }
-    .medium-z-5  { z-index: 500; }
-    .medium-z-6  { z-index: 600; }
-    .medium-z-7  { z-index: 700; }
-    .medium-z-8  { z-index: 800; }
-    .medium-z-9  { z-index: 900; }
-    .medium-z-10 { z-index: 1000; }
-
-}
+@media @bp-m { .responsive-layout(m) }
+@media @bp-only-m { .responsive-layout(only-m) }
 
 // large
 
-@media @bp-only-l {
-
-    // display
-
-    .large-d-inl    { display: inline !important; }
-    .large-d-blk    { display: block !important; }
-    .large-d-inlblk { display: inline-block !important; }
-
-    // position type
-
-    .large-pos-abs  { position: absolute !important; }
-    .large-pos-rel  { position: relative !important; }
-    .large-pos-fix  { position: fixed !important; }
-    .large-pos-stc  { position: static !important; }
-
-    // absolute positioning
-
-    .large-pos-t    { position: absolute !important; top: 0 !important; }
-    .large-pos-r    { position: absolute !important; right: 0 !important; }
-    .large-pos-b    { position: absolute !important; bottom: 0 !important; }
-    .large-pos-l    { position: absolute !important; left: 0 !important; }
-    .large-pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .large-pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .large-pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .large-pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
-    .large-pos-t-c  { position: absolute !important; top: 50% !important; }
-    .large-pos-r-c  { position: absolute !important; right: 50% !important; }
-    .large-pos-b-c  { position: absolute !important; bottom: 50% !important; }
-    .large-pos-l-c  { position: absolute !important; left: 50% !important; }
-
-    // horizontal centering
-
-    .large-center {
-        .mixin-clearfix;
-        box-sizing: border-box;
-        margin: 0 auto;
-        position: relative;
-        text-align: left;
-        width: @globalWidth;
-    }
-
-    // css columns
-
-    .large-cls-2,
-    .large-cls-3,
-    .large-cls-4 {
-
-        & > :first-child {
-            margin-top: 0;
-        }
-
-    }
-
-    .large-cls-2 {
-        column-count: 2;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 50%;
-    }
-
-    .large-cls-3 {
-        column-count: 3;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 33.33%;
-    }
-
-    .large-cls-4 {
-        column-count: 4;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 25%;
-    }
-
-    // vertical alignment
-
-    .large-val-m { vertical-align: middle !important; }
-    .large-val-t { vertical-align: top !important; }
-    .large-val-b { vertical-align: bottom !important; }
-
-    // float & clear
-
-    .large-fl-r { float: right !important; }
-    .large-fl-l { float: left !important; }
-
-    .large-cl-r { clear: right !important; }
-    .large-cl-l { clear: left !important; }
-    .large-cl-b { clear: both !important; }
-
-    .large-clearfix { .mixin-clearfix; }
-
-    // overflow
-
-    .large-ovrfl-x-hide { overflow-x: hidden !important; }
-    .large-ovrfl-y-hide { overflow-y: hidden !important; }
-    .large-ovrfl-hidden   { overflow: hidden !important; }
-
-    // z-index
-
-    .large-z-1  { z-index: 100; }
-    .large-z-2  { z-index: 200; }
-    .large-z-3  { z-index: 300; }
-    .large-z-4  { z-index: 400; }
-    .large-z-5  { z-index: 500; }
-    .large-z-6  { z-index: 600; }
-    .large-z-7  { z-index: 700; }
-    .large-z-8  { z-index: 800; }
-    .large-z-9  { z-index: 900; }
-    .large-z-10 { z-index: 1000; }
-
-}
+@media @bp-l { .responsive-layout(l) }
+@media @bp-only-l { .responsive-layout(only-l) }
 
 // x-large
 
-@media @bp-only-xl {
-
-    // display
-
-    .xlarge-d-inl    { display: inline !important; }
-    .xlarge-d-blk    { display: block !important; }
-    .xlarge-d-inlblk { display: inline-block !important; }
-
-    // position type
-
-    .xlarge-pos-abs  { position: absolute !important; }
-    .xlarge-pos-rel  { position: relative !important; }
-    .xlarge-pos-fix  { position: fixed !important; }
-    .xlarge-pos-stc  { position: static !important; }
-
-    // absolute positioning
-
-    .xlarge-pos-t    { position: absolute !important; top: 0 !important; }
-    .xlarge-pos-r    { position: absolute !important; right: 0 !important; }
-    .xlarge-pos-b    { position: absolute !important; bottom: 0 !important; }
-    .xlarge-pos-l    { position: absolute !important; left: 0 !important; }
-    .xlarge-pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .xlarge-pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .xlarge-pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .xlarge-pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
-    .xlarge-pos-t-c  { position: absolute !important; top: 50% !important; }
-    .xlarge-pos-r-c  { position: absolute !important; right: 50% !important; }
-    .xlarge-pos-b-c  { position: absolute !important; bottom: 50% !important; }
-    .xlarge-pos-l-c  { position: absolute !important; left: 50% !important; }
-
-    // horizontal centering
-
-    .xlarge-center {
-        .mixin-clearfix;
-        box-sizing: border-box;
-        margin: 0 auto;
-        position: relative;
-        text-align: left;
-        width: @globalWidth;
-    }
-
-    // css columns
-
-    .xlarge-cls-2,
-    .xlarge-cls-3,
-    .xlarge-cls-4 {
-
-        & > :first-child {
-            margin-top: 0;
-        }
-
-    }
-
-    .xlarge-cls-2 {
-        column-count: 2;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 50%;
-    }
-
-    .xlarge-cls-3 {
-        column-count: 3;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 33.33%;
-    }
-
-    .xlarge-cls-4 {
-        column-count: 4;
-        column-gap: 2rem;
-        column-rule-color: none;
-        column-rule-style: none;
-        column-rule-width: 0;
-        column-width: 25%;
-    }
-
-    // vertical alignment
-
-    .xlarge-val-m { vertical-align: middle !important; }
-    .xlarge-val-t { vertical-align: top !important; }
-    .xlarge-val-b { vertical-align: bottom !important; }
-
-    // float & clear
-
-    .xlarge-fl-r { float: right !important; }
-    .xlarge-fl-l { float: left !important; }
-
-    .xlarge-cl-r { clear: right !important; }
-    .xlarge-cl-l { clear: left !important; }
-    .xlarge-cl-b { clear: both !important; }
-
-    .xlarge-clearfix { .mixin-clearfix; }
-
-    // overflow
-
-    .xlarge-ovrfl-x-hide { overflow-x: hidden !important; }
-    .xlarge-ovrfl-y-hide { overflow-y: hidden !important; }
-    .xlarge-ovrfl-hidden   { overflow: hidden !important; }
-
-    // z-index
-
-    .xlarge-z-1  { z-index: 100; }
-    .xlarge-z-2  { z-index: 200; }
-    .xlarge-z-3  { z-index: 300; }
-    .xlarge-z-4  { z-index: 400; }
-    .xlarge-z-5  { z-index: 500; }
-    .xlarge-z-6  { z-index: 600; }
-    .xlarge-z-7  { z-index: 700; }
-    .xlarge-z-8  { z-index: 800; }
-    .xlarge-z-9  { z-index: 900; }
-    .xlarge-z-10 { z-index: 1000; }
-
-}
+@media @bp-xl { .responsive-layout(xl) }
+@media @bp-only-xl { .responsive-layout(only-xl) }

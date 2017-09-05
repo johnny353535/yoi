@@ -238,7 +238,7 @@ var YOI = {
                 // create key/value pairs
 
                 keyValuePair = input[i].split(valueStartMarker);
-                
+
                 if (keyValuePair.length === 1) {
 
                     // If there is only a single string instead of a key/value pair,
@@ -251,7 +251,7 @@ var YOI = {
                     // If there is a proper key/value pair, add it to the properObject.
 
                     properObject[keyValuePair[0].trim()] = keyValuePair[1].trim();
-
+                    
                 }
 
             }

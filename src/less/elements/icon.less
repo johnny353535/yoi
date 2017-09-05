@@ -14,10 +14,6 @@
         height: 3.2rem;
     }
 
-    circle, ellipse, path, polygon {
-        fill: @textColor;
-    }
-
 }
 
 // modifiers
@@ -100,10 +96,10 @@
 
 // mixin: SVG icons as background image
 
-.mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '#000'; @strokeColor: '#000') {
-    @relativeWidth      : @width / 10 * @rootFontSize;
-    @relativeHeight     : @height / 10 * @rootFontSize;
-    @escapedFillColor   : escape(@fillColor);
-    @escapedStrokeColor : escape(@strokeColor);
-    background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{escapedFillColor}&s=@{escapedStrokeColor}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
+.mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '000'; @strokeColor: '000') {
+    @relativeWidth  : @width / 10 * @rootFontSize;
+    @relativeHeight : @height / 10 * @rootFontSize;
+    @fillColorHex   : replace(@fillColor, '#', '');
+    @strokeColorHex : replace(@strokeColor, '#', '');
+    background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{fillColorHex}&s=@{strokeColorHex}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
 }
