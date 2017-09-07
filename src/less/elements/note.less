@@ -188,26 +188,3 @@
 .note[yoi-dismissable] {
     padding-right: 4rem;
 }
-
-// full-width notes
-
-/*
-    In order to correctly attach icons to full-width notes, we need an additional
-    css-class to mark them. Because the icons should not be attached to the note itself
-    but to it's .center element inside.
-*/
-
-.note.note--fullwidth {
-
-    padding: 1rem;
-
-    .center {
-        min-width: @globalWidth - 20;
-        max-width: @globalMaxWidth - 20;
-    }
-
-    &[class*="note--icon"] .center {
-        padding-left: 5.5rem;
-    }
-
-}

@@ -38,7 +38,6 @@
 // "push" utilities for micro layout fixes
 
 .generate_push (@i) when (@i > 0) {
-
     .generate_push((@i - 1));
 
     .push-t-@{i} { top: 1px * @i !important; }
@@ -55,9 +54,9 @@
     .mixin-clearfix;
     box-sizing: border-box;
     margin: 0 auto;
+    padding: 0 2rem;
     position: relative;
     text-align: left;
-    width: @globalWidth;
 }
 
 // css columns
@@ -65,11 +64,9 @@
 .cls-2,
 .cls-3,
 .cls-4 {
-
     & > :first-child {
         margin-top: 0;
     }
-
 }
 
 .cls-2 {

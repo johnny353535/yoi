@@ -4,6 +4,10 @@ title: Responsive Demo
 permalink: demos/responsive
 ---
 
+<h1 class="p-4">Responsive Design Test Page</h1>
+
+<h2 class="p-4">Grid / Layout</h2>
+
 <div class="p-4">
     <div class="grid-float">
         <div class="p-2 h-20 s--w-1-1 m--w-1-2 bg-yellow-22">1-1 on small; 1-2 from medium up;</div>
@@ -14,6 +18,8 @@ permalink: demos/responsive
         <div class="p-2 h-20 w-1-2 bg-red-22">always 1-2;</div>
     </div>
 </div>
+
+<h2 class="p-4">Visibility</h2>
 
 <div class="p-4">
     <table>

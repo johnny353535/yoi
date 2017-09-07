@@ -31,28 +31,39 @@
     .@{prefix}--pos-r-c  { position: absolute !important; right: 50% !important; }
     .@{prefix}--pos-b-c  { position: absolute !important; bottom: 50% !important; }
     .@{prefix}--pos-l-c  { position: absolute !important; left: 50% !important; }
+    
+    // fixed positioning
 
-    // horizontal centering
+    .@{prefix}--fix-t  { position: fixed !important; top: 0 !important; }
+    .@{prefix}--fix-r  { position: fixed !important; right: 0 !important; }
+    .@{prefix}--fix-b  { position: fixed !important; bottom: 0 !important; }
+    .@{prefix}--fix-l  { position: fixed !important; left: 0 !important; }
+    .@{prefix}--fix-tl { position: fixed !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
+    .@{prefix}--fix-tr { position: fixed !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
+    .@{prefix}--fix-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
+    .@{prefix}--fix-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
 
-    .@{prefix}--center {
-        .mixin-clearfix;
-        box-sizing: border-box;
-        margin: 0 auto;
-        position: relative;
-        text-align: left;
-        width: @globalWidth;
+    // "push" utilities for micro layout fixes
+
+    .generate_push (@i) when (@i > 0) {
+        .generate_push((@i - 1));
+
+        .@{prefix}--push-t-@{i} { top: 1px * @i !important; }
+        .@{prefix}--push-r-@{i} { right: 1px * @i !important; }
+        .@{prefix}--push-b-@{i} { bottom: 1px * @i !important; }
+        .@{prefix}--push-l-@{i} { left: 1px * @i !important; }
+
     }
-
+    .generate_push(10);
+    
     // css columns
 
     .@{prefix}--cls-2,
     .@{prefix}--cls-3,
     .@{prefix}--cls-4 {
-
         & > :first-child {
             margin-top: 0;
         }
-
     }
 
     .@{prefix}--cls-2 {
@@ -135,7 +146,13 @@
 @media @bp-l { .responsive-layout(l) }
 @media @bp-only-l { .responsive-layout(only-l) }
 
+@media @bp-l {
+    .center {
+        padding: 0;
+        width: 96rem;
+    }
+}
+
 // x-large
 
 @media @bp-xl { .responsive-layout(xl) }
-@media @bp-only-xl { .responsive-layout(only-xl) }

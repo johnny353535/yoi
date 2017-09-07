@@ -1,5 +1,15 @@
 /** breakpoints.less */
 
+// constants
+
+@bp-m-minwidth  : 65rem;
+@bp-l-minwidth  : 96rem;
+@bp-xl-minwidth : 122rem;
+
+@bp-s-maxwidth  : (@bp-m-minwidth - 0.01);
+@bp-m-maxwidth  : (@bp-l-minwidth - 0.01);
+@bp-l-maxwidth  : (@bp-xl-minwidth - 0.01);
+
 // "fluid" breakpoints
 
 /*
@@ -9,9 +19,9 @@
 */
 
 @bp-s  : ~"only screen and (min-width: 0rem)";
-@bp-m  : ~"only screen and (min-width: 65rem)";
-@bp-l  : ~"only screen and (min-width: 96rem)";
-@bp-xl : ~"only screen and (min-width: 122rem)";
+@bp-m  : ~"only screen and (min-width: @{bp-m-minwidth})";
+@bp-l  : ~"only screen and (min-width: @{bp-l-minwidth})";
+@bp-xl : ~"only screen and (min-width: @{bp-xl-minwidth})";
 
 // "strict" breakpoints
 
@@ -20,7 +30,6 @@
     Example: .only-m--* is active only on screens within the width range of breakpoint "m".
 */
 
-@bp-only-s  : ~"only screen and (min-width: 0rem) and (max-width: 64.99rem)";
-@bp-only-m  : ~"only screen and (min-width: 65rem) and (max-width: 95.99rem)";
-@bp-only-l  : ~"only screen and (min-width: 96rem) and (max-width: 121.99rem)";
-@bp-only-xl : ~"only screen and (min-width: 122rem)";
+@bp-only-s  : ~"only screen and (min-width: 0rem) and (max-width: @{bp-s-maxwidth})";
+@bp-only-m  : ~"only screen and (min-width: @{bp-m-minwidth}) and (max-width: @{bp-m-maxwidth})";
+@bp-only-l  : ~"only screen and (min-width: @{bp-l-minwidth}) and (max-width: @{bp-l-maxwidth})";
