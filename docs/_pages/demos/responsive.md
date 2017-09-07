@@ -9,11 +9,11 @@ permalink: demos/responsive
 <h2 class="p-4">Grid / Layout</h2>
 
 <div class="p-4">
-    <div class="grid-float">
-        <div class="p-2 h-20 s--w-1-1 m--w-1-2 bg-yellow-22">1-1 on small; 1-2 from medium up;</div>
-        <div class="p-2 h-20 s--w-1-1 m--w-1-2 bg-red-22">1-1 on small; 1-2 from medium up;</div>
+    <div class="flexGrid">
+        <div class="p-2 h-20 w-1-1 m--w-1-2 bg-yellow-22">1-1 on small; 1-2 from medium up;</div>
+        <div class="p-2 h-20 w-1-1 m--w-1-2 bg-red-22">1-1 on small; 1-2 from medium up;</div>
     </div>
-    <div class="grid-float">
+    <div class="flexGrid">
         <div class="p-2 h-20 w-1-2 bg-yellow-22">always 1-2;</div>
         <div class="p-2 h-20 w-1-2 bg-red-22">always 1-2;</div>
     </div>

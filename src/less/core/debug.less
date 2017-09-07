@@ -3,7 +3,7 @@
 // debug options
 // =============
 
-@debugMediaquery   : true;
+@debugMediaquery   : false;
 @debugGrid         : false;
 @debugBemElements  : false;
 @debugBemModifiers : false;
@@ -15,8 +15,8 @@
 // ====
 
 [class*="w-"] when (@debugGrid = true) {
-    outline: @red-20 1px solid;
-    outline-style: inset;
+    outline: @red-20 1px solid !important;
+    outline-style: inset !important;
 }
 
 // floats
@@ -36,35 +36,35 @@
 
 [class*="__"] when (@debugBemElements = true) {
     outline: @green-15 1px dashed !important;
-    outline-style: inset;
+    outline-style: inset !important;
 }
 
 [class*="--"] when (@debugBemModifiers = true) {
     outline: @yellow-15 1px dashed !important;
-    outline-style: inset;
+    outline-style: inset !important;
 }
 
 // images
 // ======
 
 img:not([alt]) when (@debugImages = true) {
-    outline: 2px @red-15 solid;
-    outline-style: inset;
+    outline: 2px @red-15 solid !important;
+    outline-style: inset !important;
 }
 
 img[alt=""] when (@debugImages = true) {
-    outline: 2px @red-15 solid;
-    outline-style: inset;
+    outline: 2px @red-15 solid !important;
+    outline-style: inset !important;
 }
 
 img:not([title]) when (@debugImages = true) {
-    outline: 2px @red-15 solid;
-    outline-style: inset;
+    outline: 2px @red-15 solid !important;
+    outline-style: inset !important;
 }
 
 img[title=""] when (@debugImages = true) {
-    outline: 2px @red-15 solid;
-    outline-style: inset;
+    outline: 2px @red-15 solid !important;
+    outline-style: inset !important;
 }
 
 // placeholder containers
