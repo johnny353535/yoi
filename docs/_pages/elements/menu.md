@@ -196,29 +196,29 @@ The following example combines the `.menu` with the [toggleGroup interface](/pag
 
 ```html
 <!-- example:tabs -->
-<div class="box grid-float">
+<div class="box flexGrid">
     <div class="w-1-3">
         <ul class="menu menu--pointRight br-0 b-0 b-r">
             <li class="menu__item">
-                <a class="menu__link" yoi-toggle="target:#view-1; group:toggleMenu; activeClassName:is--active;">Blutzuckermessung</a>
+                <a class="menu__link" yoi-toggle="target:#view-1; group:toggleMenu; activeClassName:is--active;">Lorem</a>
             </li>
             <li class="menu__item">
-                <a class="menu__link" yoi-toggle="target:#view-2; group:toggleMenu; activeClassName:is--active;">Diabetikerbedarf</a>
+                <a class="menu__link" yoi-toggle="target:#view-2; group:toggleMenu; activeClassName:is--active;">Ipsum</a>
             </li>
             <li class="menu__item">
-                <a class="menu__link" yoi-toggle="target:#view-3; group:toggleMenu; activeClassName:is--active;">Insulininjektion</a>
+                <a class="menu__link" yoi-toggle="target:#view-3; group:toggleMenu; activeClassName:is--active;">Dolor</a>
             </li>
         </ul>
     </div>
-    <div class="w-2-3 p-6">
+    <div class="w-2-3 p-4">
         <div id="view-1">
-            <h2>Blutzuckermessung</h2>
+            <h2>Lorem</h2>
         </div>
         <div id="view-2">
-            <h2>Diabetikerbedarf</h2>
+            <h2>Ipsum</h2>
         </div>
         <div id="view-3">
-            <h2>Insulininjektion</h2>
+            <h2>Dolor</h2>
         </div>
     </div>
 </div>

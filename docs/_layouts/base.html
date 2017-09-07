@@ -14,30 +14,27 @@
     </head>
     <body class="noJs" yoi-environment="desktop" yoi-pagerewind yoi-scrollkeys>
         <script>document.body.className='js';</script>
-        <header class="h-20 m-tb-4 b-b">
-            <div class="center">
-                <div class="grid-float">
-                    <div class="w-1-4">
-                        <img class="d-blk w-10 h-20" src="{{ site.github.url }}/assets/img/yoi-logo.svg" />
-                    </div>
-                    <div class="w-2-4">
-                        <p class="m-t-18 fs-3 tc-main-15">YOI – the Yoshino Frontend Component Library</p>
-                    </div>
-                    <div class="w-1-4 al-r">
-                        <a class="btn btn--flat btn--light" href="https://github.com/yoshino-digital/yoi">Github</a>
-                    </div>
-                </div>
+        <header class="m-tb-4 p-b-4 b-b">
+            <div class="center flexGrid flex-alignCenter flex-noWrap">
+                <img class="h-8 p-r-6" src="{{ site.github.url }}/assets/img/yoi-logo.svg" />
+                <span class="fs-2 l--fs-3 tc-main-15">YOI – the Yoshino Frontend Component Library</span>
             </div>
         </header>
-        <div class="center grid-float">
-            <nav class="w-1-1 l--w-1-5 m-t-6">
+        <div class="center al-r l--hidden">
+            <a href="#menu" class="btn btn--flat btn--light btn--large" yoi-action="ScrollTo:#menu;">
+                <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-067-s" yoi-icon />
+                <span>Menu</span>
+            </a>
+        </div>
+        <div class="center flexGrid">
+            <nav id="menu" class="w-1-1 l--w-1-5 m-t-6 flex-2 l--flex-1">
                 {% include menu-sub.html %}
             </nav>
-            <article class="article w-1-1 l--w-4-5 l--p-l-10">
+            <article class="article w-1-1 l--w-4-5 l--p-l-10 flex-1 l--flex-2">
                 {{ content }}
             </article>
         </div>
-        <footer class="center grid-float tc-gray-18 m-tb-15">
+        <footer class="center flexGrid tc-gray-18 m-tb-15">
             <div class="w-1-2">YOI – the Yoshino Frontend Component Library.</div>
             <div class="w-1-2 al-r">&copy; Yoshino.digital GmbH</div>
         </footer>

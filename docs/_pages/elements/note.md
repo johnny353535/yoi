@@ -167,16 +167,3 @@ Notes are available in **different color themes**. Weather you wish to display a
     </div>
 </div>
 ```
-
-## Notes at Full Viewport Width
-
-Use the modifier class `.note--fullWidth` to display a **note at full viewport width**, with it’s body centered and automatic margin to the left and right. A good example would be the cookie-policy at the very top of a page.
-
-```html
-<!-- example -->
-<div id="cookieNote" class="note note--fullwidth note--attention note--large">
-    <div class="note__body center">
-        <p>This is a note at full vieport width with centered body.</p>
-    </div>
-</div>
-```

@@ -22,10 +22,7 @@ This is how a basic `.mainMenu` looks like and how you write the markup:
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>
-            <a href="#">Alkali Metals</a>
-        </li>
-        <li>
-            <a href="#">Alkaline Earth Metals</a>
+            <a href="#">Alkalis</a>
         </li>
         <li>
             <a href="#">Actinides</a>
@@ -45,10 +42,7 @@ Add the modifier `.mainMenu--expanded` to force the menu items to take up all av
 <div class="mainMenu mainMenu--expand">
     <ul class="mainMenu__menu">
         <li>
-            <a href="#">Alkali Metals</a>
-        </li>
-        <li>
-            <a href="#">Alkaline Earth Metals</a>
+            <a href="#">Alkalis</a>
         </li>
         <li>
             <a href="#">Actinides</a>
@@ -66,10 +60,7 @@ Use the [popOver element](elements/popover.html) to add submenus:
 <div class="mainMenu">
     <ul class="mainMenu__menu">
         <li>
-            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:mainMenu--active;">Alkali Metals</a>
-        </li>
-        <li>
-            <a href="#" yoi-popover="target:#subMenu-alkaliEarthMetals; pos:bl; toggleClass:mainMenu--active;">Alkaline Earth Metals</a>
+            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:mainMenu--active;">Alkalis</a>
         </li>
         <li>
             <a href="#" yoi-popover="target:#subMenu-actinides; pos:bl; toggleClass:mainMenu--active;">Actinides</a>
@@ -94,28 +85,6 @@ Use the [popOver element](elements/popover.html) to add submenus:
             </li>
             <li class="linkList__item">
                 <a class="linkList__link" href="#">Francium</a>
-            </li>
-        </ul>
-    </div>
-    <div class="popOver" id="subMenu-alkaliEarthMetals">
-       <ul class="linkList linkList--large b-0 w-20">
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Beryllium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Magnesium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Calcium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Strontium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Barium</a>
-            </li>
-            <li class="linkList__item">
-                <a class="linkList__link" href="#">Eadium</a>
             </li>
         </ul>
     </div>
@@ -183,7 +152,7 @@ Add the [accordion element](elements/accordion.html) to create nicely structured
             <a href="#" yoi-popover="target:#subMenu-metals; pos:bl; toggleClass:mainMenu--active;">Metals</a>
         </li>
         <li>
-            <a href="#">Other Elements</a>
+            <a href="#">Other</a>
         </li>
     </ul>
     <div class="popOver" id="subMenu-metals">

@@ -21,8 +21,8 @@ This is how a basic `.imgMagnifier` looks like and how you write the markup:
 ```html
 <!-- example -->
 <div class="imgMagnifier" yoi-imgmagnifier>
-    <a href="https://source.unsplash.com/WLUHO9A_xik/1000x1000">
-        <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/WLUHO9A_xik/300x300" alt="" />
+    <a href="https://source.unsplash.com/6BPd7r3erSk/1000x1000">
+        <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/6BPd7r3erSk/300x300" alt="" />
     </a>
 </div>
 ```

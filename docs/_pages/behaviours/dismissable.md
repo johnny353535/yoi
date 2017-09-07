@@ -16,7 +16,7 @@ permalink: behaviours/dismissable
 
 ```html
 <!-- example -->
-<div class="box p-4 w-30" yoi-dismissable>
+<div class="box p-4" yoi-dismissable>
     <p class="fs-2">You may dismiss me.</p>
 </div>
 ```

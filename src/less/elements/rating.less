@@ -2,8 +2,8 @@
 
 // less: escape the color variables
 
-@activeStarColor   : escape(@color-gold);
-@inactiveStarColor : escape(@color-main-23);
+@activeStarColor   : replace(@color-gold, '#', '');
+@inactiveStarColor : replace(@color-main-23, '#', '');
 
 // block
 // =====

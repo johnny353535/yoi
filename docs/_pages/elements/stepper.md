@@ -55,7 +55,7 @@ It’s also possible to *hide the label text and only show the icon*. Use the [u
 <!-- example -->
 <div class="stepper" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
+    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-026" yoi-icon />
     <input class="stepper__submit is--invisible" type="submit" value="Add to Cart" />
 </div>
 ```

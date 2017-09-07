@@ -21,13 +21,11 @@ This is how a `<input type="text">` and `<textarea>` looks like:
 
 ```html
 <!-- example:tabs -->
-<div class="w-30">
-    <div class="m-b-2">
-        <input type="text" />
-    </div>
-    <div>
-        <textarea></textarea>
-    </div>
+<div class="m-b-2">
+    <input type="text" />
+</div>
+<div>
+    <textarea></textarea>
 </div>
 ```
 
@@ -84,35 +82,33 @@ Use the modifiers `.input--success` and `.input--error` to visualize input valid
 
 ```html
 <!-- example:tabs -->
-<div class="w-30">
-    <div class="m-b-2">
-        <input class="input--success" type="text" value="some text" />
-    </div>
-    <div class="m-b-2">
-        <input class="input--error" type="text" value="some text" />
-    </div>
-    <div class="m-b-2">
-        <select class="input--success">
-            <option>Dysprosium</option>
-            <option>Aluminium</option>
-            <option>Calcium</option>
-        </select>
-    </div>
-    <div class="m-b-2">
-        <select class="input--error">
-            <option>Dysprosium</option>
-            <option>Aluminium</option>
-            <option>Calcium</option>
-        </select>
-    </div>
-    <div class="m-b-2">
-        <input type="checkbox" class="input--error" />
-        <input type="checkbox" class="input--success" />
-    </div>
-    <div>
-        <input name="example-2" type="radio" class="input--error" />
-        <input name="example-2" type="radio" class="input--success" />
-    </div>
+<div class="m-b-2">
+    <input class="input--success" type="text" value="some text" />
+</div>
+<div class="m-b-2">
+    <input class="input--error" type="text" value="some text" />
+</div>
+<div class="m-b-2">
+    <select class="input--success">
+        <option>Dysprosium</option>
+        <option>Aluminium</option>
+        <option>Calcium</option>
+    </select>
+</div>
+<div class="m-b-2">
+    <select class="input--error">
+        <option>Dysprosium</option>
+        <option>Aluminium</option>
+        <option>Calcium</option>
+    </select>
+</div>
+<div class="m-b-2">
+    <input type="checkbox" class="input--error" />
+    <input type="checkbox" class="input--success" />
+</div>
+<div>
+    <input name="example-2" type="radio" class="input--error" />
+    <input name="example-2" type="radio" class="input--success" />
 </div>
 ```
 
@@ -124,22 +120,20 @@ You can use the modifiers `.input--focus`, `.input--disabled` and `.input--reado
 
 ```html
 <!-- example:tabs -->
-<div class="w-30">
-    <div class="m-b-2">
-        <input class="input--focus" type="text" value="modifier .input--focus" />
-    </div>
-    <div class="m-b-2">
-        <input class="input--disabled" type="text" value="modifier .input--disabled" />
-    </div>
-    <div class="m-b-2">
-        <input type="text" value="attribute disabled" disabled />
-    </div>
-    <div class="m-b-2">
-        <input class="input--readonly" type="text" value="modifier .input--readonly" />
-    </div>
-    <div>
-        <input type="text" value="attribute readonly" readonly />
-    </div>
+<div class="m-b-2">
+    <input class="input--focus" type="text" value="modifier .input--focus" />
+</div>
+<div class="m-b-2">
+    <input class="input--disabled" type="text" value="modifier .input--disabled" />
+</div>
+<div class="m-b-2">
+    <input type="text" value="attribute disabled" disabled />
+</div>
+<div class="m-b-2">
+    <input class="input--readonly" type="text" value="modifier .input--readonly" />
+</div>
+<div>
+    <input type="text" value="attribute readonly" readonly />
 </div>
 ```
 
@@ -149,10 +143,10 @@ Use the modifier `.input--large` for all interactive form elements to increase s
 
 ```html
 <!-- example:tabs -->
-<div class="m-b-2 w-30">
+<div class="m-b-2">
     <input class="input--large" type="text" value="some text" />
 </div>
-<div class="m-b-2 w-30">
+<div class="m-b-2">
     <select class="input--large">
         <option>Dysprosium</option>
         <option>Aluminium</option>

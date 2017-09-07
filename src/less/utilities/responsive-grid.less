@@ -1,0 +1,217 @@
+/** grid.less */
+
+// float-grid
+// =======================
+
+/*
+    Since the .floatGrid is simple setting floats
+    to the width-utility-classes (see sizing.less & responsive-sizing.less),
+    it's already responsive.
+*/
+
+// flexbox-grid
+// ============
+
+.responsive-flexGrid(@prefix) {
+    
+    // flex layout
+
+    .@{prefix}--flex-wrap                   { flex-wrap: wrap !important; }
+    .@{prefix}--flex-noWrap                 { flex-wrap: nowrap !important; }
+    .@{prefix}--flex-wrapReverse            { flex-wrap: wrap-reverse !important; }
+                              
+    .@{prefix}--flex-directionRow           { flex-direction: row !important; }
+    .@{prefix}--flex-directionRowReverse    { flex-direction: row-reverse !important; }
+    .@{prefix}--flex-directionColumn        { flex-direction: column !important; }
+    .@{prefix}--flex-directionColumnReverse { flex-direction: column-reverse !important; }
+
+    .@{prefix}--flex-alignStart { align-items: flex-start !important; }
+
+    .@{prefix}--flex-alignEnd { align-items: flex-end !important; }
+    .@{prefix}--flex-alignEnd {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            vertical-align: bottom !important;
+        }
+    }
+
+    .@{prefix}--flex-alignCenter { align-items: center !important; }
+    .@{prefix}--flex-alignCenter {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            vertical-align: middle !important;
+        }
+    }
+
+    .@{prefix}--flex-alignBaseline { align-items: baseline !important; }
+    .@{prefix}--flex-alignBaseline {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            vertical-align: baseline !important;
+        }
+    }
+
+    .@{prefix}--flex-aligncontentStart { align-content: flex-start !important; }
+
+    .@{prefix}--flex-alignContentEnd { align-content: flex-end !important; }
+    .@{prefix}--flex-alignContentEnd {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            vertical-align: bottom !important;
+        }
+    }
+
+    .@{prefix}--flex-alignContentCenter        { align-content: center !important; }
+    .@{prefix}--flex-alignContentSpaceBetween  { align-content: space-between !important; }
+    .@{prefix}--flex-alignContentSpaceAround   { align-content: space-around !important; }
+    .@{prefix}--flex-alignSelfStretch          { align-self: stretch !important; }
+    .@{prefix}--flex-alignSelfStart            { align-self: flex-start !important; }
+
+    .@{prefix}--flex-alignSelfEnd {
+      align-self: flex-end !important;
+      vertical-align: bottom !important;
+    }
+
+    .@{prefix}--flex-alignSelfCenter {
+      align-self: center !important;
+      vertical-align: middle !important;
+    }
+
+    .@{prefix}--flex-alignSelfBaseline {
+      align-self: baseline !important;
+      vertical-align: baseline !important;
+    }
+
+    .@{prefix}--flex-justifyStart {
+      text-align: left !important;
+      justify-content: flex-start !important;
+    }
+
+    .@{prefix}--flex-justifyEnd {
+      text-align: right !important;
+      text-align-last: right !important;
+      justify-content: flex-end !important;
+    }
+
+    .@{prefix}--flex-justifyEnd {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            text-align: left !important;
+            text-align: start !important;
+            text-align: initial !important;
+            text-align-last: left !important;
+            text-align-last: start !important;
+            text-align-last: initial !important;
+        }
+    }
+
+    .@{prefix}--flex-justifyCenter {
+      text-align: center !important;
+      text-align-last: center !important;
+      justify-content: center !important;
+    }
+
+    .@{prefix}--flex-justifyCenter {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            text-align: left !important;
+            text-align: start !important;
+            text-align: initial !important;
+            text-align-last: left !important;
+            text-align-last: start !important;
+            text-align-last: initial !important;
+        }
+    }
+
+    .@{prefix}--flex-justifySpaceBetween {
+      text-align: justify !important;
+      text-align-last: justify !important;
+      justify-content: space-between !important;
+    }
+
+    .@{prefix}--flex-justifySpaceBetween {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            text-align: left !important;
+            text-align: start !important;
+            text-align: initial !important;
+            text-align-last: left !important;
+            text-align-last: start !important;
+            text-align-last: initial !important;
+        }
+    }
+
+    .@{prefix}--flex-justifySpaceAround {
+      text-align: justify !important;
+      text-align-last: justify !important;
+      justify-content: space-around !important;
+    }
+
+    .@{prefix}--flex-justifySpaceAround {
+        [class*="w-1-"],
+        [class*="w-2-"],
+        [class*="w-3-"],
+        [class*="w-4-"],
+        [class*="w-5-"] {
+            text-align: left !important;
+            text-align: start !important;
+            text-align: initial !important;
+            text-align-last: left !important;
+            text-align-last: start !important;
+            text-align-last: initial !important;
+        }
+    }
+
+    // flex order
+
+    .@{prefix}--flex-1  { order: 1; }
+    .@{prefix}--flex-2  { order: 2; }
+    .@{prefix}--flex-3  { order: 3; }
+    .@{prefix}--flex-4  { order: 4; }
+    .@{prefix}--flex-5  { order: 5; }
+    .@{prefix}--flex-6  { order: 6; }
+    .@{prefix}--flex-7  { order: 7; }
+    .@{prefix}--flex-8  { order: 8; }
+    .@{prefix}--flex-9  { order: 9; }
+    .@{prefix}--flex-10 { order: 10; }
+
+}
+
+// small
+
+@media @bp-only-s { .responsive-flexGrid(only-s); }
+
+// medium
+
+@media @bp-m { .responsive-flexGrid(m); }
+@media @bp-only-m { .responsive-flexGrid(only-m); }
+
+// large
+
+@media @bp-l { .responsive-flexGrid(l); }
+@media @bp-only-l { .responsive-flexGrid(only-l); }
+
+// x-large
+
+@media @bp-xl { .responsive-flexGrid(xl); }

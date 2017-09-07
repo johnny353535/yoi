@@ -65,6 +65,9 @@ The following code example is creating the dock you may actually see on the left
             <a href="linkList__link">Plutonium</a>
         </li>
     </ul>
+    <p class="m-t-2">
+        <button class="btn btn--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
+    </p>
 </div>
 ```
 

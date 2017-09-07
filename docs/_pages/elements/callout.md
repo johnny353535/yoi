@@ -114,7 +114,7 @@ You can use the [shadow utility classes](utilities/styling.html#shadows) in comb
 Combine [utility classes](utilities/) with `.callout` to create custom stylings:
 
 ```html
-<!-- example -->
+<!-- example:tabs -->
 <div class="d-inlblk m-r-2">
     <p class="callout callout--rot-l bg-blue-23 tc-blue-10 w-15 h-15">
         <span class="callout__body fs-3 lh-4">Large & Blue</span>
@@ -122,7 +122,7 @@ Combine [utility classes](utilities/) with `.callout` to create custom stylings:
 </div>
 <div class="d-inlblk m-r-2">
     <p class="callout callout--rot-r bg-red-15 tc-red-23 w-20 h-20">
-        <span class="callout__body fs-40 lh-6">Super Mega</span>
+        <span class="callout__body fs-4 lh-6">Large & Red</span>
     </p>
 </div>
 ```
