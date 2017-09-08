@@ -444,7 +444,7 @@ var YOI = {
 
     },
 
-    currentBreakpoint : function() {
+    currentBreakPoint : function() {
 
         /**
          *  Read and return the currently active media-query.

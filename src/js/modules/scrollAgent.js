@@ -12,47 +12,48 @@ YOI.module.ScrollAgent = (function() {
     // private vars
     // ============
     
-    var $window        = $(window);
-    var viewPortHeight = $window.height();
-    var lastScrollTop  = 0;
-    var offset         = 0;
+    var $window              = $(window);
+    var viewPortHeight       = $window.height();
+    var lastScrollTop        = 0;
+    var offset               = 0;
+    var broadcastInitialized = false;
     var viewportIn;
     var viewportOut;
     var viewportCenter;
-    var scrollDirection;
-    var lastScrollDirection;
     
     // private functions
     // =================
     
-    function initialize($targetElement, options) {
+    function initialize($targetElement) {
         
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $inputElement
-        *  @param {object}            options
+        *  @param {jQuery dom object} $targetElement
         */
         
-        var $targetElement = YOI.createCollection('scrollagent', $targetElement, options);
+        // run broadcastScrollEvents() on scroll
         
-        // always run broadcastScrollEvents() on scroll
+        if (!broadcastInitialized) {
+            
+            $window.on('scroll', function() {
+                broadcastScrollEvents();
+            });
+            
+            broadcastInitialized = true;
+            
+        }
         
-        $window.on('scroll', function() {
-            broadcastScrollEvents();
-        });
+        // collect the target elements
         
-        // run update() observe() and listen() if
-        // target elements were found
-
+        var $targetElement = YOI.createCollection('scrollagent', $targetElement);
+        
         if ($targetElement) {
-
-            // initially update target elements
+            
+            // initially run update() observe() and listen() on
+            // all target elements
             
             update($targetElement);
-
-            // start observer and listener
-
             observe($targetElement);
             listen($targetElement);
 
@@ -112,16 +113,16 @@ YOI.module.ScrollAgent = (function() {
         });
 
     }
-    
+
     function observe($targetElements) {
-        
+
         /**
          *  Observes all target elements and fires custom events weather the
          *  element enters or leaves the viewport.
          *
          *  @param {jQuery dom object} $targetElements - the target element(s)
          */
-            
+
         // get current scroll position & current scroll direction
 
         var currentScrollTop = $window.scrollTop();
@@ -153,7 +154,7 @@ YOI.module.ScrollAgent = (function() {
 
     }
     
-    function broadcastScrollEvents() {
+    function broadcastScrollEvents($targetElements) {
         
         /**
          *  While scrolling, broadcast three custom events:
@@ -179,7 +180,7 @@ YOI.module.ScrollAgent = (function() {
         YOI.setDelay('scrollObserverDelay', 250, function() {
             $window.trigger('yoi-scroll-stop');
         });
-
+        
     }
     
     function listen($targetElements) {
@@ -215,8 +216,7 @@ YOI.module.ScrollAgent = (function() {
     // ================
     
     return {
-        init      : initialize,
-        boradcast : broadcastScrollEvents
+        init : initialize
     };
 
 })();

@@ -63,11 +63,11 @@ YOI.behaviour.Lazyload = (function() {
             
             var imageUrl;
             
-            var currentBreakpoint = YOI.currentBreakpoint();
-            var breakPointSmall   = YOI.stringContains(currentBreakpoint, 'small');
-            var breakPointMedium  = YOI.stringContains(currentBreakpoint, 'medium');
-            var breakPointLarge   = YOI.stringContains(currentBreakpoint, 'large');
-            var breakPointXlarge  = YOI.stringContains(currentBreakpoint, 'xlarge');
+            var currentBreakPoint = YOI.currentBreakPoint();
+            var breakPointSmall   = YOI.stringContains(currentBreakPoint, 'small');
+            var breakPointMedium  = YOI.stringContains(currentBreakPoint, 'medium');
+            var breakPointLarge   = YOI.stringContains(currentBreakPoint, 'large');
+            var breakPointXlarge  = YOI.stringContains(currentBreakPoint, 'xlarge');
             
             if (breakPointSmall)  imageUrl = options.srcSmall;
             if (breakPointMedium) imageUrl = options.srcMedium;

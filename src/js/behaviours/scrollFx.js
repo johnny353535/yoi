@@ -10,7 +10,7 @@ YOI.behaviour.ScrollFx = (function() {
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $inputElement
+        *  @param {jQuery dom object} $$targetElement(s)
         *  @param {object}            options
         *
         *  Available options:
@@ -26,31 +26,30 @@ YOI.behaviour.ScrollFx = (function() {
         
         if ($targetElement) $targetElement.each(function() {
             
+            var $thisTargetElement = $(this);
+            
             // cancel if already initialized
 
-            if ($(this).data().props.hasScrollFx) return false;
-
-            // proceed
+            if ($thisTargetElement.data().props.hasScrollFx) return false;
             
-            var $targetElement = $(this);
-
-            YOI.module.ScrollAgent.init($targetElement, options);
-
-            addTargetElementInitialCss($targetElement);
-
-            // start listener
-
-            listen($targetElement);
+            // prepare & listen
             
+            prepare($thisTargetElement);
+            listen($thisTargetElement);
+
             // set initialized
                 
-            $(this).data().props.hasScrollFx = true;
+            $thisTargetElement.data().props.hasScrollFx = true;
 
         });
+        
+        // initialize the scroll agent
+        
+        YOI.module.ScrollAgent.init($targetElement, options);
 
     }
     
-    function addTargetElementInitialCss($targetElement) {
+    function prepare($targetElement) {
         
         /**
          *  If the target element uses the internal fx (css-)classes,
@@ -62,60 +61,55 @@ YOI.behaviour.ScrollFx = (function() {
         var options  = $targetElement.data().options;
         var inFx     = options.in || false;
         var centerFx = options.center || false;
-        
+    
         if (inFx)     $targetElement.addClass('fx-' + inFx + '-initial');
         if (centerFx) $targetElement.addClass('fx-' + centerFx + '-initial');
-        
+    
         $targetElement.removeClass('fx-' + inFx);
         $targetElement.removeClass('fx-' + centerFx);
 
     }
     
-    function listen($targetElements) {
+    function listen($targetElement) {
         
         /**
          *  Listens to the custom events (entering or leaving viewport) and
          *  applies fx accordingly.
          *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
+         *  @param {jQuery dom object} $targetElement - the target element
          */
         
-        $targetElements.each(function() {
+        var options  = $targetElement.data().options;
+        var inFx     = options.in || false;
+        var centerFx = options.center || false;
+        var speed    = options.speed || false;
+        var repeat   = options.repeat || true;
+        
+        if (repeat !== 'false') {
             
-            var $targetElement = $(this);
-            var options        = $targetElement.data().options;
-            var inFx           = options.in || false;
-            var centerFx       = options.center || false;
-            var speed          = options.speed || false;
-            var repeat         = options.repeat || true;
+            $targetElement.on('yoi-viewport-in', function() {
+                applyFx($targetElement, inFx, speed);
+            });
             
-            if (repeat !== 'false') {
-                
-                $targetElement.on('yoi-viewport-in', function() {
-                    applyFx($targetElement, inFx, speed);
-                });
-                
-                $targetElement.on('yoi-viewport-center', function() {
-                    applyFx($targetElement, centerFx, speed);
-                });
-                
-                $targetElement.on('yoi-viewport-out', function() {
-                    addTargetElementInitialCss($targetElement);
-                });
-                
-            } else {
-                
-                $targetElement.one('yoi-viewport-in', function() {
-                    applyFx($targetElement, inFx, speed);
-                });
-                
-                $targetElement.one('yoi-viewport-center', function() {
-                    applyFx($targetElement, centerFx, speed);
-                });
+            $targetElement.on('yoi-viewport-center', function() {
+                applyFx($targetElement, centerFx, speed);
+            });
+            
+            $targetElement.on('yoi-viewport-out', function() {
+                prepare($targetElement);
+            });
+            
+        } else {
+            
+            $targetElement.one('yoi-viewport-in', function() {
+                applyFx($targetElement, inFx, speed);
+            });
+            
+            $targetElement.one('yoi-viewport-center', function() {
+                applyFx($targetElement, centerFx, speed);
+            });
 
-            }
-
-        });
+        }
         
     }
     
