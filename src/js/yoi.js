@@ -265,6 +265,31 @@ var YOI = {
         }
 
     },
+    
+    toBoolean : function(input) {
+        
+        /**
+         *  Takes a string, interprets a boolean value and
+         *  returns true or false. If no input was given,
+         *  the function returns true.
+         *
+         *  @param  {string} input - the string to interpret
+         *  @return {bool} 
+         */
+        
+        if (!input) return true;
+        
+        switch (input.toLowerCase()) {
+            case "false":
+            case "no":
+            case "0":
+            case "":
+                return false;
+            default:
+                return true;
+        }
+        
+    },
 
     getAttribute : function($element) {
     

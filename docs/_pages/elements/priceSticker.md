@@ -7,7 +7,7 @@ permalink: elements/pricesticker
 
 # PriceSticker
 
-<p class="intro">User this element to display a simple horizontal ruler.</p>
+<p class="intro">Use this element to display a simple horizontal ruler.</p>
 
 | Styles         | [priceSticker.less]({{ pathToSourceFile }}assets/less/elements/priceSticker.less) |
 | Base CSS-Class | `.priceSticker`                                                                   |

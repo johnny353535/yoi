@@ -7,7 +7,7 @@ permalink: elements/ruler
 
 # Ruler
 
-<p class="intro">User this element to display a simple horizontal ruler.</p>
+<p class="intro">Use this element to display a simple horizontal ruler.</p>
 
 | Styles         | [ruler.less]({{ pathToSourceFile }}assets/less/elements/ruler.less) |
 | Base CSS-Class | `.ruler`                                                            |

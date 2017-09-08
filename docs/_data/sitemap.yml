@@ -68,6 +68,7 @@ elements:
     - ratingInput
     - ribbon
     - ruler
+    - scrollProgress
     - scrollKeys
     - searchPrompt
     - shelf

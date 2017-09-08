@@ -40,6 +40,14 @@ We plan to release YOI under a Creative Commons Attribution-NonCommercial licens
 Notizen
 =======
 
+# utility class naming rules
+
+- the value "none" is expressed by "0", eg. .b-0 = no borders
+- the opposite of "none" can be "all", eg. .b-all = borders on all sides
+- numeric values, expressed by "*-1, *-2, …", can translate to pixels eg. .bw-2 = border-width 2px or more abstract scalings, eg. fs-3 = font-size 2rem
+- "responsive" utilities are expressed via breakpoint-prefixes (".s--, .m--, .l--, .xl--"), eg .xl--fs-8 = font-size number 8 at extra large screens
+- "responsive" utilities can also respond to mouseover, eg. ".hvr--*"
+
 - code examples
     - eventuell css-klassenenamen highlighten?
     - copy & paste einbauen (https://alligator.io/js/copying-to-clipboard/)
