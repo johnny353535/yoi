@@ -14,10 +14,9 @@
     "test",
     "tests",
     "docs",
-    "src/assets/img",
-    "src/assets/less/theme",
-    "src/assets/less/index.less",
-    "gulpfile.js",
+    "src/img",
+    "src/less/theme",
+    "src/less/index.less",
     "package.json"
   ],
   "dependencies": {
