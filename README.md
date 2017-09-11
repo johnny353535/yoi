@@ -35,44 +35,54 @@ If you wish to learn more about using GIT and GitHub, [this website](http://roge
 
 We plan to release YOI under a Creative Commons Attribution-NonCommercial license.
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+<!--
 
-Notizen
-=======
+    Notizen
+    =======
 
-# utility class naming rules
+    # on scroll performance
 
-- the value "none" is expressed by "0", eg. .b-0 = no borders
-- the opposite of "none" can be "all", eg. .b-all = borders on all sides
-- numeric values, expressed by "*-1, *-2, …", can translate to pixels eg. .bw-2 = border-width 2px or more abstract scalings, eg. fs-3 = font-size 2rem
-- "responsive" utilities are expressed via breakpoint-prefixes (".s--, .m--, .l--, .xl--"), eg .xl--fs-8 = font-size number 8 at extra large screens
-- "responsive" utilities can also respond to mouseover, eg. ".hvr--*"
+    - To solve this problem you need to debounce your scroll events.
+    - You do this by simply storing the last scroll value in a variable whenever you receive a scroll event
+    - and then you perform your visual updates in a requestAnimationFrame, making use of the last known value.
+    - This means that the browser can schedule the visual updates at the correct time
+    - and we did no more work than was absolutely necessary inside each frame
 
-- code examples
-    - eventuell css-klassenenamen highlighten?
-    - copy & paste einbauen (https://alligator.io/js/copying-to-clipboard/)
 
-- build-process
+    # utility class naming rules
+
+    - the value "none" is expressed by "0", eg. .b-0 = no borders
+    - the opposite of "none" can be "all", eg. .b-all = borders on all sides
+    - numeric values, expressed by "*-1, *-2, …", can translate to pixels eg. .bw-2 = border-width 2px or more abstract scalings, eg. fs-3 = font-size 2rem
+    - "responsive" utilities are expressed via breakpoint-prefixes (".s--, .m--, .l--, .xl--"), eg .xl--fs-8 = font-size number 8 at extra large screens
+    - "responsive" utilities can also respond to mouseover, eg. ".hvr--*"
+
+    # code examples
+
+    - eventuell css-klassenenamen aus jeweiligem beispiel highlighten?
+
+
+    # build-process
+
     - braucht kein deploy, compress etc. da nur auf gh-pages?
     - nein: deploy ist für dest!
     - kann auf bower als sources verzichtet werden?
         - einzige dependencies: jQuery und normalize css
         - würde den install-prozess vereinfachen
         - bower aber weiterhin für alle weiteren instanzen nutzen
-- inline svgs
+
+
+    # inline svgs
+
     - eventuell ein script schreiben das die jekyll *.md files
       parsed und inline svgs einfügt?
     - ja! macht sinn. aber wie im build-prozess eingliedern?
     - vor jedem serve oder build!
-- documentation
+
+
+    # documentation
+
     - tables vereinheitlichen
     - link zu source files: immer git
 
-- responsive
-    - option für jedes util, responsive classes zu erzeugen
-    - dazu vars als flags!
-    - breakpoints -> auch hier flags setzen für breakpoints, so dass nur der code erzeugt wird, der benötigt wird
-
-- https://github.com/felixrieseberg/windows-development-environment
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+-->

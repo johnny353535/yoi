@@ -62,7 +62,7 @@ YOI.element.ScrollKeys = (function() {
         if (enableScrollKeys && !initialized) {
             
             var options  = YOI.toObject($body.attr('yoi-scrollkeys'));
-            var position = options.position || 'tr';
+            var position = options.position || 'br';
             offset       = options.offset || offset;
             $hooks       = $(options.hooks).length ? $(options.hooks) : $hooks;
             totalHooks   = $hooks.length;

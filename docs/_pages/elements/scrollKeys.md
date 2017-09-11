@@ -21,8 +21,8 @@ You can see the element in action on this page.
 
 ## Parameters
 
-| `hooks`    | CSS selector           | Optional. Defines the *hooks* (= jump marks). Any CSS selector will work. Default is `h1, h2, h3, h4, h5, h6`.          |
-| `position` | `tl`, `tr`, `br`, `bl` | Optional. Set the position of the scroll buttons to one of the four edges of the screen. Default is `tr` (= top right). |
+| `hooks`    | CSS selector           | Optional. Defines the *hooks* (= jump marks). Any CSS selector will work. Default is `h1, h2, h3, h4, h5, h6`.             |
+| `position` | `tl`, `tr`, `br`, `bl` | Optional. Set the position of the scroll buttons to one of the four edges of the screen. Default is `br` (= bottom right). |
 
 ### Hooks
 
@@ -34,7 +34,7 @@ Set the *hooks* (= jump marks) to any collection of elements on the page by prov
 
 ### Position
 
-Pin the `.scrollKeys` to one of the four corners of the screen: `tl` = top left, `tr` = top right, `br` = bottom right, `bl` = bottom left. The default position is top right.
+Pin the `.scrollKeys` to one of the four corners of the screen: `tl` = top left, `tr` = top right, `br` = bottom right, `bl` = bottom left. The default position is bottom right.
 
 ## Keyboard Binding
 

@@ -12,9 +12,16 @@
         <link href="{{ site.github.url }}/css/documentation.css" rel="stylesheet" />
         <link href="{{ site.github.url }}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
-    
-    <body class="noJs" yoi-environment="desktop" yoi-pagerewind yoi-scrollkeys yoi-scrollprogress>
-        
+    {% if page.title contains "ScrollProgress" %}
+        {% assign scrollProgress = "yoi-scrollprogress" %}
+    {% endif %}
+    {% if page.title contains "ScrollKeys" %}
+        {% assign scrollKeys = "yoi-scrollkeys" %}
+    {% endif %}
+    {% if page.title contains "PageRewind" %}
+        {% assign pageRewind = "yoi-pagerewind" %}
+    {% endif %}
+    <body class="noJs" yoi-environment="desktop" {{ pageRewind }} {{ scrollKeys }} {{ scrollProgress }} >
         <script>document.body.className='js';</script>
         <header class="m-tb-4 p-b-4 b-b">
             <div class="center flexGrid flex-alignCenter flex-noWrap">
