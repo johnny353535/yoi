@@ -3,7 +3,7 @@ bower_components
 docs/.jekyll-metadata
 docs/.sass-cache
 docs/_site/
-Gemfile.lock
+docs/Gemfile.lock
 node_modules
 .vscode/launch.json
 .vscode/settings.json
