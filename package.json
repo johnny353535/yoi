@@ -14,7 +14,7 @@
     "chokidar-cli": "^1.2.0"
   },
   "scripts": {
-    "preinstall": "install-bower && install-gems",
+    "preinstall": "install-bower && install-jekyll && install-gems",
     "install-bower": "npm install -g bower && bower update",
     "install-jekyll": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll",
     "install-gems": "cd docs && bundle install",
