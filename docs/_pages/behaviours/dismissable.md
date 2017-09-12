@@ -10,7 +10,7 @@ permalink: behaviours/dismissable
 <p class="intro">Adds a dismiss (or “close”) button to an element’s upper right corner.</p>
 
 | Js-File | [dismiss.js]({{ pathToSourceFile }}assets/js/behaviours/dismiss.js)           |
-| Styles  | [btnDismiss.less]({{ pathToSourceFile }}assets/less/elements/btnDismiss.less) |
+| Styles  | [btnDismiss.less]({{ pathToSourceFile }}assets/less/components/btnDismiss.less) |
 
 ## Example
 

@@ -22,7 +22,7 @@ utilities:
     - transition
     - typography
     - visibility
-elements:
+components:
     - accordion
     - article
     - badge

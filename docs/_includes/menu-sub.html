@@ -4,9 +4,9 @@
         {% comment %}
         - - - - - - - - - - - - Menu level 1 - - - - - - - - - - - - 
         {% endcomment %}
-        {% if group.first == "elements" %}
+        {% if group.first == "components" %}
             <li class="linkList__item">
-                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/{{ site.data.sitemap.elements.first | append: ".html" }}">{{ group.first | capitalize }}</a>
+                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/{{ site.data.sitemap.components.first | append: ".html" }}">{{ group.first | capitalize }}</a>
             </li>
         {% else %}
             <li class="linkList__item">

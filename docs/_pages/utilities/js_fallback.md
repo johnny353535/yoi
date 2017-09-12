@@ -21,7 +21,7 @@ permalink: utilities/js_fallback
 
     ### Example: .ratingInput
 
-    A proper example would be the element [.ratingInput](/pages/elements/ratingInput.html) which simply does not work if JavaScript is not available. Instead, a `<select>` is shown as fallback.
+    A proper example would be the element [.ratingInput](/pages/components/ratingInput.html) which simply does not work if JavaScript is not available. Instead, a `<select>` is shown as fallback.
 
     ```html
     <form class="ratingInput ratingInput--rated-3" yoi-ratinginput="uid:1234; score:3;">

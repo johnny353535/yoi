@@ -108,9 +108,9 @@ By default, every action is called _on click_. If you wish to call the action on
 
 #### Custom Events
 
-Some of YOI’s [elements](elements/) fire their own custom events. They follow the naming scheme `yoi-elementname-eventname` (all lowercase). Each element lists it’s custom events on it’s page in this documentation. Your _actions_ can also listen to these events with the _on_-paramater.
+Some of YOI’s [elements](components/) fire their own custom events. They follow the naming scheme `yoi-elementname-eventname` (all lowercase). Each element lists it’s custom events on it’s page in this documentation. Your _actions_ can also listen to these events with the _on_-paramater.
 
-In the following example, the [switch](elements/switch.html) fires the events `yoi-switch-on` and `yoi-switch-off`. We use these events instead of eg. `click` to call two actions: show the example target on `yoi-switch-on` and hide it on `yoi-switch-off`:
+In the following example, the [switch](components/switch.html) fires the events `yoi-switch-on` and `yoi-switch-off`. We use these events instead of eg. `click` to call two actions: show the example target on `yoi-switch-on` and hide it on `yoi-switch-off`:
 
 ```html
 <!-- example:tabs -->

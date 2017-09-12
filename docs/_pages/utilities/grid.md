@@ -15,7 +15,7 @@ permalink: utilities/grid
 
 ## Float Grid
 
-| `.grid-float`| … |
+| `.flexGrid`| … |
 
 ## Flex Grid
 

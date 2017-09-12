@@ -8,7 +8,7 @@ var YOI = {
     elementCollection : {},
     action            : {},
     behaviour         : {},
-    element           : {},
+    component         : {},
     module            : {},
 
     // helpers
@@ -79,16 +79,16 @@ var YOI = {
 
     },
 
-    foundElement : function(element) {
+    foundComponent : function(component) {
 
         /**
-         *  Syntax sugar to test if an element is available.
+         *  Syntax sugar to test if a component is available.
          *
-         *  @param  {string} element - the exact name of the element variable
+         *  @param  {string} component - the exact name of the component variable
          *  @return {bool}
          */
 
-        if (typeof window.YOI.element[element] === 'object') {
+        if (typeof window.YOI.component[component] === 'object') {
             return true;
         } else {
             return false;
@@ -835,10 +835,10 @@ var YOI = {
         
         // the function to be called belongs to an 'element'
 
-        if ((hostObject && publicFunction) && typeof YOI['element'][hostObject][publicFunction] === 'function') {
+        if ((hostObject && publicFunction) && typeof YOI['component'][hostObject][publicFunction] === 'function') {
             $trigger.on(event, function(e) {
                 e.preventDefault();
-                YOI['element'][hostObject][publicFunction]($target);
+                YOI['component'][hostObject][publicFunction]($target);
             });
         }
 
@@ -922,12 +922,12 @@ var YOI = {
     initialize : function() {
         
         /**
-         *  Initializes all YOI elements, actions, behaviours, modules ...
+         *  Initializes all YOI components, actions, behaviours, modules ...
          */
         
-        // initialize all YOI elements
+        // initialize all YOI components
 
-        $.each(YOI.element, function() {
+        $.each(YOI.component, function() {
             if (this.hasOwnProperty('init')) this.init();
         });
         
@@ -964,14 +964,14 @@ var YOI = {
 
 $(function() {
     
-    // run YOI.element.Code before
+    // run YOI.component.Code before
     // all other scripts, so that code
     // example in docs rendered by this script
     // initialize with the right timing
 
-    YOI.element.Code.initialize();
+    YOI.component.Code.initialize();
     
-    // initialize all YOI elements
+    // initialize all YOI components
 
     YOI.initialize();
 

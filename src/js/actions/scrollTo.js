@@ -30,8 +30,8 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
 
         // if target is a tab, switch to the tab
 
-        if ($target.hasClass('tabs__page') && YOI.foundElement('Tabs')) {
-            YOI.element.Tabs.switchTo(targetId);
+        if ($target.hasClass('tabs__page') && YOI.foundComponent('Tabs')) {
+            YOI.component.Tabs.switchTo(targetId);
         }
 
         // if the target is wrapped inside a container with

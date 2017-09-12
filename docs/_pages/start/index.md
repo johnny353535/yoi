@@ -17,7 +17,7 @@ If you are already familiar with the [basics of HTML](https://developer.mozilla.
 
 ### Building Blocks
 
-This system offers a large array of [pre-built elements](elements/) that you can mix & match to build almost any layout you wish. Think of them as Lego-blocks. But even better, imagine you could also slightly tweak your lego blocks instead of merely combining them. Ever needed a block of unusual size or color? That’s exactly what we’ve got you covered. 
+This system offers a large array of [pre-built elements](components/) that you can mix & match to build almost any layout you wish. Think of them as Lego-blocks. But even better, imagine you could also slightly tweak your lego blocks instead of merely combining them. Ever needed a block of unusual size or color? That’s exactly what we’ve got you covered. 
 
 ### Fine-Grain Control
 
@@ -27,7 +27,7 @@ By adding [utility-classes](utilities/) to an element, you can override styling 
 
 ### Hooks
 
-In addition to rather simple and static elements, YOI also features more complex and interactive elements. [DatePickers](elements/datePicker.html), [Modals](elements/modal.html), [PopOvers](elements/popOver.html) – all these elements are configured via custom HTML attributes that we call _hooks_. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page so it opens faster.
+In addition to rather simple and static elements, YOI also features more complex and interactive elements. [DatePickers](components/datePicker.html), [Modals](components/modal.html), [PopOvers](components/popOver.html) – all these elements are configured via custom HTML attributes that we call _hooks_. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page so it opens faster.
 
 ### Actions
 

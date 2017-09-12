@@ -89,7 +89,7 @@ The default value for `start` is 0. The default value for `stop` is the body hei
 
 ```html
 <!-- example -->
-<div class="grid-float">
+<div class="flexGrid">
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-2 m-b-4">start: none;<br />stop: 200;</p>
         <div class="h-40 pos-rel" id="example-sticky-1">
