@@ -1,6 +1,6 @@
 {
   "name": "yoshino-yoi",
-  "description": "The Yoshino Frontend Component Library. Markup, scripts, styles, build-process and documentation.",
+  "description": "The Yoshino frontend component library.",
   "authors": [
     "yoshino.digital dev team"
   ],
@@ -16,7 +16,7 @@
     "docs",
     "src/img",
     "src/less/theme",
-    "src/less/index.less",
+    "src/less/yoi.less",
     "package.json"
   ],
   "dependencies": {

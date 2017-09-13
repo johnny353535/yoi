@@ -20,14 +20,20 @@ During development, you can use the following NPM scripts:
 
 ### Build & Serve
 
-- Run the build process for development: `npm run build`
-- Start a local preview server (with auto-refresh on changes): `npm run serve`
-- It makes sense to chain the two commands: `npm run build && npm run serve`
+1. Run the build process for development: `npm run build`
+2. Start a local preview server (with auto-refresh on changes): `npm run serve`
 
-### Deploy & Commit
+It makes sense to chain the two commands: `npm run build && npm run serve`
 
-- Once you are ready to publish your changes, run the deploy process: `npm run deploy`
-- After the deploy process is complete, you can push to the repository
+### Publish & Commit
+
+Development is limited to the Yoshino frontend team. Unfortunately, at this point we do not have the recources to run this as a real open source project – but maybe in the future we will.
+However, as a Yoshino team member, this is how you publish your changes:
+
+1. Make sure you bump up the version number in bower.json
+2. Once you are ready, run the publish process: `npm run publish`
+3. After the publish process is complete, push to the repository
+4. Tag a new release with the new version number
 
 If you wish to learn more about using GIT and GitHub, [this website](http://rogerdudler.github.io/git-guide/) might be a valuable recource for you.
 
@@ -35,54 +41,11 @@ If you wish to learn more about using GIT and GitHub, [this website](http://roge
 
 We plan to release YOI under a Creative Commons Attribution-NonCommercial license.
 
-<!--
+## Roadmap
 
-    Notizen
-    =======
+- complete the user docs
+- proof-read and edit the user docs
+- refactor JS (modern syntax, modules, transpile via [Babel](https://babeljs.io))
+- make markup more accessible (according to [a11y checklist](http://a11yproject.com/checklist.html))
+- move the project from bower to npm/yarn
 
-    # on scroll performance
-
-    - To solve this problem you need to debounce your scroll events.
-    - You do this by simply storing the last scroll value in a variable whenever you receive a scroll event
-    - and then you perform your visual updates in a requestAnimationFrame, making use of the last known value.
-    - This means that the browser can schedule the visual updates at the correct time
-    - and we did no more work than was absolutely necessary inside each frame
-
-
-    # utility class naming rules
-
-    - the value "none" is expressed by "0", eg. .b-0 = no borders
-    - the opposite of "none" can be "all", eg. .b-all = borders on all sides
-    - numeric values, expressed by "*-1, *-2, …", can translate to pixels eg. .bw-2 = border-width 2px or more abstract scalings, eg. fs-3 = font-size 2rem
-    - "responsive" utilities are expressed via breakpoint-prefixes (".s--, .m--, .l--, .xl--"), eg .xl--fs-8 = font-size number 8 at extra large screens
-    - "responsive" utilities can also respond to mouseover, eg. ".hvr--*"
-
-    # code examples
-
-    - eventuell css-klassenenamen aus jeweiligem beispiel highlighten?
-
-
-    # build-process
-
-    - braucht kein deploy, compress etc. da nur auf gh-pages?
-    - nein: deploy ist für dest!
-    - kann auf bower als sources verzichtet werden?
-        - einzige dependencies: jQuery und normalize css
-        - würde den install-prozess vereinfachen
-        - bower aber weiterhin für alle weiteren instanzen nutzen
-
-
-    # inline svgs
-
-    - eventuell ein script schreiben das die jekyll *.md files
-      parsed und inline svgs einfügt?
-    - ja! macht sinn. aber wie im build-prozess eingliedern?
-    - vor jedem serve oder build!
-
-
-    # documentation
-
-    - tables vereinheitlichen
-    - link zu source files: immer git
-
--->
