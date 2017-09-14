@@ -16,7 +16,7 @@ If you work on a Windows machine, you might be interested in [this article about
 
 ## Developing
 
-During development, you can use the following NPM scripts:
+During development, you can use the following [NPM scripts](https://docs.npmjs.com/misc/scripts):
 
 ### Build & Serve
 

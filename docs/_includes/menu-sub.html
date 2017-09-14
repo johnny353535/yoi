@@ -1,21 +1,9 @@
 {% assign urlLastChar = page.url | slice: -1 1 %}
 <ul class="linkList linkList--large bg-transparent b-0 br-0">
     {% for group in site.data.sitemap %}
-        {% comment %}
-        - - - - - - - - - - - - Menu level 1 - - - - - - - - - - - - 
-        {% endcomment %}
-        {% if group.first == "components" %}
-            <li class="linkList__item">
-                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/{{ site.data.sitemap.components.first | append: ".html" }}">{{ group.first | capitalize }}</a>
-            </li>
-        {% else %}
-            <li class="linkList__item">
-                <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
-            </li>
-        {% endif %}
-        {% comment %}
-        - - - - - - - - - - - - Menu level 2 - - - - - - - - - - - - 
-        {% endcomment %}
+        <li class="linkList__item">
+            <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
+        </li>
         {% if page.group == group.first %}
             {% for pageName in site.data.sitemap[page.group] %}
                 {% assign menuLabel    = pageName | replace: "_", " " %}

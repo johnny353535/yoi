@@ -23,6 +23,7 @@ utilities:
     - typography
     - visibility
 components:
+    - index
     - accordion
     - article
     - badge

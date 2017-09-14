@@ -5,7 +5,7 @@ title: Introduction
 permalink: utilities/
 ---
 
-# Introduction to Utilities
+# Utilities
 
 <p class="hint hint--error">Documentation incomplete.</p>
 
