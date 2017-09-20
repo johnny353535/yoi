@@ -1,16 +1,11 @@
 /** mixins.less */
 
-// helpers
-// =======
-
 .mixin-clearfix() {
-
     &::after {
         content: "";
         display: block;
         clear: both;
     }
-
 }
 
 .mixin-hide() {
@@ -45,50 +40,7 @@
     perspective: 1000;
 }
 
-// styling
-// =======
-
-.mixin-defaultBorderRadius() {
-    border-radius: (@borderRadius * 1px);
-}
-
-.mixin-defaultFocus() {
-    box-shadow: @focusColor 0 0 10px;
-    outline: 0;
-    z-index: 101;
-}
-
-.mixin-tabFocus() {
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-name: customFocus;
-    animation-timing-function: ease-out;
-    outline-color: @focusColor;
-    outline-offset: 1rem;
-    outline-radius: @borderRadius * 1px;
-    outline-style: solid;
-    outline-width: 0.2rem;
-}
-
-.mixin-tabFocus-inset() {
-    box-shadow:
-        inset 2px 0 0 @focusColor,
-        inset 0 2px 0 @focusColor,
-        inset -2px 0 @focusColor,
-        inset 0 -2px 0 @focusColor
-    ;
-}
-
-@keyframes customFocus {
-    from {
-        outline-color: @focusColor;
-    } to {
-        outline-color: @color-transparent;
-    }
-}
-
 // SVG icons as background image
-// =============================
 
 .mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '000'; @strokeColor: '000') {
     @relativeWidth  : @width / 10 * @rootFontSize;
@@ -96,34 +48,4 @@
     @fillColorHex   : replace(@fillColor, '#', '');
     @strokeColorHex : replace(@strokeColor, '#', '');
     background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{fillColorHex}&s=@{strokeColorHex}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
-}
-
-// typography
-// ==========
-
-.mixin-rts() {
-
-    // responsive type scaling (rts)
-
-    @rts-minViewportWidth : 400;
-    @rts-maxViewportWidth : 800;
-    @rts-minFontSize      : 12;
-    @rts-maxFontSize      : 24; 
-
-    :root {
-        font-size: @rts-minFontSize * 1px;
-    }
-
-    @media (min-width: @rts-minVieportWidth * 1px) and (max-width: @rts-maxVieportWidth * 1px) {
-        :root {
-            font-size: calc(@rts-minFontSize * 1px + (@rts-maxFontSize - @rts-minFontSize) * ((100vw - @rts-minVieportWidth * 1px) / (@rts-maxVieportWidth - @rts-minVieportWidth)));
-        }
-    }
-
-    @media (min-width: @rts-maxViewportWidth * 1px) {
-        :root {
-            font-size: @rts-maxFontSize * 1px;
-        }
-    }
-
 }

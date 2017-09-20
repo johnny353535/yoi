@@ -80,3 +80,36 @@
     line-height: 1.5;
     text-transform: uppercase;
 };
+
+// Responsive Type Scaling
+// =======================
+
+/*
+    Font size globally adjusts to breakpoints.
+    This feature is experimental and disabled by default.
+*/
+
+.mixin-rts() {
+
+    @rts-minViewportWidth : 400;
+    @rts-maxViewportWidth : 800;
+    @rts-minFontSize      : 12;
+    @rts-maxFontSize      : 24;
+
+    :root {
+        font-size: @rts-minFontSize * 1px;
+    }
+
+    @media (min-width: @rts-minVieportWidth * 1px) and (max-width: @rts-maxVieportWidth * 1px) {
+        :root {
+            font-size: calc(@rts-minFontSize * 1px + (@rts-maxFontSize - @rts-minFontSize) * ((100vw - @rts-minVieportWidth * 1px) / (@rts-maxVieportWidth - @rts-minVieportWidth)));
+        }
+    }
+
+    @media (min-width: @rts-maxViewportWidth * 1px) {
+        :root {
+            font-size: @rts-maxFontSize * 1px;
+        }
+    }
+
+}

@@ -6,7 +6,7 @@
 .pageBtns {
     .mixin-userSelectNone;
     background: fade(@color-main-8, 70%);
-    border-radius: @borderRadius * 1px;
+    border-radius: @defaultBorderRadius * 1px;
     display: inline-block;
     height: 4rem;
     line-height: 4rem;
@@ -103,26 +103,26 @@
 }
 
 .pageBtns--tl {
-    border-radius: 0 0 0 (@borderRadius * 1px);
+    border-radius: 0 0 0 (@defaultBorderRadius * 1px);
     left: 0;
     top: 0;
 }
 
 .pageBtns--tr {
-    border-radius: 0 0 (@borderRadius * 1px) 0;
+    border-radius: 0 0 (@defaultBorderRadius * 1px) 0;
     right: 0;
     top: 0;
 }
 
 .pageBtns--br {
-    border-radius: (@borderRadius * 1px) 0 0 0;
+    border-radius: (@defaultBorderRadius * 1px) 0 0 0;
     bottom: 0;
     right: 0;
 
 }
 
 .pageBtns--bl {
-    border-radius: 0 (@borderRadius * 1px) 0 0;
+    border-radius: 0 (@defaultBorderRadius * 1px) 0 0;
     bottom: 0;
     left: 0;
 }

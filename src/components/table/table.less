@@ -15,7 +15,7 @@ table {
 
 caption {
     background: @color-main-25;
-    border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0;
+    border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
     border: @color-main-23 1px solid;
     border-bottom: 0;
     box-sizing: border-box;
@@ -57,11 +57,11 @@ th {
     font-weight: bold;
 }
 
-th:first-child               { border-radius: (@borderRadius * 1px) 0 0 0; }
-th:last-child                { border-radius: 0 (@borderRadius * 1px) 0 0; }
-th:only-child                { border-radius: (@borderRadius * 1px) (@borderRadius * 1px) 0 0; }
-tr:last-child td:first-child { border-radius: 0 0 0 (@borderRadius * 1px); }
-tr:last-child td:last-child  { border-radius: 0 0 (@borderRadius * 1px) 0; }
+th:first-child               { border-radius: (@defaultBorderRadius * 1px) 0 0 0; }
+th:last-child                { border-radius: 0 (@defaultBorderRadius * 1px) 0 0; }
+th:only-child                { border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0; }
+tr:last-child td:first-child { border-radius: 0 0 0 (@defaultBorderRadius * 1px); }
+tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0; }
 
 // special col for controls (e.g. buttons)
 
