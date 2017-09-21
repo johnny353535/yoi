@@ -37,16 +37,16 @@
 
 // "push" utilities for micro layout fixes
 
-.generate_push (@i) when (@i > 0) {
-    .generate_push((@i - 1));
+.generate_pos (@i) when (@i > 0) {
+    .generate_pos((@i - 1));
 
-    .push-t-@{i} { top: 1px * @i !important; }
-    .push-r-@{i} { right: 1px * @i !important; }
-    .push-b-@{i} { bottom: 1px * @i !important; }
-    .push-l-@{i} { left: 1px * @i !important; }
+    .pos-t-@{i} { top: 1px * @i !important; }
+    .pos-r-@{i} { right: 1px * @i !important; }
+    .pos-b-@{i} { bottom: 1px * @i !important; }
+    .pos-l-@{i} { left: 1px * @i !important; }
 
 }
-.generate_push(10);
+.generate_pos(@positionSteps);
 
 // horizontal centering
 

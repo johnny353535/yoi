@@ -1,6 +1,6 @@
 {
   "name": "yoshino-yoi",
-  "version": "0.1.60",
+  "version": "0.1.61",
   "description": "The Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
   "devDependencies": {

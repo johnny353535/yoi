@@ -1,15 +1,22 @@
 /** options.less */
 
-@cdnDomain                     : 'cdn.yoshino.digital';
-@broadCastActiveMediaqueryToJs : true;
-@defaultBorderRadius           : 2;
-@debugMediaquery               : false;
-@debugGrid                     : false;
-@debugBemElements              : false;
-@debugBemModifiers             : false;
-@debugImages                   : false;
-@debugFloats                   : false;
-@showCenterGuides              : false;
-
+@cdnDomain                     : 'cdn.yoshino.digital'; // source for external images
 // @utilityPrefix                 : '';
 // @componentPrefix               : 'yoi-';
+
+@broadCastActiveMediaqueryToJs : true;  // make the current breakpoint accessible in JS
+@debugMediaquery               : false; // display the active breakpoint on each page
+@debugGrid                     : false; // highlight grid-elements for debugging
+@debugBemElements              : false; // highlight BEM-elements for debugging
+@debugBemModifiers             : false; // highlight BEM-modifiers for debugging
+@debugImages                   : false; // highlight images without alt- or title-attributes
+@debugFloats                   : false; // highlight floated elements (.fl-l & .fl-r)
+@showCenterGuides              : false; // show both vertically and horizontally centered guides
+
+@defaultBorderRadius           : 2;     // border radius, multiplicand: 1 PX
+@sizingSteps                   : 30;    // steps for width & height utility classes, multiplicand: 1 REM
+@responsiveSizingSteps         : 30;    // steps for responsive width & height utility classes, multiplicand: 1 REM
+@spacingSteps                  : 15;    // steps for margin & padding utility classes, multiplicand: 0.5 REM
+@responsiveSpacingSteps        : 15;    // steps for responsive margin & padding utility classes, multiplicand: 0.5 REM
+@positionSteps                 : 10;    // steps for micro-positioning utility classes, multiplicand: 1 PX
+@responsivePositionSteps       : 10;    // steps for responsive micro-positioning utility classes, multiplicand: 1 PX

@@ -43,18 +43,18 @@
     .@{prefix}--fix-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
     .@{prefix}--fix-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
 
-    // "push" utilities for micro layout fixes
+    // position utilities for micro layout fixes
 
-    .generate_push (@i) when (@i > 0) {
-        .generate_push((@i - 1));
+    .generate_pos (@i) when (@i > 0) {
+        .generate_pos((@i - 1));
 
-        .@{prefix}--push-t-@{i} { top: 1px * @i !important; }
-        .@{prefix}--push-r-@{i} { right: 1px * @i !important; }
-        .@{prefix}--push-b-@{i} { bottom: 1px * @i !important; }
-        .@{prefix}--push-l-@{i} { left: 1px * @i !important; }
+        .@{prefix}--pos-t-@{i} { top: 1px * @i !important; }
+        .@{prefix}--pos-r-@{i} { right: 1px * @i !important; }
+        .@{prefix}--pos-b-@{i} { bottom: 1px * @i !important; }
+        .@{prefix}--pos-l-@{i} { left: 1px * @i !important; }
 
     }
-    .generate_push(10);
+    .generate_pos(@responsivePositionSteps);
     
     // css columns
 
