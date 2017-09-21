@@ -19,24 +19,69 @@ permalink: utilities/visibility
 
 ## Responsive Utilities
 
-| `.s--hidden`  | Visually hidden, yet accessible on small screens.       |
-| `.m--hidden`  | Visually hidden, yet accessible on medium screens.      |
-| `.l--hidden`  | Visually hidden, yet accessible on large screens.       |
-| `.xl--hidden` | Visually hidden, yet accessible on extra large screens. |
+| `.m--hidden`      | Visually hidden, yet accessible on **medium and larger screens**. |
+| `.l--hidden`      | Visually hidden, yet accessible on **large and larger screens**.  |
+| `.xl--hidden`     | Visually hidden, yet accessible on **extra large screens**.       |
+| `.only-s--hidden` | Visually hidden, yet accessible on **small screens only**         |
+| `.only-m--hidden` | Visually hidden, yet accessible on **medium screens only**        |
+| `.only-l--hidden` | Visually hidden, yet accessible on **large screens only**         |
 
 ## Examples
 
-Resize the browser window and watch how visibility changes, responding to the screen size:
+Resize the browser window and watch how visibility of the colored squares in the first column changes depending on the screen size:
 
 ```html
-<!-- example -->
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 vis-vis">visible at <b>any screen size</b></div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 vis-hid">hidden at any screen size, also inaccessible to screenreaders</div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 hidden">visually hidden, yet accessible to screenreaders</div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 s--hidden">hidden on <b>small</b> screens</div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 m--hidden">hidden on <b>medium</b> screens</div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 l--hidden">hidden on <b>large</b> screens</div>
-<div class="br bg-main-25 p-4 tc-main-13 m-b-2 xl--hidden">hidden on <b>extra large</b> screens</div>
+<!-- example:tabs -->
+<table class="table--stripped">
+    <tr>
+        <td class="w-2">
+            <div class="bg-blue-20 w-2 h-2 m--hidden"></div>
+        </td>
+        <td>
+            <code>.m--hidden</code>
+        </td>
+    </tr>
+    <tr>
+        <td class="w-2">
+            <div class="bg-blue-20 w-2 h-2 l--hidden"></div>
+        </td>
+        <td>
+            <code>.l--hidden</code>
+        </td>
+    </tr>
+    <tr>
+        <td class="w-2">
+            <div class="bg-blue-20 w-2 h-2 xl--hidden"></div>
+        </td>
+        <td>
+            <code>.xl--hidden</code>
+        </td>
+    </tr>
+    <tr>
+        <td class="w-2">
+            <div class="bg-purple-20 w-2 h-2 only-s--hidden"></div>
+        </td>
+        <td>
+            <code>.only-s--hidden</code>
+        </td>
+    </tr>
+    <tr>
+        <td class="w-2">
+            <div class="bg-purple-20 w-2 h-2 only-m--hidden"></div>
+        </td>
+        <td>
+            <code>.only-m--hidden</code>
+        </td>
+    </tr>
+    <tr>
+        <td class="w-2">
+            <div class="bg-purple-20 w-2 h-2 only-l--hidden"></div>
+        </td>
+        <td>
+            <code>.only-l--hidden</code>
+        </td>
+    </tr>
+</table>
 ```
 
 ### Visible Only at a Specific Screen Size

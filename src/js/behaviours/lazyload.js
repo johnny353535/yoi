@@ -82,11 +82,11 @@ YOI.behaviour.Lazyload = (function() {
             
             var newImage = $('<img src="' + imageUrl + '"></img>');
             
-            if (width)     newImage.attr('width', width);
-            if (height)    newImage.attr('height', height);
-            if (alt)       newImage.attr('alt', alt);
-            if (title)     newImage.attr('title', title);
-            if (longdesc)  newImage.attr('longdesc', longdesc);
+            if (width)      newImage.attr('width', width);
+            if (height)     newImage.attr('height', height);
+            if (alt)        newImage.attr('alt', alt);
+            if (title)      newImage.attr('title', title);
+            if (longdesc)   newImage.attr('longdesc', longdesc);
             if (cssClasses) newImage.addClass(cssClasses);
             
             // inject after the noscript element
