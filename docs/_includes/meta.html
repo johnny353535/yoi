@@ -2,14 +2,13 @@
     <h2>Source Files</h2>
     <p>
         {% if page.group == "actions" %}
-            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/js/actions/{{ page.title | camelcase }}.js">/src/js/actions/{{ page.title | camelcase }}.js</a>
+            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/js/actions/{{ page.title | downcase }}.js">/src/js/actions/{{ page.title | downcase }}.js</a>
         {% elsif page.group == "behaviours" %}
-            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/js/behaviours/{{ page.title | camelcase }}.js">/src/js/behaviours/{{ page.title | camelcase }}.js</a>
+            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/js/behaviours/{{ page.title | downcase }}.js">/src/js/behaviours/{{ page.title | downcase }}.js</a>
         {% elsif page.group == "components" %}
-            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/{{ page.permalink }}/{{ page.title | camelcase }}.less">/src/{{ page.permalink }}/{{ page.title | camelcase }}.less</a><br />
-            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/{{ page.permalink }}/{{ page.title | camelcase }}.js">/src/{{ page.permalink }}/{{ page.title | camelcase }}.js</a>
+            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/{{ page.permalink }}/">/src/{{ page.permalink }}/</a><br />
         {% elsif page.group == "utilities" %}
-            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/less/utilities/{{ page.title | camelcase }}.less">/src/less/utilities/{{ page.title | camelcase }}.less</a>
+            <a href="https://github.com/yoshino-digital/yoi/blob/master/src/less/utilities/{{ page.title | downcase }}.less">/src/less/utilities/{{ page.title | downcase }}.less</a>
         {% endif %}
     </p>
 {% endif %}
