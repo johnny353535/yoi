@@ -9,8 +9,6 @@ permalink: behaviours/lazyload
 
 <p class="intro">Loads an image only if it’s inside the viewport.</p>
 
-| Scripts | [lazyload.js]({{ pathToSourceFile }}assets/js/behaviours/lazyload.js), [scrollAgent.js]({{ pathToSourceFile }}assets/js/modules/scrollAgent.js) |
-
 ## Basic Example
 
 Wrap your image inside a `<noscript>` tag and add the custom atribute `yoi-lazyload`:

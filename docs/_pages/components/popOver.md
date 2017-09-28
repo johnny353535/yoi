@@ -9,11 +9,6 @@ permalink: components/popover
 
 <p class="intro">Use this component to create small overlays, relatively positioned to their reference element.</p>
 
-| Styles         | [popOver.less]({{ pathToSourceFile }}assets/less/components/popOver.less) |
-| Script         | [popOver.js]({{ pathToSourceFile }}assets/js/components/popOver.js)       |
-| Script Hook    | `yoi-popover`                                                           |
-| Base CSS-Class | `.popOver`                                                              |
-
 ## Basic Example
 
 To create a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Whily any element can be a trigger, `<a>`s with the pop-over’s id as `href` value make sense in most cases.

@@ -9,12 +9,6 @@ permalink: components/filterbtns
 
 <p class="intro">Use this component to display a horizontal list of filter buttons.</p>
 
-| Styles         | [filterBtns.less]({{ pathToSourceFile }}assets/less/components/filterBtns.less) |
-| Script         | [filterBtns.js]({{ pathToSourceFile }}assets/js/components/filterBtns.js)       |
-| Script Hook    | `yoi-filterbtns`                                                              |
-| Base CSS-Class | `.filterBtns`                                                                 |
-| Modifiers      | `.filterBtns--dark, .filterBtns--removeable`                                  |
-
 ## Usage
 
 Ideally, each filter button should be a link, pointing to a static page with the pre-rendered, filtered content. However, `.filterBtns` are most likely to be used without page reload with the resulting content being loaded via JavaScript.

@@ -9,10 +9,6 @@ permalink: components/button
 
 <p class="intro">Create buttons in different styles and sizes.</p>
 
-| Styles         | [button.less]({{ pathToSourceFile }}assets/less/components/button.less) |
-| Base CSS-Class | `.btn`                                                                |
-| Modifiers      | [jump to #modifiers]({{ page.url }}.html#modifiers)                   |
-
 ## Basic Example
 
 Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. You get a large variety by combining the many button-modifiers. This is how you create the most basic button:

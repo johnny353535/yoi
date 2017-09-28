@@ -9,13 +9,6 @@ permalink: components/filters
 
 <p class="intro">Use this component to display a powerful filter widget.</p>
 
-| Styles         | [filters.less]({{ pathToSourceFile }}assets/less/components/filters.less) |
-| Script         | [filters.js]({{ pathToSourceFile }}assets/js/components/filters.js)       |
-| Script Hook    | `yoi-filters`                                                           |
-| Base CSS-Class | `.filters`                                                              |
-| Child-Elements | `.filterGroup`                                                          |
-| Modifiers      | `.filters--collapsed`                                                   |
-
 ## Basic Example
 
 This is how your filter widget may look like. Switch to the code-tab to see the markup. This example also contains a [rangeInput element](components/rangeInput.html).

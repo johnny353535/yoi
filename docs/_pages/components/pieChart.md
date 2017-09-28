@@ -9,12 +9,6 @@ permalink: components/piechart
 
 <p class="intro">This is a simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/components/barChart.html">Bar Chart</a>.</p>
 
-| Styles         | [pieChart.less]({{ pathToSourceFile }}assets/less/components/pieChart.less) |
-| Script         | [pieChart.js]({{ pathToSourceFile }}assets/js/components/pieChart.js)       |
-| Script Hook    | `yoi-piechart`                                                            |
-| Base CSS-Class | `.pieChart`                                                               |
-| Modifiers      | n/a                                                                       |
-
 ## Most Basic Example
 
 Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` hook so never forget to inlcude it in your markup.

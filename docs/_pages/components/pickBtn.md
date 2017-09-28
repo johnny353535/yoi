@@ -9,12 +9,6 @@ permalink: components/pickbtn
 
 <p class="intro">Use this component to create prominent radio buttons. It’s basically a visual candy wrapper around a `<label>` and an `input[type="radio"]`.</label></p>
 
-| Styles         | [pickBtn.less]({{ pathToSourceFile }}assets/less/components/pickBtn.less) |
-| Script         | [pickBtn.js]({{ pathToSourceFile }}assets/js/components/pickBtn.js)       |
-| Script Hook    | `yoi-pickbtn`                                                           |
-| Base CSS-Class | `.pickBtn`                                                              |
-| Modifiers      | `-`                                                                     |
-
 ## Basic Example
 
 The script that controls `.pickBtn` instances assumes that we use *real* `input[type="radio"]` elements inside each `.pickBtn`. Once a button is active, the script activates the radio input inside, so you can work with it like you would expect working with a regular radio input.

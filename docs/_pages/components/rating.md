@@ -9,10 +9,6 @@ permalink: components/rating
 
 <p class="intro">Use this component to display a compact rating score – visualized by a number of stars between 1 and 5.</p>
 
-| Styles         | [rating.less]({{ pathToSourceFile }}assets/less/components/accordion.less)                                 |
-| Base CSS-Class | `.rating`                                                                                                |
-| Modifiers      | `.rating-1, .rating-2, .rating-3, .rating-4, .rating-5, .rating--small, .rating--medium, .rating--large` |
-
 ## Basic Example
 
 This is how a basic `.rating` looks like and how you write the markup:

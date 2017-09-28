@@ -9,11 +9,6 @@ permalink: components/imgmagnifier
 
 <p class="intro">Use this component to add a magnifyer function to an image.</p>
 
-| Styles         | [imgMagnifier.less]({{ pathToSourceFile }}assets/less/components/imgMagnifier.less) |
-| Script         | [imgMagnifier.js]({{ pathToSourceFile }}assets/js/components/imgMagnifier.js)       |
-| Script Hook    | `yoi-imgmagnifier`                                                                |
-| Base CSS-Class | `.imgMagnifier`                                                                   |
-
 ## Basic Example
 
 This is how a basic `.imgMagnifier` looks like and how you write the markup:

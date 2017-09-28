@@ -9,10 +9,6 @@ permalink: components/mainmenu
 
 <p class="intro">Use this component to create a prominent horizontal menu.</p>
 
-| Styles         | [mainMenu.less]({{ pathToSourceFile }}assets/less/components/mainMenu.less) |
-| Script         | [mainMenu.js]({{ pathToSourceFile }}assets/js/components/mainMenu.js)       |
-| Base CSS-Class | `.mainMenu`                                                               |
-
 ## Basic Example
 
 This is how a basic `.mainMenu` looks like and how you write the markup:

@@ -92,8 +92,3 @@ If you wish to display an element at a specific screen size only, combine the re
 <!-- example -->
 <div class="br bg-yellow-22 tc-yellow-10 p-4 m--hidden l--hidden xl--hidden">visible <b>only on small</b> screens</div>
 ```
-
-## Associated Files
-
-| src/less/utilities/visibility.less            |
-| src/less/utilities/responsive-visibility.less |

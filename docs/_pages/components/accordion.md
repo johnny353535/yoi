@@ -9,12 +9,6 @@ permalink: components/accordion
 
 <p class="intro">Use this component to create one or several grouped sections that expand or collapse, once a section header is clicked.</p>
 
-| Styles         | [accordion.less]({{ pathToSourceFile }}assets/less/components/accordion.less) |
-| Script         | [accordion.js]({{ pathToSourceFile }}assets/js/components/accordion.js)       |
-| Script Hook    | `yoi-accordion`                                                             |
-| Base CSS-Class | `.accordion`                                                                |
-| Modifiers      | `-`                                                                         |
-
 ## Basic Example
 
 This is how a basic `.accordion` looks like and how you write the markup:

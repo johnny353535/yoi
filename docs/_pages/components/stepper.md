@@ -9,12 +9,6 @@ permalink: components/stepper
 
 <p class="intro">This element combines a (numeric) input-field with control buttons to de- or increase the input value.</p>
 
-| Styles         | [stepper.less]({{ pathToSourceFile }}assets/less/components/stepper.less) |
-| Script         | [stepper.js]({{ pathToSourceFile }}assets/js/components/stepper.js)       |
-| Script Hook    | `yoi-stepper`                                                           |
-| Base CSS-Class | `.stepper`                                                              |
-| Modifiers      | `.stepper--light, .stepper--touch`                                      |
-
 ## Basic Example
 
 This is how a basic `.stepper` looks like and how you write the markup:

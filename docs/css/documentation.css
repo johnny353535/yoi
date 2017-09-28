@@ -1,16 +1,10 @@
 /** documentation.css */
 
-/* page layout */
-/* =========== */
-
 /* intro table */
 
 .article > h1:first-child + p + table td:first-child {
     width: 15rem;
 }
-
-/* individual pages */
-/* ================ */
 
 /* interface/sticky.md */
 
@@ -26,34 +20,4 @@
 
 #example-sticky-4::after {
     top: 350px;
-}
-
-/* tools/gradient.md */
-
-.shade {
-    height: 4rem;
-    text-align: right;
-}
-
-.shade p {
-    background: rgba(0,0,0,.4);
-    color: #fff;
-    display: inline-block;
-    font: normal 1.5rem/4rem monospace;
-    height: 100%;
-    padding: 0 1.5rem;
-}
-
-#gradientpanel {
-    display: none;
-}
-
-#codepanel {
-    display: none;
-}
-
-#codepanel code {
-    margin: 0;
-    padding: 2rem;
-    white-space: pre;
 }

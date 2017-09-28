@@ -9,12 +9,6 @@ permalink: components/table
 
 <p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
 
-| Styles         | [table.less]({{ pathToSourceFile }}assets/less/components/table.less)                                                              |
-| Script         | [table.js]({{ pathToSourceFile }}assets/js/components/table.js)                                                                    |
-| Script Hook    | `yoi-table`                                                                                                                      |
-| Base CSS-Class | none (just the table-tag) or `.table`                                                                                            |
-| Modifiers      | `.table--borderless, .table--colHeader, .table--compressed, .table--fixed, .table--simpleHeader, .table--stripped, .table-zebra` |
-
 ## Basic Example
 
 This is how a basic `<table>` looks like and how you write the markup:

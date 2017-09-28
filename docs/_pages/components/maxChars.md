@@ -9,10 +9,6 @@ permalink: components/maxchars
 
 <p class="intro">Use the [hook](/) `yoi-maxchars` to limit the maximum characters for a textarea or text input and create a display of the remaining characters.</p>
 
-| Styles         | [maxChars.less]({{ pathToSourceFile }}assets/less/components/maxChars.less) |
-| Script         | [maxChars.js]({{ pathToSourceFile }}assets/js/components/maxChars.js)       |
-| Script Hook    | `yoi-maxchars`                                                            |
-
 ## Basic Example
 
 Add the hook `yoi-maxchars` to a `<input type="text">` or `<textarea>`. The input element (or textarea) must have a maxlength value. Add the css-selector for the element displaying the remaining characters as a parameter. Now the text input and the display element are linked, whenever you type, the display updates the number of remaining characters:

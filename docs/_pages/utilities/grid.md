@@ -9,10 +9,6 @@ permalink: utilities/grid
 
 <p class="hint hint--error">Documentation incomplete.</p>
 
-## Inline Grid
-
-| `.grid-inline`| … |
-
 ## Float Grid
 
 | `.flexGrid`| … |

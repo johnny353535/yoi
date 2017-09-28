@@ -9,10 +9,6 @@ permalink: components/stepcrumb
 
 <p class="intro">Use this component to create a compact horizontal chain of links to display a progress – eg. the current step of a register process.</p>
 
-| Styles         | [stepCrumb.less]({{ pathToSourceFile }}assets/less/components/stepCrumb.less) |
-| Base CSS-Class | `.stepCrumb`                                                                |
-| Modifiers      | `.stepCrumb--step1, […], .stepCrumb--step10`                                |
-
 ## Basic Example
 
 This is how a basic `.stepCrumb` looks like and how you write the markup:

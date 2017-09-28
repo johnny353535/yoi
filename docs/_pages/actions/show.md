@@ -9,8 +9,6 @@ permalink: actions/show
 
 <p class="intro">Use this action to show an invisible element.</p>
 
-| Js-File | [show.js]({{ pathToSourceFile }}assets/js/actions/show.js) |
-
 ## Basic Example
 
 Use `yoi-action="Show:CssSelector;"` to show an invisible element:

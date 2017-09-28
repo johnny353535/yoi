@@ -9,12 +9,6 @@ permalink: components/dock
 
 <p class="intro">Use this component to create an overlay which is docked to the right or left side of the screen and takes up the whole viewport height.</p>
 
-| Styles         | [dock.less]({{ pathToSourceFile }}assets/less/components/dock.less) |
-| Script         | [dock.js]({{ pathToSourceFile }}assets/js/components/dock.js)       |
-| Script Hook    | `yoi-dock`                                                        |
-| Base CSS-Class | `.dock`                                                           |
-| Modifiers      | `.dock--left, .dock--right`                                       |
-
 ## Basic Example
 
 This is the markup for a basic `.dock` (you should see the rendered result on the left edge of this page):

@@ -9,10 +9,6 @@ permalink: components/stepmenu
 
 <p class="intro">Use this component to create a prominent vertical chain of links to display a progress – eg. the current step of a register process.</p>
 
-| Styles         | [stepMenu.less]({{ pathToSourceFile }}assets/less/components/stepMenu.less) |
-| Base CSS-Class | `.stepMenu`                                                               |
-| Modifiers      | `.stepMenu--step1, […], .stepMenu--step5, .stepMenu--right`               |
-
 ## Basic Example
 
 This is how a basic `.stepMenu` looks like and how you write the markup:

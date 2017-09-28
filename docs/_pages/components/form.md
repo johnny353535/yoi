@@ -9,10 +9,6 @@ permalink: components/form
 
 <p class="intro">All text inputs, textareas, checkboxes, radio buttons and selects get custom styling — no additional classnames needed. However, modifiers for state, color and size are available.</p>
 
-| Styles         | [form.less]({{ pathToSourceFile }}assets/less/components/form.less), [textInputs.less]({{ pathToSourceFile }}assets/less/components/textInputs.less), [customCheckbox.less]({{ pathToSourceFile }}assets/less/components/customCheckbox.less), [customRadiobutton.less]({{ pathToSourceFile }}assets/less/components/customRadiobutton.less), [customSelect.less]({{ pathToSourceFile }}assets/less/components/customSelect.less) |
-| Script         | [customFormElements.js]({{ pathToSourceFile }}assets/js/components/customFormElements.js)                             |
-| Modifiers      | `.input--large, .input--checked, .input--disabled, .input--focus, .input--readonly, .input--success, .input--error` |
-
 ## Elements
 
 ### Text Input & Textareas

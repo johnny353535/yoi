@@ -9,9 +9,7 @@ permalink: utilities/typography
 
 <p class="hint hint--error">Documentation incomplete.</p>
 
-## Utilities
-
-### Headings
+## Headings
 
 | `.h1` | … |
 | `.h2` | … |
@@ -32,7 +30,7 @@ permalink: utilities/typography
 
 <!-- <p class="hint">headings are not responsive, font-rhythm scales foo</p> -->
 
-### Font Size
+## Font Size
 
 | `.fs-0` | … |
 | `.fs-1` | … |
@@ -52,7 +50,7 @@ permalink: utilities/typography
 | `.l--fs-*`  | … |
 | `.xl--fs-*` | … |
 
-### Line Height
+## Line Height
 
 | `.lh-0` | … |
 | `.lh-1` | … |
@@ -72,30 +70,30 @@ permalink: utilities/typography
 | `.l--lh-*`  | … |
 | `.xl--lh-*` | … |
 
-### Font Family
+## Font Family
 
 | `.ff-sr`   | … |
 | `.ff-ss`   | … |
 | `.ff-mono` | … |
 
-### Font Weight
+## Font Weight
 
 | `.fw-normal` | … |
 | `.fw-bold`   | … |
 
-### Font Style
+## Font Style
 
 | `.fst-no` | … |
 | `.fst-it` | … |
 
-### Text Transform
+## Text Transform
 
 | `.tt-cp`   | … |
 | `.tt-lc`   | … |
 | `.tt-none` | … |
 | `.tt-uc`   | … |
 
-### Text Alignment
+## Text Alignment
 
 | `.al-r` | … |
 | `.al-l` | … |
@@ -108,21 +106,25 @@ permalink: utilities/typography
 | `.l--al-*`  | … |
 | `.xl--al-*` | … |
 
-### Line Break
+## Line Break
 
 | `.lbr-none` | … |
 
-### Responsive Line Break
+## Responsive Line Break
 
 | `.s--lbr-none`  | … |
 | `.m--lbr-none`  | … |
 | `.l--lbr-none`  | … |
 | `.xl--lbr-none` | … |
 
-### Text Decoration
+## Text Decoration
 
 | `.tdcr-none` | … |
 | `.tdcr-undl` | … |
+
+### Interactive Text Decoration
+
+| `hvr--` | … |
 
 ### List Style
 

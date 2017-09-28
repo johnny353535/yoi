@@ -9,9 +9,6 @@ permalink: components/pagination
 
 <p class="intro">Use this component to render a pagination with page links and browse buttons.</p>
 
-| Styles         | [pagination.less]({{ pathToSourceFile }}assets/less/components/pagination.less) |
-| Base CSS-Class | `.pagination`                                                                 |
-
 ## Basic Example
 
 This is how a basic `.pagination` looks like and how you write the markup:

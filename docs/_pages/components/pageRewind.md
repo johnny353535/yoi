@@ -9,11 +9,6 @@ permalink: components/pagerewind
 
 <p class="intro">Use this component to create a _scroll-to-top-button_ at the bottom of a page.</p>
 
-| Styles         | [pageRewind.less]({{ pathToSourceFile }}assets/less/components/pageRewind.less) |
-| Script         | [pageRewind.js]({{ pathToSourceFile }}assets/js/components/pageRewind.js)       |
-| Script Hook    | `yoi-pagerewind`                                                              |
-| Base CSS-Class | `.pageRewind`                                                                 |
-
 ## Usage
 
 The element is created and injected into the page via JavaScript. If you wish to add a `.pageRewind` to a specific page, add the attribute `yoi-pagerewind` to the `<body>`:

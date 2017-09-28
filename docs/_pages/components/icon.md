@@ -9,12 +9,6 @@ permalink: components/icon
 
 <p class="intro">Monochrome, SVG-based icons.</p>
 
-| Styles         | [icon.less]({{ pathToSourceFile }}assets/less/components/icon.less) |
-| Script         | [icon.js]({{ pathToSourceFile }}assets/js/components/icon.js)       |
-| Script Hook    | `yoi-icon`                                                        |
-| Base CSS-Class | `.icon`                                                           |
-| Modifiers      | `.icon--small, .icon--large, .icon--xlarge`                       |
-
 ## Basic Example
 
 This is how a basic `.icon` looks like and how you write the markup:

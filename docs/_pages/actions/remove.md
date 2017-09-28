@@ -9,8 +9,6 @@ permalink: actions/remove
 
 <p class="intro">Add this action to an element (eg. a button) to remove it’s parent element or any other target-element.</p>
 
-| Js-File | [remove.js]({{ pathToSourceFile }}assets/js/actions/remove.js) |
-
 ## Examples
 
 Use `yoi-action="Remove:CssSelector"` to remove a target element from the document.

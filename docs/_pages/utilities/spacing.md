@@ -27,12 +27,12 @@ permalink: utilities/spacing
 | `.m-tb-neg-@{i}` | … |
 | `.m-lr-neg-@{i}` | … |
 
-## Responsive Margin
+### Responsive Margin
 
-| `small-`  | … |
-| `medium-` | … |
-| `large-`  | … |
-| `xlarge-` | … |
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Padding
 
@@ -44,9 +44,9 @@ permalink: utilities/spacing
 | `.p-tb-@{i}` | … |
 | `.p-lr-@{i}` | … |
 
-## Responsive Padding
+### Responsive Padding
 
-| `small-`  | … |
-| `medium-` | … |
-| `large-`  | … |
-| `xlarge-` | … |
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |

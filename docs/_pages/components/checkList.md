@@ -9,10 +9,6 @@ permalink: components/checklist
 
 <p class="intro">Use this component to render an unordered list into a styled list with checkmarks.</p>
 
-| Styles         | [checkList.less]({{ pathToSourceFile }}assets/less/components/checkList.less) |
-| Base CSS-Class | `.checkList`                                                                |
-| Modifiers      | `-`                                                                         |
-
 ## Basic Example
 
 This is how a basic `.checkList` looks like and how you write the markup:

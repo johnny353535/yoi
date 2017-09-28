@@ -21,3 +21,7 @@ permalink: utilities/opacity
 | `.opacity-3`    | … |
 | `.opacity-2`    | … |
 | `.opacity-1`    | … |
+
+### Interactive Opacity
+
+| `hvr--` | … |

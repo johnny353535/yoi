@@ -9,11 +9,6 @@ permalink: components/switch
 
 <p class="intro">Use this component to display animated binary switch buttons.</p>
 
-| Styles         | [switch.less]({{ pathToSourceFile }}assets/less/components/switch.less) |
-| Base CSS-Class | `.switch`                                                             |
-| Script Hook    | `yoi-switch`                                                          |
-| Modifiers      | `.switch--large`                                                      |
-
 ## Basic Example
 
 This is how a basic `.switch` looks like and how you write the markup:

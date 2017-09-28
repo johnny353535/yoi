@@ -9,11 +9,6 @@ permalink: components/ratinginput
 
 <p class="intro">Use `.ratingInput` to create a compact 5-star rating mechanism.</p>
 
-| Styles         | [ratingInput.less]({{ pathToSourceFile }}assets/less/components/ratingInput.less) |
-| Script         | [ratingInput.js]({{ pathToSourceFile }}assets/js/components/ratingInput.js)       |
-| Script Hook    | `yoi-ratinginput`                                                               |
-| Base CSS-Class | `.ratingInput`                                                                  |
-
 ## Basic Example
 
 This is how a basic `.ratingInput` looks like and how you write the markup:

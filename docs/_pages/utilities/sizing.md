@@ -24,11 +24,29 @@ permalink: utilities/sizing
 | `.w-4-5`  | … |
 | `.w-auto` | … |
 
+### Responsive Fractional Width
+
+| m--  | … |
+| l--  | … |
+| xl-- | … |
+
 ## Auto Width
 
 | `.w-auto`| … |
+
+### Responsive Auto Width
+
+| m--  | … |
+| l--  | … |
+| xl-- | … |
 
 ## Fixed Width & Height
 
 | `.w-` | … |
 | `.h-` | … |
+
+### Responsive Fixed Width & Height
+
+| m--  | … |
+| l--  | … |
+| xl-- | … |

@@ -9,10 +9,6 @@ permalink: components/callout
 
 <p class="intro">Use this component to emphasize a small portion of text. Superimpose it upon images or banners to make bits of information visually stand out.</p>
 
-| Styles         | [callout.less]({{ pathToSourceFile }}assets/less/components/callout.less)                                                                           |
-| Base CSS-Class | `.callout`                                                                                                                                        |
-| Modifiers      | `.callout--large, .callout--rot-l, .callout--rot-r, .callout--dark, .callout--light, .callout--attention, .callout--positive, .callout--negative` |
-
 ## Basic Example
 
 The default `.callout` has dark text on light background. This is how it looks and how you write the markup:

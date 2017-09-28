@@ -9,11 +9,6 @@ permalink: components/datepicker
 
 <p class="intro">Use this component to provide an easy way to enter dates into input fields.</p>
 
-| Styles         | [datePicker.less]({{ pathToSourceFile }}assets/less/components/datePicker.less) |
-| Script         | [datePicker.js]({{ pathToSourceFile }}assets/js/components/datePicker.js)       |
-| Script Hook    | `yoi-datepicker`                                                              |
-| Base CSS-Class | `.datePicker`                                                                 |
-
 <p class="hint hint--negative"><strong>The date picker is designed for use on desktop browsers.</strong> On mobile browsers it makes more sense to use the native input widgets.</p>
 
 ## Basic Example

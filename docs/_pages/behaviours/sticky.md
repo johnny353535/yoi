@@ -9,9 +9,6 @@ permalink: behaviours/sticky
 
 <p class="intro">Makes any element on the page stick while scrolling past a certain threshold, which can be defined per element.</p>
 
-| Js-File | [sticky.js]({{ pathToSourceFile }}assets/js/features/sticky.js) |
-| Hooks   | `yoi-sticky`                                                    |
-
 ## Basic Example
 
 Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky*. While scrolling the page down, as soon as the vieport’s top border *touches* the element, it *sticks* at the viewport top while scrolling. If no other parameter is provided, the element *sticks as long as the page can be scrolled*.

@@ -9,9 +9,6 @@ permalink: components/shelf
 
 <p class="intro">Use this component to display a grid elements as a shelf.</p>
 
-| Styles         | [shelf.less]({{ pathToSourceFile }}assets/less/components/shelf.less) |
-| Base CSS-Class | `.shelf`                                                            |
-
 ## Basic Example
 
 For this example, we use thumbnail-images inside shelf items. You could use any other item instead (see [examples below]({{ page.url }}.html#variations)). This is how a basic `.shelf` might look like and how you write the markup:

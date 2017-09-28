@@ -9,10 +9,6 @@ permalink: components/pagedots
 
 <p class="intro">Use this component to display previous- & next-buttons with dots as page indicators.</p>
 
-| Styles         | [pageDots.less]({{ pathToSourceFile }}assets/less/components/pageDots.less) |
-| Base CSS-Class | `.pageDots`                                                               |
-| Modifiers      | `.pageDots--dark, .pageDots--subtle`                                      |
-
 <p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 
 ## Basic Example

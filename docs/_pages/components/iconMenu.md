@@ -9,10 +9,6 @@ permalink: components/iconmenu
 
 <p class="intro">Use this component to create a large vertical menu with large icons.</p>
 
-| Styles         | [iconMenu.less]({{ pathToSourceFile }}assets/less/components/iconMenu.less) |
-| Script         | [iconMenu.js]({{ pathToSourceFile }}assets/js/components/iconMenu.js)       |
-| Base CSS-Class | `.iconMenu`                                                               |
-
 ## Basic Example
 
 This is how a basic `.iconMenu` looks like and how you write the markup:

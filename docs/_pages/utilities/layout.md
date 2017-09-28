@@ -19,6 +19,13 @@ permalink: utilities/layout
 | `.d-blk`    | … |
 | `.d-inlblk` | … |
 
+### Responsive Display
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
+
 ## Positioning Type
 
 | `.pos-abs` | … |
@@ -26,16 +33,34 @@ permalink: utilities/layout
 | `.pos-fix` | … |
 | `.pos-stc` | … |
 
+### Responsive Positioning Type
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
+
 ## Absolute Positioning
 
-| `.pos-t`  | … |
-| `.pos-r`  | … |
-| `.pos-b`  | … |
-| `.pos-l`  | … |
-| `.pos-tl` | … |
-| `.pos-tr` | … |
-| `.pos-br` | … |
-| `.pos-bl` | … |
+| `.pos-t`      | … |
+| `.pos-r`      | … |
+| `.pos-b`      | … |
+| `.pos-l`      | … |
+| `.pos-tl`     | … |
+| `.pos-tr`     | … |
+| `.pos-br`     | … |
+| `.pos-bl`     | … |
+| `.pos-t-@{i}` | … |
+| `.pos-r-@{i}` | … |
+| `.pos-b-@{i}` | … |
+| `.pos-l-@{i}` | … |
+
+### Responsive Absolute Positioning
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Fixed Positioning
 
@@ -48,16 +73,23 @@ permalink: utilities/layout
 | `.pos-fix-br` | … |
 | `.pos-fix-bl` | … |
 
-## “Push”-Utilities for Micro Layout Fixes
+### Responsive Fixed Positioning
 
-| `.push-t-@{i}`| … |
-| `.push-r-@{i}`| … |
-| `.push-b-@{i}`| … |
-| `.push-l-@{i}`| … |
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Horizontal Centering
 
 | `.center` | … |
+
+### Responsive Horizontal Centering
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Columns
 
@@ -65,11 +97,25 @@ permalink: utilities/layout
 | `.cls-3` | … |
 | `.cls-4` | … |
 
+### Responsive Columns
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
+
 ## Vertical Alignment
 
 | `.val-m` | … |
 | `.val-t` | … |
 | `.val-b` | … |
+
+### Responsive Vertical Alignment
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Float & Clear
 
@@ -80,12 +126,26 @@ permalink: utilities/layout
 | `.cl-b`     | … |
 | `.clearfix` | … |
 
+### Responsive Float & Clear
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
+
 ## Overflow
 
 | `.ovrfl-x-hidden` | … |
 | `.ovrfl-y-hidden` | … |
-| `.ovrfl-hidden    | … |
+| `.ovrfl-hidden`   | … |
 | `.ovrfl-visible`  | … |
+
+### Responsive Overflow
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |
 
 ## Z-Index
 
@@ -99,3 +159,10 @@ permalink: utilities/layout
 | `.z-8`  | … |
 | `.z-9`  | … |
 | `.z-10` | … |
+
+### Responsive Z-Index
+
+| `s--`  | … |
+| `m--`  | … |
+| `l--`  | … |
+| `xl--` | … |

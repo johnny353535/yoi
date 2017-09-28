@@ -9,8 +9,6 @@ permalink: actions/scrollto
 
 <p class="intro">Use this action to smoothly scroll to a target element.</p>
 
-| Js-File | [scrollTo.js]({{ pathToSourceFile }}assets/js/actions/scrollTo.js) |
-
 ## Example
 
 Use `yoi-action="ScrollTo:CssSelector"` to smoothly scroll to the target element:

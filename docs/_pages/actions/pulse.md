@@ -9,8 +9,6 @@ permalink: actions/pulse
 
 <p class="intro">Use this action to make an element <i>pulse</i>, eg. to draw the user’s attention.</p>
 
-| Js-File | [pulse.js]({{ pathToSourceFile }}assets/js/actions/pulse.js) |
-
 ## Basic Example
 
 Use `yoi-action="Pulse:CssSelector;"` to make an element pulse. By default, it will pulse two times.

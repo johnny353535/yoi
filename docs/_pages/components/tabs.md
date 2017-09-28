@@ -9,12 +9,6 @@ permalink: components/tabs
 
 <p class="intro">Use this component to create tab menus that switch the content in pre-defined regions on a page.</p>
 
-| Styles         | [tabs.less]({{ pathToSourceFile }}assets/less/components/tabs.less)                       |
-| Script         | [tabs.js]({{ pathToSourceFile }}assets/js/components/tabs.js)                             |
-| Script Hook    | `yoi-tabs`                                                                              |
-| Base CSS-Class | `.tabs, .tabs__menu`                                                                    |
-| Modifiers      | `.tabs__menu--large, .tabs__menu--subtle, .tabs__menu--checkmarks, .tabs__menu--arrows` |
-
 ## Basic Example
 
 This is how a basic `.tabs` and `.tabs__menu.` looks and how you write the markup:

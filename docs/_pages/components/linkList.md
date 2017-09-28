@@ -9,10 +9,6 @@ permalink: components/linklist
 
 <p class="intro">Use this component to create a vertical list of links.</p>
 
-| Styles         | [linkList.less]({{ pathToSourceFile }}assets/less/components/linkList.less)                                                                                                                                 |
-| Base CSS-Class | `.linkList`                                                                                                                                                                                               |
-| Modifiers      | `.is--active, .linkList--large, .linkList--dark, .linkList--arrowsLeft, .linkList--arrowsLeftUp, .linkList--arrowsLeftDown, .linkList--arrowsRight, .linkList--arrowsRightUp, .linkList--arrowsRightDown` |
-
 ## Basic Example
 
 This is how a basic `.linkList` looks like and how you write the markup:

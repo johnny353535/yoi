@@ -9,10 +9,6 @@ permalink: components/ribbon
 
 <p class="intro">Use this component to display to display a 45° rotated ribbon in the the upper left or right corner of any container element.</p>
 
-| Styles         | [ribbon.less]({{ pathToSourceFile }}assets/less/components/ribbon.less)                                                   |
-| Base CSS-Class | `.ribbon`                                                                                                               |
-| Modifiers      | `.ribbon--left .ribbon--right, .ribbon--attention, .ribbon--dark, .ribbon--light, .ribbon--negative, .ribbon--positive` |
-
 ## Basic Example
 
 This is how a basic `.ribbon` looks like and how you write the markup:

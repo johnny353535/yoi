@@ -9,10 +9,6 @@ permalink: components/hint
 
 <p class="intro">Use this component to create emphasized paragraphs in four available different stylings.</p>
 
-| Styles         | [hint.less]({{ pathToSourceFile }}assets/less/components/hint.less) |
-| Base CSS-Class | `.hint`                                                           |
-| Modifiers      | `.hint--positive, .hint--negative, .hint--attention`              |
-
 ## Basic Example
 
 This is how a basic `.hint` looks like and how you write the markup:

@@ -9,10 +9,6 @@ permalink: components/breadcrumbs
 
 <p class="intro">Use this component to displaying the path to the current page.</p>
 
-| Styles         | [breadcrumbs.less]({{ pathToSourceFile }}assets/less/components/breadcrumbs.less) |
-| Base CSS-Class | `.breadcrumbs`                                                                  |
-| Modifiers      | `-`                                                                             |
-
 ## Example
 
 This is how breadcrumbs look like and how you write the markup:

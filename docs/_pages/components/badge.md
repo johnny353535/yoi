@@ -9,10 +9,6 @@ permalink: components/badge
 
 <p class="intro">Use this component to display small bits of data, eg. inside a button. It’s perfect to create one-word labels or counters.</p>
 
-| Styles         | [badge.less]({{ pathToSourceFile }}assets/less/components/badge.less)                                                                                                                 |
-| Base CSS-Class | `.badge`                                                                                                                                                                            |
-| Modifiers      | `.badge--small, .badge--medium, .badge--large, .badge--dark, .badge--light, .badge--attention, .badge--error, .badge--negative, .badge--success, .badge--positive, .badge--rounded` |
-
 ## Modifiers
 
 ### Size

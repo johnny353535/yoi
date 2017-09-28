@@ -9,11 +9,6 @@ permalink: components/note
 
 <p class="intro">Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be *dismissable*, they come in two text sizes and they can contain an icon.</p>
 
-| Styles         | [note.less]({{ pathToSourceFile }}assets/less/components/note.less)                                                                                                                                     |
-| Script         | [dismiss.js]({{ pathToSourceFile }}assets/js/modules/dismiss.js)                                                                                                                                      |
-| Base CSS-Class | `.note`                                                                                                                                                                                               |
-| Modifiers      | `.note--attention, .note--dark, .note--subtle, .note--error, .note--fullwidth, .note--hasIcon-xxx, .note--large, .note--light, .note--negative, .note--positive, .note--prescription, .note--success` |
-
 ## Simple Note
 
 ```html

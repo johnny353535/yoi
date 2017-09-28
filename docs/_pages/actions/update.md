@@ -9,8 +9,6 @@ permalink: actions/update
 
 <p class="intro">Use this action to request remote content and inject it into any target element.</p>
 
-| Js-File | [update.js]({{ pathToSourceFile }}assets/js/actions/update.js) |
-
 ## Basic Example
 
 Use `yoi-action="Update:CssSelector; url:'https://someAdress.com';"` to request data and inject it into the target element.

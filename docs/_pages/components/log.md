@@ -9,11 +9,6 @@ permalink: components/log
 
 <p class="intro">Use this component to log short messages in reverse-order.</p>
 
-| Styles         | [log.less]({{ pathToSourceFile }}assets/less/components/log.less) |
-| Script         | [log.js]({{ pathToSourceFile }}assets/js/components/log.js)       |
-| Base CSS-Class | `.log`                                                          |
-| Modifiers      | `.log--tl, .log--tr, .log--br, .log--bl`                        |
-
 <p class="hint"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
 
 ## Basic Example

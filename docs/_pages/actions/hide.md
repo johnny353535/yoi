@@ -9,8 +9,6 @@ permalink: actions/hide
 
 <p class="intro">Use this action to hide an element.</p>
 
-| Js-File | [hide.js]({{ pathToSourceFile }}assets/js/actions/hide.js) |
-
 ## Basic Example
 
 Use `yoi-action="Hide:CssSelector;"` to hide an element:

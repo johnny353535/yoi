@@ -9,8 +9,6 @@ permalink: actions/blink
 
 <p class="intro">Use this action to make an element <i>blink</i>, eg. to draw the user’s attention.</p>
 
-| Js-File | [blink.js]({{ pathToSourceFile }}assets/js/actions/blink.js) |
-
 ## Basic Example
 
 Use `yoi-action="Bink:CssSelector;"` to make an element blink. By default, it will blink two times.

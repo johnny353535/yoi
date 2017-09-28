@@ -9,12 +9,6 @@ permalink: components/slider
 
 <p class="intro">Sliders are simple slide show elements that can contain images, text or both. A few options are available – like *autoplay*, *transition style* and a few more. For each `.slide`, you can chose from a few different *control elements*.</p>
 
-| Styles         | [slider.less]({{ pathToSourceFile }}assets/less/components/slider.less) |
-| Script         | [slider.js]({{ pathToSourceFile }}assets/js/components/slider.js)       |
-| Script Hook    | `yoi-slider`                                                          |
-| Base CSS-Class | `.slider`                                                             |
-| Modifiers      | `.slider--dark, .slider--super`                                       |
-
 ## Super Slider With Autoplay and Animated Transition
 
 ```html

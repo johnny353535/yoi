@@ -1,0 +1,25 @@
+{% if page.title != "Introduction" %}
+    <h2>Source Files</h2>
+    <p>
+        {% if page.group == "actions" %}
+            <a href="{{ site.github.url }}blob/master/src/js/actions/{{ page.title | downcase }}.js">src/js/actions/{{ page.title | downcase }}.js</a>
+        {% elsif page.group == "behaviours" %}
+            <a href="{{ site.github.url }}blob/master/src/js/behaviours/{{ page.title | downcase }}.js">src/js/behaviours/{{ page.title | downcase }}.js</a>
+        {% elsif page.group == "components" %}
+            <a href="{{ site.github.url }}blob/master/src/{{ page.permalink }}/{{ page.title | downcase }}.less">src/{{ page.permalink }}/{{ page.title | downcase }}.less</a><br />
+            <a href="{{ site.github.url }}blob/master/src/{{ page.permalink }}/{{ page.title | downcase }}.js">src/{{ page.permalink }}/{{ page.title | downcase }}.js</a>
+        {% elsif page.group == "utilities" %}
+            <a href="{{ site.github.url }}blob/master/src/less/utilities/{{ page.title | downcase }}.less">src/less/utilities/{{ page.title | downcase }}.less</a>
+        {% endif %}
+    </p>
+{% endif %}
+<div class="b-t m-t-4 p-t-4 al-r">
+    <a class="btn btn--large btn--subtle" href="{{ site.github.url }}/edit/master/docs/_pages{{ page.url }}.md">
+        <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-019-s" yoi-icon />
+        <span>Edit this page</span>
+    </a>
+</div>
+
+{% comment %}
+    https://yoshino-digital.github.io/yoi
+{% endcomment %}

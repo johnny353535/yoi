@@ -9,10 +9,6 @@ permalink: components/spinner
 
 <p class="intro">Use this component to display an infinite loading animation.</p>
 
-| Styles         | [spinner.less]({{ pathToSourceFile }}assets/less/components/spinner.less) |
-| Base CSS-Class | `.spinner`                                                              |
-| Modifiers      | `.spinner--dark`                                                        |
-
 ## Basic Example
 
 This is how a basic `.spinner` looks like and how you write the markup:

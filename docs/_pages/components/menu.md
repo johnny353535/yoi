@@ -9,10 +9,6 @@ permalink: components/menu
 
 <p class="intro">Use this component to create a simple menu. It is designed to include *up to three levels of sub menus* and features *optional pointers* on either the right or left side.</p>
 
-| Styles         | [menu.less]({{ pathToSourceFile }}assets/less/components/menu.less) |
-| Base CSS-Class | `.menu`                                                           |
-| Modifiers      | `.menu--pointRight, .menu--pointLeft, .is--active`                |
-
 ## Basic Example
 
 This is the basic example of a `.menu` instance. You are free to use any markup you like as long as you use the BEM class name provided by this example. After all, while that’s a feature, it’s a feature you might rarely need since simple lists (`<ul>` od `<ol>`) are semantically the correct choices in most scenarios.

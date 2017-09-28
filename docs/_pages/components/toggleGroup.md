@@ -9,12 +9,6 @@ permalink: components/togglegroup
 
 <p class="intro">This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.</p>
 
-|                              |                                                                           |
-| -                            | -                                                                         |
-| Js-File                      | [toggleGroup.js]({{ pathToSourceFile }}assets/js/components/toggleGroup.js) |
-| Hooks                        | `yoi-toggle, yoi-toggle-fallback`                                         |
-| Options (for `yoi-toggle`)  | `target, group, event` (optional)`, activeClassName` (optional)            |
-
 ### Example with mouseover and Fall Back Element
 
 If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.

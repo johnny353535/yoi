@@ -25,6 +25,10 @@ permalink: utilities/shadow
 <div class="w-10 h-10 m-2 p-2 d-inlblk sh-3">.sh-3</div>
 ```
 
+### Interactive Box Shadow
+
+| `.hvr--` | … |
+
 ## Text Shadow
 
 | `.tsh-none` | … |

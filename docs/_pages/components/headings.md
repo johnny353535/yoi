@@ -9,8 +9,6 @@ permalink: components/headings
 
 <p class="intro">These are the headline-styles you can use in your documents.</p>
 
-| Styles | [headings.less]({{ pathToSourceFile }}assets/less/components/headings.less) |
-
 ## Example
 
 These are all available headline styles. Please note that level 4–6 have identical styling.

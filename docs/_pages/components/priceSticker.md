@@ -9,9 +9,6 @@ permalink: components/pricesticker
 
 <p class="intro">Use this component to display a simple horizontal ruler.</p>
 
-| Styles         | [priceSticker.less]({{ pathToSourceFile }}assets/less/components/priceSticker.less) |
-| Base CSS-Class | `.priceSticker`                                                                   |
-
 ## Basic Example
 
 This is how a basic `.priceSticker` looks like and how you write the markup:

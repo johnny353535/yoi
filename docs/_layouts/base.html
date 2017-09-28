@@ -23,9 +23,9 @@
     {% endif %}
     <body class="noJs" yoi-environment="desktop" {{ pageRewind }} {{ scrollKeys }} {{ scrollProgress }} >
         <script>document.body.className='js';</script>
-        <header class="m-tb-4 p-b-4 b-b">
+        <header class="m-b-4 p-t-8 p-b-4">
             <div class="center flexGrid flex-alignCenter flex-noWrap">
-                <img class="h-8 p-r-6" src="{{ site.github.url }}/assets/img/yoi-logo.svg" />
+                <img class="h-6 p-r-6" src="{{ site.github.url }}/assets/img/yoi-logo.svg" />
                 <span class="fs-2 l--fs-3 tc-main-15">YOI – the Yoshino Frontend Component Library</span>
             </div>
         </header>
@@ -41,6 +41,9 @@
             </nav>
             <article class="article w-1-1 l--w-4-5 l--p-l-10 flex-1 l--flex-2">
                 {{ content }}
+                {% if page.group == "actions" or page.group == "behaviours" or page.group == "components" or page.group == "utilities" %}
+                    {% include meta.html %}
+                {% endif %}
             </article>
         </div>
         <footer class="center flexGrid tc-gray-18 m-tb-15">

@@ -9,8 +9,6 @@ permalink: behaviours/scrollfx
 
 <p class="intro">Adds effects or transitions to elements, when they enter or leave the viewport while scrolling.</p>
 
-| Js-Files | [scrollAgent.js]({{ pathToSourceFile }}assets/js/modules/scrollAgent.js), [scrollFx.js]({{ pathToSourceFile }}assets/js/features/scrollFx.js) |
-
 ## Parameters
 
 | `in`     | The effect to apply when the element scrolls into the viewport                                                                    |

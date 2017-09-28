@@ -9,9 +9,6 @@ permalink: components/quotation
 
 <p class="intro">Use this component to create emphasized quotes.</p>
 
-| Styles         | [quotation.less]({{ pathToSourceFile }}assets/less/components/quotation.less) |
-| Base CSS-Class | `.quotation`                                                                |
-
 ## Basic Example
 
 This is how a basic `.quotation` looks like and how you write the markup:

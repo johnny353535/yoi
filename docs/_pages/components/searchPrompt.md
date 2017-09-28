@@ -9,9 +9,6 @@ permalink: components/searchprompt
 
 <p class="intro">Use this component to create a prominent search input.</p>
 
-| Styles         | [searchPrompt.less]({{ pathToSourceFile }}assets/less/components/searchPrompt.less) |
-| Base CSS-Class | `.searchPrompt`                                                                   |
-
 ## Basic Example
 
 This is how a basic `.searchPrompt` looks like and how you write the markup:

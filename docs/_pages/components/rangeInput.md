@@ -9,11 +9,6 @@ permalink: components/rangeinput
 
 <p class="intro">Use this component to create a custom range input.</p>
 
-| Styles         | [rangeInput.less]({{ pathToSourceFile }}assets/less/components/rangeInput.less) |
-| Script         | [rangeInput.js]({{ pathToSourceFile }}assets/js/components/rangeInput.js)       |
-| Script Hook    | `yoi-rangeinput`                                                              |
-| Base CSS-Class | `.rangeInput`                                                                 |
-
 ## Basic Example
 
 This is how a basic `.rangeInput` looks like and how you write the markup:

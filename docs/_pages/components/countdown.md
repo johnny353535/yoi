@@ -9,12 +9,6 @@ permalink: components/countdown
 
 <p class="intro">Use this component to create a countdown to a future date less than a year ahead. The countdown is rendered as a lcd-style clock, yet fully accessible via screen readers.</p>
 
-| Styles         | [countdown.less]({{ pathToSourceFile }}assets/less/components/countdown.less) |
-| Script         | [countdown.js]({{ pathToSourceFile }}assets/js/components/countdown.js)       |
-| Script Hook    | `yoi-countdown`                                                             |
-| Base CSS-Class | `.countdown`                                                                |
-| Modifiers      | `-`                                                                         |
-
 ## Basic Example
 
 This is how a basic `.countdown` looks like and how you write the markup:

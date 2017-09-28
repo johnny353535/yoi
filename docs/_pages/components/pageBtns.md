@@ -9,10 +9,6 @@ permalink: components/pagebtns
 
 <p class="intro">Use this component to display previous- & next-buttons with a page indicator.</p>
 
-| Styles         | [pageBtns.less]({{ pathToSourceFile }}assets/less/components/flipBtns.less) |
-| Base CSS-Class | `.pageBtns`                                                               |
-| Modifiers      | `.pageBtns--tl, .pageBtns--tr, .pageBtns--br, .pageBtns--bl`              |
-
 <p class="hint"><b>Use Cases:</b> <code>.pageBtns</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 
 ## Basic Example

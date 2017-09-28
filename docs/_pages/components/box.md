@@ -9,10 +9,6 @@ permalink: components/box
 
 <p class="intro">Use this component to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.</p>
 
-| Styles         | [box.less]({{ pathToSourceFile }}assets/less/components/box.less) |
-| Base CSS-Class | `.box`                                                          |
-| Modifiers      | `-`                                                             |
-
 ## Basic Example
 
 This is how a basic `.box` looks like and how you write the markup:
