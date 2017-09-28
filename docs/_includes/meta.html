@@ -13,13 +13,8 @@
     </p>
 {% endif %}
 <div class="b-t m-t-4 p-t-4 al-r">
-    <a class="btn btn--large btn--subtle" href="https://github.com/yoshino-digital/yoi/edit/master/docs/_pages{{ page.url }}.md">
+    <a class="btn btn--large btn--subtle" href="https://github.com/yoshino-digital/yoi/edit/master/docs/_pages{{ page.url }}{% if page.title == "Introduction" %}index{% endif %}.md">
         <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-019-s" yoi-icon />
         <span>Edit this page</span>
     </a>
 </div>
-
-{% comment %}
-    https://yoshino-digital.github.io/yoi
-    https://github.com/yoshino-digital/yoi/blob/
-{% endcomment %}
