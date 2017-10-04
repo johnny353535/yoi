@@ -1,11 +1,11 @@
 ---
 layout: base
 group: behaviours
-title: Dismissable
-permalink: behaviours/dismissable
+title: Dismiss
+permalink: behaviours/dismiss
 ---
 
-# Dismissable
+# Dismiss
 
 <p class="intro">Adds a dismiss (or “close”) button to an element’s upper right corner.</p>
 

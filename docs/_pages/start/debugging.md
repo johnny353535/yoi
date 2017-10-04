@@ -5,7 +5,7 @@ title: Debugging
 permalink: start/debugging
 ---
 
-# Visual Debugging
+# Debugging
 
 <p class="hint hint--error">Documentation incomplete.</p>
 

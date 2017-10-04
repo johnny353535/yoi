@@ -1,7 +1,7 @@
 start:
     - index
     - setup
-    - startlearning
+    - start learning
     - customizing
     - debugging
 utilities:
@@ -13,7 +13,7 @@ utilities:
     - gradient
     - grid
     - interface
-    - jsfallback
+    - js fallback
     - layout
     - opacity
     - shadow
@@ -85,7 +85,7 @@ components:
     - tooltip
 behaviours:
     - index
-    - dismissable
+    - dismiss
     - lazyload
     - scrollFx
     - sticky
