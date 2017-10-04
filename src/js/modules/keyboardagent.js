@@ -1,4 +1,4 @@
-/** keyboardAgent.js */
+/** keyboardagent.js */
 
 YOI.module.KeyboardAgent = (function() {
     
