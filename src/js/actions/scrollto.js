@@ -1,4 +1,4 @@
-/** scrollTo.js */
+/** scrollto.js */
 
 YOI.action.ScrollTo = function($trigger, $target, options) {
 
