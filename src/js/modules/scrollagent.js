@@ -1,4 +1,4 @@
-/** ScrollAgent.js */
+/** Scrollagent.js */
 
 YOI.module.ScrollAgent = (function() {
     
