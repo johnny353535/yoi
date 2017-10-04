@@ -1,4 +1,4 @@
-/** popOver.js */
+/** popover.js */
 
 YOI.component.PopOver = (function() {
     

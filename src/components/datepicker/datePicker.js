@@ -1,4 +1,4 @@
-/** datePicker.js */
+/** datepicker.js */
 
 YOI.component.DatePicker = (function() {
 

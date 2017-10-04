@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Grid
 permalink: utilities/grid
+srcfiles:
+    - grid-base.less
+    - grid-responsive.less
 ---
 
 # Grid

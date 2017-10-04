@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Color
 permalink: utilities/color
+srcfiles:
+    - color-base.less
+    - color-interactive.less
 ---
 
 # Color

@@ -1,4 +1,4 @@
-/** ratingInput.js */
+/** ratinginput.js */
 
 YOI.component.RatingInput = (function() {
 

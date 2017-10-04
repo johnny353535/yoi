@@ -3,6 +3,10 @@ layout: base
 group: utilities
 title: Typography
 permalink: utilities/typography
+srcfiles:
+    - typography-base.less
+    - typography-interactive.less
+    - typography-responsive.less
 ---
 
 # Typography

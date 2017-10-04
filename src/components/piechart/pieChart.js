@@ -1,4 +1,4 @@
-/** pieChart.js */
+/** piechart.js */
 
 YOI.component.PieChart = (function() {
 

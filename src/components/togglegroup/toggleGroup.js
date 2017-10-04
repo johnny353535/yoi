@@ -1,4 +1,4 @@
-/** toggleGroup.js */
+/** togglegroup.js */
 
 YOI.component.ToggleGroup = (function() {
 

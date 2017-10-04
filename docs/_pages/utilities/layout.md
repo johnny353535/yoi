@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Layout
 permalink: utilities/layout
+srcfiles:
+    - layout-base.less
+    - layout-responsive.less
 ---
 
 # Layout

@@ -1,4 +1,4 @@
-/** imgMagnifier.js */
+/** imgmagnifier.js */
 
 YOI.component.ImgMagnifier = (function(){
 

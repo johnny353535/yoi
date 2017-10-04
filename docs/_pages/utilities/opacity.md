@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Opacity
 permalink: utilities/opacity
+srcfiles:
+    - opacity-base.less
+    - opacity-interactive.less
 ---
 
 # Opacity

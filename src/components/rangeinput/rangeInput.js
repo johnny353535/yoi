@@ -1,4 +1,4 @@
-/** rangeInput.js */
+/** rangeinput.js */
 
 YOI.component.RangeInput = (function() {
 

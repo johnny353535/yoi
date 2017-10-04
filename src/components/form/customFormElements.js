@@ -1,4 +1,4 @@
-/** customFormElements.js */
+/** customformelements.js */
 
 YOI.component.CustomFormElements = (function() {
 

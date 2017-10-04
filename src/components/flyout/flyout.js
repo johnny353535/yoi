@@ -1,4 +1,4 @@
-/** flyouts.js */
+/** flyout.js */
 
 YOI.component.Flyout = (function() {
 

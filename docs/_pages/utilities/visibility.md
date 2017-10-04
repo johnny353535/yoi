@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Visibility
 permalink: utilities/visibility
+srcfiles:
+    - visibility-base.less
+    - visibility-responsive.less
 ---
 
 # Visibility

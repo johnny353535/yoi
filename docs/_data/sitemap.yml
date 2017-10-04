@@ -1,7 +1,7 @@
 start:
     - index
     - setup
-    - start_learning
+    - startlearning
     - customizing
     - debugging
 utilities:
@@ -13,7 +13,7 @@ utilities:
     - gradient
     - grid
     - interface
-    - js_fallback
+    - jsfallback
     - layout
     - opacity
     - shadow

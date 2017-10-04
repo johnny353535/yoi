@@ -1,4 +1,4 @@
-/** maxChars.js */
+/** maxchars.js */
 
 YOI.component.MaxChars = (function() {
 

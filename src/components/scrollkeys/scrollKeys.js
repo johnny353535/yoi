@@ -1,4 +1,4 @@
-/** scrollKeys.js */
+/** scrollkeys.js */
 
 YOI.component.ScrollKeys = (function() {
 

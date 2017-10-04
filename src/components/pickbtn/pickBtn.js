@@ -1,4 +1,4 @@
-/** pickBtn.js */
+/** pickbtn.js */
 
 YOI.component.PickBtn = (function() {
 

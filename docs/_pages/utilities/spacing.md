@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Spacing
 permalink: utilities/spacing
+srcfiles:
+    - spacing-base.less
+    - spacing-responsive.less
 ---
 
 # Spacing

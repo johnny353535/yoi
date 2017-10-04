@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Shadow
 permalink: utilities/shadow
+srcfiles:
+    - shadow-base.less
+    - shadow-interactive.less
 ---
 
 # Shadow

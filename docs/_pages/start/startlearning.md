@@ -2,7 +2,7 @@
 layout: base
 group: start
 title: Start Learning
-permalink: start/start_learning
+permalink: start/startlearning
 ---
 
 # Start Learning

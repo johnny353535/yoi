@@ -1,4 +1,4 @@
-/** scrollProgress.js */
+/** scrollprogress.js */
 
 YOI.component.ScrollProgress = (function() {
 

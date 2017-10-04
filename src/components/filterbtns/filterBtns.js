@@ -1,4 +1,4 @@
-/** filterBtns.js */
+/** filterbtns.js */
 
 YOI.component.FilterBtns = (function() {
 

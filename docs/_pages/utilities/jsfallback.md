@@ -1,8 +1,8 @@
 ---
 layout: base
 group: utilities
-title: JS-Fallback
-permalink: utilities/js_fallback
+title: JsFallback
+permalink: utilities/jsfallback
 ---
 
 # JavaSript Fallback

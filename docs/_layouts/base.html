@@ -41,9 +41,7 @@
             </nav>
             <article class="article w-1-1 l--w-4-5 l--p-l-10 flex-1 l--flex-2">
                 {{ content }}
-                {% if page.group == "actions" or page.group == "behaviours" or page.group == "components" or page.group == "utilities" %}
-                    {% include meta.html %}
-                {% endif %}
+                {% include meta.html %}
             </article>
         </div>
         <footer class="center flexGrid tc-gray-18 m-tb-15">

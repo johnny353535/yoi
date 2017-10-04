@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Sizing
 permalink: utilities/sizing
+srcfiles:
+    - sizing-base.less
+    - sizing-responsive.less
 ---
 
 # Sizing

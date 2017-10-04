@@ -1,4 +1,4 @@
-/** toolTip.js */
+/** tooltip.js */
 
 YOI.component.Tooltip = (function() {
     

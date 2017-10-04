@@ -1,4 +1,4 @@
-/** pageRewind.js */
+/** pagerewind.js */
 
 YOI.component.PageRewind = (function() {
 
