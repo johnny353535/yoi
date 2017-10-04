@@ -1,4 +1,4 @@
-/** browserHistory.js */
+/** browserhistory.js */
 
 YOI.module.BrowserHistory = (function() {
     
