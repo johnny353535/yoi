@@ -1,6 +1,6 @@
 /** ResizeAgent.js */
 
-YOI.module.ResizeAgent = (function() {
+YOI.module.Resizeagent = (function() {
    
     // private vars
     // ============
