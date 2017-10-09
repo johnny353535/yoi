@@ -131,7 +131,7 @@
     
     th:nth-child(6),
     th:nth-child(7) {
-        color: @color-negative-15;
+        color: @red-15;
     }
 
 }
@@ -141,13 +141,13 @@
 
 .datePicker__days .datePicker--today {
 
-    background: @color-attention-22;
-    color: @color-attention-8;
+    color: @color-main-8;
     font-weight: bold;
+    outline: @color-main-22 1px solid;
     position: relative;
 
     &::after {
-        background: @color-attention-10;
+        background: @color-main-10;
         border-radius: 50%;
         content: ' ';
         height: .4rem;
@@ -161,23 +161,23 @@
 
 .datePicker__days .datePicker--selectedDay {
 
-    background: @color-positive-12;
+    background: @blue-12;
     color: @color-white;
     font-weight: bold;
 
     &:hover {
 
         color: @color-white;
-        background: @color-positive-10;
+        background: @blue-10;
 
         &::after {
-            background: @color-positive-20;
+            background: @blue-20;
         }
 
     }
 
     &::after {
-        background: @color-positive-20;
+        background: @blue-20;
     }
 
 }

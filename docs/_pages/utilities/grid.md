@@ -14,11 +14,11 @@ srcfiles:
 
 ## Float Grid
 
-| `.flexGrid`| … |
+| `.floatGrid` | … |
 
 ## Flex Grid
 
-| `.grid-flex`                     | … |
+| `.flexGrid`                      | … |
 | `.flex-wrap`                     | … |
 | `.flex-noWrap`                   | … |
 | `.flex-wrapReverse`              | … |
@@ -44,4 +44,4 @@ srcfiles:
 | `.flex-justifyEnd`               | … |
 | `.flex-justifyCenter`            | … |
 | `.flex-justifySpaceBetween`      | … |
-| `.flex`-justifySpaceAround`      | … |
+| `.flex-justifySpaceAround`       | … |

@@ -40,6 +40,6 @@
     "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
     "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'docs/js/*' -c 'npm run build-scripts'",
-    "watch-styles": "chokidar 'src/less/**/*' 'docs/css/*' -c 'npm run build-styles'"
+    "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' 'docs/css/*' -c 'npm run build-styles'"
   }
 }
