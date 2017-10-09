@@ -3,7 +3,7 @@
 // simple float-based grid
 // =======================
 
-.floatGrid {
+.@{utilityPrefix}floatGrid {
 
     .mixin-clearfix;
     box-sizing: border-box !important;
@@ -33,7 +33,7 @@
     https://github.com/philipwalton/flexbugs
 */
 
-.flexGrid {
+.@{utilityPrefix}flexGrid {
 
     display: flex !important;
     flex-wrap: wrap !important;
@@ -51,19 +51,19 @@
 
 // flex layout
 
-.flex-wrap                   { flex-wrap: wrap !important; }
-.flex-noWrap                 { flex-wrap: nowrap !important; }
-.flex-wrapReverse            { flex-wrap: wrap-reverse !important; }
+.@{utilityPrefix}flex-wrap                   { flex-wrap: wrap !important; }
+.@{utilityPrefix}flex-noWrap                 { flex-wrap: nowrap !important; }
+.@{utilityPrefix}flex-wrapReverse            { flex-wrap: wrap-reverse !important; }
                               
-.flex-directionRow           { flex-direction: row !important; }
-.flex-directionRowReverse    { flex-direction: row-reverse !important; }
-.flex-directionColumn        { flex-direction: column !important; }
-.flex-directionColumnReverse { flex-direction: column-reverse !important; }
+.@{utilityPrefix}flex-directionRow           { flex-direction: row !important; }
+.@{utilityPrefix}flex-directionRowReverse    { flex-direction: row-reverse !important; }
+.@{utilityPrefix}flex-directionColumn        { flex-direction: column !important; }
+.@{utilityPrefix}flex-directionColumnReverse { flex-direction: column-reverse !important; }
 
-.flex-alignStart { align-items: flex-start !important; }
+.@{utilityPrefix}flex-alignStart { align-items: flex-start !important; }
 
-.flex-alignEnd { align-items: flex-end !important; }
-.flex-alignEnd {
+.@{utilityPrefix}flex-alignEnd { align-items: flex-end !important; }
+.@{utilityPrefix}flex-alignEnd {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -73,8 +73,8 @@
     }
 }
 
-.flex-alignCenter { align-items: center !important; }
-.flex-alignCenter {
+.@{utilityPrefix}flex-alignCenter { align-items: center !important; }
+.@{utilityPrefix}flex-alignCenter {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -84,8 +84,8 @@
     }
 }
 
-.flex-alignBaseline { align-items: baseline !important; }
-.flex-alignBaseline {
+.@{utilityPrefix}flex-alignBaseline { align-items: baseline !important; }
+.@{utilityPrefix}flex-alignBaseline {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -95,10 +95,10 @@
     }
 }
 
-.flex-alignContentStart { align-content: flex-start !important; }
+.@{utilityPrefix}flex-alignContentStart { align-content: flex-start !important; }
 
-.flex-alignContentEnd { align-content: flex-end !important; }
-.flex-alignContentEnd {
+.@{utilityPrefix}flex-alignContentEnd { align-content: flex-end !important; }
+.@{utilityPrefix}flex-alignContentEnd {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -108,39 +108,39 @@
     }
 }
 
-.flex-alignContentCenter        { align-content: center !important; }
-.flex-alignContentSpaceBetween  { align-content: space-between !important; }
-.flex-alignContentSpaceAround   { align-content: space-around !important; }
-.flex-alignSelfStretch          { align-self: stretch !important; }
-.flex-alignSelfStart            { align-self: flex-start !important; }
+.@{utilityPrefix}flex-alignContentCenter        { align-content: center !important; }
+.@{utilityPrefix}flex-alignContentSpaceBetween  { align-content: space-between !important; }
+.@{utilityPrefix}flex-alignContentSpaceAround   { align-content: space-around !important; }
+.@{utilityPrefix}flex-alignSelfStretch          { align-self: stretch !important; }
+.@{utilityPrefix}flex-alignSelfStart            { align-self: flex-start !important; }
 
-.flex-alignSelfEnd {
+.@{utilityPrefix}flex-alignSelfEnd {
   align-self: flex-end !important;
   vertical-align: bottom !important;
 }
 
-.flex-alignSelfCenter {
+.@{utilityPrefix}flex-alignSelfCenter {
   align-self: center !important;
   vertical-align: middle !important;
 }
 
-.flex-alignSelfBaseline {
+.@{utilityPrefix}flex-alignSelfBaseline {
   align-self: baseline !important;
   vertical-align: baseline !important;
 }
 
-.flex-justifyStart {
+.@{utilityPrefix}flex-justifyStart {
   text-align: left !important;
   justify-content: flex-start !important;
 }
 
-.flex-justifyEnd {
+.@{utilityPrefix}flex-justifyEnd {
   text-align: right !important;
   text-align-last: right !important;
   justify-content: flex-end !important;
 }
 
-.flex-justifyEnd {
+.@{utilityPrefix}flex-justifyEnd {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -155,13 +155,13 @@
     }
 }
 
-.flex-justifyCenter {
+.@{utilityPrefix}flex-justifyCenter {
   text-align: center !important;
   text-align-last: center !important;
   justify-content: center !important;
 }
 
-.flex-justifyCenter {
+.@{utilityPrefix}flex-justifyCenter {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -176,13 +176,13 @@
     }
 }
 
-.flex-justifySpaceBetween {
+.@{utilityPrefix}flex-justifySpaceBetween {
   text-align: justify !important;
   text-align-last: justify !important;
   justify-content: space-between !important;
 }
 
-.flex-justifySpaceBetween {
+.@{utilityPrefix}flex-justifySpaceBetween {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -197,13 +197,13 @@
     }
 }
 
-.flex-justifySpaceAround {
+.@{utilityPrefix}flex-justifySpaceAround {
   text-align: justify !important;
   text-align-last: justify !important;
   justify-content: space-around !important;
 }
 
-.flex-justifySpaceAround {
+.@{utilityPrefix}flex-justifySpaceAround {
     [class*="w-1-"],
     [class*="w-2-"],
     [class*="w-3-"],
@@ -220,13 +220,13 @@
 
 // flex order
 
-.flex-1  { order: 1; }
-.flex-2  { order: 2; }
-.flex-3  { order: 3; }
-.flex-4  { order: 4; }
-.flex-5  { order: 5; }
-.flex-6  { order: 6; }
-.flex-7  { order: 7; }
-.flex-8  { order: 8; }
-.flex-9  { order: 9; }
-.flex-10 { order: 10; }
+.@{utilityPrefix}flex-1  { order: 1; }
+.@{utilityPrefix}flex-2  { order: 2; }
+.@{utilityPrefix}flex-3  { order: 3; }
+.@{utilityPrefix}flex-4  { order: 4; }
+.@{utilityPrefix}flex-5  { order: 5; }
+.@{utilityPrefix}flex-6  { order: 6; }
+.@{utilityPrefix}flex-7  { order: 7; }
+.@{utilityPrefix}flex-8  { order: 8; }
+.@{utilityPrefix}flex-9  { order: 9; }
+.@{utilityPrefix}flex-10 { order: 10; }

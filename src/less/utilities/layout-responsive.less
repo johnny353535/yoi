@@ -2,71 +2,71 @@
 
 // "contructor"
 
-.responsive-layout(@prefix) {
+.responsive-layout(@bpPrefix) {
     
     // display
 
-    .@{prefix}--d-inl    { display: inline !important; }
-    .@{prefix}--d-blk    { display: block !important; }
-    .@{prefix}--d-inlblk { display: inline-block !important; }
+    .@{utilityPrefix}@{bpPrefix}--d-inl    { display: inline !important; }
+    .@{utilityPrefix}@{bpPrefix}--d-blk    { display: block !important; }
+    .@{utilityPrefix}@{bpPrefix}--d-inlblk { display: inline-block !important; }
 
     // position type
 
-    .@{prefix}--pos-abs  { position: absolute !important; }
-    .@{prefix}--pos-rel  { position: relative !important; }
-    .@{prefix}--pos-fix  { position: fixed !important; }
-    .@{prefix}--pos-stc  { position: static !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-abs  { position: absolute !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-rel  { position: relative !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-fix  { position: fixed !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-stc  { position: static !important; }
 
     // absolute positioning
 
-    .@{prefix}--pos-t    { position: absolute !important; top: 0 !important; }
-    .@{prefix}--pos-r    { position: absolute !important; right: 0 !important; }
-    .@{prefix}--pos-b    { position: absolute !important; bottom: 0 !important; }
-    .@{prefix}--pos-l    { position: absolute !important; left: 0 !important; }
-    .@{prefix}--pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .@{prefix}--pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .@{prefix}--pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .@{prefix}--pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
-    .@{prefix}--pos-t-c  { position: absolute !important; top: 50% !important; }
-    .@{prefix}--pos-r-c  { position: absolute !important; right: 50% !important; }
-    .@{prefix}--pos-b-c  { position: absolute !important; bottom: 50% !important; }
-    .@{prefix}--pos-l-c  { position: absolute !important; left: 50% !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-t    { position: absolute !important; top: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-r    { position: absolute !important; right: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-b    { position: absolute !important; bottom: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-l    { position: absolute !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-tl   { position: absolute !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-tr   { position: absolute !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-br   { position: absolute !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-bl   { position: absolute !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-t-c  { position: absolute !important; top: 50% !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-r-c  { position: absolute !important; right: 50% !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-b-c  { position: absolute !important; bottom: 50% !important; }
+    .@{utilityPrefix}@{bpPrefix}--pos-l-c  { position: absolute !important; left: 50% !important; }
     
     // fixed positioning
 
-    .@{prefix}--fix-t  { position: fixed !important; top: 0 !important; }
-    .@{prefix}--fix-r  { position: fixed !important; right: 0 !important; }
-    .@{prefix}--fix-b  { position: fixed !important; bottom: 0 !important; }
-    .@{prefix}--fix-l  { position: fixed !important; left: 0 !important; }
-    .@{prefix}--fix-tl { position: fixed !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-    .@{prefix}--fix-tr { position: fixed !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-    .@{prefix}--fix-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-    .@{prefix}--fix-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-t  { position: fixed !important; top: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-r  { position: fixed !important; right: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-b  { position: fixed !important; bottom: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-l  { position: fixed !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-tl { position: fixed !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-tr { position: fixed !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
+    .@{utilityPrefix}@{bpPrefix}--fix-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
 
     // position utilities for micro layout fixes
 
     .generate_pos (@i) when (@i > 0) {
         .generate_pos((@i - 1));
 
-        .@{prefix}--pos-t-@{i} { top: 1px * @i !important; }
-        .@{prefix}--pos-r-@{i} { right: 1px * @i !important; }
-        .@{prefix}--pos-b-@{i} { bottom: 1px * @i !important; }
-        .@{prefix}--pos-l-@{i} { left: 1px * @i !important; }
+        .@{utilityPrefix}@{bpPrefix}--pos-t-@{i} { top: 1px * @i !important; }
+        .@{utilityPrefix}@{bpPrefix}--pos-r-@{i} { right: 1px * @i !important; }
+        .@{utilityPrefix}@{bpPrefix}--pos-b-@{i} { bottom: 1px * @i !important; }
+        .@{utilityPrefix}@{bpPrefix}--pos-l-@{i} { left: 1px * @i !important; }
 
     }
     .generate_pos(@responsivePositionSteps);
     
     // css columns
 
-    .@{prefix}--cls-2,
-    .@{prefix}--cls-3,
-    .@{prefix}--cls-4 {
+    .@{utilityPrefix}@{bpPrefix}--cls-2,
+    .@{utilityPrefix}@{bpPrefix}--cls-3,
+    .@{utilityPrefix}@{bpPrefix}--cls-4 {
         & > :first-child {
             margin-top: 0 !important;
         }
     }
 
-    .@{prefix}--cls-2 {
+    .@{utilityPrefix}@{bpPrefix}--cls-2 {
         column-count: 2 !important;
         column-gap: 2rem !important;
         column-rule-color: none !important;
@@ -75,7 +75,7 @@
         column-width: 50% !important;
     }
 
-    .@{prefix}--cls-3 {
+    .@{utilityPrefix}@{bpPrefix}--cls-3 {
         column-count: 3 !important;
         column-gap: 2rem !important;
         column-rule-color: none !important;
@@ -84,7 +84,7 @@
         column-width: 33.33% !important;
     }
 
-    .@{prefix}--cls-4 {
+    .@{utilityPrefix}@{bpPrefix}--cls-4 {
         column-count: 4 !important;
         column-gap: 2rem !important;
         column-rule-color: none !important;
@@ -95,39 +95,39 @@
 
     // vertical alignment
 
-    .@{prefix}--val-m { vertical-align: middle !important; }
-    .@{prefix}--val-t { vertical-align: top !important; }
-    .@{prefix}--val-b { vertical-align: bottom !important; }
+    .@{utilityPrefix}@{bpPrefix}--val-m { vertical-align: middle !important; }
+    .@{utilityPrefix}@{bpPrefix}--val-t { vertical-align: top !important; }
+    .@{utilityPrefix}@{bpPrefix}--val-b { vertical-align: bottom !important; }
 
     // float & clear
 
-    .@{prefix}--fl-r { float: right !important; }
-    .@{prefix}--fl-l { float: left !important; }
+    .@{utilityPrefix}@{bpPrefix}--fl-r { float: right !important; }
+    .@{utilityPrefix}@{bpPrefix}--fl-l { float: left !important; }
 
-    .@{prefix}--cl-r { clear: right !important; }
-    .@{prefix}--cl-l { clear: left !important; }
-    .@{prefix}--cl-b { clear: both !important; }
+    .@{utilityPrefix}@{bpPrefix}--cl-r { clear: right !important; }
+    .@{utilityPrefix}@{bpPrefix}--cl-l { clear: left !important; }
+    .@{utilityPrefix}@{bpPrefix}--cl-b { clear: both !important; }
 
-    .@{prefix}--clearfix { .mixin-clearfix !important; }
+    .@{utilityPrefix}@{bpPrefix}--clearfix { .mixin-clearfix !important; }
 
     // overflow
 
-    .@{prefix}--ovrfl-x-hide { overflow-x: hidden !important; }
-    .@{prefix}--ovrfl-y-hide { overflow-y: hidden !important; }
-    .@{prefix}--ovrfl-hidden   { overflow: hidden !important; }
+    .@{utilityPrefix}@{bpPrefix}--ovrfl-x-hide { overflow-x: hidden !important; }
+    .@{utilityPrefix}@{bpPrefix}--ovrfl-y-hide { overflow-y: hidden !important; }
+    .@{utilityPrefix}@{bpPrefix}--ovrfl-hidden   { overflow: hidden !important; }
 
     // z-index
 
-    .@{prefix}--z-1  { z-index: 100 !important; }
-    .@{prefix}--z-2  { z-index: 200 !important; }
-    .@{prefix}--z-3  { z-index: 300 !important; }
-    .@{prefix}--z-4  { z-index: 400 !important; }
-    .@{prefix}--z-5  { z-index: 500 !important; }
-    .@{prefix}--z-6  { z-index: 600 !important; }
-    .@{prefix}--z-7  { z-index: 700 !important; }
-    .@{prefix}--z-8  { z-index: 800 !important; }
-    .@{prefix}--z-9  { z-index: 900 !important; }
-    .@{prefix}--z-10 { z-index: 1000 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-1  { z-index: 100 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-2  { z-index: 200 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-3  { z-index: 300 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-4  { z-index: 400 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-5  { z-index: 500 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-6  { z-index: 600 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-7  { z-index: 700 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-8  { z-index: 800 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-9  { z-index: 900 !important; }
+    .@{utilityPrefix}@{bpPrefix}--z-10 { z-index: 1000 !important; }
     
 }
 
@@ -146,7 +146,7 @@
 @media @bp-only-l { .responsive-layout(only-l) }
 
 @media @bp-l {
-    .center {
+    .@{utilityPrefix}center {
         padding: 0 !important;
         width: 96rem !important;
     }

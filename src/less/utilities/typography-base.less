@@ -2,80 +2,108 @@
 
 // headings
 
-.h1 { @h1(); }
-.h2 { @h2(); }
-.h3 { @h3(); }
-.h4 { @h4(); }
-.h5 { @h5(); }
-.h6 { @h6(); }
+.@{utilityPrefix}h1 { @h1(); }
+.@{utilityPrefix}h2 { @h2(); }
+.@{utilityPrefix}h3 { @h3(); }
+.@{utilityPrefix}h4 { @h4(); }
+.@{utilityPrefix}h5 { @h5(); }
+.@{utilityPrefix}h6 { @h6(); }
 
 // font-size
 
-.fs-0 { font-size: 0 !important; }
-.fs-1 { font-size: 1rem !important; }
-.fs-2 { font-size: 1.5rem !important; }
-.fs-3 { font-size: 2rem !important; }
-.fs-4 { font-size: 2.5rem !important; }
-.fs-5 { font-size: 3rem !important; }
-.fs-6 { font-size: 3.5rem !important; }
-.fs-7 { font-size: 4rem !important; }
-.fs-8 { font-size: 4.5rem !important; }
-.fs-9 { font-size: 5rem !important; }
+@fs-0: { font-size: 0 !important; };
+@fs-1: { font-size: 1rem !important; };
+@fs-2: { font-size: 1.5rem !important; };
+@fs-3: { font-size: 2rem !important; };
+@fs-4: { font-size: 2.5rem !important; };
+@fs-5: { font-size: 3rem !important; };
+@fs-6: { font-size: 3.5rem !important; };
+@fs-7: { font-size: 4rem !important; };
+@fs-8: { font-size: 4.5rem !important; };
+@fs-9: { font-size: 5rem !important; };
+
+.@{utilityPrefix}fs-0 { @fs-0(); }
+.@{utilityPrefix}fs-1 { @fs-1(); }
+.@{utilityPrefix}fs-2 { @fs-2(); }
+.@{utilityPrefix}fs-3 { @fs-3(); }
+.@{utilityPrefix}fs-4 { @fs-4(); }
+.@{utilityPrefix}fs-5 { @fs-5(); }
+.@{utilityPrefix}fs-6 { @fs-6(); }
+.@{utilityPrefix}fs-7 { @fs-7(); }
+.@{utilityPrefix}fs-8 { @fs-8(); }
+.@{utilityPrefix}fs-9 { @fs-9(); }
+
+@lh-0: { line-height: 0 !important; };
+@lh-1: { line-height: 1rem !important; };
+@lh-2: { line-height: 1.5rem !important; };
+@lh-3: { line-height: 2rem !important; };
+@lh-4: { line-height: 2.5rem !important; };
+@lh-5: { line-height: 3rem !important; };
+@lh-6: { line-height: 3.5rem !important; };
+@lh-7: { line-height: 4rem !important; };
+@lh-8: { line-height: 4.5rem !important; };
+@lh-9: { line-height: 5rem !important; };
 
 // line-height
 
-.lh-0 { line-height: 0 !important; }
-.lh-1 { line-height: 1rem !important; }
-.lh-2 { line-height: 1.5rem !important; }
-.lh-3 { line-height: 2rem !important; }
-.lh-4 { line-height: 2.5rem !important; }
-.lh-5 { line-height: 3rem !important; }
-.lh-6 { line-height: 3.5rem !important; }
-.lh-7 { line-height: 4rem !important; }
-.lh-8 { line-height: 4.5rem !important; }
-.lh-9 { line-height: 5rem !important; }
+.@{utilityPrefix}lh-0 { @lh-0(); }
+.@{utilityPrefix}lh-1 { @lh-1(); }
+.@{utilityPrefix}lh-2 { @lh-2(); }
+.@{utilityPrefix}lh-3 { @lh-3(); }
+.@{utilityPrefix}lh-4 { @lh-4(); }
+.@{utilityPrefix}lh-5 { @lh-5(); }
+.@{utilityPrefix}lh-6 { @lh-6(); }
+.@{utilityPrefix}lh-7 { @lh-7(); }
+.@{utilityPrefix}lh-8 { @lh-8(); }
+.@{utilityPrefix}lh-9 { @lh-9(); }
 
 // font family
 
-.ff-sr   { font-family: @font-serif !important; }
-.ff-ss   { font-family: @font-sansserif !important; }
-.ff-mono { font-family: @font-mono !important; }
+.@{utilityPrefix}ff-sr   { font-family: @font-serif !important; }
+.@{utilityPrefix}ff-ss   { font-family: @font-sansserif !important; }
+.@{utilityPrefix}ff-mono { font-family: @font-mono !important; }
 
 // font weight
 
-.fw-normal { font-weight: normal !important; }
-.fw-bold   { font-weight: bold !important; }
+.@{utilityPrefix}fw-normal { font-weight: normal !important; }
+.@{utilityPrefix}fw-bold   { font-weight: bold !important; }
 
 // font style
 
-.fst-no { font-style: normal !important; }
-.fst-it { font-style: italic !important; }
+.@{utilityPrefix}fst-no { font-style: normal !important; }
+.@{utilityPrefix}fst-it { font-style: italic !important; }
 
 // text transform
 
-.tt-cp   { text-transform: capitalize !important; }
-.tt-lc   { text-transform: lowercase !important; }
-.tt-none { text-transform: none !important; }
-.tt-uc   { text-transform: uppercase !important; }
+.@{utilityPrefix}tt-cp   { text-transform: capitalize !important; }
+.@{utilityPrefix}tt-lc   { text-transform: lowercase !important; }
+.@{utilityPrefix}tt-none { text-transform: none !important; }
+.@{utilityPrefix}tt-uc   { text-transform: uppercase !important; }
 
 // text alignment
 
-.al-r  { text-align: right !important; }
-.al-l  { text-align: left !important; }
-.al-c  { text-align: center !important; }
+@al-r: { text-align: right !important; };
+@al-l: { text-align: left !important; };
+@al-c: { text-align: center !important; };
+
+.@{utilityPrefix}al-r { @al-r(); }
+.@{utilityPrefix}al-l { @al-l(); }
+.@{utilityPrefix}al-c { @al-c(); }
 
 // line-break
 
-.lbr-none { white-space: nowrap !important; }
+@lbr-none: { white-space: nowrap !important; };
+
+.@{utilityPrefix}lbr-none { @lbr-none(); }
 
 // text decoration
 
-.tdcr-none { text-decoration: none !important; }
-.tdcr-undl { text-decoration: underline !important; }
+.@{utilityPrefix}tdcr-none { text-decoration: none !important; }
+.@{utilityPrefix}tdcr-undl { text-decoration: underline !important; }
 
 // list styles
 
-.lst-none   { list-style: none !important; }
-.lst-square { list-style: square !important; }
-.lst-circle { list-style: circle !important; }
-.lst-disc   { list-style: disc !important; }
+.@{utilityPrefix}lst-none   { list-style: none !important; }
+.@{utilityPrefix}lst-square { list-style: square !important; }
+.@{utilityPrefix}lst-circle { list-style: circle !important; }
+.@{utilityPrefix}lst-disc   { list-style: disc !important; }
