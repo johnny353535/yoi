@@ -9,7 +9,6 @@ At the moment we are still working to complete our [user manual](https://yoshino
 ## Installing
 
 - install Node.js and NPM: [on MacOs](https://treehouse.github.io/installation-guides/mac/node-mac.html) | [on Windows](https://treehouse.github.io/installation-guides/windows/node-windows.html)
-- install Jekyll: [on MacOs](https://treehouse.github.io/installation-guides/mac/jekyll-mac.html)  | [on Windows](https://treehouse.github.io/installation-guides/windows/jekyll-windows.html)
 - clone this repository, navigate to the local directory via Terminal and start the setup: `npm install`
 
 If you work on a Windows machine, you might be interested in [this article about a modern web development setup on Windows](https://github.com/felixrieseberg/windows-development-environment).
