@@ -100,23 +100,9 @@
 // "constructor" for different color themes
 
 .btnDismissTheme(@iconColor, @hoverBgColor) {
-
     .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @iconColor, @width: 32, @height: 32);
-
-    &:hover {
-        background-color: fade(@hoverBgColor, 50%);
-    }
-
-    &.btnDismiss--small {
-        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 16, @height: 16);
-    }
-
-    &.btnDismiss--medium {
-        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 24, @height: 24);
-    }
-
-    &.btnDismiss--large {
-        .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 48, @height: 48);
-    }
-
+    &:hover { background-color: fade(@hoverBgColor, 50%); }
+    &.btnDismiss--small { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 16, @height: 16); }
+    &.btnDismiss--medium { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 24, @height: 24); }
+    &.btnDismiss--large { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 48, @height: 48); }
 }

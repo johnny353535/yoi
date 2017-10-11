@@ -1,7 +1,7 @@
 /** button.less */
 
-// standard button
-// ===============
+// block
+// =====
 
 .btn {
 
@@ -9,11 +9,9 @@
     .mixin-defaultBorderRadius;
     .mixin-userSelectNone;
     background-clip: padding-box;
-    background: linear-gradient(to bottom, @color-main-24, @color-main-23);
-    border: @color-main-21 1px solid;
-    box-shadow: 0 1px 0 @color-main-25 inset;
+    border-width: 1px;
+    border-style: solid;
     box-sizing: border-box;
-    color: @color-main-8;
     cursor: pointer;
     display: inline-block;
     font-family: @font-sansserif;
@@ -24,14 +22,12 @@
     padding: 0 1rem;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 0 @color-main-25;
     vertical-align: middle;
     white-space: nowrap;
 
     // submit element inside button
 
     input[type="submit"] {
-        text-shadow: 0 1px 0 @color-main-25;
         border: 0;
         bottom: 0;
         color: inherit;
@@ -47,29 +43,14 @@
         z-index: 2;
     }
 
-    // icon
-
-    .icon {
-
-        filter: drop-shadow(0 1px 0 @color-main-25);
-
-        circle, ellipse, path, polygon {
-            fill: @color-main-8;
-        }
-
-    }
-
     // <a> as button
 
     a&,
     a:link&,
     a:visited& {
-        color: @color-main-8;
         text-decoration: none;
     }
-    
-    // <input type="submit"> as button
-    
+        
     & > input[type="submit"] {
         cursor: pointer;
     }
@@ -77,17 +58,11 @@
     // interactive states
 
     &:hover {
-        background: linear-gradient(to bottom, @color-main-23, @color-main-22);
-        border-color: @color-main-20;
-        box-shadow: 0 1px 0 @color-main-24 inset;
         text-decoration: none;
-        text-shadow: 0 1px 0 @color-main-24;
     }
 
     &:active,
     &.btn--active {
-        background: linear-gradient(to bottom, @color-main-21, @color-main-22);
-        border-color: @color-main-20;
         box-shadow: none;
         text-shadow: none;
     }
@@ -103,648 +78,8 @@
         cursor: default;
         opacity: .3;
     }
-
-    // size modifiers
-
-    &.btn--small {
-        font-size: 1.2rem;
-        line-height: 1.9rem;
-        padding: 0 0.5rem;
-        height: 2rem;
-    }
-
-    &.btn--medium {
-        font-size: 1.2rem;
-        line-height: 2.9rem;
-        height: 3rem;
-    }
-
-    &.btn--large {
-        font-size: 1.5rem;
-        height: 4rem;
-        line-height: 3.8rem;
-        padding: 0 1.9rem;
-    }
-
-    // style modifiers
-
-    &.btn--subtle {
-
-        box-sizing: border-box;
-        background: transparent;
-        border-color: @color-transparent;
-        box-shadow: none;
-        text-shadow: none;
-
-        .icon {
-            filter: none;
-        }
-
-        &:hover {
-            background: @color-main-24;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-main-22;
-        }
-
-    }
-
-    &.btn--light {
-
-        background: linear-gradient(to bottom, @color-main-25, @color-main-24);
-        border-color: @color-main-22;
-        box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
-        color: @color-main-10;
-        text-shadow: 0 1px 0 @color-white;
-
-        .icon {
-
-            filter: drop-shadow(0 1px 0 @color-white);
-
-            svg circle, svg ellipse, svg path, svg polygon {
-                fill: @color-main-10;
-            }
-
-        }
-
-        input[type="submit"] {
-            text-shadow: 0 1px 0 @color-white;
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-10;
-        }
-
-        &:hover {
-            background: linear-gradient(to bottom, @color-white, @color-main-25);
-            border-color: @color-main-23;
-        }
-
-        &:active,
-        &.btn--active {
-            background: linear-gradient(to bottom, @color-main-23, @color-main-24);
-            border-color: @color-main-22;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-    }
-
-    &.btn--dark {
-
-        background: linear-gradient(to bottom, @color-main-12, @color-main-10);
-        border-color: @color-main-9;
-        box-shadow: 0 1px 0 @color-main-13 inset;
-        color: @color-main-25;
-        text-shadow: 0 -1px 0 @color-main-7;
-
-        .icon {
-
-            filter: drop-shadow(0 -1px 0 @color-main-7);
-
-            circle, ellipse, path, polygon {
-                fill: @color-main-25;
-            }
-
-        }
-
-        input[type="submit"] {
-            text-shadow: 0 -1px 0 @color-main-7;
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-25;
-        }
-
-        &:hover {
-            background: linear-gradient(to bottom, @color-main-10, @color-main-8);
-            border-color: @color-main-5;
-            text-shadow: 0 -1px 0 @color-main-4;
-        }
-
-        &:active,
-        &.btn--active {
-            background: linear-gradient(to bottom, @color-main-5, @color-main-8);
-            border-color: @color-main-5;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-    }
-
-    &.btn--attention {
-
-        background: linear-gradient(to bottom, @color-attention-21, @color-attention-19);
-        border-color: @color-attention-18;
-        box-shadow: 0 1px 0 @color-attention-22 inset;
-        color: @color-attention-8;
-        text-shadow: 0 1px 0 @color-attention-22;
-
-        .icon {
-
-            filter: drop-shadow(0 1px 0 @color-attention-22);
-
-            circle, ellipse, path, polygon {
-                fill: @color-attention-8;
-            }
-
-        }
-
-        input[type="submit"] {
-            text-shadow: 0 1px 0 @color-attention-22;
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-attention-8;
-        }
-
-        &:hover {
-            background: linear-gradient(to bottom, @color-attention-20, @color-attention-19);
-            border-color: @color-attention-16;
-        }
-
-        &:active,
-        &.btn--active {
-            background: linear-gradient(to bottom, @color-attention-18, @color-attention-21);
-            border-color: @color-attention-16;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-    }
-
-    &.btn--error,
-    &.btn--negative {
-
-        background: linear-gradient(to bottom, @color-negative-21, @color-negative-19);
-        border-color: @color-negative-18;
-        box-shadow: 0 1px 0 @color-negative-22 inset;
-        color: @color-negative-6;
-        text-shadow: 0 1px 0 @color-negative-22;
-
-        .icon {
-
-            filter: drop-shadow(0 1px 0 @color-negative-22);
-
-            circle, ellipse, path, polygon {
-                fill: @color-negative-6;
-            }
-
-        }
-
-        input[type="submit"] {
-            text-shadow: 0 1px 0 @color-negative-22;
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-negative-6;
-        }
-
-        &:hover {
-            background: linear-gradient(to bottom, @color-negative-19, @color-negative-17);
-            border-color: @color-negative-15;
-            box-shadow: 0 1px 0 @color-negative-21 inset;
-            text-shadow: 0 1px 0 @color-negative-21;
-        }
-
-        &:active,
-        &.btn--active {
-            background: linear-gradient(to bottom, @color-negative-17, @color-negative-19);
-            border-color: @color-negative-15;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-    }
-
-    &.btn--success,
-    &.btn--positive {
-
-        background: linear-gradient(to bottom, @color-positive-21, @color-positive-19);
-        border-color: @color-positive-18;
-        box-shadow: 0 1px 0 @color-positive-22 inset;
-        color: @color-positive-8;
-        text-shadow: 0 1px 0 @color-positive-23;
-
-        .icon {
-
-            filter: drop-shadow(0 1px 0 @color-positive-23);
-
-            circle, ellipse, path, polygon {
-                fill: @color-positive-8;
-            }
-
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-positive-8;
-        }
-
-        input[type="submit"] {
-            text-shadow: 0 1px 0 @color-positive-23;
-        }
-
-        &:hover {
-            background: linear-gradient(to bottom, @color-positive-20, @color-positive-19);
-            border-color: @color-positive-16;
-            text-shadow: 0 1px 0 @color-positive-22;
-        }
-
-        &:active,
-        &.btn--active {
-            background: linear-gradient(to bottom, @color-positive-18, @color-positive-21);
-            border-color: @color-positive-16;
-            box-shadow: none;
-            text-shadow: none;
-        }
-
-    }
-
-}
-
-// flat button
-// ===========
-
-.btn.btn--flat {
-
-    background: @color-main-22;
-    border-color: transparent;
-    box-shadow: none;
-    text-shadow: none;
-
-    .icon {
-        filter: none;
-    }
-
-    // interactive states
-
-    &:hover {
-        background: @color-main-24;
-        border-color: transparent;
-        box-shadow: none;
-        text-shadow: none;
-    }
-
-    &:active,
-    &.btn--active {
-        background: @color-main-20;
-        border-color: transparent;
-        box-shadow: none;
-        text-shadow: none;
-    }
-
-    // style modifiers
-
-    &.btn--light {
-
-        background: @color-main-24;
-        color: @color-main-10;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-10;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-10;
-        }
-
-        &:hover {
-            background: @color-main-23;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-main-22;
-        }
-
-    }
-
-    &.btn--dark {
-
-        background: @color-main-10;
-        color: @color-main-25;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-25;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-25;
-        }
-
-        &:hover {
-            background: @color-main-12;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-main-8;
-        }
-
-    }
-
-    &.btn--attention {
-
-        background: @color-attention-20;
-        color: @color-attention-8;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-attention-8;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-attention-8;
-        }
-
-        &:hover {
-            background: @color-attention-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-attention-16;
-        }
-
-    }
-
-    &.btn--error,
-    &.btn--negative {
-
-        background: @color-negative-17;
-        color: @color-negative-5;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-negative-5;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-negative-5;
-        }
-
-        &:hover {
-            background: @color-negative-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-negative-15;
-        }
-
-    }
-
-    &.btn--success,
-    &.btn--positive {
-
-        background: @color-positive-18;
-        color: @color-positive-5;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-positive-5;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-positive-5;
-        }
-
-        &:hover {
-            background: @color-positive-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-positive-15;
-        }
-
-    }
-
-}
-
-// outline button
-// ==============
-
-.btn.btn--outline {
-
-    background: transparent;
-    border-width: 2px;
-    box-shadow: none;
-    color: @color-main-20;
-    line-height: 2.1rem;
-    padding: 0 0.9rem;
-    text-shadow: none;
-
-    // icon
-
-    .icon {
-
-        filter: none;
-
-        circle, ellipse, path, polygon {
-            fill: @color-main-20;
-        }
-
-    }
-
-    // <a> as button
-
-    a&,
-    a:link&,
-    a:visited& {
-        color: @color-main-20;
-    }
-
-    // interactive states
-
-    &:hover {
-        background: fade(@color-main-20,10%);
-        box-shadow: none;
-        text-shadow: none;
-    }
-
-    // size modifiers
-
-    &.btn--small {
-        line-height: 1.7rem;
-        padding: 0 0.4rem;
-    }
-
-    &.btn--medium {
-        line-height: 2.6rem;
-    }
-
-    &.btn--large {
-        line-height: 3.6rem;
-        padding: 0 1.8rem;
-    }
-
-    // style modifiers
-
-    &.btn--light {
-
-        background: transparent;
-        border-color: @color-white;
-        color: @color-white;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-white;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-white;
-        }
-
-        &:hover {
-            background: fade(@color-white,10%);
-        }
-
-    }
-
-    &.btn--dark {
-
-        background: transparent;
-        border-color: @color-main-9;
-        color: @color-main-9;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-9;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-9;
-        }
-
-        &:hover {
-            background: fade(@color-main-18,10%);
-        }
-
-    }
-
-    &.btn--attention {
-
-        background: transparent;
-        border-color: @color-attention-15;
-        color: @color-attention-15;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-attention-15;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-attention-15;
-        }
-
-        &:hover {
-            background: fade(@color-attention-18,10%);
-        }
-
-    }
-
-    &.btn--error,
-    &.btn--negative {
-
-        background: transparent;
-        border-color: @color-negative-18;
-        color: @color-negative-18;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-negative-18;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-negative-18;
-        }
-
-        &:hover {
-            background: fade(@color-negative-18,10%);
-        }
-
-    }
-
-    &.btn--success,
-    &.btn--positive {
-
-        background: transparent;
-        border-color: @color-positive-15;
-        color: @color-positive-15;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-positive-15;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-positive-15;
-        }
-
-        &:hover {
-            background: fade(@color-positive-18,10%);
-        }
-
-    }
-
-}
-
-// icons inside buttons
-// ====================
-
-.btn {
-
-    // all icons
+    
+    // icons
 
     .icon {
 
@@ -816,11 +151,169 @@
         margin-left: -2rem;
         width: 4rem;
     }
+    
+    // standard button theme
+    
+    .btnTheme(
+        @bgGradientTopColor: @color-main-24,
+        @bgGradientBottomColor: @color-main-23,
+        @borderColor: @color-main-21,
+        @txtColor: @color-main-8,
+        @highlightColor: @color-main-25,
+        @bgGradientTopColorHover: @color-main-23,
+        @bgGradientBottomColorHover: @color-main-22,
+        @borderColorHover: @color-main-20,
+        @txtColorHover: @color-main-8,
+        @highlightColorHover: @color-main-24,
+        @bgGradientTopColorActive: @color-main-21,
+        @bgGradientBottomColorActive: @color-main-22,
+        @borderColorActive: @color-main-20,
+        @txtColorActive: @color-main-8,
+        @highlightColorActive: @color-transparent
+    );
 
 }
 
 // modifiers
 // =========
+
+// size
+
+.btn--small {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    padding: 0 0.5rem;
+    height: 2rem;
+}
+
+.btn--medium {
+    font-size: 1.2rem;
+    line-height: 2.9rem;
+    height: 3rem;
+}
+
+.btn--large {
+    font-size: 1.5rem;
+    height: 4rem;
+    line-height: 3.8rem;
+    padding: 0 1.9rem;
+}
+
+// colors
+
+.btn--light {
+    .btnTheme(
+        @bgGradientTopColor: @color-main-25,
+        @bgGradientBottomColor: @color-main-24,
+        @borderColor: @color-main-22,
+        @txtColor: @color-main-10,
+        @highlightColor: @color-white,
+        
+        @bgGradientTopColorHover: @color-white,
+        @bgGradientBottomColorHover: @color-main-25,
+        @borderColorHover: @color-main-23,
+        @txtColorHover: @color-main-10,
+        @highlightColorHover: @color-white,
+        
+        @bgGradientTopColorActive: @color-main-23,
+        @bgGradientBottomColorActive: @color-main-24,
+        @borderColorActive: @color-main-22,
+        @txtColorActive: @color-main-10,
+        @highlightColorActive: @color-transparent
+    );
+}
+
+.btn--dark {
+    .btnTheme(
+        @bgGradientTopColor: @color-main-12,
+        @bgGradientBottomColor: @color-main-10,
+        @borderColor: @color-main-9,
+        @txtColor: @color-main-25,
+        @highlightColor: @color-main-13,
+        
+        @bgGradientTopColorHover: @color-main-10,
+        @bgGradientBottomColorHover: @color-main-8,
+        @borderColorHover: @color-main-5,
+        @txtColorHover: @color-main-25,
+        @highlightColorHover: @color-main-12,
+        
+        @bgGradientTopColorActive: @color-main-5,
+        @bgGradientBottomColorActive: @color-main-8,
+        @borderColorActive: @color-main-5,
+        @txtColorActive: @color-main-25,
+        @highlightColorActive: @color-transparent
+    );
+}
+
+.btn--attention {
+    .btnTheme(
+        @bgGradientTopColor: @color-attention-21,
+        @bgGradientBottomColor: @color-attention-19,
+        @borderColor: @color-attention-18,
+        @txtColor: @color-attention-8,
+        @highlightColor: @color-attention-22,
+        
+        @bgGradientTopColorHover: @color-attention-20,
+        @bgGradientBottomColorHover: @color-attention-19,
+        @borderColorHover: @color-attention-16,
+        @txtColorHover: @color-attention-8,
+        @highlightColorHover: @color-attention-22,
+        
+        @bgGradientTopColorActive: @color-attention-18,
+        @bgGradientBottomColorActive: @color-attention-21,
+        @borderColorActive: @color-attention-16,
+        @txtColorActive: @color-attention-8,
+        @highlightColorActive: @color-transparent
+    );
+}
+
+.btn--error,
+.btn--negative {
+    .btnTheme(
+        @bgGradientTopColor: @color-negative-21,
+        @bgGradientBottomColor: @color-negative-19,
+        @borderColor: @color-negative-18,
+        @txtColor: @color-negative-6,
+        @highlightColor: @color-negative-22,
+        
+        @bgGradientTopColorHover: @color-negative-19,
+        @bgGradientBottomColorHover: @color-negative-17,
+        @borderColorHover: @color-negative-15,
+        @txtColorHover: @color-negative-6,
+        @highlightColorHover: @color-negative-21,
+        
+        @bgGradientTopColorActive: @color-negative-17,
+        @bgGradientBottomColorActive: @color-negative-19,
+        @borderColorActive: @color-negative-15,
+        @txtColorActive: @color-negative-6,
+        @highlightColorActive: @color-transparent
+    );
+}
+
+.btn--success,
+.btn--positive {
+    .btnTheme(
+        @bgGradientTopColor: @color-positive-21,
+        @bgGradientBottomColor: @color-positive-19,
+        @borderColor: @color-positive-18,
+        @txtColor: @color-positive-8,
+        @highlightColor: @color-positive-22,
+        
+        @bgGradientTopColorHover: @color-positive-21,
+        @bgGradientBottomColorHover: @color-positive-20,
+        @borderColorHover: @color-positive-17,
+        @txtColorHover: @color-positive-8,
+        @highlightColorHover: @color-positive-22,
+        
+        @bgGradientTopColorActive: @color-positive-18,
+        @bgGradientBottomColorActive: @color-positive-21,
+        @borderColorActive: @color-positive-16,
+        @txtColorActive: @color-positive-8,
+        @highlightColorActive: @color-transparent
+    );
+}
+
+// style
 
 .btn--rounded {
 
@@ -968,6 +461,78 @@
 
     .btn.btn--large.btn--rounded:last-child {
         border-radius: 0 0 2rem 2rem;
+    }
+
+}
+
+// "constructor" for different color themes
+// ========================================
+
+.btnTheme (
+    @bgGradientTopColor: @color-main-10,
+    @bgGradientBottomColor: @color-main-10,
+    @borderColor: @color-main-10,
+    @txtColor: @color-main-10,
+    @highlightColor: @color-main-10,
+    @bgGradientTopColorHover: @color-main-10,
+    @bgGradientBottomColorHover: @color-main-10,
+    @borderColorHover: @color-main-10,
+    @txtColorHover: @color-main-10,
+    @highlightColorHover: @color-main-10,
+    @bgGradientTopColorActive: @color-main-10,
+    @bgGradientBottomColorActive: @color-main-10,
+    @borderColorActive: @color-main-10,
+    @txtColorActive: @color-main-10,
+    @highlightColorActive: @color-main-10) {
+
+    background: linear-gradient(to bottom, @bgGradientTopColor, @bgGradientBottomColor);
+    border-color: @borderColor;
+    box-shadow: 0 1px 0 @highlightColor inset;
+    color: @txtColor;
+    text-shadow: 0 1px 0 @highlightColor;
+
+    .icon {
+        filter: drop-shadow(0 1px 0 @highlightColor);
+        svg circle, svg ellipse, svg path, svg polygon { fill: @txtColor; }
+    }
+
+    input[type="submit"] {
+        text-shadow: 0 1px 0 @color-main-10;
+    }
+
+    a&,
+    a:link&,
+    a:visited& {
+        color: @txtColorHover;
+    }
+
+    &:hover {
+        
+        background: linear-gradient(to bottom, @bgGradientTopColorHover, @bgGradientBottomColorHover);
+        border-color: @borderColorHover;
+        box-shadow: 0 1px 0 @highlightColorHover inset;
+        color: @txtColorHover;
+        text-shadow: 0 1px 0 @highlightColorHover;
+        
+        .icon {
+            filter: drop-shadow(0 1px 0 @highlightColorHover);
+        }
+        
+    }
+
+    &:active,
+    &.btn--active {
+        
+        background: linear-gradient(to bottom, @bgGradientTopColorActive, @bgGradientBottomColorActive);
+        border-color: @borderColorActive;
+        box-shadow: 0 1px 0 @highlightColorActive inset;
+        color: @txtColorActive;
+        text-shadow: 0 1px 0 @highlightColorActive;
+        
+        .icon {
+            filter: drop-shadow(0 1px 0 @highlightColorActive);
+        }
+        
     }
 
 }

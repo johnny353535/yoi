@@ -8,29 +8,29 @@
 // initial values
 // ==============
 
-[class*='@{utilityPrefix}fx-'] {
+[class*='fx-'] {
     animation-duration: 1s * @animation-duration;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
 }
 
-[class*='@{utilityPrefix}fx-'][class*='-initial'] {
+[class*='fx-'][class*='-initial'] {
     transform: perspective(none) translate3d(0, 0, 0) rotate3d(1, 0, 0, 90deg);
 }
 
-[class*='@{utilityPrefix}fx-'][class*='-in-'][class*='-initial'] {
+[class*='fx-'][class*='-in-'][class*='-initial'] {
     opacity: 0;
 }
 
-[class*='@{utilityPrefix}fx-'][class*='-out-'][class*='-initial'] {
+[class*='fx-'][class*='-out-'][class*='-initial'] {
     opacity: 1;
 }
 
-[class*='@{utilityPrefix}fx-'].@{utilityPrefix}fx-scale-up-initial {
+[class*='fx-'].fx-scale-up-initial {
     transform: scale(0);
 }
 
-[class*='fx-'].@{utilityPrefix}fx-scale-down-initial {
+[class*='fx-'].fx-scale-down-initial {
     transform: scale(2);
 }
 
@@ -39,17 +39,17 @@
 
 // duration
 
-.@{utilityPrefix}fx-fast {
+.fx-fast {
     animation-duration: 0.5s * @animation-duration;
 }
 
-.@{utilityPrefix}fx-slow {
+.fx-slow {
     animation-duration: 2s * @animation-duration;
 }
 
 // off
 
-.@{utilityPrefix}fx-off {
+.fx-off {
     animation-name: none !important;
 }
 
@@ -58,95 +58,95 @@
 
 // fade
 
-.@{utilityPrefix}fx-fade-in,
-.@{utilityPrefix}fx-fade-out {
+.fx-fade-in,
+.fx-fade-out {
     animation-duration: 1.5s * @animation-duration;
     animation-timing-function: linear;
 }
 
-.@{utilityPrefix}fx-fade-in {
+.fx-fade-in {
     animation-name: yoi-fade-in;
 }
 
-.@{utilityPrefix}fx-fade-out {
+.fx-fade-out {
     animation-name: yoi-fade-out;
 }
 
 // scale
 
-.@{utilityPrefix}fx-scale-up {
+.fx-scale-up {
     animation-name: yoi-scale-up;
 }
 
-.@{utilityPrefix}fx-scale-down {
+.fx-scale-down {
     animation-name: yoi-scale-down;
 }
 
 // slide
 
-.@{utilityPrefix}fx-slide-in-top {
+.fx-slide-in-top {
     animation-name: yoi-slide-in-top;
 }
 
-.@{utilityPrefix}fx-slide-out-top {
+.fx-slide-out-top {
     animation-name: yoi-slide-out-top;
 }
 
-.@{utilityPrefix}fx-slide-in-bottom {
+.fx-slide-in-bottom {
     animation-name: yoi-slide-in-bottom;
 }
 
-.@{utilityPrefix}fx-slide-out-bottom {
+.fx-slide-out-bottom {
     animation-name: yoi-slide-out-bottom;
 }
 
-.@{utilityPrefix}fx-slide-in-left {
+.fx-slide-in-left {
     animation-name: yoi-slide-in-left;
 }
 
-.@{utilityPrefix}fx-slide-out-left {
+.fx-slide-out-left {
     animation-name: yoi-slide-out-left;
 }
 
-.@{utilityPrefix}fx-slide-in-right {
+.fx-slide-in-right {
     animation-name: yoi-slide-in-right;
 }
 
-.@{utilityPrefix}fx-slide-out-right {
+.fx-slide-out-right {
     animation-name: yoi-slide-out-right;
 }
 
 // flip
 
-[class*='@{utilityPrefix}fx-flip'] {
+[class*='fx-flip'] {
     backface-visibility: visible !important;
 }
 
-.@{utilityPrefix}fx-flip-in-x {
+.fx-flip-in-x {
     animation-name: yoi-flip-in-x;
 }
 
-.@{utilityPrefix}fx-flip-out-x {
+.fx-flip-out-x {
     animation-name: yoi-flip-out-x;
 }
 
-.@{utilityPrefix}fx-flip-in-y {
+.fx-flip-in-y {
     animation-name: yoi-flip-in-y;
 }
 
-.@{utilityPrefix}fx-flip-out-y {
+.fx-flip-out-y {
     animation-name: yoi-flip-out-y;
 }
 
 // shake
 
-.@{utilityPrefix}fx-shake {
+.fx-shake {
     animation-name: yoi-shake;
 }
 
 // pulse
 
-.@{utilityPrefix}fx-pulse {
+.fx-pulse {
     animation-name: yoi-pulse;
 }
 

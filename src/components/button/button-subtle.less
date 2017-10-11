@@ -1,0 +1,27 @@
+/** button-subtle.less */
+
+// subtle button
+// =============
+
+.btn.btn--subtle {
+
+    box-sizing: border-box;
+    background: transparent;
+    border-color: @color-transparent;
+    box-shadow: none;
+    text-shadow: none;
+
+    .icon {
+        filter: none;
+    }
+
+    &:hover {
+        background: @color-main-24;
+    }
+
+    &:active,
+    &.btn--active {
+        background: @color-main-22;
+    }
+
+}

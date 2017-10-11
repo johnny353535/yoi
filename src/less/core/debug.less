@@ -3,19 +3,19 @@
 // grid
 // ====
 
-[class*="@{utilityPrefix}w-"] when (@debugGrid = true) {
+[class*="w-"] when (@debugGrid = true) {
     outline: @red-20 1px solid !important;
     outline-style: inset !important;
 }
 
 // floats
 
-.@{utilityPrefix}fl-l when (@debugFloats = true) {
+.fl-l when (@debugFloats = true) {
     outline: @green-15 1px dotted;
     outline-style: inset;
 }
 
-.@{utilityPrefix}fl-r when (@debugFloats = true) {
+.fl-r when (@debugFloats = true) {
     outline: @yellow-15 1px dotted;
     outline-style: inset;
 }
@@ -59,7 +59,7 @@ img[title=""] when (@debugImages = true) {
 // placeholder containers
 // ======================
 
-.@{utilityPrefix}placeholder {
+.placeholder {
     background:
         linear-gradient(to top left,
             rgba(255,255,255,0) 0%,
