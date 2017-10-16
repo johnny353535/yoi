@@ -5,7 +5,7 @@
     background: transparent;
     border-radius: 50%;
     border: 3px solid @gray-24;
-    border-top-color: darken(@focusColor,15%);
+    border-top-color: @color-primary-19;
     box-sizing: border-box;
     content: ' ';
     display: inline-block;
@@ -20,16 +20,12 @@
 
 .spinner--dark::after {
     border-color: fade(@gray-10,70%);
-    border-top-color: @focusColor;
+    border-top-color: @color-primary-19;
 }
 
 // animation
 
 @keyframes spin {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+    0%   { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
 }

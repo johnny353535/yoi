@@ -17,7 +17,7 @@ This is how a basic `.pagination` looks like and how you write the markup:
 <!-- example -->
 <div class="pagination">
     <div class="pagination__load">
-        <a class="btn" href="#">Show more</a>
+        <a class="btn btn--flat btn--primary" href="#">Show more</a>
     </div>
     <ul class="pagination__items">
         <li class="pagination__item">
@@ -38,13 +38,13 @@ This is how a basic `.pagination` looks like and how you write the markup:
     </ul>
     <div class="pagination__nav">
         <div class="btns">
-            <a class="btn" href="#">
+            <a class="btn btn--subtle" href="#">
                 <span class="hidden">previous page</span>
-                <span class="icon"></span>
+                <img src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" class="icon" yoi-icon />
             </a>
-            <a class="btn" href="#">
+            <a class="btn btn--subtle" href="#">
                 <span class="hidden">next page</span>
-                <span class="icon"></span>
+                <img src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" class="icon" yoi-icon />
             </a>
         </div>
     </div>
