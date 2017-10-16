@@ -6,8 +6,6 @@
 .badge {
 
     .mixin-defaultBorderRadius;
-    background: @color-main-23;
-    color: @color-main-10;
     display: inline-block;
     font: bold 1.3rem/2rem @font-sansserif;
     padding: 0 1rem;
@@ -18,11 +16,6 @@
 
     a& {
         text-decoration: none;
-    }
-
-    a&:hover {
-        background: @color-main-22;
-        color: @color-main-9;
     }
 
 }
@@ -44,26 +37,60 @@
     padding: 0 15px;
 }
 
+.badge {
+    .constr-badge(
+        @txtColor: @color-base-10,
+        @bgColor: @color-base-23,
+        @txtColorHover: @color-base-9,
+        @bgColorHover: @color-base-22
+    )
+}
+
 .badge--dark {
-    .badgeTheme(@color-main-25, @color-main-24, @color-main-10, @color-main-9);
+    .constr-badge(
+        @txtColor: @color-base-25,
+        @bgColor: @color-base-10,
+        @txtColorHover: @color-base-24,
+        @bgColorHover: @color-base-9
+    )
 }
 
 .badge--light {
-    .badgeTheme(@color-main-10, @color-main-9, @color-main-25, @color-main-24);
+    .constr-badge(
+        @txtColor: @color-base-10,
+        @bgColor: @color-base-25,
+        @txtColorHover: @color-base-9,
+        @bgColorHover: @color-base-24
+    )
 }
 
 .badge--attention {
-    .badgeTheme(@color-attention-5, @color-attention-4, @color-attention-20, @color-attention-19);
+    .constr-badge(
+        @txtColor: @color-attention-5,
+        @bgColor: @color-attention-20,
+        @txtColorHover: @color-attention-4,
+        @bgColorHover: @color-attention-19
+    )
 }
 
 .badge--error,
 .badge--negative {
-    .badgeTheme(@color-negative-8, @color-negative-7, @color-negative-21, @color-negative-20);
+    .constr-badge(
+        @txtColor: @color-negative-8,
+        @bgColor: @color-negative-21,
+        @txtColorHover: @color-negative-7,
+        @bgColorHover: @color-negative-20
+    )
 }
 
 .badge--success,
 .badge--positive {
-    .badgeTheme(@color-positive-25, @color-positive-24, @color-positive-12, @color-positive-11);
+    .constr-badge(
+        @txtColor: @color-positive-10,
+        @bgColor: @color-positive-22,
+        @txtColorHover: @color-positive-9,
+        @bgColorHover: @color-positive-21
+    )
 }
 
 .badge--rounded {
@@ -82,16 +109,17 @@
     border-radius: 1.5rem;
 }
 
-// "constructor" for different color themes
+// constructor
+// ===========
 
-.badgeTheme(@txtColor, @hoverTxtColor, @backgroundColor, @hoverBackgroundColor) {
+.constr-badge(@txtColor, @bgColor, @txtColorHover, @bgColorHover) {
 
-    background: @backgroundColor;
+    background: @bgColor;
     color: @txtColor;
 
     a&:hover {
-        background: @hoverBackgroundColor;
-        color: @hoverTxtColor;
+        background: @bgColorHover;
+        color: @txtColorHover;
     }
 
 }

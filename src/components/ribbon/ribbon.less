@@ -18,8 +18,6 @@
 
 .ribbon__label {
 
-    background: @color-main-15;
-    color: @color-white;
     display: block;
     font: bold 1.5rem/3rem @font-sansserif;
     text-align: center;
@@ -50,29 +48,54 @@
     right: -20rem;
 }
 
-.ribbon--attention .ribbon__label {
-    .ribbonTheme(@color-attention-8, @color-attention-22);
+.ribbon {
+    .ribbonConstructor(
+        @txtColor: @color-base-8,
+        @bgColor: @color-base-23
+    )
 }
 
-.ribbon--dark .ribbon__label {
-    .ribbonTheme(@color-white, @color-main-10);
+.ribbon.ribbon--attention {
+    .ribbonConstructor(
+        @txtColor: @color-attention-8,
+        @bgColor: @color-attention-22
+    )
 }
 
-.ribbon--light .ribbon__label {
-    .ribbonTheme(@color-main-10, @color-main-24);
+.ribbon.ribbon--dark {
+    .ribbonConstructor(
+        @txtColor: @color-white,
+        @bgColor: @color-base-10
+    )
 }
 
-.ribbon--negative .ribbon__label {
-    .ribbonTheme(@color-white, @color-negative-15);
+.ribbon.ribbon--light {
+    .ribbonConstructor(
+        @txtColor: @color-base-11,
+        @bgColor: @color-base-25
+    )
 }
 
-.ribbon--positive .ribbon__label {
-    .ribbonTheme(@color-white, @color-positive-13);
+.ribbon.ribbon--negative {
+    .ribbonConstructor(
+        @txtColor: @color-white,
+        @bgColor: @color-negative-15
+    )
 }
 
-// "constructor" for different color themes
+.ribbon.ribbon--positive {
+    .ribbonConstructor(
+        @txtColor: @color-white,
+        @bgColor: @color-positive-13
+    )
+}
 
-.ribbonTheme(@txtColor, @backgroundColor) {
-    background: @backgroundColor;
-    color: @txtColor;
+// constructor
+// ===========
+
+.ribbonConstructor(@txtColor, @bgColor) {
+    .ribbon__label {
+        color: @txtColor;
+        background: @bgColor;
+    }
 }

@@ -7,7 +7,7 @@
     
     .mixin-defaultBorderRadius;
     background: @color-white;
-    border: @color-main-23 1px solid;
+    border: @color-base-23 1px solid;
     box-sizing: border-box;
     position: relative;
     text-align: left;
@@ -27,14 +27,14 @@
 // ========
 
 .modal__header {
-    border-bottom: @color-main-24 1px solid;
+    border-bottom: @color-base-24 1px solid;
     border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
     margin: 0 0 1rem 0;
     padding: 0 1rem;
 }
 
 .modal__title {
-    color: @color-main-8;
+    color: @color-base-8;
     font-family: @font-sansserif;
     font-size: 1.5rem;
     font-weight: bold;
@@ -54,14 +54,14 @@
 
 .modal__footer {
     .mixin-clearfix;
-    border-top: @color-main-24 1px solid;
+    border-top: @color-base-24 1px solid;
     margin-top: 1rem;
     padding: 1rem;
     overflow: hidden;
 }
 
 .modal__cover {
-    background: fade(@color-main-5,50%);
+    background: fade(@color-base-5,50%);
     height: 100%;
     left: 0;
     position: fixed;

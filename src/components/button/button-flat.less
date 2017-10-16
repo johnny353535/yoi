@@ -1,183 +1,128 @@
 /** button-flat.less */
 
-// flat button
-// ===========
+// base
+// ====
 
 .btn.btn--flat {
-
-    background: @color-main-22;
+    
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
-
+    
     .icon {
         filter: none;
     }
-
+    
     // interactive states
 
     &:hover {
-        background: @color-main-24;
         border-color: transparent;
         box-shadow: none;
         text-shadow: none;
     }
 
     &:active,
-    &.btn--active {
-        background: @color-main-20;
+    &.is--active {
         border-color: transparent;
         box-shadow: none;
         text-shadow: none;
     }
 
-    // style modifiers
+}
 
-    &.btn--light {
+// modifiers
+// =========
 
-        background: @color-main-24;
-        color: @color-main-10;
-        text-shadow: none;
+.btn.btn--flat {
+    .constr-btnFlat(
+        @txtColor: @color-base-8,
+        @bgColor: @color-base-22,
+        @bgColorHover: @color-base-21,
+        @bgColorActive: @color-base-20
+    )
+}
 
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-10;
-            }
-        }
+.btn--flat.btn--primary {
+    .constr-btnFlat(
+        @txtColor: @color-primary-25,
+        @bgColor: @color-primary-10,
+        @bgColorHover: @color-primary-9,
+        @bgColorActive: @color-primary-8
+    )
+}
 
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-10;
-        }
+.btn--flat.btn--light {
+    .constr-btnFlat(
+        @txtColor: @color-base-10,
+        @bgColor: @color-base-24,
+        @bgColorHover: @color-base-23,
+        @bgColorActive: @color-base-22
+    )
+}
 
-        &:hover {
-            background: @color-main-23;
-        }
+.btn--flat.btn--dark {
+    .constr-btnFlat(
+        @txtColor: @color-base-25,
+        @bgColor: @color-base-10,
+        @bgColorHover: @color-base-9,
+        @bgColorActive: @color-base-8
+    )
+}
 
-        &:active,
-        &.btn--active {
-            background: @color-main-22;
-        }
+.btn--flat.btn--attention {
+    .constr-btnFlat(
+        @txtColor: @color-attention-8,
+        @bgColor: @color-attention-20,
+        @bgColorHover: @color-attention-19,
+        @bgColorActive: @color-attention-18
+    )
+}
 
+.btn--flat.btn--error,
+.btn--flat.btn--negative {
+    .constr-btnFlat(
+        @txtColor: @color-negative-5,
+        @bgColor: @color-negative-17,
+        @bgColorHover: @color-negative-16,
+        @bgColorActive: @color-negative-15
+    )
+}
+
+.btn--flat.btn--success,
+.btn--flat.btn--positive {
+    .constr-btnFlat(
+        @txtColor: @color-positive-5,
+        @bgColor: @color-positive-18,
+        @bgColorHover: @color-positive-17,
+        @bgColorActive: @color-positive-16
+    )
+}
+
+// constructor
+// ===========
+
+.constr-btnFlat(@txtColor, @bgColor, @bgColorHover, @bgColorActive) {
+    
+    background: @bgColor;
+    color: @txtColor;
+    
+    a&,
+    a:link&,
+    a:visited& {
+        color: @txtColor;
     }
 
-    &.btn--dark {
-
-        background: @color-main-10;
-        color: @color-main-25;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-25;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-25;
-        }
-
-        &:hover {
-            background: @color-main-12;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-main-8;
-        }
-
+    &:hover {
+        background: @bgColorHover;
     }
 
-    &.btn--attention {
-
-        background: @color-attention-20;
-        color: @color-attention-8;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-attention-8;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-attention-8;
-        }
-
-        &:hover {
-            background: @color-attention-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-attention-16;
-        }
-
+    &:active,
+    &.is--active {
+        background: @bgColorActive;
     }
-
-    &.btn--error,
-    &.btn--negative {
-
-        background: @color-negative-17;
-        color: @color-negative-5;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-negative-5;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-negative-5;
-        }
-
-        &:hover {
-            background: @color-negative-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-negative-15;
-        }
-
+    
+    .icon circle, ellipse, path, polygon {
+        fill: @txtColor;
     }
-
-    &.btn--success,
-    &.btn--positive {
-
-        background: @color-positive-18;
-        color: @color-positive-5;
-        text-shadow: none;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-positive-5;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-positive-5;
-        }
-
-        &:hover {
-            background: @color-positive-19;
-        }
-
-        &:active,
-        &.btn--active {
-            background: @color-positive-15;
-        }
-
-    }
-
+    
 }

@@ -62,19 +62,19 @@
     }
 
     &:active,
-    &.btn--active {
+    &.is--active {
         box-shadow: none;
         text-shadow: none;
     }
     
     &:focus,
-    &.btn--focus {
+    &.is--focus {
         .mixin-defaultFocus;
     }
 
-    &.btn--disabled,
-    &.btn--disabled:hover,
-    &.btn--disabled:active {
+    &.is--disabled,
+    &.is--disabled:hover,
+    &.is--disabled:active {
         cursor: default;
         opacity: .3;
     }
@@ -152,23 +152,23 @@
         width: 4rem;
     }
     
-    // standard button theme
+    // standard button Constructor
     
-    .btnTheme(
-        @bgGradientTopColor: @color-main-24,
-        @bgGradientBottomColor: @color-main-23,
-        @borderColor: @color-main-21,
-        @txtColor: @color-main-8,
-        @highlightColor: @color-main-25,
-        @bgGradientTopColorHover: @color-main-23,
-        @bgGradientBottomColorHover: @color-main-22,
-        @borderColorHover: @color-main-20,
-        @txtColorHover: @color-main-8,
-        @highlightColorHover: @color-main-24,
-        @bgGradientTopColorActive: @color-main-21,
-        @bgGradientBottomColorActive: @color-main-22,
-        @borderColorActive: @color-main-20,
-        @txtColorActive: @color-main-8,
+    .constr-btn(
+        @bgGradientTopColor: @color-base-24,
+        @bgGradientBottomColor: @color-base-23,
+        @borderColor: @color-base-21,
+        @txtColor: @color-base-8,
+        @highlightColor: @color-base-25,
+        @bgGradientTopColorHover: @color-base-23,
+        @bgGradientBottomColorHover: @color-base-22,
+        @borderColorHover: @color-base-20,
+        @txtColorHover: @color-base-8,
+        @highlightColorHover: @color-base-24,
+        @bgGradientTopColorActive: @color-base-21,
+        @bgGradientBottomColorActive: @color-base-22,
+        @borderColorActive: @color-base-20,
+        @txtColorActive: @color-base-8,
         @highlightColorActive: @color-transparent
     );
 
@@ -201,64 +201,78 @@
 
 // colors
 
+.btn--primary {
+    .constr-btn(
+        @bgGradientTopColor: @color-primary-13,
+        @bgGradientBottomColor: @color-primary-11,
+        @borderColor: @color-primary-10,
+        @txtColor: @color-primary-25,
+        @highlightColor: @color-primary-14,
+        @bgGradientTopColorHover: @color-primary-11,
+        @bgGradientBottomColorHover: @color-primary-9,
+        @borderColorHover: @color-primary-6,
+        @txtColorHover: @color-primary-25,
+        @highlightColorHover: @color-primary-13,
+        @bgGradientTopColorActive: @color-primary-6,
+        @bgGradientBottomColorActive: @color-primary-9,
+        @borderColorActive: @color-primary-6,
+        @txtColorActive: @color-primary-25,
+        @highlightColorActive: @color-transparent
+    );
+}
+
 .btn--light {
-    .btnTheme(
-        @bgGradientTopColor: @color-main-25,
-        @bgGradientBottomColor: @color-main-24,
-        @borderColor: @color-main-22,
-        @txtColor: @color-main-10,
+    .constr-btn(
+        @bgGradientTopColor: @color-base-25,
+        @bgGradientBottomColor: @color-base-24,
+        @borderColor: @color-base-22,
+        @txtColor: @color-base-10,
         @highlightColor: @color-white,
-        
-        @bgGradientTopColorHover: @color-white,
-        @bgGradientBottomColorHover: @color-main-25,
-        @borderColorHover: @color-main-23,
-        @txtColorHover: @color-main-10,
+        @bgGradientTopColorHover: @color-base-24,
+        @bgGradientBottomColorHover: @color-base-23,
+        @borderColorHover: @color-base-21,
+        @txtColorHover: @color-base-9,
         @highlightColorHover: @color-white,
-        
-        @bgGradientTopColorActive: @color-main-23,
-        @bgGradientBottomColorActive: @color-main-24,
-        @borderColorActive: @color-main-22,
-        @txtColorActive: @color-main-10,
+        @bgGradientTopColorActive: @color-base-23,
+        @bgGradientBottomColorActive: @color-base-24,
+        @borderColorActive: @color-base-22,
+        @txtColorActive: @color-base-10,
         @highlightColorActive: @color-transparent
     );
 }
 
 .btn--dark {
-    .btnTheme(
-        @bgGradientTopColor: @color-main-12,
-        @bgGradientBottomColor: @color-main-10,
-        @borderColor: @color-main-9,
-        @txtColor: @color-main-25,
-        @highlightColor: @color-main-13,
-        
-        @bgGradientTopColorHover: @color-main-10,
-        @bgGradientBottomColorHover: @color-main-8,
-        @borderColorHover: @color-main-5,
-        @txtColorHover: @color-main-25,
-        @highlightColorHover: @color-main-12,
-        
-        @bgGradientTopColorActive: @color-main-5,
-        @bgGradientBottomColorActive: @color-main-8,
-        @borderColorActive: @color-main-5,
-        @txtColorActive: @color-main-25,
+    .constr-btn(
+        @bgGradientTopColor: @color-base-12,
+        @bgGradientBottomColor: @color-base-10,
+        @borderColor: @color-base-9,
+        @txtColor: @color-base-25,
+        @highlightColor: @color-base-13,
+        @bgGradientTopColorHover: @color-base-10,
+        @bgGradientBottomColorHover: @color-base-8,
+        @borderColorHover: @color-base-5,
+        @txtColorHover: @color-base-25,
+        @highlightColorHover: @color-base-12,
+        @bgGradientTopColorActive: @color-base-5,
+        @bgGradientBottomColorActive: @color-base-8,
+        @borderColorActive: @color-base-5,
+        @txtColorActive: @color-base-25,
         @highlightColorActive: @color-transparent
     );
 }
 
 .btn--attention {
-    .btnTheme(
+    .constr-btn(
         @bgGradientTopColor: @color-attention-21,
         @bgGradientBottomColor: @color-attention-19,
         @borderColor: @color-attention-18,
         @txtColor: @color-attention-8,
         @highlightColor: @color-attention-22,
-        
         @bgGradientTopColorHover: @color-attention-20,
         @bgGradientBottomColorHover: @color-attention-19,
         @borderColorHover: @color-attention-16,
         @txtColorHover: @color-attention-8,
         @highlightColorHover: @color-attention-22,
-        
         @bgGradientTopColorActive: @color-attention-18,
         @bgGradientBottomColorActive: @color-attention-21,
         @borderColorActive: @color-attention-16,
@@ -269,19 +283,17 @@
 
 .btn--error,
 .btn--negative {
-    .btnTheme(
+    .constr-btn(
         @bgGradientTopColor: @color-negative-21,
         @bgGradientBottomColor: @color-negative-19,
         @borderColor: @color-negative-18,
         @txtColor: @color-negative-6,
         @highlightColor: @color-negative-22,
-        
-        @bgGradientTopColorHover: @color-negative-19,
-        @bgGradientBottomColorHover: @color-negative-17,
-        @borderColorHover: @color-negative-15,
+        @bgGradientTopColorHover: @color-negative-20,
+        @bgGradientBottomColorHover: @color-negative-18,
+        @borderColorHover: @color-negative-17,
         @txtColorHover: @color-negative-6,
         @highlightColorHover: @color-negative-21,
-        
         @bgGradientTopColorActive: @color-negative-17,
         @bgGradientBottomColorActive: @color-negative-19,
         @borderColorActive: @color-negative-15,
@@ -292,19 +304,17 @@
 
 .btn--success,
 .btn--positive {
-    .btnTheme(
+    .constr-btn(
         @bgGradientTopColor: @color-positive-21,
         @bgGradientBottomColor: @color-positive-19,
         @borderColor: @color-positive-18,
         @txtColor: @color-positive-8,
         @highlightColor: @color-positive-22,
-        
-        @bgGradientTopColorHover: @color-positive-21,
-        @bgGradientBottomColorHover: @color-positive-20,
+        @bgGradientTopColorHover: @color-positive-20,
+        @bgGradientBottomColorHover: @color-positive-18,
         @borderColorHover: @color-positive-17,
         @txtColorHover: @color-positive-8,
-        @highlightColorHover: @color-positive-22,
-        
+        @highlightColorHover: @color-positive-21,
         @bgGradientTopColorActive: @color-positive-18,
         @bgGradientBottomColorActive: @color-positive-21,
         @borderColorActive: @color-positive-16,
@@ -465,25 +475,25 @@
 
 }
 
-// "constructor" for different color themes
-// ========================================
+// constructor
+// ===========
 
-.btnTheme (
-    @bgGradientTopColor: @color-main-10,
-    @bgGradientBottomColor: @color-main-10,
-    @borderColor: @color-main-10,
-    @txtColor: @color-main-10,
-    @highlightColor: @color-main-10,
-    @bgGradientTopColorHover: @color-main-10,
-    @bgGradientBottomColorHover: @color-main-10,
-    @borderColorHover: @color-main-10,
-    @txtColorHover: @color-main-10,
-    @highlightColorHover: @color-main-10,
-    @bgGradientTopColorActive: @color-main-10,
-    @bgGradientBottomColorActive: @color-main-10,
-    @borderColorActive: @color-main-10,
-    @txtColorActive: @color-main-10,
-    @highlightColorActive: @color-main-10) {
+.constr-btn (
+    @bgGradientTopColor: @color-base-10,
+    @bgGradientBottomColor: @color-base-10,
+    @borderColor: @color-base-10,
+    @txtColor: @color-base-10,
+    @highlightColor: @color-base-10,
+    @bgGradientTopColorHover: @color-base-10,
+    @bgGradientBottomColorHover: @color-base-10,
+    @borderColorHover: @color-base-10,
+    @txtColorHover: @color-base-10,
+    @highlightColorHover: @color-base-10,
+    @bgGradientTopColorActive: @color-base-10,
+    @bgGradientBottomColorActive: @color-base-10,
+    @borderColorActive: @color-base-10,
+    @txtColorActive: @color-base-10,
+    @highlightColorActive: @color-base-10) {
 
     background: linear-gradient(to bottom, @bgGradientTopColor, @bgGradientBottomColor);
     border-color: @borderColor;
@@ -497,7 +507,7 @@
     }
 
     input[type="submit"] {
-        text-shadow: 0 1px 0 @color-main-10;
+        text-shadow: 0 1px 0 @color-base-10;
     }
 
     a&,
@@ -521,7 +531,7 @@
     }
 
     &:active,
-    &.btn--active {
+    &.is--active {
         
         background: linear-gradient(to bottom, @bgGradientTopColorActive, @bgGradientBottomColorActive);
         border-color: @borderColorActive;

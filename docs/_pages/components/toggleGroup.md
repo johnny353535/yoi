@@ -51,9 +51,9 @@ This is basically the same thing like a [`.tab`](/pages/components/tabs.html), o
 <div class="box">
     <div class="box__body">
         <div class="btns">
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel One</button>
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Two</button>
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:btn--active;">Panel Three</button>
+            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel One</button>
+            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Two</button>
+            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Three</button>
         </div>
     </div>
     <div class="box__body" id="toggleElement-4">Panel One</div>

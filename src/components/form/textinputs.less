@@ -13,10 +13,10 @@ textarea {
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
     background: @color-white;
-    border: @color-main-20 1px solid;
-    box-shadow: 0 1px 0 @color-main-24 inset;
+    border: @color-base-20 1px solid;
+    box-shadow: 0 1px 0 @color-base-24 inset;
     box-sizing: border-box;
-    color: @color-main-8;
+    color: @color-base-8;
     font: normal 1.3rem/2.5rem @font-sansserif;
     height: 2.5rem;
     padding: 0 .5rem;
@@ -96,21 +96,21 @@ textarea {
         .mixin-defaultFocus;
         background: @color-white;
         border-color: @blue-18;
-        color: @color-main-8;
+        color: @color-base-8;
     }
 
     &.input--disabled,
     &[disabled] {
         background: @color-white;
         background: @color-white;
-        border: @color-main-20 1px solid;
-        color: @color-main-8;
+        border: @color-base-20 1px solid;
+        color: @color-base-8;
         cursor: default;
         opacity: .5;
     }
 
     &.input--disabled {
-        color: @color-main-17;
+        color: @color-base-17;
     }
 
     &.input--readonly,
@@ -127,10 +127,10 @@ textarea {
 
 // placeholders
 
-::-webkit-input-placeholder                { color: @color-main-8; }
+::-webkit-input-placeholder                { color: @color-base-8; }
 .input--error::-webkit-input-placeholder   { color: @color-negative-8; }
 .input--success::-webkit-input-placeholder { color: @color-positive-8; }
 
-:-moz-placeholder                          { color: @color-main-8; }
+:-moz-placeholder                          { color: @color-base-8; }
 .input--error::-moz-input-placeholder      { color: @color-negative-8; }
 .input--success::-moz-input-placeholder    { color: @color-positive-8; }

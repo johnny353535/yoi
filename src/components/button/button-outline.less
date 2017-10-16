@@ -1,14 +1,13 @@
 /** button-outline.less */
 
-// outline button
-// ==============
+// base
+// ====
 
 .btn.btn--outline {
 
     background: transparent;
     border-width: 2px;
     box-shadow: none;
-    color: @color-main-12;
     line-height: 2.1rem;
     padding: 0 0.9rem;
     text-shadow: none;
@@ -16,169 +15,131 @@
     // icon
 
     .icon {
-
         filter: none;
-
-        circle, ellipse, path, polygon {
-            fill: @color-main-20;
-        }
-
-    }
-
-    // <a> as button
-
-    a&,
-    a:link&,
-    a:visited& {
-        color: @color-main-20;
     }
 
     // interactive states
 
     &:hover {
-        border-color: @color-main-20;
+        background: transparent;
         box-shadow: none;
         text-shadow: none;
     }
-
-    // size modifiers
-
-    &.btn--small {
-        line-height: 1.7rem;
-        padding: 0 0.4rem;
-    }
-
-    &.btn--medium {
-        line-height: 2.6rem;
-    }
-
-    &.btn--large {
-        line-height: 3.6rem;
-        padding: 0 1.8rem;
-    }
-
-    // style modifiers
-
-    &.btn--light {
-
+    
+    &:active {
         background: transparent;
-        border-color: fade(@color-white,70%);
-        color: @color-white;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-white;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-white;
-        }
-
-        &:hover {
-            border-color: fade(@color-white,90%);
-        }
-
     }
 
-    &.btn--dark {
+}
 
-        background: transparent;
-        border-color: @color-main-11;
-        color: @color-main-9;
+// modifiers
+// =========
 
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-main-9;
-            }
-        }
+.btn--outline.btn--small {
+    line-height: 1.7rem;
+    padding: 0 0.4rem;
+}
 
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-main-9;
-        }
+.btn--outline.btn--medium {
+    line-height: 2.6rem;
+}
 
-        &:hover {
-            border-color: @color-main-5;
-        }
+.btn--outline.btn--large {
+    line-height: 3.6rem;
+    padding: 0 1.8rem;
+}
 
+.btn.btn--outline {
+    .constr-btnOutline(
+        @txtColor: @color-base-12,
+        @borderColor: @color-base-21,
+        @borderColorHover: @color-base-19,
+        @borderColorActive: @color-base-17
+    )
+}
+
+.btn--outline.btn--primary {
+    .constr-btnOutline(
+        @txtColor: @color-primary-12,
+        @borderColor: @color-primary-19,
+        @borderColorHover: @color-primary-16,
+        @borderColorActive: @color-primary-13
+    )
+}
+
+.btn--outline.btn--light {
+    .constr-btnOutline(
+        @txtColor: @color-white,
+        @borderColor: fade(@color-white,60%),
+        @borderColorHover: fade(@color-white,80%),
+        @borderColorActive: @color-white
+    )
+}
+
+.btn--outline.btn--dark {
+    .constr-btnOutline(
+        @txtColor: @color-base-10,
+        @borderColor: @color-base-15,
+        @borderColorHover: @color-base-12,
+        @borderColorActive: @color-base-9
+    )
+}
+
+.btn--outline.btn--attention {
+    .constr-btnOutline(
+        @txtColor: @color-attention-12,
+        @borderColor: @color-attention-19,
+        @borderColorHover: @color-attention-17,
+        @borderColorActive: @color-attention-14
+    )
+}
+
+.btn--outline.btn--error,
+.btn--outline.btn--negative {
+    .constr-btnOutline(
+        @txtColor: @color-negative-15,
+        @borderColor: @color-negative-21,
+        @borderColorHover: @color-negative-19,
+        @borderColorActive: @color-negative-13
+    )
+}
+
+.btn--outline.btn--success,
+.btn--outline.btn--positive {
+    .constr-btnOutline(
+        @txtColor: @color-positive-12,
+        @borderColor: @color-positive-18,
+        @borderColorHover: @color-positive-14,
+        @borderColorActive: @color-positive-10
+    )
+}
+
+// constructor
+// ===========
+
+.constr-btnOutline(@txtColor, @borderColor, @borderColorHover, @borderColorActive) {
+
+    border-color: @borderColor;
+    color: @txtColor;
+
+    a&,
+    a:link&,
+    a:visited& {
+        color: @borderColor;
     }
 
-    &.btn--attention {
-
-        background: transparent;
-        border-color: @color-attention-15;
-        color: @color-attention-12;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-attention-15;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-attention-15;
-        }
-
-        &:hover {
-            border-color: @color-attention-12;
-        }
-
+    &:hover {
+        color: @txtColor;
+        border-color: @borderColorHover;
     }
-
-    &.btn--error,
-    &.btn--negative {
-
-        background: transparent;
-        border-color: @color-negative-18;
-        color: @color-negative-15;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-negative-18;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-negative-18;
-        }
-
-        &:hover {
-            border-color: @color-negative-15;
-        }
-
+    
+    &:active {
+        color: @txtColor;
+        border-color: @borderColorActive;
     }
-
-    &.btn--success,
-    &.btn--positive {
-
-        background: transparent;
-        border-color: @color-positive-15;
-        color: @color-positive-12;
-
-        .icon {
-            circle, ellipse, path, polygon {
-                fill: @color-positive-15;
-            }
-        }
-
-        a&,
-        a:link&,
-        a:visited& {
-            color: @color-positive-15;
-        }
-
-        &:hover {
-            border-color: @color-positive-12;
-        }
-
+    
+    .icon circle, ellipse, path, polygon {
+        fill: @txtColor;
     }
-
+    
 }

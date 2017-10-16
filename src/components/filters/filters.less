@@ -3,7 +3,7 @@
 .filters {
 
     .mixin-defaultBorderRadius;
-    border: @color-main-23 1px solid;
+    border: @color-base-23 1px solid;
     position: relative;
 
     // disabled filters (while update is runnig)
@@ -42,13 +42,13 @@
     padding: 0 1rem 0 3.2rem;
     
     &:link, &:active, &:visited {
-        color: @color-main-8;
+        color: @color-base-8;
         text-decoration: none;
     }
 
     &:hover {
-        background-color: fade(@color-main-25,50%);
-        color: @color-main-5;
+        background-color: fade(@color-base-25,50%);
+        color: @color-base-5;
     }
     
     & + .filters__header {
@@ -70,8 +70,8 @@
     .filterGroup__header {
 
         .mixin-userSelectNone;
-        background: @color-main-25;
-        border-top: @color-main-23 1px solid;
+        background: @color-base-25;
+        border-top: @color-base-23 1px solid;
         box-sizing: border-box;
         cursor: pointer;
         height: 3.5rem;
@@ -87,7 +87,7 @@
 
     &:not(.filterGroup--collapsed) .filterGroup__header,
     &.filterGroup--collapsed.filterGroup--hasActiveFilters .filterGroup__header {
-        border-bottom: @color-main-23 1px solid;
+        border-bottom: @color-base-23 1px solid;
     }
 
     // scrollable filter bodies
@@ -135,14 +135,14 @@
     // shadow on top
 
     &.filterGroup--hasShadow .filterGroup__body::before {
-        background: linear-gradient(to bottom, fade(@color-main-17, 30%), @color-transparent);
+        background: linear-gradient(to bottom, fade(@color-base-17, 30%), @color-transparent);
         top: 3.5rem;
     }
 
     // shadow on bottom
 
     &.filterGroup--hasShadow .filterGroup__body::after {
-        background: linear-gradient(to bottom, @color-transparent, fade(@color-main-17, 30%));
+        background: linear-gradient(to bottom, @color-transparent, fade(@color-base-17, 30%));
         bottom: 0;
     }
 
@@ -158,23 +158,23 @@
     position: relative;
 
     &:link, &:active, &:visited {
-        color: @color-main-8;
+        color: @color-base-8;
         text-decoration: none;
     }
 
     &:hover {
-        background: fade(@color-main-25,50%);
+        background: fade(@color-base-25,50%);
     }
 
     &.is--active {
-        color: @color-main-5;
+        color: @color-base-5;
         font-weight: bold;
     }
 
     // counter
 
     .filter__counter {
-        color: @color-main-15;
+        color: @color-base-15;
         font-weight: normal;
         position: absolute;
         right: .5rem;
@@ -191,7 +191,7 @@
     }
 
     &:hover::before {
-        background: @color-main-24;
+        background: @color-base-24;
     }
 
     // multiple selects (like checkbox)
@@ -199,7 +199,7 @@
     &.filter--multi {
 
         &::before {
-            border: @color-main-22 1px solid;
+            border: @color-base-22 1px solid;
             height: 1rem;
             left: 1rem;
             top: 1rem;
@@ -228,7 +228,7 @@
 
         &::before {
             border-radius: .5rem;
-            border: @color-main-22 1px solid;
+            border: @color-base-22 1px solid;
             height: 1rem;
             left: 1rem;
             top: 1rem;
@@ -273,21 +273,21 @@
     // chevron up icon
 
     .filterGroup .filterGroup__header::after {
-        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-22);
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-base-22);
     }
 
     .filterGroup .filterGroup__header:hover::after {
-        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-15);
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-base-15);
     }
 
     // chevron down icon
 
     .filterGroup.filterGroup--collapsed .filterGroup__header::after {
-        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-main-22);
+        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-base-22);
     }
 
     .filterGroup.filterGroup--collapsed .filterGroup__header:hover::after {
-        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-main-15);
+        .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-base-15);
     }
 
 }

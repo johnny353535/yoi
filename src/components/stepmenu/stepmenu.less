@@ -24,12 +24,12 @@
     &:link,
     &:visited,
     &:active {
-        color: @color-main-15;
+        color: @color-base-15;
         text-decoration: none;
     }
     
     a&:hover {
-        color: @color-main-8;
+        color: @color-base-8;
     }
 
 }
@@ -50,7 +50,7 @@
 // lines
 
 .stepMenu__item + .stepMenu__item::before {
-    background: @color-main-22;
+    background: @color-base-22;
     bottom: 50%;
     height: 100%;
     left: 1rem;
@@ -60,7 +60,7 @@
 // dots
 
 .stepMenu__item::after {
-    background: @color-main-22;
+    background: @color-base-22;
     border-radius: 1rem;
     height: 2rem;
     left: 0;
@@ -118,7 +118,7 @@
 
     &::after,
     &::before {
-        background: @color-main-15;
+        background: @color-base-15;
     }
 
 }
@@ -137,13 +137,13 @@
 .stepMenu--step5 .stepMenu__item:nth-child(10) {
 
     .stepMenu__label {
-        color: @color-main-8;
+        color: @color-base-8;
         font-weight: bold;
     }
 
     .stepMenu__label::after {
         background: @color-white;
-        border: @color-main-8 .5rem solid;
+        border: @color-base-8 .5rem solid;
         height: 1rem;
         width: 1rem;
     }

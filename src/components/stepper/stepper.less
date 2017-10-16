@@ -7,11 +7,11 @@
 
     .mixin-userSelectNone;
     .mixin-defaultBorderRadius;
-    background: linear-gradient(to bottom, @color-main-12, @color-main-10);
-    border: @color-main-8 1px solid;
-    box-shadow: 0 1px 0 @color-main-13 inset;
+    background: linear-gradient(to bottom, @color-base-12, @color-base-10);
+    border: @color-base-8 1px solid;
+    box-shadow: 0 1px 0 @color-base-13 inset;
     box-sizing: border-box;
-    color: @color-main-25;
+    color: @color-base-25;
     display: inline-block;
     font-size: 0;
     height: 4rem;
@@ -19,8 +19,8 @@
     position: relative;
     
     &:hover {
-        background: linear-gradient(to bottom, @color-main-10, @color-main-8);
-        border-color: @color-main-5;
+        background: linear-gradient(to bottom, @color-base-10, @color-base-8);
+        border-color: @color-base-5;
     }
 
 }
@@ -32,7 +32,7 @@
 
 .stepper .icon {
 
-    filter: drop-shadow(0 -1px 0 @color-main-10);
+    filter: drop-shadow(0 -1px 0 @color-base-10);
     margin: .3rem .5rem;
     position: absolute;
     right: 0;
@@ -48,7 +48,7 @@
 
 .stepper__iconMinus,
 .stepper__iconPlus {
-    filter: drop-shadow(0 -1px 0 @color-main-10);
+    filter: drop-shadow(0 -1px 0 @color-base-10);
     height: 100%;
     left: 0;
     position: absolute;
@@ -83,7 +83,7 @@
     background: transparent;
     border: 0;
     box-sizing: border-box;
-    color: @color-main-25;
+    color: @color-base-25;
     cursor: pointer;
     display: inline-block;
     font: bold 1.5rem/3.8rem @font-sansserif;
@@ -91,7 +91,7 @@
     padding: 0 1.5rem 0 1rem;
     position: relative;
     text-align: center;
-    text-shadow: 0 -1px 0 @color-main-7;
+    text-shadow: 0 -1px 0 @color-base-7;
     vertical-align: top;
     z-index: 2;
 
@@ -115,9 +115,9 @@
 .stepper__btnMinus,
 .stepper__btnPlus {
 
-    background: linear-gradient(to bottom, @color-main-17, @color-main-14);
+    background: linear-gradient(to bottom, @color-base-17, @color-base-14);
     border: 0;
-    box-shadow: 0 1px 0 @color-main-20 inset;
+    box-shadow: 0 1px 0 @color-base-20 inset;
     cursor: pointer;
     height: 1.9rem;
     left: 0;
@@ -126,12 +126,12 @@
     z-index: 2;
 
     &:hover {
-        background: linear-gradient(to bottom, @color-main-16, @color-main-13);
-        box-shadow: 0 1px 0 @color-main-19 inset;
+        background: linear-gradient(to bottom, @color-base-16, @color-base-13);
+        box-shadow: 0 1px 0 @color-base-19 inset;
     }
 
     &:active {
-        background: linear-gradient(to bottom, @color-main-11, @color-main-14);
+        background: linear-gradient(to bottom, @color-base-11, @color-base-14);
         box-shadow: none;
     }
 
@@ -145,7 +145,7 @@
 }
 
 .stepper__iconMinus {
-    .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-23, @width: 24, @height: 24);
+    .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-base-23, @width: 24, @height: 24);
 }
 
 .stepper__btnPlus {
@@ -154,7 +154,7 @@
 }
 
 .stepper__iconPlus {
-    .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-23, @width: 24, @height: 24);
+    .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-base-23, @width: 24, @height: 24);
 }
 
 // modifiers
@@ -163,12 +163,12 @@
 .stepper--light {
 
     background: @color-white;
-    border-color: @color-main-23;
+    border-color: @color-base-23;
     box-shadow: none;
 
     &:hover {
         background: @color-white;
-        border-color: @color-main-22;
+        border-color: @color-base-22;
     }
 
     .icon {
@@ -176,7 +176,7 @@
         filter: none;
 
         circle, ellipse, path, polygon {
-            fill: @color-main-8;
+            fill: @color-base-8;
         }
 
     }
@@ -186,7 +186,7 @@
     }
 
     .stepper__input {
-        background: @color-main-24;
+        background: @color-base-24;
         box-shadow: none;
     }
 
@@ -198,7 +198,7 @@
 
     .stepper__submit {
         text-shadow: none;
-        color: @color-main-8;
+        color: @color-base-8;
     }
 
     .stepper__btnMinus,
@@ -208,7 +208,7 @@
         box-shadow: none;
 
         &:hover {
-            background: @color-main-24;
+            background: @color-base-24;
         }
 
         &:focus {}
@@ -216,11 +216,11 @@
     }
 
     .stepper__iconMinus {
-        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10, @width: 24, @height: 24);
+        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-base-10, @width: 24, @height: 24);
     }
 
     .stepper__iconPlus {
-        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10, @width: 24, @height: 24);
+        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-base-10, @width: 24, @height: 24);
     }
 
 }
@@ -253,21 +253,21 @@
     }
 
     .stepper__iconMinus {
-        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-23);
+        .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-base-23);
     }
 
     .stepper__iconPlus {
-        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-23);
+        .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-base-23);
     }
 
     &.stepper--light {
 
         .stepper__iconMinus {
-            .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-main-10);
+            .mixin-icon-bg(@id: 'icon-002-s', @fillColor: @color-base-10);
         }
 
         .stepper__iconPlus {
-            .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-main-10);
+            .mixin-icon-bg(@id: 'icon-003-s', @fillColor: @color-base-10);
         }
 
     }

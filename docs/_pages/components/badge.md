@@ -7,7 +7,7 @@ permalink: components/badge
 
 # Badge
 
-<p class="intro">Use this component to display small bits of data, eg. inside a button. It’s perfect to create one-word labels or counters.</p>
+<p class="intro">Use this component to display small bits of data, eg. one-word labels, counters, etc.</p>
 
 ## Modifiers
 
@@ -23,7 +23,7 @@ Badges are available in four different sizes.
 <span class="badge badge--large">24</span>
 ```
 
-### Rounded
+### Style
 
 Use the modifier `.badge--rounded` to render pill-shaped badges.
 
@@ -76,11 +76,5 @@ All global [color modifiers](/theme/colors.html) are available for badges.
     <span class="badge badge--positive badge--rounded">22</span>
     <span class="badge badge--positive badge--medium badge--rounded">23</span>
     <span class="badge badge--positive badge--large badge--rounded">24</span>
-</p>
-<p class="m-b-1">
-    <span class="badge badge--price badge--small badge--rounded">21</span>
-    <span class="badge badge--price badge--rounded">22</span>
-    <span class="badge badge--price badge--medium badge--rounded">23</span>
-    <span class="badge badge--price badge--large badge--rounded">24</span>
 </p>
 ```

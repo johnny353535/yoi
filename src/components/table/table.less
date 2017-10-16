@@ -7,16 +7,16 @@ table {
     .mixin-defaultBorderRadius;
     border-collapse: separate;
     border-spacing: 0;
-    border: @color-main-23 1px solid;
+    border: @color-base-23 1px solid;
     box-sizing: border-box;
     font-family: @font-sansserif;
     width: 100%;
 }
 
 caption {
-    background: @color-main-25;
+    background: @color-base-25;
     border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
-    border: @color-main-23 1px solid;
+    border: @color-base-23 1px solid;
     border-bottom: 0;
     box-sizing: border-box;
     font-family: @font-sansserif;
@@ -35,12 +35,12 @@ tr:first-child th {
 
 caption + tr td,
 tfoot tr:first-child td {
-    border-top: 1px solid @color-main-23;
+    border-top: 1px solid @color-base-23;
 }
 
 td,
 th {
-    border-top: 1px solid @color-main-23;
+    border-top: 1px solid @color-base-23;
     padding: .5rem 1rem;
     text-align: left;
     vertical-align: top;
@@ -48,11 +48,11 @@ th {
 
 td + td,
 th + th {
-    border-left: 1px solid @color-main-23;
+    border-left: 1px solid @color-base-23;
 }
 
 th {
-    background: @color-main-25;
+    background: @color-base-25;
     font-family: @font-sansserif;
     font-weight: bold;
 }
@@ -67,7 +67,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
 
 .table__controls {
 
-    background: @color-main-25;
+    background: @color-base-25;
     width: 2rem;
 
     .btn {
@@ -92,7 +92,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
 
     th {
         border-radius: 0;
-        border-top: @color-main-23 1px solid;
+        border-top: @color-base-23 1px solid;
     }
 
     tr:first-child th {
@@ -110,7 +110,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
 // alternating table row colors
 
 .table--zebra tr:nth-child(odd) td {
-    background: fade(@color-main-25, 40%);
+    background: fade(@color-base-25, 40%);
 }
 
 // table without outer borders
@@ -176,12 +176,12 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
 
     tr:hover td {
 
-        background: @color-main-25;
-        color: @color-main-8;
+        background: @color-base-25;
+        color: @color-base-8;
         cursor: pointer;
 
         &::before {
-            color: @color-main-23;
+            color: @color-base-23;
         }
 
     }
@@ -199,7 +199,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         // square icon = empty checkbox
 
         &::before {
-            .mixin-icon-bg(@id: 'icon-063-s', @fillColor: @color-main-23);
+            .mixin-icon-bg(@id: 'icon-063-s', @fillColor: @color-base-23);
             content: ' ';
             height: 3.2rem;
             left: -.1rem;
@@ -257,7 +257,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         // x icon
 
         &::before {
-            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-20);
+            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-base-20);
             content: ' ';
             height: 3.2rem;
             width: 3.2rem;

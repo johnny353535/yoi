@@ -39,7 +39,7 @@
 
     .rangeInput__track {
         .mixin-defaultBorderRadius;
-        background: @color-main-24;
+        background: @color-base-24;
         bottom: 1rem;
         height: .4rem;
         left: 0;
@@ -50,7 +50,7 @@
     }
 
     .rangeInput__range {
-        background: @color-main-10;
+        background: @color-base-10;
         height: .4rem;
         left: 0;
         position: absolute;
@@ -66,7 +66,7 @@
     // knob
 
     .rangeInput__knob {
-        background: @color-main-10;
+        background: @color-base-10;
         border-radius: 50%;
         bottom: .1rem;
         box-sizing: border-box;
@@ -91,7 +91,7 @@
     .rangeInput__label {
 
         .mixin-defaultBorderRadius;
-        background: @color-main-24;
+        background: @color-base-24;
         display: block;
         line-height: 2rem;
         padding: 0 .5rem;
@@ -104,7 +104,7 @@
         // pointer
 
         &::after {
-            background: @color-main-24;
+            background: @color-base-24;
             bottom: -.3rem;
             content: ' ';
             height: .6rem;
@@ -129,7 +129,7 @@
     .rangeInput__knob:hover ~ .rangeInput__label--single,
     .rangeInput__knob:hover ~ .rangeInput__label--single::after {
 
-        background: @color-main-10;
+        background: @color-base-10;
         color: @color-white;
 
     }

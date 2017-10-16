@@ -24,12 +24,12 @@
             // special case because of flat/subtle depedency
 
             if (selectedModifier === 'btn--subtle') {
-                dependendSelect.addClass('btn--disabled');
+                dependendSelect.addClass('is--disabled');
                 dependendSelect.find('select').prop('disabled', true);
                 dependendSelect.find('option').prop('selected', false);
                 $this.removeClass('btn--rounded btn--flat btn--outline');
             } else {
-                dependendSelect.removeClass('btn--disabled');
+                dependendSelect.removeClass('is--disabled');
                 dependendSelect.find('select').prop('disabled', false);
             }
 

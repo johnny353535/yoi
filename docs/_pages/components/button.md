@@ -100,9 +100,9 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 ## Modifiers
 
 | Size   | `.btn--medium, .btn--large, .btn--small` |
-| Color  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive .btn--success` |
+| Color  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive, .btn--primary, .btn--success` |
 | Type   | `.btn--flat, .btn--rounded, .btn--subtle` |
-| State  | `.btn--active, .btn--disabled, .btn--focus`|
+| State  | `.is--active, .is--disabled, .is--focus`|
 | Other  | `.btn--clip` |
 
 <p class="hint">Have a look at the <a href="tools/buttons.html">buttons tool</a> to try out all possible combinations.</p>
@@ -121,12 +121,13 @@ Use the modifiers `.btn--medium, .btn--large, .btn--small` to create buttons wit
 
 ### Color
 
-Use the modifiers `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive .btn--success` to create buttons with different colors:
+Use the modifiers `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive, .btn--primary, .btn--success` to create buttons with different colors:
 
 ```html
 <!-- example -->
 <button class="btn btn--large btn--light">Button</button>
 <button class="btn btn--large">Button</button>
+<button class="btn btn--large btn--primary">Button</button>
 <button class="btn btn--large btn--dark">Button</button>
 <button class="btn btn--large btn--attention">Button</button>
 <button class="btn btn--large btn--negative">Button</button>
@@ -143,6 +144,7 @@ Use the modifiers `.btn--flat, .btn--rounded, .btn--subtle` to create buttons wi
 <!-- example -->
 <button class="btn btn--flat btn--large btn--light">Button</button>
 <button class="btn btn--flat btn--large">Button</button>
+<button class="btn btn--flat btn--large btn--primary">Button</button>
 <button class="btn btn--flat btn--large btn--dark">Button</button>
 <button class="btn btn--flat btn--large btn--attention">Button</button>
 <button class="btn btn--flat btn--large btn--negative">Button</button>
@@ -155,7 +157,9 @@ Use the modifiers `.btn--flat, .btn--rounded, .btn--subtle` to create buttons wi
 
 ```html
 <!-- example -->
+<button class="btn btn--outline btn--large btn--light">Button</button>
 <button class="btn btn--outline btn--large">Button</button>
+<button class="btn btn--outline btn--large btn--primary">Button</button>
 <button class="btn btn--outline btn--large btn--dark">Button</button>
 <button class="btn btn--outline btn--large btn--attention">Button</button>
 <button class="btn btn--outline btn--large btn--negative">Button</button>
@@ -196,13 +200,13 @@ Use the modifiers `.btn--subtle` to create a button that looks like text label b
 
 ### State
 
-Use the modifiers `.btn--disabled, .btn--active, .btn--focus` to set the different button states (mirroring the CSS-pseudo-selectors `:disabled, :active, :focus`):
+Use the modifiers `.is--disabled, .is--active, .is--focus` to set the different button states (mirroring the CSS-pseudo-selectors `:disabled, :active, :focus`):
 
 ```html
 <!-- example -->
-<button class="btn btn--large btn--active">Active</button>
-<button class="btn btn--large btn--disabled">Disabled</button>
-<button class="btn btn--large btn--focus">Focused</button>
+<button class="btn btn--large is--active">Active</button>
+<button class="btn btn--large is--disabled">Disabled</button>
+<button class="btn btn--large is--focus">Focused</button>
 ```
 
 ### Truncate Button Labels

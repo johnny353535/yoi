@@ -188,10 +188,10 @@ YOI.component.ScrollKeys = (function() {
         
         var $btn = $('#scrollButtons').find('.btn').eq(btnIndex);
         
-        $btn.addClass('btn--active');
+        $btn.addClass('is--active');
         
         YOI.setDelay('highlightScrollKeyDelay', 200, function() {
-            $btn.removeClass('btn--active');
+            $btn.removeClass('is--active');
         });
         
     }

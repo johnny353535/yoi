@@ -5,8 +5,8 @@
 
 .linkList {
     .mixin-defaultBorderRadius;
-    background: @color-main-25;
-    border: @color-main-23 1px solid;
+    background: @color-base-25;
+    border: @color-base-23 1px solid;
     font-size: 1.3rem;
 }
 
@@ -15,7 +15,7 @@
 
 .linkList__item {
 
-    border-bottom: @color-main-24 1px solid;
+    border-bottom: @color-base-24 1px solid;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -29,7 +29,7 @@
 
 .linkList__link {
 
-    color: @color-main-8;
+    color: @color-base-8;
     display: block;
     font-family: @font-sansserif;
     padding: .5rem 1rem;
@@ -38,14 +38,14 @@
     &:active,
     &:link,
     &:visited {
-        color: @color-main-8;
+        color: @color-base-8;
         text-decoration: none;
     }
 
     // hover
 
     &:hover {
-        background: @color-main-24;
+        background: @color-base-24;
     }
 
 }
@@ -53,7 +53,7 @@
 // active
 
 .is--active .linkList__link::before {
-    background: @color-main-8;
+    background: @color-base-8;
     bottom: 0;
     content: ' ';
     left: 0;
@@ -89,23 +89,23 @@
 
 .linkList--dark {
 
-    background-color: @color-main-10;
-    border-color: @color-main-8;
+    background-color: @color-base-10;
+    border-color: @color-base-8;
 
     .linkList__item {
-        border-color: @color-main-9;
+        border-color: @color-base-9;
     }
 
     .linkList__link {
-        color: @color-main-25;
+        color: @color-base-25;
     }
 
     .linkList__link:hover {
-        background: @color-main-11;
+        background: @color-base-11;
     }
     
     .is--active .linkList__link::before {
-        background: @color-main-22;
+        background: @color-base-22;
     }
 
 }
@@ -178,25 +178,25 @@
 // icons/arrows pointing left
 
 .linkList--arrowsLeft .linkList__link::after {
-    .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-main-20);
+    .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-20);
 }
 
 // icons/arrows pointing right
 
 .linkList--arrowsRight .linkList__link::after {
-    .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-main-20);
+    .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-20);
 }
 
 // icons/arrows pointing up
 
 .linkList--arrowsLeftUp .linkList__link::after,
 .linkList--arrowsRightUp .linkList__link::after {
-    .mixin-icon-bg(@id: 'icon-010-s', @width: 24, @height: 24, @fillColor: @color-main-20);
+    .mixin-icon-bg(@id: 'icon-010-s', @width: 24, @height: 24, @fillColor: @color-base-20);
 }
 
 // icons/arrows pointing down
 
 .linkList--arrowsLeftDown .linkList__link::after,
 .linkList--arrowsRightDown .linkList__link::after {
-    .mixin-icon-bg(@id: 'icon-009-s', @width: 24, @height: 24, @fillColor: @color-main-20);
+    .mixin-icon-bg(@id: 'icon-009-s', @width: 24, @height: 24, @fillColor: @color-base-20);
 }

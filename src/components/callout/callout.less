@@ -4,9 +4,7 @@
 // =====
 
 .callout {
-    background: @color-main-23;
     border-radius: 50%;
-    color: @color-main-8;
     display: table;
     font: bold 1.3rem/1.5rem @font-sansserif;
     height: 10rem;
@@ -34,31 +32,54 @@
 .callout--rot-l { transform: rotate(-10deg); }
 .callout--rot-r { transform: rotate(10deg);  }
 
-// other color schemes
+// color
+
+.callout {
+    .constr-callout(
+        @txtColor: @color-base-8,
+        @bgColor: @color-base-23
+    )
+}
 
 .callout--dark {
-    .calloutTheme(@color-white, @color-main-10);
+    .constr-callout(
+        @txtColor: @color-white,
+        @bgColor: @color-base-10
+    )
 }
 
 .callout--light {
-    .calloutTheme(@color-main-10, @color-white);
+    .constr-callout(
+        @txtColor: @color-base-10,
+        @bgColor: @color-white
+    )
 }
 
 .callout--attention {
-    .calloutTheme(@color-attention-10, @color-attention-22);
+    .constr-callout(
+        @txtColor: @color-attention-10,
+        @bgColor: @color-attention-22
+    )
 }
 
 .callout--positive {
-    .calloutTheme(@color-positive-10, @color-positive-23);
+    .constr-callout(
+        @txtColor: @color-positive-10,
+        @bgColor: @color-positive-23
+    )
 }
 
 .callout--negative {
-    .calloutTheme(@color-negative-10, @color-negative-24);
+    .constr-callout(
+        @txtColor: @color-negative-10,
+        @bgColor: @color-negative-24
+    )
 }
 
-// "constructor" for different color themes
+// constructor
+// ===========
 
-.calloutTheme(@txtColor, @backgroundColor) {
-    background: @backgroundColor;
+.constr-callout(@txtColor, @bgColor) {
+    background: @bgColor;
     color: @txtColor;
 }

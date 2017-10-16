@@ -5,10 +5,10 @@
 
 .flyout {
     .mixin-defaultBorderRadius;
-    background: @color-main-24;
-    border: @color-main-20 1px solid;
+    background: @color-base-24;
+    border: @color-base-20 1px solid;
     box-sizing: border-box;
-    color: @color-main-8;
+    color: @color-base-8;
     padding: 2rem;
     position: relative;
     text-align: left;
@@ -21,8 +21,8 @@
 
 .flyout__handle {
 
-    background: @color-main-24;
-    border: @color-main-20 1px solid;
+    background: @color-base-24;
+    border: @color-base-20 1px solid;
     border-top: 0;
     cursor: pointer;
     display: block;
@@ -60,7 +60,7 @@
 
 .js .flyout__handle {
     background-clip: padding-box;
-    border-color: fade(@color-main-20, 30%);
+    border-color: fade(@color-base-20, 30%);
 }
 
 // hide handle if js is disabled
@@ -97,7 +97,7 @@
     .flyout--hidden {
 
         .flyout__handle::after {
-            .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-main-8);
+            .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-base-8);
         }
 
         &.flyout--left {
@@ -114,10 +114,10 @@
 
         .mixin-shadow-3;
         background-clip: padding-box;
-        border: fade(@color-main-20, 30%) 1px solid;
+        border: fade(@color-base-20, 30%) 1px solid;
 
         .flyout__handle::after {
-            .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-8);
+            .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-base-8);
         }
 
         &.flyout--left {

@@ -6,13 +6,13 @@
 .pageRewind {
 
     .mixin-shadow-3;
-    background: @color-main-24;
+    background: @color-base-24;
     border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
-    border: @color-main-22 1px solid;
+    border: @color-base-22 1px solid;
     border-bottom: 0;
     bottom: -.5rem;
     box-sizing: border-box;
-    color: @color-main-15;
+    color: @color-base-15;
     display: block;
     height: 5rem;
     left: 50%;
@@ -24,13 +24,13 @@
     z-index: 101;
 
     &:hover {
-        background: @color-main-25;
+        background: @color-base-25;
     }
 
     // icon
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-main-8);
+        .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-base-8);
         content: ' ';
         display: block;
         height: 100%;

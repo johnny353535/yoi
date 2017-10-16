@@ -5,7 +5,7 @@
 
 .note {
     .mixin-clearfix;
-    .noteTheme;
+    .noteConstructor;
     .mixin-defaultBorderRadius;
     border-style: solid;
     border-width: 1px;
@@ -95,69 +95,51 @@
 // colors
 
 .note--attention {
-    .noteTheme(
+    .noteConstructor(
         @borderColor: @color-attention-19,
         @txtColor: @color-attention-10,
-        @backgroundColor: @color-attention-22
+        @bgColor: @color-attention-22
     );
 }
 
 .note--dark {
-    .noteTheme(
+    .noteConstructor(
         @borderColor: @color-transparent,
-        @txtColor: @color-main-25,
-        @backgroundColor: @color-main-10
+        @txtColor: @color-base-25,
+        @bgColor: @color-base-10
     );
 }
 
 .note--error,
 .note--negative {
-    .noteTheme(
+    .noteConstructor(
         @borderColor: @color-negative-22,
         @txtColor: @color-negative-10,
-        @backgroundColor: @color-negative-24
+        @bgColor: @color-negative-24
     );
 }
 
 .note--light {
-    .noteTheme(
-        @backgroundColor: @color-white
+    .noteConstructor(
+        @bgColor: @color-white
     );
 }
 
 .note--success,
 .note--positive {
-    .noteTheme(
+    .noteConstructor(
         @borderColor: @color-positive-22,
         @txtColor: @color-positive-10,
-        @backgroundColor: @color-positive-24
+        @bgColor: @color-positive-24
     );
 }
 
 .note--subtle {
-    .noteTheme(
+    .noteConstructor(
         @borderColor: @color-transparent,
         @txtColor: @gray-6,
-        @backgroundColor: @gray-23
+        @bgColor: @gray-23
     );
-}
-
-// "constructor" for different color themes
-
-.noteTheme(@borderColor: @color-main-23, @txtColor: @color-main-10, @backgroundColor: @color-main-25) {
-
-    background: @backgroundColor;
-    border-color: @borderColor;
-    color: @txtColor;
-
-    .note__headline {
-        color: @txtColor;
-    }
-
-    .note__body + .note__body {
-        border-color: @borderColor;
-    }
-
 }
 
 // grouped notes
@@ -187,4 +169,23 @@
 
 .note[yoi-dismissable] {
     padding-right: 4rem;
+}
+
+// constructor
+// ===========
+
+.noteConstructor(@borderColor: @color-base-23, @txtColor: @color-base-10, @bgColor: @color-base-25) {
+
+    background: @bgColor;
+    border-color: @borderColor;
+    color: @txtColor;
+
+    .note__headline {
+        color: @txtColor;
+    }
+
+    .note__body + .note__body {
+        border-color: @borderColor;
+    }
+
 }

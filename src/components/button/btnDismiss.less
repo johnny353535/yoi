@@ -7,7 +7,12 @@
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 32, @height: 32);
+    .mixin-icon-bg(
+        @id: 'icon-006-s',
+        @fillColor: @color-base-8,
+        @width: 32,
+        @height: 32
+    );
     border: 0;
     cursor: pointer;
     display: inline-block;
@@ -21,7 +26,7 @@
     width: 3.2rem;
 
     &:hover {
-        background-color: fade(@color-main-22, 50%);
+        background-color: fade(@color-base-22, 50%);
     }
 
 }
@@ -32,19 +37,34 @@
 // sizes
 
 .btnDismiss--small {
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 16, @height: 16);
+    .mixin-icon-bg(
+        @id: 'icon-006-s',
+        @fillColor: @color-base-8,
+        @width: 16,
+        @height: 16
+    );
     height: 1.6rem;
     width: 1.6rem;
 }
 
 .btnDismiss--medium {
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 24, @height: 24);
+    .mixin-icon-bg(
+        @id: 'icon-006-s',
+        @fillColor: @color-base-8,
+        @width: 24,
+        @height: 24
+    );
     height: 2.4rem;
     width: 2.4rem;
 }
 
 .btnDismiss--large {
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-main-8, @width: 48, @height: 48);
+    .mixin-icon-bg(
+        @id: 'icon-006-s',
+        @fillColor: @color-base-8,
+        @width: 48,
+        @height: 48
+    );
     height: 4.8rem;
     width: 4.8rem;
 }
@@ -65,9 +85,9 @@
 .btnDismiss.btnDismiss--negative.btnDismiss--negative,
 [class*="--error"] .btnDismiss,
 [class*="--negative"] .btnDismiss {
-    .btnDismissTheme(
+    .constr-btnDismiss(
         @iconColor: @color-negative-10,
-        @hoverBgColor: @color-negative-21
+        @bgColorHover: @color-negative-21
     );
 }
 
@@ -75,34 +95,70 @@
 .btnDismiss.btnDismiss--positive.btnDismiss--positive,
 [class*="--success"] .btnDismiss,
 [class*="--positive"] .btnDismiss {
-    .btnDismissTheme(
+    .constr-btnDismiss(
         @iconColor: @color-positive-10,
-        @hoverBgColor: @color-positive-21
+        @bgColorHover: @color-positive-21
     );
 }
 
 .btnDismiss.btnDismiss--attention.btnDismiss--attention,
 [class*="--attention"] .btnDismiss {
-    .btnDismissTheme(
+    .constr-btnDismiss(
         @iconColor: @color-attention-10,
-        @hoverBgColor: @color-attention-20
+        @bgColorHover: @color-attention-20
     );
 }
 
 .btnDismiss.btnDismiss--dark.btnDismiss--dark,
 [class*="--dark"] .btnDismiss {
-    .btnDismissTheme(
-        @iconColor: @color-main-24,
-        @hoverBgColor: @color-main-7
+    .constr-btnDismiss(
+        @iconColor: @color-base-24,
+        @bgColorHover: @color-base-7
     );
 }
 
-// "constructor" for different color themes
+// constructor
+// ===========
 
-.btnDismissTheme(@iconColor, @hoverBgColor) {
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @iconColor, @width: 32, @height: 32);
-    &:hover { background-color: fade(@hoverBgColor, 50%); }
-    &.btnDismiss--small { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 16, @height: 16); }
-    &.btnDismiss--medium { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 24, @height: 24); }
-    &.btnDismiss--large { .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @iconColor, @width: 48, @height: 48); }
+.constr-btnDismiss(@iconColor, @bgColorHover) {
+    
+    .mixin-icon-bg(
+        @id: 'icon-006-s',
+        @fillColor:
+        @iconColor,
+        @width: 32,
+        @height: 32
+    );
+    
+    &:hover {
+        background-color: fade(@bgColorHover, 50%);
+    }
+    
+    &.btnDismiss--small {
+        .mixin-icon-bg(
+            @id: 'icon-008-s',
+            @fillColor: @iconColor,
+            @width: 16,
+            @height: 16
+        )
+    }
+    
+    &.btnDismiss--medium {
+        .mixin-icon-bg(
+            @id: 'icon-008-s',
+            @fillColor: @iconColor,
+            @width: 24,
+            @height: 24
+        )
+    }
+    
+    &.btnDismiss--large {
+        .mixin-icon-bg(
+            @id: 'icon-008-s',
+            @fillColor: @iconColor,
+            @width: 48,
+            @height: 48
+        )
+    }
+    
 }

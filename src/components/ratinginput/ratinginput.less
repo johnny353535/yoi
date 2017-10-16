@@ -10,8 +10,8 @@
 .ratingInput {
     .mixin-defaultBorderRadius;
     background: @color-white;
-    border: @color-main-20 1px solid;
-    box-shadow: 0 1px 0 @color-main-24 inset;
+    border: @color-base-20 1px solid;
+    box-shadow: 0 1px 0 @color-base-24 inset;
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
@@ -25,7 +25,7 @@
 }
 
 .ratingInput__star {
-    .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-23);
+    .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-23);
     width: 2rem;
     height: 2.3rem;
     display: inline-block;
@@ -35,28 +35,28 @@
 // =========
 
 .ratingInput--rated-1 {
-    .ratingInput__star:nth-child(1) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-13); }
-    &:hover .ratingInput__star:nth-child(1) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-5); }
+    .ratingInput__star:nth-child(1) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-13); }
+    &:hover .ratingInput__star:nth-child(1) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-5); }
 }
 
 .ratingInput--rated-2 {
-    .ratingInput__star:nth-child(-n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-13); }
-    &:hover .ratingInput__star:nth-child(-n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-5); }
+    .ratingInput__star:nth-child(-n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-13); }
+    &:hover .ratingInput__star:nth-child(-n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-5); }
 }
 
 .ratingInput--rated-3 {
-    .ratingInput__star:nth-child(-n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-13); }
-    &:hover .ratingInput__star:nth-child(-n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-5); }
+    .ratingInput__star:nth-child(-n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-13); }
+    &:hover .ratingInput__star:nth-child(-n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-5); }
 }
 
 .ratingInput--rated-4 {
-    .ratingInput__star:nth-child(-n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-13); }
-    &:hover .ratingInput__star:nth-child(-n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-5); }
+    .ratingInput__star:nth-child(-n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-13); }
+    &:hover .ratingInput__star:nth-child(-n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-5); }
 }
 
 .ratingInput--rated-5 {
-    .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-13); }
-    &:hover .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-5); }
+    .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-13); }
+    &:hover .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-5); }
 }
 
 // locked state
@@ -74,22 +74,22 @@
 
     &.ratingInput--rated-1, &.ratingInput--rated-1:hover {
         .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-gold); }
-        .ratingInput__star:nth-child(n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-23); }
+        .ratingInput__star:nth-child(n + 2) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-23); }
     }
 
     &.ratingInput--rated-2, &.ratingInput--rated-2:hover {
         .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-gold); }
-        .ratingInput__star:nth-child(n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-23); }
+        .ratingInput__star:nth-child(n + 3) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-23); }
     }
 
     &.ratingInput--rated-3, &.ratingInput--rated-3:hover {
         .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-gold); }
-        .ratingInput__star:nth-child(n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-23); }
+        .ratingInput__star:nth-child(n + 4) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-23); }
     }
 
     &.ratingInput--rated-4, &.ratingInput--rated-4:hover {
         .ratingInput__star { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-gold); }
-        .ratingInput__star:nth-child(n + 5) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-main-23); }
+        .ratingInput__star:nth-child(n + 5) { .mixin-icon-bg(@id: 'icon-039-s', @fillColor: @color-base-23); }
     }
 
     &.ratingInput--rated-5, &.ratingInput--rated-5:hover {
