@@ -87,6 +87,7 @@ behaviours:
     - index
     - dismiss
     - lazyload
+    - parallax
     - scrollfx
     - sticky
 actions:

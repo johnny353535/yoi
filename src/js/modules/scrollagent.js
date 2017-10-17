@@ -13,9 +13,9 @@ YOI.module.ScrollAgent = (function() {
     // ============
     
     var $window              = $(window);
+    var $body                = $('body');
     var viewPortHeight       = $window.height();
     var lastScrollTop        = 0;
-    var offset               = 0;
     var broadcastInitialized = false;
     var viewportIn;
     var viewportOut;
@@ -32,16 +32,12 @@ YOI.module.ScrollAgent = (function() {
         *  @param {jQuery dom object} $targetElement
         */
         
-        // run broadcastScrollEvents() on scroll
+        // run broadcastScrollEvents() on scroll, throttled
+        // to fire at max 60 times per second
         
         if (!broadcastInitialized) {
-            
-            $window.on('scroll', function() {
-                broadcastScrollEvents();
-            });
-            
+            $window.on('scroll', YOI.throttle(broadcastScrollEvents, 15));
             broadcastInitialized = true;
-            
         }
         
         // collect the target elements
@@ -67,6 +63,17 @@ YOI.module.ScrollAgent = (function() {
                 })
                 .on('scroll', function() {
                     observe($targetElement);
+                });
+                
+            // boost performance
+            // learn more: https://www.thecssninja.com/css/pointer-events-60fps
+                
+            $window
+                .on('yoi-scroll-up yoi-scroll-down', function() {
+                    $body.css('pointer-events','none');
+                })
+                .on('yoi-scroll-stop', function() {
+                    $body.css('pointer-events','auto');
                 });
 
         }
@@ -137,11 +144,12 @@ YOI.module.ScrollAgent = (function() {
             var state          = $targetElement.data().state;
             var initialPosY    = $targetElement.data().props.initialPosY;
             var height         = $targetElement.data().props.height;
+            var transformY     = parseFloat($targetElement.css('transform').split(',')[13], 10) || 0;
             
             // calculate viewPortIn & viewPortOut
             
-            viewportIn     = (currentScrollTop + viewPortHeight) > (initialPosY + offset) && currentScrollTop + offset < (initialPosY + height);
-            viewportCenter = (currentScrollTop + viewPortHeight / 2) > initialPosY && (currentScrollTop + viewPortHeight) < (initialPosY + height + viewPortHeight / 2);
+            viewportIn     = (currentScrollTop + viewPortHeight) > (initialPosY + transformY) && currentScrollTop < (initialPosY + height + transformY);
+            viewportCenter = (currentScrollTop + viewPortHeight / 2) > initialPosY + transformY && (currentScrollTop + viewPortHeight) < (initialPosY + height + transformY + viewPortHeight / 2);
             viewportOut    = !viewportIn;
             
             // trigger custom viewport-events
@@ -163,6 +171,10 @@ YOI.module.ScrollAgent = (function() {
          *  yoi-scroll-up      => page is scrolling up
          *  yoi-scroll-stop    => page stopped scrolling
          */
+        
+        // general scrolling event
+        
+        $window.trigger('yoi-scroll');
         
         // scroll direction
 

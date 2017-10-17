@@ -93,7 +93,7 @@ YOI.behaviour.Dismiss = (function() {
     // ================
 
     return {
-        init  : initialize
+        init : initialize
     };
 
 })();

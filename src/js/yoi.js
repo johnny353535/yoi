@@ -420,6 +420,26 @@ var YOI = {
         return document.activeElement.tagName === 'BODY';
         
     },
+    
+    throttle : function(targetFunction, delay) {
+
+        /**
+         *  
+         *
+         *  @param  {}  - 
+         *  @return {}  - 
+         */
+
+        var snapshot = Date.now();
+
+        return function() {
+            if ((snapshot + delay - Date.now()) < 0) {
+                targetFunction();
+                snapshot = Date.now();
+            }
+        }
+
+    },
 
     // global attributes
 
