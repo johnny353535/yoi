@@ -14,12 +14,14 @@ YOI.module.ScrollAgent = (function() {
     
     var $window              = $(window);
     var $body                = $('body');
-    var viewPortHeight       = $window.height();
+    var viewportHeight       = $window.height();
     var lastScrollTop        = 0;
-    var broadcastInitialized = false;
     var viewportIn;
     var viewportOut;
     var viewportCenter;
+    
+    var $activeTargetElements;
+    var initialized = false;
     
     // private functions
     // =================
@@ -32,70 +34,69 @@ YOI.module.ScrollAgent = (function() {
         *  @param {jQuery dom object} $targetElement
         */
         
-        // run broadcastScrollEvents() on scroll, throttled
-        // to fire at max 60 times per second
-        
-        if (!broadcastInitialized) {
-            $window.on('scroll', YOI.throttle(broadcastScrollEvents, 15));
-            broadcastInitialized = true;
-        }
-        
-        // collect the target elements
-        
         var $targetElement = YOI.createCollection('scrollagent', $targetElement);
         
         if ($targetElement) {
             
-            // initially run update() observe() and listen() on
-            // all target elements
+            // share all target elements in a new variable
+        
+            $activeTargetElements = $targetElement;
             
-            update($targetElement);
-            observe($targetElement);
-            listen($targetElement);
-
-            // update target elements on load and resize,
-            // run the observer on scroll
-
-            $window
-                .on('load resize', function() {
-                    update($targetElement);
-                    observe($targetElement);
-                })
-                .on('scroll', function() {
-                    observe($targetElement);
-                });
+            // initially run update(), observe() and listen()
+            
+            update();
+            observe();
+            listen();
+            
+            // attach events
+            
+            if (!initialized) {
                 
-            // boost performance
-            // learn more: https://www.thecssninja.com/css/pointer-events-60fps
+                $window
+                    .on('load resize', function() {
+                        update();
+                        observe();
+                    })
+                    .on('scroll', function() {
+                        broadcastScrollEvents();
+                        observe();
+                    });
                 
-            $window
-                .on('yoi-scroll-up yoi-scroll-down', function() {
-                    $body.css('pointer-events','none');
-                })
-                .on('yoi-scroll-stop', function() {
-                    $body.css('pointer-events','auto');
-                });
+                // boost performance
+                // learn more: https://www.thecssninja.com/css/pointer-events-60fps
+                
+                $window
+                    .on('yoi-scroll', function() {
+                        $body.css('pointer-events','none');
+                    })
+                    .on('yoi-scroll-stop', function() {
+                        $body.css('pointer-events','auto');
+                    });
+                    
+                // set initialized flag
+                    
+                initialized = true;
+
+            }
 
         }
 
     }
     
-    function update($targetElements) {
+    function update() {
         
         /**
          *  Reads data from the custom data-attribute and from calculations (eg. height)
          *  and maps the data directly to it's target objects via jQuery's data() method.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
          */
         
         // update the viewport height
     
-        viewPortHeight = $window.height();
+        viewportHeight = $window.height();
     
         // update all target elements
     
-        $targetElements.each(function() {
+        $activeTargetElements.each(function() {
         
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
@@ -121,13 +122,11 @@ YOI.module.ScrollAgent = (function() {
 
     }
 
-    function observe($targetElements) {
+    function observe() {
 
         /**
          *  Observes all target elements and fires custom events weather the
          *  element enters or leaves the viewport.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
          */
 
         // get current scroll position & current scroll direction
@@ -136,7 +135,7 @@ YOI.module.ScrollAgent = (function() {
         
         // observe all target elements
 
-        $targetElements.each(function(index) {
+        $activeTargetElements.each(function(index) {
             
             // variable assignments for better readability only
             
@@ -146,10 +145,10 @@ YOI.module.ScrollAgent = (function() {
             var height         = $targetElement.data().props.height;
             var transformY     = parseFloat($targetElement.css('transform').split(',')[13], 10) || 0;
             
-            // calculate viewPortIn & viewPortOut
+            // calculate viewportIn & viewportOut
             
-            viewportIn     = (currentScrollTop + viewPortHeight) > (initialPosY + transformY) && currentScrollTop < (initialPosY + height + transformY);
-            viewportCenter = (currentScrollTop + viewPortHeight / 2) > initialPosY + transformY && (currentScrollTop + viewPortHeight) < (initialPosY + height + transformY + viewPortHeight / 2);
+            viewportIn     = (currentScrollTop + viewportHeight) > (initialPosY + transformY) && currentScrollTop < (initialPosY + height + transformY);
+            viewportCenter = (currentScrollTop + viewportHeight / 2) > initialPosY + transformY && (currentScrollTop + viewportHeight) < (initialPosY + height + transformY + viewportHeight / 2);
             viewportOut    = !viewportIn;
             
             // trigger custom viewport-events
@@ -161,9 +160,9 @@ YOI.module.ScrollAgent = (function() {
         });
 
     }
-    
-    function broadcastScrollEvents($targetElements) {
-        
+
+    function broadcastScrollEvents() {
+
         /**
          *  While scrolling, broadcast three custom events:
          *
@@ -171,40 +170,38 @@ YOI.module.ScrollAgent = (function() {
          *  yoi-scroll-up      => page is scrolling up
          *  yoi-scroll-stop    => page stopped scrolling
          */
-        
+
         // general scrolling event
-        
+
         $window.trigger('yoi-scroll');
-        
+
         // scroll direction
 
         var currentScrollTop = $window.scrollTop();
-        
+
         if (currentScrollTop < lastScrollTop) $window.trigger('yoi-scroll-up');
         if (currentScrollTop > lastScrollTop) $window.trigger('yoi-scroll-down');
-        
+
         lastScrollTop = currentScrollTop;
-        
+
         // scroll stop
-        
+
         YOI.clearDelay('scrollObserverDelay');
-        
+
         YOI.setDelay('scrollObserverDelay', 250, function() {
             $window.trigger('yoi-scroll-stop');
         });
-        
+
     }
     
-    function listen($targetElements) {
+    function listen() {
 
         /**
          *  Listens to the custom events fired by each target element (entering or leaving viewport)
          *  and maps the current state ("in" or "out") directly to each target object via jQuery's data() method.
-         *
-         *  @param {jQuery dom object} $targetElements - the target element(s)
          */
 
-        $targetElements.each(function() {
+        $activeTargetElements.each(function() {
 
             var $targetElement = $(this);
 

@@ -424,10 +424,12 @@ var YOI = {
     throttle : function(targetFunction, delay) {
 
         /**
-         *  
+         *  Throttles the execution of a given function
+         *  (targetFunction) to a certain interval (delay).
          *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *  @param  {function} targetFunction - the function to throttle
+         *  @param  {number}   delay          - the delay/interval in ms
+         *  @return {function}
          */
 
         var snapshot = Date.now();
