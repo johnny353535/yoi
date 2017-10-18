@@ -7,7 +7,7 @@ permalink: utilities/fx
 
 # Fx
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 | `.fx-fast`             | … |
 | `.fx-slow`             | … |

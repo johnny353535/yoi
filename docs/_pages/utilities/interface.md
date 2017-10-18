@@ -7,7 +7,7 @@ permalink: utilities/interface
 
 # Interface
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 ## Text Selection
 

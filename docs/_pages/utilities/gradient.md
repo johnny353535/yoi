@@ -7,7 +7,7 @@ permalink: utilities/gradient
 
 # Gradient
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 ## Gradient
 

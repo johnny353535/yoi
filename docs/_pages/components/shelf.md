@@ -135,8 +135,8 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
     <div class="shelf__board">
         <div class="flexGrid">
             <div class="shelf__item w-1-2">
-                <a class="box bg-main-5 b-0 h-30 tdcr-none hvr-bg-main-3 p-b-10 m-2 tc-blue-22" href="#">
-                    <img class="d-blk m-b-2" src="https://source.unsplash.com/kFCdfLbu6zA/265x170">
+                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 tc-blue-22 ovrfl-hidden" href="#">
+                    <img class="d-blk m-b-2" src="https://source.unsplash.com/kFCdfLbu6zA/290x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Yoga Master in 10 Days</h4>
                         <p class="fs-2 lh-3">Turn healthy and become a yoga-master in just 10 days.</p>
@@ -144,8 +144,8 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 </a>
             </div>
             <div class="shelf__item w-1-2">
-                <a class="box bg-main-5 b-0 h-30 tdcr-none hvr-bg-main-3 p-b-10 m-2 tc-red-22" href="#">
-                    <img class="d-blk m-b-2" src="https://source.unsplash.com/-rWjydNhATw/266x170">
+                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 tc-red-22 ovrfl-hidden" href="#">
+                    <img class="d-blk m-b-2" src="https://source.unsplash.com/-rWjydNhATw/290x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Running Like a Pro</h4>
                         <p class="fs-2 lh-3">This short book teaches you just the right technique you needed to become a real pro-runner.</p>

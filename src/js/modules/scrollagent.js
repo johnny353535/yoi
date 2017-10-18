@@ -65,13 +65,13 @@ YOI.module.ScrollAgent = (function() {
                 // boost performance
                 // learn more: https://www.thecssninja.com/css/pointer-events-60fps
                 
-                $window
-                    .on('yoi-scroll', function() {
-                        $body.css('pointer-events','none');
-                    })
-                    .on('yoi-scroll-stop', function() {
-                        $body.css('pointer-events','auto');
-                    });
+                // $window
+                //     .on('yoi-scroll', function() {
+                //         $body.css('pointer-events','none');
+                //     })
+                //     .on('yoi-scroll-stop', function() {
+                //         $body.css('pointer-events','auto');
+                //     });
                     
                 // set initialized flag
                     

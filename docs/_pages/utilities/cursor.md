@@ -7,7 +7,7 @@ permalink: utilities/cursor
 
 # Cursor
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 | `.crsr-alias`   | … |
 | `.crsr-ascrl`   | … |

@@ -22,9 +22,9 @@ This is how a basic `.ribbon` looks like and how you write the markup:
 </div>
 ```
 
-<p class="hint hint--negative"><b>Overflow</b> To display the <code>.ribbon</code> correctly, alsway set it’s container to <code>overflow: hidden;</code>. You may use the <a href="utilities/layout.html">utility class</a> <code>.ovrfl-hidden</code>.</p>
+<p class="hint hint--negative"><b>Overflow</b> To display the <code>.ribbon</code> correctly, always set it’s container to <code>overflow: hidden;</code>. You may use the <a href="utilities/layout.html">utility class</a> <code>.ovrfl-hidden</code>.</p>
 <p class="hint hint--negative"><b>Positioning</b> Always set the container’s position value to a relative or absolute to provide a reference to position the ribbon.</p>
-<p class="hint"><b>Character Limit</b> Ribbons are limited to display a **maximum of approx. 15 characters**.</p>
+<p class="hint hint--primary"><b>Character Limit</b> Ribbons are limited to display a <b>maximum of approx. 15 characters</b>.</p>
 
 ## Modifiers
 

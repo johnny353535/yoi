@@ -18,7 +18,7 @@ This is how a basic `.countdown` looks like and how you write the markup:
 <div class="countdown" yoi-countdown="year:{{ 'now' | date: "%Y" }}; month:12; day:31;"></div>
 ```
 
-<p class="hint hint--error"><b>Limitations</b> Please notice that while the countdown was <i>designed to count down to an event less than 12 months in the future</i>.</p>
+<p class="hint hint--negative"><b>Limitations</b> Please notice that while the countdown was <i>designed to count down to an event less than 12 months in the future</i>.</p>
 
 ## Countdown With Optional Title
 

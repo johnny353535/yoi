@@ -9,7 +9,7 @@ permalink: components/flipbtns
 
 <p class="intro">Use this component to display previous- & next-buttons on the left and right side of their container.</p>
 
-<p class="hint"><b>Use Cases:</b> <code>.flipBtns</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
+<p class="hint hint--primary"><b>Use Cases:</b> <code>.flipBtns</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 
 ## Basic Example
 

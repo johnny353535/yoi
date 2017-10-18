@@ -20,7 +20,7 @@ Wrap your image inside a `<noscript>` tag and add the custom atribute `yoi-lazyl
 </noscript>
 ```
 
-<p class="hint">Since there is no way to stop the browser from loading an individual image via JavaScript, the <code>&lt;noscript&gt;</code> tag is a good solution. If JavaScript is disabled, the image inside the tag will load just fine.</p>
+<p class="hint hint--primary">Since there is no way to stop the browser from loading an individual image via JavaScript, the <code>&lt;noscript&gt;</code> tag is a good solution. If JavaScript is disabled, the image inside the tag will load just fine.</p>
 
 ## Parameters
 

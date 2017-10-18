@@ -7,7 +7,7 @@ permalink: utilities/border
 
 # Border
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 ## Border
 

@@ -64,8 +64,8 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
 </div>
 ```
 
-<p class="hint hint--attention"><b>Modals Are Regular Pages</b> YOI modals are regular html pages and therefore highly accessible. If a modal opens via JavaScript, the modal page is requested via AJAX and unnecessary markup is ignored (eg. the <code>&lt;body&gt;</code> tag).</p>
-<p class="hint"><b>Where is the Close-Button?</b> You must not include a close button in your modal’s markup. Since it only makes sense when the modal opens via JavaScript, the script injects the close button for you.</p>
+<p class="hint hint--primary"><b>Modals Are Regular Pages</b> YOI modals are regular html pages and therefore highly accessible. If a modal opens via JavaScript, the modal page is requested via AJAX and unnecessary markup is ignored (eg. the <code>&lt;body&gt;</code> tag).</p>
+<p class="hint hint--primary"><b>Where is the Close-Button?</b> You must not include a close button in your modal’s markup. Since it only makes sense when the modal opens via JavaScript, the script injects the close button for you.</p>
 
 ## Referencing a Modal Page
 
@@ -109,7 +109,7 @@ path:desktop/pages/modal_demo.html; cache:true; …
 
 ## Modals to External Pages
 
-<p class="hint hint--error"><b>Modals Must Not Load External Pages</b> The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>
+<p class="hint hint--negative"><b>Modals Must Not Load External Pages</b> The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>
 
 ## Errors / Fallback
 

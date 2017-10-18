@@ -9,7 +9,7 @@ YOI.behaviour.Parallax = (function() {
     var $window          = $(window);
     var currentScrollTop = 0;
     var initialScrollTop = $window.scrollTop();
-    var defaultSpeed     = 5;
+    var defaultFactor    = 8;
     var initialized      = false;
     var $activeParallaxElements;
     
@@ -98,9 +98,9 @@ YOI.behaviour.Parallax = (function() {
             var data                = $this.data();
             var state               = data.state;
             var initialPosY         = data.props.initialPosY;
-            var speed               = data.options.speed || defaultSpeed;
+            var factor              = data.options.factor || defaultFactor;
             var scrollTopInViewport = initialPosY - (currentScrollTop + viewportHeight);
-            var parallaxOffset      = data.startsInViewport ? parseInt(currentScrollTop / speed, 10) : parseInt(scrollTopInViewport / speed, 10);
+            var parallaxOffset      = data.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
             
             if (state === 'in' || state === 'center') {
                 $this.css('transform', 'translate3d(0, ' + parallaxOffset + 'px, 1px)');

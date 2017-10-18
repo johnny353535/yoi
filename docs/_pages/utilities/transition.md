@@ -7,7 +7,7 @@ permalink: utilities/transition
 
 # Transition
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 | `.tween-fast` | … |
 | `.tween-slow` | … |

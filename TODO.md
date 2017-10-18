@@ -1,8 +1,6 @@
 - add more constructor mixins?
 - add upload to boilerplate build process (via unix/bash script instead of node.js script)
 - add new behavior:
-     + parallax layer
-     + parallax background
      + lightbox
 - rename .mainMenu
 - enable/disable behaviors depending on current breakpoint?

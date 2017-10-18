@@ -7,7 +7,7 @@ permalink: start/setup
 
 # Setup
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 <div class="m-t-8">
     <a class="btn btn--large" href="https://jsfiddle.net/0e8h8rer/17/">Play around with YOI on JsFiddle</a>

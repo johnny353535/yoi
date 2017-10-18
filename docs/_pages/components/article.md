@@ -7,4 +7,4 @@ permalink: components/article
 
 # Article
 
-<p class="hint hint--error">No documentation yet.</p>
+<p class="hint hint--negative">No documentation yet.</p>

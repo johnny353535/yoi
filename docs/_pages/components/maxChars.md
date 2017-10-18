@@ -7,7 +7,7 @@ permalink: components/maxchars
 
 # MaxChars
 
-<p class="intro">Use the [hook](/) `yoi-maxchars` to limit the maximum characters for a textarea or text input and create a display of the remaining characters.</p>
+<p class="intro">Use this component to limit the maximum characters for a textarea or text input and create a display of the remaining characters.</p>
 
 ## Basic Example
 

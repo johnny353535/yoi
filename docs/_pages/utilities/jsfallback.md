@@ -7,7 +7,7 @@ permalink: utilities/jsfallback
 
 # JavaSript Fallback
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 | `.js-fallback` | … |
 | `.js-only`     | … |

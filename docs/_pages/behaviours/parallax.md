@@ -7,24 +7,42 @@ permalink: behaviours/parallax
 
 # Parallax
 
-<div style="height:200px"></div>
-<p class="m-0 b-t">
-    <img src="https://source.unsplash.com/wVjd0eWNqI8/400x300" yoi-parallax="speed:-2;" />
-</p>
+<p class="intro">Adds a parallax scrolling effect to any element on the page.</p>
 
-<div style="height:900px"></div>
-<p class="m-0 b-t">
-    <img src="https://source.unsplash.com/wVjd0eWNqI8/600x400" yoi-parallax="speed:-2;" />
-</p>
+## Parameters
 
-<div style="height:900px"></div>
-<hr class="ruler" />
-<div class="bg-primary-25 tc-primary-10 br p-4" yoi-parallax="speed:3;">
-    <p class="fs-2">I am a parallax layer.</p>
+| `factor` | Affects the parallax scrolling speed. Can be any positive or negative number. Default is 8. |
+
+## Basic Example
+
+Add the custom atribute `yoi-parallax` to any element to enable the parallax scrolling effect with it’s default factor:
+
+```html
+<!-- example -->
+<img src="https://source.unsplash.com/wVjd0eWNqI8/270x300" yoi-parallax />
+```
+
+### Factor
+
+The factor can be any number. Posive numbers let the element scroll with the current scroll direction, negative numbers let the element scroll against the current scroll direction.
+
+```html
+<!-- example -->
+<div class="h-10">
+    <div class="bg-primary-25 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:10;"></div>
+    <div class="bg-primary-25 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
 </div>
-<div style="height:1000px"></div>
+```
 
+<p class="hint hint--primary">The higher the factor, the more subtle is the parallax effect. Think of the factor as a throttle power.</p>
+
+### Hidden Overflow
+
+You can wrap a parallax element (eg. an image) inside a container element with hidden overflow to create the popular parallax background image effect. Make sue the container element is set to a fixed hight which is smaller than the parallax element’s hight:
+
+```html
+<!-- example -->
 <div class="box ovrfl-hidden h-40">
-    <img src="https://source.unsplash.com/WLUHO9A_xik/800x900" yoi-parallax="speed:4;" />
+    <img src="https://source.unsplash.com/WLUHO9A_xik/700x700" yoi-parallax="factor:4;" />
 </div>
-<div style="height:1000px"></div>
+```

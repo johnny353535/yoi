@@ -7,7 +7,7 @@ permalink: utilities/
 
 # Utilities
 
-<p class="hint hint--error">Documentation incomplete.</p>
+<p class="hint hint--negative">Documentation incomplete.</p>
 
 {% comment %}
     - Naming convention/scheme

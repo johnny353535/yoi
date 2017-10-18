@@ -146,7 +146,7 @@ You can control weather a filter group is **collapsed** or **expanded** on page 
 <div class="filterGroup">…</div>
 ```
 
-<p class="hint"><b>Hint:</b> The modifier <code>.filterGroup--expanded</code> is only used internally. Simply ignore it.</p>
+<p class="hint hint--primary"><b>Hint:</b> The modifier <code>.filterGroup--expanded</code> is only used internally. Simply ignore it.</p>
 
 ## Filter Types
 

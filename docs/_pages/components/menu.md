@@ -13,7 +13,7 @@ permalink: components/menu
 
 This is the basic example of a `.menu` instance. You are free to use any markup you like as long as you use the BEM class name provided by this example. After all, while that’s a feature, it’s a feature you might rarely need since simple lists (`<ul>` od `<ol>`) are semantically the correct choices in most scenarios.
 
-<p class="hint">Click the menu items on this example page to add the .is--active modifier class.</p>
+<p class="hint hint--primary">Click the menu items on this example page to add the .is--active modifier class.</p>
 
 ```html
 <!-- example -->
@@ -34,7 +34,7 @@ This is the basic example of a `.menu` instance. You are free to use any markup 
 
 As mentioned above, a `.menu` instance may have up to three levels of nested sub menus. See the folowing example.
 
-<p class="hint hint--attention"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
+<p class="hint hint--primary"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
 
 ```html
 <!-- example:tabs -->

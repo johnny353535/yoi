@@ -9,8 +9,8 @@ permalink: components/flyout
 
 <p class="intro">Use this component to display a label, pinned to either the left or right side of the screen, which reveals a small panel on click.</p>
 
-<p class="hint hint--error"><b>Use sparely:</b> You should only use one flyout per page and only for important information since the sticky labels on the side of the screen appera rather prominent to the user.</p>
-<p class="hint hint--attention"><b>For large screens only:</b> This element was designed for use with large screens, it’s not recommended to use it on small screens.</p>
+<p class="hint hint--primary"><b>Use sparely:</b> You should only use one flyout per page and only for important information since the sticky labels on the side of the screen appera rather prominent to the user.</p>
+<p class="hint hint--negative"><b>For large screens only:</b> This element was designed for use with large screens, it’s not recommended to use it on small screens.</p>
 
 ## Basic Example
 

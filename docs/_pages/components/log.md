@@ -9,7 +9,7 @@ permalink: components/log
 
 <p class="intro">Use this component to log short messages in reverse-order.</p>
 
-<p class="hint"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
+<p class="hint hint--primary"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
 
 ## Basic Example
 
