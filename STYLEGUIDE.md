@@ -20,7 +20,7 @@
 
 ### Tips
 
-Add additional source files via frontmatter when applicable.
+- Add additional source files via frontmatter when applicable.
 
 ## Rules for Component, Behaviour and Action Pages
 

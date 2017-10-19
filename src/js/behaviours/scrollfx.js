@@ -10,7 +10,7 @@ YOI.behaviour.ScrollFx = (function() {
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $$targetElement(s)
+        *  @param {jQuery dom object} $targetElement(s)
         *  @param {object}            options
         *
         *  Available options:

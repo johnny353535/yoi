@@ -7,24 +7,26 @@ permalink: behaviours/parallax
 
 # Parallax
 
-<p class="intro">Adds a parallax scrolling effect to any element on the page.</p>
-
-## Parameters
-
-| `factor` | Affects the parallax scrolling speed. Can be any positive or negative number. Default is 8. |
+<p class="intro">Use this Behaviour to add a parallax scrolling effect to any element.</p>
 
 ## Basic Example
 
-Add the custom atribute `yoi-parallax` to any element to enable the parallax scrolling effect with it’s default factor:
+Add the attribute `yoi-parallax` to an element to enable the parallax scrolling effect:
 
 ```html
 <!-- example -->
 <img src="https://source.unsplash.com/wVjd0eWNqI8/240x300" yoi-parallax />
 ```
+## Parameters
+
+| `factor` | Affects the parallax scrolling speed. Can be any positive or negative number. Default is 8. |
 
 ### Factor
 
-The factor can be any number. Posive numbers let the element scroll with the current scroll direction, negative numbers let the element scroll against the current scroll direction.
+The parameter `factor` accepts any positive or negative number. You must write floating numbers with period instead of comma (eg. *1.5*).
+
+<p class="hint hint--primary">Positive numbers let the element scroll with the current scroll direction. Negative numbers let the element scroll against the current scroll direction.</p>
+<p class="hint hint--primary">The higher the factor, the more subtle the resulting parallax effect. Think of it as a <i>throttle force</i>.</p>
 
 ```html
 <!-- example -->
@@ -34,11 +36,11 @@ The factor can be any number. Posive numbers let the element scroll with the cur
 </div>
 ```
 
-<p class="hint hint--primary">The higher the factor, the more subtle the resulting parallax effect. Think of it as a <i>throttle force</i>.</p>
+### Parallax Background Image
 
-### Hidden Overflow
+Wrap a parallax element (eg. an image) inside a container element with hidden overflow to create the popular parallax background image effect.
 
-You can wrap a parallax element (eg. an image) inside a container element with hidden overflow to create the popular parallax background image effect. Make sue the container element is set to a fixed hight which is smaller than the parallax element’s hight:
+<p class="hint hint--negative">Make sure the container element is set to a fixed hight which is smaller than the parallax element’s hight.</p>
 
 ```html
 <!-- example -->

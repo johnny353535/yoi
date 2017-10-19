@@ -5,23 +5,23 @@ title: ScrollFx
 permalink: behaviours/scrollfx
 ---
 
-# ScrollFx
+# Scrollfx
 
-<p class="intro">Adds effects or transitions to elements, when they enter or leave the viewport while scrolling.</p>
+<p class="intro">Use this Behaviour to add effects or transitions to elements when they enter or leave the viewport while scrolling.</p>
 
 ## Parameters
 
 | `in`     | The effect to apply when the element scrolls into the viewport                                                                    |
 | `center` | The effect to apply when the element is at the center of the viewport                                                             |
 | `out`    | The effect to apply when the element scrolls out of the viewport                                                                  |
-| `speed`  | Change the default speed af the effects to `fast` or `slow`                                                                       |
+| `speed`  | Change the duration of all effects to `fast` or `slow`                                                                            |
 | `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
 
 ### In, Center, Out
 
-Each element can have up to three effects. One for `in`, `center` and `out`. The keywords target the element according to their position relative to the viewport while scrolling. That means that an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area) and `center` applies the effect when the element is right in the vertical center of the visible area. 
+Each element can have up to three effects. One for `in`, `center` and `out`. For example, an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area), while `center` applies the effect when the element is right in the vertical center of the visible area. 
 
-The following example will apply a fade-in effect when the element reaches the center of the viewport:
+The following example will apply a fade-in-effect as the element reaches the center of the viewport:
 
 ```html
 <!-- example -->
@@ -30,7 +30,7 @@ The following example will apply a fade-in effect when the element reaches the c
 
 ### Speed
 
-You can change the default speed of the effect to either `slow` or `fast`:
+Add the Parameter `speed` to change the duration of all effects to either `slow` or `fast`:
 
 ```html
 <!-- example -->
@@ -40,7 +40,7 @@ You can change the default speed of the effect to either `slow` or `fast`:
 
 ### Repeat
 
-By default, the effects play each time the according keywords (`in, center, out`) apply. If you wish to play them only once, set `repeat` to `false`:
+By default, the effects play each time on `in`, `center` or `out`. Add the parameter `repeat` and set it to `false` to make the effect play only once:
 
 ```html
 <!-- example -->

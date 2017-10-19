@@ -7,49 +7,49 @@ permalink: behaviours/lazyload
 
 # Lazyload
 
-<p class="intro">Loads an image only if it’s inside the viewport.</p>
+<p class="intro">Use this behaviour to load an image only if it’s inside the viewport.</p>
 
 ## Basic Example
 
-Wrap your image inside a `<noscript>` tag and add the custom atribute `yoi-lazyload`:
+Wrap your image inside a `<noscript>` tag and add the atribute `yoi-lazyload`:
 
 ```html
 <!-- example -->
 <noscript yoi-lazyload>
-    <img src="https://source.unsplash.com/Volo9FYUAzU/500x500" />
+    <img src="https://source.unsplash.com/Volo9FYUAzU/250x250" />
 </noscript>
 ```
 
-<p class="hint hint--primary">Since there is no way to stop the browser from loading an individual image via JavaScript, the <code>&lt;noscript&gt;</code> tag is a good solution. If JavaScript is disabled, the image inside the tag will load just fine.</p>
+<p class="hint hint--primary">There is no way to use JavaScript to stop the browser from loading an individual image. However, the <code>&lt;noscript&gt;</code> tag is a sufficient solution. When JavaScript is disabled, the image inside the <code>&lt;noscript&gt;</code> tag loads just fine.</p>
 
 ## Parameters
 
-| `src`        | Otional url to the image you want to load. By default the image inside the noscript-tag will load. |
-| `srcSmall`   | Optional url to image at breakpoint “small”                                                        |
-| `srcMedium`  | Optional url to image at breakpoint “medium”                                                       |
-| `srcLarge`   | Optional url to image at breakpoint “large”                                                        |
-| `srcXlarge`  | Optional url to image at breakpoint “xlarge”                                                       |
-| `width`      | Optional image width                                                                               |
-| `height`     | Optional image height                                                                              |
-| `alt`        | Optional image alt text                                                                            |
-| `title`      | Optional image title                                                                               |
-| `longdesc`   | Optional image long description                                                                    |
-| `cssClasses` | Optional CSS class names (eg. [utility classnames](utilities/)) for the generated `<img>`-tag      |
+| `src`        | Optional url to the image you want to load. By default the image inside the noscript-tag will load. |
+| `srcSmall`   | Optional url to image at breakpoint *small*                                                         |
+| `srcMedium`  | Optional url to image at breakpoint *medium*                                                        |
+| `srcLarge`   | Optional url to image at breakpoint *large*                                                         |
+| `srcXlarge`  | Optional url to image at breakpoint *xlarge*                                                        |
+| `width`      | Optional image width                                                                                |
+| `height`     | Optional image height                                                                               |
+| `alt`        | Optional image alt text                                                                             |
+| `title`      | Optional image title                                                                                |
+| `longdesc`   | Optional image long description                                                                     |
+| `cssClasses` | Optional CSS class names (eg. [utility classnames](utilities/)) for the generated `<img>`-tag       |
 
-### Image Src
+### Image Source
 
-By default, the image source url is read from the `<img>`-tag. However, you can provide a parameter to even load a different image:
+By default, Lazyload accesses the image source from the `<img>`-tag. Use the parameter `src` to load a different image:
 
 ```html
 <!-- example -->
-<noscript yoi-lazyload="src:'https://source.unsplash.com/wTPp323zAEw/300x300';">
-    <img src="https://source.unsplash.com/Volo9FYUAzU/300x300" />
+<noscript yoi-lazyload="src:'https://source.unsplash.com/wTPp323zAEw/250x250';">
+    <img src="https://source.unsplash.com/Volo9FYUAzU/250x250" />
 </noscript>
 ```
 
 ### Breakpoints
 
-You can use lazyload to load different images, depending on the active breakpoint (mediaquery). That means, you can load small images for small screens and larger images for larger screens. Four breakpoints (= _screen sizes_) are available: `srcSMall, srcMedium, srcLarge, srcXlarge`. Resize the browser window and hit reload to see the example below in action:
+Use the parameters `srcSmall, srcMedium, srcLarge, srcXlarge` to load different images depending on the [active breakpoint](/glossary). You could load small images for small screens and larger images for larger screens. Resize the browser window and reload the page to see the example below in action:
 
 ```html
 <!-- example -->
@@ -57,7 +57,7 @@ You can use lazyload to load different images, depending on the active breakpoin
         srcSmall:'https://source.unsplash.com/WLUHO9A_xik/150x150';
         srcMedium:'https://source.unsplash.com/WLUHO9A_xik/300x300';
         srcLarge:'https://source.unsplash.com/WLUHO9A_xik/400x400';
-        srcXlarge:'https://source.unsplash.com/WLUHO9A_xik/600x600';
+        srcXlarge:'https://source.unsplash.com/WLUHO9A_xik/550x550';
     ">
     <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
 </noscript>
@@ -65,18 +65,18 @@ You can use lazyload to load different images, depending on the active breakpoin
 
 ### Dimensions
 
-You can set fixed image dimensions if you wish. In the example below, we change the aspect ratio to make the effect clear:
+Use the parameters `width` and `height` to define fixed image dimensions. In the example below, the image is squished to make the result obvious:
 
 ```html
 <!-- example -->
 <noscript yoi-lazyload="width:300; height:100;">
-    <img src="https://source.unsplash.com/WLUHO9A_xik/500x500" />
+    <img src="https://source.unsplash.com/Volo9FYUAzU/250x250" />
 </noscript>
 ```
 
 ### Description Texts
 
-You can set the `alt`, `descr` and `longdesc` values:
+Use the parameters `alt`, `descr` and `longdesc` to add the corresponding values:
 
 ```html
 <!-- example -->
@@ -85,19 +85,19 @@ You can set the `alt`, `descr` and `longdesc` values:
         title:'Sea turtle, swimming to her nesting ground.';
         longdesc:'Sea turtles, like salmon, will return to the same nesting grounds at which they were born.';
     ">
-    <img src="https://source.unsplash.com/L-2p8fapOA8/500x500" />
+    <img src="https://source.unsplash.com/L-2p8fapOA8/250x250" />
 </noscript>
 ```
 
-<p class="hint hint--negative">Make sure you wrap the values for the alt/title/longdesc attributes in single quotation marks to prevent errors.</p>
+<p class="hint hint--negative">Always wrap the values for the `alt`, `descr` and `longdesc` attributes in single quotation marks to prevent errors.</p>
 
 ### CSS Class Names
 
-You can add any CSS class names to the `<img>`-tag, eg. YOI’s [utility class names](utilities/):
+Use the parameter `cssClasses` to add any CSS class names to the image. The following example adds [Utilities](/glossary) for padding, background-color and slightly rounded corners:
 
 ```html
 <!-- example -->
-<noscript yoi-lazyload="cssClasses:'p-4 bg-gray-5 br';">
-    <img src="https://source.unsplash.com/hppWAs2WTZU/500x500" />
+<noscript yoi-lazyload="cssClasses:'p-4 bg-primary-15 br';">
+    <img src="https://source.unsplash.com/hppWAs2WTZU/210x210" />
 </noscript>
 ```

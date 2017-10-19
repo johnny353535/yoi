@@ -7,85 +7,83 @@ permalink: behaviours/sticky
 
 # Sticky
 
-<p class="intro">Makes any element on the page stick while scrolling past a certain threshold, which can be defined per element.</p>
+<p class="intro">Use this Behaviour to make an element stick when scrolled past a certain position.</p>
 
 ## Basic Example
 
-Ad the custom yoi-attribute `yoi-sticky` to any element you wish to make *sticky*. While scrolling the page down, as soon as the vieport’s top border *touches* the element, it *sticks* at the viewport top while scrolling. If no other parameter is provided, the element *sticks as long as the page can be scrolled*.
+Ad the Attribute `yoi-sticky` to an element to eneable this Behaviour. While scrolling down the page, as soon as the viewport’s top border reaches the element, the lement becomes sticky.
 
 ```html
 <!-- example -->
 <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="stop:300;"></div>
 ```
 
-`yoi-sticky="stop:300;"` from the example above tells the sticky element to stick as long, as it reached a position *300px further down from it’s initial position*.
+<p class="hint hint--primary">If you provide no additional Parameter, the element sticks as long as the page can be scrolled.</p>
+
+In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as long as it reaches a position *300px further down from it’s initial position*.
 
 ## Parameters
 
-| `reference` | `CSS selector` or the keyword `parent` - Defines a [reference element on the page](#defining-a-reference-element) |
-| `start`     | `number` - The *offset* before a sticky element actually *sticks*. Default is 0.                                  |
-| `stop`      | `number` - The *offset* after a sticky element no longer *sticks*                                                 |
+| `reference` | `CSS selector` or the keyword `"parent"` - defines a [reference element on the page](#defining-a-reference-element) |
+| `start`     | `number` - the *offset* before a sticky element actually *sticks*, default is 0                                   |
+| `stop`      | `number` - the *offset* after a sticky element no longer *sticks*                                                 |
 
-### Defining a Reference Element
+### Reference
 
-A valid reference element is any element on the page which is *top-aligned with the sticky element* and which is *taller than the sticky element*.
+#### Defining a Reference Element
 
-You can provide a reference element by adding a CSS-selector as a value for the option *reference*:
+Define a reference element by adding a CSS-selector as value for the `reference` parameter:
 
 ```html
 yoi-sticky="reference:#myReferenceElement;"
 ```
 
-The script selects the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* as long as it’s bottom aligns with the reference element’s bottom.
+A valid reference element is any element on the page which is *top-aligned with the sticky element* and which is *taller than the sticky element*.
+
+Sticky takes the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* until it’s bottom aligns with the reference element’s bottom.
 
 ```html
 <!-- example -->
 <div class="fl-l w-6 h-6 p-2 bg-red-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
-<div class="box h-40 w-20 p-1" id="myReferenceElement-1">
-    <span class="tc-gray-15 fs-2 m-l-1">#myReferenceElement-1</span>
-</div>
+<div class="box h-40 w-20 p-1 m-l-17" id="myReferenceElement-1"></div>
 ```
 
-#### The Parent Keyword
+#### The Keyword »Parent«
 
-Another possible value for the reference-parameter is the keyword `parent`:
-
-```html
-<div yoi-sticky="reference:parent;"></div>
-```
-By using this keyword, the script selects the sticky element’s surrounding element (= parent element) as a reference. The sticky element sticks *inside it’s parent element* as long as the sticky element’s bottom reaches the parent element’s bottom. Please notice that if the parent element has a bottom-padding, the sticky element stops as soon as it’s bottom reaches the bottom padding.
+Use `reference:parent;` to turn the sticky element’s surrounding element (= *parent element*) into it’s reference element. The sticky element sticks *inside it’s parent element* until the sticky element’s bottom reaches the parent element’s bottom. Notice how the parent element’s padding is included into the calculation:
 
 ```html
 <!-- example -->
 <div class="w-30 p-r-4">
     <div class="box h-30 p-2">
-        <span class="tc-gray-15 fs-2 pos-tr m-t-1 m-r-2">parent element</span>
         <div class="w-6 h-6 p-2 bg-red-15 br" yoi-sticky="reference:parent;"></div>
     </div>
 </div>
 ```
 
-<p class="hint"><b>What Is a Valid Reference Element?</b> A valid reference element is any element on the page which is top-aligned with the sticky element and taller than the sticky element.</p>
-<p class="hint"><b>Stop & Reference Elements</b> If you use a reference element, you use it because you can define the position at which the sticky element stops to stick. Therefore, the stop parameter will be ignored if you use a reference element.</p>
+<p class="hint hint--primary"><b>What Is a Valid Reference Element?</b> A valid reference element is any element on the page which is top-aligned with the sticky element and taller than the sticky element.</p>
+<p class="hint hint--primary"><b>Stop & Reference Elements</b> If you provide a reference element, you use it because you wish to define the position at which the sticky element stops to stick. Therefore, the stop parameter is ignored.</p>
 
 ### The Start And Stop Parameters
 
-If you do not define any values for start and stop, the sticky element will start to stick as soon as it *touches* the upper viewport border. It will stick as long as the page can be scrolled. By providing values for the start and stop parameters, you can control this behaviour.
+If you don’t define values for the parameters `start` and `stop`, the sticky element will start to stick as soon as it reaches the upper viewport border. It will stick as long as the page can be scrolled. Provide values for the `start` and `stop` parameters to control this behaviour.
 
 #### Start
 
-`start` defines the offset to the upper viewport border. For example if you set `start:20;`, the element starts to stick when it is 20px below the upper viewport border.
+`start` defines the offset to the upper viewport border. For example: Add `start:20;` to make the element start to stick when it is scrolled 20px below the upper viewport border.
 
 #### Stop
 
-`stop` defines the distance between the sticky element’s initial top position and the position when it stops sticking. For example if you set `stop:300`, the sticky element will stick for 300px while scrolling the page.
+`stop` defines the distance between the sticky element’s initial top position and the position when it stops sticking. For example: Add `stop:300` to make the sticky element stick for a distance of 300px while scrolling.
 
 #### Default Values
 
-The default value for `start` is 0. The default value for `stop` is the body height – in this case the element sticks as long as the page can be scrolled.
+The default value for `start` is 0. The default value for `stop` is the `<body>` height, so that the element sticks as long as the page can be scrolled.
+
+#### Examples
 
 ```html
-<!-- example -->
+<!-- example:tabs -->
 <div class="flexGrid">
     <div class="w-1-4 p-r-4">
         <p class="tc-gray-15 fs-2 m-b-4">start: none;<br />stop: 200;</p>
@@ -114,4 +112,4 @@ The default value for `start` is 0. The default value for `stop` is the body hei
 </div>
 ```
 
-<div style="height:500px"></div>
+<div style="height:1000px"></div>
