@@ -2,6 +2,7 @@
 
 ## Most Urgent
 
+- [x] add glossary to docs
 - [ ] complete user docs
 - [ ] proof-read and edit user docs
 - [ ] review, improve, refactor grid utilities
