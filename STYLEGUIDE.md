@@ -18,7 +18,9 @@
 - Intro
 - List of all modifier groups (class name table, code/visual examples)
 
-- Add additional source files via frontmatter when applicable.
+### Tips
+
+Add additional source files via frontmatter when applicable.
 
 ## Rules for Component, Behaviour and Action Pages
 
@@ -34,6 +36,8 @@
 - Actions
 - Events
 - Keyboard Bindings
+
+### Tips
 
 - Add additional source files via frontmatter when applicable.
 - If you include many code examples, you may use the tabbed code view to reduce complexity.
