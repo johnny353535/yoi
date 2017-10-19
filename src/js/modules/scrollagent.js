@@ -12,10 +12,9 @@ YOI.module.ScrollAgent = (function() {
     // private vars
     // ============
     
-    var $window              = $(window);
-    var $body                = $('body');
-    var viewportHeight       = $window.height();
-    var lastScrollTop        = 0;
+    var $window        = $(window);
+    var viewportHeight = $window.height();
+    var lastScrollTop  = 0;
     var viewportIn;
     var viewportOut;
     var viewportCenter;
@@ -61,17 +60,6 @@ YOI.module.ScrollAgent = (function() {
                         broadcastScrollEvents();
                         observe();
                     });
-                
-                // boost performance
-                // learn more: https://www.thecssninja.com/css/pointer-events-60fps
-                
-                // $window
-                //     .on('yoi-scroll', function() {
-                //         $body.css('pointer-events','none');
-                //     })
-                //     .on('yoi-scroll-stop', function() {
-                //         $body.css('pointer-events','auto');
-                //     });
                     
                 // set initialized flag
                     

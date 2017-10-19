@@ -74,37 +74,37 @@ This is how a `<input type="radio">` looks like:
 
 ### Validation
 
-Use the modifiers `.input--success` and `.input--error` to visualize input validation:
+Use the modifiers `.input--positive` and `.input--negative` to visualize input validation:
 
 ```html
 <!-- example:tabs -->
 <div class="m-b-2">
-    <input class="input--success" type="text" value="some text" />
+    <input class="input--positive" type="text" value="some text" />
 </div>
 <div class="m-b-2">
-    <input class="input--error" type="text" value="some text" />
+    <input class="input--negative" type="text" value="some text" />
 </div>
 <div class="m-b-2">
-    <select class="input--success">
+    <select class="input--positive">
         <option>Dysprosium</option>
         <option>Aluminium</option>
         <option>Calcium</option>
     </select>
 </div>
 <div class="m-b-2">
-    <select class="input--error">
+    <select class="input--negative">
         <option>Dysprosium</option>
         <option>Aluminium</option>
         <option>Calcium</option>
     </select>
 </div>
 <div class="m-b-2">
-    <input type="checkbox" class="input--error" />
-    <input type="checkbox" class="input--success" />
+    <input type="checkbox" class="input--negative" />
+    <input type="checkbox" class="input--positive" />
 </div>
 <div>
-    <input name="example-2" type="radio" class="input--error" />
-    <input name="example-2" type="radio" class="input--success" />
+    <input name="example-2" type="radio" class="input--negative" />
+    <input name="example-2" type="radio" class="input--positive" />
 </div>
 ```
 

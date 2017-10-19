@@ -19,7 +19,7 @@ Add the custom atribute `yoi-parallax` to any element to enable the parallax scr
 
 ```html
 <!-- example -->
-<img src="https://source.unsplash.com/wVjd0eWNqI8/270x300" yoi-parallax />
+<img src="https://source.unsplash.com/wVjd0eWNqI8/240x300" yoi-parallax />
 ```
 
 ### Factor
@@ -29,12 +29,12 @@ The factor can be any number. Posive numbers let the element scroll with the cur
 ```html
 <!-- example -->
 <div class="h-10">
-    <div class="bg-primary-25 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:10;"></div>
-    <div class="bg-primary-25 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
+    <div class="bg-base-22 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:10;"></div>
+    <div class="bg-base-22 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
 </div>
 ```
 
-<p class="hint hint--primary">The higher the factor, the more subtle is the parallax effect. Think of the factor as a throttle power.</p>
+<p class="hint hint--primary">The higher the factor, the more subtle the resulting parallax effect. Think of it as a <i>throttle force</i>.</p>
 
 ### Hidden Overflow
 

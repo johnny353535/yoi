@@ -6,75 +6,71 @@
 
     .generate_colors((@i - 1));
 
-    // background colors
+    // semantic background colors
 
     .bg-attention-@{i} { background: ~"@{color-attention-@{i}}" !important; }
-    .bg-blue-@{i}      { background: ~"@{blue-@{i}}" !important; }
-    .bg-gray-@{i}      { background: ~"@{gray-@{i}}" !important; }
-    .bg-green-@{i}     { background: ~"@{green-@{i}}" !important; }
     .bg-base-@{i}      { background: ~"@{color-base-@{i}}" !important; }
     .bg-negative-@{i}  { background: ~"@{color-negative-@{i}}" !important; }
     .bg-positive-@{i}  { background: ~"@{color-positive-@{i}}" !important; }
-    .bg-purple-@{i}    { background: ~"@{purple-@{i}}" !important; }
     .bg-primary-@{i}   { background: ~"@{color-primary-@{i}}" !important; }
-    .bg-red-@{i}       { background: ~"@{red-@{i}}" !important; }
-    .bg-yellow-@{i}    { background: ~"@{yellow-@{i}}" !important; }
-
-    // border colors
+    
+    // additional background colors
+    
+    .bg-blue-@{i} when (@fullColorPalette = true)   { background: ~"@{blue-@{i}}" !important; }
+    .bg-gray-@{i} when (@fullColorPalette = true)   { background: ~"@{gray-@{i}}" !important; }
+    .bg-green-@{i} when (@fullColorPalette = true)  { background: ~"@{green-@{i}}" !important; }
+    .bg-purple-@{i} when (@fullColorPalette = true) { background: ~"@{purple-@{i}}" !important; }
+    .bg-red-@{i} when (@fullColorPalette = true)    { background: ~"@{red-@{i}}" !important; }
+    .bg-yellow-@{i} when (@fullColorPalette = true) { background: ~"@{yellow-@{i}}" !important; }
+    
+    // semantic border colors
 
     .bc-attention-@{i} { border-color: ~"@{color-attention-@{i}}" !important; }
-    .bc-blue-@{i}      { border-color: ~"@{blue-@{i}}" !important; }
-    .bc-gray-@{i}      { border-color: ~"@{gray-@{i}}" !important; }
-    .bc-green-@{i}     { border-color: ~"@{green-@{i}}" !important; }
     .bc-base-@{i}      { border-color: ~"@{color-base-@{i}}" !important; }
     .bc-negative-@{i}  { border-color: ~"@{color-negative-@{i}}" !important; }
     .bc-positive-@{i}  { border-color: ~"@{color-positive-@{i}}" !important; }
-    .bc-purple-@{i}    { border-color: ~"@{purple-@{i}}" !important; }
     .bc-primary-@{i}   { border-color: ~"@{color-primary-@{i}}" !important; }
-    .bc-red-@{i}       { border-color: ~"@{red-@{i}}" !important; }
-    .bc-yellow-@{i}    { border-color: ~"@{yellow-@{i}}" !important; }
 
-    // text colors
+    // additional border colors
+
+    .bc-blue-@{i} when (@fullColorPalette = true)   { border-color: ~"@{blue-@{i}}" !important; }
+    .bc-gray-@{i} when (@fullColorPalette = true)   { border-color: ~"@{gray-@{i}}" !important; }
+    .bc-green-@{i} when (@fullColorPalette = true)  { border-color: ~"@{green-@{i}}" !important; }
+    .bc-purple-@{i} when (@fullColorPalette = true) { border-color: ~"@{purple-@{i}}" !important; }
+    .bc-red-@{i} when (@fullColorPalette = true)    { border-color: ~"@{red-@{i}}" !important; }
+    .bc-yellow-@{i} when (@fullColorPalette = true) { border-color: ~"@{yellow-@{i}}" !important; }
+    
+    // semantic text colors
 
     .tc-attention-@{i} { color: ~"@{color-attention-@{i}}" !important; }
-    .tc-blue-@{i}      { color: ~"@{blue-@{i}}" !important; }
-    .tc-gray-@{i}      { color: ~"@{gray-@{i}}" !important; }
-    .tc-green-@{i}     { color: ~"@{green-@{i}}" !important; }
     .tc-base-@{i}      { color: ~"@{color-base-@{i}}" !important; }
     .tc-negative-@{i}  { color: ~"@{color-negative-@{i}}" !important; }
     .tc-positive-@{i}  { color: ~"@{color-positive-@{i}}" !important; }
-    .tc-purple-@{i}    { color: ~"@{purple-@{i}}" !important; }
     .tc-primary-@{i}   { color: ~"@{color-primary-@{i}}" !important; }
-    .tc-red-@{i}       { color: ~"@{red-@{i}}" !important; }
-    .tc-yellow-@{i}    { color: ~"@{yellow-@{i}}" !important; }
+    
+    // additional text colors
+    
+    .tc-blue-@{i} when (@fullColorPalette = true)   { color: ~"@{blue-@{i}}" !important; }
+    .tc-gray-@{i} when (@fullColorPalette = true)   { color: ~"@{gray-@{i}}" !important; }
+    .tc-green-@{i} when (@fullColorPalette = true)  { color: ~"@{green-@{i}}" !important; }
+    .tc-purple-@{i} when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
+    .tc-red-@{i} when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
+    .tc-yellow-@{i} when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
 
 }
 .generate_colors(25);
 
-// background colors
+// achromatic background colors
 
 .bg-transparent { background: @color-transparent !important; }
 .bg-white       { background: @color-white !important; }
 
-// border colors
+// achromatic border colors
 
 .bc-transparent { border-color: @color-transparent !important; }
 .bc-white       { border-color: @color-white !important; }
 
-// text colors
+// achromatic text colors
 
 .tc-transparent { color: @color-transparent !important; }
 .tc-white       { color: @color-white !important; }
-
-// semantic text colors
-
-.tc-attention             { color: @color-attention-8 !important; }
-.tc-error, .tc-negative   { color: @color-negative-15 !important; }
-.tc-gold                  { color: @color-gold !important; }
-.tc-success, .tc-positive { color: @color-positive-15 !important; }
-.tc-white                 { color: @color-white !important; }
-
-// semantic border colors
-
-.bc-transparent { border-color: @color-transparent !important; }
-.bc-white       { border-color: @color-white !important; }

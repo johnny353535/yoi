@@ -3,56 +3,71 @@
 .generate_hvrStyles (@i) when (@i > 0) {
     .generate_hvrStyles((@i - 1));
 
-    // background colors
+    // semantic background colors
 
     .hvr--bg-attention-@{i}:hover { background: ~"@{color-attention-@{i}}" !important; }
-    .hvr--bg-blue-@{i}:hover      { background: ~"@{blue-@{i}}" !important; }
-    .hvr--bg-gray-@{i}:hover      { background: ~"@{gray-@{i}}" !important; }
-    .hvr--bg-green-@{i}:hover     { background: ~"@{green-@{i}}" !important; }
     .hvr--bg-base-@{i}:hover      { background: ~"@{color-base-@{i}}" !important; }
     .hvr--bg-negative-@{i}:hover  { background: ~"@{color-negative-@{i}}" !important; }
     .hvr--bg-positive-@{i}:hover  { background: ~"@{color-positive-@{i}}" !important; }
     .hvr--bg-primary-@{i}:hover   { background: ~"@{color-primary-@{i}}" !important; }
-    .hvr--bg-purple-@{i}:hover    { background: ~"@{purple-@{i}}" !important; }
-    .hvr--bg-red-@{i}:hover       { background: ~"@{red-@{i}}" !important; }
-    .hvr--bg-yellow-@{i}:hover    { background: ~"@{yellow-@{i}}" !important; }
-
-    // text colors
+    
+    // additional background colors
+    
+    .hvr--bg-blue-@{i}:hover when (@fullColorPalette = true)   { background: ~"@{blue-@{i}}" !important; }
+    .hvr--bg-gray-@{i}:hover when (@fullColorPalette = true)   { background: ~"@{gray-@{i}}" !important; }
+    .hvr--bg-green-@{i}:hover when (@fullColorPalette = true)  { background: ~"@{green-@{i}}" !important; }
+    .hvr--bg-purple-@{i}:hover when (@fullColorPalette = true) { background: ~"@{purple-@{i}}" !important; }
+    .hvr--bg-red-@{i}:hover when (@fullColorPalette = true)    { background: ~"@{red-@{i}}" !important; }
+    .hvr--bg-yellow-@{i}:hover when (@fullColorPalette = true) { background: ~"@{yellow-@{i}}" !important; }
+    
+    // semantic text colors
 
     .hvr--tc-attention-@{i}:hover { color: ~"@{color-attention-@{i}}" !important; }
-    .hvr--tc-blue-@{i}:hover      { color: ~"@{blue-@{i}}" !important; }
-    .hvr--tc-gray-@{i}:hover      { color: ~"@{gray-@{i}}" !important; }
-    .hvr--tc-green-@{i}:hover     { color: ~"@{green-@{i}}" !important; }
     .hvr--tc-base-@{i}:hover      { color: ~"@{color-base-@{i}}" !important; }
     .hvr--tc-negative-@{i}:hover  { color: ~"@{color-negative-@{i}}" !important; }
     .hvr--tc-positive-@{i}:hover  { color: ~"@{color-positive-@{i}}" !important; }
-    .hvr--tc-purple-@{i}:hover    { color: ~"@{purple-@{i}}" !important; }
     .hvr--tc-primary-@{i}:hover   { color: ~"@{color-primary-@{i}}" !important; }
-    .hvr--tc-red-@{i}:hover       { color: ~"@{red-@{i}}" !important; }
-    .hvr--tc-yellow-@{i}:hover    { color: ~"@{yellow-@{i}}" !important; }
-
-    // border colors
+    
+    // additional text colors
+    
+    .hvr--tc-blue-@{i}:hover when (@fullColorPalette = true)   { color: ~"@{blue-@{i}}" !important; }
+    .hvr--tc-gray-@{i}:hover when (@fullColorPalette = true)   { color: ~"@{gray-@{i}}" !important; }
+    .hvr--tc-green-@{i}:hover when (@fullColorPalette = true)  { color: ~"@{green-@{i}}" !important; }
+    .hvr--tc-purple-@{i}:hover when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
+    .hvr--tc-red-@{i}:hover when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
+    .hvr--tc-yellow-@{i}:hover when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
+    
+    // semantic border colors
 
     .hvr--bc-attention-@{i}:hover { border-color: ~"@{color-attention-@{i}}" !important; }
-    .hvr--bc-blue-@{i}:hover      { border-color: ~"@{blue-@{i}}" !important; }
-    .hvr--bc-gray-@{i}:hover      { border-color: ~"@{gray-@{i}}" !important; }
-    .hvr--bc-green-@{i}:hover     { border-color: ~"@{green-@{i}}" !important; }
     .hvr--bc-base-@{i}:hover      { border-color: ~"@{color-base-@{i}}" !important; }
     .hvr--bc-negative-@{i}:hover  { border-color: ~"@{color-negative-@{i}}" !important; }
     .hvr--bc-positive-@{i}:hover  { border-color: ~"@{color-positive-@{i}}" !important; }
-    .hvr--bc-purple-@{i}:hover    { border-color: ~"@{purple-@{i}}" !important; }
     .hvr--bc-primary-@{i}:hover   { border-color: ~"@{color-primary-@{i}}" !important; }
-    .hvr--bc-red-@{i}:hover       { border-color: ~"@{red-@{i}}" !important; }
-    .hvr--bc-yellow-@{i}:hover    { border-color: ~"@{yellow-@{i}}" !important; }
+    
+    // additional border colors
+    
+    .hvr--bc-blue-@{i}:hover when (@fullColorPalette = true)   { border-color: ~"@{blue-@{i}}" !important; }
+    .hvr--bc-gray-@{i}:hover when (@fullColorPalette = true)   { border-color: ~"@{gray-@{i}}" !important; }
+    .hvr--bc-green-@{i}:hover when (@fullColorPalette = true)  { border-color: ~"@{green-@{i}}" !important; }
+    .hvr--bc-purple-@{i}:hover when (@fullColorPalette = true) { border-color: ~"@{purple-@{i}}" !important; }
+    .hvr--bc-red-@{i}:hover when (@fullColorPalette = true)    { border-color: ~"@{red-@{i}}" !important; }
+    .hvr--bc-yellow-@{i}:hover when (@fullColorPalette = true) { border-color: ~"@{yellow-@{i}}" !important; }
 
 }
 .generate_hvrStyles(25);
 
+// achromatic background colors
+
 .hvr--bg-transparent:hover { .bg-transparent; }
 .hvr--bg-white:hover       { .bg-white; }
 
+// achromatic text colors
+
 .hvr--tc-transparent:hover { .tc-transparent; }
 .hvr--tc-white:hover       { .tc-white; }
+
+// achromatic border colors
 
 .hvr--bc-transparent:hover { .bc-transparent; }
 .hvr--bc-white:hover       { .bc-white; }

@@ -39,12 +39,3 @@ If you wish to learn more about using GIT and GitHub, [this website](http://roge
 ## Licensing
 
 We plan to release YOI under a Creative Commons Attribution-NonCommercial license.
-
-## Roadmap
-
-- complete the user docs
-- proof-read and edit the user docs
-- refactor JS (modern syntax, modules, transpile via [Babel](https://babeljs.io))
-- make markup more accessible (according to [a11y checklist](http://a11yproject.com/checklist.html))
-- move the project from bower to npm/yarn
-

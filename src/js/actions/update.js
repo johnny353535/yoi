@@ -39,7 +39,7 @@ YOI.action.Update = function($trigger, $target, options) {
         // templates
 
         var $errorMsg = $('\
-            <div class="note note--error note--large b-0 p-4">\
+            <div class="note note--negative note--large b-0 p-4">\
                 <p class="note__body"><b>' + localization[language].errorTitle + ':</b> ' + localization[language].errorMsg + '</p>\
             </div>\
         ');

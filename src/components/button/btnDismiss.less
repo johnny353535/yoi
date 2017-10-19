@@ -73,7 +73,7 @@
 
 /*
     Any .btnDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
-    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--error)
+    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--negative)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
 
@@ -81,9 +81,7 @@
     https://www.w3.org/TR/css3-selectors/#specificity
 */
 
-.btnDismiss.btnDismiss--error.btnDismiss--error,
 .btnDismiss.btnDismiss--negative.btnDismiss--negative,
-[class*="--error"] .btnDismiss,
 [class*="--negative"] .btnDismiss {
     .constr-btnDismiss(
         @iconColor: @color-negative-10,
@@ -91,9 +89,7 @@
     );
 }
 
-.btnDismiss.btnDismiss--success.btnDismiss--success,
 .btnDismiss.btnDismiss--positive.btnDismiss--positive,
-[class*="--success"] .btnDismiss,
 [class*="--positive"] .btnDismiss {
     .constr-btnDismiss(
         @iconColor: @color-positive-10,

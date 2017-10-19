@@ -5,10 +5,8 @@ YOI.behaviour.Parallax = (function() {
     // private variables
     // =================
     
-    var $document        = $(document);
     var $window          = $(window);
     var currentScrollTop = 0;
-    var initialScrollTop = $window.scrollTop();
     var defaultFactor    = 8;
     var initialized      = false;
     var $activeParallaxElements;

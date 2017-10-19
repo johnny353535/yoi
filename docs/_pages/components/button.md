@@ -100,7 +100,7 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 ## Modifiers
 
 | Size   | `.btn--medium, .btn--large, .btn--small` |
-| Color  | `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive, .btn--primary, .btn--success` |
+| Color  | `.btn--attention, .btn--dark, .btn--light, .btn--negative, .btn--positive, .btn--primary` |
 | Type   | `.btn--flat, .btn--rounded, .btn--subtle` |
 | State  | `.is--active, .is--disabled, .is--focus`|
 | Other  | `.btn--clip` |
@@ -121,7 +121,7 @@ Use the modifiers `.btn--medium, .btn--large, .btn--small` to create buttons wit
 
 ### Color
 
-Use the modifiers `.btn--attention, .btn--dark, .btn--error, .btn--light, .btn--negative, .btn--positive, .btn--primary, .btn--success` to create buttons with different colors:
+Use the modifiers `.btn--attention, .btn--dark, .btn--light, .btn--negative, .btn--positive, .btn--primary` to create buttons with different colors:
 
 ```html
 <!-- example -->

@@ -63,18 +63,18 @@ input[type="text"],
 input[type="url"],
 textarea {
 
-    // error
+    // negative
 
-    &.input--error,
-    .input--error & {
+    &.input--negative,
+    .input--negative & {
         border-color: @color-negative-15;
         color: @color-negative-8;
     }
 
-    // success
+    // positive
 
-    &.input--success,
-    .input--success & {
+    &.input--positive,
+    .input--positive & {
         border-color: @color-positive-15;
         color: @color-positive-8;
     }
@@ -127,10 +127,10 @@ textarea {
 
 // placeholders
 
-::-webkit-input-placeholder                { color: @color-base-8; }
-.input--error::-webkit-input-placeholder   { color: @color-negative-8; }
-.input--success::-webkit-input-placeholder { color: @color-positive-8; }
+::-webkit-input-placeholder                 { color: @color-base-8; }
+.input--negative::-webkit-input-placeholder { color: @color-negative-8; }
+.input--positive::-webkit-input-placeholder { color: @color-positive-8; }
 
-:-moz-placeholder                          { color: @color-base-8; }
-.input--error::-moz-input-placeholder      { color: @color-negative-8; }
-.input--success::-moz-input-placeholder    { color: @color-positive-8; }
+:-moz-placeholder                           { color: @color-base-8; }
+.input--negative::-moz-input-placeholder    { color: @color-negative-8; }
+.input--positive::-moz-input-placeholder    { color: @color-positive-8; }

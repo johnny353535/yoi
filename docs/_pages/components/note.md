@@ -60,7 +60,7 @@ Use the modifier `.note--large` to increase the font size.
     </div>
 </div>
 
-<div class="note note--error note--large">
+<div class="note note--negative note--large">
     <span class="icon"></span>
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
@@ -68,7 +68,7 @@ Use the modifier `.note--large` to increase the font size.
     </div>
 </div>
 
-<div class="note note--success note--large">
+<div class="note note--positive note--large">
     <span class="icon"></span>
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
@@ -107,12 +107,6 @@ Notes are available in **different color themes**. Weather you wish to display a
     </div>
 </div>
 
-<div class="note note--error note--large" yoi-dismissable>
-    <div class="note__body">
-        <p>.note--<strong>error</strong></p>
-    </div>
-</div>
-
 <div class="note note--negative note--large" yoi-dismissable>
     <div class="note__body">
         <p>.note--<strong>negative</strong></p>
@@ -122,12 +116,6 @@ Notes are available in **different color themes**. Weather you wish to display a
 <div class="note note--light note--large" yoi-dismissable>
     <div class="note__body">
         <p>.note--<strong>light</strong></p>
-    </div>
-</div>
-
-<div class="note note--success note--large" yoi-dismissable>
-    <div class="note__body">
-        <p>.note--<strong>success</strong></p>
     </div>
 </div>
 

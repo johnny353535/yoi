@@ -243,7 +243,7 @@ YOI.component.Stepper = (function() {
         
         var $txtField = $stepper.find('.stepper__input');
         
-        $txtField.addClass('input--error');
+        $txtField.addClass('input--negative');
         $stepper.data().state = 'error';
         
     }
@@ -258,7 +258,7 @@ YOI.component.Stepper = (function() {
         
         var $txtField = $stepper.find('.stepper__input');
         
-        $txtField.removeClass('input--error');
+        $txtField.removeClass('input--negative');
         $stepper.data().state = '';
         
     }
