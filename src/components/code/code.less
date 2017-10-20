@@ -6,9 +6,9 @@
 code {
     .mixin-defaultBorderRadius;
     background: @gray-25;
-    color: #9e4181;
+    color: @purple-15;
     direction: ltr;
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: @font-mono;
     font-style: normal;
     font-weight: normal;
     hyphens: none;
@@ -113,68 +113,68 @@ p, td, li {
 // ==============================================
 
 .highlight {
-    .hll { background-color: #EFEFEF; }
-    .c   { color: #929292; }
-    //.err { background: #C82829; color: #FFFFFF; }
-    .k   { color: #8959A8; }
-    .l   { color: #F5871F; }
-    .n   { color: #929292; }
-    .o   { color: #545454; }
-    .p   { color: #929292; }
-    .cm  { color: #929292; }
-    .cp  { color: #929292; }
-    .c1  { color: #929292; }
-    .cs  { color: #929292; }
-    .gd  { color: #C82829; }
+    .hll { background-color: @gray-22; }
+    .c   { color: @gray-15; }
+    //.err { background: @red-10; color: @white; }
+    .k   { color: @purple-12; }
+    .l   { color: @yellow-15; }
+    .n   { color: @gray-15; }
+    .o   { color: @gray-10; }
+    .p   { color: @gray-15; }
+    .cm  { color: @gray-15; }
+    .cp  { color: @gray-15; }
+    .c1  { color: @gray-15; }
+    .cs  { color: @gray-15; }
+    .gd  { color: @red-15; }
     .ge  { font-style: italic; }
-    .gh  { color: #545454; font-weight: bold; }
-    .gi  { color: #718C00 }
-    .gp  { color: #718C00; font-weight: bold; }
+    .gh  { color: @gray-10; font-weight: bold; }
+    .gi  { color: @green-15 }
+    .gp  { color: @green-15; font-weight: bold; }
     .gs  { font-weight: bold}
-    .gu  { color: #3E999F; font-weight: bold; }
-    .kc  { color: #8959A8; }
-    .kd  { color: #8959A8; }
-    .kn  { color: #3E999F; }
-    .kp  { color: #4271AE; }
-    .kr  { color: #8959A8; }
-    .kt  { color: #EAB700; }
-    .ld  { color: #718C00; }
-    .m   { color: #F5871F; }
-    .s   { color: #718C00; }
-    .na  { color: #4271AE; }
-    .nb  { color: #4271AE; }
-    .nc  { color: #EAB700; }
-    .no  { color: #EAB700; }
-    .nd  { color: #3E999F; }
-    .ni  { color: #545454; }
-    .ne  { color: #C82829; }
-    .nf  { color: #4271AE; }
-    .nl  { color: #545454; }
-    .nn  { color: #EAB700; }
-    .nx  { color: #4271AE; }
-    .py  { color: #545454; }
-    .nt  { color: #3E999F; }
-    .nv  { color: #C82829; }
-    .ow  { color: #3E999F; }
-    .w   { color: #545454; }
-    .mf  { color: #F5871F; }
-    .mh  { color: #F5871F; }
-    .mi  { color: #F5871F; }
-    .mo  { color: #F5871F; }
-    .sb  { color: #718C00; }
-    .sc  { color: #545454; }
-    .sd  { color: #929292; }
-    .s2  { color: #718C00; }
-    .se  { color: #F5871F; }
-    .sh  { color: #718C00; }
-    .si  { color: #F5871F; }
-    .sx  { color: #718C00; }
-    .sr  { color: #718C00; }
-    .s1  { color: #718C00; }
-    .ss  { color: #718C00; }
-    .bp  { color: #545454; }
-    .vc  { color: #C82829; }
-    .vg  { color: #C82829; }
-    .vi  { color: #C82829; }
-    .il  { color: #F5871F; }
+    .gu  { color: @green-13; font-weight: bold; }
+    .kc  { color: @purple-12; }
+    .kd  { color: @purple-12; }
+    .kn  { color: @green-13; }
+    .kp  { color: @blue-13; }
+    .kr  { color: @purple-12; }
+    .kt  { color: @yellow-18; }
+    .ld  { color: @green-15; }
+    .m   { color: @yellow-15; }
+    .s   { color: @green-15; }
+    .na  { color: @blue-13; }
+    .nb  { color: @blue-13; }
+    .nc  { color: @yellow-18; }
+    .no  { color: @yellow-18; }
+    .nd  { color: @green-13; }
+    .ni  { color: @gray-10; }
+    .ne  { color: @red-15; }
+    .nf  { color: @blue-13; }
+    .nl  { color: @gray-10; }
+    .nn  { color: @yellow-18; }
+    .nx  { color: @blue-13; }
+    .py  { color: @gray-10; }
+    .nt  { color: @green-13; }
+    .nv  { color: @red-15; }
+    .ow  { color: @green-13; }
+    .w   { color: @gray-10; }
+    .mf  { color: @yellow-15; }
+    .mh  { color: @yellow-15; }
+    .mi  { color: @yellow-15; }
+    .mo  { color: @yellow-15; }
+    .sb  { color: @green-15; }
+    .sc  { color: @gray-10; }
+    .sd  { color: @gray-15; }
+    .s2  { color: @green-15; }
+    .se  { color: @yellow-15; }
+    .sh  { color: @green-15; }
+    .si  { color: @yellow-15; }
+    .sx  { color: @green-15; }
+    .sr  { color: @green-15; }
+    .s1  { color: @green-15; }
+    .ss  { color: @green-15; }
+    .bp  { color: @gray-10; }
+    .vc  { color: @red-15; }
+    .vg  { color: @red-15; }
+    .vi  { color: @red-15; }
+    .il  { color: @yellow-15; }
 }

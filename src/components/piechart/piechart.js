@@ -8,14 +8,14 @@ YOI.component.PieChart = (function() {
     var $colorDot = $('<span class="pieChart__dot"></span>');
 
     var fixedPalette = [
-        '#f69d29',
-        '#ec4534',
-        '#66579f',
-        '#2988cb',
-        '#7f9b3d',
-        '#fff398',
-        '#dc48c2',
-        '#0d5964'
+        '#ff9269',
+        '#df3d00',
+        '#5d4a97',
+        '#417db3',
+        '#629278',
+        '#e4dea0',
+        '#89c5fb',
+        '#676665'
     ];
 
     // private functions

@@ -7,9 +7,9 @@ permalink: behaviours/dismiss
 
 # Dismiss
 
-<p class="intro">Use this Behaviour to add a dismiss- (or “close-”) button to any element.</p>
+<p class="intro">This Behaviour adds a close-button to an element.</p>
 
-## Basic Example
+## Example
 
 Add the attribute `yoi-lazyload` to your element:
 

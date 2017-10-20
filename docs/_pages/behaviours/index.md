@@ -7,33 +7,29 @@ permalink: behaviours/
 
 # Behaviours
 
-<p class="intro">YOI provides a HTML-based interface to add functionality to elements on the page. We call this <i>Behaviours</i>.</p>
+<p class="intro">YOI provides a simple CSS-like interface to add functionality to HTML elements. We call it <i>Behaviours</i>.</p>
 
-## Purpose
-
-Use a Behaviour to add a specific functionality to a specific [element](/glossary). A Behaviour only affects the specific element itself.
-
-## Logic
+## The Behaviour Attribute
 
 Add a [Behaviour-Attribute](/glossary) to any element to activate the chosen behaviour:
 
 ```html
-<div yoi-somebehaviour>...</div>
+<div yoi-somebehaviour></div>
 ```
 
-## Multiple Behaviours
-
-An [element](/glossary) can have multiple different Behaviours. However, an [element](/glossary) can not have multiple behaviours of the same kind!
+<p class="hint hint--negative">An element can have multiple <i>different</i> Behaviours. However, an element can not have multiple <i>identical</i> behaviours.</p>
 
 ## Parameters
 
-Behaviors may have options. You can manipulate them via YOI’s [Parameter-Syntax](/glossary):
+Behaviors may have options or settings. We call this *parameters*. You can manipulate them via YOI’s [Parameter-Syntax](/glossary):
 
 ```html
 <div yoi-somebehaviour="someOption:someValue;">...</div>
 ```
 
-Make sure you write the parameters correctly. If you don’t, the Behaviour might not work. If you know CSS, the syntax should look familiar to you. Follow this check-list:
+<p class="hint hint--primary">Make sure you write the parameters correctly. If you don’t, the Behaviour might not work. If you know CSS, the syntax should look familiar to you.</p>
+
+### Parameter Formatting Checklist
 
 * A Behaviour may accept _many parameters_.
 * Write Parameters in key/value-pairs.
