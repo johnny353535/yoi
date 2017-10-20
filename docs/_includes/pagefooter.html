@@ -6,7 +6,7 @@
  % directly on github.
 {% endcomment %}
 
-{% if page.title != "Introduction" and page.group != "start" %}
+{% if page.url != "/" and page.title != "Introduction" and page.group != "start" %}
     {% assign githubSrcUrl = "https://github.com/yoshino-digital/yoi/blob/master/src" %}
     <h2>Source Files</h2>
     {% if page.srcfiles %}
