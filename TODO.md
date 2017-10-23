@@ -25,7 +25,7 @@
 
 ## Improvements
 
-- [ ] rename .mainMenu
+- [x] rename .mainMenu
 - [ ] add option to enable/disable behaviors depending on current breakpoint
 - [x] rebuild and optimizr behaviour "sticky"
 - [ ] bring back slack webhook

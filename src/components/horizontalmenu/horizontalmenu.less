@@ -1,9 +1,9 @@
-/** mainmenu.less */
+/** horizontalmenu.less */
 
 // block
 // =====
 
-.mainMenu {
+.horizontalMenu {
     background: @color-white;
     height: 5rem;
 }
@@ -11,7 +11,7 @@
 // elements
 // ========
 
-.mainMenu__menu {
+.horizontalMenu__menu {
 
     border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
     border: @color-base-23 1px solid;
@@ -31,7 +31,9 @@
         float: left;
     }
 
-    a {
+    a,
+    a:link,
+    a:visited {
         border-right: 1px @color-base-23 solid;
         color: @color-base-10;
         display: block;
@@ -45,29 +47,29 @@
     }
 
     a:hover,
-    a.mainMenu--active,
-    a.mainMenu--current:hover {
+    a.horizontalMenu--active,
+    a.horizontalMenu--current:hover {
         background: @color-base-25;
     }
 
     a:active,
-    a.mainMenu--current {
+    a.horizontalMenu--current {
         background: @color-base-24;
     }
 
 }
 
-.mainMenu__icon {
+.horizontalMenu__icon {
     margin: 0 -1rem;
 }
 
-.mainMenu .popOver a.box:hover {
+.horizontalMenu .popOver a.box:hover {
     background: @color-white;
 }
 
-// positioning breadcrumbs after main menu
+// positioning breadcrumbs after menu
 
-.mainMenu + .breadcrumbs {
+.horizontalMenu + .breadcrumbs {
     bottom: 0;
     left: 0;
     position: absolute;
@@ -78,10 +80,10 @@
 // modifiers
 // =========
 
-.mainMenu--expand .mainMenu__menu {
+.horizontalMenu--expand .horizontalMenu__menu {
 
     // Sets all buttons to the same width so
-    // they fill the whole main menu width:
+    // they fill the whole menu width:
 
     display: table;
 

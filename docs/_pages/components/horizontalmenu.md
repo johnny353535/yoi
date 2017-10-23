@@ -1,22 +1,22 @@
 ---
 layout: base
 group: components
-title: MainMenu
-permalink: components/mainmenu
+title: HorizontalMenu
+permalink: components/horizontalmenu
 ---
 
-# MainMenu
+# HorizontalMenu
 
 <p class="intro">Use this component to create a prominent horizontal menu.</p>
 
 ## Basic Example
 
-This is how a basic `.mainMenu` looks like and how you write the markup:
+This is how a basic `.horizontalMenu` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<div class="mainMenu">
-    <ul class="mainMenu__menu">
+<div class="horizontalMenu">
+    <ul class="horizontalMenu__menu">
         <li>
             <a href="#">Alkalis</a>
         </li>
@@ -31,12 +31,12 @@ This is how a basic `.mainMenu` looks like and how you write the markup:
 
 ### Stretched Menu Items
 
-Add the modifier `.mainMenu--expanded` to force the menu items to take up all available horizontal space:
+Add the modifier `.horizontalMenu--expanded` to force the menu items to take up all available horizontal space:
 
 ```html
 <!-- example -->
-<div class="mainMenu mainMenu--expand">
-    <ul class="mainMenu__menu">
+<div class="horizontalMenu horizontalMenu--expand">
+    <ul class="horizontalMenu__menu">
         <li>
             <a href="#">Alkalis</a>
         </li>
@@ -53,13 +53,13 @@ Use the [popOver element](components/popover.html) to add submenus:
 
 ```html
 <!-- example:tabs -->
-<div class="mainMenu">
-    <ul class="mainMenu__menu">
+<div class="horizontalMenu">
+    <ul class="horizontalMenu__menu">
         <li>
-            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:mainMenu--active;">Alkalis</a>
+            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:horizontalMenu--active;">Alkalis</a>
         </li>
         <li>
-            <a href="#" yoi-popover="target:#subMenu-actinides; pos:bl; toggleClass:mainMenu--active;">Actinides</a>
+            <a href="#" yoi-popover="target:#subMenu-actinides; pos:bl; toggleClass:horizontalMenu--active;">Actinides</a>
         </li>
     </ul>
     <div class="popOver" id="subMenu-alkaliMetals">
@@ -142,10 +142,10 @@ Add the [accordion element](components/accordion.html) to create nicely structur
 
 ```html
 <!-- example:tabs -->
-<div class="mainMenu">
-    <ul class="mainMenu__menu">
+<div class="horizontalMenu">
+    <ul class="horizontalMenu__menu">
         <li>
-            <a href="#" yoi-popover="target:#subMenu-metals; pos:bl; toggleClass:mainMenu--active;">Metals</a>
+            <a href="#" yoi-popover="target:#subMenu-metals; pos:bl; toggleClass:horizontalMenu--active;">Metals</a>
         </li>
         <li>
             <a href="#">Other</a>

@@ -43,15 +43,14 @@ components:
     - form
     - headings
     - hint
+    - horizontalmenu
     - iconmenu
     - icon
     - imgmagnifier
     - link
     - linklist
     - log
-    - mainmenu
     - maxchars
-    - menu
     - modal
     - note
     - pagebtns
@@ -83,6 +82,7 @@ components:
     - tabs
     - togglegroup
     - tooltip
+    - verticalmenu
 behaviours:
     - index
     - dismiss

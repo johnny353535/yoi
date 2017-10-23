@@ -1,9 +1,9 @@
-/** menu.less */
+/** verticalmenu.less */
 
 // block
 // =====
 
-.menu {
+.verticalMenu {
     .mixin-defaultBorderRadius;
     border: @color-base-23 1px solid;
     list-style: none;
@@ -12,7 +12,7 @@
 // elements
 // ========
 
-.menu__item {
+.verticalMenu__item {
 
     border-top: @color-base-23 1px solid;
     margin: 0;
@@ -25,7 +25,7 @@
 
 }
 
-.menu__link {
+.verticalMenu__link {
 
     cursor: pointer;
     display: block;
@@ -49,35 +49,35 @@
 // nested elements
 // ===============
 
-// menu-nesting is limited to four levels.
+// verticalMenu-nesting is limited to four levels.
 // while this is quite ugly, there is no better solution.
 
 // nesting-level 2
 
-.menu .menu {
+.verticalMenu .verticalMenu {
     border: 0;
     border-radius: 0;
 }
 
-.menu .menu .menu__item {
+.verticalMenu .verticalMenu .verticalMenu__item {
     border: 0;
     font-weight: normal;
 }
 
 // nesting-level 3
 
-.menu .menu .menu {
+.verticalMenu .verticalMenu .verticalMenu {
     padding-left: 2rem;
 }
 
-.menu .menu .menu .menu__link {
+.verticalMenu .verticalMenu .verticalMenu .verticalMenu__link {
     margin-left: -2rem;
     padding-left: 3rem;
 }
 
 // nesting-level 4
 
-.menu .menu .menu .menu .menu__link {
+.verticalMenu .verticalMenu .verticalMenu .verticalMenu .verticalMenu__link {
     margin-left: -4rem;
     padding-left: 6rem;
 }
@@ -85,17 +85,17 @@
 // modifiers
 // =========
 
-// active menu items
-// (can be either a .menu__item or .menu__link)
+// active verticalMenu items
+// (can be either a .verticalMenu__item or .verticalMenu__link)
 
-.menu .is--active {
+.verticalMenu .is--active {
 
     position: relative;
 
     &,
-    .menu__link:link,
-    .menu__link:visited,
-    .menu__link:hover {
+    .verticalMenu__link:link,
+    .verticalMenu__link:visited,
+    .verticalMenu__link:hover {
         background: @color-base-8;
         color: @color-white;
         font-weight: bold;
@@ -103,11 +103,11 @@
 
 }
 
-// an active menu item can display a pointer
+// an active verticalMenu item can display a pointer
 // to the left or right
 
-.menu--pointLeft .is--active::after,
-.menu--pointRight .is--active::after {
+.verticalMenu--pointLeft .is--active::after,
+.verticalMenu--pointRight .is--active::after {
     background: @color-base-8;
     content: ' ';
     display: block;
@@ -118,18 +118,18 @@
     width: 1rem;
 }
 
-.menu--pointLeft .is--active::after {
+.verticalMenu--pointLeft .is--active::after {
     left: 0;
     transform: translate(-50% ,-50%) rotate(45deg);
 }
 
-.menu--pointRight .is--active::after {
+.verticalMenu--pointRight .is--active::after {
     right: 0;
     transform: translate(50% ,-50%) rotate(45deg);
 }
 
-.menu--pointLeft .menu__link,
-.menu--pointRight .menu__link {
+.verticalMenu--pointLeft .verticalMenu__link,
+.verticalMenu--pointRight .verticalMenu__link {
 
     &,
     &:active,
