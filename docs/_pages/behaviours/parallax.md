@@ -7,11 +7,11 @@ permalink: behaviours/parallax
 
 # Parallax
 
-<p class="intro">Use this Behaviour to add a parallax scrolling effect to any element.</p>
+<p class="intro">Adds a parallax scrolling effect to any element.</p>
 
 ## Basic Example
 
-Add the attribute `yoi-parallax` to an element to enable the parallax scrolling effect:
+Add the attribute `yoi-parallax` to an element:
 
 ```html
 <!-- example -->
@@ -19,14 +19,14 @@ Add the attribute `yoi-parallax` to an element to enable the parallax scrolling 
 ```
 ## Parameters
 
-| `factor` | Affects the parallax scrolling speed. Can be any positive or negative number. Default is 8. |
+| `factor` | Affects the parallax scrolling speed. Use any positive or negative number. The default factor is `8`. |
 
 ### Factor
 
 The parameter `factor` accepts any positive or negative number. You must write floating numbers with period instead of comma (eg. *1.5*).
 
 <p class="hint hint--primary">Positive numbers let the element scroll with the current scroll direction. Negative numbers let the element scroll against the current scroll direction.</p>
-<p class="hint hint--primary">The higher the factor, the more subtle the resulting parallax effect. Think of it as a <i>throttle force</i>.</p>
+<p class="hint hint--primary">The higher the factor, the more subtle the resulting parallax effect.</p>
 
 ```html
 <!-- example -->

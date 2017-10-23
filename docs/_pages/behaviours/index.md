@@ -7,31 +7,41 @@ permalink: behaviours/
 
 # Behaviours
 
-<p class="intro">YOI provides a simple CSS-like interface to add functionality to HTML elements. We call it <i>Behaviours</i>.</p>
+<p class="intro">YOI’s <i>behaviours</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
 
 ## The Behaviour Attribute
 
-Add a [Behaviour-Attribute](/glossary) to any element to activate the chosen behaviour:
+Add a [behaviour-Attribute](/glossary) to any element to activate the behaviour:
 
 ```html
-<div yoi-somebehaviour></div>
+<div yoi-dismiss></div>
 ```
 
-<p class="hint hint--negative">An element can have multiple <i>different</i> Behaviours. However, an element can not have multiple <i>identical</i> behaviours.</p>
+### List of Behaviours
+
+| behaviour                            | attribute      | description |
+| ------------------------------------ | -------------- | ----------- |
+| [Dismiss](behaviours/dismiss.html)   | `yoi-dismiss`  |             |
+| [Lazyload](behaviours/lazyload.html) | `yoi-lazyload` |             |
+| [Parallax](behaviours/parallax.html) | `yoi-parallax` |             |
+| [Scrollfx](behaviours/scrollfx.html) | `yoi-scrollfx` |             |
+| [Stiky](behaviours/sticky.html)      | `yoi-sticky`   |             |
+
+<p class="hint hint--negative">You can add more than one behaviour to an element. However, you cannot add the same behaviour multiple times.</p>
 
 ## Parameters
 
-Behaviors may have options or settings. We call this *parameters*. You can manipulate them via YOI’s [Parameter-Syntax](/glossary):
+Behaviours may have [parameters](/glossary) to change the default setting of a behaviour:
 
 ```html
-<div yoi-somebehaviour="someOption:someValue;">...</div>
+<div yoi-parallax="factor:5;">...</div>
 ```
 
-<p class="hint hint--primary">Make sure you write the parameters correctly. If you don’t, the Behaviour might not work. If you know CSS, the syntax should look familiar to you.</p>
+<p class="hint hint--primary">Make sure you write the parameters correctly, otherwise the behaviour might not work. If you know CSS, the syntax should look familiar to you:</p>
 
 ### Parameter Formatting Checklist
 
-* A Behaviour may accept _many parameters_.
+* A behaviour may accept _many parameters_.
 * Write Parameters in key/value-pairs.
 * Keys are seperated from values with a colon.
 * Each key/value-pair must end with a semicolon.

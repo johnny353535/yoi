@@ -7,7 +7,7 @@ permalink: behaviours/scrollfx
 
 # Scrollfx
 
-<p class="intro">Use this Behaviour to add effects or transitions to elements when they enter or leave the viewport while scrolling.</p>
+<p class="intro">Adds effects or transitions to elements once they enter or leave the viewport while scrolling.</p>
 
 ## Parameters
 
@@ -19,9 +19,11 @@ permalink: behaviours/scrollfx
 
 ### In, Center, Out
 
-Each element can have up to three effects. One for `in`, `center` and `out`. For example, an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area), while `center` applies the effect when the element is right in the vertical center of the visible area. 
+Each element can have up to three effects. One for `in`, `center` and `out`.
 
-The following example will apply a fade-in-effect as the element reaches the center of the viewport:
+For example, an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area), while `center` applies the effect when the element aligns with the vertical center of the visible area. 
+
+The following example will apply a effect `fx-fade-in` on `center`:
 
 ```html
 <!-- example -->

@@ -36,7 +36,7 @@ YOI.behaviour.Dismiss = (function() {
          *  @param {object}            options
          */
 
-        var $dismissableElement = YOI.createCollection('dismissable', $dismissableElement, options);
+        var $dismissableElement = YOI.createCollection('dismiss', $dismissableElement, options);
 
         if ($dismissableElement) $dismissableElement.each(function() {
             

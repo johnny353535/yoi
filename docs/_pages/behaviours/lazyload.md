@@ -7,7 +7,7 @@ permalink: behaviours/lazyload
 
 # Lazyload
 
-<p class="intro">Use this behaviour to load an image only if it’s inside the viewport.</p>
+<p class="intro">Load an image only if it’s inside the viewport.</p>
 
 ## Basic Example
 
@@ -101,3 +101,7 @@ Use the parameter `cssClasses` to add any CSS class names to the image. The foll
     <img src="https://source.unsplash.com/hppWAs2WTZU/210x210" />
 </noscript>
 ```
+
+## Events
+
+This behaviour does not fire [custom events](glossary/). However, each image fires the standard `load` event.
