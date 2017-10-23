@@ -22,6 +22,8 @@ Add the Attribute `yoi-sticky` to any element. While scrolling down the page, as
 
 In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as long as it reaches a position *300px further down from it’s initial position*.
 
+<p class="hint hint--negative"><b>Fixed Position and CSS Transforms</b> Elements with <code>position:fixed</code> or any CSS transformation (eg. <code>transform: translate()</code>) do not work with this behaviour. However, absolutely or relatively positioned elements are fine.</p>
+
 ## Parameters
 
 | `reference` | `CSS selector` or the keyword `"parent"` - defines a reference element on the page           |
@@ -42,8 +44,14 @@ Sticky takes the first matching element on the page and references it’s height
 
 ```html
 <!-- example -->
-<div class="fl-l w-6 h-6 p-2 bg-primary-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
-<div class="box h-40 w-20 p-1 m-l-17" id="myReferenceElement-1"></div>
+<div class="flexGrid">
+    <div class="w-8">
+        <div class="w-6 h-6 p-2 bg-primary-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
+    </div>
+    <div class="w-1-3">
+        <div class="bg-base-24 br h-40 w-20 p-1" id="myReferenceElement-1"></div>
+    </div>
+</div>
 ```
 
 <p class="hint hint--primary"><b>What Is a Valid Reference Element?</b> A valid reference element is any element on the page which is top-aligned with the sticky element and taller than the sticky element.</p>
@@ -54,10 +62,8 @@ Use `reference:parent;` to turn the sticky element’s surrounding element (= *p
 
 ```html
 <!-- example -->
-<div class="w-30 p-r-4">
-    <div class="box h-30 p-2">
-        <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="reference:parent;"></div>
-    </div>
+<div class="br bg-base-24 h-30 p-2">
+    <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="reference:parent;"></div>
 </div>
 ```
 
@@ -114,12 +120,13 @@ The default value for `start` is `0`. The default value for `stop` is the `<body
 <div style="height:1000px"></div>
 <style>
     [id*="example-sticky-"]::after {
-        border-top: #ff6830 1px dashed;
+        border-top: #ddd 1px solid;
         content: ' ';
         left: 0;
         position: absolute;
         right: 0;
         top: 200px;
+        width: 60px;
     }
     #example-sticky-4::after {
         top: 350px;

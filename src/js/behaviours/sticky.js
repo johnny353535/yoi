@@ -41,16 +41,20 @@ YOI.behaviour.Sticky = (function() {
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
         if ($stickyElement) $stickyElement.each(function(index) {
-
-            var $thisStickyElement      = $(this);
-            var $thisStickyElementClone = $thisStickyElement.clone(true).removeAttr('yoi-sticky').attr('id', 'stickyClone-' + index);
             
-            // update each sticky element's data and
-            // do the necessary dom manipulation on load
+            var $thisStickyElement = $(this);
+            
+            // if the sticky already has position:fixed or
+            // any css transformation, cancel ...
+            
+            if ($thisStickyElement.css('position') === 'fixed' || $stickyElement.css('transform') !== 'none') return;
+            
+            // ... otherwise proceed and perform the necessary dom manipulation on load,
+            // then update the sticky element properties
 
-            $(window).on('load', function() {
+            $window.on('load', function() {
+                manipulateDom($thisStickyElement, index);
                 updateStickyElementProps($thisStickyElement);
-                manipulateDom($thisStickyElement, $thisStickyElementClone);
             });
 
         });
@@ -62,46 +66,63 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function manipulateDom($stickyElement, $stickyElementClone) {
+    function manipulateDom($stickyElement, index) {
 
         /**
-         *  Perform all necessary dom manipulations. Takes a clone of the original
-         *  sticky element, injects it as a direct child of the body and sets it to
-         *  absolute positioning. While being "sticky", the clone is set to fixed positioning.
-         *  The original element is kept as an empty element with it's initial width
-         *  and height. The visibility is set to "hidden" in order to preserve the page layout.
+         *  Perform all necessary dom manipulations and style changes.
          *
-         *  @param {jQuery dom object} $stickyElement      - the sticky element
-         *  @param {jQuery dom object} $stickyElementClone - the cloned sticky element
+         *  @param {jQuery dom object} $stickyElement - the sticky element
+         *  @param {number}            index          - the index of $stickyElement
          */
+
+        var $stickyPlaceholder        = $('<div id="stickyPlaceholder-' + index + '"></div>');
+        var $stickyWrapper            = $('<div class="stickyWrapper"></div>');
+        var stickyElementCssPos       = $stickyElement.css('position');
+        var stickyElementCssLeft      = $stickyElement.css('left');
+        var stickyElementCssTop       = $stickyElement.css('top');
         
-        // prepare the cloned element
+        // set the $stickyElement and $stickyWrapper styles
         
-        $stickyElementClone.css({
-            'position'                    : 'absolute',
-            'width'                       : $stickyElement.outerWidth(),
-            'height'                      : $stickyElement.outerHeight(),
-            'top'                         : $stickyElement.offset().top,
-            'left'                        : $stickyElement.offset().left,
-            '-webkit-transform'           : 'translate3d(0,0,0)' // make it work smoothly on iOS Safari
+        if (stickyElementCssPos !== 'static') {
+            
+            // if the $stickyElement is absolutely or relatively positioned,
+            // clear these properties and copy them over to $stickyWrapper
+            
+            $stickyElement.css({
+                'position': 'static'
+            });
+            
+            $stickyWrapper.css({
+                'position': stickyElementCssPos,
+                'top': stickyElementCssTop,
+                'left': stickyElementCssLeft,
+                'z-index': 100
+            });
+            
+        } else {
+            
+            // in all other cases, set the wrapper to position:relative
+            
+            $stickyWrapper.css({
+                'position': 'relative',
+                'z-index': 100
+            });
+            
+        }
+
+        // set the $stickyPlaceholder styles
+
+        $stickyPlaceholder.css({
+            'width'   : $stickyElement.outerWidth(),
+            'height'  : $stickyElement.outerHeight(),
+            'display' : 'none'
         });
-
-        // append the cloned element
-
-        $body.append($stickyElementClone);
-
-        // prepare the original element
-
-        $stickyElement.css({
-            'width'      : $stickyElement.outerWidth(),
-            'height'     : $stickyElement.outerHeight(),
-            'visibility' : 'hidden'
-        });
-
-        // empty the original element
-
-        $stickyElement.empty();
         
+        // do the dom manipulation
+
+        $($stickyElement).wrap($stickyWrapper);
+        $stickyPlaceholder.insertAfter($stickyElement);
+
     }
 
     function updateStickyElementProps($stickyElement) {
@@ -115,10 +136,10 @@ YOI.behaviour.Sticky = (function() {
          */
         
         var options                       = $stickyElement.data().options;
-        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent() : $(options.reference).first();
-        var stickyElementheight           = $stickyElement.outerHeight();
+        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
+        var stickyElementHeight           = $stickyElement.outerHeight();
+        var stickyElementWidth            = $stickyElement.outerWidth();
         var stickyElementInitialTopPos    = $stickyElement.offset().top;
-        var stickyElementInitialBottomPos = stickyElementInitialTopPos + stickyElementheight;
         var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
         var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
         var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
@@ -129,7 +150,7 @@ YOI.behaviour.Sticky = (function() {
 
         if ($referenceElement.length) {
             stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementheight - topDistance;
+            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementHeight - topDistance;
         }
 
         // the reference element is the parent dom object of the sticky element,
@@ -144,9 +165,9 @@ YOI.behaviour.Sticky = (function() {
         
         $stickyElement.data().props = {
             passedValidation : passedValidation,
-            height           : stickyElementheight,
+            height           : stickyElementHeight,
+            width            : stickyElementWidth,
             initialTopPos    : stickyElementInitialTopPos,
-            initialBottomPos : stickyElementInitialBottomPos,
             topOffset        : topOffset,
             topDistance      : topDistance,
             stickStart       : stickStart,
@@ -182,26 +203,23 @@ YOI.behaviour.Sticky = (function() {
     function positionObserver($stickyElements) {
 
         /**
-         *  Listens to the window resize event. If the event is fired, this function
-         *  updates the original $stickyElement data and updates the $stickyElementClone's
-         *  left position.
+         *  Listens to the window resize event. When the event fires, this function
+         *  updates the original $stickyElement property data.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
+         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
          */
 
         $window.on('resize', function() {
                 
             $stickyElements.each(function(index) {
 
-                var $stickyElement      = $(this);
-                var $stickyElementClone = $('#stickyClone-' + index);
+                var $stickyElement = $(this);
                 
                 // if the sticky element passed validation (=> validInput),
                 // do the re-positioning
 
                 if (validInput($stickyElement)) {
                     updateStickyElementProps($stickyElement);
-                    $stickyElementClone.css('left', Math.floor($stickyElement.offset().left));
                 }
 
             });
@@ -217,8 +235,7 @@ YOI.behaviour.Sticky = (function() {
          *  observes all sticky elements and manipulates their position. If a sticky element
          *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
          *
-         *  @param {jQuery dom object} $stickyElements      - the sticky element(s)
-         *  @param {jQuery dom object} $stickyElementCloned - the cloned sticky element(s)
+         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
          */
 
         $window.on('scroll', function() {
@@ -232,14 +249,16 @@ YOI.behaviour.Sticky = (function() {
             $stickyElements.each(function(index) {
 
                 var $stickyElement             = $(this);
-                var $stickyElementClone        = $('#stickyClone-' + index);
+                var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
                 var props                      = $stickyElement.data().props;
                 var stickyElementInitialTopPos = props.initialTopPos;
                 var stickStart                 = props.stickStart;
                 var stickStop                  = props.stickStop;
                 var topOffset                  = props.topOffset;
+                
                 var cssPositionValue;
                 var cssTopValue;
+                var stickyPlaceholderDisplay;
             
                 // proceed if the sticky element passed validation
 
@@ -251,30 +270,37 @@ YOI.behaviour.Sticky = (function() {
                     
                         // outside top boundary
 
-                        cssPositionValue = 'absolute';
-                        cssTopValue      = stickyElementInitialTopPos;
-
+                        cssPositionValue         = 'static';
+                        cssTopValue              = 0;
+                        stickyPlaceholderDisplay = 'none';
+                        
                     } else if (scrollTop > stickStop) {
 
                         // outside bottom boundary
 
-                        cssPositionValue = 'absolute';
-                        cssTopValue      = stickStop + topOffset;
+                        cssPositionValue         = 'absolute';
+                        cssTopValue              = stickStop - stickyElementInitialTopPos + topOffset;
+                        stickyPlaceholderDisplay = 'block';
 
                     } else {
                     
                         // inside boundaries
 
-                        cssPositionValue = 'fixed';
-                        cssTopValue      = 0 + topOffset;
+                        cssPositionValue         = 'fixed';
+                        cssTopValue              = 0 + topOffset;
+                        stickyPlaceholderDisplay = 'block';
 
                     }
 
                     // set the css
 
-                    $stickyElementClone.css({
+                    $stickyElement.css({
                         'position' : cssPositionValue,
                         'top'      : cssTopValue
+                    });
+                    
+                    $stickyPlaceholder.css({
+                        'display' : stickyPlaceholderDisplay
                     });
 
                 }

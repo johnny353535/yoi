@@ -2,11 +2,11 @@
 
 ## Most Urgent
 
-- [x] add glossary to docs
+- [ ] add glossary to docs
 - [ ] complete user docs
 - [ ] proof-read and edit user docs
 - [ ] review, improve, refactor grid utilities
-- [ ] write short styleguide for docs pages
+- [x] write short styleguide for docs pages
 - [ ] expand JSfiddle integration
 - [ ] rename .menu and .mainMenu to more unique names?
 - [ ] Utilities intro page:
@@ -27,7 +27,7 @@
 
 - [ ] rename .mainMenu
 - [ ] add option to enable/disable behaviors depending on current breakpoint
-- [ ] rebuild and optimizr behaviour "sticky"
+- [x] rebuild and optimizr behaviour "sticky"
 - [ ] bring back slack webhook
 
 ## Future Roadmap
