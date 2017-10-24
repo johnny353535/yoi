@@ -442,6 +442,29 @@ var YOI = {
         }
 
     },
+    
+    validBreakpoint : function(keyword) {
+        
+        /**
+         *  Checks if a given breakpoint name (keyword) is in the YOI
+         *  breakpoint array (validBreakPoints).
+         *
+         *  @param  {string} keyword - the breakpoint name to test for
+         *  @return {bool}
+         */
+        
+        var validBreakPoints = [
+            'small',
+            'medium',
+            'large',
+            'xlarge'
+        ];
+        
+        var position = $.inArray(keyword, validBreakPoints);
+        
+        return (position >= 0);
+        
+    },
 
     // global attributes
 

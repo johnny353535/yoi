@@ -37,7 +37,7 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 Add a CSS-selector as value for the `reference` parameter:
 
 ```html
-yoi-sticky="reference:#myReferenceElement;"
+<div yoi-sticky="reference:#myReferenceElement;"></div>
 ```
 
 Sticky takes the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* until it’s bottom aligns with the reference element’s bottom.

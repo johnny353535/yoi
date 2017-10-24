@@ -6,9 +6,7 @@
 - [ ] complete user docs
 - [ ] proof-read and edit user docs
 - [ ] review, improve, refactor grid utilities
-- [x] write short styleguide for docs pages
 - [ ] expand JSfiddle integration
-- [ ] rename .menu and .mainMenu to more unique names?
 - [ ] Utilities intro page:
     - the value "none" is expressed by "0", eg. b-0 = no borders
     - the opposite of none can be "all", eg. b-all = borders on all sides
@@ -25,9 +23,8 @@
 
 ## Improvements
 
-- [x] rename .mainMenu
 - [ ] add option to enable/disable behaviors depending on current breakpoint
-- [x] rebuild and optimizr behaviour "sticky"
+- [ ] add public destroy() method to each component and behaviour
 - [ ] bring back slack webhook
 
 ## Future Roadmap

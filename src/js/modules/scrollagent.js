@@ -13,13 +13,12 @@ YOI.module.ScrollAgent = (function() {
     // ============
     
     var $window        = $(window);
+    var $activeTargetElements;
     var viewportHeight = $window.height();
     var lastScrollTop  = 0;
     var viewportIn;
     var viewportOut;
     var viewportCenter;
-    
-    var $activeTargetElements;
     var initialized = false;
     
     // private functions
@@ -89,13 +88,12 @@ YOI.module.ScrollAgent = (function() {
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
             var thisInitialPosY    = $thisTargetElement.offset().top;
+            var props              = $thisTargetElement.data().props;
     
             // write data
-
-            $thisTargetElement.data().props = {
-                'height'      : thisHeight,
-                'initialPosY' : thisInitialPosY
-            };
+            
+            props.height      = thisHeight;
+            props.initialPosY = thisInitialPosY;
         
             // set the initial state
     

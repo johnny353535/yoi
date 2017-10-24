@@ -7,7 +7,7 @@ permalink: behaviours/parallax
 
 # Parallax
 
-<p class="intro">Adds a parallax scrolling effect to any element.</p>
+<p class="intro">Adds a parallax scrolling effect to an element.</p>
 
 ## Basic Example
 

@@ -5,12 +5,12 @@ YOI.behaviour.Parallax = (function() {
     // private variables
     // =================
     
-    var $window          = $(window);
-    var currentScrollTop = 0;
-    var defaultFactor    = 8;
-    var initialized      = false;
-    var $activeParallaxElements;
-    
+    var $window                 = $(window);
+    var $activeParallaxElements = $();
+    var currentScrollTop        = 0;
+    var defaultFactor           = 8;
+    var initialized             = false;
+
     // private functions
     // =================
 
@@ -36,42 +36,41 @@ YOI.behaviour.Parallax = (function() {
                 // cancel if already initialized
 
                 if ($this.data().props.isParallax) return false;
+                
+                // add parallax element to new element collection
 
-                // store element collection in a new
-                // shared variable
+                $activeParallaxElements = $activeParallaxElements.add($this);
                 
-                $activeParallaxElements = $parallaxElement;
+                // update parallax element
                 
-                // update all parallax elements
-                
-                updateParallaxElements();
-                
+                updateParallaxElement($this);
+
                 // set initialized
 
                 $this.data().props.isParallax = true;
-
+                
             });
             
-            if (!initialized) {
+            // to avoid positioning errors, always scroll the page
+            // back to top on dom-ready
+
+            resetScroll();
             
-                // attach events
-        
-                $window.on('resize yoi-scroll', function() {
-                    updateParallaxEnv();
-                    scrollParallax();
-                });
-                
-                // to avoid hickups, always scroll the page
-                // back to top on dom-ready
+            // cancel if already initialized
             
-                resetScroll();
-                
-                // set initialized flag
-                
-                initialized = true;
-                
-            }
+            if (initialized) return;
             
+            // attach events
+
+            $window.on('resize yoi-scroll', function() {
+                updateParallaxEnv();
+                scrollParallax();
+            });
+
+            // set initialized
+            
+            initialized = true;
+
         }
 
     }
@@ -98,57 +97,59 @@ YOI.behaviour.Parallax = (function() {
             var initialPosY         = data.props.initialPosY;
             var factor              = data.options.factor || defaultFactor;
             var scrollTopInViewport = initialPosY - (currentScrollTop + viewportHeight);
-            var parallaxOffset      = data.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
+            var parallaxOffset      = data.props.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
             
             if (state === 'in' || state === 'center') {
                 $this.css('transform', 'translate3d(0, ' + parallaxOffset + 'px, 1px)');
             }
+            
+            // console.log(data.startsInViewport);
 
         });
 
     }
     
-    function updateParallaxElements() {
+    function updateParallaxElement($parallaxElement) {
 
         /**
-         *  Updates all parallax elements by attaching load-events and adding
-         *  them to the collection of elements watched by YOI.ScrollAgent.
+         *  Updates a parallax element. Initializes YOI.scrollAgent on first
+         *  call, etc.
+         *
+         *  @param {jQuery dom object} $parallaxElement
          */
+        
+        var data = $parallaxElement.data();
+        
+        // observe element via YOI.ScrollAgent
+        
+        if (!data.props.isParallax) {
+            YOI.module.ScrollAgent.init($parallaxElement);
+        }
 
-        $activeParallaxElements.each(function() {
-
-            var $this = $(this);
-            var state = $this.data().state;
-            
-            // observe element via YOI.ScrollAgent
-            
-            YOI.module.ScrollAgent.init($this);
-            
-            // edge case: flag elements which are already inside the viewport
-            // on dom-ready
-
-            if ((state === 'in' || state === 'center')) {
-                $this.data().startsInViewport = true;
-            }
-            
-            // attach load event to each parallax element -
-            // if the element is an image, the document dimensions might change
-
-            if ($this.is('img')) {
-                $this.on('load', function() {
-                    updateParallaxEnv();
-                    scrollParallax();
-                });
-            }
-
-        });
+        // edge case: flag elements which are already inside the viewport
+        // on dom-ready
+        
+        if ((data.state === 'in' || data.state === 'center')) {
+            $parallaxElement.data().props.startsInViewport = true;
+        }
+        
+        // if the $parallaxElement is an image, recursively call
+        // updateParallaxElement() since dimensions such as document
+        // height are very likely to have changed
+        
+        if ($parallaxElement.is('img')) {
+            $parallaxElement.on('load', function() {
+                updateParallaxElement($parallaxElement);
+                updateParallaxEnv();
+            });
+        }
 
     }
     
     function resetScroll() {
         
         /**
-         *  Always scroll the page back to top to avoid errors
+         *  Scrolls the page back to top to avoid errors
          *  with parallax scrolling.
          */
         
@@ -163,8 +164,7 @@ YOI.behaviour.Parallax = (function() {
     function updateParallaxEnv() {
 
         /**
-         *  Updates important environment variables that are shared
-         *  throughout the script.
+         *  Updates shared variables.
          */
 
         currentScrollTop = $window.scrollTop();

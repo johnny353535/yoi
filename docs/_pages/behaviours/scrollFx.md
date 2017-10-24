@@ -7,7 +7,7 @@ permalink: behaviours/scrollfx
 
 # Scrollfx
 
-<p class="intro">Adds effects or transitions to elements once they enter or leave the viewport while scrolling.</p>
+<p class="intro">Adds effects or transitions to an element, responding to the scrolling position.</p>
 
 ## Parameters
 

@@ -4,6 +4,8 @@ YOI.behaviour.Dismiss = (function() {
 
     // private vars
     // ============
+    
+    var $window = $(window);
 
     // localization
 
@@ -45,9 +47,10 @@ YOI.behaviour.Dismiss = (function() {
             if ($(this).data().props.isDismissable) return false;
 
             // proceed
-
+            
             var $thisDismissableElement = $(this);
-            var positionStatic          = window.getComputedStyle(this).position === 'static';
+            var positionStatic          = $thisDismissableElement.css('position') === 'static';
+            var options                 = options || $thisDismissableElement.data().options;
             
             // to correctly (absolutely) position $btnDismiss, make sure
             // $thisDismissableElement provides positioning context
@@ -84,7 +87,6 @@ YOI.behaviour.Dismiss = (function() {
 
         $targetElement.fadeOut(function() {
             $targetElement.trigger('yoi-dismissed');
-            $targetElement.remove();
         });
 
     }

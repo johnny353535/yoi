@@ -7,7 +7,7 @@ permalink: behaviours/lazyload
 
 # Lazyload
 
-<p class="intro">Load an image only if it’s inside the viewport.</p>
+<p class="intro">Loads an image only if it’s inside the viewport.</p>
 
 ## Basic Example
 
