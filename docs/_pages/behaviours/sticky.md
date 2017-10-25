@@ -3,6 +3,9 @@ layout: base
 group: behaviours
 title: Sticky
 permalink: behaviours/sticky
+srcfiles:
+    - sticky.js
+    - ../modules/scrollagent.js
 ---
 
 # Sticky
@@ -15,7 +18,7 @@ Add the Attribute `yoi-sticky` to any element. While scrolling down the page, as
 
 ```html
 <!-- example -->
-<div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="stop:300;"></div>
+<div class="w-6 h-6 bg-primary-15 br" yoi-sticky="stop:300;"></div>
 ```
 
 <p class="hint hint--primary">If you provide no additional Parameter, the element sticks as long as the page can be scrolled.</p>
@@ -46,7 +49,7 @@ Sticky takes the first matching element on the page and references it’s height
 <!-- example -->
 <div class="flexGrid">
     <div class="w-8">
-        <div class="w-6 h-6 p-2 bg-primary-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
+        <div class="w-6 h-6 bg-primary-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
     </div>
     <div class="w-1-3">
         <div class="bg-base-24 br h-40 w-20 p-1" id="myReferenceElement-1"></div>
@@ -63,7 +66,7 @@ Use `reference:parent;` to turn the sticky element’s surrounding element (= *p
 ```html
 <!-- example -->
 <div class="br bg-base-24 h-30 p-2">
-    <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="reference:parent;"></div>
+    <div class="w-6 h-6 bg-primary-15 br" yoi-sticky="reference:parent;"></div>
 </div>
 ```
 
@@ -71,13 +74,28 @@ Use `reference:parent;` to turn the sticky element’s surrounding element (= *p
 
 If you don’t define values for the parameters `start` and `stop`, the sticky element will start to stick as soon as it reaches the upper viewport border. It will stick as long as the page can be scrolled. Provide values for the `start` and `stop` parameters to control this behaviour.
 
+The element in the following example starts to stick at 30px distance and sticks for 100px:
+
+```html
+<!-- example -->
+<div class="w-6 h-6 bg-primary-15 br" yoi-sticky="start:30px; stop:100;"></div>
+```
+
 #### Start
 
-`start` defines the offset to the upper viewport border. For example: Add `start:20;` to make the element start to stick when it is scrolled 20px below the upper viewport border.
+`start` defines the offset to the upper viewport border. For example: Add `start:30;` to make the element start to stick when it is scrolled 30px below the upper viewport border:
+
+```html
+<div yoi-sticky="start:30;"></div>
+```
 
 #### Stop
 
-`stop` defines the distance between the sticky element’s initial top position and the position when it stops sticking. For example: Add `stop:300` to make the sticky element stick for a distance of 300px while scrolling.
+`stop` defines the distance between the sticky element’s initial top position and the position when it stops sticking. For example: Add `stop:300` to make the sticky element stick for a distance of 100px while scrolling:
+
+```html
+<div yoi-sticky="stop:100;"></div>
+```
 
 #### Default Values
 
@@ -85,50 +103,11 @@ The default value for `start` is `0`. The default value for `stop` is the `<body
 
 <p class="hint hint--primary"><b>Stop & Reference Elements</b> If you provide a reference element, you use it because you wish to define the position at which the sticky element stops to stick. Therefore, the stop parameter is ignored.</p>
 
-#### Examples
+## Events
 
-```html
-<!-- example:tabs -->
-<div class="flexGrid">
-    <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-2 m-b-4">start: none;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-sticky-1">
-            <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="stop:200;"></div>
-        </div>
-    </div>
-    <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-2 m-b-4">start: 30;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-sticky-2">
-            <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="start:30; stop:200;"></div>
-        </div>
-    </div>
-    <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-2 m-b-4">start: 180;<br />stop: 200;</p>
-        <div class="h-40 pos-rel" id="example-sticky-3">
-            <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="start:180; stop:200;"></div>
-        </div>
-    </div>
-    <div class="w-1-4 p-r-4">
-        <p class="tc-gray-15 fs-2 m-b-4">start: 30;<br />stop: 350;</p>
-        <div class="h-40 pos-rel" id="example-sticky-4">
-            <div class="w-6 h-6 p-2 bg-primary-15 br" yoi-sticky="start:30; stop:350;"></div>
-        </div>
-    </div>
-</div>
-```
+This behaviour fires the following [events](/glossary) on each element with the applied behaviour:
 
-<div style="height:1000px"></div>
-<style>
-    [id*="example-sticky-"]::after {
-        border-top: #ddd 1px solid;
-        content: ' ';
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 200px;
-        width: 60px;
-    }
-    #example-sticky-4::after {
-        top: 350px;
-    }
-</style>
+| Event             | Fires …                                   |
+| ----------------- | ----------------------------------------- |
+| `yoi-stick-start` | When the element starts to *stick*.       |
+| `yoi-stick-stop`  | When the element gets *unstuck*.          |

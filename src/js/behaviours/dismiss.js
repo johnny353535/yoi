@@ -4,8 +4,6 @@ YOI.behaviour.Dismiss = (function() {
 
     // private vars
     // ============
-    
-    var $window = $(window);
 
     // localization
 

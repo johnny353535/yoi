@@ -12,14 +12,16 @@ YOI.action.Update = function($trigger, $target, options) {
     *
     *  Available options:
     *
-    *  @option {string} url  - the url for the ajax request
-    *  @option {string} type - optional request type ("POST" or "GET"), default: "GET"
+    *  @option {string} url    - the url for the ajax request
+    *  @option {string} type   - optional request type ("POST" or "GET"), default: "GET"
+    *  @option {string} filter - optional CSS selector to filter an element from the response markup
     */
     
     if ($target instanceof jQuery) {
     
         var requestType = options.type || false;
         var requestUrl  = options.url || false;
+        var filter      = options.filter || '#yoi-update-src';
 
         // localization
 
@@ -72,8 +74,8 @@ YOI.action.Update = function($trigger, $target, options) {
                 },
 
                 success: function(data) {
-                    var $responseMarkup = $(data).filter('#ajaxContent');
-                    $target.html($responseMarkup);
+                    var $response = $(data).filter(filter);
+                    $target.html($response);
                 }
                 
             });

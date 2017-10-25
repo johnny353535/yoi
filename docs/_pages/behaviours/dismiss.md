@@ -24,7 +24,7 @@ Add the attribute `yoi-dismiss` to your element:
 
 ## Events
 
-This behaviour fires the following [events](/glossary):
+This behaviour fires the following [events](/glossary) on each element with the applied behaviour:
 
 | Event           | Fires …                                   |
 | --------------- | ----------------------------------------- |

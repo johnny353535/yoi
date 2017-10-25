@@ -7,11 +7,15 @@ permalink: behaviours/
 
 # Behaviours
 
-<p class="intro">YOI’s <i>behaviours</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
+<p class="intro">YOI <i>behaviours</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
+
+## Purpose
+
+Use a *behaviour* to make an element *behave* in a certain way depending on certain conditions. For example make an element react to it’s current position while scrolling.
 
 ## The Behaviour Attribute
 
-Add a [behaviour-Attribute](/glossary) to any element to activate the behaviour:
+Add a [behaviour-attribute](/glossary) to any element to activate the behaviour:
 
 ```html
 <div yoi-dismiss></div>

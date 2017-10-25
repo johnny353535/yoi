@@ -3,6 +3,9 @@ layout: base
 group: behaviours
 title: Parallax
 permalink: behaviours/parallax
+srcfiles:
+    - parallax.js
+    - ../modules/scrollagent.js
 ---
 
 # Parallax

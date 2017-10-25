@@ -7,20 +7,34 @@ permalink: actions/show
 
 # Show
 
-<p class="intro">Use this action to show an invisible element.</p>
+<p class="intro">Reveals a hidden element.</p>
 
-## Basic Example
+## Example
 
-Use `yoi-action="Show:CssSelector;"` to show an invisible element:
+Add `yoi-action="Show:#targetElementSelector;"` to show an element:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#exampleContainer;">Show Example</button>
-<div id="exampleContainer" class="box p-4 m-t-4">
-    <p class="fs-2">Boo.</p>
+<button class="btn btn--large" yoi-action="Show:#example-1;">Show</button>
+<div id="example-1" class="box p-4 m-t-4">
+    <p class="fs-2">This will show.</p>
 </div>
 ```
 
+<p class="hint hint--primary"><b>Parent and Self</b> Use the keyword <code>parent</code> to target the parent (=sourrounding) element. Use the keyword <code>self</code> to target the element itself.</p>
+
 ## Parameters
 
-| `on` | optional – Any valid event ([learn more](actions/index.html#the-on-parameter)). The default is `click`. |
+| `on`         | Optional – a valid event ([learn more](actions/index.html#the-on-parameter)). The default event is `click`. |
+| `trigger`    | Optional – the trigger element to listen to ([learn more](actions/index.html#the-trigger-parameter)).       |
+| `transition` | Optional – one of the transitions `fade` and `slide`.                                                       |
+
+### Transition
+
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Show:#example-2; transition:fade;">Show</button>
+<div id="example-2" class="box p-4 m-t-4">
+    <p class="fs-2">This will show with a fade-in-transition.</p>
+</div>
+```

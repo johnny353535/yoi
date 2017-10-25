@@ -1,15 +1,10 @@
 /** fx.less */
 
-// settings
-// ========
-
-@animation-duration: 0.5;
-
 // initial values
 // ==============
 
 [class*='fx-'] {
-    animation-duration: 1s * @animation-duration;
+    animation-duration: 1s * @animationDuration;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
 }
@@ -40,11 +35,11 @@
 // duration
 
 .fx-fast {
-    animation-duration: 0.5s * @animation-duration;
+    animation-duration: 0.5s * @animationDuration;
 }
 
 .fx-slow {
-    animation-duration: 2s * @animation-duration;
+    animation-duration: 2s * @animationDuration;
 }
 
 // off
@@ -60,7 +55,7 @@
 
 .fx-fade-in,
 .fx-fade-out {
-    animation-duration: 1.5s * @animation-duration;
+    animation-duration: 1.5s * @animationDuration;
     animation-timing-function: linear;
 }
 

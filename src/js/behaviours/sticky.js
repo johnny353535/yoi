@@ -95,8 +95,7 @@ YOI.behaviour.Sticky = (function() {
             $stickyWrapper.css({
                 'position': stickyElementCssPos,
                 'top': stickyElementCssTop,
-                'left': stickyElementCssLeft,
-                'z-index': 100
+                'left': stickyElementCssLeft
             });
             
         } else {
@@ -104,8 +103,7 @@ YOI.behaviour.Sticky = (function() {
             // in all other cases, set the wrapper to position:relative
             
             $stickyWrapper.css({
-                'position': 'relative',
-                'z-index': 100
+                'position': 'relative'
             });
             
         }
@@ -274,6 +272,11 @@ YOI.behaviour.Sticky = (function() {
                         cssTopValue              = 0;
                         stickyPlaceholderDisplay = 'none';
                         
+                        // trigger custom event
+                        
+                        $stickyElement.trigger('yoi-stick-stop');
+                        
+                        
                     } else if (scrollTop > stickStop) {
 
                         // outside bottom boundary
@@ -281,6 +284,10 @@ YOI.behaviour.Sticky = (function() {
                         cssPositionValue         = 'absolute';
                         cssTopValue              = stickStop - stickyElementInitialTopPos + topOffset;
                         stickyPlaceholderDisplay = 'block';
+                        
+                        // trigger custom event
+                        
+                        $stickyElement.trigger('yoi-stick-stop');
 
                     } else {
                     
@@ -289,14 +296,20 @@ YOI.behaviour.Sticky = (function() {
                         cssPositionValue         = 'fixed';
                         cssTopValue              = 0 + topOffset;
                         stickyPlaceholderDisplay = 'block';
+                        
+                        // trigger custom event
+                        
+                        $stickyElement.trigger('yoi-stick-start');
 
                     }
 
                     // set the css
 
                     $stickyElement.css({
-                        'position' : cssPositionValue,
-                        'top'      : cssTopValue
+                        'position': cssPositionValue,
+                        'top': cssTopValue,
+                        'backface-visibility': 'hidden',
+                        'z-index': 1001
                     });
                     
                     $stickyPlaceholder.css({

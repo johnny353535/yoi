@@ -11,16 +11,16 @@ YOI.action.Show = function($trigger, $target, options) {
      *
      *  Available options:
      *
-     *  @option {string} transition - Chose from two jQuery animations: 'fadeIn' and 'slideDown'.
+     *  @option {string} transition - Chose from two jQuery animations: 'fade' and 'slide'.
      */
 
     if ($target instanceof jQuery) {
 
         // apply event on trigger and hide target
 
-        if (options.transition === 'fadeIn') {
+        if (options.transition === 'fade') {
             $target.stop().fadeIn();
-        } else if (options.transition === 'slideDown') {
+        } else if (options.transition === 'slide') {
             $target.stop().slideDown();
         } else {
             $target.show();

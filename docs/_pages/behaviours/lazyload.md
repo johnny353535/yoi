@@ -3,6 +3,9 @@ layout: base
 group: behaviours
 title: Lazyload
 permalink: behaviours/lazyload
+srcfiles:
+    - lazyload.js
+    - ../modules/scrollagent.js
 ---
 
 # Lazyload

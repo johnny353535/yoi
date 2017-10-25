@@ -3,6 +3,10 @@ layout: base
 group: behaviours
 title: ScrollFx
 permalink: behaviours/scrollfx
+srcfiles:
+    - scrollfx.js
+    - ../modules/scrollagent.js
+    - ../../less/utilities/fx.less
 ---
 
 # Scrollfx
