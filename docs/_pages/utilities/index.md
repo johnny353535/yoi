@@ -11,7 +11,7 @@ permalink: utilities/
 
 ## Logic
 
-*Utilities* are CSS classes with *only one or very few rules*. Each utility only does what you would *expect*. See the following example with the utilities `.fw-bold` (font weight bold) and `fst-italic` (font style italic):
+*Utilities* are CSS classes with *only one or very few rules*. Each utility only does what you would *expect*. See the following example with the utilities `fw-bold` (font weight bold) and `fst-italic` (font style italic):
 
 ```html
 <!-- example -->
@@ -28,14 +28,14 @@ Utilities are highly reuseable and almost infinitely combineable. You can easily
 
 ### Naming Scheme
 
-Utilities are named after a consistent scheme. You can easily remember the names after a while.
+Utilities are named after a consistent set of rules to make remembering the names as easy as possible:
 
 #### Basic Rules
 
-| Most utility class names reflect CSS property/value pairs | `property:value;`                       |
-| Properties/values are seperated by a dash                 | `property-value`                        |
-| Properties are shortened to 1–4 characters                | `c` = `color`, `bc` = `border-color`, … |
-| Most values are not shortened                             | `inline`, `block`, `inlineblock`, …     |
+| CSS rules have property/value pairs                                     | `property: value;` like `display: block;` |
+| In most utility names, properties/values are seperated by a single dash | `property-value`                          |
+| Properties are shortened to 1–4 characters                              | `p-value`, eg. `d-block`                  |
+| Most values are not shortened                                           | `d-inline`, `d-block`, `d-inlineblock`, … |
 
 #### Value Shorthands
 
@@ -52,11 +52,11 @@ Some values represent steps. Steps can be of different scopes (eg. 1–25, 1–6
 
 ## Using Utilities
 
-Utilities provide a simple, fast and consistent way to design right in the browser. Combine them to create almost every design you like. However, utilities also have limitations. For example if you want to create a complex responsive layout, it might be better to create a new style sheet with your own CSS classes and rules.
+Utilities provide a simple, fast and consistent way to design by only writing HTML. Combine them to create almost every design you like. However, utilities also have limitations. For example if you want to create a complex responsive layout, it might be better to create a new style sheet with your own CSS classes and rules.
 
 ### To Add …
 
-Use utilities to *add styles*. In the following example, a [box component](components/box.html) gets a margin:
+Use utilities to *add styles*. In the following example, a [box component](components/box.html) gets a margin from the [spacing-utility](utilities/spacing.html) `.m-6`:
 
 ```html
 <!-- example -->
@@ -70,7 +70,7 @@ Use utilities to *add styles*. In the following example, a [box component](compo
 
 ### To Modify …
 
-Use utilities to *override styles*. In the following example, the [box component](components/box.html) gets a wider border with a different color:
+Use utilities to *override styles*. In the following example, the [box component](components/box.html) gets a wider border with a different color via `bw-2` and `bc-red-15`:
 
 ```html
 <!-- example -->
@@ -88,11 +88,11 @@ Use utilities to create new elements. The element in the following example uses 
 
 ```html
 <!-- example -->
-<div class="bg-base-25 br w-25 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
-    <img class="d-blk" src="https://source.unsplash.com/-rWjydNhATw/250x170">
+<div class="bg-base-25 br w-20 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
+    <img class="d-blk" src="https://source.unsplash.com/-rWjydNhATw/200x165">
     <div class="p-3">
         <h4 class="m-b-1">Running Like a Pro</h4>
-        <p class="fs-2 lh-3">This short book teaches you the secret techniques to become a successful runner.</p>
+        <p class="fs-2 lh-3">These 10 secret tricks will turn you into a successful runner.</p>
     </div>
 </div>
 ```
