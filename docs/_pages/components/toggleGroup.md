@@ -27,7 +27,7 @@ If you provide no event in the options JSON, the default event to trigger a togg
 </div>
 <div class="box w-20 h-20" id="toggleElement-2">
     <div class="box__body">
-        <img class="d-blk" src="https://source.unsplash.com/zdXtC-jna3I/180x180" />
+        <img class="d-blk" src="https://source.unsplash.com/zdXc-jna3I/180x180" />
     </div>
 </div>
 <div class="box w-20 h-20" id="toggleElement-3">

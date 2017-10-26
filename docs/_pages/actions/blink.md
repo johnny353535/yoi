@@ -11,7 +11,7 @@ permalink: actions/blink
 
 ## Example
 
-Add `yoi-action="Blink:#targetElementSelector;"` to make an element blink. By default, it blinks two times:
+Add `yoi-action="Blink:#id;"` to make an element blink. By default, it blinks two times:
 
 ```html
 <!-- example -->

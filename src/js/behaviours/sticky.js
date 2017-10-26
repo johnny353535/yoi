@@ -133,7 +133,9 @@ YOI.behaviour.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElement - the sticky element
          */
         
-        var options                       = $stickyElement.data().options;
+        var data                          = $stickyElement.data();
+        var options                       = data.options;
+        var props                         = data.props;
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
         var stickyElementHeight           = $stickyElement.outerHeight();
         var stickyElementWidth            = $stickyElement.outerWidth();
@@ -159,19 +161,17 @@ YOI.behaviour.Sticky = (function() {
             stickStop  = stickStop - parseInt($referenceElement.css('paddingBottom')) + topDistance;
         }
         
-        // write props data
+        // write props
         
-        $stickyElement.data().props = {
-            passedValidation : passedValidation,
-            height           : stickyElementHeight,
-            width            : stickyElementWidth,
-            initialTopPos    : stickyElementInitialTopPos,
-            topOffset        : topOffset,
-            topDistance      : topDistance,
-            stickStart       : stickStart,
-            stickStop        : stickStop
-        };
-        
+        data.props.passedValidation = passedValidation;
+        data.props.height           = stickyElementHeight;
+        data.props.width            = stickyElementWidth;
+        data.props.initialTopPos    = stickyElementInitialTopPos;
+        data.props.topOffset        = topOffset;
+        data.props.topDistance      = topDistance;
+        data.props.stickStart       = stickStart;
+        data.props.stickStop        = stickStop;
+
     }
 
     function validInput($stickyElement) {

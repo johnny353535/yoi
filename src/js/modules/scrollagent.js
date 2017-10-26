@@ -84,17 +84,17 @@ YOI.module.ScrollAgent = (function() {
         // update all target elements
     
         $activeTargetElements.each(function() {
-        
+            
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
             var thisInitialPosY    = $thisTargetElement.offset().top;
             var props              = $thisTargetElement.data().props;
-    
-            // write data
             
+            // write data
+
             props.height      = thisHeight;
             props.initialPosY = thisInitialPosY;
-        
+            
             // set the initial state
     
             if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {

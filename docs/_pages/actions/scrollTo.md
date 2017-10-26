@@ -11,13 +11,13 @@ permalink: actions/scrollto
 
 ## Example
 
-Add `yoi-action="ScrollTo:#targetElementSelector"` to smoothly scroll to the target element:
+Add `yoi-action="ScrollTo:#id"` to smoothly scroll to the target element:
 
 ```html
 <!-- example -->
 <a class="btn btn--large" href="#example-1" yoi-action="ScrollTo:#example-1;">Scroll to #example-1</a>
 <div class="m-t-20">
-    <div id="example-1" class="w-30 al-c p-8 br bg-purple-15 tc-purple-24 fs-2">#example-1</div>
+    <div id="example-1" class="w-30 al-c p-8 br bg-purple-15 c-purple-24 fs-2">#example-1</div>
 </div>
 ```
 
@@ -33,20 +33,20 @@ If the target element is inside a scrollable container element, instead of scrol
 <a class="btn btn--large" href="#example-3" yoi-action="ScrollTo:#example-3;">Scroll to #example-3</a>
 ```
 
-<div class="m-t-4 h-40 p-4 br b-all bc-base-22 pos-rel scrl-y">
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div id="example-2" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-2">#example-2</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 tc-base-12 fs-2">Placeholder</div>
-    <div id="example-3" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 tc-yellow-8 fs-2">#example-3</div>
+<div class="m-t-4 h-40 p-4 br b-all bc-base-22 pos-relative scrl-y">
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div id="example-2" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 c-yellow-8 fs-2">#example-2</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="w-25 al-c p-8 m-b-2 br bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div id="example-3" class="w-25 al-c p-8 m-b-2 br bg-yellow-20 c-yellow-8 fs-2">#example-3</div>
 </div>
 
 ## Parameters
@@ -65,8 +65,8 @@ Set the highlight parameter to one of the two available highlight animation type
 <a class="btn btn--large" href="#example-4" yoi-action="ScrollTo:#example-4; highlight:blink;">Scroll to #example-4 and blink</a>
 <a class="btn btn--large" href="#example-5" yoi-action="ScrollTo:#example-5; highlight:pulse;">Scroll to #example-5 and pulse</a>
 <div class="m-t-20">
-    <div id="example-4" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-2">#example-4</div>
-    <div id="example-5" class="w-30 al-c p-8 br bg-red-17 tc-red-24 fs-2">#example-5</div>
+    <div id="example-4" class="w-30 al-c p-8 m-b-4 br bg-green-15 c-green-24 fs-2">#example-4</div>
+    <div id="example-5" class="w-30 al-c p-8 br bg-red-17 c-red-24 fs-2">#example-5</div>
 </div>
 ```
 
@@ -80,5 +80,5 @@ Set the offset parameter to the desired distance (in px) between the viewport’
 ```
 
 <div style="margin:800px 0;">
-    <div id="example-6" class="w-30 al-c p-8 m-b-4 br bg-green-15 tc-green-24 fs-2">#example-6 with 100px offset</div>
+    <div id="example-6" class="w-30 al-c p-8 m-b-4 br bg-green-15 c-green-24 fs-2">#example-6 with 100px offset</div>
 </div>

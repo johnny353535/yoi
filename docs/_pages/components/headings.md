@@ -31,5 +31,5 @@ Headings do not have their own modifiers classes. Use [YOI Utility Classes](util
 <!-- example -->
 <h1 class="fw-normal m-tb-4">Thin Heading Level 1</h1>
 <h2 class="al-c m-tb-4">Centered Heading Level 2</h2>
-<h3 class="tc-blue-15 al-r m-tb-4">Blue, right-aligned Heading Level 3</h3>
+<h3 class="c-blue-15 al-r m-tb-4">Blue, right-aligned Heading Level 3</h3>
 ```

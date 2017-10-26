@@ -78,16 +78,16 @@ permalink: utilities/border
 
 ```html
 <!-- example:tabs -->
-<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br">.br</div>
-<div class="b-all w-10 h-10 bc-blue-18 p-4 d-inlblk m-2 br-circle">.br-circle</div>
-<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-tl">.br-tl</div>
-<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-tr">.br-tr</div>
-<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-br">.br-br</div>
-<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-bl">.br-bl</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br">.br</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-4 d-inlineblock m-2 br-circle">.br-circle</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-tl">.br-tl</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-tr">.br-tr</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-br">.br-br</div>
+<div class="b-all w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-bl">.br-bl</div>
 
-<div class="box w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-0">.br-0</div>
-<div class="box w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-tl-0">.br-tl-0</div>
-<div class="box w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-tr-0">.br-tr-0</div>
-<div class="box w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-br-0">.br-br-0</div>
-<div class="box w-10 h-10 bc-blue-18 p-2 d-inlblk m-2 br-bl-0">.br-bl-0</div>
+<div class="box w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-0">.br-0</div>
+<div class="box w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-tl-0">.br-tl-0</div>
+<div class="box w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-tr-0">.br-tr-0</div>
+<div class="box w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-br-0">.br-br-0</div>
+<div class="box w-10 h-10 bc-blue-18 p-2 d-inlineblock m-2 br-bl-0">.br-bl-0</div>
 ```

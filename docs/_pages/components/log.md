@@ -105,7 +105,7 @@ Take a look at the code for this example to get an idea how to use the `.log`:
     
     // log some messages
     
-    YOI.component.Log.write($('#exampleLog-1'), '<br /><span class="tc-blue-15">response</span> = {<br />&nbsp;&nbsp;&nbsp;&nbsp;"key one" : <span class="tc-yellow-15">"value one"</span>,<br />&nbsp;&nbsp;&nbsp;&nbsp;"key two" : <span class="tc-yellow-15">"value two"</span><br />}');
+    YOI.component.Log.write($('#exampleLog-1'), '<br /><span class="c-blue-15">response</span> = {<br />&nbsp;&nbsp;&nbsp;&nbsp;"key one" : <span class="c-yellow-15">"value one"</span>,<br />&nbsp;&nbsp;&nbsp;&nbsp;"key two" : <span class="c-yellow-15">"value two"</span><br />}');
     YOI.component.Log.write($('#exampleLog-1'), 'one');
     YOI.component.Log.write($('#exampleLog-1'), 'two');
     YOI.component.Log.write($('#exampleLog-1'), 'three');

@@ -42,20 +42,20 @@
     
     // semantic text colors
 
-    .tc-attention-@{i} { color: ~"@{color-attention-@{i}}" !important; }
-    .tc-base-@{i}      { color: ~"@{color-base-@{i}}" !important; }
-    .tc-negative-@{i}  { color: ~"@{color-negative-@{i}}" !important; }
-    .tc-positive-@{i}  { color: ~"@{color-positive-@{i}}" !important; }
-    .tc-primary-@{i}   { color: ~"@{color-primary-@{i}}" !important; }
+    .c-attention-@{i} { color: ~"@{color-attention-@{i}}" !important; }
+    .c-base-@{i}      { color: ~"@{color-base-@{i}}" !important; }
+    .c-negative-@{i}  { color: ~"@{color-negative-@{i}}" !important; }
+    .c-positive-@{i}  { color: ~"@{color-positive-@{i}}" !important; }
+    .c-primary-@{i}   { color: ~"@{color-primary-@{i}}" !important; }
     
     // additional text colors
     
-    .tc-blue-@{i} when (@fullColorPalette = true)   { color: ~"@{blue-@{i}}" !important; }
-    .tc-gray-@{i} when (@fullColorPalette = true)   { color: ~"@{gray-@{i}}" !important; }
-    .tc-green-@{i} when (@fullColorPalette = true)  { color: ~"@{green-@{i}}" !important; }
-    .tc-purple-@{i} when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
-    .tc-red-@{i} when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
-    .tc-yellow-@{i} when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
+    .c-blue-@{i} when (@fullColorPalette = true)   { color: ~"@{blue-@{i}}" !important; }
+    .c-gray-@{i} when (@fullColorPalette = true)   { color: ~"@{gray-@{i}}" !important; }
+    .c-green-@{i} when (@fullColorPalette = true)  { color: ~"@{green-@{i}}" !important; }
+    .c-purple-@{i} when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
+    .c-red-@{i} when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
+    .c-yellow-@{i} when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
 
 }
 .generate_colors(25);
@@ -72,5 +72,5 @@
 
 // achromatic text colors
 
-.tc-transparent { color: @color-transparent !important; }
-.tc-white       { color: @color-white !important; }
+.c-transparent { color: @color-transparent !important; }
+.c-white       { color: @color-white !important; }

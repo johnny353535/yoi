@@ -18,8 +18,8 @@ permalink: utilities/gradient
 
 ```html
 <!-- example:tabs -->
-<div class="pos-rel d-inlblk w-10 h-10 m-4 p-2 gradient-t">.gradient-t</div>
-<div class="pos-rel d-inlblk w-10 h-10 m-4 p-2 gradient-r">.gradient-r</div>
-<div class="pos-rel d-inlblk w-10 h-10 m-4 p-2 gradient-b">.gradient-b</div>
-<div class="pos-rel d-inlblk w-10 h-10 m-4 p-2 gradient-l">.gradient-l</div>
+<div class="pos-relative d-inlineblock w-10 h-10 m-4 p-2 gradient-t">.gradient-t</div>
+<div class="pos-relative d-inlineblock w-10 h-10 m-4 p-2 gradient-r">.gradient-r</div>
+<div class="pos-relative d-inlineblock w-10 h-10 m-4 p-2 gradient-b">.gradient-b</div>
+<div class="pos-relative d-inlineblock w-10 h-10 m-4 p-2 gradient-l">.gradient-l</div>
 ```

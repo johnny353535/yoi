@@ -81,7 +81,7 @@ Use the [CSS-utility-classes](utilities/) to create custom variations. In the fo
 
 ```html
 <!-- example -->
-<div class="box bc-red-22 tc-red-10">
+<div class="box bc-red-22 c-red-10">
     <h4 class="box__header bg-red-24 bc-red-22">Headline</h4>
     <div class="box__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>

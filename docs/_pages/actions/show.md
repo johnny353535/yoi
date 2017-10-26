@@ -11,7 +11,7 @@ permalink: actions/show
 
 ## Example
 
-Add `yoi-action="Show:#targetElementSelector;"` to show an element:
+Add `yoi-action="Show:#id;"` to show an element:
 
 ```html
 <!-- example -->

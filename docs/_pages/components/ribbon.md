@@ -15,7 +15,7 @@ This is how a basic `.ribbon` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<div class="box w-15 h-15 pos-rel ovrfl-hidden">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden">
     <p class="ribbon">
         <span class="ribbon__label">Deal</span>
     </p>
@@ -37,21 +37,21 @@ Use the modifiers `.ribbon--left` and `.ribbon--right` to pin the ribbon to the 
 ```html
 <!-- example -->
 <!-- default (= left) -->
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon">
         <span class="ribbon__label">Left</span>
     </p>
 </div>
 
 <!-- left -->
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left">
         <span class="ribbon__label">Left</span>
     </p>
 </div>
 
 <!-- right -->
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--right">
         <span class="ribbon__label">Right</span>
     </p>
@@ -64,27 +64,27 @@ Use the modifiers `.ribbon--attention`, `.ribbon--dark`, `.ribbon--light`, `.rib
 
 ```html
 <!-- example:tabs -->
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left ribbon--attention">
         <span class="ribbon__label">Attention</span>
     </p>
 </div>
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left ribbon--dark">
         <span class="ribbon__label">Dark</span>
     </p>
 </div>
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left ribbon--light">
         <span class="ribbon__label">Light</span>
     </p>
 </div>
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left ribbon--negative">
         <span class="ribbon__label">Negative</span>
     </p>
 </div>
-<div class="box w-15 h-15 pos-rel ovrfl-hidden m-b-2">
+<div class="box w-15 h-15 pos-relative ovrfl-hidden m-b-2">
     <p class="ribbon ribbon--left ribbon--positive">
         <span class="ribbon__label">Positive</span>
     </p>

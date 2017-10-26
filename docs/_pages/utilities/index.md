@@ -7,14 +7,92 @@ permalink: utilities/
 
 # Utilities
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="intro">YOI <i>utilities</i> are specific <i>single-purpose CSS classes</i> to modify or create designs without actually writing CSS.</p>
 
-{% comment %}
-    - Naming convention/scheme
-    - Reusable
-    - Interoperable
-    - Immutable
-    - Unassuming
-    - Available Classes
-    - Examples
-{% endcomment %}
+## Logic
+
+*Utilities* are CSS classes with *only one or very few rules*. Each utility only does what you would *expect*. See the following example with the utilities `.fw-bold` (font weight bold) and `fst-italic` (font style italic):
+
+```html
+<!-- example -->
+<p class="fw-bold">Bold</p>
+<p class="fst-italic">Italic</p>
+```
+
+Utilities are highly reuseable and almost infinitely combineable. You can easily combine the two utilities from the first example:
+
+```html
+<!-- example -->
+<p class="fw-bold fst-italic">Bold Italic</p>
+```
+
+### Naming Scheme
+
+Utilities are named after a consistent scheme. You can easily remember the names after a while.
+
+#### Basic Rules
+
+| Most utility class names reflect CSS property/value pairs | `property:value;`                       |
+| Properties/values are seperated by a dash                 | `property-value`                        |
+| Properties are shortened to 1–4 characters                | `c` = `color`, `bc` = `border-color`, … |
+| Most values are not shortened                             | `inline`, `block`, `inlineblock`, …     |
+
+#### Value Shorthands
+
+Some values are shortened to make the resulting utility class names shorter:
+
+| top, right, bottom, left                       | `t`, `r`, `b`, `l`     |
+| top & bottom, left & right                     | `tb`, `lr`             |
+| top-left, top-right, bottom-right, bottom-left | `tl`, `tr`, `br`, `bl` |
+| none, 0                                        | `0`                    |
+
+#### Value Steps
+
+Some values represent steps. Steps can be of different scopes (eg. 1–25, 1–6, …) and different units (eg. `px`, `rem`, `%`, …). This varies from affected properties, like `border-width`, `opacity`, `width` and is documented on each utility group page.
+
+## Using Utilities
+
+Utilities provide a simple, fast and consistent way to design right in the browser. Combine them to create almost every design you like. However, utilities also have limitations. For example if you want to create a complex responsive layout, it might be better to create a new style sheet with your own CSS classes and rules.
+
+### To Add …
+
+Use utilities to *add styles*. In the following example, a [box component](components/box.html) gets a margin:
+
+```html
+<!-- example -->
+<div class="box m-6">
+    <div class="box__header">Example</div>
+    <div class="box__body">
+        <p>This is a modified box component.</p>
+    </div>
+</div>
+```
+
+### To Modify …
+
+Use utilities to *override styles*. In the following example, the [box component](components/box.html) gets a wider border with a different color:
+
+```html
+<!-- example -->
+<div class="box bc-red-15 bw-2">
+    <div class="box__header">Example</div>
+    <div class="box__body">
+        <p>This is a modified box component.</p>
+    </div>
+</div>
+```
+
+### To Create …
+
+Use utilities to create new elements. The element in the following example uses many utilities for [color](utilities/color.html), [shadows](utilities/shadow.html), [typography](utilities/typography.html) and more …
+
+```html
+<!-- example -->
+<div class="bg-base-25 br w-25 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
+    <img class="d-blk" src="https://source.unsplash.com/-rWjydNhATw/250x170">
+    <div class="p-3">
+        <h4 class="m-b-1">Running Like a Pro</h4>
+        <p class="fs-2 lh-3">This short book teaches you the secret techniques to become a successful runner.</p>
+    </div>
+</div>
+```

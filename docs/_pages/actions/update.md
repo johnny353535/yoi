@@ -11,7 +11,7 @@ permalink: actions/update
 
 ## Example
 
-Use `yoi-action="Update:'#targetElementSelector'; url:'https://someAdress.com';"` to request data and inject it into the target element.
+Use `yoi-action="Update:'#id'; url:'https://someAdress.com';"` to request data and inject it into the target element.
 
 In the following example, each button calls the _action_ `Update` to load different content into the example container below. The last button points to an invalid address and therefore demonstrates an error message:
 
@@ -22,7 +22,7 @@ In the following example, each button calls the _action_ `Update` to load differ
     <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'demos/ajaxSource-2.html';">What is Strychnine?</button>
     <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'demos/ajaxSource-xyz.html';">42?</button>
 </div>
-<div id="example-1" class="pos-rel m-t-4">
+<div id="example-1" class="pos-relative m-t-4">
     <div class="p-4 b-dashed bc-base-22 bw-1 br">
         <p class="fs-2">Response goes here …</p>
     </div>

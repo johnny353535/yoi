@@ -318,7 +318,7 @@ var YOI = {
 
         /**
          *  Hides an element which has a Yoshino UI-Core display utility class like
-         *  d-block, d-inl, d-inlblk. The script remembers the display class and
+         *  d-block, d-inline, d-inlineblock. The script remembers the display class and
          *  puts it back, once YOI.show() gets called.
          *
          *  @param {number} $target - the jQuery target dom element
@@ -332,17 +332,17 @@ var YOI = {
 
         // get the display utility class
 
-        if ($target.hasClass('d-blk')) {
-            $target.data('displayUtilityClass', 'd-blk');
-        } else if ($target.hasClass('d-inl')) {
-            $target.data('displayUtilityClass', 'd-inl');
-        } else if ($target.hasClass('d-inlblk')) {
-            $target.data('displayUtilityClass', 'd-inlblk');
+        if ($target.hasClass('d-block')) {
+            $target.data('displayUtilityClass', 'd-block');
+        } else if ($target.hasClass('d-inline')) {
+            $target.data('displayUtilityClass', 'd-inline');
+        } else if ($target.hasClass('d-inlineblock')) {
+            $target.data('displayUtilityClass', 'd-inlineblock');
         }
 
         // remove all display utility classes
 
-        $target.removeClass('d-blk d-inl d-inlblk');
+        $target.removeClass('d-block d-inline d-inlineblock');
 
         // hide the target
 
@@ -658,28 +658,24 @@ var YOI = {
     
         // if not already present, create "options" object
     
-        if (!$element.data().options) {
+        if (!$element.data().hasOwnProperty('options')) {
             $element.data().options = {};
         }
         
+        // if the "options" parameter is omitted on function call, read the
+        // options from the element's yoi-* attribute
+        
         if (!options) {
-        
-            // if the "options" parameter is omitted on function call, read the
-            // options from the element's yoi-* attribute
-        
             var options = YOI.toObject(YOI.getAttribute($element));
-        
         }
+        
+        // if "options" is a valid object, attach the options to
+        // the element via jQuery's data() function
     
         if (typeof options === 'object') {
-        
-            // if "options" is a valid object, attach the options to
-            // the element via jQuery's data() function
-        
             $.each(options, function(key, value) {
                 $element.data().options[key] = value;
             });
-            
         }
     
     },
@@ -698,32 +694,19 @@ var YOI = {
     
         // if not already present, create "props" object
     
-        if (!$element.data().props) {
+        if (!$element.data().hasOwnProperty('props')) {
             $element.data().props = {};
         }
+        
+        // if "props" is a valid object, attach the value to
+        // the element via jQuery's data() function
 
         if (typeof props === 'object') {
-        
-            // if the new props differ from the already attached props,
-            // fire a custom event
-        
-            if (props !== $element.data().props) {
-                $element.trigger('yoi-props-change');
-            }
-        
-            // if "props" is a valid object, attach the value to
-            // the element via jQuery's data() function
-        
             $.each(props, function(key, value) {
                 $element.data().props[key] = value;
             });
-        
-            // trigger custom event
-        
-            $element.trigger('yoi-props-update');
-        
         }
-    
+
         return $element.data().props;
 
     },
@@ -739,28 +722,17 @@ var YOI = {
          *  @return {object}             state
          */
     
+        // if not already present, create "state" object
+    
         if (!$element.data().hasOwnProperty('state')) {
             $element.data().state = '';
         }
+        
+        // if "state" is a valid string, attach the value to
+        // the element via jQuery's data() function
 
         if (typeof state === 'string') {
-        
-            // if the new props differ from the already attached props,
-            // fire a custom event
-        
-            if (state !== $element.data().state) {
-                $element.trigger('yoi-state-change');
-            }
-        
-            // if "state" is a valid string, attach the value to
-            // the element via jQuery's data() function
-        
             $element.data().state = state;
-        
-            // trigger custom event
-        
-            $element.trigger('yoi-state-update');
-        
         }
         
         return $element.data().state;
@@ -800,9 +772,13 @@ var YOI = {
             // ... otherwise add data (options, state, props) to each element in the collection
         
             YOI.elementCollection[identifier].each(function() {
-                YOI.updateOptions($(this), options);
-                YOI.updateState($(this), state);
-                YOI.updateProps($(this), props);
+                
+                var $this = $(this);
+                
+                YOI.updateOptions($this, options);
+                YOI.updateState($this, state);
+                YOI.updateProps($this, props);
+                
             });
 
         } else if ($element instanceof jQuery) {
@@ -811,6 +787,9 @@ var YOI = {
             // set it's options and add it to the element collection
             
             YOI.updateOptions($element, options);
+            YOI.updateState($element, state);
+            YOI.updateProps($element, props);
+            
             YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
     
         }

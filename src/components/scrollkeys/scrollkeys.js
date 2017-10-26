@@ -77,7 +77,7 @@ YOI.component.ScrollKeys = (function() {
             
             // inject the buttons & add position
             
-            $scrollButtons.addClass('pos-fix-' + position);
+            $scrollButtons.addClass('pos-fixed-' + position);
             $body.append($scrollButtons);
             
             // init the icons

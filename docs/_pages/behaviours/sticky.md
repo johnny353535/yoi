@@ -40,7 +40,7 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 Add a CSS-selector as value for the `reference` parameter:
 
 ```html
-<div yoi-sticky="reference:#myReferenceElement;"></div>
+<div yoi-sticky="reference:#id;"></div>
 ```
 
 Sticky takes the first matching element on the page and references it’s height to define a stop position for the sticky element. The sticky element *sticks* until it’s bottom aligns with the reference element’s bottom.
@@ -49,10 +49,10 @@ Sticky takes the first matching element on the page and references it’s height
 <!-- example -->
 <div class="flexGrid">
     <div class="w-8">
-        <div class="w-6 h-6 bg-primary-15 m-r-4 br" yoi-sticky="reference:#myReferenceElement-1;"></div>
+        <div class="w-6 h-6 bg-primary-15 m-r-4 br" yoi-sticky="reference:#referenceElement-1;"></div>
     </div>
     <div class="w-1-3">
-        <div class="bg-base-24 br h-40 w-20 p-1" id="myReferenceElement-1"></div>
+        <div class="bg-base-24 br h-40 w-20 p-1" id="referenceElement-1"></div>
     </div>
 </div>
 ```

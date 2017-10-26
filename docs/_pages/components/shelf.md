@@ -109,7 +109,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 </div>
             </div>
             <div class="shelf__item w-1-3">
-                <div class="box bg-yellow-21 bc-yellow-19 h-25 p-2 m-2 tc-yellow-5">
+                <div class="box bg-yellow-21 bc-yellow-19 h-25 p-2 m-2 c-yellow-5">
                     <h3>Professional</h3>
                     <p class="m-tb-2">The perfect option for our professional customers.</p>
                     <p class="fs-3 al-c"><b>15 €</b></p>
@@ -117,7 +117,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 </div>
             </div>
             <div class="shelf__item w-1-3">
-                <div class="box bg-red-21 bc-red-19 h-25 p-2 m-2 tc-red-5">
+                <div class="box bg-red-21 bc-red-19 h-25 p-2 m-2 c-red-5">
                     <h3>Premium</h3>
                     <p class="m-tb-2">Everything you can imagine is covered by our premium plan.</p>
                     <p class="fs-3 al-c"><b>500 €</b></p>
@@ -135,7 +135,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
     <div class="shelf__board">
         <div class="flexGrid">
             <div class="shelf__item w-1-2">
-                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 tc-blue-22 ovrfl-hidden" href="#">
+                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 c-blue-22 ovrfl-hidden" href="#">
                     <img class="d-blk m-b-2" src="https://source.unsplash.com/kFCdfLbu6zA/290x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Yoga Master in 10 Days</h4>
@@ -144,7 +144,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                 </a>
             </div>
             <div class="shelf__item w-1-2">
-                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 tc-red-22 ovrfl-hidden" href="#">
+                <a class="box bg-base-5 b-0 h-30 tdcr-none hvr--bg-base-3 p-b-10 m-2 c-red-22 ovrfl-hidden" href="#">
                     <img class="d-blk m-b-2" src="https://source.unsplash.com/-rWjydNhATw/290x170">
                     <div class="p-2">
                         <h4 class="m-b-1">Running Like a Pro</h4>

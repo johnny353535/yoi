@@ -18,7 +18,7 @@ Use an _action_ to make *one element interact with another element*. For example
 Add an [action-attribute](/glossary) to an element to make it execute an action. You must always add at least one key/value pair: the *action name* and the *target element [selector](/glossary)*:
 
 ```html
-<div yoi-action="Actionname:#targetElementSelector;">...</div>
+<div yoi-action="Actionname:#id;">...</div>
 ```
 
 ### Multiple Actions
@@ -39,7 +39,7 @@ Add the action _Hide_ to a `<button>` and set the target element selector to mat
 <!-- example -->
 <button class="btn btn--large" yoi-action="Hide:#example-1;">Hide #example-1</button>
 <div id="example-1" class="m-t-4">
-    <div class="box p-4 tc-gray-15 fs-2">#example-1</div>
+    <div class="box p-4 c-gray-15 fs-2">#example-1</div>
 </div>
 ```
 
@@ -80,7 +80,7 @@ Use the keyword _parent_ (written in lowercase), to select the parent (= enclosi
 ```html
 <!-- example -->
 <div class="box p-4">
-    <p class="fs-2 tc-gray-15 m-b-2">This is the parent element of the button.</p>
+    <p class="fs-2 c-gray-15 m-b-2">This is the parent element of the button.</p>
     <button class="btn btn--large" yoi-action="Hide:parent;">Hide my Parent Element</button>
 </div>
 ```
@@ -91,7 +91,7 @@ By default, every action is executed _on click_. Use the _on_ parameter to call 
 
 ```html
 <!-- example -->
-<p class="fs-2 tc-gray-15 m-b-4">Use the buttons and the text input to make the example target blink:</p>
+<p class="fs-2 c-gray-15 m-b-4">Use the buttons and the text input to make the example target blink:</p>
 <div class="btns">
     <button class="btn btn--large" yoi-action="Blink:#example-2;">click</button>
     <button class="btn btn--large" yoi-action="Blink:#example-2; on:dblclick;">double-click</button>
@@ -100,7 +100,7 @@ By default, every action is executed _on click_. Use the _on_ parameter to call 
 </div>
 <input class="input--large w-20 m-t-2" type="text" value="focus" yoi-action="Blink:#example-2; on:focus;" />
 <div id="example-2" class="m-t-4">
-    <div class="box p-4 tc-gray-15 fs-2">#example-2</div>
+    <div class="box p-4 c-gray-15 fs-2">#example-2</div>
 </div>
 ```
 
@@ -110,10 +110,10 @@ Some _actions_ implement _options_. Available options are listed on each actionâ
 
 ```html
 <!-- example -->
-<p class="fs-2 tc-gray-15 m-b-4">Click the button to hide the target element with a slide-transition:</p>
+<p class="fs-2 c-gray-15 m-b-4">Click the button to hide the target element with a slide-transition:</p>
 <button class="btn btn--large" yoi-action="Hide:#example-4; transition:slideUp;">Hide #example-4</button>
 <div id="example-4" class="m-t-4">
-    <div class="box p-4 tc-gray-15 fs-2">#example-4</div>
+    <div class="box p-4 c-gray-15 fs-2">#example-4</div>
 </div>
 ```
 
@@ -128,10 +128,10 @@ The first method is used in all previous examples. However, sometimes the second
 
 ```html
 <!-- example -->
-<p class="fs-2 tc-gray-15 m-b-4">An example element will <i>listen</i> to the <code>yoi-switch-on</code> and <code>yoi-switch-off</code> events and show or hide itself accordingly:</p>
+<p class="fs-2 c-gray-15 m-b-4">An example element will <i>listen</i> to the <code>yoi-switch-on</code> and <code>yoi-switch-off</code> events and show or hide itself accordingly:</p>
 <div id="exampleTrigger-1" class="switch switch--large" yoi-switch></div>
 <div class="m-t-4" yoi-action-1="Show:self; on:yoi-switch-on; trigger:#exampleTrigger-1;" yoi-action-2="Hide:self; on:yoi-switch-off; trigger:#exampleTrigger-1;" >
-    <div class="box p-4 tc-gray-15 fs-2">Hello.</div>
+    <div class="box p-4 c-gray-15 fs-2">Hello.</div>
 </div>
 ```
 
@@ -143,10 +143,10 @@ In the following example, the [switch](components/switch.html) fires the events 
 
 ```html
 <!-- example -->
-<p class="fs-2 tc-gray-15 m-b-4">Use the switch to show or hide the example target:</p>
+<p class="fs-2 c-gray-15 m-b-4">Use the switch to show or hide the example target:</p>
 <div class="switch switch--large" yoi-switch yoi-action-1="Show:#example-3; on:yoi-switch-on;" yoi-action-2="Hide:#example-3; on:yoi-switch-off;"></div>
 <div id="example-3" class="m-t-4">
-    <div class="box p-4 tc-gray-15 fs-2">#example-3</div>
+    <div class="box p-4 c-gray-15 fs-2">#example-3</div>
 </div>
 ```
 
@@ -156,7 +156,7 @@ In addition to YOI global actions described in this chapter, many YOI components
 
 ```html
 <!-- example -->
-<p class="fs-2 tc-gray-15 m-b-4">Use the first switch to toggle the second switch:</p>
+<p class="fs-2 c-gray-15 m-b-4">Use the first switch to toggle the second switch:</p>
 <div class="switch switch--large" yoi-switch yoi-action="Switch.toggle:#exampleSwitch;"></div>
 <div id="exampleSwitch" class="switch switch--large" yoi-switch="state:on;"></div>
 ```

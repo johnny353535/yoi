@@ -25,8 +25,8 @@ This is how a carefully styled textarea with `yoi-maxchars` can look like and ho
 
 ```html
 <!-- example:tabs -->
-<textarea class="br-bl-0 br-br-0" rows="" cols="" maxlength="200" yoi-maxchars="display:#display-2; errorClass:tc-red-10;"></textarea>
-<div class="br-bl br-br b-l b-r b-b p-lr-2 p-tb-1 tc-main-12">
+<textarea class="br-bl-0 br-br-0" rows="" cols="" maxlength="200" yoi-maxchars="display:#display-2; errorClass:c-red-10;"></textarea>
+<div class="br-bl br-br b-l b-r b-b p-lr-2 p-tb-1 c-main-12">
     <span class="js-only"><b id="display-2"></b> characters left</span>
     <span class="js-fallback">Only 200 characters allowed</span>
 </div>
@@ -37,8 +37,8 @@ This is how a carefully styled text input with `yoi-maxchars` can look like and 
 ```html
 <!-- example:tabs -->
 <div class="w-20">
-    <input type="text" class="input--large br-bl-0 br-br-0" maxlength="20" yoi-maxchars="display:#display-3; errorClass:tc-red-10;" />
-    <div class="br-bl br-br b-l b-r b-b p-lr-2 p-tb-1 tc-main-12">
+    <input type="text" class="input--large br-bl-0 br-br-0" maxlength="20" yoi-maxchars="display:#display-3; errorClass:c-red-10;" />
+    <div class="br-bl br-br b-l b-r b-b p-lr-2 p-tb-1 c-main-12">
         <span class="js-only"><b id="display-3"></b> characters left</span>
         <span class="js-fallback">Only 200 characters allowed</span>
     </div>
@@ -85,7 +85,7 @@ When the limit is surpassed, this css-class is added to the display element (eg.
 
 ```html
 <!-- example:tabs -->
-<input id="foo" type="text" maxlength="20" yoi-maxchars="display:#display-6; errorClass:tc-red-10" />
+<input id="foo" type="text" maxlength="20" yoi-maxchars="display:#display-6; errorClass:c-red-10" />
 <p class="m-t-2" id="display-6"></p>
 <button class="btn btn--large m-t-2" id="bar">Reset</button>
 <script>

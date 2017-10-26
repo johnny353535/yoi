@@ -41,9 +41,9 @@ YOI.behaviour.Lazyload = (function() {
 
             // proceed
             
-            var $thisLazyload = $(this);
-            var options       = $thisLazyload.data().options;
-            var defaultImage  = options.src || extractImgSrcFromString($(this).html()) || false;
+            var $this         = $(this);
+            var options       = $this.data().options;
+            var defaultImage  = options.src || extractImgSrcFromString($this.html()) || false;
             var width         = options.width || false;
             var height        = options.height || false;
             var alt           = options.alt || false;
@@ -93,7 +93,7 @@ YOI.behaviour.Lazyload = (function() {
             
             newImage
                 .addClass('fx-fade-in-initial')
-                .insertAfter($thisLazyload)
+                .insertAfter($this)
                 .promise()
                 .then(function() {
                     YOI.module.ScrollAgent.init(newImage);
@@ -103,9 +103,13 @@ YOI.behaviour.Lazyload = (function() {
             // and add the fx css class name
                 
             newImage.on('load', function() {
-                $(this).one('yoi-viewport-in', function() {
-                    $(this).addClass('fx-fade-in');
+
+                var $this = $(this);
+                
+                $this.one('yoi-viewport-in', function() {
+                    $this.addClass('fx-fade-in');
                 });
+                
             });
             
             // to make sure timing always works well, this little hack is necesarry
@@ -117,7 +121,7 @@ YOI.behaviour.Lazyload = (function() {
             
             // set initialized
                 
-            $(this).data().props.isLazyloading = true;
+            $this.data().props.isLazyloading = true;
 
         });
         

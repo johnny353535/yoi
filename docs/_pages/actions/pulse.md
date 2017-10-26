@@ -11,7 +11,7 @@ permalink: actions/pulse
 
 ## Example
 
-Add `yoi-action="Pulse:#targetElementSelector;"` to make an element pulse. By default, it pulses two times:
+Add `yoi-action="Pulse:#id;"` to make an element pulse. By default, it pulses two times:
 
 ```html
 <!-- example -->

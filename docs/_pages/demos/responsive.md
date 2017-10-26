@@ -24,7 +24,7 @@ permalink: demos/responsive
 <div class="p-4">
     <table>
         <tr>
-            <td class="w-15 p-3">Only hidden at <b class="tc-red-15">M</b></td>
+            <td class="w-15 p-3">Only hidden at <b class="c-red-15">M</b></td>
             <td>
                 <span class="only-m--hidden">
                     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=666" yoi-icon />
@@ -32,7 +32,7 @@ permalink: demos/responsive
             </td>
         </tr>
         <tr>
-            <td class="w-15 p-3">Hidden at <b class="tc-red-15">L</b> and up</td>
+            <td class="w-15 p-3">Hidden at <b class="c-red-15">L</b> and up</td>
             <td>
                 <span class="l--hidden">
                     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=666" yoi-icon />
@@ -40,7 +40,7 @@ permalink: demos/responsive
             </td>
         </tr>
         <tr>
-            <td class="w-15 p-3">Only visible at <b class="tc-red-15">L</b></td>
+            <td class="w-15 p-3">Only visible at <b class="c-red-15">L</b></td>
             <td>
                 <span class="only-s--hidden only-m--hidden xl--hidde">
                     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=666" yoi-icon />

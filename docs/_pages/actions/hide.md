@@ -11,7 +11,7 @@ permalink: actions/hide
 
 ## Example
 
-Add `yoi-action="Hide:#targetElementSelector;"` to hide an element:
+Add `yoi-action="Hide:#id;"` to hide an element:
 
 ```html
 <!-- example -->

@@ -30,12 +30,12 @@ Use the modifier class `.callout--rot-l` to rotate to the left, use `.callout--r
 
 ```html
 <!-- example:tabs -->
-<div class="d-inlblk m-r-2">
+<div class="d-inlineblock m-r-2">
     <p class="callout callout--rot-l">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk">
+<div class="d-inlineblock">
     <p class="callout callout--rot-r">
         <span class="callout__body">Super Special Offer!</span>
     </p>
@@ -48,27 +48,27 @@ Use the color modifier classes `.callout--dark`, `.callout--light`, `.callout--a
 
 ```html
 <!-- example:tabs -->
-<div class="d-inlblk m-r-2 m-b-2">
+<div class="d-inlineblock m-r-2 m-b-2">
     <p class="callout callout--dark">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2 m-b-2">
+<div class="d-inlineblock m-r-2 m-b-2">
     <p class="callout callout--light">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2 m-b-2">
+<div class="d-inlineblock m-r-2 m-b-2">
     <p class="callout callout--attention">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2 m-b-2">
+<div class="d-inlineblock m-r-2 m-b-2">
     <p class="callout callout--positive">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2 m-b-2">
+<div class="d-inlineblock m-r-2 m-b-2">
     <p class="callout callout--negative">
         <span class="callout__body">Super Special Offer!</span>
     </p>
@@ -83,22 +83,22 @@ You can use the [shadow utility classes](utilities/styling.html#shadows) in comb
 
 ```html
 <!-- example:tabs -->
-<div class="d-inlblk m-r-2">
+<div class="d-inlineblock m-r-2">
     <p class="callout">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2">
+<div class="d-inlineblock m-r-2">
     <p class="callout sh-1">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2">
+<div class="d-inlineblock m-r-2">
     <p class="callout sh-2">
         <span class="callout__body">Super Special Offer!</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2">
+<div class="d-inlineblock m-r-2">
     <p class="callout sh-3">
         <span class="callout__body">Super Special Offer!</span>
     </p>
@@ -111,13 +111,13 @@ Combine [utility classes](utilities/) with `.callout` to create custom stylings:
 
 ```html
 <!-- example:tabs -->
-<div class="d-inlblk m-r-2">
-    <p class="callout callout--rot-l bg-blue-23 tc-blue-10 w-15 h-15">
+<div class="d-inlineblock m-r-2">
+    <p class="callout callout--rot-l bg-blue-23 c-blue-10 w-15 h-15">
         <span class="callout__body fs-3 lh-4">Large & Blue</span>
     </p>
 </div>
-<div class="d-inlblk m-r-2">
-    <p class="callout callout--rot-r bg-red-15 tc-red-23 w-20 h-20">
+<div class="d-inlineblock m-r-2">
+    <p class="callout callout--rot-r bg-red-15 c-red-23 w-20 h-20">
         <span class="callout__body fs-4 lh-6">Large & Red</span>
     </p>
 </div>

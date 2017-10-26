@@ -175,7 +175,7 @@ Try the example below and watch the custom events, printed to the [log element](
 <div id="myStepper" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
-<div class="btns d-inlblk val-t m-l-2">
+<div class="btns d-inlineblock val-t m-l-2">
     <button id="exampleButton-6" class="btn btn--large val-t">Reset</button>
     <button id="exampleButton-7" class="btn btn--large val-t">Clear</button>
     <button id="exampleButton-8" class="btn btn--large val-t">Set to 42</button>

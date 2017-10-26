@@ -35,11 +35,11 @@ We created a handy little online tool to generate our YOI-icons for you on the f
 
 <div class="box p-1 fs-2 m-t-3 m-b-4">
     http://cdn.yoshino.digital/svg.php?
-    <span class="tc-gray-15">+</span> <span class="tc-gray-12">id=</span><b class="tc-red-12">icon-001</b>
-    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&f=</span><span class="tc-red-12">#ccff00</span>
-    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&s=</span><span class="tc-red-12">#b00</span>
-    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&w=</span><span class="tc-red-12">128</span>
-    <span class="tc-gray-15">+</span> <span class="tc-gray-12">&h=</span><span class="tc-red-12">128</span>
+    <span class="c-gray-15">+</span> <span class="c-gray-12">id=</span><b class="c-red-12">icon-001</b>
+    <span class="c-gray-15">+</span> <span class="c-gray-12">&f=</span><span class="c-red-12">#ccff00</span>
+    <span class="c-gray-15">+</span> <span class="c-gray-12">&s=</span><span class="c-red-12">#b00</span>
+    <span class="c-gray-15">+</span> <span class="c-gray-12">&w=</span><span class="c-red-12">128</span>
+    <span class="c-gray-15">+</span> <span class="c-gray-12">&h=</span><span class="c-red-12">128</span>
 </div>
 
 | **id** | Always required! The prefix “icon-” + a numeric id + the optional postfix “-s” for the small version. |

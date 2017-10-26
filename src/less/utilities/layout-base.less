@@ -2,16 +2,16 @@
 
 // display
 
-.d-inl    { display: inline !important; }
-.d-blk    { display: block !important; }
-.d-inlblk { display: inline-block !important; }
+.d-inline      { display: inline !important; }
+.d-block       { display: block !important; }
+.d-inlineblock { display: inline-block !important; }
 
 // position type
 
-.pos-abs  { position: absolute !important; }
-.pos-rel  { position: relative !important; }
-.pos-fix  { position: fixed !important; }
-.pos-stc  { position: static !important; }
+.pos-absolute { position: absolute !important; }
+.pos-relative { position: relative !important; }
+.pos-fixed    { position: fixed !important; }
+.pos-static   { position: static !important; }
 
 // absolute positioning
 
@@ -26,14 +26,14 @@
 
 // fixed positioning
 
-.pos-fix-t  { position: fixed !important; top: 0 !important; }
-.pos-fix-r  { position: fixed !important; right: 0 !important; }
-.pos-fix-b  { position: fixed !important; bottom: 0 !important; }
-.pos-fix-l  { position: fixed !important; left: 0 !important; }
-.pos-fix-tl { position: fixed !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
-.pos-fix-tr { position: fixed !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
-.pos-fix-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
-.pos-fix-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
+.pos-fixed-t  { position: fixed !important; top: 0 !important; }
+.pos-fixed-r  { position: fixed !important; right: 0 !important; }
+.pos-fixed-b  { position: fixed !important; bottom: 0 !important; }
+.pos-fixed-l  { position: fixed !important; left: 0 !important; }
+.pos-fixed-tl { position: fixed !important; top: 0 !important; right: auto !important; bottom: auto !important; left: 0 !important; }
+.pos-fixed-tr { position: fixed !important; top: 0 !important; right: 0 !important; bottom: auto !important; left: auto !important; }
+.pos-fixed-br { position: fixed !important; top: auto !important; right: 0 !important; bottom: 0 !important; left: auto !important; }
+.pos-fixed-bl { position: fixed !important; top: auto !important; right: auto !important; bottom: 0 !important; left: 0 !important; }
 
 .generate_pos (@i) when (@i > 0) {
     .generate_pos((@i - 1));

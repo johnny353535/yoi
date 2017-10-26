@@ -12,15 +12,11 @@ srcfiles:
 
 <p class="hint hint--negative">Documentation incomplete.</p>
 
-<!--
-    + responsive
--->
-
 ## Display
 
-| `.d-inl`    | … |
-| `.d-blk`    | … |
-| `.d-inlblk` | … |
+| `.d-inline`      | … |
+| `.d-block`       | … |
+| `.d-inlineblock` | … |
 
 ### Responsive Display
 
@@ -31,10 +27,10 @@ srcfiles:
 
 ## Positioning Type
 
-| `.pos-abs` | … |
-| `.pos-rel` | … |
-| `.pos-fix` | … |
-| `.pos-stc` | … |
+| `.pos-absolute` | … |
+| `.pos-relative` | … |
+| `.pos-fixed`    | … |
+| `.pos-static`   | … |
 
 ### Responsive Positioning Type
 
@@ -67,14 +63,14 @@ srcfiles:
 
 ## Fixed Positioning
 
-| `.pos-fix-t`  | … |
-| `.pos-fix-r`  | … |
-| `.pos-fix-b`  | … |
-| `.pos-fix-l`  | … |
-| `.pos-fix-tl` | … |
-| `.pos-fix-tr` | … |
-| `.pos-fix-br` | … |
-| `.pos-fix-bl` | … |
+| `.pos-fixed-t`  | … |
+| `.pos-fixed-r`  | … |
+| `.pos-fixed-b`  | … |
+| `.pos-fixed-l`  | … |
+| `.pos-fixed-tl` | … |
+| `.pos-fixed-tr` | … |
+| `.pos-fixed-br` | … |
+| `.pos-fixed-bl` | … |
 
 ### Responsive Fixed Positioning
 
