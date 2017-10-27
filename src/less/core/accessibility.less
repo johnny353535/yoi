@@ -33,7 +33,7 @@
 .mixin-tabFocus() {
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    animation-name: customFocus;
+    animation-name: tabFocus;
     animation-timing-function: ease-out;
     outline-color: @focusColor;
     outline-offset: 1rem;
@@ -43,18 +43,32 @@
 }
 
 .mixin-tabFocus-inset() {
-    box-shadow:
-        inset 2px 0 0 @focusColor,
-        inset 0 2px 0 @focusColor,
-        inset -2px 0 @focusColor,
-        inset 0 -2px 0 @focusColor
-    ;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: tabFocusInset;
+    animation-timing-function: ease-out;
 }
 
-@keyframes customFocus {
+@keyframes tabFocus {
     from {
         outline-color: @focusColor;
     } to {
         outline-color: @color-transparent;
+    }
+}
+
+@keyframes tabFocusInset {
+    from {
+        box-shadow:
+            inset 2px 0 0 @focusColor,
+            inset 0 2px 0 @focusColor,
+            inset -2px 0 @focusColor,
+            inset 0 -2px 0 @focusColor
+    } to {
+        box-shadow:
+            inset 2px 0 0 @color-transparent,
+            inset 0 2px 0 @color-transparent,
+            inset -2px 0 @color-transparent,
+            inset 0 -2px 0 @color-transparent
     }
 }

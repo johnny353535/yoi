@@ -32,10 +32,10 @@ Utilities are named after a consistent set of rules to make remembering the name
 
 #### Basic Rules
 
-| CSS rules have property/value pairs                                     | `property: value;` like `display: block;` |
-| In most utility names, properties/values are seperated by a single dash | `property-value`                          |
-| Properties are shortened to 1–4 characters                              | `p-value`, eg. `d-block`                  |
-| Most values are not shortened                                           | `d-inline`, `d-block`, `d-inlineblock`, … |
+| *CSS rules* have property/value pairs                                     | `property: value;` like `display: block;` |
+| In most *utility names*, properties/values are seperated by a single dash | `property-value`                          |
+| *Properties* are shortened to 1–4 characters                              | `p-value`, eg. `d-block`                  |
+| Most *values* are not shortened                                           | `d-inline`, `d-block`, `d-inlineblock`, … |
 
 #### Value Shorthands
 
@@ -88,8 +88,8 @@ Use utilities to create new elements. The element in the following example uses 
 
 ```html
 <!-- example -->
-<div class="bg-base-25 br w-20 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
-    <img class="d-blk" src="https://source.unsplash.com/-rWjydNhATw/200x165">
+<div class="bg-base-25 br-all w-20 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
+    <img class="d-block" src="https://source.unsplash.com/-rWjydNhATw/200x165">
     <div class="p-3">
         <h4 class="m-b-1">Running Like a Pro</h4>
         <p class="fs-2 lh-3">These 10 secret tricks will turn you into a successful runner.</p>

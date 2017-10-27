@@ -16,7 +16,7 @@ This is how a basic `.toolTip` looks like and how you write the markup:
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-1;">Move Cursor here</div>
+<div class="br-all p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-1;">Move Cursor here</div>
 <!-- tooltip -->
 <div class="note m-b-2" id="tooltip-1">
     <div class="note__body">
@@ -44,10 +44,10 @@ Set the parameter `staticPosition` to `top`, `right`, `bottom`, `left` to create
 ```html
 <!-- example -->
 <!-- trigger elements -->
-<span class="d-inlineblock br p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:top; type:attention;">top</span>
-<span class="d-inlineblock br p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:right;">right</span>
-<span class="d-inlineblock br p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
-<span class="d-inlineblock br p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
+<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:top; type:attention;">top</span>
+<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:right;">right</span>
+<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
+<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
 <!-- tooltip -->
 <div id="tooltip-2">
     <p>I won’t move.</p>
@@ -63,7 +63,7 @@ Set the parameter `showDelay` to any number of milliseconds (eg. `showDelay:1000
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-3; showDelay:1000;">Move Cursor here</div>
+<div class="br-all p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-3; showDelay:1000;">Move Cursor here</div>
 <!-- tooltip -->
 <div id="tooltip-3">
     <p>This is a tooltip with 1 second show-delay.</p>
@@ -77,7 +77,7 @@ Set the parameter `hideDealy` to any number of milliseconds (eg. `hideDelay:1000
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-4; hideDelay:1000;">Move Cursor here</div>
+<div class="br-all p-4 w-10 h-10 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-4; hideDelay:1000;">Move Cursor here</div>
 <!-- tooltip -->
 <div id="tooltip-4">
     <p>This is a tooltip with 1 second hide-delay.</p>

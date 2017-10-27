@@ -31,7 +31,7 @@ The following example will apply a effect `fx-fade-in` on `center`:
 
 ```html
 <!-- example -->
-<div class="bg-green-15 br h-10" yoi-scrollfx="center:fade-in;"></div>
+<div class="bg-green-15 br-all h-10" yoi-scrollfx="center:fade-in;"></div>
 ```
 
 ### Speed
@@ -40,8 +40,8 @@ Add the Parameter `speed` to change the duration of all effects to either `slow`
 
 ```html
 <!-- example -->
-<div class="bg-blue-17 br m-b-2 h-10" yoi-scrollfx="center:slide-in-left; speed:slow;"></div>
-<div class="bg-yellow-18 br h-10" yoi-scrollfx="center:slide-in-right; speed:fast;"></div>
+<div class="bg-blue-17 br-all m-b-2 h-10" yoi-scrollfx="center:slide-in-left; speed:slow;"></div>
+<div class="bg-yellow-18 br-all h-10" yoi-scrollfx="center:slide-in-right; speed:fast;"></div>
 ```
 
 ### Repeat
@@ -50,7 +50,7 @@ By default, the effects play each time on `in`, `center` or `out`. Add the param
 
 ```html
 <!-- example -->
-<div class="bg-purple-18 br h-10" yoi-scrollfx="center:flip-in-x; repeat:false;"></div>
+<div class="bg-purple-18 br-all h-10" yoi-scrollfx="center:flip-in-x; repeat:false;"></div>
 ```
 
 ### Available Effects

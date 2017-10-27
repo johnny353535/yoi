@@ -52,7 +52,7 @@ Sticky takes the first matching element on the page and references it’s height
         <div class="w-6 h-6 bg-primary-15 m-r-4 br" yoi-sticky="reference:#referenceElement-1;"></div>
     </div>
     <div class="w-1-3">
-        <div class="bg-base-24 br h-40 w-20 p-1" id="referenceElement-1"></div>
+        <div class="bg-base-24 br-all h-40 w-20 p-1" id="referenceElement-1"></div>
     </div>
 </div>
 ```
@@ -65,7 +65,7 @@ Use `reference:parent;` to turn the sticky element’s surrounding element (= *p
 
 ```html
 <!-- example -->
-<div class="br bg-base-24 h-30 p-2">
+<div class="br-all bg-base-24 h-30 p-2">
     <div class="w-6 h-6 bg-primary-15 br" yoi-sticky="reference:parent;"></div>
 </div>
 ```

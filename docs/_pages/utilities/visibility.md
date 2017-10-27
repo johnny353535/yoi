@@ -93,5 +93,5 @@ If you wish to display an element at a specific screen size only, combine the re
 
 ```html
 <!-- example -->
-<div class="br bg-yellow-22 c-yellow-10 p-4 m--hidden l--hidden xl--hidden">visible <b>only on small</b> screens</div>
+<div class="br-all bg-yellow-22 c-yellow-10 p-4 m--hidden l--hidden xl--hidden">visible <b>only on small</b> screens</div>
 ```

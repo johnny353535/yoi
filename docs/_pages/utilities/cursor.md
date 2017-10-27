@@ -99,10 +99,6 @@ permalink: utilities/cursor
         <td class="crsr-nwseresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nwseresize</code></td>
-        <td class="crsr-nwseresize">mouseover for example</td>
-    </tr>
-    <tr>
         <td><code>.crsr-pointer</code></td>
         <td class="crsr-pointer">mouseover for example</td>
     </tr>

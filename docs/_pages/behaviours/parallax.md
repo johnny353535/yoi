@@ -34,8 +34,8 @@ The parameter `factor` accepts any positive or negative number. You must write f
 ```html
 <!-- example -->
 <div class="h-10">
-    <div class="bg-base-22 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:10;"></div>
-    <div class="bg-base-22 h-10 opacity-5 br w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
+    <div class="bg-base-22 h-10 opacity-5 br-all w-1-2 fl-l" yoi-parallax="factor:10;"></div>
+    <div class="bg-base-22 h-10 opacity-5 br-all w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
 </div>
 ```
 
