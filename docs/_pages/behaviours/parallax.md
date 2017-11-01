@@ -34,8 +34,8 @@ The parameter `factor` accepts any positive or negative number. You must write f
 ```html
 <!-- example -->
 <div class="h-10">
-    <div class="bg-base-22 h-10 opacity-5 br-all w-1-2 fl-l" yoi-parallax="factor:10;"></div>
-    <div class="bg-base-22 h-10 opacity-5 br-all w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
+    <div class="bg-base-22 h-10 op-5 br-all w-1-2 fl-l" yoi-parallax="factor:10;"></div>
+    <div class="bg-base-22 h-10 op-5 br-all w-1-2 fl-l" yoi-parallax="factor:-10;"></div>
 </div>
 ```
 
@@ -47,7 +47,7 @@ Wrap a parallax element (eg. an image) inside a container element with hidden ov
 
 ```html
 <!-- example -->
-<div class="box ovrfl-hidden h-40">
+<div class="box ofl-hidden h-40">
     <img src="https://source.unsplash.com/WLUHO9A_xik/700x700" yoi-parallax="factor:4;" />
 </div>
 ```

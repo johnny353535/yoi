@@ -4,8 +4,8 @@ group: utilities
 title: Opacity
 permalink: utilities/opacity
 srcfiles:
-    - opacity-base.less
-    - opacity-interactive.less
+    - op-base.less
+    - op-interactive.less
 ---
 
 # Opacity
@@ -14,16 +14,16 @@ srcfiles:
 
 ## Opacity
 
-| `.opacity-full` | … |
-| `.opacity-9`    | … |
-| `.opacity-8`    | … |
-| `.opacity-7`    | … |
-| `.opacity-6`    | … |
-| `.opacity-5`    | … |
-| `.opacity-4`    | … |
-| `.opacity-3`    | … |
-| `.opacity-2`    | … |
-| `.opacity-1`    | … |
+| `.op-full` | … |
+| `.op-9`    | … |
+| `.op-8`    | … |
+| `.op-7`    | … |
+| `.op-6`    | … |
+| `.op-5`    | … |
+| `.op-4`    | … |
+| `.op-3`    | … |
+| `.op-2`    | … |
+| `.op-1`    | … |
 
 ### Interactive Opacity
 

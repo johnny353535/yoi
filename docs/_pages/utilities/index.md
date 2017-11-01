@@ -88,7 +88,7 @@ Use utilities to create new elements. The element in the following example uses 
 
 ```html
 <!-- example -->
-<div class="bg-base-25 br-all w-20 h-30 tdcr-none p-b-10 m-2 c-primary-14 sh-3 ovrfl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
+<div class="bg-base-25 br-all w-20 h-30 tdr-none p-b-10 m-2 c-primary-14 sh-3 ofl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
     <img class="d-block" src="https://source.unsplash.com/-rWjydNhATw/200x165">
     <div class="p-3">
         <h4 class="m-b-1">Running Like a Pro</h4>

@@ -10,7 +10,9 @@ table {
     border: @color-base-23 1px solid;
     box-sizing: border-box;
     font-family: @font-sansserif;
+    overflow-x: hidden;
     width: 100%;
+    max-width: 100%;
 }
 
 caption {
@@ -24,9 +26,11 @@ caption {
     width: 100%;
 }
 
-thead {}
-tbody {}
-tfoot {}
+thead,
+tbody,
+tfoot {
+    background: @color-white;
+}
 
 tr:first-child td,
 tr:first-child th {
@@ -55,6 +59,10 @@ th {
     background: @color-base-25;
     font-family: @font-sansserif;
     font-weight: bold;
+}
+
+td {
+    font-variant-numeric: tabular-nums stacked-fractions;
 }
 
 th:first-child               { border-radius: (@defaultBorderRadius * 1px) 0 0 0; }
@@ -286,4 +294,33 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         top: -.6rem;
     }
 
+}
+
+// responsive tables
+// =================
+
+@responsive-table: {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+    background: @color-base-23;
+    display: block;
+    overflow-x: auto;
+};
+
+.table--scroll-s {
+    @media @bp-only-s {
+        @responsive-table();
+    }
+}
+
+.table--scroll-m {
+    @media @bp-only-m {
+        @responsive-table();
+    }
+}
+
+.table--scroll-l {
+    @media @bp-only-l {
+        @responsive-table();
+    }
 }

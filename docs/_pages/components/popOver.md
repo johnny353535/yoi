@@ -130,9 +130,9 @@ Show table-column modifiers (sorting/searching/filtering etc.) on mouseover:
 <!-- example:tabs -->
 <table>
     <tr>
-        <th class="crsr-pntr" yoi-popover="target:#examplePopOver-8; pos:bl;">Date</th>
-        <th class="crsr-pntr" yoi-popover="target:#examplePopOver-9; pos:bl;">Name</th>
-        <th class="crsr-pntr" yoi-popover="target:#examplePopOver-10; pos:bl;">Status</th>
+        <th class="crs-pntr" yoi-popover="target:#examplePopOver-8; pos:bl;">Date</th>
+        <th class="crs-pntr" yoi-popover="target:#examplePopOver-9; pos:bl;">Name</th>
+        <th class="crs-pntr" yoi-popover="target:#examplePopOver-10; pos:bl;">Status</th>
     </tr>
     <tr>
         <td>Data</td>

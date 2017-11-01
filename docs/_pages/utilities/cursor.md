@@ -11,143 +11,143 @@ permalink: utilities/cursor
 
 <table>
     <tr>
-        <td><code>.crsr-alias</code></td>
-        <td class="crsr-alias">mouseover for example</td>
+        <td><code>.crs-alias</code></td>
+        <td class="crs-alias">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-allscroll</code></td>
-        <td class="crsr-allscroll">mouseover for example</td>
+        <td><code>.crs-allscroll</code></td>
+        <td class="crs-allscroll">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-auto</code></td>
-        <td class="crsr-auto">mouseover for example</td>
+        <td><code>.crs-auto</code></td>
+        <td class="crs-auto">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-cell</code></td>
-        <td class="crsr-cell">mouseover for example</td>
+        <td><code>.crs-cell</code></td>
+        <td class="crs-cell">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-contextmenu</code></td>
-        <td class="crsr-contextmenu">mouseover for example</td>
+        <td><code>.crs-contextmenu</code></td>
+        <td class="crs-contextmenu">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-copy</code></td>
-        <td class="crsr-copy">mouseover for example</td>
+        <td><code>.crs-copy</code></td>
+        <td class="crs-copy">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-crosshair</code></td>
-        <td class="crsr-crosshair">mouseover for example</td>
+        <td><code>.crs-crosshair</code></td>
+        <td class="crs-crosshair">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-default</code></td>
-        <td class="crsr-default">mouseover for example</td>
+        <td><code>.crs-default</code></td>
+        <td class="crs-default">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-eresize</code></td>
-        <td class="crsr-eresize">mouseover for example</td>
+        <td><code>.crs-eresize</code></td>
+        <td class="crs-eresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-ewresize</code></td>
-        <td class="crsr-ewresize">mouseover for example</td>
+        <td><code>.crs-ewresize</code></td>
+        <td class="crs-ewresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-grabbing</code></td>
-        <td class="crsr-grabbing">mouseover for example</td>
+        <td><code>.crs-grabbing</code></td>
+        <td class="crs-grabbing">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-grab</code></td>
-        <td class="crsr-grab">mouseover for example</td>
+        <td><code>.crs-grab</code></td>
+        <td class="crs-grab">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-move</code></td>
-        <td class="crsr-move">mouseover for example</td>
+        <td><code>.crs-move</code></td>
+        <td class="crs-move">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-notallowed</code></td>
-        <td class="crsr-notallowed">mouseover for example</td>
+        <td><code>.crs-notallowed</code></td>
+        <td class="crs-notallowed">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nodrop</code></td>
-        <td class="crsr-nodrop">mouseover for example</td>
+        <td><code>.crs-nodrop</code></td>
+        <td class="crs-nodrop">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-neresize</code></td>
-        <td class="crsr-neresize">mouseover for example</td>
+        <td><code>.crs-neresize</code></td>
+        <td class="crs-neresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-neswresize</code></td>
-        <td class="crsr-neswresize">mouseover for example</td>
+        <td><code>.crs-neswresize</code></td>
+        <td class="crs-neswresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-none</code></td>
-        <td class="crsr-none">mouseover for example</td>
+        <td><code>.crs-none</code></td>
+        <td class="crs-none">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nresize</code></td>
-        <td class="crsr-nresize">mouseover for example</td>
+        <td><code>.crs-nresize</code></td>
+        <td class="crs-nresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nsresize</code></td>
-        <td class="crsr-nsresize">mouseover for example</td>
+        <td><code>.crs-nsresize</code></td>
+        <td class="crs-nsresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nwresize</code></td>
-        <td class="crsr-nwresize">mouseover for example</td>
+        <td><code>.crs-nwresize</code></td>
+        <td class="crs-nwresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-nwseresize</code></td>
-        <td class="crsr-nwseresize">mouseover for example</td>
+        <td><code>.crs-nwseresize</code></td>
+        <td class="crs-nwseresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-pointer</code></td>
-        <td class="crsr-pointer">mouseover for example</td>
+        <td><code>.crs-pointer</code></td>
+        <td class="crs-pointer">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-progress</code></td>
-        <td class="crsr-progress">mouseover for example</td>
+        <td><code>.crs-progress</code></td>
+        <td class="crs-progress">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-resize</code></td>
-        <td class="crsr-resize">mouseover for example</td>
+        <td><code>.crs-resize</code></td>
+        <td class="crs-resize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-rowresize</code></td>
-        <td class="crsr-rowresize">mouseover for example</td>
+        <td><code>.crs-rowresize</code></td>
+        <td class="crs-rowresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-seresize</code></td>
-        <td class="crsr-seresize">mouseover for example</td>
+        <td><code>.crs-seresize</code></td>
+        <td class="crs-seresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-sresize</code></td>
-        <td class="crsr-sresize">mouseover for example</td>
+        <td><code>.crs-sresize</code></td>
+        <td class="crs-sresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-swresize</code></td>
-        <td class="crsr-swresize">mouseover for example</td>
+        <td><code>.crs-swresize</code></td>
+        <td class="crs-swresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-text</code></td>
-        <td class="crsr-text">mouseover for example</td>
+        <td><code>.crs-text</code></td>
+        <td class="crs-text">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-verticaltext</code></td>
-        <td class="crsr-verticaltext">mouseover for example</td>
+        <td><code>.crs-verticaltext</code></td>
+        <td class="crs-verticaltext">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-wait</code></td>
-        <td class="crsr-wait">mouseover for example</td>
+        <td><code>.crs-wait</code></td>
+        <td class="crs-wait">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-wresize</code></td>
-        <td class="crsr-wresize">mouseover for example</td>
+        <td><code>.crs-wresize</code></td>
+        <td class="crs-wresize">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-zoomin</code></td>
-        <td class="crsr-zoomin">mouseover for example</td>
+        <td><code>.crs-zoomin</code></td>
+        <td class="crs-zoomin">mouseover for example</td>
     </tr>
     <tr>
-        <td><code>.crsr-zoomout</code></td>
-        <td class="crsr-zoomout">mouseover for example</td>
+        <td><code>.crs-zoomout</code></td>
+        <td class="crs-zoomout">mouseover for example</td>
     </tr>
 </table>

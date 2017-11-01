@@ -7,6 +7,10 @@ permalink: components/table
 
 # Table
 
+{% comment %}
+    + responsive!
+{% endcomment %}
+
 <p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
 
 ## Basic Example

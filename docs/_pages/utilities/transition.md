@@ -9,5 +9,5 @@ permalink: utilities/transition
 
 <p class="hint hint--negative">Documentation incomplete.</p>
 
-| `.tween-fast` | … |
-| `.tween-slow` | … |
+| `.trn-fast` | … |
+| `.trn-slow` | … |

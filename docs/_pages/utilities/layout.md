@@ -134,10 +134,10 @@ srcfiles:
 
 ## Overflow
 
-| `.ovrfl-x-hidden` | … |
-| `.ovrfl-y-hidden` | … |
-| `.ovrfl-hidden`   | … |
-| `.ovrfl-visible`  | … |
+| `.ofl-x-hidden` | … |
+| `.ofl-y-hidden` | … |
+| `.ofl-hidden`   | … |
+| `.ofl-visible`  | … |
 
 ### Responsive Overflow
 

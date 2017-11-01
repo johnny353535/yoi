@@ -123,8 +123,8 @@ srcfiles:
 
 ## Text Decoration
 
-| `.tdcr-none` | … |
-| `.tdcr-undl` | … |
+| `.tdr-none` | … |
+| `.tdr-undl` | … |
 
 ### Interactive Text Decoration
 
