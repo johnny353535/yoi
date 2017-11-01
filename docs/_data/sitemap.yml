@@ -97,5 +97,6 @@ actions:
     - pulse
     - show
     - remove
+    - runfx
     - scrollto
     - update

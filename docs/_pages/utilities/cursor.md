@@ -7,7 +7,8 @@ permalink: utilities/cursor
 
 # Cursor
 
-<p class="intro">Adds cursors.</p>
+<p class="intro">Sets the cursor on an element.</p>
+<p class="hint hint--primary"><b>You cannot use the utility on touch devices.</b> It is designed for systems with input devices like a mouse or trackball which permanently display a cursor.</p>
 
 <table>
     <tr>

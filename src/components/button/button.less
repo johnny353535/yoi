@@ -64,7 +64,6 @@
     &:active,
     &.is--active {
         box-shadow: none;
-        text-shadow: none;
     }
     
     &:focus,
@@ -497,15 +496,9 @@
     border-color: @borderColor;
     box-shadow: 0 1px 0 @highlightColor inset;
     color: @txtColor;
-    text-shadow: 0 1px 0 @highlightColor;
 
     .icon {
-        filter: drop-shadow(0 1px 0 @highlightColor);
         svg circle, svg ellipse, svg path, svg polygon { fill: @txtColor; }
-    }
-
-    input[type="submit"] {
-        text-shadow: 0 1px 0 @color-base-10;
     }
 
     a&,
@@ -520,27 +513,14 @@
         border-color: @borderColorHover;
         box-shadow: 0 1px 0 @highlightColorHover inset;
         color: @txtColorHover;
-        text-shadow: 0 1px 0 @highlightColorHover;
-        
-        .icon {
-            filter: drop-shadow(0 1px 0 @highlightColorHover);
-        }
-        
     }
 
     &:active,
     &.is--active {
-        
         background: linear-gradient(to bottom, @bgGradientTopColorActive, @bgGradientBottomColorActive);
         border-color: @borderColorActive;
         box-shadow: 0 1px 0 @highlightColorActive inset;
         color: @txtColorActive;
-        text-shadow: 0 1px 0 @highlightColorActive;
-        
-        .icon {
-            filter: drop-shadow(0 1px 0 @highlightColorActive);
-        }
-        
     }
 
 }

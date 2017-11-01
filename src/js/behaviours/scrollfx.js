@@ -1,4 +1,4 @@
-/** scrollFx.js */
+/** scrollfx.js */
 
 YOI.behaviour.ScrollFx = (function() {
 

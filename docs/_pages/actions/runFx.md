@@ -1,10 +1,10 @@
 ---
 layout: base
-group: components
-title: Article
-permalink: components/article
+group: actions
+title: RunFx
+permalink: actions/runfx
 ---
 
-# Article
+# RunFx
 
 <p class="hint hint--negative">Documentation incomplete.</p>
