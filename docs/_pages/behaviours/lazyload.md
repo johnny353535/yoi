@@ -23,7 +23,7 @@ Wrap your image inside a `<noscript>` tag and add the atribute `yoi-lazyload`:
 </noscript>
 ```
 
-<p class="hint hint--primary">There is no way to use JavaScript to stop the browser from loading an individual image. However, the <code>&lt;noscript&gt;</code> tag is a sufficient solution. When JavaScript is disabled, the image inside the <code>&lt;noscript&gt;</code> tag loads just fine.</p>
+<p class="hint hint--primary">There is no reliable way to use JavaScript to stop the browser from loading an individual image. However, the <code>&lt;noscript&gt;</code> tag is a sufficient solution. When JavaScript is disabled, the image inside the <code>&lt;noscript&gt;</code> tag loads just fine.</p>
 
 ## Parameters
 
@@ -100,7 +100,7 @@ Use the parameter `cssClasses` to add any CSS class names to the image. The foll
 
 ```html
 <!-- example -->
-<noscript yoi-lazyload="cssClasses:'p-4 bg-primary-15 br';">
+<noscript yoi-lazyload="cssClasses:'p-4 bg-primary-15 br-all';">
     <img src="https://source.unsplash.com/hppWAs2WTZU/210x210" />
 </noscript>
 ```
