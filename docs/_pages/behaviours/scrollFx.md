@@ -50,28 +50,23 @@ By default, the effects play each time on `in`, `center` or `out`. Add the param
 
 ```html
 <!-- example -->
-<div class="bg-purple-18 br-all h-10" yoi-scrollfx="center:flip-in-x; repeat:false;"></div>
+<div class="bg-purple-18 br-all h-10" yoi-scrollfx="center:slide-in-bottom; repeat:false;"></div>
 ```
 
 ### Available Effects
 
 You can use all [fx utility classes](utilities/fx.html):
 
-| `fx-fade-in`          | fades in                       |
-| `fx-fade-out`         | fades out                      |
-| `fx-scale-up`         | grows                          |
-| `fx-scale-down`       | shrinks                        |
-| `fx-slide-in-top`     | moves in from the top          |
-| `fx-slide-out-top`    | moves out to the top           |
-| `fx-slide-in-bottom`  | moves in from the bottom       |
-| `fx-slide-out-bottom` | moves out to the bottom        |
-| `fx-slide-in-left`    | moves in from the left         |
-| `fx-slide-out-left`   | moves out to the left          |
-| `fx-slide-in-right`   | moves in from the right        |
-| `fx-slide-out-right`  | moves out to the right         |
-| `fx-flip-in-x`        | 3d-flip in on horizontal axis  |
-| `fx-flip-out-x`       | 3d-flip out on horizontal axis |
-| `fx-flip-in-y`        | 3d-flip in on vertical axis    |
-| `fx-flip-out-y`       | 3d-flip out on vertical axis   |
-| `fx-shake`            | shakes                         |
-| `fx-pulse`            | pulses                         |
+| `.fx-fade-in`          | fades in                 |
+| `.fx-fade-out`         | fades out                |
+| `.fx-scale-up`         | grows                    |
+| `.fx-scale-down`       | shrinks                  |
+| `.fx-slide-in-top`     | moves in from the top    |
+| `.fx-slide-out-top`    | moves out to the top     |
+| `.fx-slide-in-bottom`  | moves in from the bottom |
+| `.fx-slide-out-bottom` | moves out to the bottom  |
+| `.fx-slide-in-left`    | moves in from the left   |
+| `.fx-slide-out-left`   | moves out to the left    |
+| `.fx-slide-in-right`   | moves in from the right  |
+| `.fx-slide-out-right`  | moves out to the right   |
+| `.fx-shake`            | shakes                   |

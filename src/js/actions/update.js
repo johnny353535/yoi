@@ -66,16 +66,22 @@ YOI.action.Update = function($trigger, $target, options) {
                 type  : requestType,
                 
                 beforeSend: function() {
-                    $target.append($spinner.clone());
+                    $target
+                        .append($spinner.clone())
+                        .trigger('yoi-update-before');
                 },
                 
                 error: function() {
-                    $target.html($errorMsg.clone());
+                    $target
+                        .html($errorMsg.clone())
+                        .trigger('yoi-update-error');
                 },
 
                 success: function(data) {
                     var $response = $(data).filter(filter);
-                    $target.html($response);
+                    $target
+                        .html($response)
+                        .trigger('yoi-update-success');
                 }
                 
             });

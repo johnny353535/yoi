@@ -41,3 +41,11 @@ In the following example, each button calls the _action_ `Update` to load differ
 ### Filter
 
 Add the filter parameter to select elements from the response markup. If the selector does not match anything, the whole response markup gets returned. The default selector is `#yoi-update-src`.
+
+## Events
+
+This action fires the following [events](/glossary) on each element it is applied to:
+
+| `yoi-update-before`  | Fires right before the update request.       |
+| `yoi-update-error`   | Fires after an error occured.                |
+| `yoi-update-success` | Fires after an update successfully finished. |

@@ -57,5 +57,21 @@
         </footer>
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
+        <script>
+            
+            /**
+             *  To improve accessabilty on small screens, wrap ech documentation
+             *  table in a scrollable container. We do this via JavaScript
+             *  because an HTML-tag around markdown-tables prevents the markdown
+             *  parser from rendering the tables.
+             */
+            
+            $(function() {
+                $('.article > table')
+                    .css('border', 0)
+                    .wrap('<div class="box m-t-8 fs-2 scr-x"></div>');
+            });
+            
+        </script>
     </body>
 </html>

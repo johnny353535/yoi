@@ -33,7 +33,7 @@ If the target element is inside a scrollable container element, instead of scrol
 <a class="btn btn--large" href="#example-3" yoi-action="ScrollTo:#example-3;">Scroll to #example-3</a>
 ```
 
-<div class="m-t-4 h-40 p-4 br-all b-all bc-base-22 pos-relative scrl-y">
+<div class="m-t-4 h-40 p-4 br-all b-all bc-base-22 pos-relative scr-y">
     <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
     <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
     <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
@@ -82,3 +82,10 @@ Set the offset parameter to the desired distance (in px) between the viewport’
 <div style="margin:800px 0;">
     <div id="example-6" class="w-30 al-c p-8 m-b-4 br-all bg-green-15 c-green-24 fs-2">#example-6 with 100px offset</div>
 </div>
+
+## Events
+
+This action fires the following [events](/glossary) on each element it is applied to:
+
+| `yoi-scrollto-start` | Fires after the scrolling starts. |
+| `yoi-scrollto-en`    | Fires after the scrolling ends.   |

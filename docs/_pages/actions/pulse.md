@@ -36,3 +36,7 @@ Add the parameter `times` to define how many times the pulse animation plays:
 <button class="btn btn--large" yoi-action="Pulse:#example-2; times:4;">Pulse Four Times</button>
 <div id="example-2" class="box p-4 m-t-4 fs-2">This will pulse four times.</div>
 ```
+
+## Events
+
+This action does not fire any event.

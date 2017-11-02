@@ -13,7 +13,7 @@
     // headlines
 
     > h1, > h2, > h3, > h4, > h5, > h6 {
-        @verticalRhythm();
+        .mixin-verticalRhythm;
     }
 
     // other block-level elements
@@ -22,8 +22,8 @@
     > dd, > details, > dl, > figcaption, > figure, > footer, > form, > header,
     > main, > menu, > nav, > ol, > output, > p, > pre, > section, > summary, > table,
     > ul, > video {
-        @verticalRhythm();
-        font-size: 1.5rem;
+        .mixin-verticalRhythm;
+        .mixin-fs-2;
     }
     
     // adjacent paragraphs
@@ -35,7 +35,7 @@
     // intro (-paragraph)
     
     .intro {
-        font-size: 2rem;
+        .mixin-fs-3;
         line-height: 1.5;
     }
 
@@ -78,7 +78,7 @@
     // hints
     
     > .hint {
-        @verticalRhythm();
+        .mixin-verticalRhythm;
     }
     
     // block quotes
@@ -93,7 +93,7 @@
     
     > .code__example,
     > div[class*=highlighter] {
-        @verticalRhythm();
+        .mixin-verticalRhythm();
     }
 
 }

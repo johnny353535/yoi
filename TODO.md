@@ -7,12 +7,7 @@
 - [ ] proof-read and edit user docs
 - [ ] review, improve, refactor grid utilities
 - [ ] expand JSfiddle integration
-- [ ] Utilities intro page:
-    - the value "none" is expressed by "0", eg. b-0 = no borders
-    - the opposite of none can be "all", eg. b-all = borders on all sides
-    - numeric values, expressed like "*-1, *-2, …", can translate to pixels, eg. .bw-2 = border-width 2px or more abstract scalings
-    - responsive utilities are expressed via breakpoint-prefixes (".s--, .m--, .l--, .xl--"), eg. .xl--fs-8 etc.
-    - interactive utilities: ".hvr--"
+- [x] write utilities intro page
 
 ## Nice to Have
 
@@ -29,7 +24,7 @@
 
 ## Future Roadmap
 
-- [ ] gradient tool gets it's own repository
+- [x] gradient tool gets it's own repository
 - [ ] refactor JS (modern syntax, modules, transpile via Babel
 - [ ] make markup more accessible (according to [a11y checklist](http://a11yproject.com/checklist.html))
 - [ ] migrate the project from bower to npm

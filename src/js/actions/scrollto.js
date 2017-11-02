@@ -23,7 +23,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
         
         var $document            = $(document);
         var $scrollContext;
-        var $scrollContainer     = $target.closest('.scrl-y') || false;
+        var $scrollContainer     = $target.closest('.scr-y') || false;
         var offset               = options.offset || 20;
         var highlight            = options.highlight || false;
         var scrollPosY;
@@ -40,7 +40,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
         
         if ($scrollContainer.length) {
             scrollPosY     = '+=' + $target.position().top;
-            $scrollContext = $target.closest('.scrl-y');
+            $scrollContext = $target.closest('.scr-y');
         } else {
             scrollPosY     = $target.offset().top - offset;
             $scrollContext = $('body');

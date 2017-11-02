@@ -592,66 +592,6 @@ var YOI = {
 
     },
 
-    resetFx : function($elem) {
-
-        /**
-         *  Adds initial fx-classes on dom ready.
-         *  Some fx need initial-classes. For example, a fade-in effect requires
-         *  an initial opacity of 0.
-         *
-         *  @param  {jQuery dom object} $elem - the element to reset
-         */
-
-        var $elements = $elem || $('[yoi-action*="RunFx"], [yoi-action-1*="RunFx"], [yoi-action-2*="RunFx"], [yoi-action-3*="RunFx"], [yoi-action-4*="RunFx"]');
-
-        $elements.each(function() {
-
-            var $element = $(this);
-
-            // prepare the element
-
-            YOI.updateOptions($element);
-            YOI.updateProps($element);
-
-            // get options & assign vars
-
-            var options  = $element.data().options;
-            var fx       = options.fx || false;
-            var speed    = options.speed || false;
-            var target   = options.RunFx || false;
-            var $target;
-
-            // get the target element
-
-            switch (target) {
-                case 'self':
-                    $target = $element
-                    break;
-                case 'parent':
-                    $target = $element.parent();
-                    break;
-                default:
-                    $target = $(target);
-            }
-
-            if ($target instanceof jQuery) {
-
-                // remove all fx-classes
-
-                $target.removeClass (function (index, className) {
-                    return (className.match (/(^|\s)fx-\S+/g) || []).join(' ');
-                });
-
-                // add initial fx-classes
-
-                if (fx) $target.addClass('fx-' + fx + '-initial').removeClass('fx-' + fx);
-                
-            }
-
-        });
-
-    },
-
     // dom observer
 
     startDomObserver : function() {

@@ -105,7 +105,7 @@ The default value for `start` is `0`. The default value for `stop` is the `<body
 
 ## Events
 
-This behaviour fires the following [events](/glossary) on each element with the applied behaviour:
+This behaviour fires the following [events](/glossary) on each element it is applied to:
 
 | Event             | Fires …                                   |
 | ----------------- | ----------------------------------------- |

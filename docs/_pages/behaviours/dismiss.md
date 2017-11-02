@@ -24,8 +24,6 @@ Add the attribute `yoi-dismiss` to your element:
 
 ## Events
 
-This behaviour fires the following [events](/glossary) on each element with the applied behaviour:
+This behaviour fires the following [events](/glossary) on each element it is applied to:
 
-| Event           | Fires …                                   |
-| --------------- | ----------------------------------------- |
-| `yoi-dismissed` | After the dismissable element disappeared |
+| `yoi-dismiss` | Fires after the dismissable element disappeared. |

@@ -203,11 +203,11 @@ Use the modifiers `.stepCrumb--step1` up to `.stepCrumb--step10` to highlight th
 
 ## Markup
 
-It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated stylimg of this element, it’s recommended to explicitly disable it’s mouseover styles. You can do so by adding the [utility-class ”.pntr-none“](utilities/interface.html):
+It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated stylimg of this element, it’s recommended to explicitly disable it’s mouseover styles. You can do so by adding the [utility-class ”.ptr-none“](utilities/interface.html):
 
 ```html
 <!-- example -->
-<ul class="stepCrumb stepCrumb--step3 pntr-none">
+<ul class="stepCrumb stepCrumb--step3 ptr-none">
     <li class="stepCrumb__item">
         <span class="stepCrumb__label">Denial</span>
     </li>

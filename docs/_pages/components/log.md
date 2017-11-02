@@ -45,7 +45,7 @@ Add one of the four modifiers (`.log--tl`, `.log--tr`, `.log--br`, `.log--bl`) t
 
 ```html
 <!-- example -->
-<div class="log log--br" yoi-dismissable>
+<div class="log log--br" yoi-dismiss>
     <div class="log__body">
         <p></p>
     </div>

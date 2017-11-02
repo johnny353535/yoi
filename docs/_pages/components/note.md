@@ -23,11 +23,11 @@ permalink: components/note
 
 ## Basic Example
 
-If you wish to make a `.note` *dismissable*, use the `yoi-dismissable` hook to make a close button appear in the upper right corner.
+If you wish to make a `.note` *dismissable*, use the `yoi-dismiss` hook to make a close button appear in the upper right corner.
 
 ```html
 <!-- example -->
-<div class="note note--attention" yoi-dismissable>
+<div class="note note--attention" yoi-dismiss>
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -41,7 +41,7 @@ Use the modifier `.note--large` to increase the font size.
 
 ```html
 <!-- example -->
-<div class="note note--large" yoi-dismissable>
+<div class="note note--large" yoi-dismiss>
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -83,43 +83,43 @@ Notes are available in **different color themes**. Weather you wish to display a
 
 ```html
 <!-- example -->
-<div class="note note--large" yoi-dismissable>
+<div class="note note--large" yoi-dismiss>
     <div class="note__body">
         <p>default styling</p>
     </div>
 </div>
 
-<div class="note note--attention note--large" yoi-dismissable>
+<div class="note note--attention note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>attention</strong></p>
     </div>
 </div>
 
-<div class="note note--dark note--large" yoi-dismissable>
+<div class="note note--dark note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>dark</strong></p>
     </div>
 </div>
 
-<div class="note note--subtle note--large" yoi-dismissable>
+<div class="note note--subtle note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>subtle</strong></p>
     </div>
 </div>
 
-<div class="note note--negative note--large" yoi-dismissable>
+<div class="note note--negative note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>negative</strong></p>
     </div>
 </div>
 
-<div class="note note--light note--large" yoi-dismissable>
+<div class="note note--light note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>light</strong></p>
     </div>
 </div>
 
-<div class="note note--positive note--large" yoi-dismissable>
+<div class="note note--positive note--large" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>positive</strong></p>
     </div>
@@ -133,17 +133,17 @@ Notes are available in **different color themes**. Weather you wish to display a
 ```html
 <!-- example -->
 <div class="notes">
-    <div class="note note--positive note--large" yoi-dismissable>
+    <div class="note note--positive note--large" yoi-dismiss>
         <div class="note__body">
             <p>The first data you supplied is <strong>valid</strong>.</p>
         </div>
     </div>
-    <div class="note note--negative note--large" yoi-dismissable>
+    <div class="note note--negative note--large" yoi-dismiss>
         <div class="note__body">
             <p>The second data you supplied is <strong>not valid</strong>.</p>
         </div>
     </div>
-    <div class="note note--positive note--large" yoi-dismissable>
+    <div class="note note--positive note--large" yoi-dismiss>
         <div class="note__body">
             <p>The third data you supplied is <strong>valid</strong>.</p>
         </div>

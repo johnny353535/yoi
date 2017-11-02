@@ -15,21 +15,19 @@ YOI.action.Show = function($trigger, $target, options) {
      */
 
     if ($target instanceof jQuery) {
-
-        // apply event on trigger and hide target
-
-        if (options.transition === 'fade') {
-            $target.stop().fadeIn();
-        } else if (options.transition === 'slide') {
-            $target.stop().slideDown();
-        } else {
-            $target.show();
-        }
-
-        // trigger custom event
-
-        $target.trigger('yoi-show');
         
+        var fx    = options.fx || false;
+        var speed = options.speed || false;
+
+        // add fx
+        
+        if (fx) $target.addClass('fx-' + fx);
+        if (fx && speed) $target.addClass('fx-' + speed);
+        
+        // show and trigger custom event
+        
+        $target.show().trigger('yoi-show');
+
     }
 
 }
@@ -37,28 +35,67 @@ YOI.action.Show = function($trigger, $target, options) {
 YOI.action.Show.init = function() {
     
     /**
-     *  Prepares the target elements by initially hiding them.
+     *  Prepares all target elements. Adds initial styling
+     *  to make CSS animations work properly.
      */
     
-    $('[yoi-action*="Show"], [yoi-action-1*="Show"], [yoi-action-2*="Show"], [yoi-action-3*="Show"], [yoi-action-4*="Show"]').each(function() {
+    var selectors = '\
+        [yoi-action*="Show"],\
+        [yoi-action-1*="Show"],\
+        [yoi-action-2*="Show"],\
+        [yoi-action-3*="Show"],\
+        [yoi-action-4*="Show"]\
+    ';
+    
+    $(selectors).each(function() {
 
-        var $this = $(this);
-        var selector;
+        // update options
         
-        if ($this.is('[yoi-action*="Show"]'))   selector = YOI.toObject($this.attr('yoi-action')).Show;
-        if ($this.is('[yoi-action-1*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-1')).Show;
-        if ($this.is('[yoi-action-2*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-2')).Show;
-        if ($this.is('[yoi-action-3*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-3')).Show;
-        if ($this.is('[yoi-action-4*="Show"]')) selector = YOI.toObject($this.attr('yoi-action-4')).Show;
+        YOI.updateOptions($(this));
         
-        if (selector === 'self') {
-            $this.hide();
-        } else if (selector === 'parent') {
-            $this.parent().hide();
-        } else {
-            $(selector).hide();
+        // assign vars
+
+        var $this          = $(this);
+        var options        = $this.data().options;
+        var targetSelector = options.Show;
+        var fx             = options.fx || false;
+        var $target;
+        
+        // get the target element
+
+        switch (targetSelector) {
+            case 'self':
+                $target = $this;
+                break;
+            case 'parent':
+                $target = $this.parent();
+                break;
+            default:
+                $target = $(targetSelector);
+        }
+        
+        // prepare the target element
+        
+        if ($target instanceof jQuery) {
+            
+            // remove all fx-classes
+
+            $target.removeClass(function (index, className) {
+                return (className.match (/(^|\s)fx-\S+/g) || []).join(' ');
+            });
+
+            // add initial fx-classes
+
+            if (fx) {
+                $target.addClass('fx-' + fx + '-initial').removeClass('fx-' + fx);
+            }
+            
+            // hide the target element
+        
+            $target.hide();
+            
         }
 
     });
-    
+
 }

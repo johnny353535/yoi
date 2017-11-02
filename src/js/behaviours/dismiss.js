@@ -84,7 +84,7 @@ YOI.behaviour.Dismiss = (function() {
         if (!($targetElement instanceof jQuery)) return false;
 
         $targetElement.fadeOut(function() {
-            $targetElement.trigger('yoi-dismissed');
+            $targetElement.trigger('yoi-dismiss');
         });
 
     }

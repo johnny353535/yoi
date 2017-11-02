@@ -11,19 +11,19 @@ permalink: utilities/interface
 
 ## Text Selection
 
-| `.slct-none` | Disables text selection |
+| `.slt-none` | Disables text selection |
 
 ## Pointer Events
 
-| `.pntr-auto` | Enables pointer events  |
-| `.pntr-none` | Disables pointer events |
+| `.ptr-auto` | Enables pointer events  |
+| `.ptr-none` | Disables pointer events |
 
 [Learn more about pointer events.](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
 
 ## Scroll
 
-| `.scrl-x` | Scroll overflow *horizontally* (left/right) |
-| `.scrl-y` | Scoll overflow *vertically* (top/bottom)    |
+| `.scr-x` | Scroll overflow *horizontally* (left/right) |
+| `.scr-y` | Scoll overflow *vertically* (top/bottom)    |
 
 ## Focus
 
