@@ -236,7 +236,7 @@ YOI.behaviour.Sticky = (function() {
          *  @param {jQuery dom object} $stickyElements - the sticky element(s)
          */
 
-        $window.on('scroll', function() {
+        $window.on('yoi-scroll', function() {
 
             // store the scroll position
 

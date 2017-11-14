@@ -85,26 +85,28 @@ YOI.behaviour.Parallax = (function() {
         // cancel on scrolling 'overshoots'
 
         if (scrollOvershoot()) return;
-
+        
         // manipulate the position offset of each element
         // in the collection
+        
+        window.requestAnimationFrame(function () {
+            
+            $activeParallaxElements.each(function() {
+            
+                var $this               = $(this);
+                var data                = $this.data();
+                var state               = data.state;
+                var initialPosY         = data.props.initialPosY;
+                var factor              = data.options.factor || defaultFactor;
+                var scrollTopInViewport = initialPosY - (currentScrollTop + viewportHeight);
+                var parallaxOffset      = data.props.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
+            
+                if (state === 'in' || state === 'center') {
+                    $this.css('transform', 'translate3d(0, ' + parallaxOffset + 'px, 1px)');
+                }
 
-        $activeParallaxElements.each(function() {
+            });
             
-            var $this               = $(this);
-            var data                = $this.data();
-            var state               = data.state;
-            var initialPosY         = data.props.initialPosY;
-            var factor              = data.options.factor || defaultFactor;
-            var scrollTopInViewport = initialPosY - (currentScrollTop + viewportHeight);
-            var parallaxOffset      = data.props.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
-            
-            if (state === 'in' || state === 'center') {
-                $this.css('transform', 'translate3d(0, ' + parallaxOffset + 'px, 1px)');
-            }
-            
-            // console.log(data.startsInViewport);
-
         });
 
     }

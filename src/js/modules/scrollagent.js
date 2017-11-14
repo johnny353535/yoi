@@ -56,7 +56,7 @@ YOI.module.ScrollAgent = (function() {
                         observe();
                     })
                     .on('scroll', function() {
-                        broadcastScrollEvents();
+                        broadcast();
                         observe();
                     });
                     
@@ -66,6 +66,15 @@ YOI.module.ScrollAgent = (function() {
 
             }
 
+        } else {
+            
+            // broadcast the custom scroll events - even if no
+            // target elements were found
+            
+            $window.on('scroll', function() {
+                broadcast();
+            });
+            
         }
 
     }
@@ -147,28 +156,42 @@ YOI.module.ScrollAgent = (function() {
 
     }
 
-    function broadcastScrollEvents() {
+    function broadcast() {
 
         /**
-         *  While scrolling, broadcast three custom events:
+         *  Starts an interval on scroll and stops the interval after
+         *  scrolling. During the interval, custom scroll-events get triggerd.
+         *  Other Scripts listen to these events instead of the original scroll
+         *  event to boost performance.
          *
-         *  yoi-scrolling-down => page is scrolling down
-         *  yoi-scroll-up      => page is scrolling up
-         *  yoi-scroll-stop    => page stopped scrolling
+         *  Custom events:
+         *
+         *  yoi-scroll      => page started scrolling
+         *  yoi-scroll-up   => page is scrolling up
+         *  yoi-scroll-down => page is scrolling down
+         *  yoi-scroll-stop => page stopped scrolling
          */
+        
+        if (typeof window['scrollObserverInterval'] !== 'number') {
+            
+            YOI.setInterval('scrollObserverInterval', 10, function() {
+                
+                // general scrolling event
 
-        // general scrolling event
+                $window.trigger('yoi-scroll');
 
-        $window.trigger('yoi-scroll');
+                // scroll direction
 
-        // scroll direction
+                var currentScrollTop = $window.scrollTop();
 
-        var currentScrollTop = $window.scrollTop();
+                if (currentScrollTop < lastScrollTop) $window.trigger('yoi-scroll-up');
+                if (currentScrollTop > lastScrollTop) $window.trigger('yoi-scroll-down');
 
-        if (currentScrollTop < lastScrollTop) $window.trigger('yoi-scroll-up');
-        if (currentScrollTop > lastScrollTop) $window.trigger('yoi-scroll-down');
-
-        lastScrollTop = currentScrollTop;
+                lastScrollTop = currentScrollTop;
+                
+            });
+            
+        }
 
         // scroll stop
 
@@ -176,6 +199,7 @@ YOI.module.ScrollAgent = (function() {
 
         YOI.setDelay('scrollObserverDelay', 250, function() {
             $window.trigger('yoi-scroll-stop');
+            YOI.clearInterval('scrollObserverInterval');
         });
 
     }
