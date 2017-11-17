@@ -79,7 +79,7 @@ YOI.component.Accordion = (function() {
         
         // add keyboad events
         
-        addKeyboardEvents();
+        if (!keyboardEventsAdded) addKeyboardEvents();
 
     }
 

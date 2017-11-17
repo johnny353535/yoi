@@ -7,11 +7,6 @@
     .mixin-defaultFocus;
 }
 
-[tabindex]:focus {
-    .mixin-tabFocus;
-    box-shadow: none;
-}
-
 /*
    To learn more about tabindex behaviour in
    different browsers, see http://www.alexlande.com/articles/cross-browser-tabindex-woes/
@@ -35,6 +30,7 @@
     animation-iteration-count: infinite;
     animation-name: tabFocus;
     animation-timing-function: ease-out;
+    box-shadow: none;
     outline-color: @focusColor;
     outline-offset: 1rem;
     outline-radius: @defaultBorderRadius * 1px;

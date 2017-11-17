@@ -199,7 +199,7 @@ YOI.component.Slider = (function() {
             // prepare slides and adjust container to fixed height for animations
 
             if (options.transition !== undefined) {
-                $window.on('load', function(){
+                $window.on('load resize', function(){
                     adjustHeight($thisSlider);
                 });
             }
@@ -278,21 +278,6 @@ YOI.component.Slider = (function() {
                     e.preventDefault();
                     stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
-                });
-            }
-
-            // attach events if "swipeable"
-
-            if (options.swipeable) {
-                $thisSlider.on('swipeleft', function(e) {
-                    e.preventDefault();
-                    stopAutoplay($thisSlider);
-                    showSlide($thisSlider, 'next');
-                });
-                $thisSlider.on('swiperight',function(e) {
-                    e.preventDefault();
-                    stopAutoplay($thisSlider);
-                    showSlide($thisSlider, 'prev');
                 });
             }
             
@@ -539,11 +524,11 @@ YOI.component.Slider = (function() {
     }
     
     function addKeyboardEvents() {
-
+        
         /**
          *  Adds keyboard events.
          */
-
+        
         if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
             
             // tab key
