@@ -2,6 +2,7 @@
 
 ## Most Urgent
 
+- [ ] refactor/rebuild slider
 - [ ] add glossary to docs
 - [ ] complete user docs
 - [ ] proof-read and edit user docs
@@ -11,6 +12,7 @@
 
 ## Nice to Have
 
+- [ ] add "invert colors" option to each component
 - [ ] more constructor mixins
 - [ ] add upload to boilerplate build process (via unix/bash script instead of node.js script)
 - [ ] add lightbox component

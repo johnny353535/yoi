@@ -46,15 +46,28 @@
 }
 .generate_pos(@positionSteps);
 
-// horizontal centering
+// centering
 
 .center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.center-lr {
     .mixin-clearfix !important;
     box-sizing: border-box !important;
     margin: 0 auto !important;
     padding: 0 2rem !important;
     position: relative !important;
     text-align: left !important;
+}
+
+// page cover
+
+.cover {
+    width: 100vw;
+    height: 100vh;
 }
 
 // css columns

@@ -79,9 +79,14 @@ srcfiles:
 | `l--`  | … |
 | `xl--` | … |
 
-## Horizontal Centering
+## Centering
 
-| `.center` | … |
+| `.center`    | … |
+| `.center-lr` | … |
+
+# Cover
+
+| `.cover` | … |
 
 ### Responsive Horizontal Centering
 

@@ -992,8 +992,8 @@ $(function() {
     // all other scripts, so that code
     // example in docs rendered by this script
     // initialize with the right timing
-
-    YOI.component.Code.initialize();
+    
+    if (YOI.component.Code) YOI.component.Code.initialize();
     
     // initialize all YOI components
 
