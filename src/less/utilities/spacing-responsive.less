@@ -47,14 +47,28 @@
         .@{bpPrefix}--p-bl-@{i}      { padding-bottom: @i * @spacingMultiplicand!important; padding-left:   @i * @spacingMultiplicand !important; }
         .@{bpPrefix}--p-tb-@{i}      { padding-top:    @i * @spacingMultiplicand!important; padding-bottom: @i * @spacingMultiplicand !important; }
         .@{bpPrefix}--p-lr-@{i}      { padding-left:   @i * @spacingMultiplicand!important; padding-right:  @i * @spacingMultiplicand !important; }
-        .@{bpPrefix}--ptl-@{i}       { padding-top:    @i * @spacingMultiplicand!important; padding-left:   @i * @spacingMultiplicand !important; }
+        .@{bpPrefix}--p-tl-@{i}      { padding-top:    @i * @spacingMultiplicand!important; padding-left:   @i * @spacingMultiplicand !important; }
 
     }
     .generate_margin_padding(@responsiveSpacingSteps);
 
-    .@{bpPrefix}--m-0       { .m-0; }
-    .@{bpPrefix}--p-0       { .p-0; }
+    // zero margins
+
+    .@{bpPrefix}--m-0         { .m-0; }
+    .@{bpPrefix}--m-t-0       { .m-t-0; }
+    .@{bpPrefix}--m-r-0       { .m-r-0; }
+    .@{bpPrefix}--m-b-0       { .m-b-0; }
+    
+    // auto margins
+    
     .@{bpPrefix}--m-lr-auto { .m-lr-auto; }
+    
+    // zero paddings
+    
+    .@{bpPrefix}--p-0         { .p-0; }
+    .@{bpPrefix}--p-t-0       { .p-t-0; }
+    .@{bpPrefix}--p-r-0       { .p-r-0; }
+    .@{bpPrefix}--p-b-0       { .p-b-0; }
 
 }
 
