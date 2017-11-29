@@ -9,11 +9,32 @@
 }
 
 .mixin-hide() {
+    
+    /**
+     * visually hides an element while
+     * keeping it accessible to screenreaders
+     */
+    
     height: 1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
     width: 1px;
+}
+
+.mixin-show() {
+    
+    /**
+     * reverts .mixin-hide()
+     * https://caniuse.com/#feat=css-unset-value
+     */
+    
+    height: unset;
+    opacity: unset;
+    overflow: unset;
+    position: unset;
+    width: unset;
+    
 }
 
 .mixin-clearAppearance() {
@@ -30,22 +51,39 @@
 }
 
 .mixin--enable3d {
-    // http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+    
+    /**
+     *  may increase animation performance
+     *  http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+     */
+
     transform: translateZ(0);
+    
 }
 
 .mixin--fixFlickering {
-    // http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+    
+    /**
+     *  may fix flickering in 3d animations/transitions
+     *  http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+     */
+    
     backface-visibility: hidden;
     perspective: 1000;
+    
 }
 
-// SVG icons as background image
 
 .mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '000'; @strokeColor: '000') {
+    
+    /**
+     *  SVG icons as background image
+     */
+    
     @relativeWidth  : @width / 10 * @rootFontSize;
     @relativeHeight : @height / 10 * @rootFontSize;
     @fillColorHex   : replace(@fillColor, '#', '');
     @strokeColorHex : replace(@strokeColor, '#', '');
     background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{fillColorHex}&s=@{strokeColorHex}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
+
 }
