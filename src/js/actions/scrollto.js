@@ -22,6 +22,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
     if ($target instanceof jQuery) {
         
         var $document            = $(document);
+        var scrollRoot           = document.scrollingElement || document.documentElement;
         var $scrollContext;
         var $scrollContainer     = $target.closest('.scr-y') || false;
         var offset               = options.offset || 20;
@@ -43,7 +44,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
             $scrollContext = $target.closest('.scr-y');
         } else {
             scrollPosY     = $target.offset().top - offset;
-            $scrollContext = $('body');
+            $scrollContext = $(scrollRoot);
         }
 
         // start the scroll animation and apply optional
