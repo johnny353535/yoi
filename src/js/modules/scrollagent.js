@@ -37,13 +37,11 @@ YOI.module.ScrollAgent = (function() {
         if ($targetElement) {
             
             // share all target elements in a new variable
-        
+
             $activeTargetElements = $targetElement;
+
+            // run listen()
             
-            // initially run update(), observe() and listen()
-            
-            update();
-            observe();
             listen();
             
             // attach events

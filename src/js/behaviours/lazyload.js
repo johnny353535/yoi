@@ -41,96 +41,110 @@ YOI.behaviour.Lazyload = (function() {
 
             // proceed
             
-            var $this         = $(this);
-            var options       = $this.data().options;
-            var defaultImage  = options.src || extractImgSrcFromString($this.html()) || false;
-            var width         = options.width || false;
-            var height        = options.height || false;
-            var alt           = options.alt || false;
-            var title         = options.title || false;
-            var longdesc      = options.longdesc || false;
-            var cssClasses    = options.cssClasses || false;
+            makeLazyload($(this));
             
-            // cancel if
-            // - no image url was found
-            // - the module ScrollAgent was not found
+            // set initialized
+                
+            $(this).data().props.isLazyloading = true;
 
-            if (!defaultImage || !YOI.foundModule('ScrollAgent')) {
-                return false;
-            }
+        });
+        
+    }
+    
+    function makeLazyload($noscriptElement) {
+        
+        /**
+         *  Prepares and injects lazy-loading images.
+         *
+         *  @param {jQuery dom object} $noscriptElement
+         */
+        
+        var $placeHolder  = $('<div class="lazyLoadPlaceHolder"></div>');
+        var options       = $noscriptElement.data().options;
+        var defaultImage  = options.src || extractImgSrcFromString($noscriptElement.html()) || false;
+        var width         = options.width || false;
+        var height        = options.height || false;
+        var alt           = options.alt || false;
+        var title         = options.title || false;
+        var longdesc      = options.longdesc || false;
+        var cssClasses    = options.cssClasses || false;
+        
+        // cancel if
+        // - no image url was found
+        // - the module ScrollAgent was not found
+
+        if (!defaultImage || !YOI.foundModule('ScrollAgent')) {
+            return false;
+        }
+        
+        // insert a placeholder element and
+        // initialize the scroll agent
+        
+        $placeHolder.insertAfter($noscriptElement);
+        $placeHolder = $noscriptElement.next('.lazyLoadPlaceHolder');
+        YOI.module.ScrollAgent.init($placeHolder);
+        
+        // placeholder enters viewport:
+        
+        $placeHolder.one('yoi-viewport-in', function() {
             
-            // pick the image url
-            
+            // read the image url
+        
             var imageUrl;
-            
+        
             var currentBreakPoint = YOI.currentBreakPoint();
             var breakPointSmall   = YOI.stringContains(currentBreakPoint, 'small');
             var breakPointMedium  = YOI.stringContains(currentBreakPoint, 'medium');
             var breakPointLarge   = YOI.stringContains(currentBreakPoint, 'large');
             var breakPointXlarge  = YOI.stringContains(currentBreakPoint, 'xlarge');
-            
+        
             if (breakPointSmall)  imageUrl = options.srcSmall;
             if (breakPointMedium) imageUrl = options.srcMedium;
             if (breakPointLarge)  imageUrl = options.srcLarge;
             if (breakPointXlarge) imageUrl = options.srcXlarge;
-            
+        
             // set default for image url
-            
+        
             imageUrl = imageUrl || defaultImage;
-            
+        
             // make a new image
-            
+        
             var newImage = $('<img src="' + imageUrl + '"></img>');
-            
+        
             if (width)      newImage.attr('width', width);
             if (height)     newImage.attr('height', height);
             if (alt)        newImage.attr('alt', alt);
             if (title)      newImage.attr('title', title);
             if (longdesc)   newImage.attr('longdesc', longdesc);
             if (cssClasses) newImage.addClass(cssClasses);
-            
-            // inject after the noscript element
-            
+        
+            // inject the new image after the noscript element
+        
             newImage
                 .addClass('fx-fade-in-initial')
-                .insertAfter($this)
-                .promise()
-                .then(function() {
-                    YOI.module.ScrollAgent.init(newImage);
-                });
+                .insertAfter($noscriptElement);
 
-            // when the image is done loading, listen for the yoi-viewport:in event
-            // and add the fx css class name
-                
-            newImage.on('load', function() {
-
-                var $this = $(this);
-                
-                $this.one('yoi-viewport-in', function() {
-                    $this.addClass('fx-fade-in');
-                });
-                
-            });
+            // fade in on load
             
+            newImage.on('load', function() {
+                $(this).addClass('fx-fade-in');
+            });
+        
             // to make sure timing always works well, this little hack is necesarry
             // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
-            
+        
             if (newImage[0].complete) {
                 newImage.trigger('load');
             }
-            
-            // set initialized
-                
-            $this.data().props.isLazyloading = true;
 
         });
-        
+
     }
     
     function extractImgSrcFromString(input) {
         
         /**
-         *  
+         *  Extracts the path to an image from a src-attribute/value string.
          *
          *  @param  {string} input  - the input string to process
          *  @return {string} output - the src value as string
