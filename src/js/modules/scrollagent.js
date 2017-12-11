@@ -40,12 +40,18 @@ YOI.module.ScrollAgent = (function() {
 
             $activeTargetElements = $targetElement;
             
+            // initially run update(), observe(), listen()
+            
+            update();
+            observe();
+            listen();
+            
             // attach events
             
             if (!initialized) {
                 
                 $window
-                    .on('load resize', function() {
+                    .on('resize', function() {
                         update();
                         observe();
                         listen();
