@@ -107,9 +107,19 @@ YOI.behaviour.Lazyload = (function() {
         
             imageUrl = imageUrl || defaultImage;
         
-            // make a new image
+            // create a new image
         
-            var newImage = $('<img src="' + imageUrl + '"></img>');
+            var newImage = $('<img></img>');
+            
+            // attach events to new image
+            
+            newImage.on('load', function() {
+                $(this).addClass('fx-fade-in');
+            });
+            
+            // add attributes to new image
+            
+            newImage.attr('src', imageUrl);
         
             if (width)      newImage.attr('width', width);
             if (height)     newImage.attr('height', height);
@@ -123,20 +133,16 @@ YOI.behaviour.Lazyload = (function() {
             newImage
                 .addClass('fx-fade-in-initial')
                 .insertAfter($noscriptElement);
-
-            // fade in on load
-            
-            newImage.on('load', function() {
-                $(this).addClass('fx-fade-in');
-            });
         
-            // to make sure timing always works well, this little hack is necesarry
-            // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
-        
-            if (newImage[0].complete) {
-                newImage.trigger('load');
-            }
+            /*
+                // to make sure timing always works well, this little hack might be necesarry
+                // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
 
+                if (newImage[0].complete) {
+                    newImage.trigger('load');
+                }
+            */
+                
         });
 
     }
