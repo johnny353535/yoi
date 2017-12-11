@@ -109,7 +109,7 @@ YOI.behaviour.Lazyload = (function() {
             
             // create a new image
             
-            var newImage = $('<img></img>');
+            var newImage = $('<img />');
             
             // add attributes to new image
             

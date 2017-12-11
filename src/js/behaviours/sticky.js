@@ -135,7 +135,6 @@ YOI.behaviour.Sticky = (function() {
         
         var data                          = $stickyElement.data();
         var options                       = data.options;
-        var props                         = data.props;
         var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
         var stickyElementHeight           = $stickyElement.outerHeight();
         var stickyElementWidth            = $stickyElement.outerWidth();
