@@ -68,7 +68,7 @@ YOI.behaviour.Lazyload = (function() {
         var title         = options.title || false;
         var longdesc      = options.longdesc || false;
         var cssClasses    = options.cssClasses || false;
-        
+
         // cancel if
         // - no image url was found
         // - the module ScrollAgent was not found
@@ -76,7 +76,7 @@ YOI.behaviour.Lazyload = (function() {
         if (!defaultImage || !YOI.foundModule('ScrollAgent')) {
             return false;
         }
-        
+
         // insert a placeholder element and
         // initialize the scroll agent
         
@@ -89,62 +89,64 @@ YOI.behaviour.Lazyload = (function() {
         $placeHolder.one('yoi-viewport-in', function() {
             
             // read the image url
-        
+            
             var imageUrl;
-        
+            
             var currentBreakPoint = YOI.currentBreakPoint();
             var breakPointSmall   = YOI.stringContains(currentBreakPoint, 'small');
             var breakPointMedium  = YOI.stringContains(currentBreakPoint, 'medium');
             var breakPointLarge   = YOI.stringContains(currentBreakPoint, 'large');
             var breakPointXlarge  = YOI.stringContains(currentBreakPoint, 'xlarge');
-        
+            
             if (breakPointSmall)  imageUrl = options.srcSmall;
             if (breakPointMedium) imageUrl = options.srcMedium;
             if (breakPointLarge)  imageUrl = options.srcLarge;
             if (breakPointXlarge) imageUrl = options.srcXlarge;
-        
+            
             // set default for image url
-        
+            
             imageUrl = imageUrl || defaultImage;
-        
+            
             // create a new image
-        
+            
             var newImage = $('<img></img>');
-            
-            // attach events to new image
-            
-            newImage.on('load', function() {
-                $(this).addClass('fx-fade-in');
-            });
             
             // add attributes to new image
             
-            newImage.attr('src', imageUrl);
-        
             if (width)      newImage.attr('width', width);
             if (height)     newImage.attr('height', height);
             if (alt)        newImage.attr('alt', alt);
             if (title)      newImage.attr('title', title);
             if (longdesc)   newImage.attr('longdesc', longdesc);
             if (cssClasses) newImage.addClass(cssClasses);
-        
+            
             // inject the new image after the noscript element
-        
+            
             newImage
                 .addClass('fx-fade-in-initial')
                 .insertAfter($noscriptElement);
+            
+            // attach events to new image
         
-            /*
-                // to make sure timing always works well, this little hack might be necesarry
-                // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
-
-                if (newImage[0].complete) {
-                    newImage.trigger('load');
-                }
-            */
+            newImage.on('load', function() {
+                $(this).addClass('fx-fade-in');
+            });
+            
+            // add src attribute
+            // to make tripple-sure that the load event gets fired, we also
+            // add a timestamp as unique generated parameter to each image url
                 
+            newImage.attr('src', imageUrl + '?' + new Date().getTime());
+                
+            // to make sure timing always works well, this little hack might be necesarry
+            // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
+            
+            if (newImage[0].complete) {
+                newImage.trigger('load');
+            }
+            
         });
-
+        
     }
     
     function extractImgSrcFromString(input) {
