@@ -123,20 +123,10 @@ YOI.behaviour.Lazyload = (function() {
             // inject the new image after the noscript element
             
             newImage
+                .on('load', function() { $(this).addClass('fx-fade-in'); })
+                .attr('src', imageUrl)
                 .addClass('fx-fade-in-initial')
                 .insertAfter($noscriptElement);
-            
-            // attach events to new image
-        
-            newImage.on('load', function() {
-                $(this).addClass('fx-fade-in');
-            });
-            
-            // add src attribute
-            // to make tripple-sure that the load event gets fired, we also
-            // add a timestamp as unique generated parameter to each image url
-                
-            newImage.attr('src', imageUrl + '?' + new Date().getTime());
                 
             // to make sure timing always works well, this little hack might be necesarry
             // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
