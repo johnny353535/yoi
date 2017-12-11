@@ -81,13 +81,13 @@ YOI.component.RangeInput = (function() {
                         .on('mousemove', function(e) {
                             $body.addClass('noSelect');
                             $thisKnob.addClass('rangeInput__knob--active');
-                            $thisRangeInput.addClass('rangeInput--active');
+                            $thisRangeInput.addClass('is--active');
                             moveKnob($thisRangeInput, $thisKnob, e);
                         })
                         .on('mouseup', function(e) {
                             $body.removeClass('noSelect');
                             $thisKnob.removeClass('rangeInput__knob--active');
-                            $thisRangeInput.removeClass('rangeInput--active');
+                            $thisRangeInput.removeClass('is--active');
                             $document.off('mousemove mouseup');
                         });
 

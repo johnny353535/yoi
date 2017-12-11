@@ -7,9 +7,14 @@ YOI.module.Resizeagent = (function() {
 
     var $document   = $(document);
     var $window     = $(window);
+    var $body       = $('body');
     var initialized = false;
+    
     var lastBreakPoint;
     var activeBreakPoint;
+    
+    var lastPageHeight;
+    var currentPageHeight;
 
     // private functions
     // =================
@@ -28,11 +33,12 @@ YOI.module.Resizeagent = (function() {
         // proceed, attach events
 
         $window.on('resize', function() {
-            observe();
+            reportBreakPointChange();
         });
 
         $document.ready(function() {
-            observe();
+            reportBreakPointChange();
+            reportPageHeightChange();
         });
 
         // set initialized flag
@@ -40,8 +46,8 @@ YOI.module.Resizeagent = (function() {
         initialized = true;
 
     }
-
-    function observe() {
+    
+    function reportBreakPointChange() {
         
         /**
          *  Fires a custom event when the breakpoint changed
@@ -54,9 +60,9 @@ YOI.module.Resizeagent = (function() {
         
         if (activeBreakPoint !== lastBreakPoint) {
             
-            YOI.clearDelay('resizeObserverDelay');
+            YOI.clearDelay('reportBreakPointChangeDelay');
 
-            YOI.setDelay('resizeObserverDelay', 250, function() {
+            YOI.setDelay('reportBreakPointChangeDelay', 250, function() {
                 $window.trigger('yoi-breakpoint-change');
                 $window.trigger('yoi-breakpoint-' + activeBreakPoint);
             });
@@ -66,6 +72,29 @@ YOI.module.Resizeagent = (function() {
             lastBreakPoint = activeBreakPoint;
             
         }
+        
+    }
+
+    function reportPageHeightChange() {
+        
+        /**
+         *  Observes the page height on an interval to
+         *  trigger a custom event other scripts can
+         *  listen to.
+         */
+        
+        lastPageHeight = $body.height();
+        
+        YOI.setInterval('reportPageHeightChangeInterval', 1000, function() {
+
+            currentPageHeight = $body.height();
+
+            if (currentPageHeight !== lastPageHeight) {
+                $window.trigger('yoi-pageheight-change');
+                lastPageHeight = $body.height();
+            }
+
+        });
         
     }
     

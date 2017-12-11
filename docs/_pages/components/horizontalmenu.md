@@ -56,10 +56,10 @@ Use the [popOver element](components/popover.html) to add submenus:
 <div class="horizontalMenu">
     <ul class="horizontalMenu__menu">
         <li>
-            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:horizontalMenu--active;">Alkalis</a>
+            <a href="#" yoi-popover="target:#subMenu-alkaliMetals; pos:bl; toggleClass:is--active;">Alkalis</a>
         </li>
         <li>
-            <a href="#" yoi-popover="target:#subMenu-actinides; pos:bl; toggleClass:horizontalMenu--active;">Actinides</a>
+            <a href="#" yoi-popover="target:#subMenu-actinides; pos:bl; toggleClass:is--active;">Actinides</a>
         </li>
     </ul>
     <div class="popOver" id="subMenu-alkaliMetals">
@@ -145,7 +145,7 @@ Add the [accordion element](components/accordion.html) to create nicely structur
 <div class="horizontalMenu">
     <ul class="horizontalMenu__menu">
         <li>
-            <a href="#" yoi-popover="target:#subMenu-metals; pos:bl; toggleClass:horizontalMenu--active;">Metals</a>
+            <a href="#" yoi-popover="target:#subMenu-metals; pos:bl; toggleClass:is--active;">Metals</a>
         </li>
         <li>
             <a href="#">Other</a>

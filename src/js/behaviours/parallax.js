@@ -62,10 +62,15 @@ YOI.behaviour.Parallax = (function() {
             
             // attach events
 
-            $window.on('resize yoi-scroll', function() {
-                updateParallaxEnv();
-                scrollParallax();
-            });
+            $window
+                .on('yoi-pageheight-change', function() {
+                    updateParallaxEnv();
+                    updateParallaxElements($parallaxElement);
+                })
+                .on('yoi-scroll', function() {
+                    updateParallaxEnv();
+                    scrollParallax();
+                });
 
             // set initialized
             
@@ -89,7 +94,7 @@ YOI.behaviour.Parallax = (function() {
         // manipulate the position offset of each element
         // in the collection
         
-        window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function() {
             
             $activeParallaxElements.each(function() {
             
@@ -134,18 +139,22 @@ YOI.behaviour.Parallax = (function() {
         if ((data.state === 'in' || data.state === 'center')) {
             $parallaxElement.data().props.startsInViewport = true;
         }
-        
-        // if the $parallaxElement is an image, recursively call
-        // updateParallaxElement() since dimensions such as document
-        // height are very likely to have changed
-        
-        if ($parallaxElement.is('img')) {
-            $parallaxElement.on('load', function() {
-                updateParallaxElement($parallaxElement);
-                updateParallaxEnv();
-            });
-        }
 
+    }
+    
+    function updateParallaxElements($parallaxElement) {
+        
+        /**
+         *  Simple helper function to update all parallax elements
+         *  in the collection $parallaxElement.
+         *
+         *  @param {jQuery dom object} $parallaxElement
+         */
+        
+        $parallaxElement.each(function() {
+            updateParallaxElement($(this));
+        });
+        
     }
     
     function resetScroll() {

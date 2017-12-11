@@ -47,13 +47,13 @@
     }
 
     a:hover,
-    a.horizontalMenu--active,
-    a.horizontalMenu--current:hover {
+    a.is--active,
+    a.is--active:hover {
         background: @color-base-25;
     }
 
     a:active,
-    a.horizontalMenu--current {
+    a.is--active:active {
         background: @color-base-24;
     }
 
@@ -61,20 +61,6 @@
 
 .horizontalMenu__icon {
     margin: 0 -1rem;
-}
-
-.horizontalMenu .popOver a.box:hover {
-    background: @color-white;
-}
-
-// positioning breadcrumbs after menu
-
-.horizontalMenu + .breadcrumbs {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform: translate(0, 100%);
 }
 
 // modifiers

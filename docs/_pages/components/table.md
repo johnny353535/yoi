@@ -397,7 +397,7 @@ Pick a `<tr>` and remove the selection:
         <th>Anti-Infectives</th>
         <th>Central Nervous System Agents</th>
     </tr>
-    <tr class="tr--active">
+    <tr class="is--active">
         <td>Amebicides</td>
         <td>Analgesics</td>
     </tr>
@@ -425,7 +425,7 @@ Pick a `<tr>` and remove it:
         <th>Anti-Infectives</th>
         <th>Central Nervous System Agents</th>
     </tr>
-    <tr class="tr--active">
+    <tr class="is--active">
         <td>Amebicides</td>
         <td>Analgesics</td>
     </tr>
@@ -481,7 +481,7 @@ Try the example below and watch the custom events, printed to the [log element](
         <th>Anti-Infectives</th>
         <th>Central Nervous System Agents</th>
     </tr>
-    <tr class="tr--active">
+    <tr class="is--active">
         <td>Amebicides</td>
         <td>Analgesics</td>
     </tr>

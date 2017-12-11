@@ -103,10 +103,10 @@ YOI.component.Table = (function() {
         // select rows, either multiple or single
 
         if (options.selectable === 'multi') {
-            $thisTr.toggleClass('tr--active');
+            $thisTr.toggleClass('is--active');
         } else {
-            $thisAllTr.removeClass('tr--active');
-            $thisTr.addClass('tr--active');
+            $thisAllTr.removeClass('is--active');
+            $thisTr.addClass('is--active');
         }
         
         // trigger custom event
@@ -128,7 +128,7 @@ YOI.component.Table = (function() {
 
         // unselect row
 
-        $thisAllTr.removeClass('tr--active');
+        $thisAllTr.removeClass('is--active');
         
         // trigger custom event
         

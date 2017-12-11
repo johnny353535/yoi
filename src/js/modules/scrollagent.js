@@ -39,10 +39,6 @@ YOI.module.ScrollAgent = (function() {
             // share all target elements in a new variable
 
             $activeTargetElements = $targetElement;
-
-            // run listen()
-            
-            listen();
             
             // attach events
             
@@ -52,10 +48,15 @@ YOI.module.ScrollAgent = (function() {
                     .on('load resize', function() {
                         update();
                         observe();
+                        listen();
+                    })
+                    .on('yoi-pageheight-change', function() {
+                        update();
                     })
                     .on('scroll', function() {
                         broadcast();
                         observe();
+                        listen();
                     });
                     
                 // set initialized flag
@@ -216,7 +217,7 @@ YOI.module.ScrollAgent = (function() {
             $targetElement.on('yoi-viewport-in', function() {
                 $targetElement.data().state = 'in';
             });
-            
+        
             $targetElement.on('yoi-viewport-center', function() {
                 $targetElement.data().state = 'center';
             });

@@ -59,7 +59,7 @@
         transition: left 200ms ease-out, right 200ms ease-out;
     }
 
-    &.rangeInput--active .rangeInput__range {
+    &.is--active .rangeInput__range {
         transition: none;
     }
 
@@ -78,7 +78,7 @@
         z-index: 2;
     }
 
-    &.rangeInput--active .rangeInput__knob {
+    &.is--active .rangeInput__knob {
         transition: none;
     }
 
@@ -123,8 +123,8 @@
     .rangeInput__knob--active .rangeInput__label,
     .rangeInput__knob--active .rangeInput__label::after,
 
-    &.rangeInput--active .rangeInput__label--single,
-    &.rangeInput--active .rangeInput__label--single::after,
+    &.is--active .rangeInput__label--single,
+    &.is--active .rangeInput__label--single::after,
 
     .rangeInput__knob:hover ~ .rangeInput__label--single,
     .rangeInput__knob:hover ~ .rangeInput__label--single::after {
