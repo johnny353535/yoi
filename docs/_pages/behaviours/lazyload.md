@@ -32,9 +32,9 @@ Wrap your image inside a `<noscript>` tag and add the atribute `yoi-lazyload`:
 | `srcMedium`  | Optional url to image at breakpoint *medium*                                                        |
 | `srcLarge`   | Optional url to image at breakpoint *large*                                                         |
 | `srcXlarge`  | Optional url to image at breakpoint *xlarge*                                                        |
-| `width`      | Optional image width                                                                                |
-| `height`     | Optional image height                                                                               |
-| `alt`        | Optional image alt text                                                                             |
+| `width`      | Optional image width - we **recomment** to always provide width                                     |
+| `height`     | Optional image height - we **recomment** to always provide height                                   |
+| `alt`        | Optional image alt text - we **recomment** to always provide alt text                               |
 | `title`      | Optional image title                                                                                |
 | `longdesc`   | Optional image long description                                                                     |
 | `cssClasses` | Optional CSS class names (eg. [utility classnames](utilities/)) for the generated `<img>`-tag       |
@@ -66,7 +66,7 @@ Use the parameters `srcSmall, srcMedium, srcLarge, srcXlarge` to load different 
 </noscript>
 ```
 
-### Dimensions
+### Width & Height
 
 Use the parameters `width` and `height` to define fixed image dimensions. In the example below, the image is squished to make the result obvious:
 
@@ -76,6 +76,8 @@ Use the parameters `width` and `height` to define fixed image dimensions. In the
     <img src="https://source.unsplash.com/Volo9FYUAzU/250x250" />
 </noscript>
 ```
+
+<p class="hint hint--negative"><b>Tip:</b> Always add values for width and height if you don’t want the page layout to <i>jump</i> once an image is loaded.</p>
 
 ### Description Texts
 
