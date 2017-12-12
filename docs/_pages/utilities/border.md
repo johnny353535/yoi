@@ -7,7 +7,7 @@ permalink: utilities/border
 
 # Border
 
-<p class="intro">Adds borders, modifies border-style, -width and -radius.</p>
+<p class="intro">Adds or overrides borders, border-style, -width and -radius.</p>
 
 ## Border
 

@@ -7,7 +7,7 @@
     .generate_colors((@i - 1));
 
     // semantic background colors
-
+    
     .bg-attention-@{i} { background: ~"@{color-attention-@{i}}" !important; }
     .bg-base-@{i}      { background: ~"@{color-base-@{i}}" !important; }
     .bg-negative-@{i}  { background: ~"@{color-negative-@{i}}" !important; }
@@ -56,7 +56,7 @@
     .c-purple-@{i} when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
     .c-red-@{i} when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
     .c-yellow-@{i} when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
-
+    
 }
 .generate_colors(25);
 
@@ -74,3 +74,8 @@
 
 .c-transparent { color: @color-transparent !important; }
 .c-white       { color: @color-white !important; }
+
+.foobar {
+    &:extend(.c-white);
+}
+

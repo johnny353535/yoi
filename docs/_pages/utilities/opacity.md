@@ -10,21 +10,26 @@ srcfiles:
 
 # Opacity
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="intro">Adds or overrides opacity.</p>
 
 ## Opacity
 
-| `.op-full` | … |
-| `.op-9`    | … |
-| `.op-8`    | … |
-| `.op-7`    | … |
-| `.op-6`    | … |
-| `.op-5`    | … |
-| `.op-4`    | … |
-| `.op-3`    | … |
-| `.op-2`    | … |
-| `.op-1`    | … |
+| `.op-full` | full opacity   |
+| `.op-9`    | opacity at 90% |
+| `.op-8`    | opacity at 80% |
+| `.op-7`    | opacity at 70% |
+| `.op-6`    | opacity at 60% |
+| `.op-5`    | opacity at 50% |
+| `.op-4`    | opacity at 40% |
+| `.op-3`    | opacity at 30% |
+| `.op-2`    | opacity at 20% |
+| `.op-1`    | opacity at 10% |
 
-### Interactive Opacity
+## Interactive Opacity
 
-| `hvr--` | … |
+Add the prefix `hvr--` to each opacity utility to apply the styling on *mouseover*:
+
+```html
+<!-- example -->
+<div class="box p-5 hvr--op-5">mouseover for example</div>
+```

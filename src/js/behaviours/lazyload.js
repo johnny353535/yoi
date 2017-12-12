@@ -90,7 +90,7 @@ YOI.behaviour.Lazyload = (function() {
         if (width)      $placeHolder.attr('width', width);
         if (height)     $placeHolder.attr('height', height);
         if (cssClasses) $placeHolder.addClass(cssClasses);
-        
+s
         // placeholder enters viewport:
         
         $placeHolder.one('yoi-viewport-in', function() {

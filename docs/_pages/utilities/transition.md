@@ -7,7 +7,12 @@ permalink: utilities/transition
 
 # Transition
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="intro">Adds css transitions for all properties in two different speeds.</p>
 
-| `.trn-fast` | … |
-| `.trn-slow` | … |
+| `.trn-fast` | all properties transition fast   |
+| `.trn-slow` | all properties transition slowly |
+
+```html
+<!-- example -->
+<div class="box p-5 trn-slow hvr--sh-4">mouseover for example</div>
+```
