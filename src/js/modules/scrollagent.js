@@ -50,23 +50,14 @@ YOI.module.ScrollAgent = (function() {
             
             if (!initialized) {
                 
-                $window
-                    .on('resize', function() {
-                        update();
-                        observe();
-                        listen();
-                    })
-                    .on('yoi-pageheight-change', function() {
-                        update();
-                    })
-                    .on('scroll', function() {
-                        broadcast();
-                        observe();
-                        listen();
-                    });
-                    
+                $window.on('load resize scroll yoi-pageheight-change', function() {
+                    update();
+                    observe();
+                    listen();
+                });
+                
                 // set initialized flag
-                    
+                
                 initialized = true;
 
             }

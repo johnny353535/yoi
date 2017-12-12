@@ -148,8 +148,7 @@ YOI.behaviour.Lazyload = (function() {
                 .removeClass(cssClasses)
                 .css({
                     'width' : 0,
-                    'height' : 0,
-                    'opacity' : 0
+                    'height' : 0
                 });
 
         });
