@@ -29,7 +29,7 @@ Add a [behaviour-attribute](/glossary) to any element to activate the behaviour:
 | [Lazyload](behaviours/lazyload.html) | `yoi-lazyload` | Loads an image only if it’s inside the viewport.                                 |
 | [Parallax](behaviours/parallax.html) | `yoi-parallax` | Adds a parallax scrolling effect to an element.                                  |
 | [Scrollfx](behaviours/scrollfx.html) | `yoi-scrollfx` | Adds effects or transitions to an element, responding to the scrolling position. |
-| [Stiky](behaviours/sticky.html)      | `yoi-sticky`   | Makes an element *stick* when scrolled past it’s position on the page.           |
+| [Sticky](behaviours/sticky.html)     | `yoi-sticky`   | Makes an element *stick* when scrolled past it’s position on the page.           |
 
 <p class="hint hint--negative">You can add more than one behaviour to an element. However, you cannot add the same behaviour multiple times.</p>
 

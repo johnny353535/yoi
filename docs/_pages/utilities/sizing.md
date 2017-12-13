@@ -42,12 +42,12 @@ srcfiles:
 
 ### Responsive Fractional Width
 
-| `.only-s--w-[...]` | `.w-[...]` only at breakpoint `s`       |
-| `.m--w-[...]`      | `.w-[...]` at breakpoint `m` and larger |
-| `.only-m--w-[...]` | `.w-[...]` only at breakpoint `m`       |
-| `.l--w-[...]`      | `.w-[...]` at breakpoint `l` and larger |
-| `.only-l--w-[...]` | `.w-[...]` only at breakpoint `l`       |
-| `.xl--w-[...]`     | `.w-[...]` at breakpoint `xl`           |
+| `.only-s--w-[*]` | `.w-[*]` only at breakpoint `s`       |
+| `.m--w-[*]`      | `.w-[*]` at breakpoint `m` and larger |
+| `.only-m--w-[*]` | `.w-[*]` only at breakpoint `m`       |
+| `.l--w-[*]`      | `.w-[*]` at breakpoint `l` and larger |
+| `.only-l--w-[*]` | `.w-[*]` only at breakpoint `l`       |
+| `.xl--w-[*]`     | `.w-[*]` at breakpoint `xl`           |
 
 ## Auto Width
 

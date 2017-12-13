@@ -7,7 +7,7 @@ permalink: start/
 
 # What is YOI?
 
-<p class="intro">YOI is Yoshino’s custom-built frontend component library. It enables our team to design, build, test and iterate web pages <i>directly in the browser</i>. YOI was made to be used by designers with basic knowledge of HTML and CSS – at it’s core stands a <i>simple HTML-based interface</i>.</p>
+<p class="intro">YOI (pronounced <i>yo-ee</i>) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages <i>directly in the browser</i>. It was made to be used by designers with basic knowledge of HTML and CSS – at it’s core stands a <i>simple HTML-based interface</i>.</p>
 
 ## Quick to Learn
 
@@ -23,11 +23,11 @@ This system offers a large array of [pre-built components](components/) that you
 
 By adding [utility-classes](utilities/) to an element, you can override styling like colors, width, margin, etc. to fine-tune your layout or even build new custom elements. Or you can use utility classes to compose complex new elements or even responsive layouts – without writing any additional CSS.
 
-## Interactive
+## Easy to Control and Powerfully Interactive
 
-### Hooks
+### Attributes
 
-In addition to rather simple and static elements, YOI also features more complex and interactive elements. [DatePickers](components/datePicker.html), [Modals](components/modal.html), [PopOvers](components/popOver.html) – all these elements are configured via custom HTML attributes that we call _hooks_. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page so it opens faster.
+In addition to rather simple and static elements, YOI also features more complex and interactive elements. [DatePickers](components/datePicker.html), [Modals](components/modal.html), [PopOvers](components/popOver.html) – all these elements are configured via custom HTML attributes. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page.
 
 ### Behaviours
 
