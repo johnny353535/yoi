@@ -14,5 +14,6 @@ permalink: utilities/transition
 
 ```html
 <!-- example -->
-<div class="box p-5 trn-slow hvr--sh-4">mouseover for example</div>
+<div class="box p-5 m-4 trn-fast hvr--sh-4">mouseover for example</div>
+<div class="box p-5 m-4 trn-slow hvr--sh-4">mouseover for example</div>
 ```

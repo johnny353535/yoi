@@ -9,135 +9,209 @@ srcfiles:
     - typography-responsive.less
 ---
 
+<!-- <p class="hint">headings are not responsive, font-rhythm scales foo</p> -->
+
+
 # Typography
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="intro">Adds or overrides typographic styling, eg. font size, line height, font weight, …</p>
 
 ## Headings
 
-| `.h1` | … |
-| `.h2` | … |
-| `.h3` | … |
-| `.h4` | … |
-| `.h5` | … |
-| `.h6` | … |
+Use heading utilities to apply the styling of [headings](/components/headings.html) to other text elements.
+
+| `.h1` | `.h2` | `.h3` | `.h4` | `.h5` | `.h6` |
 
 ```html
 <!-- example -->
-<p class="h1 m-tb-4">H1 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing</p>
-<p class="h2 m-tb-4">H2 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt</p>
-<p class="h3 m-tb-4">H3 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna</p>
-<p class="h4 m-tb-4">H4 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
-<p class="h5 m-tb-4">H5 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
-<p class="h6 m-tb-4">H6 – Lorem Ipsum Dolor sit Amet Consectetur Adipisicing Elit sed do Eiusmod Tempor Incididunt ut Labore et Dolore Magna Aliqua</p>
+<p class="h1 m-b-4">Heading Level 1</p>
+<p class="h2 m-b-4">Heading Level 2</p>
+<p class="h3 m-b-4">Heading Level 3</p>
+<p class="h4 m-b-4">Heading Level 4</p>
+<p class="h5 m-b-4">Heading Level 5</p>
+<p class="h6">Heading Level 6</p>
 ```
 
-<!-- <p class="hint">headings are not responsive, font-rhythm scales foo</p> -->
+<p class="hint"><b>Is this bad practice?</b> Heading-tags like <code>&lt;h1&gt;, &lt;h2&gt;, &hellip;</code> have semantic meaning in context to the document. Sometimes you might need another element to visually resemble a heading. Sometimes you need to make a <code>&lt;h3&gt;</code> look like an <code>&lt;h1&gt;</code>. Use the heading utilities for edge case like this. If you really need a headline, always use the proper HTML tag!</p>
 
 ## Font Size
 
-| `.fs-0` | … |
-| `.fs-1` | … |
-| `.fs-2` | … |
-| `.fs-3` | … |
-| `.fs-4` | … |
-| `.fs-5` | … |
-| `.fs-6` | … |
-| `.fs-7` | … |
-| `.fs-8` | … |
-| `.fs-9` | … |
+| `.fs-0` | `.fs-1` | `.fs-2` | `.fs-3` | `.fs-4` | `.fs-5` | `.fs-6` | `.fs-7` | `.fs-8` | `.fs-9` |
+
+```html
+<!-- example -->
+<p class="fs-0">Font size 0</p>
+<p class="fs-1">Font size 1</p>
+<p class="fs-2">Font size 2</p>
+<p class="fs-3">Font size 3</p>
+<p class="fs-4">Font size 4</p>
+<p class="fs-5">Font size 5</p>
+<p class="fs-6">Font size 6</p>
+<p class="fs-7">Font size 7</p>
+<p class="fs-8">Font size 8</p>
+<p class="fs-9">Font size 9</p>
+```
+
+<p class="hint hint--negative">The utility <code>.fs-0</code> actually sets the font size to zero.</p>
 
 ### Responsive Font Size
 
-| `.s--fs-*`  | … |
-| `.m--fs-*`  | … |
-| `.l--fs-*`  | … |
-| `.xl--fs-*` | … |
+| `.only-s--fs-[0–9]` | font size `[0–9]` only at breakpoint `s`       |
+| `.m--fs-[0–9]`      | font size `[0–9]` at breakpoint `m` and larger |
+| `.only-m--fs-[0–9]` | font size `[0–9]` only at breakpoint `m`       |
+| `.l--fs-[0–9]`      | font size `[0–9]` at breakpoint `l` and larger |
+| `.only-l--fs-[0–9]` | font size `[0–9]` only at breakpoint `l`       |
+| `.xl--fs-[0–9]`     | font size `[0–9]` at breakpoint `xl`           |
+
+<p class="hint hint--negative">The utility <code>.lh-0</code> actually sets the line height to zero.</p>
 
 ## Line Height
 
-| `.lh-0` | … |
-| `.lh-1` | … |
-| `.lh-2` | … |
-| `.lh-3` | … |
-| `.lh-4` | … |
-| `.lh-5` | … |
-| `.lh-6` | … |
-| `.lh-7` | … |
-| `.lh-8` | … |
-| `.lh-9` | … |
+| `.lh-0` | `.lh-1` | `.lh-2` | `.lh-3` | `.lh-4` | `.lh-5` | `.lh-6` | `.lh-7`| `.lh-8` | `.lh-9` |
 
 ### Responsive Line Height
 
-| `.s--lh-*`  | … |
-| `.m--lh-*`  | … |
-| `.l--lh-*`  | … |
-| `.xl--lh-*` | … |
+| `.only-s--lh-[0–9]` | line height `[0–9]` only at breakpoint `s`       |
+| `.m--lh-[0–9]`      | line height `[0–9]` at breakpoint `m` and larger |
+| `.only-m--lh-[0–9]` | line height `[0–9]` only at breakpoint `m`       |
+| `.l--lh-[0–9]`      | line height `[0–9]` at breakpoint `l` and larger |
+| `.only-l--lh-[0–9]` | line height `[0–9]` only at breakpoint `l`       |
+| `.xl--lh-[0–9]`     | line height `[0–9]` at breakpoint `xl`           |
 
 ## Font Family
 
-| `.ff-sr`   | … |
-| `.ff-ss`   | … |
-| `.ff-mono` | … |
+| `.ff-mono`  | monospace  |
+| `.ff-sans`  | sans serif |
+| `.ff-serif` | serif      |
+
+```html
+<!-- example -->
+<p class="ff-mono m-b-2">monospace font</p>
+<p class="ff-sans m-b-2">sans-serif font</p>
+<p class="ff-serif">serif font</p>
+```
 
 ## Font Weight
 
-| `.fw-normal` | … |
-| `.fw-bold`   | … |
+| `.fw-normal` | normal font weight |
+| `.fw-bold`   | bold font          |
+
+```html
+<!-- example -->
+<p class="fw-normal m-b-2">normal</p>
+<p class="fw-bold">bold</p>
+```
 
 ## Font Style
 
-| `.fst-no` | … |
-| `.fst-it` | … |
+| `.fst-normal` | normal font style |
+| `.fst-italic` | italic font style |
+
+```html
+<!-- example -->
+<p class="fst-normal m-b-2">normal</p>
+<p class="fst-italic">italic</p>
+```
 
 ## Text Transform
 
-| `.tt-cp`   | … |
-| `.tt-lc`   | … |
-| `.tt-none` | … |
-| `.tt-uc`   | … |
+| `.tt-capitalize` | capitalized characters |
+| `.tt-lowercase`  | lowercase characters   |
+| `.tt-none`       | no text transform      |
+| `.tt-uppercase`  | uppercase characters   |
+
+```html
+<!-- example -->
+<p class="tt-capitalize m-b-2">capitalized characters</p>
+<p class="tt-lowercase m-b-2">lowercase characters</p>
+<p class="tt-none m-b-2">no text transform</p>
+<p class="tt-uppercase">uppercase characters</p>
+```
 
 ## Text Alignment
 
-| `.al-r` | … |
-| `.al-l` | … |
-| `.al-c` | … |
+| `.al-c` | centered text      |
+| `.al-l` | left-aligned text  |
+| `.al-r` | right-aligned text |
+
+```html
+<!-- example -->
+<p class="al-c m-b-2">centered text</p>
+<p class="al-l m-b-2">left-aligned text</p>
+<p class="al-r">right-aligned text</p>
+```
 
 ### Responsive Text Alignment
 
-| `.s--al-*`  | … |
-| `.m--al-*`  | … |
-| `.l--al-*`  | … |
-| `.xl--al-*` | … |
+| `.only-s--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `s`       |
+| `.m--al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `m` and larger |
+| `.only-m--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `m`       |
+| `.l--al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `l` and larger |
+| `.only-l--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `l`       |
+| `.xl--al-[c, l, r]`     | text aling `[c, l, r]` at breakpoint `xl`           |
 
 ## Line Break
 
-| `.lbr-none` | … |
+| `.lbr-none` | no line breaks |
 
-## Responsive Line Break
+### Responsive Line Break
 
-| `.s--lbr-none`  | … |
-| `.m--lbr-none`  | … |
-| `.l--lbr-none`  | … |
-| `.xl--lbr-none` | … |
+| `.only-s--lbr-none` | no line breaks only at breakpoint `s`       |
+| `.m--lbr-none`      | no line breaks at breakpoint `m` and larger |
+| `.only-m--lbr-none` | no line breaks only at breakpoint `m`       |
+| `.l--lbr-none`      | no line breaks at breakpoint `l` and larger |
+| `.only-l--lbr-none` | no line breaks only at breakpoint `l`       |
+| `.xl--lbr-none`     | no line breaks at breakpoint `xl`           |
 
 ## Text Decoration
 
-| `.tdr-none` | … |
-| `.tdr-undl` | … |
+| `.tdr-none`      | no text decoration |
+| `.tdr-underline` | underlined text    |
+
+```html
+<!-- example -->
+<p class="tdr-none m-b-2">no text decoration</p>
+<p class="tdr-underline">underlined text</p>
+```
 
 ### Interactive Text Decoration
 
-| `hvr--` | … |
+| `hvr--none` | no text decoration on *mouseover* |
+| `hvr--none` | underlined text on *mouseover*    |
 
-### List Style
+```html
+<!-- example -->
+<p class="hvr--tdr-none m-b-2">no text decoration on <i>mouseover</i></p>
+<p class="hvr--tdr-underline">underlined text on <i>mouseover</i></p>
+```
 
-| `.lst-none`   | … |
-| `.lst-square` | … |
-| `.lst-circle` | … |
-| `.lst-disc`   | … |
+## List Style
 
-## Associated Files
+| `.lst-none`   | no bullets     |
+| `.lst-square` | square bullets |
+| `.lst-circle` | circle bullets |
+| `.lst-disc`   | disc bullets   |
 
-| src/less/utilities/typography.less            |
-| src/less/utilities/responsive-typography.less |
+```html
+<!-- example -->
+<ul class="lst-none m-b-4 m-l-4">
+    <li>Technetium</li>
+    <li>Promethium</li>
+    <li>Polonium</li>
+</ul>
+<ul class="lst-square m-b-4 m-l-4">
+    <li>Technetium</li>
+    <li>Promethium</li>
+    <li>Polonium</li>
+</ul>
+<ul class="lst-circle m-b-4 m-l-4">
+    <li>Technetium</li>
+    <li>Promethium</li>
+    <li>Polonium</li>
+</ul>
+<ul class="lst-disc m-l-4">
+    <li>Technetium</li>
+    <li>Promethium</li>
+    <li>Polonium</li>
+</ul>
+```

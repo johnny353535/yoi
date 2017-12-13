@@ -15,12 +15,12 @@ These are all available headline styles. Please note that level 4–6 have ident
 
 ```html
 <!-- example -->
-<h1 class="m-tb-4">Heading Level 1</h1>
-<h2 class="m-tb-4">Heading Level 2</h2>
-<h3 class="m-tb-4">Heading Level 3</h3>
-<h4 class="m-tb-4">Heading Level 4</h4>
-<h5 class="m-tb-4">Heading Level 5</h5>
-<h6 class="m-tb-4">Heading Level 6</h6>
+<h1 class="m-b-4">Heading Level 1</h1>
+<h2 class="m-b-4">Heading Level 2</h2>
+<h3 class="m-b-4">Heading Level 3</h3>
+<h4 class="m-b-4">Heading Level 4</h4>
+<h5 class="m-b-4">Heading Level 5</h5>
+<h6>Heading Level 6</h6>
 ```
 
 ## Modification
