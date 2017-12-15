@@ -10,15 +10,13 @@ srcfiles:
 
 # Grid
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="intro">Adds or overrides flexbox rules.</p>
 
-## Float Grid
+## Flexbox
 
-| `.floatGrid` | … |
+Learn more about flexbox on [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](CSS-Tricks).
 
-## Flex Grid
-
-| `.flexGrid`                      | … |
+| `.flx`                          | … |
 | `.flx-wrap`                     | … |
 | `.flx-noWrap`                   | … |
 | `.flx-wrapReverse`              | … |

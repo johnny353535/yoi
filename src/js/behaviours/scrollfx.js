@@ -84,7 +84,7 @@ YOI.behaviour.ScrollFx = (function() {
         var centerFx = options.center || false;
         var speed    = options.speed || false;
         var repeat   = options.repeat || true;
-        
+                
         if (repeat !== 'false') {
             
             $targetElement.on('yoi-viewport-in', function() {
@@ -122,7 +122,7 @@ YOI.behaviour.ScrollFx = (function() {
          *  @param {string}            fx             - the fx css class to apply
          *  @param {string}            speed          - the speed css class to apply
          */
-        
+                
         if (fx) {
             $targetElement.removeClass('fx-' + fx + '-initial');
             $targetElement.addClass('fx-' + fx);

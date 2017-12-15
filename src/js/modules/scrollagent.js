@@ -43,17 +43,18 @@ YOI.module.ScrollAgent = (function() {
             // initially run update(), observe(), listen()
             
             update();
-            observe();
             listen();
             
             // attach events
             
             if (!initialized) {
                 
-                $window.on('load resize scroll yoi-pageheight-change', function() {
+                $window.on('load resize yoi-pageheight-change', function() {
                     update();
+                });
+                
+                $window.on('scroll', function() {
                     observe();
-                    listen();
                 });
                 
                 // set initialized flag

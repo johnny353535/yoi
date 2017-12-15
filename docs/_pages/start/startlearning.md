@@ -13,7 +13,7 @@ permalink: start/startlearning
 
 Check out the following links to learn about the basics of HTML:
 
-<div class="flexGrid m-t-4">
+<div class="flx m-t-4">
     <div class="w-1-1 m-b-2 m--w-1-2 m--p-r-2 m--m-b-0">
         <a class="box h-20 p-4 tdr-none hvr-bg-gray-25" href="https://www.codecademy.com/courses/web-beginner-en-HZA3b/0/1">
            <h3 class="c-gray-8">Learn HTML at Code Academy</h3>
@@ -32,7 +32,7 @@ Check out the following links to learn about the basics of HTML:
 
 You do not need to write CSS if you do not wish to change how YOI’s elements look. However, once you wish to create your [own customized website](workflow/customizing.html) (with custom colors, fonts etc.), you need to know at least some basics about CSS, too.
 
-<div class="flexGrid m-t-4">
+<div class="flx m-t-4">
     <div class="w-1-1 m-b-2 m--w-1-2 m--p-r-2 m--m-b-0">
         <a class="box h-20 p-4 tdr-none hvr-bg-gray-25" href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/p/css-basics">
            <h3 class="c-gray-8">Learn CSS at Khan Academy</h3>

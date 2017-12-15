@@ -52,7 +52,7 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 <p class="fs-9">Font size 9</p>
 ```
 
-<p class="hint hint--negative">The utility <code>.fs-0</code> actually sets the font size to zero.</p>
+<p class="hint hint--negative">The utility <code>.fs-0</code> sets the font size to zero.</p>
 
 ### Responsive Font Size
 
@@ -63,7 +63,7 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 | `.only-l--fs-[0–9]` | font size `[0–9]` only at breakpoint `l`       |
 | `.xl--fs-[0–9]`     | font size `[0–9]` at breakpoint `xl`           |
 
-<p class="hint hint--negative">The utility <code>.lh-0</code> actually sets the line height to zero.</p>
+<p class="hint hint--negative">The utility <code>.lh-0</code> sets the line height to zero.</p>
 
 ## Line Height
 

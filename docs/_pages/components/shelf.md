@@ -17,7 +17,7 @@ For this example, we use thumbnail-images inside shelf items. You could use any 
 <!-- example:tabs -->
 <div class="shelf">
     <div class="shelf__board">
-        <div class="flexGrid">
+        <div class="flx">
             <div class="shelf__item w-1-4">
                 <div class="box p-2 m-2">
                     <img class="w-1-1 d-blk" src="https://source.unsplash.com/EARYIkg21D4/150x150" alt="" />
@@ -41,7 +41,7 @@ For this example, we use thumbnail-images inside shelf items. You could use any 
         </div>
     </div>
     <div class="shelf__board">
-        <div class="flexGrid">
+        <div class="flx">
             <div class="shelf__item w-1-4">
                 <div class="box p-2 m-2">
                     <img class="w-1-1 d-blk" src="https://source.unsplash.com/JgOeRuGD_Y4/150x150" alt="" />
@@ -65,7 +65,7 @@ For this example, we use thumbnail-images inside shelf items. You could use any 
         </div>
     </div>
     <div class="shelf__board">
-        <div class="flexGrid">
+        <div class="flx">
             <div class="shelf__item w-1-4">
                 <div class="box p-2 m-2">
                     <img class="w-1-1 d-blk" src="https://source.unsplash.com/z_L0sZoxlCk/150x150" alt="" />
@@ -99,7 +99,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
 <!-- example:tabs -->
 <div class="shelf">
     <div class="shelf__board">
-        <div class="flexGrid">
+        <div class="flx">
             <div class="shelf__item w-1-3">
                 <div class="box h-25 p-2 m-2">
                     <h3>Basic</h3>
@@ -133,7 +133,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
 <!-- example:tabs -->
 <div class="shelf">
     <div class="shelf__board">
-        <div class="flexGrid">
+        <div class="flx">
             <div class="shelf__item w-1-2">
                 <a class="box bg-base-5 b-0 h-30 tdr-none hvr--bg-base-3 p-b-10 m-2 c-blue-22 ofl-hidden" href="#">
                     <img class="d-blk m-b-2" src="https://source.unsplash.com/kFCdfLbu6zA/290x170">

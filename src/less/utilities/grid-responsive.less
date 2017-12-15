@@ -1,18 +1,6 @@
 /** grid-responsive.less */
 
-// float-grid
-// =======================
-
-/*
-    Since the .floatGrid is simple setting floats
-    to the width-utility-classes (see sizing.less & responsive-sizing.less),
-    it's already responsive.
-*/
-
-// flexbox-grid
-// ============
-
-.responsive-flexGrid(@bpPrefix) {
+.responsive-flx(@bpPrefix) {
     
     // flex layout
 
@@ -66,18 +54,18 @@
 
 // small
 
-@media @bp-only-s { .responsive-flexGrid(only-s); }
+@media @bp-only-s { .responsive-flx(only-s); }
 
 // medium
 
-@media @bp-m { .responsive-flexGrid(m); }
-@media @bp-only-m { .responsive-flexGrid(only-m); }
+@media @bp-m { .responsive-flx(m); }
+@media @bp-only-m { .responsive-flx(only-m); }
 
 // large
 
-@media @bp-l { .responsive-flexGrid(l); }
-@media @bp-only-l { .responsive-flexGrid(only-l); }
+@media @bp-l { .responsive-flx(l); }
+@media @bp-only-l { .responsive-flx(only-l); }
 
 // x-large
 
-@media @bp-xl { .responsive-flexGrid(xl); }
+@media @bp-xl { .responsive-flx(xl); }

@@ -47,7 +47,7 @@ Sticky takes the first matching element on the page and references it’s height
 
 ```html
 <!-- example -->
-<div class="flexGrid">
+<div class="flx">
     <div class="w-8">
         <div class="w-6 h-6 bg-primary-15 m-r-4 br" yoi-sticky="reference:#referenceElement-1;"></div>
     </div>

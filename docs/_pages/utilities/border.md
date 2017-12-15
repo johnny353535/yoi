@@ -39,7 +39,7 @@ All borders have the default border-color and -width.
 
 ```html
 <!-- example:tabs -->
-<div class="flexGrid">
+<div class="flx">
     <div class="b-all w-10 h-10 p-2 m-4 bw-1">.bw-1</div>
     <div class="b-all w-10 h-10 p-2 m-4 bw-2">.bw-2</div>
     <div class="b-all w-10 h-10 p-2 m-4 bw-3">.bw-3</div>

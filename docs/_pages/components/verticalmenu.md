@@ -192,7 +192,7 @@ The following example combines the `.verticalMenu` with the [toggleGroup interfa
 
 ```html
 <!-- example:tabs -->
-<div class="box flexGrid">
+<div class="box flx">
     <div class="w-1-3">
         <ul class="verticalMenu verticalMenu--pointRight br-0 b-0 b-r">
             <li class="verticalMenu__item">
