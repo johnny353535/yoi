@@ -8,204 +8,78 @@
     https://github.com/philipwalton/flexbugs
 */
 
-.flx {
+// the basic flex container wraps it's items since
+// this makes most sense for most our use cases
 
+.flx {
     display: flex !important;
     flex-wrap: wrap !important;
-
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    
 }
 
-// flex layout
+// wrap
 
-.flx                        { display: flex !important; }
-.flx-wrap                   { flex-wrap: wrap !important; }
-.flx-noWrap                 { flex-wrap: nowrap !important; }
-.flx-wrapReverse            { flex-wrap: wrap-reverse !important; }
-                              
+.flx-wrap        { flex-wrap: wrap !important; }
+.flx-noWrap      { flex-wrap: nowrap !important; }
+.flx-wrapReverse { flex-wrap: wrap-reverse !important; }
+
+// direction
+
 .flx-directionRow           { flex-direction: row !important; }
 .flx-directionRowReverse    { flex-direction: row-reverse !important; }
 .flx-directionColumn        { flex-direction: column !important; }
 .flx-directionColumnReverse { flex-direction: column-reverse !important; }
 
-.flx-alignStart { align-items: flex-start !important; }
+// align
 
-.flx-alignEnd {
-    
-    align-items: flex-end !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        vertical-align: bottom !important;
-    }
-    
-}
+.flx-alignStart    { align-items: flex-start !important; }
+.flx-alignEnd      { align-items: flex-end !important; }
+.flx-alignCenter   { align-items: center !important; }
+.flx-alignBaseline { align-items: baseline !important; }
+.flx-alignStretch  { align-items: stretch !important; }
 
-.flx-alignCenter {
-    
-    align-items: center !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        vertical-align: middle !important;
-    }
-    
-}
+// align comtent
 
-.flx-alignBaseline {
-    
-    align-items: baseline !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        vertical-align: baseline !important;
-    }
-    
-}
-
-.flx-alignContentStart { align-content: flex-start !important; }
-
-.flx-alignContentEnd {
-    
-    align-content: flex-end !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        vertical-align: bottom !important;
-    }
-    
-}
-
+.flx-alignContentStart         { align-content: flex-start !important; }
+.flx-alignContentEnd           { align-content: flex-end !important; }
 .flx-alignContentCenter        { align-content: center !important; }
 .flx-alignContentSpaceBetween  { align-content: space-between !important; }
 .flx-alignContentSpaceAround   { align-content: space-around !important; }
-.flx-alignSelfStretch          { align-self: stretch !important; }
-.flx-alignSelfStart            { align-self: flex-start !important; }
+.flx-alignContentStretch       { align-content: stretch !important; }
 
-.flx-alignSelfEnd {
-    align-self: flex-end !important;
-    vertical-align: bottom !important;
-}
+// align self
 
-.flx-alignSelfCenter {
-    align-self: center !important;
-    vertical-align: middle !important;
-}
+.flx-alignSelfStretch  { align-self: stretch !important; }
+.flx-alignSelfStart    { align-self: flex-start !important; }
+.flx-alignSelfEnd      { align-self: flex-end !important;}
+.flx-alignSelfCenter   { align-self: center !important; }
+.flx-alignSelfBaseline { align-self: baseline !important; }
 
-.flx-alignSelfBaseline {
-    align-self: baseline !important;
-    vertical-align: baseline !important;
-}
+// justify
 
-.flx-justifyStart {
-    text-align: left !important;
-    justify-content: flex-start !important;
-}
+.flx-justifyStart        { justify-content: flex-start !important; }
+.flx-justifyEnd          { justify-content: flex-end !important; }
+.flx-justifyCenter       { justify-content: center !important; }
+.flx-justifySpaceBetween { justify-content: space-between !important; }
+.flx-justifySpaceAround  { justify-content: space-around !important; }
+.flx-justifySpaceEvenly  { justify-content: space-evenly !important; }
 
-.flx-justifyEnd {
-    
-    text-align: right !important;
-    text-align-last: right !important;
-    justify-content: flex-end !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        text-align: left !important;
-        text-align: start !important;
-        text-align: initial !important;
-        text-align-last: left !important;
-        text-align-last: start !important;
-        text-align-last: initial !important;
-    }
-    
-}
+// .flx-justifyEnd,
+// .flx-justifyCenter,
+// .flx-justifySpaceBetween,
+// .flx-justifySpaceAround {
+//
+//     > * {
+//         text-align: left !important;
+//         text-align: start !important;
+//         text-align: initial !important;
+//         text-align-last: left !important;
+//         text-align-last: start !important;
+//         text-align-last: initial !important;
+//     }
+//
+// }
 
-
-.flx-justifyCenter {
-    
-    text-align: center !important;
-    text-align-last: center !important;
-    justify-content: center !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        text-align: left !important;
-        text-align: start !important;
-        text-align: initial !important;
-        text-align-last: left !important;
-        text-align-last: start !important;
-        text-align-last: initial !important;
-    }
-    
-}
-
-.flx-justifySpaceBetween {
-    
-    text-align: justify !important;
-    text-align-last: justify !important;
-    justify-content: space-between !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        text-align: left !important;
-        text-align: start !important;
-        text-align: initial !important;
-        text-align-last: left !important;
-        text-align-last: start !important;
-        text-align-last: initial !important;
-    }
-}
-
-.flx-justifySpaceAround {
-    
-    text-align: justify !important;
-    text-align-last: justify !important;
-    justify-content: space-around !important;
-    
-    [class*="w-1-"],
-    [class*="w-2-"],
-    [class*="w-3-"],
-    [class*="w-4-"],
-    [class*="w-5-"] {
-        text-align: left !important;
-        text-align: start !important;
-        text-align: initial !important;
-        text-align-last: left !important;
-        text-align-last: start !important;
-        text-align-last: initial !important;
-    }
-}
-
-// flex order
+// direction
 
 .flx-1  { order: 1; }
 .flx-2  { order: 2; }

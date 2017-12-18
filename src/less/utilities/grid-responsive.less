@@ -2,8 +2,7 @@
 
 .responsive-flx(@bpPrefix) {
     
-    // flex layout
-
+    .@{bpPrefix}--flx             { .flx; }
     .@{bpPrefix}--flx-wrap        { .flx-wrap; }
     .@{bpPrefix}--flx-noWrap      { .flx-noWrap; }
     .@{bpPrefix}--flx-wrapReverse { .flx-wrapReverse; }
@@ -17,12 +16,14 @@
     .@{bpPrefix}--flx-alignEnd          { .flx-alignEnd; }
     .@{bpPrefix}--flx-alignCenter       { .flx-alignCenter; }
     .@{bpPrefix}--flx-alignBaseline     { .flx-alignBaseline; }
-    .@{bpPrefix}--flx-aligncontentStart { .flx-alignContentStart; }
-    .@{bpPrefix}--flx-alignContentEnd   { .flx-alignContentEnd; }
-
+    .@{bpPrefix}--flx-alignStretch      { .flx-alignStretch; }
+    
+    .@{bpPrefix}--flx-alignContentStart        { .flx-alignContentStart; }
+    .@{bpPrefix}--flx-alignContentEnd          { .flx-alignContentEnd; }
     .@{bpPrefix}--flx-alignContentCenter       { .flx-alignContentCenter; }
     .@{bpPrefix}--flx-alignContentSpaceBetween { .flx-alignContentSpaceBetween; }
     .@{bpPrefix}--flx-alignContentSpaceAround  { .flx-alignContentSpaceAround; }
+    .@{bpPrefix}--flx-alignContentStretch      { .flx-alignContentStretch; }
     
     .@{bpPrefix}--flx-alignSelfStretch  { .flx-alignSelfStretch; }
     .@{bpPrefix}--flx-alignSelfStart    { .flx-alignSelfStart; }
@@ -30,14 +31,11 @@
     .@{bpPrefix}--flx-alignSelfCenter   { .flx-alignSelfCenter; }
     .@{bpPrefix}--flx-alignSelfBaseline { .flx-alignSelfBaseline; }
 
-
     .@{bpPrefix}--flx-justifyStart        { .flx-justifyStart; }
     .@{bpPrefix}--flx-justifyEnd          { .flx-justifyEnd; }
     .@{bpPrefix}--flx-justifyCenter       { .flx-justifyCenter; }
     .@{bpPrefix}--flx-justifySpaceBetween { .flx-justifySpaceBetween; }
     .@{bpPrefix}--flx-justifySpaceAround  { .flx-justifySpaceAround; }
-
-    // flex order
 
     .@{bpPrefix}--flx-1  { .flx-1; }
     .@{bpPrefix}--flx-2  { .flx-2; }

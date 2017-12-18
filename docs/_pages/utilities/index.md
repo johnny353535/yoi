@@ -96,3 +96,20 @@ Use utilities to create new elements. The element in the following example uses 
     </div>
 </div>
 ```
+
+## Interactive Utilities (mouseover-prefix)
+
+Some utilities feature *interactive* utilities as listed on each individual documentation page.
+
+| `.hvr--[utility]` | apply the utility’s styling on *mouseover* |
+
+## Responsive Utilities (breakpoint-prefixes)
+
+Some utilities feature *responsive* utilities as listed on each individual documentation page. Use the following breakpoint-prefixes:
+
+| `.only-s--[utility]` | apply the utility’s styling only at breakpoint `s`       |
+| `.m--[utility]`      | apply the utility’s styling at breakpoint `m` and larger |
+| `.only-m--[utility]` | apply the utility’s styling only at breakpoint `m`       |
+| `.l--[utility]`      | apply the utility’s styling at breakpoint `l` and larger |
+| `.only-l--[utility]` | apply the utility’s styling only at breakpoint `l`       |
+| `.xl--[utility]`     | apply the utility’s styling at breakpoint `xl`           |
