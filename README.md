@@ -1,10 +1,10 @@
 # YOI - the Yoshino Frontend Component Library
 
-YOI is Yoshino’s custom-built frontend component library. It enables our team to design, build, test and iterate web pages _directly in the browser_. YOI was made to be used by designers with basic knowledge of HTML and CSS – at it’s core stands a simple HTML-based interface.
+YOI (pronounced *yo-ee*) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages *directly in the browser*. It was made to be used by designers with basic knowledge of HTML and CSS – at it’s core stands a simple *HTML-based interface*.
 
 ## Documentation
 
-At the moment we are still working to complete our [user manual](https://yoshino-digital.github.io/yoi/). A proper technical documentation will follow.
+At the moment we are still working to complete our [user manual](https://yoshino-digital.github.io/yoi/).
 
 ## Installing
 
