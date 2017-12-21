@@ -7,7 +7,7 @@ permalink: components/breadcrumbs
 
 # Breadcrumbs
 
-<p class="intro">Use this component to displaying the path to the current page.</p>
+<p class="intro">Horizontal menu to aid navigation by displaying the path to the current page.</p>
 
 ## Example
 

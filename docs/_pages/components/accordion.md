@@ -7,6 +7,8 @@ permalink: components/accordion
 
 # Accordion
 
+<p class="hint hint--negative">Documentation incomplete.</p>
+
 <p class="intro">Use this component to create one or several grouped sections that expand or collapse, once a section header is clicked.</p>
 
 ## Basic Example

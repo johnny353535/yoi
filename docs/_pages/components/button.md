@@ -7,11 +7,11 @@ permalink: components/button
 
 # Button
 
-<p class="intro">Create buttons in different styles and sizes.</p>
+<p class="intro">Buttons of different styles and sizes.</p>
 
 ## Basic Example
 
-Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. You get a large variety by combining the many button-modifiers. This is how you create the most basic button:
+Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. This is how the most basic button looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -20,7 +20,7 @@ Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` in
 
 ## Icons & Buttons
 
-You can use any [icon](components/icons.html) inside any kind of button. You can align them to the left or right by writing them first or last in markup:
+You can put any [icon](components/icons.html) inside any kind of button. You can align them to the left or right by writing them first or last in markup:
 
 ```html
 <!-- example -->
@@ -37,7 +37,7 @@ You can use any [icon](components/icons.html) inside any kind of button. You can
 </button>
 ```
 
-If you wish to create an icon-only button, use the css-class `hidden` for the label:
+Create an icon-only button by adding `.hidden` to the label:
 
 ```html
 <!-- example -->
@@ -48,11 +48,11 @@ If you wish to create an icon-only button, use the css-class `hidden` for the la
 </button>
 ```
 
-<p class="hint hint--negative"><b>Order in markup matters:</b> If you wish to create an icon-only button, make sure to always put the label before the icon in your markup.</p>
+<p class="hint hint--negative"><b>Order matters:</b> Make sure to always put the label before the icon in your markup.</p>
 
 ## Other HTML-Elements As Button
 
-You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons](components/icons.html), you need a wrapper element around the button label and icon.
+You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons](components/icons.html), you need a wrapper element around the button label.
 
 ### \<a>
 
@@ -104,8 +104,6 @@ You may use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 | Type   | `.btn--flat, .btn--rounded, .btn--subtle` |
 | State  | `.is--active, .is--disabled, .is--focus`|
 | Other  | `.btn--clip` |
-
-<p class="hint">Have a look at the <a href="tools/buttons.html">buttons tool</a> to try out all possible combinations.</p>
 
 ### Size
 
@@ -231,7 +229,7 @@ Visually group buttons by wrapping them inside a container with the class `.btns
 </div>
 ```
 
-You may also create vertically grouped button blocks by adding the modifier `.btns--vertical`:
+Create vertically grouped button blocks by adding the modifier `.btns--vertical`:
 
 ```html
 <!-- example -->
@@ -244,7 +242,7 @@ You may also create vertically grouped button blocks by adding the modifier `.bt
 
 ## Modification
 
-Use [YOI Utility Classes](utilities/) to override button styles and create custom buttons. Use this option wisely and only for special cases where no standard button style works for you!
+Use [utilities](utilities/) to override button styles and create custom buttons:
 
 ```html
 <!-- example -->

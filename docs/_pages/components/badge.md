@@ -7,13 +7,13 @@ permalink: components/badge
 
 # Badge
 
-<p class="intro">Use this component to display small bits of data, eg. one-word labels, counters, etc.</p>
+<p class="intro">Displays small bits of data, eg. one-word labels, counters, etc.</p>
 
 ## Modifiers
 
 ### Size
 
-Badges are available in four different sizes.
+Badges are available in four different sizes:
 
 ```html
 <!-- example -->
@@ -25,7 +25,7 @@ Badges are available in four different sizes.
 
 ### Style
 
-Use the modifier `.badge--rounded` to render pill-shaped badges.
+Use the modifier `.badge--rounded` to render pill-shaped badges:
 
 ```html
 <!-- example -->

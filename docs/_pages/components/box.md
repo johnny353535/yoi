@@ -7,7 +7,7 @@ permalink: components/box
 
 # Box
 
-<p class="intro">Use this component to create a versatile container and affect hirachy in your page layout. Combine it with CSS-utility-classes to create custom variations.</p>
+<p class="intro">A versatile container component.</p>
 
 ## Basic Example
 
@@ -25,7 +25,7 @@ This is how a basic `.box` looks like and how you write the markup:
 
 ## Grouping
 
-Each `.box` can have multiple `.box__body`s. This is handy if you wish to group elements inside a single `.box` but only use one `.box__header`. Like this:
+Each `.box` can have multiple `.box__body` instances:
 
 ```html
 <!-- example -->
@@ -40,7 +40,7 @@ Each `.box` can have multiple `.box__body`s. This is handy if you wish to group 
 </div>
 ```
 
-Sometimes you may wish to group different `.box`es. You can easily do so by wrapping them inside `<div class="boxes">` (notice the plural!). Of course you can also nest multiple bodies:
+Group multiple `.box` instances by wrapping them inside `<div class="boxes">`. You can also nest multiple `.box__body`:
 
 ```html
 <!-- example -->
@@ -77,7 +77,7 @@ Sometimes you may wish to group different `.box`es. You can easily do so by wrap
 
 ## Modification
 
-Use the [CSS-utility-classes](utilities/) to create custom variations. In the following example, text-, border- and background-color is set to shades of red:
+Create custom `.box` variations with [utilities](utilities/). In the following example, text-, border- and background-color is set to shades of red:
 
 ```html
 <!-- example -->
