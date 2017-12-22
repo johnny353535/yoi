@@ -7,7 +7,7 @@ permalink: components/horizontalmenu
 
 # HorizontalMenu
 
-<p class="intro">Use this component to create a prominent horizontal menu.</p>
+<p class="intro">A large horizontal menu.</p>
 
 ## Basic Example
 

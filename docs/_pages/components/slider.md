@@ -7,7 +7,12 @@ permalink: components/slider
 
 # Slider
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+</div>
+
+<p class="intro">A simple slide show / carousel with keyboard bindings.</p>
 
 ```html
 <!-- example -->

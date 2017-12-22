@@ -7,7 +7,11 @@ permalink: components/ratinginput
 
 # RatingInput
 
-<p class="intro">Use `.ratingInput` to create a compact 5-star rating mechanism.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">A compact 5-star rating widget.</p>
 
 ## Basic Example
 
@@ -48,7 +52,7 @@ Use the modifiers `.ratingInput--rated-1` to `.ratingInput--rated-5` to an initi
 
 ## JavaScript-API
 
-### Hook
+### Attributes
 
 | key    | description                                                                                |
 | ------ | ------------------------------------------------------------------------------------------ |

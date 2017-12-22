@@ -7,11 +7,11 @@ permalink: components/scrollprogress
 
 # ScrollProgress
 
-<p class="intro">Use this component to create a progress bar that displays the current reading position and triggers custom events based on the scroll position.</p>
+<p class="intro">A progress bar that displays the current reading position and triggers custom events based on the scroll position.</p>
 
 ## Usage
 
-The element is created and injected into the page via JavaScript. If you wish to add a `.scrollProgress` to a specific page, add the attribute `yoi-scrollprogress` to the `<body>`:
+Add a `.scrollProgress` to any page by adding the attribute `yoi-scrollprogress` to the `<body>` element:
 
 ```html
 <body yoi-scrollprogress> … </body>

@@ -7,7 +7,11 @@ permalink: components/stepper
 
 # Stepper
 
-<p class="intro">This element combines a (numeric) input-field with control buttons to de- or increase the input value.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">An input-field and control-button combo to de- or increase a numeric value.</p>
 
 ## Basic Example
 

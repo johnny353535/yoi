@@ -7,7 +7,11 @@ permalink: components/modal
 
 # Modal
 
-<p class="intro">Use this component to create a smaller window, overlaying and blocking the rest of the page.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">A small window, overlaying and blocking the rest of the page.</p>
 
 ## Basic Example
 

@@ -7,7 +7,11 @@ permalink: components/posterteaser
 
 # PosterTeaser
 
-<p class="intro">This element renders text on top of a darkened image, resembling a movie poster.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Teaser with white text on top of a darkened image and mouseover-effects.</p>
 
 ## Example
 

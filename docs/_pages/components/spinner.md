@@ -7,7 +7,7 @@ permalink: components/spinner
 
 # Spinner
 
-<p class="intro">Use this component to display an infinite loading animation.</p>
+<p class="intro">A simple animated activity indicator.</p>
 
 ## Basic Example
 

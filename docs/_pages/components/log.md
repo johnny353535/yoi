@@ -7,7 +7,11 @@ permalink: components/log
 
 # Log
 
-<p class="intro">Use this component to log short messages in reverse-order.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Logs short messages in reverse-order.</p>
 
 <p class="hint hint--primary"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
 

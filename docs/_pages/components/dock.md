@@ -7,7 +7,7 @@ permalink: components/dock
 
 # Dock
 
-<p class="intro">Use this component to create an overlay which is docked to the right or left side of the screen and takes up the whole viewport height.</p>
+<p class="intro">An overlay which is <i>docked</i> to the right or left side of the screen and takes up the whole viewport height.</p>
 
 ## Basic Example
 

@@ -7,6 +7,11 @@ permalink: components/rangeinput
 
 # RangeInput
 
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+    <span class="badge badge--medium badge--rounded badge--negative">issues</span>
+</div>
+
 <p class="intro">Use this component to create a custom range input.</p>
 
 ## Basic Example
@@ -20,9 +25,9 @@ This is how a basic `.rangeInput` looks like and how you write the markup:
 
 ## JavaScript-API
 
-### Hook
+### Attributes
 
-The hook `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
+The attribute `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
 
 | key    | description                                                                  |
 | ------ | ---------------------------------------------------------------------------- |

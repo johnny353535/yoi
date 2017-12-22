@@ -7,24 +7,28 @@ permalink: components/scrollkeys
 
 # ScrollKeys
 
-<p class="intro">Use this component to add buttons (and keyboard bindings) that let the user scroll back and forth between jump marks.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">issues</span>
+</div>
+
+<p class="intro">Buttons (with keyboard bindings) to scroll the page back and forth between <i>jump marks</i>.</p>
 
 ## Usage
 
-The element is created and injected into the page via JavaScript. If you wish to add a `.scrollKeys` to a specific page, add the attribute `yoi-scrollkeys` to the `<body>`:
+Add `.scrollKeys` to any page by adding the attribute `yoi-scrollkeys` to the `<body>` element:
 
 ```html
 <body yoi-scrollkeys> … </body>
 ```
 
-You can see the element in action on this page.
+Scroll to see the element in action on this page.
 
 ## Parameters
 
 | `hooks`    | CSS selector           | Optional. Defines the *hooks* (= jump marks). Any CSS selector will work. Default is `h1, h2, h3, h4, h5, h6`.             |
 | `position` | `tl`, `tr`, `br`, `bl` | Optional. Set the position of the scroll buttons to one of the four edges of the screen. Default is `br` (= bottom right). |
 
-### Hooks
+### Attributes
 
 Set the *hooks* (= jump marks) to any collection of elements on the page by providing a CSS selector. The following example would jump back and forth between all elements with the CSS-class `.jumpMark`:
 

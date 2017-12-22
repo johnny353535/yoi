@@ -7,4 +7,4 @@ permalink: components/
 
 # Components
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<p class="badge badge--large badge--rounded badge--negative pos-tr">incomplete</p>

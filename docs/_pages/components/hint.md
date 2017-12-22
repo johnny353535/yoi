@@ -7,7 +7,7 @@ permalink: components/hint
 
 # Hint
 
-<p class="intro">Use this component to create emphasized paragraphs in four available different stylings.</p>
+<p class="intro">Emphasized paragraph in four semantic stylings.</p>
 
 ## Basic Example
 

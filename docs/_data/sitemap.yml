@@ -64,8 +64,8 @@ components:
     - ratinginput
     - ribbon
     - ruler
-    - scrollprogress
     - scrollkeys
+    - scrollprogress
     - searchprompt
     - shelf
     - slider

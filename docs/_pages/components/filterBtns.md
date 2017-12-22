@@ -7,11 +7,11 @@ permalink: components/filterbtns
 
 # FilterBtns
 
-<p class="intro">Use this component to display a horizontal list of filter buttons.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
 
-## Usage
-
-Ideally, each filter button should be a link, pointing to a static page with the pre-rendered, filtered content. However, `.filterBtns` are most likely to be used without page reload with the resulting content being loaded via JavaScript.
+<p class="intro">Buttons with different visual states for simple filter tasks.</p>
 
 ## Toggleable Filter Buttons
 

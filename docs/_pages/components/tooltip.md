@@ -7,7 +7,7 @@ permalink: components/tooltip
 
 # Tooltip
 
-<p class="intro">Use this component to display small bits of text on mouseover.</p>
+<p class="intro">Small contextual bits of text on mouseover.</p>
 
 ## Basic Example
 
@@ -88,8 +88,3 @@ Set the parameter `hideDealy` to any number of milliseconds (eg. `hideDelay:1000
 
 | `yoi-tooltip-hide` | Fires when tooltip disappeared |
 | `yoi-tooltip-show` | Fires when tooltip appeared    |
-
-## Associated Files
-
-| Styles  | [toolTip.less]({{ pathToSourceFile }}assets/less/components/toolTip.less) |
-| Scripts | [toolTip.js]({{ pathToSourceFile }}assets/js/components/toolTip.js)       |

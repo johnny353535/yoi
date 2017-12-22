@@ -7,11 +7,15 @@ permalink: components/piechart
 
 # Pie Chart
 
-<p class="intro">This is a simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/components/barChart.html">Bar Chart</a>.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">A simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/components/barChart.html">Bar Chart</a>.</p>
 
 ## Most Basic Example
 
-Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` hook so never forget to inlcude it in your markup.
+Use this markup to generate a most simple pie chart with **all default options applied**. The script looks for the `yoi-piechart` attribute so never forget to inlcude it in your markup.
 
 ```html
 <!-- example:tabs -->

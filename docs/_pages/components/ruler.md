@@ -7,7 +7,7 @@ permalink: components/ruler
 
 # Ruler
 
-<p class="intro">Use this component to display a simple horizontal ruler.</p>
+<p class="intro">A simple horizontal ruler.</p>
 
 ## Basic Example
 

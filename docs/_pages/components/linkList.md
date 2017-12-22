@@ -7,7 +7,11 @@ permalink: components/linklist
 
 # Link List
 
-<p class="intro">Use this component to create a vertical list of links.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+</div>
+
+<p class="intro">A vertical list of links.</p>
 
 ## Basic Example
 

@@ -7,7 +7,11 @@ permalink: components/pagination
 
 # Pagination
 
-<p class="intro">Use this component to render a pagination with page links and browse buttons.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+</div>
+
+<p class="intro">A horizontal set of page links and browse buttons.</p>
 
 ## Basic Example
 

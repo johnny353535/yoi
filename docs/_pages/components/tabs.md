@@ -7,7 +7,11 @@ permalink: components/tabs
 
 # Tabs
 
-<p class="intro">Use this component to create tab menus that switch the content in pre-defined regions on a page.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Tab menus and tab panels.</p>
 
 ## Basic Example
 

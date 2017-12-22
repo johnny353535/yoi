@@ -7,13 +7,17 @@ permalink: components/popover
 
 # Pop-Over
 
-<p class="intro">Use this component to create small overlays, relatively positioned to their reference element.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Small overlay, relatively positioned to a reference element.</p>
 
 ## Basic Example
 
 To create a pop-over, you need two elements: a *trigger* and the *pop-over* itself. Whily any element can be a trigger, `<a>`s with the pop-over’s id as `href` value make sense in most cases.
 
-To reference a *pop-over*, add the `yoi-popover` hook to the trigger element. You must at least provide one parameter: the target pop-over id:
+To reference a *pop-over*, add the `yoi-popover` attribute to the trigger element. You must at least provide one parameter: the target pop-over id:
 
 ```html
 <!-- example -->

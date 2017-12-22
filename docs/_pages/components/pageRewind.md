@@ -7,23 +7,23 @@ permalink: components/pagerewind
 
 # PageRewind
 
-<p class="intro">Use this component to create a _scroll-to-top-button_ at the bottom of a page.</p>
+<p class="intro">A scroll-to-top button at the bottom of a page.</p>
 
 ## Usage
 
-The element is created and injected into the page via JavaScript. If you wish to add a `.pageRewind` to a specific page, add the attribute `yoi-pagerewind` to the `<body>`:
+Add a `.pageRewind` to any page by adding the attribute `yoi-pagerewind` to the `<body>` element:
 
 ```html
 <body yoi-pagerewind> … </body>
 ```
 
-You can see the element in action on this page.
+Scroll to see the element in action on this page.
 
 ## Actions
 
-### PageRewind.run
+### PageRewind
 
-If you wish to scroll the page back to top via JavaScript, you can do so by calling this function:
+Scroll the page back to top with the [action](/actions/) `PageRewind`:
 
 ```html
 <!-- example -->

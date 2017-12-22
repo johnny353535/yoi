@@ -7,9 +7,11 @@ permalink: components/accordion
 
 # Accordion
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
 
-<p class="intro">Use this component to create one or several grouped sections that expand or collapse, once a section header is clicked.</p>
+<p class="intro">Grouped expandable/collapsable sections.</p>
 
 ## Basic Example
 
@@ -47,7 +49,7 @@ This is how a basic `.accordion` looks like and how you write the markup:
 
 ## Linked Accordion Sections
 
-It’s a common UI pattern to close all accordion sections but the currently expanded one. This behaviour is optional. Enable it by adding `linked:true` to the custom attribute `yoi-accordion`:
+Always collapse all accordion sections but the currently expanded one by adding `linked:true` to the custom attribute `yoi-accordion`:
 
 ```html
 <!-- example -->
@@ -81,7 +83,7 @@ It’s a common UI pattern to close all accordion sections but the currently exp
 
 ## Controlling Accordion Sections
 
-Initially, all accordion sections are closed. However, you can define which section should start expanded/open. To do so, add the modifier `.is--open` to the very `.accordion__section`:
+Define which section should start expanded/open by adding the modifier `.is--open` to an `.accordion__section`:
 
 ```html
 <!-- example -->

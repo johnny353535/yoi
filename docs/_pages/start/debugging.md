@@ -7,7 +7,9 @@ permalink: start/debugging
 
 # Debugging
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
 
 <!--
     <p class="intro">Use the [option variables](/pages/theme/options.html) of your [theme](/pages/theme/_introduction.html) to include styles that are only applied if certain _debug flags_ were set. You can highlight BEM-style elements (__elements, --modifiers), certain utility classes or even display the currently active media query.</p>

@@ -5,13 +5,17 @@ title: Toggle Group
 permalink: components/togglegroup
 ---
 
-## Toggle Group
+# Toggle Group
 
-<p class="intro">This script provides simple hooks you can use to logically group elements anywhere inside a document and make them *toggleable*. This means the elements behave like a group of tabs, you can always switch to one element and hide all the others. Other than tabs, you can use any markup you like (for any trigger or target item), you can provide an *activeClassName* to highlight an active trigger element and you can even define the event *per trigger*.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
 
-### Example with mouseover and Fall Back Element
+<p class="intro">Logically grouped elements, behaving like a group of tabs with optional start element to fall back to</p>
 
-If you provide no event in the options JSON, the default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.
+## Example with mouseover and Fall Back Element
+
+The default event to trigger a toggle is mouseover. Sometimes it makes sense to switch back to a *fall back element* after some delay. You can set it up by providing such element and mark it with `yoi-toggle-fallback="$"` where `$` is the toggle group name.
 
 ```html
 <!-- example -->
@@ -27,7 +31,7 @@ If you provide no event in the options JSON, the default event to trigger a togg
 </div>
 <div class="box w-20 h-20" id="toggleElement-2">
     <div class="box__body">
-        <img class="d-blk" src="https://source.unsplash.com/zdXc-jna3I/180x180" />
+        <img class="d-blk" src="https://source.unsplash.com/gsh-RsCnLKQ/180x180" />
     </div>
 </div>
 <div class="box w-20 h-20" id="toggleElement-3">
@@ -42,7 +46,7 @@ If you provide no event in the options JSON, the default event to trigger a togg
 </div>
 ```
 
-### Example with click event
+## Example with click event
 
 This is basically the same thing like a [`.tab`](/pages/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`](/pages/components/buttons.html) and provide an *activeClassName* to mark them as active once pressed.
 

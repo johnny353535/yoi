@@ -7,7 +7,7 @@ permalink: components/stepcrumb
 
 # StepCrumb
 
-<p class="intro">Use this component to create a compact horizontal chain of links to display a progress – eg. the current step of a register process.</p>
+<p class="intro">A compact horizontal chain of links to display a progress – eg. the current step of a register process.</p>
 
 ## Basic Example
 
@@ -203,7 +203,7 @@ Use the modifiers `.stepCrumb--step1` up to `.stepCrumb--step10` to highlight th
 
 ## Markup
 
-It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated stylimg of this element, it’s recommended to explicitly disable it’s mouseover styles. You can do so by adding the [utility-class ”.ptr-none“](utilities/interface.html):
+It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated styling of this element, we recommended to explicitly disable its mouseover styles. You can do so by adding the [utility](utilities/interface.html) `.ptr-none`:
 
 ```html
 <!-- example -->

@@ -7,7 +7,7 @@ permalink: components/stepmenu
 
 # StepMenu
 
-<p class="intro">Use this component to create a prominent vertical chain of links to display a progress – eg. the current step of a register process.</p>
+<p class="intro">A prominent vertical chain of links to display a progress – eg. the current step of a register process.</p>
 
 ## Basic Example
 

@@ -7,7 +7,11 @@ permalink: components/pagedots
 
 # PageDots
 
-<p class="intro">Use this component to display previous- & next-buttons with dots as page indicators.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+</div>
+
+<p class="intro">Previous- & next-buttons with dots as page indicators.</p>
 
 <p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 

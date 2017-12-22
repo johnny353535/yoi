@@ -7,7 +7,7 @@ permalink: components/pagebtns
 
 # PageBtns
 
-<p class="intro">Use this component to display previous- & next-buttons with a page indicator.</p>
+<p class="intro">Previous- & next-buttons with a page indicator.</p>
 
 <p class="hint"><b>Use Cases:</b> <code>.pageBtns</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 

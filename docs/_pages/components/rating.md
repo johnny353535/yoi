@@ -7,7 +7,7 @@ permalink: components/rating
 
 # Rating
 
-<p class="intro">Use this component to display a compact rating score – visualized by a number of stars between 1 and 5.</p>
+<p class="intro">A compact rating score, visualized by 1 to 5 stars.</p>
 
 ## Basic Example
 

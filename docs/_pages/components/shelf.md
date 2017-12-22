@@ -7,7 +7,7 @@ permalink: components/shelf
 
 # Shelf
 
-<p class="intro">Use this component to display a grid elements as a shelf.</p>
+<p class="intro">A grid of elements resembling a shelf.</p>
 
 ## Basic Example
 

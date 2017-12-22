@@ -7,7 +7,11 @@ permalink: components/countdown
 
 # Countdown
 
-<p class="intro">Use this component to create a countdown to a future date less than a year ahead. The countdown is rendered as a lcd-style clock, yet fully accessible via screen readers.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Countdown to a future date less than a year ahead – rendered as a lcd-style clock, yet fully accessible via screen readers.</p>
 
 ## Basic Example
 
@@ -33,7 +37,7 @@ Add an element with the css class name `countdown__title` to add an optional tit
 
 ## Expired Countdown
 
-Once the countdown expired, the display will reset and the *custom event* `yoi-countdown:expire` *will fire* (JavaScript).
+Once the countdown expired, the display resets and the *custom event* `yoi-countdown-expire` fires.
 
 ```html
 <!-- example -->
@@ -48,14 +52,5 @@ Each lcd-style digit is an svg graphic. To make the countdown more accessible by
 <!-- example -->
 <div class="countdown" yoi-countdown="year:{{ 'now' | date: "%Y" }}; month:12; day:31; hour:15;">
     <p class="hidden">Expires on December 31st {{ 'now' | date: "%Y" }} at 15:00 GMT+0002.</p>
-</div>
-```
-
-Once the script is executed, the label gets replaced and updates every second:
-
-```html
-<!-- example -->
-<div class="countdown" yoi-countdown="year:{{ 'now' | date: "%Y" }}; month:12; day:31; hour:15;">
-    <p class="hidden">Expires on January 1st, {{ 'now' | date: "%Y" }} at 15:00 GMT+0002</p>
 </div>
 ```

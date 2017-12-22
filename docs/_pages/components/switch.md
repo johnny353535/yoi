@@ -7,7 +7,7 @@ permalink: components/switch
 
 # Switch
 
-<p class="intro">Use this component to display animated binary switch buttons.</p>
+<p class="intro">Animated binary switch buttons.</p>
 
 ## Basic Example
 
@@ -35,7 +35,7 @@ Use the modifier `.switch--large` to render a large switch:
 </div>
 ```
 
-## Hook
+## Attributes
 
 | Key | Value | Description |
 | - | - | - |

@@ -7,7 +7,7 @@ permalink: start/
 
 # What is YOI?
 
-<p class="intro">YOI (pronounced <i>yo-ee</i>) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages <i>directly in the browser</i>. It was made to be used by designers with basic knowledge of HTML and CSS – at it’s core stands a <i>simple HTML-based interface</i>.</p>
+<p class="intro">YOI (pronounced <i>yo-ee</i>) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages <i>directly in the browser</i>. It was made to be used by designers with basic knowledge of HTML and CSS – at its core stands a <i>simple HTML-based interface</i>.</p>
 
 ## Quick to Learn
 
@@ -31,8 +31,8 @@ In addition to rather simple and static elements, YOI also features more complex
 
 ### Behaviours
 
-Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. YOI has many useful [Behaviours](behaviours/) already built in. You can apply and configure them on any element in you HTML via YOI’s _hooks_ syntax.
+Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. YOI has many useful [Behaviours](behaviours/) already built in. You can apply and configure them on any element in you HTML via YOI’s _attributes_ syntax.
 
 ### Actions
 
-Do you need a button that opens all accordions on a page? For use cases like this, we enabled another kind of _hook_, one that binds an action to an element (like a button). It may look like this: `<button yoi-action="Accordion.openAll;">Open all Accordions</button>`.
+Do you need a button that opens all accordions on a page? For use cases like this, we enabled another kind of _attribute_, one that binds an action to an element (like a button). It may look like this: `<button yoi-action="Accordion.openAll;">Open all Accordions</button>`.

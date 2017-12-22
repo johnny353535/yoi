@@ -7,7 +7,7 @@ permalink: start/startlearning
 
 # Start Learning
 
-<p class="intro">YOI is quick to learn and was designed for people who do not need to have a background in programming. However, you will have to write HTML. This page offers some recources for you to start learning or simply refresh your knowledge.</p>
+<p class="intro">YOI is designed for people who do not need to have a background in programming. However, you will have to write HTML. This page offers some recources for you to start learning or simply refresh your knowledge.</p>
 
 ## HTML Basics
 
@@ -30,7 +30,7 @@ Check out the following links to learn about the basics of HTML:
 
 ## CSS Basics
 
-You do not need to write CSS if you do not wish to change how YOI’s elements look. However, once you wish to create your [own customized website](workflow/customizing.html) (with custom colors, fonts etc.), you need to know at least some basics about CSS, too.
+You do not need to write CSS if you do not wish to change how YOI’s elements look. However, once you wish to create your own customized website (with custom colors, fonts etc.), you need to know at least some basics about CSS, too.
 
 <div class="flx m-t-4">
     <div class="w-1-1 m-b-2 m--w-1-2 m--p-r-2 m--m-b-0">

@@ -7,14 +7,11 @@ permalink: components/flyout
 
 # Flyout
 
-<p class="intro">Use this component to display a label, pinned to either the left or right side of the screen, which reveals a small panel on click.</p>
-
-<p class="hint hint--primary"><b>Use sparely:</b> You should only use one flyout per page and only for important information since the sticky labels on the side of the screen appera rather prominent to the user.</p>
-<p class="hint hint--negative"><b>For large screens only:</b> This element was designed for use with large screens, it’s not recommended to use it on small screens.</p>
+<p class="intro">A label, pinned to either the left or right side of the screen, which reveals a small panel on click.</p>
 
 ## Basic Example
 
-This is the markup for a basic `.flyOut` (you should see the rendered result on the left edge of this page):
+This is the markup for a basic `.flyout` (you should see the rendered result on the left edge of this page):
 
 ```html
 <!-- example -->
@@ -31,6 +28,8 @@ This is the markup for a basic `.flyOut` (you should see the rendered result on 
 </div>
 ```
 
+<p class="hint hint--primary"><b>Use sparely:</b> You should only use one flyout per page and only for important information since the sticky labels on the side of the screen appera rather prominent to the user.</p>
+
 ## Modifiers
 
 Add `.flyout--left` or `.flyout--right` to attach the `.flyout` to the left or right side of the viewport. By default – if you leave out a modifier – a flyout is on the left side.
@@ -43,34 +42,34 @@ If JavaScript is not available, the flyout is a simple box and remains at it’s
 
 ### Flyout.toggle
 
-Toggle (show/hide) a `.flyOut` by using the [action](actions/) `Flyout.toggle`:
+Toggle (show/hide) a `.flyout` by using the [action](actions/) `Flyout.toggle`:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.toggle:#exampleFlyout;">Toggle the FlyOut</button>
+<button class="btn btn--large" yoi-action="Flyout.toggle:#exampleFlyout;">Toggle the Flyout</button>
 ```
 
 ### Flyout.show
 
-Show a `.flyOut` by using the [action](actions/) `Flyout.show`:
+Show a `.flyout` by using the [action](actions/) `Flyout.show`:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.show:#exampleFlyout;">Show the FlyOut</button>
+<button class="btn btn--large" yoi-action="Flyout.show:#exampleFlyout;">Show the Flyout</button>
 ```
 
 ### Flyout.hide
 
-Hide a `.flyOut` by using the [action](actions/) `Flyout.hide`:
+Hide a `.flyout` by using the [action](actions/) `Flyout.hide`:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.hide:#exampleFlyout;">Hide the FlyOut</button>
+<button class="btn btn--large" yoi-action="Flyout.hide:#exampleFlyout;">Hide the Flyout</button>
 ```
 
 ### Custom Events
 
 | event name        | fires when …       |
 | ----------------- | ------------------ |
-| `yoi-flyout-show` | A flyOut is shown  |
-| `yoi-flyout-hide` | A flyOut is hiddem |
+| `yoi-flyout-show` | A flyout is shown  |
+| `yoi-flyout-hide` | A flyout is hiddem |

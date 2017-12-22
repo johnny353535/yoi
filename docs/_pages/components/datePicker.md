@@ -7,7 +7,11 @@ permalink: components/datepicker
 
 # Date Picker
 
-<p class="intro">Use this component to provide an easy way to enter dates into input fields.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Calendar widget to help entering dates into input fields.</p>
 
 <p class="hint hint--negative"><strong>The date picker is designed for use on desktop browsers.</strong> On mobile browsers it makes more sense to use the native input widgets.</p>
 

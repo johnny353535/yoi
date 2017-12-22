@@ -7,7 +7,7 @@ permalink: components/ribbon
 
 # Ribbon
 
-<p class="intro">Use this component to display to display a 45° rotated ribbon in the the upper left or right corner of any container element.</p>
+<p class="intro">A 45° rotated ribbon in the the upper left or right corner of any container element.</p>
 
 ## Basic Example
 

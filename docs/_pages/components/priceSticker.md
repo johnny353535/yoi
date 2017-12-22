@@ -7,7 +7,7 @@ permalink: components/pricesticker
 
 # PriceSticker
 
-<p class="intro">Use this component to display a simple horizontal ruler.</p>
+<p class="intro">A badge that mimics a price sticker.</p>
 
 ## Basic Example
 

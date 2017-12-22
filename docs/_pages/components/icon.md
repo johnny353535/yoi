@@ -7,7 +7,7 @@ permalink: components/icon
 
 # Icon
 
-<p class="intro">Monochrome, SVG-based icons.</p>
+<p class="intro">Monochrome SVG-based icons.</p>
 
 ## Basic Example
 
@@ -19,7 +19,7 @@ This is how a basic `.icon` looks like and how you write the markup:
 ```
 ## Modifiers
 
-Use the modifiers `.icon--small, .icon--large, .icon--xlarge` to render icons in different sizes:
+Render icons in different sizes with the modifiers `.icon--small, .icon--large, .icon--xlarge`:
 
 ```html
 <!-- example -->
@@ -31,7 +31,7 @@ Use the modifiers `.icon--small, .icon--large, .icon--xlarge` to render icons in
 
 ## Icon CDN
 
-We created a handy little online tool to generate our YOI-icons for you on the fly. You can request every icon of the set and manipulate it’s size and color via a simple URL:
+Request any icon of the set and manipulate size and color via URL parameters:
 
 <div class="box p-1 fs-2 m-t-3 m-b-4">
     http://cdn.yoshino.digital/svg.php?
@@ -50,7 +50,7 @@ We created a handy little online tool to generate our YOI-icons for you on the f
 
 ## SVG and HTML
 
-The YOI icons are SVG graphics. Generally speaking, there are two different ways to display SVG graphics on a web page. You may treat the SVG file like an `<image>` (or `<object>`) by using a HTML-tag with a source- (or data-) attribute:
+Generally speaking, there are two different ways to display SVG graphics on a web page. You may treat the SVG file like an `<image>` (or `<object>`) by using a HTML-tag with a source- (or data-) attribute:
 
 ```html
 <!-- SVG as image -->
@@ -72,30 +72,20 @@ The other option is writing the SVG markup inline, directly into the HTML:
 
 <p class="hint"><b>Learn more about SVG in HTML</b> The explanaintion above is simplified. If you wish to learn more, take a look at <a href="https://css-tricks.com/using-svg/">this excellent article on css-tricks.com</a>.</p>
 
-Writing the SVG markup by hand is not a good solution of course. In most cases, you can add icons to your page by using an `<image>`-tag. However, in some cases the only option is the inline method because styling the SVG via CSS only really works this way. See the following section [Inline-SVG Helper]({{ page.url }}.html#inline-svg-helper) for a another handy little tool.
+Writing the SVG markup by hand isn’t a practical solution. In most cases, you can add icons to your page by using an `<image>`-tag. However, in some cases the only option is the inline method because styling the SVG via CSS only really works this way. See the following section [Inline-SVG Helper]({{ page.url }}.html#inline-svg-helper) for a solution.
 
 ## JavaScript API
 
 ### Inline-SVG Helper
 
-If you need to embed SVG markup directly, add the script-hook `yoi-icon` to your `<img>` or `<object>` tag. No further settings required – the tag gets replaced instantly with the SVG markup:
+If you need to embed SVG markup directly, add the attribute `yoi-icon` to your `<img>` or `<object>` tag. No further settings required – the tag gets replaced instantly with the actual SVG markup:
     
 ```html
 <!-- example -->
 <img class="icon icon--xlarge" src="http://cdn.yoshino.digital/svg.php?id=icon-015" yoi-icon />
 ```
 
-### replace()
-
-The inline-SVG helper exposes a method to manually replace SVG images/objects with actual SVG markup. The method accepts only one parameter: a jQuery object, referencing the element you wish to replace:
-
-```html
-<!-- example -->
-<img id="myIcon" src="http://cdn.yoshino.digital/svg.php?id=icon-015" />
-<script>YOI.component.Icon.replace($('#myIcon'));</script>
-```
-
-## A List of All Available Icons
+## List of Available Icons
 
 <table>
     <tr>

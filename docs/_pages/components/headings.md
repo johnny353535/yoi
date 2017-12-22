@@ -7,7 +7,7 @@ permalink: components/headings
 
 # Headings
 
-<p class="intro">These are the headline-styles you can use in your documents.</p>
+<p class="intro">Six levels of headline stylings.</p>
 
 ## Example
 

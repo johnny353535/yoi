@@ -7,7 +7,11 @@ permalink: components/note
 
 # Note
 
-<p class="intro">Use notes to display system messages, eg. for form validation, status messages (added to cart), and so on. Notes can be *dismissable*, they come in two text sizes and they can contain an icon.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">System messages, eg. form validation, status (added to cart), etc.</p>
 
 ## Simple Note
 
@@ -23,7 +27,7 @@ permalink: components/note
 
 ## Basic Example
 
-If you wish to make a `.note` *dismissable*, use the `yoi-dismiss` hook to make a close button appear in the upper right corner.
+If you wish to make a `.note` *dismissable*, use the `yoi-dismiss` attribute to make a close button appear in the upper right corner.
 
 ```html
 <!-- example -->
@@ -53,15 +57,16 @@ Use the modifier `.note--large` to increase the font size.
 
 ```html
 <!-- example -->
-<div class="note note--large">
-    <span class="icon"></span>
+<div class="note note--large m-b-2">
+    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-024" yoi-icon />
+    <h3 class="note__headline">Headline</h3>
     <div class="note__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
     </div>
 </div>
 
-<div class="note note--negative note--large">
-    <span class="icon"></span>
+<div class="note note--negative note--large m-b-2">
+    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-006" yoi-icon />
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -69,7 +74,7 @@ Use the modifier `.note--large` to increase the font size.
 </div>
 
 <div class="note note--positive note--large">
-    <span class="icon"></span>
+    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011" yoi-icon />
     <h3 class="note__headline">Headline</h3>
     <div class="note__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>

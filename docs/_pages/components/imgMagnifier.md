@@ -7,7 +7,11 @@ permalink: components/imgmagnifier
 
 # ImgMagnifier
 
-<p class="intro">Use this component to add a magnifyer function to an image.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Magnifyer function for any image.</p>
 
 ## Basic Example
 
@@ -29,13 +33,13 @@ The magnify region is the same size than the original image and is always placed
 
 Each `.imgMagnifyer` must have at least one information: where to find the larger version of the preview image? In the example below, `imgMagnifier` reads the path to the larger image from the link (`<a>`) which is wrapped around the preview image. This is the recommended way to write the markup, since it’s also an _elegant fallback solution_. If JavaScript is not available, the link simple leads to an identical but larger image.
 
-It’s also possible to leave out the link and point to the large image via the hook `yoi-imgmagnifier`. More on that below.
+It’s also possible to leave out the link and point to the large image via the attribute `yoi-imgmagnifier`. More on that below.
 
 ## JavaScript-API
 
-### Hook
+### Attributes
 
-The hook `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
+The attribute `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
 
 | key       | description                                                                                                           |
 | --------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -44,7 +48,7 @@ The hook `yoi-rangeinput` accepts parameters to control the behaviour. The follo
 
 #### Zoom Image
 
-I you wish to create an `.imgMagnifier` without the link, you need to provide the path to the larger image via the custom attribute (or “hook”) `yoi-imgmagnifier`:
+I you wish to create an `.imgMagnifier` without the link, you need to provide the path to the larger image via the custom attribute `yoi-imgmagnifier`:
 
 ```html
 <!-- example -->

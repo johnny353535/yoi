@@ -7,4 +7,6 @@ permalink: start/customizing
 
 # Customizing
 
-<p class="hint hint--negative">Documentation incomplete.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>

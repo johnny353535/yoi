@@ -7,9 +7,10 @@ permalink: components/table
 
 # Table
 
-{% comment %}
-    + responsive!
-{% endcomment %}
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+</div>
 
 <p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
 
@@ -256,13 +257,13 @@ Use the modifier `.table--zebra` to create a table with alternating row colors:
 
 ## JavaScript-API
 
-### Hooks
+### Attributes
 
-Add the hook `yoi-table` to a `<table>` to make it intercative. The hook accepts parameters to enable the following features.
+Add the attribute `yoi-table` to a `<table>` to make it intercative. The attribute accepts parameters to enable the following features.
 
 #### Selectable Rows
 
-Use this option by adding `selectable:true;` as a parameter to the hook:
+Use this option by adding `selectable:true;` as a parameter to the attribute:
 
 ```html
 <!-- example:tabs -->
@@ -292,7 +293,7 @@ Use this option by adding `selectable:true;` as a parameter to the hook:
 
 #### Multiple Selectable Rows
 
-Use this option by adding `selectable:multi;` as a parameter to the hook:
+Use this option by adding `selectable:multi;` as a parameter to the attribute:
 
 ```html
 <!-- example:tabs -->
@@ -322,7 +323,7 @@ Use this option by adding `selectable:multi;` as a parameter to the hook:
 
 #### Removeable Rows
 
-Use this option by adding `removeable:true;` as a parameter to the hook:
+Use this option by adding `removeable:true;` as a parameter to the attribute:
 
 ```html
 <!-- example:tabs -->

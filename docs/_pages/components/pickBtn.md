@@ -7,7 +7,11 @@ permalink: components/pickbtn
 
 # PickBtn
 
-<p class="intro">Use this component to create prominent radio buttons. It’s basically a visual candy wrapper around a `<label>` and an `input[type="radio"]`.</label></p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Toggle buttons as wrappers around radio inputs.</p>
 
 ## Basic Example
 

@@ -7,11 +7,15 @@ permalink: components/maxchars
 
 # MaxChars
 
-<p class="intro">Use this component to limit the maximum characters for a textarea or text input and create a display of the remaining characters.</p>
+<div class="m-t-4 m--pos-tr m--m-t-10">
+    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+</div>
+
+<p class="intro">Limits the maximum characters for a textarea or text input and creates a display of the remaining characters.</p>
 
 ## Basic Example
 
-Add the hook `yoi-maxchars` to a `<input type="text">` or `<textarea>`. The input element (or textarea) must have a maxlength value. Add the css-selector for the element displaying the remaining characters as a parameter. Now the text input and the display element are linked, whenever you type, the display updates the number of remaining characters:
+Add the attribute `yoi-maxchars` to a `<input type="text">` or `<textarea>`. The input element (or textarea) must have a maxlength value. Add the css-selector for the element displaying the remaining characters as a parameter. Now the text input and the display element are linked, whenever you type, the display updates the number of remaining characters:
 
 ```html
 <!-- example -->
@@ -47,9 +51,9 @@ This is how a carefully styled text input with `yoi-maxchars` can look like and 
 
 ## JavaScript-API
 
-### Hook
+### Attributes
 
-The hook `yoi-maxchars` accepts the following parameters to control the behaviour:
+The attribute `yoi-maxchars` accepts the following parameters to control the behaviour:
 
 | key        | description                                                       |
 | ---------- | ----------------------------------------------------------------- |
