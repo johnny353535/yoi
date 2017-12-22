@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="control" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="200px" height="300px" viewBox="0 0 200 300" enable-background="new 0 0 200 300" xml:space="preserve">
+<g>
+	<g>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
+			80,49 30,77 80,105 130,77 		"/>
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="80,105 30,97 80,125 130,97 		"/>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			30,77 30,97 80,125 130,97 130,77 80,105 		"/>
+		
+			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			30,77 30,97 80,125 80,105 		"/>
+	</g>
+	
+		<ellipse fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" cx="80" cy="75.938" rx="14.173" ry="9.313"/>
+	<ellipse fill="#AE9BE8" cx="112.5" cy="77.182" rx="4.673" ry="3.071"/>
+	
+		<line fill="#FFFFFF" stroke="#AE9BE8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" x1="80" y1="15" x2="80" y2="74"/>
+	
+		<circle fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" cx="80" cy="15.333" r="14"/>
+	
+		<path fill="none" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" stroke-dasharray="0,6" d="
+		M70.333,170.667c31.657,36.32,108.754-18.711,66.364-31.335c-50.363-14.999-4.364-42.576,35.97-42.332"/>
+	<g>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
+			60,126 35,140 60,154 85,140 		"/>
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="60,154 35,170 60,184 85,170 		"/>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			35,140 35,170 60,184 85,170 85,140 60,154 		"/>
+		
+			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			35,140 35,170 60,184 60,154 		"/>
+	</g>
+</g>
+</svg>
