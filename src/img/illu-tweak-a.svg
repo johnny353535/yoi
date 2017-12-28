@@ -7,19 +7,24 @@
 	<g>
 		
 			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-			80,49 30,77 80,105 130,77 		"/>
-		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="80,105 30,97 80,125 130,97 		"/>
+			90,32 40,60 90,88 140,60 		"/>
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="90,88 40,120 90,148 140,120 		"/>
 		
 			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			30,77 30,97 80,125 130,97 130,77 80,105 		"/>
+			40,60 40,120 90,148 140,120 140,60 90,88 		"/>
 		
 			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			30,77 30,97 80,125 80,105 		"/>
+			40,60 40,120 90,148 90,88 		"/>
 	</g>
-	<ellipse fill="#AE9BE8" cx="80" cy="75.938" rx="14.173" ry="9.313"/>
-	<ellipse fill="#AE9BE8" cx="112.5" cy="77.182" rx="4.673" ry="3.071"/>
-	
-		<line fill="#FFFFFF" stroke="#AE9BE8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" x1="80" y1="15" x2="80" y2="74"/>
-	<circle fill="#AE9BE8" cx="80" cy="15.333" r="14"/>
+	<path fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" d="
+		M65,45"/>
+	<g>
+		
+			<polyline fill="none" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
+			98,8.28 90,1 82,8.28 		"/>
+		
+			<line fill="none" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" x1="90" y1="1" x2="90" y2="59"/>
+		<circle fill="#AE9BE8" cx="90" cy="59" r="4"/>
+	</g>
 </g>
 </svg>
