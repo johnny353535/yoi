@@ -10,7 +10,7 @@ title: About
         <div class="m--w-40 m-lr-auto m-t-4">
             <p class="fs-4 lh-6 c-primary-22 m-tb-8">Yoi is a highly modular front-end library, controlled by a simple HTML-interface.</p>
             <p>
-                <a class="fs-2" href="{{ site.github.url }}start/">Straight to the docs</a>
+                <a class="fs-2" href="{{ site.github.url }}/start/">Straight to the docs</a>
                 <i class="fs-2 c-primary-10 m-lr-2">or</i>
                 <a class="btn btn--primary btn--large btn--flat btn--rounded" href="#build" yoi-action="ScrollTo:#build; offset:0;">Learn more!</a>
             </p>
