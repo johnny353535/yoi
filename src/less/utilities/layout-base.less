@@ -54,13 +54,17 @@
     justify-content: center !important;
 }
 
-.center-lr {
+// page wrapper
+
+.wrapper {
     .mixin-clearfix !important;
     box-sizing: border-box !important;
     margin: 0 auto !important;
+    max-width: @maximumPageWrapperWidth !important;
     padding: 0 2rem !important;
     position: relative !important;
     text-align: left !important;
+    width: 100% !important;
 }
 
 // page cover

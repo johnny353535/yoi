@@ -160,14 +160,14 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 ## Centering
 
 | `.center-content` | centers the element’s containing element both horizontally and vertically |
-| `.center-lr`      | centers the element itself vertically                                     |
+| `.wrapper`      | centers the element itself vertically                                     |
 
 ```html
 <!-- example -->
 <div class="pos-relative br-all bg-gray-24 w-10 h-10 center-content m-b-2">
     <div class="w-1 h-1 bg-green-15"></div>
 </div>
-<div class="pos-relative br-all bg-gray-24 w-10 h-10 center-lr"></div>
+<div class="pos-relative br-all bg-gray-24 w-10 h-10 wrapper"></div>
 ```
 
 ### Responsive Centering

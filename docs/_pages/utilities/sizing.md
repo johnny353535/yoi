@@ -49,11 +49,12 @@ srcfiles:
 | `.only-l--w-[*]` | `.w-[*]` only at breakpoint `l`       |
 | `.xl--w-[*]`     | `.w-[*]` at breakpoint `xl`           |
 
-## Auto Width
+## Auto Width & Height
 
-| `.w-auto`| width at *auto*, useful to reset an element’s width |
+| `.w-auto`| width at *auto*, useful to reset an element’s width  |
+| `.h-auto`| height at *auto*, useful to reset an element’s width |
 
-### Responsive Auto Width
+### Responsive Auto Width & Height
 
 | `.only-s--w-auto` | `.w-auto` only at breakpoint `s`       |
 | `.m--w-auto`      | `.w-auto` at breakpoint `m` and larger |
@@ -61,6 +62,12 @@ srcfiles:
 | `.l--w-auto`      | `.w-auto` at breakpoint `l` and larger |
 | `.only-l--w-auto` | `.w-auto` only at breakpoint `l`       |
 | `.xl--w-auto`     | `.w-auto` at breakpoint `xl`           |
+| `.only-s--h-auto` | `.h-auto` only at breakpoint `s`       |
+| `.m--h-auto`      | `.h-auto` at breakpoint `m` and larger |
+| `.only-m--h-auto` | `.h-auto` only at breakpoint `m`       |
+| `.l--h-auto`      | `.h-auto` at breakpoint `l` and larger |
+| `.only-l--h-auto` | `.h-auto` only at breakpoint `l`       |
+| `.xl--h-auto`     | `.h-auto` at breakpoint `xl`           |
 
 ## Fixed Width & Height
 

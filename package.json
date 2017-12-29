@@ -38,7 +38,7 @@
     "publish-styles": "npm run styles:compile && npm run styles:process && npm run styles:compress && npm run copy-styles",
     "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors",
     "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
-    "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
+    "watch-jekyll": "chokidar 'docs/assets' 'docs/*.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' -c 'npm run build-styles'"
   }
