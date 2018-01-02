@@ -105,6 +105,10 @@ YOI.component.Code = (function() {
                 $thisCodeWrapper.replaceWith(markup);
             }
             
+            //
+            
+            truncate(index);
+            
             // set initialized
 
             YOI.setReady($(this));
@@ -186,6 +190,54 @@ YOI.component.Code = (function() {
         
         selection.removeAllRanges();
         
+    }
+    
+    function truncate(index) {
+
+        /**
+         *  Truncates a code block if it exceeds 4 lines.
+         *
+         *  @param {number} index
+         */
+
+        var $thisCodeSource = $('.code__source').eq(index);
+        var $thisCode       = $thisCodeSource.find('code');
+        
+        // do not truncate code inside tabs (cancel)
+        
+        if ($thisCodeSource.hasClass('tabs__page')) return false;
+        
+        // assign vars
+        
+        var $expandBtn    = $('<button class="code__expandBtn btn btn--flat btn--light">Expand</button>');
+        var codeHeight    = $thisCode.height();
+        var lineHeight    = $thisCode.css('line-height');
+        var maxCodeHeight = parseInt(lineHeight) * 5;
+        
+        // add events to expand button
+        
+        $expandBtn.on('click', function(e) {
+            
+            e.preventDefault();
+            
+            $thisCodeSource.find('.code__expandBtn').fadeOut(200);
+            
+            $thisCode.animate({
+                height: codeHeight
+            }, 200, function() {
+                $thisCode.removeClass('code__source--truncated');
+            });
+            
+        });
+        
+        // truncate code
+        
+        if (codeHeight > maxCodeHeight) {
+            $thisCode.height(maxCodeHeight);
+            $thisCode.addClass('code__source--truncated');
+            $thisCodeSource.append($expandBtn);
+        }
+
     }
 
     // public functions

@@ -42,40 +42,74 @@ p, td, li {
 // code example
 
 .code__example {
+    background: @color-white;
     border-radius: 2px;
     border: @gray-23 1px solid;
 }
 
 .code__example pre code {
     border-radius: 0;
-    margin-top: -1.5rem;
+    padding-top: 0;
 }
 
 .code__example pre {
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
 }
 
 .code__example pre,
 .code__example code {
     background: transparent;
     font-size: 1.3rem;
+    line-height: 2rem;
 }
 
-.code__source {}
+.code__source {
+    position: relative;
+}
+
+.code__source--truncated::before,
+.code__source::after {
+
+    // gradients to cut overflowing text on right and bottom
+
+    bottom: 4rem;
+    content: ' ';
+    display: block;
+    position: absolute;
+
+}
+
+.code__source--truncated::before {
+    
+    // gradient to cut overflowing text on bottom
+    
+    background: linear-gradient(@color-transparent, @color-white);
+    height: 2.5rem;
+    left: 2rem;
+    right: 2rem;
+
+}
+
+.code__source::after {
+
+    // gradient to cut overflowing text on right
+
+    background: linear-gradient(to right, @color-transparent, @color-white);
+    right: 2rem;
+    top: 0;
+    width: 2.5rem;
+
+}
 
 .code__example .code__result {
     padding: 2rem;
-}
-
-.code__example.tabs pre,
-.code__example.tabs code {
-    background: transparent;
 }
 
 .code__example.tabs pre {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
+    margin-top: -1.2rem;
 }
 
 .code__example > .tabs__menu,
@@ -109,13 +143,23 @@ p, td, li {
     
 }
 
+// expand button
+
+.code__expandBtn {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 // code highlighting (via http://rouge.jneen.net)
 // ==============================================
 
 .highlight {
     .hll { background-color: @gray-22; }
     .c   { color: @gray-15; }
-    //.err { background: @red-10; color: @white; }
+    .err { }
     .k   { color: @purple-12; }
     .l   { color: @yellow-13; }
     .n   { color: @gray-15; }
