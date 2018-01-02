@@ -79,11 +79,12 @@ Since flexbox is a rather complex layout concept, it’s best to learn it with v
 
 ### Utilities for Flex Items
 
-| `.flx-alignSelfStart`           | Overrides the item’s alignment, see `.flx-alignStart`. |
-| `.flx-alignSelfEnd`             | Overrides the item’s alignment, see `.flx-alignEnd`. |
-| `.flx-alignSelfCenter`          | Overrides the item’s alignment, see `.flx-alignCenter`. |
+| `.flx-alignSelfStart`           | Overrides the item’s alignment, see `.flx-alignStart`.    |
+| `.flx-alignSelfEnd`             | Overrides the item’s alignment, see `.flx-alignEnd`.      |
+| `.flx-alignSelfCenter`          | Overrides the item’s alignment, see `.flx-alignCenter`.   |
 | `.flx-alignSelfBaseline`        | Overrides the item’s alignment, see `.flx-alignBaseline`. |
-| `.flx-alignSelfStretch`         | Overrides the item’s alignment, see `.flx-alignStretch`. |
+| `.flx-alignSelfStretch`         | Overrides the item’s alignment, see `.flx-alignStretch`.  |
+| `.flx-grow`                     | Applies `flex-grow: 1` to the item                        |
 
 ### Responsive Flexbox
 

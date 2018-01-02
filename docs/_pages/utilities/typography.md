@@ -78,6 +78,28 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 | `.only-l--lh-[0–9]` | line height `[0–9]` only at breakpoint `l`       |
 | `.xl--lh-[0–9]`     | line height `[0–9]` at breakpoint `xl`           |
 
+## Letter Spacing
+
+| `.ls-0` | `.ls-1` | `.ls-2` | `.ls-3` | `.ls-4` |
+
+```html
+<!-- example -->
+<p class="ls-0">Zero letter spacing</p>
+<p class="ls-1">letter spacing factor 1</p>
+<p class="ls-2">letter spacing factor 2</p>
+<p class="ls-3">letter spacing factor 3</p>
+<p class="ls-4">letter spacing factor 4</p>
+```
+
+### Responsive Letter Spacing
+
+| `.only-s--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `s`       |
+| `.m--ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `m` and larger |
+| `.only-m--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `m`       |
+| `.l--ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `l` and larger |
+| `.only-l--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `l`       |
+| `.xl--ls-[0–4]`     | letter spacing `[0–4]` at breakpoint `xl`           |
+
 ## Font Family
 
 | `.ff-mono`  | monospace  |
