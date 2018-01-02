@@ -8,7 +8,7 @@ title: About
         <span class="c-primary-15">{{ site.github.latest_release }}</span>
     </div>
     <div class="flx-grow al-r">
-        <a href="https://github.com/yoshino-digital/yoi/" class="btn btn--medium btn--flat btn--primary">GitHub</a>
+        <a href="{{ site.github.url }}" class="btn btn--medium btn--flat btn--primary">GitHub</a>
         <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--flat btn--primary">
             <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-071-s" yoi-icon />
             <span>Download</span>
@@ -133,7 +133,7 @@ title: About
         <span class="val-m"><span class="only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-primary-18 tdr-none hvr--c-primary-22">Yoshino.digital GmbH</a></span>
     </p>
     <p class="flx-grow al-r">
-        <a href="https://github.com/yoshino-digital/yoi/" class="btn btn--medium btn--flat btn--primary">GitHub</a>
+        <a href="{{ site.github.url }}" class="btn btn--medium btn--flat btn--primary">GitHub</a>
     </p>
 </div>
 <style>

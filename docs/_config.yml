@@ -3,7 +3,6 @@
 title: YOI - the Yoshino Frontend Component Library
 description: A quick-to-learn, yet powerful set of elements and utilities for building and designing web pages directly in the browser.
 url: "https://yoshino-digital.github.io/yoi/"
-github_username: yoshino-digital
 
 # Build Settings
 
@@ -12,5 +11,11 @@ markdown: kramdown
 include: ['_pages']
 exclude: ['Gemfile','Gemfile.lock']
 
+# Github
+
+github_username: yoshino-digital
+repository: yoshino-digital/yoi
+
 # Learn more about configuring jekyll for github pages:
 # http://downtothewire.io/2015/08/15/configuring-jekyll-for-user-and-project-github-pages/
+# https://help.github.com/articles/repository-metadata-on-github-pages/
