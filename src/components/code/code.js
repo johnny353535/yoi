@@ -220,14 +220,32 @@ YOI.component.Code = (function() {
             
             e.preventDefault();
             
-            $thisCodeSource.find('.code__expandBtn').fadeOut(200);
+            var $this = $(this);
             
-            $thisCode.animate({
-                height: codeHeight
-            }, 200, function() {
-                $thisCode.removeClass('code__source--truncated');
-            });
-            
+            if ($thisCode.is('.code__source--truncated')) {
+                
+                // expand
+                
+                $thisCode.animate({
+                    height: codeHeight
+                }, 200, function() {
+                    $thisCode.removeClass('code__source--truncated');
+                    $this.text('Collapse');
+                });
+
+            } else {
+
+                // collapse
+
+                $thisCode.animate({
+                    height: maxCodeHeight
+                }, 200, function() {
+                    $thisCode.addClass('code__source--truncated');
+                    $this.text('Expand');
+                });
+                
+            }
+
         });
         
         // truncate code
