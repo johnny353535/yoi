@@ -7,8 +7,8 @@ permalink: components/countdown
 
 # Countdown
 
-<div class="m-t-4 m--pos-tr m--m-t-10">
-    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <span class="badge badge--negative">incomplete</span>
 </div>
 
 <p class="intro">Countdown to a future date less than a year ahead – rendered as a lcd-style clock, yet fully accessible via screen readers.</p>

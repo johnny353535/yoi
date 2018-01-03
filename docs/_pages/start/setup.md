@@ -7,13 +7,13 @@ permalink: start/setup
 
 # Setup
 
-<div class="m-t-4 m--pos-tr m--m-t-10">
-    <span class="badge badge--medium badge--rounded badge--negative">doc incomplete</span>
+<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <span class="badge badge--negative">incomplete</span>
 </div>
 
 ## Try It Out
 
-Use the following html template to try out YOI:
+Use the following html template to try out Yoi:
 
 ```html
 <!DOCTYPE html>
@@ -31,10 +31,10 @@ Use the following html template to try out YOI:
 </html>
 ```
 
-Or use this JsFiddle to test YOI right in your browser:
+Or use this JsFiddle to test Yoi right in your browser:
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://jsfiddle.net/0e8h8rer/17/">Try out YOI in your browser</a>
+    <a class="btn btn--large" href="https://jsfiddle.net/0e8h8rer/17/">Try out Yoi in your browser</a>
 </div>
 
 Or use the *YOI Boilerplate* and compile a customized version on your machine:

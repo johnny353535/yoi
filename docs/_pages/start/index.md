@@ -5,13 +5,13 @@ title: Introduction
 permalink: start/
 ---
 
-# What is YOI?
+# What is Yoi?
 
-<p class="intro">YOI (pronounced <i>yo-ee</i>) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages <i>directly in the browser</i>. It was made to be used by designers with basic knowledge of HTML and CSS – at its core stands a <i>simple HTML-based interface</i>.</p>
+<p class="intro">Yoi (pronounced <i>yo-ee</i>) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages <i>directly in the browser</i>. It was made to be used by designers with basic knowledge of HTML and CSS – at its core stands a <i>simple HTML-based interface</i>.</p>
 
 ## Quick to Learn
 
-If you are already familiar with the [basics of HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics), you will quickly learn how to use YOI since _you will only write HTML_. No CSS and not a single line of JavaScript. We kept things simple because we designed this system with _non-programmers_ in mind.
+If you are already familiar with the [basics of HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics), you will quickly learn how to use Yoi since _you will only write HTML_. No CSS and not a single line of JavaScript. We kept things simple because we designed this system with _non-programmers_ in mind.
 
 ## Easy to Use
 
@@ -27,11 +27,11 @@ By adding [utility-classes](utilities/) to an element, you can override styling 
 
 ### Attributes
 
-In addition to rather simple and static elements, YOI also features more complex and interactive elements. [DatePickers](components/datePicker.html), [Modals](components/modal.html), [PopOvers](components/popOver.html) – all these elements are configured via custom HTML attributes. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page.
+In addition to rather simple and static elements, Yoi also features more complex and interactive elements. [DatePickers](components/datePicker.html), [Modals](components/modal.html), [PopOvers](components/popOver.html) – all these elements are configured via custom HTML attributes. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page.
 
 ### Behaviours
 
-Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. YOI has many useful [Behaviours](behaviours/) already built in. You can apply and configure them on any element in you HTML via YOI’s _attributes_ syntax.
+Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. Yoi has many useful [Behaviours](behaviours/) already built in. You can apply and configure them on any element in you HTML via Yoi’s _attributes_ syntax.
 
 ### Actions
 

@@ -7,4 +7,6 @@ permalink: components/
 
 # Components
 
-<p class="badge badge--large badge--rounded badge--negative pos-tr">incomplete</p>
+<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <p class="badge badge--negative">incomplete</p>
+</div>
