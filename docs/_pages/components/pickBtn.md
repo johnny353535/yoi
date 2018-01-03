@@ -46,17 +46,17 @@ Sometimes you may wish to include an additional label and hide it, once a button
 <ul class="fs-0">
     <li class="pickBtn m-r-1 is--active" yoi-pickbtn>
         <label for="pickBtn_4" class="pickBtn__label">50 Stk</label>
-        <span class="pickBtn__toggleLabel c-price">€ 10,99</span>
+        <span class="pickBtn__toggleLabel">€ 10,99</span>
         <input id="pickBtn_4" type="radio" checked="checked" name="testGroup_2" />
     </li>
     <li class="pickBtn m-r-1" yoi-pickbtn>
         <label for="pickBtn_5" class="pickBtn__label">70 Stk</label>
-        <span class="pickBtn__toggleLabel c-price">€ 15,99</span>
+        <span class="pickBtn__toggleLabel">€ 15,99</span>
         <input id="pickBtn_5" type="radio" name="testGroup_2" />
     </li>
     <li class="pickBtn" yoi-pickbtn>
         <label for="pickBtn_6" class="pickBtn__label">150 Stk</label>
-        <span class="pickBtn__toggleLabel c-price">€ 20,99</span>
+        <span class="pickBtn__toggleLabel">€ 20,99</span>
         <input id="pickBtn_6" type="radio" name="testGroup_2" />
     </li>
 </ul>

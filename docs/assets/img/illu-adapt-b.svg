@@ -4,25 +4,17 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="200px" height="225px" viewBox="0 0 200 225" enable-background="new 0 0 200 225" xml:space="preserve">
 <g>
-	
-		<circle fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" cx="166" cy="87" r="25.558"/>
 	<g>
-		<g>
-			
-				<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-				144,134 119,148 144,162 169,148 			"/>
-			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="144,162 119,178 144,192 169,178 			
-				"/>
-			
-				<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-				119,148 119,178 144,192 169,178 169,148 144,162 			"/>
-			
-				<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-				119,148 119,178 144,192 144,162 			"/>
-		</g>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
+			144,134 119,148 144,162 169,148 		"/>
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="144,162 119,178 144,192 169,178 		"/>
+		
+			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			119,148 119,178 144,192 169,178 169,148 144,162 		"/>
+		
+			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+			119,148 119,178 144,192 144,162 		"/>
 	</g>
-	
-		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-		145.282,32.572 155.418,50.286 165.552,68 145.282,68 125.012,68 135.147,50.286 	"/>
 </g>
 </svg>

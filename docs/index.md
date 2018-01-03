@@ -1,15 +1,15 @@
 ---
 layout: blank
-title: About
+title: Introduction
 ---
 
 <div class="p-2 pos-absolute w-1-1 al-r">
     <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">GitHub</a>
     <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">Download</a>
 </div>
-<div class="cover only-s--h-auto only-s--p-tb-10 center-content bg-primary-3">
+<section id="intro" class="cover only-s--h-auto only-s--p-tb-30 center bg-primary-3">
     <div class="wrapper al-c" yoi-scrollfx="in:fade-in; repeat:false;">
-        <img class="h-20 w-20 m-t-6 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
+        <img class="h-20 w-20 m-t-4 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
         <h1 class="hidden">Yoi</h1>
         <div class="m--w-40 m-lr-auto m-t-4">
             <p class="fs-4 lh-6 c-primary-22 m-tb-8"><b>Yoi</b> is a modular front-end library with a dead simple HTML-interface.</p>
@@ -20,9 +20,9 @@ title: About
             </p>
         </div>
     </div>
-</div>
+</section>
 <img class="bg-base-25 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-dark.svg" />
-<div id="build" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
+<section id="build" class="p-tb-30 article xxcenter bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -35,32 +35,30 @@ title: About
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
-<div class="bg-white br-all w-20 tdr-none m-2 c-primary-14 sh-3 ofl-hidden" href="#">
-    <img class="d-block" src="https://source.unsplash.com/qjgdslbEn-I/200x165">
-    <div class="p-3">
-        <div class="flx m-b-2">
-            <div class="flx-grow">
-                <h2 class="c-base-17 fs-1 lh-1 fw-bold tt-uppercase ls-1">Daily Quiz</h2>
-            </div>
-            <div class="al-r flx-grow">
-                <p class="c-base-17 fs-1 lh-1 fw-bold">1 / 10</p>
+<div class="tile tile--bottom fx--blur fx--slide">
+    <div class="tile__body">
+        <h2 class="tile__title">Rocket</h2>
+        <div class="tile__copy">
+            <div class="flx m-t-2">
+                <div class="w-2-3">
+                    <p class="fs-2 lh-3">Fast, huge and never out of fashion!</p>
+                    <p class="fs-3 fw-bold c-primary-20">€ 12,00</p>
+                </div>
+                <div class="w-1-3 pos-relative al-r">
+                    <button class="btn btn--large pos-br">Buy</button>
+                </div>
             </div>
         </div>
-        <h3 class="m-b-2">What is this?</h3>
-        <p class="btns btns--vertical">
-            <button class="btn btn--large btn--light">Rocket</button>
-            <button class="btn btn--large btn--light">Space Ship</button>
-            <button class="btn btn--large btn--light">Awesome</button>
-        </p>
     </div>
+    <img class="tile__image" src="https://source.unsplash.com/qjgdslbEn-I/250x250" alt="" />
 </div>
 ```
 </div>
             </div>
         </div>
     </div>
-</div>
-<div id="tweak" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
+</section>
+<section id="tweak" class="p-tb-30 article xxcenter bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -79,8 +77,8 @@ title: About
             </div>
         </div>
     </div>
-</div>
-<div id="control" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
+</section>
+<section id="control" class="p-tb-30 article xxcenter bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -102,13 +100,15 @@ title: About
             </div>
         </div>
     </div>
-</div>
-<div id="adapt" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
+</section>
+<section id="adapt" class="p-tb-30 article xxcenter bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-a.svg" yoi-parallax="factor:20;" />
-                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-b.svg" yoi-parallax="factor:-20;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-b.svg" yoi-parallax="factor:25;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-c.svg" yoi-parallax="factor:15;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-d.svg" yoi-parallax="factor:10;" />
             </div>
             <div class="m--w-2-3 w-1-1">
                 <h2>Adapt</h2>
@@ -118,17 +118,20 @@ title: About
             </div>
         </div>
     </div>
-</div>
+</section>
 <img class="bg-primary-3 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-light.svg" />
-<div class="flx bg-primary-3 p-4">
+<section class="flx bg-primary-3 p-4">
     <p class="flx-grow  c-primary-15 fs-2">
         <img class="h-3 w-3 val-m m-r-1" src="{{ site.github.url }}/assets/img/logo-yoshino.svg" />
         <span class="val-m"><span class="only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-primary-18 tdr-none hvr--c-primary-22">Yoshino.digital GmbH</a></span>
     </p>
     <p class="flx-grow al-r">
-        <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--flat btn--primary">GitHub</a>
+        <a class="btn btn--medium btn--flat btn--primary" href="{{ site.github.repository_url }}" yoi-action="ScrollTo:#intro;">
+            <span class="hidden">Up</span>
+            <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-010-s" yoi-icon />
+        </a>
     </p>
-</div>
+</section>
 <style>
     html, body { background: #080022; }
 </style>

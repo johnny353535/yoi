@@ -159,15 +159,13 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ## Centering
 
-| `.center-content` | centers the element’s containing element both horizontally and vertically |
-| `.wrapper`      | centers the element itself vertically                                     |
+| `.center` | centers the element’s (only) child element both horizontally and vertically |
 
 ```html
 <!-- example -->
-<div class="pos-relative br-all bg-gray-24 w-10 h-10 center-content m-b-2">
+<div class="pos-relative br-all bg-gray-24 w-10 h-10 center m-b-2">
     <div class="w-1 h-1 bg-green-15"></div>
 </div>
-<div class="pos-relative br-all bg-gray-24 w-10 h-10 wrapper"></div>
 ```
 
 ### Responsive Centering
@@ -179,9 +177,10 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 | `.only-l--center-[*]` | `.center-[*]` only at breakpoint `l`       |
 | `.xl--center-[*]`     | `.center-[*]` at breakpoint `xl`           |
 
-## Cover
+## Wrapper & Cover
 
-| `.cover` | sets an element to 100% viewport width and 100% viewport height |
+| `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing](/start/customizing.html)) |
+| `.cover`   | sets an element to 100% viewport width and 100% viewport height                                                           |
 
 ## Columns
 

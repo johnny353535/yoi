@@ -10,3 +10,35 @@ permalink: start/customizing
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
     <span class="badge badge--negative">incomplete</span>
 </div>
+
+```css
+// boolean options
+
+@broadCastActiveMediaqueryToJs : true;   // make the current breakpoint accessible in JS
+@debugMediaquery               : false;  // display the active breakpoint on each page
+@debugGrid                     : false;  // highlight grid-elements for debugging
+@debugBemElements              : false;  // highlight BEM-elements for debugging
+@debugBemModifiers             : false;  // highlight BEM-modifiers for debugging
+@debugImages                   : false;  // highlight images without alt- or title-attributes
+@debugFloats                   : false;  // highlight floated elements (.fl-l & .fl-r)
+@showCenterGuides              : false;  // show both vertically and horizontally centered guides
+@fullColorPalette              : true;   // switch between a full or optimized color palette
+
+// numeric settings
+
+@maximumPageWrapperWidth       : 100rem; // the maximum width of the .wrapper layout utility (2rem padding left & right)
+@defaultBorderRadius           : 2;      // border radius, multiplicand: 1 PX
+@sizingSteps                   : 60;     // steps for width & height utility classes, multiplicand: 1 REM
+@responsiveSizingSteps         : 60;     // steps for responsive width & height utility classes
+@sizingMultiplicand            : 1rem;   // multiplicand for width & height utility classes
+@spacingSteps                  : 60;     // steps for margin & padding utility classes, multiplicand: 0.5 REM
+@responsiveSpacingSteps        : 60;     // steps for responsive margin & padding utility classes, multiplicand: 0.5 REM
+@spacingMultiplicand           : 0.5rem; // multiplicand for margin & padding utility classes
+@positionSteps                 : 10;     // steps for micro-positioning utility classes, multiplicand: 1 PX
+@responsivePositionSteps       : 10;     // steps for responsive micro-positioning utility classes, multiplicand: 1 PX
+@animationDuration             : 0.5;    // default css animation duration
+
+// strings
+
+@cdnDomain                     : 'cdn.yoshino.digital'; // source for external images
+```

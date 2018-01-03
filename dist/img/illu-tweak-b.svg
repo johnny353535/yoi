@@ -4,25 +4,33 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="200px" height="225px" viewBox="0 0 200 225" enable-background="new 0 0 200 225" xml:space="preserve">
 <g>
-	<g>
-		
-			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-			120,138 95,152 120,166 145,152 		"/>
-		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="120,166 95,182 120,196 145,182 		"/>
-		
-			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			95,152 95,182 120,196 145,182 145,152 120,166 		"/>
-		
-			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			95,152 95,182 120,196 120,166 		"/>
-	</g>
-	<g>
-		
-			<polyline fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-			187.72,182 195,174 187.72,166 		"/>
-		
-			<line fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" x1="195" y1="174" x2="134" y2="174"/>
-		<circle fill="#AE9BE8" cx="134" cy="174" r="4"/>
-	</g>
+	
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
+		120,136 95,150 120,164 145,150 	"/>
+	<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="120,164 95,180 120,194 145,180 	"/>
+	
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+		95,150 95,180 120,194 145,180 145,150 120,164 	"/>
+	
+		<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
+		95,150 95,180 120,194 120,164 	"/>
 </g>
+<g>
+	<polygon fill="#AE9BFF" points="166,125 117.75,125 107.75,135 155,135 155,195 107.75,195 117.75,205 166,205 	"/>
+	<rect x="150" y="213" fill="#AE9BFF" width="20" height="4"/>
+	<circle fill="#AE9BFF" cx="167.75" cy="215" r="4.5"/>
+	<circle fill="#AE9BFF" cx="151.75" cy="215" r="4.5"/>
+	<path fill="#AE9BFF" d="M162,219v-17h-4v17c0,1.104,0.896,2,2,2S162,220.104,162,219z"/>
+</g>
+<rect x="155" y="139" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="144" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="149" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="154" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="159" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="164" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="169" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="174" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="179" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="184" fill="#E9E1FF" width="11" height="2"/>
+<rect x="155" y="189" fill="#E9E1FF" width="11" height="2"/>
 </svg>
