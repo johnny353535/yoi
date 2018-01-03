@@ -1,9 +1,9 @@
-/** posterteaser.less */
+/** tile.less */
 
 // block
 // =====
 
-.posterTeaser {
+.tile {
 
     .mixin--enable3d;
     .mixin--fixFlickering;
@@ -26,20 +26,19 @@
 // elements
 // ========
 
-.posterTeaser__image {
+.tile__image {
     display: block;
     opacity: .5;
     transition: opacity 200ms ease-out;
 }
 
-a.posterTeaser:hover .posterTeaser__image {
+a.tile:hover .tile__image {
     opacity: .3;
 }
 
-.posterTeaser__body {
+.tile__body {
     bottom: 1rem;
     color: @color-white;
-    font-size: 1.5rem;
     left: 1rem;
     position: absolute;
     right: 1rem;
@@ -48,15 +47,16 @@ a.posterTeaser:hover .posterTeaser__image {
     z-index: 2;
 }
 
-.posterTeaser__title {}
-.posterTeaser__copy {}
+.tile__title {}
+
+.tile__copy {}
 
 // modifiers
 // =========
 
 // body sticks to bottom
 
-.posterTeaser--bottom .posterTeaser__body {
+.tile--bottom .tile__body {
     bottom: 1rem;
     top: auto;
 }
@@ -64,11 +64,11 @@ a.posterTeaser:hover .posterTeaser__image {
 // initially, only the image and title are
 // visible, the copy text appears on hover
 
-.posterTeaser.fx--slide {
+.tile.fx--slide {
     
     // regular
     
-    .posterTeaser__copy {
+    .tile__copy {
         opacity: 0;
         transform: translate3d(0, -100%, 0);
         transition: all 300ms ease-out;
@@ -76,7 +76,7 @@ a.posterTeaser:hover .posterTeaser__image {
     
     &:hover {
         
-        .posterTeaser__copy {
+        .tile__copy {
             opacity: 1;
             transform: translate3d(0, 0, 0);
         }
@@ -85,25 +85,25 @@ a.posterTeaser:hover .posterTeaser__image {
     
     // text sticks to bottom
     
-    &.posterTeaser--bottom {
+    &.tile--bottom {
         
-        .posterTeaser__title {
+        .tile__title {
             transform: translate3d(0, -100%, 0);
             transition: all 300ms ease-out;
         }
 
-        .posterTeaser__body {
+        .tile__body {
             transform: translate3d(0, 100%, 0);
             transition: all 300ms ease-out;
         }
 
         &:hover {
         
-            .posterTeaser__title {
+            .tile__title {
                 transform: translate3d(0, 0, 0);
             }
 
-            .posterTeaser__body {
+            .tile__body {
                 transform: translate3d(0, 0, 0);
             }
 
@@ -115,13 +115,13 @@ a.posterTeaser:hover .posterTeaser__image {
 
 // the image blurs and scales up on hover
 
-.posterTeaser.fx--blur {
+.tile.fx--blur {
     
-    .posterTeaser__image {
+    .tile__image {
         transition: all 600ms ease-out;
     }
     
-    &:hover .posterTeaser__image {
+    &:hover .tile__image {
         filter: blur(10px);
         transform: scale3d(1.1, 1.1, 1);
     }

@@ -56,7 +56,6 @@ components:
     - pickbtn
     - piechart
     - popover
-    - posterteaser
     - pricesticker
     - quotation
     - rangeinput
@@ -76,6 +75,7 @@ components:
     - switch
     - table
     - tabs
+    - tile
     - togglegroup
     - tooltip
     - verticalmenu
