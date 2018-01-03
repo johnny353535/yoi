@@ -120,16 +120,10 @@ title: Introduction
     </div>
 </section>
 <img class="bg-primary-3 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-light.svg" />
-<section class="flx bg-primary-3 p-4">
-    <p class="flx-grow  c-primary-15 fs-2">
+<section class="bg-primary-3 p-4">
+    <p class="c-primary-15 fs-2">
         <img class="h-3 w-3 val-m m-r-1" src="{{ site.github.url }}/assets/img/logo-yoshino.svg" />
         <span class="val-m"><span class="only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-primary-18 tdr-none hvr--c-primary-22">Yoshino.digital GmbH</a></span>
-    </p>
-    <p class="flx-grow al-r">
-        <a class="btn btn--medium btn--flat btn--primary" href="{{ site.github.repository_url }}" yoi-action="ScrollTo:#intro;">
-            <span class="hidden">Up</span>
-            <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-010-s" yoi-icon />
-        </a>
     </p>
 </section>
 <style>
