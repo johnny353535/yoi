@@ -2,24 +2,23 @@
 <!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="200px" height="300px" viewBox="0 0 200 300" enable-background="new 0 0 200 300" xml:space="preserve">
+	 width="200px" height="225px" viewBox="0 0 200 225" enable-background="new 0 0 200 225" xml:space="preserve">
 <g>
 	<g>
 		
 			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" points="
-			80,49 30,77 80,105 130,77 		"/>
-		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="80,105 30,97 80,125 130,97 		"/>
+			55,52 5,80 55,108 105,80 		"/>
+		<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-miterlimit="1" points="55,108 5,100 55,128 105,100 		"/>
 		
 			<polygon fill="#FFFFFF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			30,77 30,97 80,125 130,97 130,77 80,105 		"/>
+			5,80 5,100 55,128 105,100 105,80 55,108 		"/>
 		
 			<polygon fill="#E9E1FF" stroke="#AE9BE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1" points="
-			30,77 30,97 80,125 80,105 		"/>
+			5,80 5,100 55,128 55,108 		"/>
 	</g>
-	<ellipse fill="#AE9BE8" cx="80" cy="75.938" rx="14.173" ry="9.313"/>
-	<ellipse fill="#AE9BE8" cx="112.5" cy="77.182" rx="4.673" ry="3.071"/>
-	
-		<line fill="#FFFFFF" stroke="#AE9BE8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" x1="80" y1="15" x2="80" y2="74"/>
-	<circle fill="#AE9BE8" cx="80" cy="15.333" r="14"/>
+	<ellipse fill="#AE9BE8" cx="85.5" cy="77.182" rx="4.673" ry="3.071"/>
+	<path fill="#AE9BE8" d="M57,67.007V31.745c5.782-1.722,10-7.071,10-13.412c0-7.731-6.268-14-14-14c-7.732,0-14,6.268-14,14
+		c0,6.34,4.218,11.689,10,13.412v35.263c-5.878,1.135-10.173,4.701-10.173,8.931c0,5.144,6.345,9.313,14.173,9.313
+		c7.827,0,14.173-4.17,14.173-9.313C67.173,71.708,62.878,68.143,57,67.007z"/>
 </g>
 </svg>

@@ -4,19 +4,19 @@ title: About
 ---
 
 <div class="p-2 pos-absolute w-1-1 al-r">
-    <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--flat btn--primary">GitHub</a>
-    <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--flat btn--primary">Download</a>
+    <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">GitHub</a>
+    <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">Download</a>
 </div>
 <div class="cover only-s--h-auto only-s--p-tb-10 center-content bg-primary-3">
     <div class="wrapper al-c" yoi-scrollfx="in:fade-in; repeat:false;">
-        <img class="h-20 w-20 m-t-6 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi.svg" />
+        <img class="h-20 w-20 m-t-6 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
         <h1 class="hidden">Yoi</h1>
         <div class="m--w-40 m-lr-auto m-t-4">
-            <p class="fs-4 lh-6 c-primary-22 m-tb-8"><b>Yoi</b> is a modular front-end library with a simple HTML-interface.</p>
+            <p class="fs-4 lh-6 c-primary-22 m-tb-8"><b>Yoi</b> is a modular front-end library with a dead simple HTML-interface.</p>
             <p>
-                <a class="fs-2 only-s--d-block" href="{{ site.github.url }}/start/">Read to the docs</a>
-                <i class="fs-2 c-primary-10 m-lr-2 only-s--d-block only-s--m-tb-2">or</i>
-                <a class="btn btn--primary btn--large btn--flat btn--rounded" href="#build" yoi-action="ScrollTo:#build; offset:0;">Learn more!</a>
+                <a class="fs-2 c-primary-22 only-s--d-block tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start/">Read to the docs</a>
+                <i class="fs-2 c-primary-15 m-lr-2 only-s--d-block only-s--m-tb-2">or</i>
+                <a class="btn btn--primary btn--large btn--flat" href="#build" yoi-action="ScrollTo:#build; offset:0;">Learn more!</a>
             </p>
         </div>
     </div>
@@ -25,7 +25,7 @@ title: About
 <div id="build" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
-            <div class="m--w-1-3 w-1-1 h-24 pos-relative">
+            <div class="m--w-1-3 w-1-1 h-26 pos-relative">
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-build-a.svg" yoi-parallax="factor:20;" />
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-build-b.svg" yoi-parallax="factor:-20;" />
             </div>
@@ -63,13 +63,13 @@ title: About
 <div id="tweak" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
-            <div class="m--w-1-3 w-1-1 h-24 pos-relative">
+            <div class="m--w-1-3 w-1-1 h-26 pos-relative">
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-a.svg" yoi-parallax="factor:20;" />
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-b.svg" yoi-parallax="factor:-20;" />
             </div>
             <div class="m--w-2-3 w-1-1">
                 <h2>Tweak</h2>
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Slightly darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s best pal!</p>
+                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s best match!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -83,7 +83,7 @@ title: About
 <div id="control" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
-            <div class="m--w-1-3 w-1-1 h-24 pos-relative">
+            <div class="m--w-1-3 w-1-1 h-26 pos-relative">
                 <img class="pos-absolute" id="illu-control-a" src="{{ site.github.url }}/assets/img/illu-control-a.svg" yoi-parallax="factor:20;" />
                 <p class="pos-absolute" yoi-parallax="factor:-20;">
                     <img class="pos-absolute" id="illu-control-b" src="{{ site.github.url }}/assets/img/illu-control-b.svg" />
@@ -92,7 +92,7 @@ title: About
             </div>
             <div class="m--w-2-3 w-1-1">
                 <h2>Control</h2>
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, a button that <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">shows</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hides</a> stuff … full control without a single line of JavaScript!</p>
+                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -106,7 +106,7 @@ title: About
 <div id="adapt" class="cover only-s--h-auto only-s--p-tb-10 article center-content bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
-            <div class="m--w-1-3 w-1-1 h-24 pos-relative">
+            <div class="m--w-1-3 w-1-1 h-26 pos-relative">
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-a.svg" yoi-parallax="factor:20;" />
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-b.svg" yoi-parallax="factor:-20;" />
             </div>
