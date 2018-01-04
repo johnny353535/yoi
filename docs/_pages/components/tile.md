@@ -9,7 +9,6 @@ permalink: components/tile
 
 <div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
     <span class="badge">documentation incomplete</span>
-    <span class="badge badge--attention">component incomplete</span>
 </div>
 
 <p class="intro">Element with white text on top of a darkened image and mouseover-effects.</p>
@@ -32,9 +31,9 @@ permalink: components/tile
 
 ## Modifiers
 
-### tile\--bottom
+### Text at Bottom
 
-It makes the copy text align to the bottom.
+Makes the copy text align to the bottom.
 
 ```html
 <!-- example -->
@@ -47,11 +46,11 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-### fx\--blur
+### Blur Effect
 
 ```html
 <!-- example -->
-<a class="tile fx--blur">
+<a class="tile tile--blur">
     <div class="tile__body">
         <h2 class="tile__title">Pain Reliev</h2>
         <p class="tile__copy fs-2 lh-3 m-t-1">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
@@ -60,11 +59,11 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-### fx\--slide
+### Slide Effect
 
 ```html
 <!-- example -->
-<a class="tile fx--slide">
+<a class="tile tile--slide">
     <div class="tile__body">
         <h2 class="tile__title">Pain Reliev</h2>
         <p class="tile__copy fs-2 lh-3 m-t-1">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
@@ -72,7 +71,7 @@ It makes the copy text align to the bottom.
     <img class="tile__image" src="https://source.unsplash.com/yJXTe7wskl0/300x300" alt="" />
 </a>
 
-<a class="tile tile--bottom fx--slide">
+<a class="tile tile--bottom tile--slide">
     <div class="tile__body">
         <h2 class="tile__title">Pain Reliev</h2>
         <p class="tile__copy fs-2 lh-3 m-t-1">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>
@@ -81,11 +80,11 @@ It makes the copy text align to the bottom.
 </a>
 ```
 
-### fx\--blur + fx\--slide
+### Combining Slide & Blur Effects
 
 ```html
 <!-- example -->
-<a class="tile tile--bottom fx--blur fx--slide">
+<a class="tile tile--bottom tile--blur tile--slide">
     <div class="tile__body">
         <h2 class="tile__title">Pain Reliev</h2>
         <p class="tile__copy fs-2 lh-3 m-t-1">Opioids are excellent acute pain medication, but it is their ability to produce euphoria that makes them attractive to addicts.</p>

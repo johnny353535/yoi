@@ -35,7 +35,7 @@ title: Introduction
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
-<div class="tile tile--bottom fx--blur fx--slide">
+<div class="tile tile--bottom tile--blur tile--slide">
     <div class="tile__body">
         <h2 class="tile__title">Rocket</h2>
         <div class="tile__copy">
