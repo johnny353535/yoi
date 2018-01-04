@@ -33,8 +33,8 @@
 
     // auto width & height
 
-    .@{bpPrefix}--w-auto { width: auto !important; }
-    .@{bpPrefix}--h-auto { height: auto !important; }
+    .@{bpPrefix}--w-auto { .w-auto; }
+    .@{bpPrefix}--h-auto { .h-auto; }
 
     // fixed width & height
 
@@ -44,6 +44,19 @@
         .@{bpPrefix}--h-@{i} { height: @sizingMultiplicand * @i !important; }
     }
     .generate_width_height(@responsiveSizingSteps);
+    
+    .@{bpPrefix}--w-viewport { .w-viewport; }
+    .@{bpPrefix}--h-viewport { .h-viewport; }
+    
+    // maximum & minimum width & height
+
+    .@{bpPrefix}--w-max-100      { .w-max-100; }
+    .@{bpPrefix}--w-max-viewport { .w-max-viewport; }
+    .@{bpPrefix}--h-max-viewport { .h-max-viewport; }
+    
+    .@{bpPrefix}--w-min-100      { .w-min-100; }
+    .@{bpPrefix}--w-min-viewport { .w-min-viewport; }
+    .@{bpPrefix}--h-min-viewport { .h-min-viewport; }
 
 }
 
