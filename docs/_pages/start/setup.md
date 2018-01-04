@@ -8,7 +8,7 @@ permalink: start/setup
 # Setup
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+    <span class="badge">documentation incomplete</span>
 </div>
 
 ## Try It Out

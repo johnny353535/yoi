@@ -8,7 +8,7 @@ permalink: components/datepicker
 # Date Picker
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+    <span class="badge">documentation incomplete</span>
 </div>
 
 <p class="intro">Calendar widget to help entering dates into input fields.</p>

@@ -8,7 +8,7 @@ permalink: components/piechart
 # Pie Chart
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+    <span class="badge">documentation incomplete</span>
 </div>
 
 <p class="intro">A simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/components/barChart.html">Bar Chart</a>.</p>

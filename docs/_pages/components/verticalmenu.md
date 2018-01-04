@@ -8,7 +8,7 @@ permalink: components/verticalmenu
 # VerticalMenu
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+    <span class="badge">documentation incomplete</span>
 </div>
 
 <p class="intro">A simple vertical menu with up to three levels of sub menus and optional pointers on the right or left side.</p>
@@ -40,7 +40,7 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
 <p class="hint hint--primary"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <ul class="verticalMenu">
     <li class="verticalMenu__item">
         <a class="verticalMenu__link" href="#">Blutzuckermessung</a>
@@ -131,7 +131,7 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
 Add optional pointers to the currently selected (`.is--active`) element. Chose from pointers to the left (`.verticalMenu--pointLeft`) and pointers to the right (`.verticalMenu--pointRight`).
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <ul class="verticalMenu verticalMenu--pointLeft">
     <li class="verticalMenu__item">
         <a class="verticalMenu__link" href="#">Blutzuckermessung</a>
@@ -196,7 +196,7 @@ Add optional pointers to the currently selected (`.is--active`) element. Chose f
 The following example combines the `.verticalMenu` with the [toggleGroup component](/components/toggleGroup.html) to create a simple, *tab-able* widget.
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="box flx">
     <div class="w-1-3">
         <ul class="verticalMenu verticalMenu--pointRight br-0 b-0 b-r">

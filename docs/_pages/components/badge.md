@@ -40,7 +40,7 @@ Use the modifier `.badge--rounded` to render pill-shaped badges:
 All global [color modifiers](/theme/colors.html) are available for badges.
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <p class="m-b-1">
     <span class="badge badge--light badge--small badge--rounded">21</span>
     <span class="badge badge--light badge--rounded">22</span>
@@ -77,4 +77,22 @@ All global [color modifiers](/theme/colors.html) are available for badges.
     <span class="badge badge--positive badge--medium badge--rounded">23</span>
     <span class="badge badge--positive badge--large badge--rounded">24</span>
 </p>
+```
+
+### Badge Groups
+
+Visually group badges by wrapping them inside a container with the class `.badges`:
+
+```html
+<!-- example -->
+<div class="badges">
+    <span class="badge badge--large">1</span>
+    <span class="badge badge--large badge--negative">2</span>
+    <span class="badge badge--large badge--attention">3</span>
+</div>
+<div class="badges m-t-2">
+    <span class="badge badge--large badge--rounded">1</span>
+    <span class="badge badge--large badge--rounded badge--negative">2</span>
+    <span class="badge badge--large badge--rounded badge--attention">3</span>
+</div>
 ```

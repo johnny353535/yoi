@@ -14,7 +14,7 @@ permalink: components/shelf
 For this example, we use thumbnail-images inside shelf items. You could use any other item instead (see [examples below]({{ page.url }}.html#variations)). This is how a basic `.shelf` might look like and how you write the markup:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="shelf">
     <div class="shelf__board">
         <div class="flx">
@@ -96,7 +96,7 @@ For this example, we use thumbnail-images inside shelf items. You could use any 
 You could use any element or custom markup inside a `.shelf__item`. See the following examples for inspiration:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="shelf">
     <div class="shelf__board">
         <div class="flx">
@@ -130,7 +130,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
 ```
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="shelf">
     <div class="shelf__board">
         <div class="flx">

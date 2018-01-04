@@ -8,7 +8,7 @@ permalink: components/scrollkeys
 # ScrollKeys
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--medium badge--rounded badge--negative">issues</span>
+    <span class="badge badge--negative">issues</span>
 </div>
 
 <p class="intro">Buttons (with keyboard bindings) to scroll the page back and forth between <i>jump marks</i>.</p>

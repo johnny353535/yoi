@@ -7,9 +7,9 @@ permalink: components/table
 
 # Table
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--medium badge--rounded badge--negative">page incomplete</span>
-    <span class="badge badge--medium badge--rounded badge--negative">component incomplete</span>
+<div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <span class="badge">documentation incomplete</span>
+    <span class="badge badge--attention">component incomplete</span>
 </div>
 
 <p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
@@ -46,7 +46,7 @@ This is how a basic `<table>` looks like and how you write the markup:
 Use the modifier `.table--borderless` to create a table with no borders at all:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--borderless">
     <tr>
         <th>Header</th>
@@ -71,7 +71,7 @@ Use the modifier `.table--borderless` to create a table with no borders at all:
 Use the modifier `.table--colHeader` and change the markup, so that each `<tr>` contains one `<th>`:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--colHeader">
     <tr>
         <th scope="row">Key</th>
@@ -93,7 +93,7 @@ Use the modifier `.table--colHeader` and change the markup, so that each `<tr>` 
 Use the modifier `.table--compressed` to create a table that takes up less space:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--compressed">
     <tr>
         <th>Header</th>
@@ -118,7 +118,7 @@ Use the modifier `.table--compressed` to create a table that takes up less space
 Use the modifier `.table--fixed` to create a table with cells of identical size:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--fixed">
     <tr>
         <th>Header</th>
@@ -152,7 +152,7 @@ Use the modifier `.table--fixed` to create a table with cells of identical size:
 Use the modifier `.table--simpleHeader` to create a table with less prominent headers:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--simpleHeader">
     <tr>
         <th>Header</th>
@@ -186,7 +186,7 @@ Use the modifier `.table--simpleHeader` to create a table with less prominent he
 Use the modifier `.table--stripped` to create a table without outer borders:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--stripped">
     <tr>
         <th>Header</th>
@@ -220,7 +220,7 @@ Use the modifier `.table--stripped` to create a table without outer borders:
 Use the modifier `.table--zebra` to create a table with alternating row colors:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table class="table--zebra">
     <tr>
         <th>Header</th>
@@ -266,7 +266,7 @@ Add the attribute `yoi-table` to a `<table>` to make it intercative. The attribu
 Use this option by adding `selectable:true;` as a parameter to the attribute:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table yoi-table="selectable:true;">
     <tr>
         <th>Anti-Infectives</th>
@@ -296,7 +296,7 @@ Use this option by adding `selectable:true;` as a parameter to the attribute:
 Use this option by adding `selectable:multi;` as a parameter to the attribute:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table yoi-table="selectable:multi;">
     <tr>
         <th>Anti-Infectives</th>
@@ -326,7 +326,7 @@ Use this option by adding `selectable:multi;` as a parameter to the attribute:
 Use this option by adding `removeable:true;` as a parameter to the attribute:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table yoi-table="removeable:true;">
     <tr>
         <th>Anti-Infectives</th>
@@ -364,7 +364,7 @@ Use the following JavaScript methods to programatically interact with with a `<t
 Pick a `<tr>` and mark it selected:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table id="exampleTable-1" yoi-table="selectable:true;">
     <tr>
         <th>Anti-Infectives</th>
@@ -392,7 +392,7 @@ Pick a `<tr>` and mark it selected:
 Pick a `<tr>` and remove the selection:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table id="exampleTable-2" yoi-table="selectable:true;">
     <tr>
         <th>Anti-Infectives</th>
@@ -420,7 +420,7 @@ Pick a `<tr>` and remove the selection:
 Pick a `<tr>` and remove it:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <table id="exampleTable-3" yoi-table="removeable:true;">
     <tr>
         <th>Anti-Infectives</th>
@@ -495,6 +495,7 @@ Try the example below and watch the custom events, printed to the [log element](
     <button id="exampleButton-4" class="btn btn--large">Select a row</button>
     <button id="exampleButton-5" class="btn btn--large">Deselect a row</button>
     <button id="exampleButton-6" class="btn btn--large">Remove a row</button>
+</div>
 <script>
     
     // log the custom events

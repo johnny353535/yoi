@@ -7,8 +7,9 @@ permalink: components/tile
 
 # Tile
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+<div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <span class="badge">documentation incomplete</span>
+    <span class="badge badge--attention">component incomplete</span>
 </div>
 
 <p class="intro">Element with white text on top of a darkened image and mouseover-effects.</p>

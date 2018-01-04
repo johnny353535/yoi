@@ -56,40 +56,45 @@ srcfiles:
 
 ### Responsive Auto Width & Height
 
-| `.only-s--w-auto` | `.w-auto` only at breakpoint `s`       |
-| `.m--w-auto`      | `.w-auto` at breakpoint `m` and larger |
-| `.only-m--w-auto` | `.w-auto` only at breakpoint `m`       |
-| `.l--w-auto`      | `.w-auto` at breakpoint `l` and larger |
-| `.only-l--w-auto` | `.w-auto` only at breakpoint `l`       |
-| `.xl--w-auto`     | `.w-auto` at breakpoint `xl`           |
-| `.only-s--h-auto` | `.h-auto` only at breakpoint `s`       |
-| `.m--h-auto`      | `.h-auto` at breakpoint `m` and larger |
-| `.only-m--h-auto` | `.h-auto` only at breakpoint `m`       |
-| `.l--h-auto`      | `.h-auto` at breakpoint `l` and larger |
-| `.only-l--h-auto` | `.h-auto` only at breakpoint `l`       |
-| `.xl--h-auto`     | `.h-auto` at breakpoint `xl`           |
+| `.only-s--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `s`       |
+| `.m--[w/h]-auto`      | `.[w/h]-auto` at breakpoint `m` and larger |
+| `.only-m--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `m`       |
+| `.l--[w/h]-auto`      | `.[w/h]-auto` at breakpoint `l` and larger |
+| `.only-l--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `l`       |
+| `.xl--[w/h]-auto`     | `.[w/h]-auto` at breakpoint `xl`           |
 
 ## Fixed Width & Height
 
 At YOI’s default configuration, 60 fixed width and 60 fixed height steps are available. Read the step number as multiplicant of 1rem – thus `.w-15` translates to 1rem &times; 15 = 15rem. The same logic applies to the fixed height utilities.
 
-| `.w-[1–60]` | fixed width between 1 (1rem &times; 1) and 60 (1rem &times; 60)  |
-| `.h-[1–60]` | fixed height between 1 (1rem &times; 1) and 60 (1rem &times; 60) |
+| `.w-[1–60]`   | fixed width between 1 (1rem &times; 1) and 60 (1rem &times; 60)  |
+| `.h-[1–60]`   | fixed height between 1 (1rem &times; 1) and 60 (1rem &times; 60) |
+| `.w-viewport` | fixed with of 1vw (viewport width)                               |
+| `.h-viewport` | fixed height of 1vh (viewport height)                            |
 
-### Responsive Fixed Width
+### Responsive Fixed Width & Height
 
-| `.only-s--w-[1–60]` | `.w-[1–60]` only at breakpoint `s`       |
-| `.m--w-[1–60]`      | `.w-[1–60]` at breakpoint `m` and larger |
-| `.only-m--w-[1–60]` | `.w-[1–60]` only at breakpoint `m`       |
-| `.l--w-[1–60]`      | `.w-[1–60]` at breakpoint `l` and larger |
-| `.only-l--w-[1–60]` | `.w-[1–60]` only at breakpoint `l`       |
-| `.xl--w-[1–60]`     | `.w-[1–60]` at breakpoint `xl`           |
+| `.only-s--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `s`       |
+| `.m--[w/h]-[*]`      | `.[w/h]-[*]` at breakpoint `m` and larger |
+| `.only-m--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `m`       |
+| `.l--w-[w/h]-[*]`    | `.[w/h]-[*]` at breakpoint `l` and larger |
+| `.only-l--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `l`       |
+| `.xl--[w/h]-[*]`     | `.[w/h]-[*]` at breakpoint `xl`           |
 
-### Responsive Fixed Height
+## Minimum & Maximum Width & Height
 
-| `.only-s--h-[1–60]` | `.h-[1–60]` only at breakpoint `s`       |
-| `.m--h-[1–60]`      | `.h-[1–60]` at breakpoint `m` and larger |
-| `.only-m--h-[1–60]` | `.h-[1–60]` only at breakpoint `m`       |
-| `.l--h-[1–60]`      | `.h-[1–60]` at breakpoint `l` and larger |
-| `.only-l--h-[1–60]` | `.h-[1–60]` only at breakpoint `l`       |
-| `.xl--h-[1–60]`     | `.h-[1–60]` at breakpoint `xl`           |
+| `.w-max-100`      | maximum width at 100%                   |
+| `.w-max-viewport` | maximum width at 1vw (viewport width)   |
+| `.h-max-viewport` | maximum height at 1vh (viewport height) |
+| `.w-min-100`      | mimimum width at 100%                   |
+| `.w-min-viewport` | mimimum width at 1vw (viewport width)   |
+| `.h-min-viewport` | mimimum height at 1vh (viewport height) |
+
+## Responsive Minimum & Maximum Width & Height
+
+| `.only-s-[w/h]-[max/min]-[*]`  | `.[w/h]-[max/min]-[*]` only at breakpoint `s`      |
+| `.m--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[*] at breakpoint `m` and larger |
+| `.only-m--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[*] only at breakpoint `m`       |
+| `.l--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[*] at breakpoint `l` and larger |
+| `.only-l--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[*] only at breakpoint `l`       |
+| `.xl--[w/h]-[max/min]-[*]`     | `.[w/h]-[max/min]-[*] at breakpoint `xl`           |

@@ -22,7 +22,7 @@ title: Introduction
     </div>
 </section>
 <img class="bg-base-25 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-dark.svg" />
-<section id="build" class="p-tb-30 article xxcenter bg-base-25 pos-relative">
+<section id="build" class="p-tb-30 article bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -30,7 +30,7 @@ title: Introduction
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-build-b.svg" yoi-parallax="factor:-20;" />
             </div>
             <div class="m--w-2-3 w-1-1">
-                <h2>Build</h2>
+                <h2 class="fs-6">Build</h2>
                 <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">Chose from a vast array of ready-made <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/components/">components</a> to create beautiful responsive websites.</p>
 <div class="m-t-4" markdown="1">
 ```html
@@ -41,8 +41,8 @@ title: Introduction
         <div class="tile__copy">
             <div class="flx m-t-2">
                 <div class="w-2-3">
-                    <p class="fs-2 lh-3">Fast, huge and never out of fashion!</p>
-                    <p class="fs-3 fw-bold c-primary-20">€ 12,00</p>
+                    <p class="fs-2 lh-3">Fast, huge and never out of fashion.</p>
+                    <p class="fs-3 fw-bold c-primary-20">€ 99.000.000</p>
                 </div>
                 <div class="w-1-3 pos-relative al-r">
                     <button class="btn btn--large pos-br">Buy</button>
@@ -50,7 +50,7 @@ title: Introduction
             </div>
         </div>
     </div>
-    <img class="tile__image" src="https://source.unsplash.com/qjgdslbEn-I/250x250" alt="" />
+    <img class="tile__image" src="https://source.unsplash.com/qjgdslbEn-I/230x250" alt="" />
 </div>
 ```
 </div>
@@ -58,15 +58,16 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="tweak" class="p-tb-30 article xxcenter bg-base-25 pos-relative">
+<section id="tweak" class="p-tb-30 article bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
-                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-a.svg" yoi-parallax="factor:20;" />
-                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-b.svg" yoi-parallax="factor:-20;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-b.svg" yoi-parallax="factor:30;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-a.svg" yoi-parallax="factor:50;" />
+                <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-tweak-c.svg" yoi-parallax="factor:-20;" />
             </div>
             <div class="m--w-2-3 w-1-1">
-                <h2>Tweak</h2>
+                <h2 class="fs-6">Tweak</h2>
                 <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s best match!</p>
 <div class="m-t-4" markdown="1">
 ```html
@@ -78,7 +79,7 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="control" class="p-tb-30 article xxcenter bg-base-25">
+<section id="control" class="p-tb-30 article bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -89,7 +90,7 @@ title: Introduction
                 </p>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <h2>Control</h2>
+                <h2 class="fs-6">Control</h2>
                 <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
 <div class="m-t-4" markdown="1">
 ```html
@@ -101,7 +102,7 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="adapt" class="p-tb-30 article xxcenter bg-base-25">
+<section id="adapt" class="p-tb-30 article bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -111,7 +112,7 @@ title: Introduction
                 <img class="pos-absolute" src="{{ site.github.url }}/assets/img/illu-adapt-d.svg" yoi-parallax="factor:10;" />
             </div>
             <div class="m--w-2-3 w-1-1">
-                <h2>Adapt</h2>
+                <h2 class="fs-6">Adapt</h2>
                 <div class="c-base-15 fs-3 lh-5 m-t-2 l--w-40">
                     <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-boilerplate">easy to customize</a> for experienced front-end developers.</p>
                 </div>
@@ -119,6 +120,20 @@ title: Introduction
         </div>
     </div>
 </section>
+
+<section id="summary" class="p-tb-30 article bg-base-25">
+    <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
+        <ul>
+            <li>responsive</li>
+            <li>mobile first</li>
+            <li>30+ components</li>
+            <li>utilities</li>
+            <li>customizable</li>
+            <li>great documentation</li>
+        </ul>
+    </div>
+</section>
+
 <img class="bg-primary-3 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-light.svg" />
 <section class="bg-primary-3 p-4">
     <p class="c-primary-15 fs-2">
@@ -126,6 +141,7 @@ title: Introduction
         <span class="val-m"><span class="only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-primary-18 tdr-none hvr--c-primary-22">Yoshino.digital GmbH</a></span>
     </p>
 </section>
+
 <style>
     html, body { background: #080022; }
 </style>

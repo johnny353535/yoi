@@ -7,9 +7,9 @@ permalink: components/rangeinput
 
 # RangeInput
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--medium badge--rounded badge--negative">page incomplete</span>
-    <span class="badge badge--medium badge--rounded badge--negative">issues</span>
+<div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
+    <span class="badge">documentation incomplete</span>
+    <span class="badge badge--negative">issues</span>
 </div>
 
 <p class="intro">Use this component to create a custom range input.</p>

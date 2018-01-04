@@ -8,7 +8,7 @@ permalink: components/tabs
 # Tabs
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge badge--negative">incomplete</span>
+    <span class="badge">documentation incomplete</span>
 </div>
 
 <p class="intro">Tab menus and tab panels.</p>
@@ -58,7 +58,7 @@ This is how a basic `.tabs` and `.tabs__menu.` looks and how you write the marku
 By default, all tabs take up the same with, like cells within in table row. Use the modifier `.tabs__menu--loose` to create tabs that are only as wide as their containing text:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="tabs">
     <div class="tabs__menu tabs__menu--loose" yoi-tabs>
         <ul class="tabs__items">
@@ -90,7 +90,7 @@ By default, all tabs take up the same with, like cells within in table row. Use 
 Add the modifier `.tabs__menu--large` to create a larger menu:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="tabs">
     <div class="tabs__menu tabs__menu--large" yoi-tabs>
         <ul class="tabs__items">
@@ -122,7 +122,7 @@ Add the modifier `.tabs__menu--large` to create a larger menu:
 Use the modifier `.tabs__menu--subtle` to create a less prominent tab menu:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="tabs__menu tabs__menu--subtle" yoi-tabs>
     <ul class="tabs__items">
         <li class="tabs__item">
@@ -152,7 +152,7 @@ Use the modifier `.tabs__menu--subtle` to create a less prominent tab menu:
 Add the modifier `.tabs__menu--arrows` to the `.tabs__menu` to use an alternative styling with downwards-pointing arrows:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="tabs__menu tabs__menu--arrows tabs__menu--large" yoi-tabs>
     <ul class="tabs__items">
         <li class="tabs__item">
@@ -180,7 +180,7 @@ Add the modifier `.tabs__menu--arrows` to the `.tabs__menu` to use an alternativ
 Add the modifier `.tabs__menu--checkmarks` to the `.tabs__menu` to display a check mark on each active tab link:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="tabs">
     <div class="tabs__menu tabs__menu--checkmarks tabs__menu--large" yoi-tabs>
         <ul class="tabs__items">
@@ -210,7 +210,7 @@ Add the modifier `.tabs__menu--checkmarks` to the `.tabs__menu` to display a che
 Switch to a tab:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div id="exampleTabs-1" class="tabs">
     <div class="tabs__menu" yoi-tabs>
         <ul class="tabs__items">

@@ -8,5 +8,5 @@ permalink: components/
 # Components
 
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <p class="badge badge--negative">incomplete</p>
+    <span class="badge">documentation incomplete</span>
 </div>
