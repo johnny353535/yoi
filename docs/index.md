@@ -7,7 +7,7 @@ title: Introduction
     <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">GitHub</a>
     <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--subtle c-primary-22 hvr--bg-primary-6">Download</a>
 </div>
-<section id="intro" class="cover only-s--h-auto only-s--p-tb-30 center bg-primary-3">
+<section id="intro" class="cover only-s--h-auto only-s--p-tb-15 l--p-tb-30 center bg-primary-3">
     <div class="wrapper al-c" yoi-scrollfx="in:fade-in; repeat:false;">
         <img class="h-20 w-20 m-t-4 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
         <h1 class="hidden">Yoi</h1>
@@ -22,7 +22,7 @@ title: Introduction
     </div>
 </section>
 <img class="bg-base-25 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-dark.svg" />
-<section id="build" class="p-tb-30 article bg-base-25 pos-relative">
+<section id="build" class="p-tb-15 l--p-tb-30 article bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -58,7 +58,7 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="tweak" class="p-tb-30 article bg-base-25 pos-relative">
+<section id="tweak" class="p-tb-15 l--p-tb-30 article bg-base-25 pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -79,7 +79,7 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="control" class="p-tb-30 article bg-base-25">
+<section id="control" class="p-tb-15 l--p-tb-30 article bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
@@ -102,7 +102,7 @@ title: Introduction
         </div>
     </div>
 </section>
-<section id="adapt" class="p-tb-30 article bg-base-25">
+<section id="adapt" class="p-tb-15 l--p-tb-30 article bg-base-25">
     <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 h-26 pos-relative">
