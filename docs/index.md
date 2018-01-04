@@ -120,20 +120,6 @@ title: Introduction
         </div>
     </div>
 </section>
-
-<section id="summary" class="p-tb-30 article bg-base-25">
-    <div class="wrapper" yoi-scrollfx="in:fade-in; repeat:false;">
-        <ul>
-            <li>responsive</li>
-            <li>mobile first</li>
-            <li>30+ components</li>
-            <li>utilities</li>
-            <li>customizable</li>
-            <li>great documentation</li>
-        </ul>
-    </div>
-</section>
-
 <img class="bg-primary-3 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-light.svg" />
 <section class="bg-primary-3 p-4">
     <p class="c-primary-15 fs-2">
@@ -141,7 +127,6 @@ title: Introduction
         <span class="val-m"><span class="only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-primary-18 tdr-none hvr--c-primary-22">Yoshino.digital GmbH</a></span>
     </p>
 </section>
-
 <style>
     html, body { background: #080022; }
 </style>
