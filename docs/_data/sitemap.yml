@@ -1,9 +1,8 @@
 start:
     - index
     - setup
-    - start learning
+    - learning
     - customizing
-    - debugging
 utilities:
     - index
     - border

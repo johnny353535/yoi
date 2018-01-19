@@ -11,8 +11,6 @@ permalink: start/setup
     <span class="badge">documentation incomplete</span>
 </div>
 
-## Try It Out
-
 Use the following html template to try out Yoi:
 
 ```html
@@ -20,7 +18,7 @@ Use the following html template to try out Yoi:
 <html>
 <head>
     <meta charset="utf-8">
-    <title>YOI</title>
+    <title>Yoi</title>
     <link href="https://cdn.rawgit.com/yoshino-digital/yoi/master/dist/css/yoi.css" rel="stylesheet" />
 </head>
 <body>
