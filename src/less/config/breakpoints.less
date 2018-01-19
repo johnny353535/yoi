@@ -33,3 +33,24 @@
 @bp-only-s  : ~"only screen and (min-width: 0rem) and (max-width: @{bp-s-maxwidth})";
 @bp-only-m  : ~"only screen and (min-width: @{bp-m-minwidth}) and (max-width: @{bp-m-maxwidth})";
 @bp-only-l  : ~"only screen and (min-width: @{bp-l-minwidth}) and (max-width: @{bp-l-maxwidth})";
+
+// "broadcast" the active mediaquery to JavaScript
+// --> YOI.currentBreakPoint()
+
+body::after when (@breakpointToJs = true) {
+
+    bottom: 0;
+    content: 'none';
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+
+    @media @bp-s  { content: 'small';  }
+    @media @bp-m  { content: 'medium'; }
+    @media @bp-l  { content: 'large';  }
+    @media @bp-xl { content: 'xlarge'; }
+
+}
