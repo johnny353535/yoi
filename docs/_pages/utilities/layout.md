@@ -177,7 +177,7 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 | `.only-l--center-[*]` | `.center-[*]` only at breakpoint `l`       |
 | `.xl--center-[*]`     | `.center-[*]` at breakpoint `xl`           |
 
-## Wrapper & Cover
+## Wrapper and Cover
 
 | `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing](/start/customizing.html)) |
 | `.cover`   | sets an element to 100% viewport width and 100% viewport height                                                           |
