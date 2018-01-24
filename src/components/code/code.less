@@ -9,6 +9,7 @@ code {
     color: @purple-13;
     direction: ltr;
     font-family: @font-mono;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: normal;
     hyphens: none;
@@ -21,22 +22,15 @@ code {
 
 pre {
     .mixin-defaultBorderRadius;
-    border-bottom-left-radius: 0;
     background: @gray-25;
+    border-bottom-left-radius: 0;
+    font-size: 1.4rem;
     padding: 1rem;
 }
 
 pre code {
     display: block;
     overflow-x: scroll;
-}
-
-// tweak font size
-
-p, td, li {
-    > code {
-        font-size: .9em;
-    }
 }
 
 // code example
@@ -59,7 +53,7 @@ p, td, li {
 .code__example pre,
 .code__example code {
     background: transparent;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 2rem;
 }
 
@@ -151,6 +145,28 @@ p, td, li {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+// source tree (to display directory structure)
+// ============================================
+
+.tree {
+    .mixin-defaultBorderRadius;
+    background: @gray-25;
+    color: @color-base-13;
+    direction: ltr;
+    font-family: @font-mono;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: normal;
+    hyphens: none;
+    line-height: 1.15;
+    padding: 0 2rem 2rem 2rem;
+    tab-size: 4;
+    text-align: left;
+    white-space: pre;
+    word-break: keep-all;
+    word-spacing: normal;
 }
 
 // code highlighting (via http://rouge.jneen.net)
