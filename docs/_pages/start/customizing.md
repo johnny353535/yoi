@@ -10,22 +10,34 @@ permalink: start/customizing
 <div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
     <span class="badge">documentation incomplete</span>
 </div>
+<p class="intro">Yoi offers a wide range of build-in options for customization. Tweak color values, change components and add your own styles and scripts.</p>
 
-<p class="intro">Yoi offers a wide range of build-in options for customization. Tweak color values, change components or even extend Yoi by building your own components.</p>
+## The Yoi Boilerplate
 
-## Yoi Boilerplate
-
-To customize Yoi, you need to download and compile it on your machine. We prepared a [starter kit (boilerplate)](https://github.com/yoshino-digital/yoi-boilerplate) which also offers powerful templating and a simple static page building workflow:
+To customize Yoi, you need to download and compile it on your machine. We prepared a starter kit &mdash; [the Yoi Boilerplate](https://github.com/yoshino-digital/yoi-boilerplate) &mdash; which also offers powerful templating and a simple static page building workflow.
 
 <div class="m-t-8">
     <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate on GitHub</a>
 </div>
-
-<p class="hint hint--negative">The following documentation specifically describes how to customize Yoi via the <a href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate</a>. We highly advice using the Yoi Boilerplate instead of the main Yoi repository for customization.</p>
+<p class="hint hint--primary"><b>Yoi Boilerplate</b> The following documentation specifically describes how to customize Yoi via the <a href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate</a>. We highly advice using it instead of the main Yoi repository for customization.</p>
+<p class="hint"><b>Readme Files & Inline Coments</b> You will find readme files inside most directories of the Yoi Boilerplate. In addition to that, most files contain inline comments which provide useful contextual help.</p>
 
 ## Configuring and Customizing
 
-After you checked the [Yoi Boilerplate](https://github.com/yoshino-digital/yoi-boilerplate) out to your machine, you will find all config files in `src/assets/less/config/`. Use the variables in [options.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/options.less) to configure your own build of Yoi:
+After you checked the [Yoi Boilerplate](https://github.com/yoshino-digital/yoi-boilerplate) out to your machine and executed [`npm install`](https://github.com/yoshino-digital/yoi-boilerplate#installing), you will find all config files in `src/assets/less/config/`. Use the variables in [options.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/options.less) to configure your own build of Yoi.
+
+<p class="tree">
+src
+└── assets
+    └── less
+        └── config
+            ├── <span class="c-blue-13">breakpoints</span>.less
+            ├── <span class="c-blue-13">colors</span>.less
+            ├── <span class="c-blue-13">options</span>.less
+            └── <span class="c-blue-13">typography</span>.less
+</p>
+
+### options.less
 
 | Variable                   | Default value       | Description                                                                                                                                                           |
 | -------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,17 +57,17 @@ After you checked the [Yoi Boilerplate](https://github.com/yoshino-digital/yoi-b
 | `@animationDuration`       | 0.5                 | Default css animation duration in seconds.                                                                                                                            |
 | `@cdnDomain`               | cdn.yoshino.digital | Source for external images, for example Yoi’s [SVG icons]({{ github.url }}/components/icon.html).                                                                     |
 
-### Colors
+### colors.less
 
-Use the variables in [colors.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/colors.less) to change he color palette for your own build of Yoi. You can generate color steps (different shades of the same base color) with the [Yoi Color Gradient Tool](https://yoshino-digital.github.io/yoi-color-gradient-tool/).
+Use the variables in [colors.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/colors.less) to change he color palette for your own build of Yoi. You can generate color steps (different shades of the same base color) with the [Yoi Color Gradient Tool](https://yoshino-digital.github.io/yoi-color-gradient-tool/).
 
 <div class="m-t-8">
     <a class="btn btn--large" href="https://yoshino-digital.github.io/yoi-color-gradient-tool/">Yoi Color Gradient Tool</a>
 </div>
 
-### Breakpoints
+### breakpoints.less
 
-Yoi comes with a set of media queries to target different screen sizes. In [breakpoints.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/breakpoints.less), you can change the following breakpoint variables:
+Yoi comes with a set of media queries to target different screen sizes. In [breakpoints.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/breakpoints.less), you can change the following breakpoint variables:
 
 | Variable          | Default value |
 | ----------------- | ------------- |
@@ -63,22 +75,39 @@ Yoi comes with a set of media queries to target different screen sizes. In [brea
 | `@bp-l-minwidth`  | 960px         |
 | `@bp-xl-minwidth` | 1220px        |
 
-See the comments in [breakpoints.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/breakpoints.less) for more detailed information.
+Take a look at the comments in [breakpoints.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/breakpoints.less) for more detailed information.
 
-### Typography
+### typography.less
 
-Use the variables in [typography.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/typography.less) to change fonts, adjust font sizes and vertical rhythm.
+Use the variables in [typography.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/typography.less) to change fonts, adjust font sizes and vertical rhythm. The file contains useful comments for contextual documentation.
 
-<!--
+## Optimizing
+
+<p class="hint hint--negative">By default configuration, Yoi has a rather massive file size &mdash; more than 4mb. This is way to much for any website to reasonably perform. Make sure that you only pick the parts you need before you publish your project.</p>
+
+* Use the index files inside `/src/assets/js/` to chose the JavaScript files for [actions]({{ github.url }}/actions/), [behaviours]({{ github.url }}/behaviours/), [components]({{ github.url }}/components/) and *modules* for your project. By default, all scripts are included.
+* Use `src/assets/less/yoi-components.less` and `src/assets/less/yoi-utilities.less` to pick the [components]({{ site.github.url }}/components) and [utilities]({{ site.github.url }}/utilities) for your project. By default, all components and utilities are included.
+* The [*publish* task](https://github.com/yoshino-digital/yoi-boilerplate#publish) makes experimental use of [uncss](https://github.com/giakki/uncss) — a script that parses HTML files and removes all the CSS rules from the stylesheets that were not referenced. This may dramatically shrink the file size because it removes many unused utility classes (eg. for [spacing]({{ github.url }}/utilities/spacing.html) and [sizing]({{ github.url }}/utilities/sizing.html)).
+
 ## Extending
 
-- own css and scripts in boilerplate
-- yo
--->
+We recommended to put your own stylesheets into the directory `src/assets/less/theme/` and include them at the end of the file `theme.less`. For simple projects, write all your scripts to the file `theme.js`. For more complex projects, put individual JavaScript files into the directory `js/theme/`. All JavaScript files get merged during the build process.
+
+<p class="tree">
+└── src
+    └── assets
+        ├── js
+        │   └─ theme
+        │      └── <span class="c-blue-13">theme.js</span>
+        └── less
+            ├── theme
+            │   └── <span class="c-blue-13">[…]</span>
+            <span class="c-blue-13">theme.less</span>
+</p>
 
 ## Debugging
 
-Yoi offers a few options for visual debugging in [options.less](https://github.com/yoshino-digital/yoi-boilerplate/blob/master/src/assets/less/config/options.less):
+Yoi offers a few options for visual debugging in [options.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/options.less):
 
 | Variable          | Default value | Description                                            |
 | ----------------- | ------------- | ------------------------------------------------------ |
@@ -94,15 +123,3 @@ Yoi offers a styled placeholder element which can be useful while *designing in 
 <!-- example -->
 <div class="placeholder w-20 h-10"></div>
 ```
-
-<!--
-
-## Optimizing
-
-<p class="hint hint--negative">Pick Only What Your Project Needs</p>
-
-* Use the index files inside `/src/assets/js/` to chose the _actions_, _behaviours_, _components_ and _modules_ you need for your project. By default, all scripts are included.
-* Use `src/assets/less/yoi-components.less` and `src/assets/less/yoi-components.less` to pick the [components]({{ site.github.url }}/components) and [utilities]({{ site.github.url }}/utilities) for your project. By default, all components and utilities are included.
-* uncss
-
--->
