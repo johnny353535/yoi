@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Countdown
 permalink: components/countdown
+status: draft
 ---
 
 # Countdown
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">Countdown to a future date less than a year ahead – rendered as a lcd-style clock, yet fully accessible via screen readers.</p>
 

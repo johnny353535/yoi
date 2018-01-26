@@ -3,13 +3,10 @@ layout: base
 group: start
 title: Setup
 permalink: start/setup
+status: draft
 ---
 
 # Setup
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 Use the following html template to try out Yoi:
 
@@ -40,5 +37,5 @@ Or use this JsFiddle to test Yoi right in your browser:
 Or use the *YOI Boilerplate* and compile a customized version on your machine:
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-boilerplate">YOI Boilerplate on GitHub</a>
+    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate on GitHub</a>
 </div>

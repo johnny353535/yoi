@@ -3,13 +3,10 @@ layout: base
 group: components
 title: RatingInput
 permalink: components/ratinginput
+status: draft
 ---
 
 # RatingInput
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">A compact 5-star rating widget.</p>
 

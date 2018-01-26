@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Tabs
 permalink: components/tabs
+status: draft
 ---
 
 # Tabs
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">Tab menus and tab panels.</p>
 

@@ -7,9 +7,6 @@ permalink: start/customizing
 
 # Customizing
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 <p class="intro">Yoi offers a wide range of build-in options for customization. Tweak color values, change components and add your own styles and scripts.</p>
 
 ## The Yoi Boilerplate

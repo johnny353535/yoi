@@ -6,7 +6,7 @@
         {% if page.group == group.first %}
             {% for thisPage in site.data.sitemap[page.group] %}
                 {% assign menuLabel = thisPage | capitalize %}
-                {% assign currentPage = page.url | split: "/" | last | remove: " " %}
+                {% assign currentPage = page.url | split: '/' | last | remove: ' ' %}
                 {% assign pageName = thisPage | remove: " " %}
                 <li class="linkList__item {% if (currentPage == pageName) or (currentPage == page.group and thisPage == "index") %}is--active{% endif %}">
                     <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName }}.html">{% if pageName == "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}</a>
@@ -15,4 +15,3 @@
         {% endif %}
     {% endfor %}
 </ul>
-

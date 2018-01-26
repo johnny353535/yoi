@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Stepper
 permalink: components/stepper
+status: draft
 ---
 
 # Stepper
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">An input-field and control-button combo to de- or increase a numeric value.</p>
 

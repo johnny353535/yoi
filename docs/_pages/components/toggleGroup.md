@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Toggle Group
 permalink: components/togglegroup
+status: draft
 ---
 
 # Toggle Group
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">Logically grouped elements, behaving like a group of tabs with optional start element to fall back to</p>
 

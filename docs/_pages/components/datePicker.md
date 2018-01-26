@@ -3,16 +3,12 @@ layout: base
 group: components
 title: Date Picker
 permalink: components/datepicker
+status: draft
 ---
 
 # Date Picker
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
-
 <p class="intro">Calendar widget to help entering dates into input fields.</p>
-
 <p class="hint hint--negative"><strong>The date picker is designed for use on desktop browsers.</strong> On mobile browsers it makes more sense to use the native input widgets.</p>
 
 ## Basic Example

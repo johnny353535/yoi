@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Note
 permalink: components/note
+status: draft
 ---
 
 # Note
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">System messages, eg. form validation, status (added to cart), etc.</p>
 

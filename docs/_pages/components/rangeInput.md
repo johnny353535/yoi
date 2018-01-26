@@ -3,12 +3,13 @@ layout: base
 group: components
 title: RangeInput
 permalink: components/rangeinput
+status: [draft, issues]
 ---
 
 # RangeInput
 
 <div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
+    <span class="badge badge--attention">draft</span>
     <span class="badge badge--negative">issues</span>
 </div>
 

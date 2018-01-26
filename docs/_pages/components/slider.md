@@ -3,14 +3,10 @@ layout: base
 group: components
 title: Slider
 permalink: components/slider
+status: [draft, incomplete]
 ---
 
 # Slider
-
-<div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-    <span class="badge badge--attention">component incomplete</span>
-</div>
 
 <p class="intro">A simple slide show / carousel with keyboard bindings.</p>
 

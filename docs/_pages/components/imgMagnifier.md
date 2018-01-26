@@ -3,13 +3,10 @@ layout: base
 group: components
 title: ImgMagnifier
 permalink: components/imgmagnifier
+status: [draft, issues]
 ---
 
 # ImgMagnifier
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">Magnifyer function for any image.</p>
 

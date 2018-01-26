@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Pop-Over
 permalink: components/popover
+status: draft
 ---
 
 # Pop-Over
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">Small overlay, relatively positioned to a reference element.</p>
 

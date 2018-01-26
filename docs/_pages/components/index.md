@@ -3,10 +3,7 @@ layout: base
 group: components
 title: Introduction
 permalink: components/
+status: draft
 ---
 
 # Components
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>

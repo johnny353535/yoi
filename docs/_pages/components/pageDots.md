@@ -3,16 +3,12 @@ layout: base
 group: components
 title: PageDots
 permalink: components/pagedots
+status: draft
 ---
 
 # PageDots
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">component incomplete</span>
-</div>
-
 <p class="intro">Previous- & next-buttons with dots as page indicators.</p>
-
 <p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
 
 ## Basic Example

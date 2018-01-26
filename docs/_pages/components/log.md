@@ -3,16 +3,12 @@ layout: base
 group: components
 title: Log
 permalink: components/log
+status: draft
 ---
 
 # Log
 
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
-
 <p class="intro">Logs short messages in reverse-order.</p>
-
 <p class="hint hint--primary"><b>For Documentation Only:</b> By itself, this element is pretty useless. It’s designed to monitor output in code documentation, driven by it’s simple JavaScript API.</p>
 
 ## Basic Example

@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Pagination
 permalink: components/pagination
+status: incomplete
 ---
 
 # Pagination
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">component incomplete</span>
-</div>
 
 <p class="intro">A horizontal set of page links and browse buttons.</p>
 

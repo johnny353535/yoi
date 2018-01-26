@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Verticalmenu
 permalink: components/verticalmenu
+status: draft
 ---
 
 # VerticalMenu
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-</div>
 
 <p class="intro">A simple vertical menu with up to three levels of sub menus and optional pointers on the right or left side.</p>
 

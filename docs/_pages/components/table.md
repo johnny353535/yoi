@@ -3,14 +3,10 @@ layout: base
 group: components
 title: Table
 permalink: components/table
+status: [draft, incomplete]
 ---
 
 # Table
-
-<div class="badges m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">documentation incomplete</span>
-    <span class="badge badge--attention">component incomplete</span>
-</div>
 
 <p class="intro">Tables in different flavours, eg. zebra-striped, tables with fixed width, prominent or subtle headers and so on.</p>
 

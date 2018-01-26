@@ -44,6 +44,24 @@
                 {% include menu.html %}
             </nav>
             <article class="article w-1-1 l--w-4-5 l--p-l-10 flx-1 l--flx-2">
+                {% if page.status %}
+                    <div class="x m-t-4 m--pos-tr m--m-4 m--m-t-10">
+                        {% for status in page.status %}
+                            {% if status == 'issues' %}
+                                <span class="badge badge--negative" yoi-tooltip="target:#tooltip-issues; staticPosition:bottom;">{{ status }}</span>
+                                <div id="tooltip-issues"><p>This {{ page.group | remove: 's' }} needs bug fixing.</p></div>
+                            {% endif %}
+                            {% if status == 'incomplete' %}
+                                <span id="badge-incomplete" class="badge" yoi-tooltip="target:#tooltip-incomplete; staticPosition:bottom;">{{ status }}</span>
+                                <div id="tooltip-incomplete"><p>This {{ page.group | remove: 's' }} still lacks one or more important feature.</p></div>
+                            {% endif %}
+                            {% if status == 'draft' %}
+                                <span id="badge-draft" class="badge" yoi-tooltip="target:#tooltip-draft; staticPosition:bottom;">{{ status }}</span>
+                                <div id="tooltip-draft"><p>This page is incomplete and may contain obsolete information.</p></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 {{ content }}
                 {% include pagefooter.html %}
             </article>

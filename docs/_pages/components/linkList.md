@@ -3,13 +3,10 @@ layout: base
 group: components
 title: Link List
 permalink: components/linklist
+status: draft
 ---
 
 # Link List
-
-<div class="m-t-4 m--pos-tr m--m-4 m--m-t-10">
-    <span class="badge">component incomplete</span>
-</div>
 
 <p class="intro">A vertical list of links.</p>
 
