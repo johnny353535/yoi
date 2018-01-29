@@ -18,7 +18,7 @@ srcfiles:
 | `in`     | The effect to apply when the element scrolls into the viewport                                                                    |
 | `center` | The effect to apply when the element is at the center of the viewport                                                             |
 | `out`    | The effect to apply when the element scrolls out of the viewport                                                                  |
-| `speed`  | Change the duration of all effects to `fast` or `slow`                                                                            |
+| `speed`  | Change the duration of all effects to `slow`, `fast` or a number from 1 to 25 where 1 is the slowest and 25 the fastest.          |
 | `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
 
 ### In, Center, Out
@@ -40,8 +40,33 @@ Add the Parameter `speed` to change the duration of all effects to either `slow`
 
 ```html
 <!-- example -->
-<div class="bg-blue-17 br-all m-b-2 h-10" yoi-scrollfx="center:slide-in-left; speed:slow;"></div>
-<div class="bg-yellow-18 br-all h-10" yoi-scrollfx="center:slide-in-right; speed:fast;"></div>
+<div class="bg-blue-22 c-blue-10 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:slow;">slow</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:1;">1</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:2;">2</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:3;">3</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:4;">4</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:5;">5</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:6;">6</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:7;">7</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:8;">8</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:9;">9</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:10;">10</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:11;">11</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:12;">12</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:13;">13</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:14;">14</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:15;">15</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:16;">16</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:17;">17</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:18;">18</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:19;">19</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:20;">20</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:21;">21</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:22;">22</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:23;">23</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:24;">24</div>
+<div class="bg-base-24 br-all m-b-1 p-2" yoi-scrollfx="center:fade-in; speed:25;">25</div>
+<div class="bg-red-22 c-red-10 br-all p-2" yoi-scrollfx="center:fade-in; speed:fast;">fast</div>
 ```
 
 ### Repeat

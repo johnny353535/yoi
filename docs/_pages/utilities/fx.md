@@ -27,124 +27,170 @@ permalink: utilities/fx
 | `.fx-slide-out-right`  | moves out to the right               |
 | `.fx-shake`            | shakes                               |
 
+## Speed / Fx-Duration
+
+Add the css-class `.fx-slow`, `.fx-fast` or `.fx-[1-25]` where `.fx-1` is the slowest and `.fx-25` the fastest:
+
+```html
+<!-- example:tabs -->
+<p class="m-b-2">
+    <span id="example-a" class="d-inlineblock br-all bg-base-23 w-10 h-10"></span>
+    <span id="example-b" class="d-inlineblock br-all bg-base-23 w-10 h-10"></span>
+</p>
+<p class="btns">
+    <button class="btn btn--primary btn--large" yoi-action="Show:#example-a; fx:fade-in; speed:fast;">Fade-In Fast</button>
+    <button class="btn btn--primary btn--large" yoi-action="Show:#example-b; fx:fade-in; speed:slow;">Fade-In Slow</button>
+</p>
+```
+
 ## Examples
 
 ### fx-fade-in
 
 ```html
 <!-- example:tabs -->
-<div id="example-1" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-1; fx:fade-in;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-1; fx:fade-in;">Run</button>
+    <span id="example-1" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-fade-out
 
 ```html
 <!-- example:tabs -->
-<div id="example-2" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-2; fx:fade-out;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-2; fx:fade-out;">Run</button>
+    <span id="example-2" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-scale-up
 
 ```html
 <!-- example:tabs -->
-<div id="example-3" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-3; fx:scale-up;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-3; fx:scale-up;">Run</button>
+    <span id="example-3" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-scale-down
 
 ```html
 <!-- example:tabs -->
-<div id="example-4" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-4; fx:scale-down;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-4; fx:scale-down;">Run</button>
+    <span id="example-4" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-scale-up-y
 
 ```html
 <!-- example:tabs -->
-<div id="example-5" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-5; fx:scale-up-y;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-5; fx:scale-up-y;">Run</button>
+    <span id="example-5" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-scale-down-y
 
 ```html
 <!-- example:tabs -->
-<div id="example-6" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-6; fx:scale-down-y;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-6; fx:scale-down-y;">Run</button>
+    <span id="example-6" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-in-top
 
 ```html
 <!-- example:tabs -->
-<div id="example-7" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-7; fx:slide-in-top;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-7; fx:slide-in-top;">Run</button>
+    <span id="example-7" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-out-top
 
 ```html
 <!-- example:tabs -->
-<div id="example-8" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-8; fx:slide-out-top;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-8; fx:slide-out-top;">Run</button>
+    <span id="example-8" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-in-bottom
 
 ```html
 <!-- example:tabs -->
-<div id="example-9" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-9; fx:slide-in-bottom;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-9; fx:slide-in-bottom;">Run</button>
+    <span id="example-9" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-out-bottom
 
 ```html
 <!-- example:tabs -->
-<div id="example-10" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-10; fx:slide-out-bottom;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-10; fx:slide-out-bottom;">Run</button>
+    <span id="example-10" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-in-left
 
 ```html
 <!-- example:tabs -->
-<div id="example-11" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-11; fx:slide-in-left;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-11; fx:slide-in-left;">Run</button>
+    <span id="example-11" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-out-left
 
 ```html
 <!-- example:tabs -->
-<div id="example-12" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-12; fx:slide-out-left;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-12; fx:slide-out-left;">Run</button>
+    <span id="example-12" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-in-right
 
 ```html
 <!-- example:tabs -->
-<div id="example-13" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-13; fx:slide-in-right;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-13; fx:slide-in-right;">Run</button>
+    <span id="example-13" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-slide-out-right
 
 ```html
 <!-- example:tabs -->
-<div id="example-14" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Hide:#example-14; fx:slide-out-right;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-14; fx:slide-out-right;">Run</button>
+    <span id="example-14" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```
 
 ### fx-shake
 
 ```html
 <!-- example:tabs -->
-<div id="example-15" class="br-all bg-base-23 w-10 h-10"></div>
-<p class="m-t-2"><button class="btn btn--primary btn--large" yoi-action="Show:#example-15; fx:shake;">Run</button></p>
+<p>
+    <button class="btn btn--primary btn--large val-t" yoi-action="Show:#example-15; fx:shake;">Run</button>
+    <span id="example-15" class="d-inlineblock br-all bg-base-23 w-10 h-10 val-t"></span>
+</p>
 ```

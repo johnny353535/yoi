@@ -6,7 +6,7 @@
 // ==============
 
 [class*='fx-'] {
-    animation-duration: 1s * @animationDuration;
+    animation-duration: @defaultAnimationDuration;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
 }
@@ -23,7 +23,8 @@
     opacity: 1;
 }
 
-[class*='fx-scale-up'].fx-scale-up-initial {
+[class*='fx-scale-up'].fx-scale-up-initial,
+[class*='fx-scale-up-y'].fx-scale-up-y-initial {
     opacity: 0;
     transform: scale(0);
 }
@@ -40,41 +41,70 @@
 
 .fx-fade-in,
 .fx-fade-out {
-    animation-duration: 1.5s * @animationDuration;
+    animation-duration: @defaultAnimationDuration;
     animation-timing-function: linear;
 }
 
-.fx-fade-in { animation-name: yoi-fade-in; }
+.fx-fade-in  { animation-name: yoi-fade-in; }
 .fx-fade-out { animation-name: yoi-fade-out; }
 
 // scale
 
-.fx-scale-up { animation-name: yoi-scale-up; }
-.fx-scale-down { animation-name: yoi-scale-down; }
-.fx-scale-up-y { animation-name: yoi-scale-up-y; }
+.fx-scale-up     { animation-name: yoi-scale-up; }
+.fx-scale-down   { animation-name: yoi-scale-down; }
+.fx-scale-up-y   { animation-name: yoi-scale-up-y; }
 .fx-scale-down-y { animation-name: yoi-scale-down-y; }
 
 // slide
 
-.fx-slide-in-top { animation-name: yoi-slide-in-top; }
-.fx-slide-out-top { animation-name: yoi-slide-out-top; }
-.fx-slide-in-bottom { animation-name: yoi-slide-in-bottom; }
+.fx-slide-in-top     { animation-name: yoi-slide-in-top; }
+.fx-slide-out-top    { animation-name: yoi-slide-out-top; }
+.fx-slide-in-bottom  { animation-name: yoi-slide-in-bottom; }
 .fx-slide-out-bottom { animation-name: yoi-slide-out-bottom; }
-.fx-slide-in-left { animation-name: yoi-slide-in-left; }
-.fx-slide-out-left { animation-name: yoi-slide-out-left; }
-.fx-slide-in-right { animation-name: yoi-slide-in-right; }
-.fx-slide-out-right { animation-name: yoi-slide-out-right; }
+.fx-slide-in-left    { animation-name: yoi-slide-in-left; }
+.fx-slide-out-left   { animation-name: yoi-slide-out-left; }
+.fx-slide-in-right   { animation-name: yoi-slide-in-right; }
+.fx-slide-out-right  { animation-name: yoi-slide-out-right; }
 
 // shake
 
-.fx-shake { animation-name: yoi-shake; }
+.fx-shake {
+    animation-name: yoi-shake;
+    animation-duration: 3 * @defaultAnimationDuration !important;
+}
 
-// fx modifiers
-// ============
+// fx duration modifiers
+// =====================
 
-.fx-fast { animation-duration: 0.5s * @animationDuration; }
-.fx-slow { animation-duration: 3s * @animationDuration; }
-.fx-off { animation-name: none !important; }
+.fx-1    { animation-duration: 3 * @defaultAnimationDuration; }
+.fx-2    { animation-duration: 2.9 * @defaultAnimationDuration; }
+.fx-3    { animation-duration: 2.8 * @defaultAnimationDuration; }
+.fx-4    { animation-duration: 2.7 * @defaultAnimationDuration; }
+.fx-5    { animation-duration: 2.6 * @defaultAnimationDuration; }
+.fx-6    { animation-duration: 2.5 * @defaultAnimationDuration; }
+.fx-7    { animation-duration: 2.4 * @defaultAnimationDuration; }
+.fx-8    { animation-duration: 2.3 * @defaultAnimationDuration; }
+.fx-9    { animation-duration: 2.1 * @defaultAnimationDuration; }
+.fx-10   { animation-duration: 2 * @defaultAnimationDuration; }
+.fx-11   { animation-duration: 1.9 * @defaultAnimationDuration; }
+.fx-12   { animation-duration: 1.8 * @defaultAnimationDuration; }
+.fx-13   { animation-duration: 1.7 * @defaultAnimationDuration; }
+.fx-14   { animation-duration: 1.6 * @defaultAnimationDuration; }
+.fx-15   { animation-duration: 1.5 * @defaultAnimationDuration; }
+.fx-16   { animation-duration: 1.4 * @defaultAnimationDuration; }
+.fx-17   { animation-duration: 1.3 * @defaultAnimationDuration; }
+.fx-18   { animation-duration: 1.2 * @defaultAnimationDuration; }
+.fx-19   { animation-duration: 1.1 * @defaultAnimationDuration; }
+.fx-20   { animation-duration: 1 * @defaultAnimationDuration; }
+.fx-21   { animation-duration: 0.9 * @defaultAnimationDuration; }
+.fx-22   { animation-duration: 0.8 * @defaultAnimationDuration; }
+.fx-23   { animation-duration: 0.7 * @defaultAnimationDuration; }
+.fx-24   { animation-duration: 0.6 * @defaultAnimationDuration; }
+.fx-25   { animation-duration: 0.5 * @defaultAnimationDuration; }
+
+.fx-fast { &:extend(.fx-25); }
+.fx-slow { &:extend(.fx-1); }
+.fx-off  { animation-name: none !important; }
 
 // keyframes
 // =========

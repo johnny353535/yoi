@@ -36,23 +36,23 @@ src
 
 ### options.less
 
-| Variable                   | Default value       | Description                                                                                                                                                           |
-| -------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@breakpointToJs`          | true                | Make the current breakpoint accessible in JS. Example: `var bp = YOI.currentBreakpoint();` &mdash; returns a string like `large`                                      |
-| `@fullColorPalette`        | true                | Switch between a full or optimized color palette. The optimized color palette only contains [semantic colors]({{ github.url }}/utilities/color.html#semantic-colors). |
-| `@rootFontSize`            | 10px                | Yoi sets all font sizes in *rem*. Example: 1.5rem = 1.5 &times; `@rootFontSize` (eg. 10px) = 15px                                                                     |
-| `@maximumPageWrapperWidth` | 100rem              | The maximum width of the `.wrapper` [layout utility]({{ github.url }}/utilities/layout.html#wrapper-and-cover).                                                       |
-| `@defaultBorderRadius`     | 2                   | The default border-radius for all components. Multiplicand: 1px. Example: 2 produces a border-radius of 2px.                                                          |
-| `@sizingSteps`             | 60                  | Number of steps for [width & height utility classes]({{ github.url }}/utilities/sizing.html). Example: 60 produces 60 fixed width & height utilities.                 |
-| `@responsiveSizingSteps`   | 60                  | Nuber of steps for responsive [width & height utility classes]({{ github.url }}/utilities/sizing.html). See above.                                                    |
-| `@sizingMultiplicand`      | 1rem                | Multiplicand for width & height utility classes. Example for 1rem: `.w-10` = 10 &times; `@sizingMultiplicand` (eg. 1rem) = fixed width of 10rem.                      |
-| `@spacingSteps`            | 60                  | Number of steps for [margin & padding utility classes]({{ github.url }}/utilities/spacing.html). Example: 60 produces 60 margin & padding utilities.                  |
-| `@responsiveSpacingSteps`  | 60                  | Number of steps for responsive [margin & padding utility classes]({{ github.url }}/utilities/spacing.html). See above.                                                |
-| `@spacingMultiplicand`     | 0.5rem              | Multiplicand for margin & padding utility classes. Example for 0.5rem: `.p-3` = 3 &times; `@spacingMultiplicand` = produces 1.5rem padding.                           |
-| `@positionSteps`           | 10                  | Number of steps for [*micro-positioning* utility classes]({{ github.url }}/utilities/layout.html#micro-positioning), multiplicand: 1px.                               |
-| `@responsivePositionSteps` | 10                  | Number of steps for [responsive *micro-positioning* utility classes]({{ github.url }}/utilities/layout.html#responsive-micro-positioning), multiplicand: 1px.         |
-| `@animationDuration`       | 0.5                 | Default css animation duration in seconds.                                                                                                                            |
-| `@cdnDomain`               | cdn.yoshino.digital | Source for external images, for example Yoi’s [SVG icons]({{ github.url }}/components/icon.html).                                                                     |
+| Variable                    | Default value       | Description                                                                                                                                                           |
+| --------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@breakpointToJs`           | true                | Make the current breakpoint accessible in JS. Example: `var bp = YOI.currentBreakpoint();` &mdash; returns a string like `large`                                      |
+| `@fullColorPalette`         | true                | Switch between a full or optimized color palette. The optimized color palette only contains [semantic colors]({{ github.url }}/utilities/color.html#semantic-colors). |
+| `@rootFontSize`             | 10px                | Yoi sets all font sizes in *rem*. Example: 1.5rem = 1.5 &times; `@rootFontSize` (eg. 10px) = 15px                                                                     |
+| `@maximumPageWrapperWidth`  | 100rem              | The maximum width of the `.wrapper` [layout utility]({{ github.url }}/utilities/layout.html#wrapper-and-cover).                                                       |
+| `@defaultBorderRadius`      | 2                   | The default border-radius for all components. Multiplicand: 1px. Example: 2 produces a border-radius of 2px.                                                          |
+| `@sizingSteps`              | 60                  | Number of steps for [width & height utility classes]({{ github.url }}/utilities/sizing.html). Example: 60 produces 60 fixed width & height utilities.                 |
+| `@responsiveSizingSteps`    | 60                  | Nuber of steps for responsive [width & height utility classes]({{ github.url }}/utilities/sizing.html). See above.                                                    |
+| `@sizingMultiplicand`       | 1rem                | Multiplicand for width & height utility classes. Example for 1rem: `.w-10` = 10 &times; `@sizingMultiplicand` (eg. 1rem) = fixed width of 10rem.                      |
+| `@spacingSteps`             | 60                  | Number of steps for [margin & padding utility classes]({{ github.url }}/utilities/spacing.html). Example: 60 produces 60 margin & padding utilities.                  |
+| `@responsiveSpacingSteps`   | 60                  | Number of steps for responsive [margin & padding utility classes]({{ github.url }}/utilities/spacing.html). See above.                                                |
+| `@spacingMultiplicand`      | 0.5rem              | Multiplicand for margin & padding utility classes. Example for 0.5rem: `.p-3` = 3 &times; `@spacingMultiplicand` = produces 1.5rem padding.                           |
+| `@positionSteps`            | 10                  | Number of steps for [*micro-positioning* utility classes]({{ github.url }}/utilities/layout.html#micro-positioning), multiplicand: 1px.                               |
+| `@responsivePositionSteps`  | 10                  | Number of steps for [responsive *micro-positioning* utility classes]({{ github.url }}/utilities/layout.html#responsive-micro-positioning), multiplicand: 1px.         |
+| `@defaultAnimationDuration` | 200ms               | Default css animation duration in milliseconds.                                                                                                                       |
+| `@cdnDomain`                | cdn.yoshino.digital | Source for external images, for example Yoi’s [SVG icons]({{ github.url }}/components/icon.html).                                                                     |
 
 ### colors.less
 
