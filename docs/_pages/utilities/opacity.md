@@ -14,16 +14,17 @@ srcfiles:
 
 ## Opacity
 
-| `.op-full` | full opacity   |
-| `.op-9`    | opacity at 90% |
-| `.op-8`    | opacity at 80% |
-| `.op-7`    | opacity at 70% |
-| `.op-6`    | opacity at 60% |
-| `.op-5`    | opacity at 50% |
-| `.op-4`    | opacity at 40% |
-| `.op-3`    | opacity at 30% |
-| `.op-2`    | opacity at 20% |
-| `.op-1`    | opacity at 10% |
+| `.op-opaque`      | full opacity      |
+| `.op-transparent` | fully transparent |
+| `.op-9`           | opacity at 90%    |
+| `.op-8`           | opacity at 80%    |
+| `.op-7`           | opacity at 70%    |
+| `.op-6`           | opacity at 60%    |
+| `.op-5`           | opacity at 50%    |
+| `.op-4`           | opacity at 40%    |
+| `.op-3`           | opacity at 30%    |
+| `.op-2`           | opacity at 20%    |
+| `.op-1`           | opacity at 10%    |
 
 ## Interactive Opacity
 
