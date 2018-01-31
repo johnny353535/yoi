@@ -276,7 +276,18 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 | `.only-l--ofl-[*]` | `.ofl-[*]` only at breakpoint `l`       |
 | `.xl--ofl-[*]`     | `.ofl-[*]` at breakpoint `xl`           |
 
-## Z-Index
+## z-Index
+
+Use these utilities to manipulate the order of overlapping, absolutely positioned elements. An element with higher z-index will sit over and element with lower z-index.
+
+```html
+<!-- example -->
+<div class="pos-relative h-10">
+    <div class="br w-4 h-4 br bg-purple-15 pos-tl z-1"></div>
+    <div class="br w-4 h-4 br bg-base-10 pos-tl m-4 z-3"></div>
+    <div class="br w-10 h-10 br bg-purple-23 pos-tl m-2 z-2"></div>
+</div>
+```
 
 | `.z-1`  | z-index at 100  |
 | `.z-2`  | z-index at 200  |
@@ -289,7 +300,7 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 | `.z-9`  | z-index at 900  |
 | `.z-10` | z-index at 1000 |
 
-### Responsive Z-Index
+### Responsive z-Index
 
 | `.only-s--z-[1–10]` | `.z-[1–10]` only at breakpoint `s`       |
 | `.m--z-[1–10]`      | `.z-[1–10]` at breakpoint `m` and larger |
@@ -297,3 +308,54 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 | `.l--z-[1–10]`      | `.z-[1–10]` at breakpoint `l` and larger |
 | `.only-l--z-[1–10]` | `.z-[1–10]` only at breakpoint `l`       |
 | `.xl--z-[1–10]`     | `.z-[1–10]` at breakpoint `xl`           |
+
+## z-Index 3D
+
+Elements that have 3D transforms might not render as expected when mixed with 2D elements, no matter how you set the z-index values. Use the 3D z-index utilities to control stacking order with mixed 2D and 3D elements.
+
+In the following example, we want the dark grey box (last item in markup) to render above all other elments. In the first group, we use the z-index utilities and it might not work as exepected. In the second group, we use a 3d z-index utility for the dark box – which should fix the problem:
+
+```html
+<!-- example -->
+<div class="flx">
+    <div class="pos-relative h-10 w-1-2">
+        <div class="br bg-purple-20 w-6 h-6 pos-tl m-5 z-1" yoi-parallax="factor:20;"></div>
+        <div class="br bg-purple-23 w-6 h-6 pos-tl m-12 z-2" yoi-parallax="factor:15;"></div>
+        <div class="br bg-base-10 c-base-25 w-4 h-7 m-l-15 pos-tl z-3"></div>
+    </div>
+    <div class="pos-relative h-10 w-1-2">
+        <div class="br bg-purple-20 w-6 h-6 pos-tl m-5 z-1" yoi-parallax="factor:20;"></div>
+        <div class="br bg-purple-23 w-6 h-6 pos-tl m-12 z-2" yoi-parallax="factor:15;"></div>
+        <div class="br bg-base-10 c-base-25 w-6 h-6 m-l-15 pos-tl z-3d-3"></div>
+    </div>
+</div>
+```
+
+### Why Get Some Elements Rendered As 3D Elements?
+
+To improve performance, Yoi sets any element with CSS transforms to 3D. This might apply to:
+
+* elements with [fx-utilities]({{ site.github.url }}utilities/fx.html)
+* elements with [parallax effect]({{ site.github.url }}behaviours/parallax.html)
+* elements with [scroll effects]({{ site.github.url }}behaviours/scrollfx.html)
+* [sticky]({{ site.github.url }}behaviours/sticky.html) elements
+
+| `.z-3d-1`  | 3d transform z at 1px  |
+| `.z-3d-2`  | 3d transform z at 2px  |
+| `.z-3d-3`  | 3d transform z at 3px  |
+| `.z-3d-4`  | 3d transform z at 4px  |
+| `.z-3d-5`  | 3d transform z at 5px  |
+| `.z-3d-6`  | 3d transform z at 6px  |
+| `.z-3d-7`  | 3d transform z at 7px  |
+| `.z-3d-8`  | 3d transform z at 8px  |
+| `.z-3d-9`  | 3d transform z at 9px  |
+| `.z-3d-10` | 3d transform z at 10px |
+
+### Responsive z-Index 3D
+
+| `.only-s--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `s`       |
+| `.m--z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `m` and larger |
+| `.only-m--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `m`       |
+| `.l--z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `l` and larger |
+| `.only-l--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `l`       |
+| `.xl--z-3d-[1–10]`     | `.z-3d-[1–10]` at breakpoint `xl`           |
