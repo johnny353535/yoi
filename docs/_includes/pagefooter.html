@@ -1,42 +1,12 @@
-{% comment %}
- % This include renders a "meta section" to a page. It lists the associated source file(s):
- % either a comma-seperated list from an optional array found in the page's frontmatter (page.srcfiles)
- % or just a single file (default, when page.srcfiles is undefined).
- % In addition, this include also renders a handy "edit this page"-button, linking to the edit page
- % directly on github.
-{% endcomment %}
-
-{% if page.url != "/" and page.title != "Introduction" and page.group != "start" %}
-    {% assign githubSrcUrl = "https://github.com/yoshino-digital/yoi/blob/master/src" %}
-    <h2>Source Files</h2>
-    {% if page.srcfiles %}
-        <p>
-            {% for file in page.srcfiles %}
-                {% if page.group == "actions" or page.group == "behaviours" %}
-                    <a href="{{ githubSrcUrl }}/js/{{ page.group }}/{{ file }}">{{ file }}</a>
-                {% elsif page.group == "components" %}
-                    <a href="{{ githubSrcUrl }}/{{ page.permalink }}/{{ file }}">{{ file }}/</a>
-                {% elsif page.group == "utilities" %}
-                    <a href="{{ githubSrcUrl }}/less/{{ page.group }}/{{ file }}">{{ file }}</a>
-                {% endif %}
-                {% if forloop.last == false %}, {% endif %}
-            {% endfor %}
+<footer class="bg-white flx c-base-15 p-4 p-t-15 l--p-t-30">
+    <div class="w-1-2">
+        <p class="lh-5">Yoi – the Yoshino Frontend Component Library</p>
+    </div>
+    <div class="w-1-2 al-r">
+        <p class="lh-5">
+            <img class="d-inlineblock h-3 m-r-1 val-t" src="{{ site.github.url }}/assets/img/logo-yoshino-mono.svg" />
+            <span class="val-t">&copy; {{ "now" | date: "%Y" }}</span>
+            <a class="val-t" href="http://yoshino.digital">Yoshino.digital GmbH</a>
         </p>
-    {% else %}
-        <p>
-            {% if page.group == "actions" or page.group == "behaviours" %}
-                <a href="{{ githubSrcUrl }}/js/{{ page.permalink }}.js">{{ page.permalink }}.js</a>
-            {% elsif page.group == "components" %}
-                <a href="{{ githubSrcUrl }}/{{ page.permalink }}/">{{ page.permalink }}/</a>
-            {% elsif page.group == "utilities" %}
-                <a href="{{ githubSrcUrl }}/less/{{ page.permalink }}.less">{{ page.permalink }}.less</a>
-            {% endif %}
-        </p>
-    {% endif %}
-{% endif %}
-<div class="b-t m-t-8 p-t-4 al-r">
-    <a class="btn btn--medium btn--subtle" href="https://github.com/yoshino-digital/yoi/edit/master/docs/_pages/{{ page.permalink }}{% if page.title == "Introduction" %}index{% endif %}.md">
-        <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-019-s" yoi-icon />
-        <span>Edit this page</span>
-    </a>
-</div>
+    </div>
+</footer>

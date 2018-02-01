@@ -22,23 +22,7 @@
     {% endif %}
     <body class="noJs" yoi-environment="desktop" {{ pageRewind }} {{ scrollKeys }} {{ scrollProgress }} >
         <script>document.body.className='js';</script>
-        <div class="wrapper p-tb-2 l--m-b-8 flx">
-            <div class="w-1-5">
-                <a href="{{ site.github.url }}/">
-                    <img class="h-4 m--h-6 m-tb-1 m--m-tb-2" src="{{ site.github.url }}/assets/img/logo-yoi-small.svg" />
-                </a>
-            </div>
-            <div class="al-r w-4-5">
-                <div class="m-t-1">
-                    <a href="{{ site.github.url }}" class="btn btn--medium btn--subtle">GitHub</a>
-                    <a href="{{ site.github.zip_url }}" class="btn btn--medium btn--subtle">Download</a>
-                    <a href="#menu" class="btn btn--medium btn--light btn--flat m-l-2 l--hidden" yoi-action="ScrollTo:#menu;">
-                        <span class="hidden">Menu</span>
-                        <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-067-s" yoi-icon />
-                    </a>
-                </div>
-            </div>
-        </div>
+        {% include metamenu.html %}
         <div class="wrapper flx">
             <nav id="menu" class="w-1-1 l--w-1-5 m-t-9 flx-2 l--flx-1">
                 {% include menu.html %}
@@ -63,13 +47,10 @@
                     </div>
                 {% endif %}
                 {{ content }}
-                {% include pagefooter.html %}
+                {% include metafooter.html %}
             </article>
         </div>
-        <footer class="wrapper flx c-gray-18 m-tb-15">
-            <div class="w-1-2">Yoi – the Yoshino Frontend Component Library</div>
-            <div class="w-1-2 al-r"><a href="http://yoshino.digital">Yoshino.digital GmbH</a></div>
-        </footer>
+        {% include pagefooter.html %}
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
         <script>

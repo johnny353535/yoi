@@ -1,22 +1,11 @@
 ---
 layout: blank
-title: Introduction
+title: Index
 ---
 
 <!-- meta menu -->
 
-<div class="p-3 flx">
-    <p class="flx-grow">
-        <a href="{{ site.github.url }}/">
-            <img class="h-2" src="{{ site.github.url }}/assets/img/logo-yoi-small.svg" />
-        </a>
-    </p>
-    <p class="flx-grow al-r">
-        <a href="#" class="btn btn--medium btn--subtle">Documentation</a>
-        <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--subtle">GitHub</a>
-        <a href="{{ site.github.zip_url }}" class="btn btn--primary val-c">Download</a>
-    </p>
-</div>
+{% include metamenu.html %}
 
 <!-- section intro -->
 
@@ -30,16 +19,6 @@ title: Introduction
     </div>
 </section>
 <img class="bg-white h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-top.svg" />
-
-<!-- section description -->
-
-<section id="description" class="p-tb-30 l--p-t-50 article bg-white pos-relative">
-    <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
-        <div class="m--w-2-3 w-1-1 m-lr-auto">
-            <p class="fs-3 lh-6 c-base-15">Yoi (pronounced yo-ee) is <a href="//yoshino.digital">Yoshino</a>’s custom-built frontend component library. It is made for designers with basic knowledge of HTML and CSS and enables our team to design, build and test web pages directly in the browser. At its core stands a simple HTML-based interface: Build, tweak and control everything by only writing HTML!</p>
-        </div>
-    </div>
-</section>
 
 <!-- section build -->
 
@@ -172,7 +151,7 @@ title: Introduction
             </div>
             <div class="m--w-2-3 w-1-1">
                 <div class="c-base-15 fs-3 lh-5 m-t-2">
-                    <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-boilerplate">easy to customize</a> for experienced front-end developers.</p>
+                    <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start/customizing.html">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-boilerplate">easy to customize</a> for experienced front-end developers.</p>
                 </div>
             </div>
         </div>
@@ -181,14 +160,7 @@ title: Introduction
 
 <!-- footer -->
 
-<footer class="bg-white flx c-gray-18 p-lr-4 p-t-15 l--p-t-30">
-    <div class="w-1-2">Yoi – the Yoshino Frontend Component Library</div>
-    <div class="w-1-2 al-r">
-        <img class="h-3 w-3 val-m m-r-1" src="{{ site.github.url }}/assets/img/logo-yoshino-mono.svg" />
-        <span class="c-base-15 only-s--hidden val-m">&copy; {{ "now" | date: "%Y" }}</span>
-        <a class="c-base-15 val-m" href="http://yoshino.digital">Yoshino.digital GmbH</a>
-    </div>
-</footer>
+{% include pagefooter.html %}
 
 <!-- custom styling -->
 
