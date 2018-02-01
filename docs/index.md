@@ -5,10 +5,15 @@ title: Introduction
 
 <!-- meta menu -->
 
-<div class="p-6 al-r">
-    <p class="fs-2">
-        <a href="#" class="fw-bold c-base-15 tdr-none hvr--tdr-underline m-r-2 val-c">Documentation</a>
-        <a href="{{ site.github.repository_url }}" class="fw-bold c-base-15 tdr-none hvr--tdr-underline m-r-2 val-c">GitHub</a>
+<div class="p-3 flx">
+    <p class="flx-grow">
+        <a href="{{ site.github.url }}/">
+            <img class="h-2" src="{{ site.github.url }}/assets/img/logo-yoi-small.svg" />
+        </a>
+    </p>
+    <p class="flx-grow al-r">
+        <a href="#" class="btn btn--medium btn--subtle">Documentation</a>
+        <a href="{{ site.github.repository_url }}" class="btn btn--medium btn--subtle">GitHub</a>
         <a href="{{ site.github.zip_url }}" class="btn btn--primary val-c">Download</a>
     </p>
 </div>
@@ -31,7 +36,7 @@ title: Introduction
 <section id="description" class="p-tb-30 l--p-t-50 article bg-white pos-relative">
     <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
         <div class="m--w-2-3 w-1-1 m-lr-auto">
-            <p class="fs-4 lh-7 c-base-15">Yoi (pronounced yo-ee) is <a href="//yoshino.digital">Yoshino</a>’s custom-built frontend component library. It is made for designers with basic knowledge of HTML and CSS and enables our team to design, build and test web pages directly in the browser. At its core stands a simple HTML-based interface: Build, tweak and control everything by only writing HTML!</p>
+            <p class="fs-3 lh-6 c-base-15">Yoi (pronounced yo-ee) is <a href="//yoshino.digital">Yoshino</a>’s custom-built frontend component library. It is made for designers with basic knowledge of HTML and CSS and enables our team to design, build and test web pages directly in the browser. At its core stands a simple HTML-based interface: Build, tweak and control everything by only writing HTML!</p>
         </div>
     </div>
 </section>
@@ -82,7 +87,7 @@ title: Introduction
                 <h2 class="fs-9">Tweak</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s best match!</p>
+                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s cure!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -174,27 +179,19 @@ title: Introduction
     </div>
 </section>
 
-<!-- section getstarted
-
-<section id="getstarted" class="p-tb-30 l--p-t-50 article bg-white pos-relative">
-    <div class="wrapper" yoi-scrollfx="in:sfade-in; speed:slow; repeat:false;">
-        <div class="m--w-2-3 w-1-1">
-            <p class="fs-4 lh-7 c-base-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, officiis, velit numquam, facilis magni eos voluptate in magnam, neque molestiae iusto quibusdam optio fugiat sint nobis! Optio molestias nesciunt adipisci!</p>
-        </div>
-    </div>
-</section>
-
- -->
-
 <!-- footer -->
 
-<img class="bg-base-25 h-3 d-block w-1-1" src="{{ site.github.url }}/assets/img/divider-bottom.svg" />
-<section class="bg-base-25 p-4 h-10">
-    <p class="fs-2 al-r">
+<footer class="bg-white flx c-gray-18 p-lr-4 p-t-15 l--p-t-30">
+    <div class="w-1-2">Yoi – the Yoshino Frontend Component Library</div>
+    <div class="w-1-2 al-r">
         <img class="h-3 w-3 val-m m-r-1" src="{{ site.github.url }}/assets/img/logo-yoshino-mono.svg" />
-        <span class="val-m"><span class="c-base-15 only-s--hidden">&copy; {{ "now" | date: "%Y" }}</span> <a href="http://yoshino.digital" class="c-base-15">Yoshino.digital GmbH</a></span>
-    </p>
-</section>
+        <span class="c-base-15 only-s--hidden val-m">&copy; {{ "now" | date: "%Y" }}</span>
+        <a class="c-base-15 val-m" href="http://yoshino.digital">Yoshino.digital GmbH</a>
+    </div>
+</footer>
+
+<!-- custom styling -->
+
 <style>
     html, body { background: #faf9f7; }
 </style>
