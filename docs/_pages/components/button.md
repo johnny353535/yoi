@@ -190,11 +190,23 @@ Use the modifiers `.btn--subtle` to create a button that looks like text label b
 
 ```html
 <!-- example -->
-<button class="btn btn--large btn--subtle">Subtle Button</button>
-<button class="btn btn--large btn--subtle btn--rounded">Subtle Rounded Button</button>
+<button class="btn btn--large btn--subtle btn--light">Button</button>
+<button class="btn btn--large btn--subtle">Button</button>
+<button class="btn btn--large btn--subtle btn--primary">Button</button>
+<button class="btn btn--large btn--subtle btn--dark">Button</button>
+<button class="btn btn--large btn--subtle btn--attention">Button</button>
+<button class="btn btn--large btn--subtle btn--negative">Button</button>
+<button class="btn btn--large btn--subtle btn--positive">Button</button>
 ```
 
-<p class="hint hint--negative">Combining any other button modifier than <code>.btn--rounded</code> with <code>.btn--subtle</code> will override it’s styling.</p>
+If you combine `.btn--subtle` and `.btn--light`, make sure you put the button against a dark background:
+
+```html
+<!-- example -->
+<div class="p-4 bg-gray-10 br">
+    <button class="btn btn--subtle btn--large btn--light">Button</button>
+</div>
+```
 
 ### State
 

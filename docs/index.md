@@ -52,6 +52,7 @@ title: Index
 </div>
 ```
 </div>
+                <p class="c-base-18 m-t-2">Image by Frank Flores via <a class="tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/eyFcZLLYvfA">unsplash.com</a></p>
             </div>
         </div>
     </div>
@@ -92,12 +93,21 @@ title: Index
 ```html
 <!-- example -->
 <div class="pos-relative h-50 w-26">
+
+    <!-- background with button -->
+
     <div class="br pos-absolute bg-purple-10 w-24 h-40 m-l-5 m-t-5" yoi-parallax="factor:-30;">
         <button yoi-action="Show:#styleInfo;" class="pos-br btn btn--large btn--outline btn--light m-4">Shop this Style</button>
     </div>
+
+    <!-- image -->
+
     <div id="styleImg" class="br h-36 w-24 ofl-hidden pos-absolute z-3d-1">
         <img class="pos-absolute z-3d-3" src="https://source.unsplash.com/as5uuSv4F84/260x400" yoi-parallax="factor:30;" />
     </div>
+
+    <!-- shopping overlay -->
+
     <div id="styleInfo" class="pos-absolute w-1-1 bg-white br m-l-2 m-t-4 p-4 sh-4 z-3d-2" yoi-dismiss>
         <h4>This Style</h4>
         <div class="flx b-t p-t-2 m-t-2">
@@ -133,9 +143,11 @@ title: Index
             </div>
         </div>
     </div>
+
 </div>
 ```
 </div>
+                <p class="c-base-18 m-t-2">Image via <a class="tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/as5uuSv4F84">unsplash.com</a></p>
             </div>
         </div>
     </div>
