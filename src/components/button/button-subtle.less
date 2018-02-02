@@ -1,23 +1,90 @@
 /** button-subtle.less */
 
 .btn.btn--subtle {
+    .constr-btnSubtle(
+        @txtColor: @color-base-8,
+        @bgColorHover: @color-base-25,
+        @bgColorActive: @color-base-23
+    )
+}
+
+.btn--subtle.btn--primary {
+    .constr-btnSubtle(
+        @txtColor: @color-primary-8,
+        @bgColorHover: @color-primary-25,
+        @bgColorActive: @color-primary-24
+    )
+}
+
+.btn--subtle.btn--light {
+    .constr-btnSubtle(
+        @txtColor: @color-white,
+        @bgColorHover: fade(@color-white, 10%),
+        @bgColorActive: fade(@color-white, 15%)
+    )
+}
+
+.btn--subtle.btn--dark {
+    .constr-btnSubtle(
+        @txtColor: @color-base-3,
+        @bgColorHover: @color-base-22,
+        @bgColorActive: @color-base-19
+    )
+}
+
+.btn--subtle.btn--attention {
+    .constr-btnSubtle(
+        @txtColor: @color-attention-6,
+        @bgColorHover: @color-attention-22,
+        @bgColorActive: @color-attention-20
+    )
+}
+
+.btn--subtle.btn--negative {
+    .constr-btnSubtle(
+        @txtColor: @color-negative-6,
+        @bgColorHover: @color-negative-25,
+        @bgColorActive: @color-negative-23
+    )
+}
+
+.btn--subtle.btn--positive {
+    .constr-btnSubtle(
+        @txtColor: @color-positive-6,
+        @bgColorHover: @color-positive-23,
+        @bgColorActive: @color-positive-21
+    )
+}
+
+// constructor
+// ===========
+
+.constr-btnSubtle(@txtColor, @bgColorHover, @bgColorActive) {
 
     box-sizing: border-box;
     background: transparent;
     border-color: @color-transparent;
     box-shadow: none;
 
+    a&,
+    a:link&,
+    a:visited& {
+        color: @txtColor;
+    }
+
     &:hover {
-        background: @color-base-24;
+        background: @bgColorHover;
         border-color: transparent;
         box-shadow: none;
+        color: @txtColor;
     }
 
     &:active,
     &.is--active {
-        background: @color-base-22;
+        background: @bgColorActive;
         border-color: transparent;
         box-shadow: none;
+        color: @txtColor;
     }
 
 }
