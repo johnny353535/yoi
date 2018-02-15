@@ -67,10 +67,10 @@ srcfiles:
 
 At YOI’s default configuration, 60 fixed width and 60 fixed height steps are available. Read the step number as multiplicant of 1rem – thus `.w-15` translates to 1rem &times; 15 = 15rem. The same logic applies to the fixed height utilities.
 
-| `.w-[1–60]`   | fixed width between 1 (1rem &times; 1) and 60 (1rem &times; 60)  |
-| `.h-[1–60]`   | fixed height between 1 (1rem &times; 1) and 60 (1rem &times; 60) |
-| `.w-viewport` | fixed with of 1vw (viewport width)                               |
-| `.h-viewport` | fixed height of 1vh (viewport height)                            |
+| `.w-[1–120]`  | fixed width between 1 (1rem &times; 1) and 120 (1rem &times; 120)  |
+| `.h-[1–120]`  | fixed height between 1 (1rem &times; 1) and 120 (1rem &times; 120) |
+| `.w-viewport` | fixed with of 1vw (viewport width)                                 |
+| `.h-viewport` | fixed height of 1vh (viewport height)                              |
 
 ### Responsive Fixed Width & Height
 
