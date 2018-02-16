@@ -53,6 +53,7 @@
         {% include pagefooter.html %}
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
+        <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
         <script>
             
             /**
@@ -67,6 +68,24 @@
                     .css('border', 0)
                     .wrap('<div class="box m-t-8 fs-2 scr-x"></div>');
             });
+
+             /**
+             *  A simple client-side search
+             *  https://github.com/christian-fei/Simple-Jekyll-Search
+             */
+
+            SimpleJekyllSearch({
+                'searchInput': $('.search__input')[0],
+                'resultsContainer': $('.search__result')[0],
+                'json': '/search.json',
+                'searchResultTemplate': '<a class="d-block lh-3 fs-2 c-base-8 tdr-none hvr--bg-base-25 p-2" href="{url}.html">{title}</a>'
+            });
+
+            /*
+                todo:
+                - hide results on blur
+                - keyboard navigation
+            */
             
         </script>
     </body>

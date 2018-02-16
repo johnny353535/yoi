@@ -5,6 +5,14 @@
         </a>
     </p>
     <p class="flx-grow al-r fs-0">
+
+        <form class="search w-20 d-inlineblock pos-relative">
+            <input class="search__input z-3 pos-relative" type="text" />
+            <div id="searchOutput" class="box pos-absolute w-1-1 sh-4 z-2">
+                <div class="search__result w-1-1"></div>
+            </div>
+        </form>
+
         <a href="{{ site.github.repository_url }}" class="btn btn--subtle">GitHub</a>
         {% if page.title == 'Index' %}
             <a href="{{ site.github.url }}/start/" class="btn btn--subtle m-l-2">Documentation</a>
