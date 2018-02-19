@@ -226,7 +226,7 @@
         @bgGradientTopColor: @color-base-25,
         @bgGradientBottomColor: @color-base-24,
         @borderColor: @color-base-22,
-        @txtColor: @color-base-10,
+        @txtColor: @color-base-12,
         @highlightColor: @color-white,
         @bgGradientTopColorHover: @color-base-24,
         @bgGradientBottomColorHover: @color-base-23,
@@ -244,11 +244,11 @@
 .btn--dark {
     .constr-btn(
         @bgGradientTopColor: @color-base-12,
-        @bgGradientBottomColor: @color-base-10,
+        @bgGradientBottomColor: @color-base-11,
         @borderColor: @color-base-9,
         @txtColor: @color-white,
         @highlightColor: @color-base-13,
-        @bgGradientTopColorHover: @color-base-10,
+        @bgGradientTopColorHover: @color-base-13,
         @bgGradientBottomColorHover: @color-base-8,
         @borderColorHover: @color-base-5,
         @txtColorHover: @color-white,
@@ -477,21 +477,21 @@
 // ===========
 
 .constr-btn (
-    @bgGradientTopColor: @color-base-10,
-    @bgGradientBottomColor: @color-base-10,
-    @borderColor: @color-base-10,
-    @txtColor: @color-base-10,
-    @highlightColor: @color-base-10,
-    @bgGradientTopColorHover: @color-base-10,
-    @bgGradientBottomColorHover: @color-base-10,
-    @borderColorHover: @color-base-10,
-    @txtColorHover: @color-base-10,
-    @highlightColorHover: @color-base-10,
-    @bgGradientTopColorActive: @color-base-10,
-    @bgGradientBottomColorActive: @color-base-10,
-    @borderColorActive: @color-base-10,
-    @txtColorActive: @color-base-10,
-    @highlightColorActive: @color-base-10) {
+    @bgGradientTopColor,
+    @bgGradientBottomColor,
+    @borderColor,
+    @txtColor,
+    @highlightColor,
+    @bgGradientTopColorHover,
+    @bgGradientBottomColorHover,
+    @borderColorHover,
+    @txtColorHover,
+    @highlightColorHover,
+    @bgGradientTopColorActive,
+    @bgGradientBottomColorActive,
+    @borderColorActive,
+    @txtColorActive,
+    @highlightColorActive) {
 
     background: linear-gradient(to bottom, @bgGradientTopColor, @bgGradientBottomColor);
     border-color: @borderColor;

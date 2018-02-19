@@ -1,12 +1,36 @@
-/** button-subtle.less */
+/** buttonsubtle.less */
+
+// base
+// ====
 
 .btn.btn--subtle {
+
+    background: transparent;
+    border-color: @color-transparent;
+    box-shadow: none;
+
+    // interactive states
+
+    &:hover {
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+    &:active,
+    &.is--active {
+        border-color: transparent;
+    }
+
     .constr-btnSubtle(
         @txtColor: @color-base-8,
         @bgColorHover: @color-base-25,
         @bgColorActive: @color-base-23
     )
+
 }
+
+// modifiers
+// =========
 
 .btn--subtle.btn--primary {
     .constr-btnSubtle(
@@ -59,12 +83,12 @@
 // constructor
 // ===========
 
-.constr-btnSubtle(@txtColor, @bgColorHover, @bgColorActive) {
+.constr-btnSubtle(
+    @txtColor,
+    @bgColorHover,
+    @bgColorActive) {
 
-    box-sizing: border-box;
-    background: transparent;
-    border-color: @color-transparent;
-    box-shadow: none;
+    color: @txtColor; 
 
     a&,
     a:link&,
@@ -74,17 +98,17 @@
 
     &:hover {
         background: @bgColorHover;
-        border-color: transparent;
-        box-shadow: none;
         color: @txtColor;
     }
 
     &:active,
     &.is--active {
         background: @bgColorActive;
-        border-color: transparent;
-        box-shadow: none;
         color: @txtColor;
+    }
+
+    .icon circle, ellipse, path, polygon {
+        fill: @txtColor;
     }
 
 }

@@ -252,6 +252,20 @@ Create vertically grouped button blocks by adding the modifier `.btns--vertical`
 </div>
 ```
 
+## Dismiss-Button
+
+Use `.btnDismiss` to add a *dismiss* (or *close*) button. This special button hides it’s label text by default and inherits the [semantic colors](utilities/color.html#semantic-colors) of it’s parent element.
+
+<p class="hint hint--primary">Since the dismiss button is positioned absolutely, it’s parent element needs a position value other than <i>static</i> to privide positioning context.</p>
+
+```html
+<!-- example -->
+<div class="box w-15 p-4 fs-2 c-negative-12">
+    <p>Attention.</p>
+    <button class="btnDismiss">Close</button>
+</div>
+```
+
 ## Modification
 
 Use [utilities](utilities/) to override button styles and create custom buttons:
