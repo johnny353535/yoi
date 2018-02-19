@@ -3,68 +3,11 @@
 // focus
 // =====
 
-:focus {
-    .mixin-defaultFocus;
-}
-
 /*
    To learn more about tabindex behaviour in
    different browsers, see http://www.alexlande.com/articles/cross-browser-tabindex-woes/
 */
 
-// mixins
-// ======
-
-.mixin-defaultBorderRadius() {
-    border-radius: (@defaultBorderRadius * 1px);
-}
-
-.mixin-defaultFocus() {
-    box-shadow: @focusColor 0 0 10px;
-    outline: 0;
-    z-index: 101;
-}
-
-.mixin-tabFocus() {
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-name: tabFocus;
-    animation-timing-function: ease-out;
-    box-shadow: none;
-    outline-color: @focusColor;
-    outline-offset: 1rem;
-    outline-radius: @defaultBorderRadius * 1px;
-    outline-style: solid;
-    outline-width: 0.2rem;
-}
-
-.mixin-tabFocus-inset() {
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-name: tabFocusInset;
-    animation-timing-function: ease-out;
-}
-
-@keyframes tabFocus {
-    from {
-        outline-color: @focusColor;
-    } to {
-        outline-color: @color-transparent;
-    }
-}
-
-@keyframes tabFocusInset {
-    from {
-        box-shadow:
-            inset 2px 0 0 @focusColor,
-            inset 0 2px 0 @focusColor,
-            inset -2px 0 @focusColor,
-            inset 0 -2px 0 @focusColor
-    } to {
-        box-shadow:
-            inset 2px 0 0 @color-transparent,
-            inset 0 2px 0 @color-transparent,
-            inset -2px 0 @color-transparent,
-            inset 0 -2px 0 @color-transparent
-    }
+:focus {
+    .mixin-defaultFocus;
 }

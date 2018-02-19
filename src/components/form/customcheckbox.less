@@ -56,35 +56,28 @@
 
 .checkbox.input--checked {
 
-    box-shadow: none;
-    background: @color-base-10;
-    border: none;
-
     // icon regular
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @width: 21, @height: 21, @fillColor: @color-positive-22);
+        .mixin-icon-bg(@id: 'icon-011-s', @width: 21, @height: 21, @fillColor: @color-base-8);
         content: ' ';
-        height: 2.4rem;
-        left: -.5rem;
+        left: 0;
+        top: 0;
+        height: 1.3rem;
         position: absolute;
-        top: -.5rem;
-        width: 2.4rem;
+        width: 1.3rem;
     }
     
     // icon large
     
     &.input--large::after {
-        .mixin-icon-bg(@id: 'icon-011', @width: 21, @height: 21, @fillColor: @color-positive-22);
-        height: 2.4rem;
-        left: .3rem;
-        top: .2rem;
-        width: 2.4rem;
+        .mixin-icon-bg(@id: 'icon-011', @width: 21, @height: 21, @fillColor: @color-base-8);
+        width: 2.8rem;
+        height: 2.8rem;
     }
 
 }
 
 .checkbox.input--focus {
-    border-color: @blue-18;
-    box-shadow: @blue-22 0 0 10px;
+    .mixin-defaultFocus;
 }

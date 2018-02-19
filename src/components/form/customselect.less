@@ -22,6 +22,7 @@
     line-height: 2.3rem;
     position: relative;
     text-align: left;
+    transition: all 100ms ease-in-out;
     vertical-align: middle;
     white-space: nowrap;
 
@@ -30,6 +31,7 @@
     select {
         
         .mixin-clearAppearance;
+        border-radius: 0;
         background: transparent;
         border: 0;
         color: inherit;
@@ -42,6 +44,7 @@
         &:active,
         &:focus {
             border: 0;
+            box-shadow: none;
             outline: 0;
         }
 
@@ -100,8 +103,5 @@
 // interactive states
 
 .select.input--focus {
-    background: @color-white;
-    border-color: @blue-18;
-    box-shadow: @blue-22 0 0 10px;
-    color: @color-base-8;
+    .mixin-defaultFocus;
 }

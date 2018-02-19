@@ -64,7 +64,6 @@ components:
     - ruler
     - scrollkeys
     - scrollprogress
-    - searchprompt
     - shelf
     - slider
     - spinner

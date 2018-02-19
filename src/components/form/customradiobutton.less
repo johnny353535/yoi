@@ -57,16 +57,31 @@
 // interactive states
 
 .radio.input--checked {
-    background: @color-positive-22;
-    border: @color-base-10 .5rem solid;
-    box-shadow: none;
-}
 
-.radio.input--large.input--checked {
-    border-width: .9rem;
+    // icon regular
+
+    &::after {
+        .mixin-icon-bg(@id: 'icon-079-s', @width: 16, @height: 16, @fillColor: @color-base-8);
+        content: ' ';
+        left: 0;
+        top: 0;
+        height: 1.4rem;
+        position: absolute;
+        width: 1.4rem;
+    }
+    
+    // icon large
+    
+    &.input--large::after {
+        .mixin-icon-bg(@id: 'icon-079', @width: 24, @height: 24, @fillColor: @color-base-8);
+        height: 2.8rem;
+        left: 0;
+        top: 0;
+        width: 2.8rem;
+    }
+    
 }
 
 .radio.input--focus {
-    border-color: @blue-18;
-    box-shadow: @blue-22 0 0 10px;
+    .mixin-defaultFocus;
 }

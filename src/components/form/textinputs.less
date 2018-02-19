@@ -3,9 +3,12 @@
 // blocks
 // ======
 
+// all text inputs
+
 input[type="date"],
 input[type="email"],
 input[type="password"],
+input[type="search"],
 input[type="tel"],
 input[type="text"],
 input[type="url"],
@@ -20,8 +23,72 @@ textarea {
     font: normal 1.3rem/2.5rem @font-sansserif;
     height: 2.5rem;
     padding: 0 .5rem;
+    transition: all 100ms ease-in-out;
     width: 100%;
 }
+
+// search input
+
+input[type="search"] {
+
+    .mixin-icon-bg(@id: 'icon-012-s', @fillColor: @color-base-20);
+    background-position-x: -.4rem;
+    background-position-y: -.35rem;
+    padding-left: 2.5rem;
+
+    &:focus {
+        background-position-x: -3rem;
+        background-position-y: -.35rem;
+        padding-left: .5rem;
+    }
+
+    // rounded
+
+    &.input--rounded {
+
+        background-position-x: -.35rem;
+        padding-left: 2.75rem;
+
+        &:focus {
+            background-position-x: -3rem;
+            padding-left: 1rem;
+        }
+
+    }
+
+    // large
+
+    &.input--large {
+
+        .mixin-icon-bg(@id: 'icon-012', @fillColor: @color-base-20);
+        background-position-x: .25rem;
+        background-position-y: .25rem;
+        padding-left: 4rem;
+
+        &:focus {
+            background-position-x: -4rem;
+            padding-left: 1rem;
+        }
+
+    }
+
+    // large & rounded
+
+    &.input--large.input--rounded {
+
+        background-position-x: .6rem;
+        padding-left: 4.5rem;
+
+        &:focus {
+            background-position-x: -4rem;
+            padding-left: 1.25rem;
+        }
+
+    }
+
+}
+
+// textarea
 
 textarea {
     box-sizing: border-box;
@@ -53,11 +120,22 @@ textarea.input--large {
     padding: 1rem;
 }
 
+// style
+
+input.input--rounded {
+    border-radius: 1.25rem;
+}
+
+input.input--large.input--rounded {
+    border-radius: 2rem;
+}
+
 // validation
 
 input[type="date"],
 input[type="email"],
 input[type="password"],
+input[type="search"],
 input[type="tel"],
 input[type="text"],
 input[type="url"],
@@ -86,6 +164,7 @@ textarea {
 input[type="date"],
 input[type="email"],
 input[type="password"],
+input[type="search"],
 input[type="tel"],
 input[type="text"],
 input[type="url"],
@@ -94,15 +173,13 @@ textarea {
     &.input--focus,
     &:focus {
         .mixin-defaultFocus;
-        background: @color-white;
-        border-color: @blue-18;
+        background-color: @color-white;
         color: @color-base-8;
     }
 
     &.input--disabled,
     &[disabled] {
-        background: @color-white;
-        background: @color-white;
+        background-color: @color-white;
         border: @color-base-20 1px solid;
         color: @color-base-8;
         cursor: default;
@@ -115,7 +192,7 @@ textarea {
 
     &.input--readonly,
     &[readonly] {
-        background: transparent;
+        background-color: transparent;
         border: 0;
         box-shadow: none;
         cursor: default;

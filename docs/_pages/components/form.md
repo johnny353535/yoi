@@ -16,7 +16,7 @@ permalink: components/form
 This is how a `<input type="text">` and `<textarea>` looks like:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <div class="m-b-2">
     <input type="text" />
 </div>
@@ -25,12 +25,24 @@ This is how a `<input type="text">` and `<textarea>` looks like:
 </div>
 ```
 
+### Search Inputs
+
+This is how `<input type="search">` looks like:
+
+```html
+<!-- example -->
+<input class="m-b-2" type="search" />
+<input class="m-b-2 input--rounded" type="search" />
+<input class="m-b-2 input--large" type="search" />
+<input class="input--large input--rounded" type="search" />
+```
+
 ### Selects
 
 This is how a `<select>` looks like:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <select>
     <option>Dysprosium</option>
     <option>Aluminium</option>

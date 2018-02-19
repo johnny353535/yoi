@@ -155,15 +155,15 @@ YOI.component.CustomFormElements = (function() {
             
             $thisSelect.on({
                 'focus': function() {
-                    $(this).parent().addClass('input--focus');
-                    $(this).trigger('yoi-input-focus');
+                    $thisSelect.parent().addClass('input--focus');
+                    $thisSelect.trigger('yoi-input-focus');
                 },
                 'blur': function() {
-                    $(this).parent().removeClass('input--focus');
-                    $(this).trigger('yoi-input-blur');
+                    $thisSelect.parent().removeClass('input--focus');
+                    $thisSelect.trigger('yoi-input-blur');
                 },
                 'change': function() {
-                    $(this).trigger('yoi-input-change');
+                    $thisSelect.trigger('yoi-input-change');
                 }
             });
             
