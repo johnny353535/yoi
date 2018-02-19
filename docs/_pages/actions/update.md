@@ -18,9 +18,9 @@ In the following example, each button calls the _action_ `Update` to load differ
 ```html
 <!-- example -->
 <div class="btns">
-    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ github.url }}demos/ajaxSource-1.html';">What is Valium?</button>
-    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ github.url }}demos/ajaxSource-2.html';">What is Strychnine?</button>
-    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ github.url }}demos/ajaxSource-xyz.html';">42?</button>
+    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ site.github.url }}demos/ajaxSource-1.html';">What is Valium?</button>
+    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ site.github.url }}demos/ajaxSource-2.html';">What is Strychnine?</button>
+    <button class="btn btn--large" yoi-action="Update:'#example-1'; url:'{{ site.github.url }}demos/ajaxSource-xyz.html';">42?</button>
 </div>
 <div id="example-1" class="pos-relative m-t-4">
     <div class="p-4 b-dashed bc-base-22 bw-1 br">
