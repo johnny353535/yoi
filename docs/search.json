@@ -3,11 +3,13 @@ layout: null
 ---
 [
     {% for page in site.pages %}
-        {
-            "title"    : "{{ page.title | escape }}",
-            "group"    : "{{ page.group }}",
-            "url"      : "{{ page.url }}",
-            "content"  : {{ page.content | strip_html | strip_newlines | jsonify }}
-        } {% unless forloop.last %},{% endunless %}
+        {% if page.layout == 'base' %}
+            {
+                "title"    : "{{ page.title | escape }}",
+                "group"    : "{{ page.group }}",
+                "url"      : "{{ page.url }}",
+                "content"  : {{ page.content | strip_html | strip_newlines | jsonify }}
+            } {% unless forloop.last %},{% endunless %}
+        {% endif %}
     {% endfor %}
 ]

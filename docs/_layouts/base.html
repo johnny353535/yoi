@@ -55,38 +55,58 @@
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
         <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
         <script>
-            
-            /**
-             *  To improve accessabilty on small screens, wrap ech documentation
-             *  table in a scrollable container. We do this via JavaScript
-             *  because an HTML-tag around markdown-tables prevents the markdown
-             *  parser from rendering the tables.
-             */
-            
             $(function() {
+
+                /**
+                *  To improve accessabilty on small screens, wrap ech documentation
+                *  table in a scrollable container. We do this via JavaScript
+                *  because an HTML-tag around markdown-tables prevents the markdown
+                *  parser from rendering the tables.
+                */
+
                 $('.article > table')
                     .css('border', 0)
                     .wrap('<div class="box m-t-8 fs-2 scr-x"></div>');
+
+                /**
+                *  A simple client-side search, build with "SimpleJekyllSearch".
+                *  Learn more: https://github.com/christian-fei/Simple-Jekyll-Search
+                */
+
+                // control the search elements
+
+                var $search       = $('#search');
+                var $searchInput  = $('#search-input');
+                var $searchOutput = $('#search-output').hide();
+
+                $search
+                    .on('submit', function() {
+                        return false;
+                    });
+
+                $searchInput
+                    .on('focus keydown', function() {
+                        if ($searchInput.val() === '') {
+                            $searchOutput.hide();
+                        } else {
+                            $searchOutput.show();
+                        }
+                    })
+                    .on('blur', function() {
+                        $searchOutput.fadeOut('fast');
+                    });
+
+                // SimpleJekyllSearch settings & initialization
+
+                SimpleJekyllSearch({
+                    'searchInput': $('#search-input')[0],
+                    'resultsContainer': $('#search-result')[0],
+                    'noResultsText': '<p class="fs-2 p-2 c-red-15">No Results</p>',
+                    'json': '/search.json',
+                    'searchResultTemplate': '<a class="d-block lh-3 fs-2 c-base-8 tdr-none hvr--bg-base-25 p-2" href="{url}.html"><span class="c-base-15">{group}/ </span>{title}</a>'
+                });
+
             });
-
-             /**
-             *  A simple client-side search
-             *  https://github.com/christian-fei/Simple-Jekyll-Search
-             */
-
-            SimpleJekyllSearch({
-                'searchInput': $('.search__input')[0],
-                'resultsContainer': $('.search__result')[0],
-                'json': '/search.json',
-                'searchResultTemplate': '<a class="d-block lh-3 fs-2 c-base-8 tdr-none hvr--bg-base-25 p-2" href="{url}.html">{title}</a>'
-            });
-
-            /*
-                todo:
-                - hide results on blur
-                - keyboard navigation
-            */
-            
         </script>
     </body>
 </html>
