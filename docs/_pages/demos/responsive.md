@@ -2,6 +2,7 @@
 layout: blank
 title: Responsive Demo
 permalink: demos/responsive
+sitemap: false
 ---
 
 <h1 class="p-4">Responsive Design Test Page</h1>

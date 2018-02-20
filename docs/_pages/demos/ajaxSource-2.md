@@ -2,6 +2,7 @@
 layout: ajax
 title: Strychnine
 permalink: demos/ajaxSource-2
+sitemap: false
 ---
 
 <div class="fs-2 p-4 bg-green-24 c-green-10">

@@ -2,6 +2,7 @@
 layout: ajax
 title: Valium
 permalink: demos/ajaxSource-1
+sitemap: false
 ---
 
 <div class="fs-2 p-4 bg-green-24 c-green-10">

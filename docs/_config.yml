@@ -3,6 +3,8 @@
 title: YOI - the Yoshino Frontend Component Library
 description: A quick-to-learn, yet powerful set of elements and utilities for building and designing web pages directly in the browser.
 url: "https://yoshino-digital.github.io/yoi/"
+plugins_dir:
+  - jekyll-sitemap
 
 # Build Settings
 
