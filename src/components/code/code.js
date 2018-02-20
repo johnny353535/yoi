@@ -136,7 +136,7 @@ YOI.component.Code = (function() {
         // proceed
         
         var $markup                = markup instanceof jQuery ? markup : $(markup);
-        var $copyBtn               = $('<button class="code__copyBtn btn btn--flat btn--light">Copy</button>');
+        var $copyBtn               = $('<button class="code__copyBtn btn btn--subtle">Copy</button>');
         var $codeSource            = $markup.find('.code__source');
         var codeHasRenderedExample = $codeSource.length ? true : false;
 
@@ -209,7 +209,7 @@ YOI.component.Code = (function() {
         
         // assign vars
         
-        var $expandBtn    = $('<button class="code__expandBtn btn btn--flat btn--light">Expand</button>');
+        var $expandBtn    = $('<button class="code__expandBtn btn btn--subtle">Expand</button>');
         var codeHeight    = $thisCode.height();
         var lineHeight    = $thisCode.css('line-height');
         var maxCodeHeight = parseInt(lineHeight) * 5;

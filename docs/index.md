@@ -52,7 +52,7 @@ title: Index
 </div>
 ```
 </div>
-                <p class="c-base-18 m-t-2">Image by Frank Flores via <a class="tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/eyFcZLLYvfA">unsplash.com</a></p>
+                <p class="c-base-18 m-t-2">Image via <a class="c-base-13 tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/eyFcZLLYvfA">unsplash.com</a></p>
             </div>
         </div>
     </div>
@@ -67,11 +67,11 @@ title: Index
                 <h2 class="fs-9">Tweak</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the top? Darker <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> are your OCD’s cure!</p>
+                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the left? Another <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s huge collection of <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> is the cure for your OCD!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
-<button class="btn btn--large c-green-12">Special <span class="c-red-15">Button</span></button>
+<button class="btn btn--large m-l-6 c-green-12">Tweaked Button</button>
 ```
 </div>
             </div>
@@ -147,7 +147,7 @@ title: Index
 </div>
 ```
 </div>
-                <p class="c-base-18 m-t-2">Image via <a class="tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/as5uuSv4F84">unsplash.com</a></p>
+                <p class="c-base-18 m-t-2">Image via <a class="c-base-13 tdr-none hvr--tdr-underline" href="https://unsplash.com/photos/as5uuSv4F84">unsplash.com</a></p>
             </div>
         </div>
     </div>
