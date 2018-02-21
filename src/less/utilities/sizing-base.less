@@ -35,6 +35,11 @@
 .w-auto { width: auto !important; }
 .h-auto { height: auto !important; }
 
+// full width & height
+
+.w-full { width: 100% !important; }
+.h-full { height: 100% !important; }
+
 // fixed width & height
 
 .generate_width_height (@i) when (@i > 0) {
@@ -58,10 +63,11 @@
 
 // maximum & minimum width & height
 
-.w-max-100      { max-width: 100% !important; }
+.w-max-full     { max-width: 100% !important; }
 .w-max-viewport { max-width: 1vw !important; }
+.h-max-full     { max-height: 100% !important; }
 .h-max-viewport { max-height: 1vh !important; }
-
-.w-min-100      { min-width: 100% !important; }
+.w-min-full     { min-width: 100% !important; }
 .w-min-viewport { min-width: 1vw !important; }
+.h-min-full     { min-height: 100% !important; }
 .h-min-viewport { min-height: 1vh !important; }

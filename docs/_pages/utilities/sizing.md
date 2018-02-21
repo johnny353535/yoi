@@ -63,6 +63,20 @@ srcfiles:
 | `.only-l--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `l`       |
 | `.xl--[w/h]-auto`     | `.[w/h]-auto` at breakpoint `xl`           |
 
+## Full Width & Height
+
+| `.w-full`| width at 100%  |
+| `.h-full`| height at 100% |
+
+### Responsive Full Width & Height
+
+| `.only-s--[w/h]-full` | `.[w/h]-full` only at breakpoint `s`       |
+| `.m--[w/h]-full`      | `.[w/h]-full` at breakpoint `m` and larger |
+| `.only-m--[w/h]-full` | `.[w/h]-full` only at breakpoint `m`       |
+| `.l--[w/h]-full`      | `.[w/h]-full` at breakpoint `l` and larger |
+| `.only-l--[w/h]-full` | `.[w/h]-full` only at breakpoint `l`       |
+| `.xl--[w/h]-full`     | `.[w/h]-full` at breakpoint `xl`           |
+
 ## Fixed Width & Height
 
 At YOI’s default configuration, 120 fixed width and 120 fixed height steps are available. Read the step number as multiplicant of 1rem – thus `.w-15` translates to 1rem &times; 15 = 15rem. *rem* is a mesurement unit relative to the font size of the `<html>` element. By default, Yoi’s root font size is 10px. So `.w-15` = 1rem (1 &times; 10px) &times; 15 = 150px;
@@ -83,18 +97,20 @@ At YOI’s default configuration, 120 fixed width and 120 fixed height steps are
 
 ## Minimum & Maximum Width & Height
 
-| `.w-max-100`      | maximum width at 100%                   |
+| `.w-max-full`     | maximum width at 100%                   |
 | `.w-max-viewport` | maximum width at 1vw (viewport width)   |
+| `.h-max-full`     | maximum height at 100%                  |
 | `.h-max-viewport` | maximum height at 1vh (viewport height) |
-| `.w-min-100`      | mimimum width at 100%                   |
+| `.w-min-full`     | mimimum width at 100%                   |
 | `.w-min-viewport` | mimimum width at 1vw (viewport width)   |
+| `.h-min-full`     | mimimum height at 100%                  |
 | `.h-min-viewport` | mimimum height at 1vh (viewport height) |
 
 ## Responsive Minimum & Maximum Width & Height
 
-| `.only-s-[w/h]-[max/min]-[*]`  | `.[w/h]-[max/min]-[*]` only at breakpoint `s`      |
-| `.m--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[*] at breakpoint `m` and larger |
-| `.only-m--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[*] only at breakpoint `m`       |
-| `.l--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[*] at breakpoint `l` and larger |
-| `.only-l--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[*] only at breakpoint `l`       |
-| `.xl--[w/h]-[max/min]-[*]`     | `.[w/h]-[max/min]-[*] at breakpoint `xl`           |
+| `.only-s-[w/h]-[max/min]-[*]`  | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `s`      |
+| `.m--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `m` and larger |
+| `.only-m--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `m`       |
+| `.l--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `l` and larger |
+| `.only-l--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `l`       |
+| `.xl--[w/h]-[max/min]-[*]`     | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `xl`           |

@@ -36,6 +36,11 @@
     .@{bpPrefix}--w-auto { .w-auto; }
     .@{bpPrefix}--h-auto { .h-auto; }
 
+    // full width & height
+
+    .@{bpPrefix}--w-full { .w-full; }
+    .@{bpPrefix}--h-full { .h-full; }
+
     // fixed width & height
 
     .generate_width_height (@i) when (@i > 0) {
@@ -44,18 +49,19 @@
         .@{bpPrefix}--h-@{i} { height: @sizingMultiplicand * @i !important; }
     }
     .generate_width_height(@responsiveSizingSteps);
-    
+
     .@{bpPrefix}--w-viewport { .w-viewport; }
     .@{bpPrefix}--h-viewport { .h-viewport; }
-    
+
     // maximum & minimum width & height
 
-    .@{bpPrefix}--w-max-100      { .w-max-100; }
+    .@{bpPrefix}--w-max-full     { .w-max-full; }
     .@{bpPrefix}--w-max-viewport { .w-max-viewport; }
+    .@{bpPrefix}--h-max-full     { .h-max-full; }
     .@{bpPrefix}--h-max-viewport { .h-max-viewport; }
-    
-    .@{bpPrefix}--w-min-100      { .w-min-100; }
+    .@{bpPrefix}--w-min-full     { .w-min-full; }
     .@{bpPrefix}--w-min-viewport { .w-min-viewport; }
+    .@{bpPrefix}--h-min-full     { .h-min-full; }
     .@{bpPrefix}--h-min-viewport { .h-min-viewport; }
 
 }
