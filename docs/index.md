@@ -11,10 +11,15 @@ title: Index
 
 <section id="intro" class="cover only-s--h-auto only-s--p-tb-15 l--p-tb-30 center bg-base-25">
     <div class="wrapper al-c op-transparent">
-        <img class="h-20 w-20 d-block m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
+        <img class="h-20 w-20 d-block m--m-t-neg-10 m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
         <h1 class="hidden">Yoi</h1>
         <div class="m--w-40 w-25 m-lr-auto">
             <p class="fs-4 lh-6 m-t-10 m-b-4 c-base-15">Yoi &mdash; A flexible front-end library, controlled by a simple yet powerful HTML-interface.</p>
+            <p class="m-t-4">
+                <a class="btn btn--subtle btn--large m-b-4 m--m-0" href="{{ site.github.url }}/start/">Read the Docs</a>
+                <span class="fs-2 c-base-15 m-r-3 only-s--hidden">or</span>
+                <a class="btn btn--primary btn--large" href="#build" yoi-action="ScrollTo:#build;">Learn More</a>
+            </p>
         </div>
     </div>
 </section>
