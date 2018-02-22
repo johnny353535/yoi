@@ -10,6 +10,9 @@
         {% endif %}
         <link href="{{ site.github.url }}/assets/css/yoi.css" rel="stylesheet" />
         <link href="{{ site.github.url }}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <!-- docsearch -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        <!-- /docsearch -->
     </head>
     {% if page.title contains "ScrollProgress" %}
         {% assign scrollProgress = "yoi-scrollprogress" %}
@@ -53,7 +56,7 @@
         {% include pagefooter.html %}
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-jekyll-search/1.1.8/jekyll-search.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
         <script>
             $(function() {
 
@@ -69,41 +72,15 @@
                     .wrap('<div class="box m-t-8 fs-2 scr-x"></div>');
 
                 /**
-                *  A simple client-side search, build with "SimpleJekyllSearch".
-                *  Learn more: https://github.com/christian-fei/Simple-Jekyll-Search
+                *  Simple client-side search, build with "docsearch" by magnolia.
+                *  Learn more: https://community.algolia.com/docsearch/documentation/
                 */
 
-                // control the search elements
-
-                var $search       = $('#search');
-                var $searchInput  = $('#search-input');
-                var $searchOutput = $('#search-output').hide();
-
-                $search
-                    .on('submit', function() {
-                        return false;
-                    });
-
-                $searchInput
-                    .on('focus keydown', function() {
-                        if ($searchInput.val() === '') {
-                            $searchOutput.hide();
-                        } else {
-                            $searchOutput.show();
-                        }
-                    })
-                    .on('blur', function() {
-                        $searchOutput.fadeOut('fast');
-                    });
-
-                // SimpleJekyllSearch settings & initialization
-
-                SimpleJekyllSearch({
-                    'searchInput': $('#search-input')[0],
-                    'resultsContainer': $('#search-result')[0],
-                    'noResultsText': '<p class="fs-2 p-2 c-red-15">No Results</p>',
-                    'json': '{{ site.github.url }}/search.json',
-                    'searchResultTemplate': '<a class="d-block lh-3 fs-2 c-base-8 tdr-none hvr--bg-base-25 p-2" href="{url}.html"><span class="c-base-15">{group}/ </span>{title}</a>'
+                docsearch({
+                    apiKey: '658ac728b2a6473d93415830d075f2bb',
+                    indexName: 'yoi',
+                    inputSelector: '#docsearch-input',
+                    debug: false
                 });
 
             });

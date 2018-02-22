@@ -10,13 +10,8 @@
             <a href="{{ site.github.url }}/start/" class="btn btn--subtle m-l-2">Documentation</a>
             <a href="{{ site.github.zip_url }}" class="btn btn--primary m-l-2">Download</a>
         {% else %}
-            <form id="search" class="w-22 m--w-30 d-inlineblock pos-relative">
-                <input id="search-input" class="input--rounded" type="search" autocomplete="off" />
-                <div id="search-output" class="box pos-absolute w-1-1 sh-4 z-2 m-t-1">
-                    <div id="search-result" class="w-1-1">
-                        <p class="m-2 fs-2 c-base-15">Type a search term</p>
-                    </div>
-                </div>
+            <form class="w-22 m--w-30 d-inlineblock pos-relative">
+                <input id="docsearch-input" class="input--rounded" type="search" autocomplete="off" />
             </form>
             <a href="#menu" class="btn btn--subtle m-l-2 l--hidden" yoi-action="ScrollTo:#menu;">
                 <span class="hidden">Menu</span>
