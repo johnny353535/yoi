@@ -12,6 +12,18 @@
         <link href="{{ site.github.url }}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <!-- docsearch -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+        <style>
+            .ds-dropdown-menu {
+                box-shadow: 0 0 35px rgba(154, 153, 152, 0.3) !important;
+                border: #ecebea 1px solid !important;
+            }
+            .ds-dropdown-menu::before {
+                display: none !important;
+            }
+            .ds-dataset-1 {
+                border: none !important;
+            }
+        </style>
         <!-- /docsearch -->
     </head>
     {% if page.title contains "ScrollProgress" %}
@@ -72,8 +84,8 @@
                     .wrap('<div class="box m-t-8 fs-2 scr-x"></div>');
 
                 /**
-                *  Simple client-side search, build with "docsearch" by magnolia.
-                *  Learn more: https://community.algolia.com/docsearch/documentation/
+                *  Simple & elegant client-side search, built with "docsearch" by magnolia.
+                *  Documentation: https://community.algolia.com/docsearch/documentation/
                 */
 
                 docsearch({
