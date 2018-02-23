@@ -4,8 +4,8 @@ group: utilities
 title: Opacity
 permalink: utilities/opacity
 srcfiles:
-    - op-base.less
-    - op-interactive.less
+    - opacity-base.less
+    - opacity-interactive.less
 ---
 
 # Opacity

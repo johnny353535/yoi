@@ -26,7 +26,7 @@ srcfiles:
 <div class="w-10 h-10 m-2 p-2 d-inlineblock sh-1">.sh-1</div>
 <div class="w-10 h-10 m-2 p-2 d-inlineblock sh-2">.sh-2</div>
 <div class="w-10 h-10 m-2 p-2 d-inlineblock sh-3">.sh-3</div>
-<div class="w-10 h-10 m-2 p-2 d-inlineblock sh-3">.sh-3</div>
+<div class="w-10 h-10 m-2 p-2 d-inlineblock sh-4">.sh-4</div>
 ```
 
 ### Interactive Box Shadow
