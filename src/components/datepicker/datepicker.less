@@ -64,35 +64,32 @@
 }
 
 .datePicker__btnPrev {
-    
+
     .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @color-base-20);
     left: 0;
-    
+
     &:hover {
         .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @color-base-8);
     }
-    
+
 }
 
 .datePicker__btnNext {
-    
+
     .mixin-icon-bg(@id: 'icon-007-s', @fillColor: @color-base-20);
     right: 0;
-    
+
     &:hover {
         .mixin-icon-bg(@id: 'icon-007-s', @fillColor: @color-base-8);
     }
-    
+
 }
 
 .datePicker__days {
 
     background: @color-base-25;
-    border-bottom: 0;
-    border-left: 0;
+    border: 0;
     border-radius: 0;
-    border-right: 0;
-    border-color: @color-base-24;
     table-layout: fixed;
     width: 100%;
 
@@ -100,7 +97,7 @@
     td {
         border: 0;
     }
-    
+
     th {
         color: @color-base-15;
         font-weight: normal;
@@ -126,9 +123,9 @@
         }
 
     }
-    
+
     // week-end
-    
+
     th:nth-child(6),
     th:nth-child(7) {
         color: @color-primary-15;

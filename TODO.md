@@ -6,7 +6,7 @@
 - [ ] add glossary to docs
 - [ ] complete user docs
 - [ ] proof-read and edit user docs
-- [ ] review, improve, refactor grid utilities
+- [x] review, improve, refactor grid utilities
 - [ ] expand JSfiddle integration
 - [x] write utilities intro page
 

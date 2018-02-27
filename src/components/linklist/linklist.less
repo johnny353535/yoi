@@ -5,7 +5,6 @@
 
 .linkList {
     .mixin-defaultBorderRadius;
-    background: @color-base-25;
     border: @color-base-23 1px solid;
     font-size: 1.3rem;
 }
@@ -45,7 +44,7 @@
     // hover
 
     &:hover {
-        background: @color-base-24;
+        background: @color-base-25;
     }
 
 }
@@ -53,7 +52,7 @@
 // active
 
 .is--active .linkList__link::before {
-    background: @color-base-8;
+    background: @color-primary-15;
     bottom: 0;
     content: ' ';
     left: 0;
@@ -103,9 +102,9 @@
     .linkList__link:hover {
         background: @color-base-9;
     }
-    
+
     .is--active .linkList__link::before {
-        background: @color-base-22;
+        background: @color-primary-23;
     }
 
 }
