@@ -56,7 +56,19 @@ src
 
 ### colors.less
 
-Use the variables in [colors.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/colors.less) to change he color palette for your own build of Yoi. You can generate color steps (different shades of the same base color) with the [Yoi Color Gradient Tool](https://yoshino-digital.github.io/yoi-color-gradient-tool/).
+#### Root color variables
+
+| Variable               | Default Value                  | Description                                            |
+| ---------------------- | ------------------------------ | ------------------------------------------------------ |
+| `@htmlBackgroundColor` | `@color-white`                 | Background color of the `html` tag                     |
+| `@bodyBackgroundColor` | `@color-white`                 | Background color of the `body` tag                     |
+| `@textColor`           | `@color-base-8`                | Global text color                                      |
+| `@focusColor`          | `@blue-22`                     | Highlight color for active elements (eg. a text input) |
+| `@selectionColor`      | `fade(@color-primary-25, 50%)` | Highlight color for selected text                      |
+
+#### Color Palette
+
+Use the variables in [colors.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/colors.less) to change the color palette for your own build of Yoi. You can generate color steps (different shades of the same base color) with the [Yoi Color Gradient Tool](https://yoshino-digital.github.io/yoi-color-gradient-tool/).
 
 <div class="m-t-8">
     <a class="btn btn--large" href="https://yoshino-digital.github.io/yoi-color-gradient-tool/">Yoi Color Gradient Tool</a>
