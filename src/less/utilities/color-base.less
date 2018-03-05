@@ -7,22 +7,22 @@
     .generate_colors((@i - 1));
 
     // semantic background colors
-    
+
     .bg-attention-@{i} { background: ~"@{color-attention-@{i}}" !important; }
     .bg-base-@{i}      { background: ~"@{color-base-@{i}}" !important; }
     .bg-negative-@{i}  { background: ~"@{color-negative-@{i}}" !important; }
     .bg-positive-@{i}  { background: ~"@{color-positive-@{i}}" !important; }
     .bg-primary-@{i}   { background: ~"@{color-primary-@{i}}" !important; }
-    
+
     // additional background colors
-    
+
     .bg-blue-@{i} when (@fullColorPalette = true)   { background: ~"@{blue-@{i}}" !important; }
     .bg-gray-@{i} when (@fullColorPalette = true)   { background: ~"@{gray-@{i}}" !important; }
     .bg-green-@{i} when (@fullColorPalette = true)  { background: ~"@{green-@{i}}" !important; }
     .bg-purple-@{i} when (@fullColorPalette = true) { background: ~"@{purple-@{i}}" !important; }
     .bg-red-@{i} when (@fullColorPalette = true)    { background: ~"@{red-@{i}}" !important; }
     .bg-yellow-@{i} when (@fullColorPalette = true) { background: ~"@{yellow-@{i}}" !important; }
-    
+
     // semantic border colors
 
     .bc-attention-@{i} { border-color: ~"@{color-attention-@{i}}" !important; }
@@ -39,7 +39,7 @@
     .bc-purple-@{i} when (@fullColorPalette = true) { border-color: ~"@{purple-@{i}}" !important; }
     .bc-red-@{i} when (@fullColorPalette = true)    { border-color: ~"@{red-@{i}}" !important; }
     .bc-yellow-@{i} when (@fullColorPalette = true) { border-color: ~"@{yellow-@{i}}" !important; }
-    
+
     // semantic text colors
 
     .c-attention-@{i} { color: ~"@{color-attention-@{i}}" !important; }
@@ -47,16 +47,16 @@
     .c-negative-@{i}  { color: ~"@{color-negative-@{i}}" !important; }
     .c-positive-@{i}  { color: ~"@{color-positive-@{i}}" !important; }
     .c-primary-@{i}   { color: ~"@{color-primary-@{i}}" !important; }
-    
+
     // additional text colors
-    
+
     .c-blue-@{i} when (@fullColorPalette = true)   { color: ~"@{blue-@{i}}" !important; }
     .c-gray-@{i} when (@fullColorPalette = true)   { color: ~"@{gray-@{i}}" !important; }
     .c-green-@{i} when (@fullColorPalette = true)  { color: ~"@{green-@{i}}" !important; }
     .c-purple-@{i} when (@fullColorPalette = true) { color: ~"@{purple-@{i}}" !important; }
     .c-red-@{i} when (@fullColorPalette = true)    { color: ~"@{red-@{i}}" !important; }
     .c-yellow-@{i} when (@fullColorPalette = true) { color: ~"@{yellow-@{i}}" !important; }
-    
+
 }
 .generate_colors(25);
 
@@ -74,8 +74,3 @@
 
 .c-transparent { color: @color-transparent !important; }
 .c-white       { color: @color-white !important; }
-
-.foobar {
-    &:extend(.c-white);
-}
-
