@@ -37,39 +37,31 @@ You can chose from **20 font sizes** where `.fs-0` is zero and `.fs-20` is 20 &t
 
 ```html
 <!-- example -->
-<p class="fs-0">Font size 0</p>
-<p class="fs-1">Font size 1</p>
-<p class="fs-2">Font size 2</p>
-<p class="fs-3">Font size 3</p>
-<p class="fs-4">Font size 4</p>
-<p class="fs-5">Font size 5</p>
-<p class="fs-6">Font size 6</p>
-<p class="fs-7">Font size 7</p>
-<p class="fs-8">Font size 8</p>
-<p class="fs-9">Font size 9</p>
-<p class="fs-10">Font size 10</p>
-<p class="fs-11">Font size 11</p>
-<p class="fs-12">Font size 12</p>
-<p class="fs-13">Font size 13</p>
-<p class="fs-14">Font size 14</p>
-<p class="fs-15">Font size 15</p>
-<p class="fs-16">Font size 16</p>
-<p class="fs-17">Font size 17</p>
-<p class="fs-18">Font size 18</p>
-<p class="fs-19">Font size 19</p>
-<p class="fs-20">Font size 20</p>
+<p class="fs-0">Abc</p>
+<p class="fs-1">Abc</p>
+<p class="fs-2">Abc</p>
+<p class="fs-3">Abc</p>
+<p class="fs-4">Abc</p>
+<p class="fs-5">Abc</p>
+<p class="fs-6">Abc</p>
+<p class="fs-7">Abc</p>
+<p class="fs-8">Abc</p>
+<p class="fs-9">Abc</p>
+<p class="fs-10">Abc</p>
+<p class="fs-xl">Abc</p>
+<p class="fs-xxl">Abc</p>
 ```
 
 <p class="hint hint--negative">The utility <code>.fs-0</code> sets the font size to zero.</p>
 
 ### Responsive Font Size
 
-| `.only-s--fs-[0–20]` | font size `[0–20]` only at breakpoint `s`       |
-| `.m--fs-[0–20]`      | font size `[0–20]` at breakpoint `m` and larger |
-| `.only-m--fs-[0–20]` | font size `[0–20]` only at breakpoint `m`       |
-| `.l--fs-[0–20]`      | font size `[0–20]` at breakpoint `l` and larger |
-| `.only-l--fs-[0–20]` | font size `[0–20]` only at breakpoint `l`       |
-| `.xl--fs-[0–20]`     | font size `[0–20]` at breakpoint `xl`           |
+| `.only-s--fs-[0–10]` | font size `[0–10]` only at breakpoint `s`       |
+| `.m--fs-[0–10]`      | font size `[0–10]` at breakpoint `m` and larger |
+| `.only-m--fs-[0–10]` | font size `[0–10]` only at breakpoint `m`       |
+| `.l--fs-[0–10]`      | font size `[0–10]` at breakpoint `l` and larger |
+| `.only-l--fs-[0–10]` | font size `[0–10]` only at breakpoint `l`       |
+| `.xl--fs-[0–10]`     | font size `[0–10]` at breakpoint `xl`           |
 
 <p class="hint hint--negative">The utility <code>.lh-0</code> sets the line height to zero.</p>
 
@@ -79,12 +71,12 @@ You can chose from **20 line heights** where `.lh-0` is zero and `.lh-20` is 20 
 
 ### Responsive Line Height
 
-| `.only-s--lh-[0–20]` | line height `[0–20]` only at breakpoint `s`       |
-| `.m--lh-[0–20]`      | line height `[0–20]` at breakpoint `m` and larger |
-| `.only-m--lh-[0–20]` | line height `[0–20]` only at breakpoint `m`       |
-| `.l--lh-[0–20]`      | line height `[0–20]` at breakpoint `l` and larger |
-| `.only-l--lh-[0–20]` | line height `[0–20]` only at breakpoint `l`       |
-| `.xl--lh-[0–20]`     | line height `[0–20]` at breakpoint `xl`           |
+| `.only-s--lh-[0–10]` | line height `[0–10]` only at breakpoint `s`       |
+| `.m--lh-[0–10]`      | line height `[0–10]` at breakpoint `m` and larger |
+| `.only-m--lh-[0–10]` | line height `[0–10]` only at breakpoint `m`       |
+| `.l--lh-[0–10]`      | line height `[0–10]` at breakpoint `l` and larger |
+| `.only-l--lh-[0–10]` | line height `[0–10]` only at breakpoint `l`       |
+| `.xl--lh-[0–10]`     | line height `[0–10]` at breakpoint `xl`           |
 
 ## Letter Spacing
 
