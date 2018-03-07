@@ -9,9 +9,6 @@ srcfiles:
     - typography-responsive.less
 ---
 
-<!-- <p class="hint">headings are not responsive, font-rhythm scales foo</p> -->
-
-
 # Typography
 
 <p class="intro">Adds or overrides typographic styling, eg. font size, line height, font weight, …</p>
@@ -36,7 +33,7 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 
 ## Font Size
 
-| `.fs-0` | `.fs-1` | `.fs-2` | `.fs-3` | `.fs-4` | `.fs-5` | `.fs-6` | `.fs-7` | `.fs-8` | `.fs-9` |
+You can chose from **20 font sizes** where `.fs-0` is zero and `.fs-20` is 20 &times; `@rootFontSize` (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
 
 ```html
 <!-- example -->
@@ -50,33 +47,44 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 <p class="fs-7">Font size 7</p>
 <p class="fs-8">Font size 8</p>
 <p class="fs-9">Font size 9</p>
+<p class="fs-10">Font size 10</p>
+<p class="fs-11">Font size 11</p>
+<p class="fs-12">Font size 12</p>
+<p class="fs-13">Font size 13</p>
+<p class="fs-14">Font size 14</p>
+<p class="fs-15">Font size 15</p>
+<p class="fs-16">Font size 16</p>
+<p class="fs-17">Font size 17</p>
+<p class="fs-18">Font size 18</p>
+<p class="fs-19">Font size 19</p>
+<p class="fs-20">Font size 20</p>
 ```
 
 <p class="hint hint--negative">The utility <code>.fs-0</code> sets the font size to zero.</p>
 
 ### Responsive Font Size
 
-| `.only-s--fs-[0–9]` | font size `[0–9]` only at breakpoint `s`       |
-| `.m--fs-[0–9]`      | font size `[0–9]` at breakpoint `m` and larger |
-| `.only-m--fs-[0–9]` | font size `[0–9]` only at breakpoint `m`       |
-| `.l--fs-[0–9]`      | font size `[0–9]` at breakpoint `l` and larger |
-| `.only-l--fs-[0–9]` | font size `[0–9]` only at breakpoint `l`       |
-| `.xl--fs-[0–9]`     | font size `[0–9]` at breakpoint `xl`           |
+| `.only-s--fs-[0–20]` | font size `[0–20]` only at breakpoint `s`       |
+| `.m--fs-[0–20]`      | font size `[0–20]` at breakpoint `m` and larger |
+| `.only-m--fs-[0–20]` | font size `[0–20]` only at breakpoint `m`       |
+| `.l--fs-[0–20]`      | font size `[0–20]` at breakpoint `l` and larger |
+| `.only-l--fs-[0–20]` | font size `[0–20]` only at breakpoint `l`       |
+| `.xl--fs-[0–20]`     | font size `[0–20]` at breakpoint `xl`           |
 
 <p class="hint hint--negative">The utility <code>.lh-0</code> sets the line height to zero.</p>
 
 ## Line Height
 
-| `.lh-0` | `.lh-1` | `.lh-2` | `.lh-3` | `.lh-4` | `.lh-5` | `.lh-6` | `.lh-7`| `.lh-8` | `.lh-9` |
+You can chose from **20 line heights** where `.lh-0` is zero and `.lh-20` is 20  &times; `@rootFontSize` (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
 
 ### Responsive Line Height
 
-| `.only-s--lh-[0–9]` | line height `[0–9]` only at breakpoint `s`       |
-| `.m--lh-[0–9]`      | line height `[0–9]` at breakpoint `m` and larger |
-| `.only-m--lh-[0–9]` | line height `[0–9]` only at breakpoint `m`       |
-| `.l--lh-[0–9]`      | line height `[0–9]` at breakpoint `l` and larger |
-| `.only-l--lh-[0–9]` | line height `[0–9]` only at breakpoint `l`       |
-| `.xl--lh-[0–9]`     | line height `[0–9]` at breakpoint `xl`           |
+| `.only-s--lh-[0–20]` | line height `[0–20]` only at breakpoint `s`       |
+| `.m--lh-[0–20]`      | line height `[0–20]` at breakpoint `m` and larger |
+| `.only-m--lh-[0–20]` | line height `[0–20]` only at breakpoint `m`       |
+| `.l--lh-[0–20]`      | line height `[0–20]` at breakpoint `l` and larger |
+| `.only-l--lh-[0–20]` | line height `[0–20]` only at breakpoint `l`       |
+| `.xl--lh-[0–20]`     | line height `[0–20]` at breakpoint `xl`           |
 
 ## Letter Spacing
 
