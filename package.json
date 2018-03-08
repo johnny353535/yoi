@@ -36,7 +36,7 @@
     "publish-jekyll": "cd docs && JEKYLL_ENV=production bundle exec jekyll build --config _config.yml",
     "publish-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --compress -o dist/js/yoi.js && npm run copy-scripts",
     "publish-styles": "npm run styles:compile && npm run styles:process && npm run styles:compress && npm run copy-styles",
-    "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors --no-notify",
+    "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify",
     "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
     "watch-jekyll": "chokidar 'docs/assets' 'docs/*.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",

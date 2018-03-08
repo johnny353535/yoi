@@ -33,22 +33,22 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 
 ## Font Size
 
-You can chose from **20 font sizes** where `.fs-0` is zero and `.fs-20` is 20 &times; `@rootFontSize` (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
+You can chose from **10 font size steps** where `.fs-0` is zero and `.fs-10` is the largest font size (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)). An addition, `.fs-xl` and `.fs-xxl` are available for very large type.
 
 ```html
 <!-- example -->
-<p class="fs-0">Abc</p>
-<p class="fs-1">Abc</p>
-<p class="fs-2">Abc</p>
-<p class="fs-3">Abc</p>
-<p class="fs-4">Abc</p>
-<p class="fs-5">Abc</p>
-<p class="fs-6">Abc</p>
-<p class="fs-7">Abc</p>
-<p class="fs-8">Abc</p>
-<p class="fs-9">Abc</p>
-<p class="fs-10">Abc</p>
-<p class="fs-xl">Abc</p>
+<p class="fs-0 m-b-2">Abc</p>
+<p class="fs-1 m-b-2">Abc</p>
+<p class="fs-2 m-b-2">Abc</p>
+<p class="fs-3 m-b-2">Abc</p>
+<p class="fs-4 m-b-2">Abc</p>
+<p class="fs-5 m-b-2">Abc</p>
+<p class="fs-6 m-b-2">Abc</p>
+<p class="fs-7 m-b-2">Abc</p>
+<p class="fs-8 m-b-2">Abc</p>
+<p class="fs-9 m-b-2">Abc</p>
+<p class="fs-10 m-b-2">Abc</p>
+<p class="fs-xl m-b-2">Abc</p>
 <p class="fs-xxl">Abc</p>
 ```
 
@@ -67,7 +67,7 @@ You can chose from **20 font sizes** where `.fs-0` is zero and `.fs-20` is 20 &t
 
 ## Line Height
 
-You can chose from **20 line heights** where `.lh-0` is zero and `.lh-20` is 20  &times; `@rootFontSize` (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
+You can chose from **10 line heights** where `.lh-0` is zero and `.lh-10` is the largest line height (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
 
 ### Responsive Line Height
 

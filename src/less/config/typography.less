@@ -6,10 +6,10 @@
 .mixin-rootType() {
     -webkit-font-smoothing: antialiased;
     font-family: @font-sansserif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: normal;
-    line-height: 1;
+    line-height: 2.5rem;
 }
 
 // vertical rhythm
@@ -32,50 +32,60 @@
 @font-sansserif: 'Open Sans', sans-serif;
 @font-serif:     'Georgia', serif;
 
+// font weights
+// ============
+
+.mixin-fw-thin() {
+    font-weight: 300;
+}
+
+.mixin-fw-normal() {
+    font-weight: 400;
+}
+
+.mixin-fw-bold() {
+    font-weight: 600;
+}
+
 // headings
 // ========
 
 .mixin-h1() {
-    font-family: @font-sansserif;
-    font-size: 4rem;
-    font-weight: 600;
-    line-height: 1.125;
+    .mixin-fs-10();
+    .mixin-fw-thin();
+    .mixin-lh-10();
 }
 
 .mixin-h2() {
-    font-family: @font-sansserif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 1.2;
+    .mixin-fs-7();
+    .mixin-fw-thin();
+    .mixin-lh-8();
 }
 
 .mixin-h3() {
-    font-family: @font-sansserif;
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.25;
+    .mixin-fs-5();
+    .mixin-fw-thin();
+    .mixin-lh-6();
 }
 
 .mixin-h4() {
-    font-family: @font-sansserif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    line-height: 1.45;
+    .mixin-fs-4();
+    .mixin-fw-thin();
+    .mixin-lh-4();
 }
 
 .mixin-h5() {
-    font-family: @font-sansserif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.3;
+    .mixin-fs-3();
+    .mixin-fw-bold();
+    .mixin-lh-3();
 }
 
 .mixin-h6() {
-    font-family: @font-sansserif;
-    font-size: 1.3rem;
-    font-weight: 600;
+    .mixin-fs-2();
+    .mixin-fw-bold();
+    .mixin-lh-2();
+    color: @color-base-15;
     letter-spacing: .1rem;
-    line-height: 1.5;
     text-transform: uppercase;
 }
 
@@ -84,32 +94,32 @@
 
 .mixin-fs-0() { font-size: 0; }
 .mixin-fs-1() { font-size: 1 * @rootFontSize; }
-.mixin-fs-2() { font-size: 1.5 * @rootFontSize; }
-.mixin-fs-3() { font-size: 2 * @rootFontSize; }
-.mixin-fs-4() { font-size: 2.5 * @rootFontSize; }
-.mixin-fs-5() { font-size: 3 * @rootFontSize; }
-.mixin-fs-6() { font-size: 3.5 * @rootFontSize; }
-.mixin-fs-7() { font-size: 4 * @rootFontSize; }
-.mixin-fs-8() { font-size: 4.5 * @rootFontSize; }
-.mixin-fs-9() { font-size: 5 * @rootFontSize; }
-.mixin-fs-10() { font-size: 5.5 * @rootFontSize; }
-.mixin-fs-xl() { font-size: 15 * @rootFontSize; }
-.mixin-fs-xxl() { font-size: 20 * @rootFontSize; }
+.mixin-fs-2() { font-size: 1.25 * @rootFontSize; }
+.mixin-fs-3() { font-size: 1.5 * @rootFontSize; }
+.mixin-fs-4() { font-size: 1.75 * @rootFontSize; }
+.mixin-fs-5() { font-size: 2 * @rootFontSize; }
+.mixin-fs-6() { font-size: 2.25 * @rootFontSize; }
+.mixin-fs-7() { font-size: 2.5 * @rootFontSize; }
+.mixin-fs-8() { font-size: 2.75 * @rootFontSize; }
+.mixin-fs-9() { font-size: 3 * @rootFontSize; }
+.mixin-fs-10() { font-size: 3.25 * @rootFontSize; }
+.mixin-fs-xl() { font-size: 5 * @rootFontSize; line-height: 1; }
+.mixin-fs-xxl() { font-size: 15 * @rootFontSize; line-height: 1; }
 
 // line heights
 // ============
 
 .mixin-lh-0() { line-height: 0; }
 .mixin-lh-1() { line-height: 1 * @rootFontSize; }
-.mixin-lh-2() { line-height: 1.5 * @rootFontSize; }
-.mixin-lh-3() { line-height: 2 * @rootFontSize; }
-.mixin-lh-4() { line-height: 2.5 * @rootFontSize; }
-.mixin-lh-5() { line-height: 3 * @rootFontSize; }
-.mixin-lh-6() { line-height: 3.5 * @rootFontSize; }
-.mixin-lh-7() { line-height: 4 * @rootFontSize; }
-.mixin-lh-8() { line-height: 4.5 * @rootFontSize; }
-.mixin-lh-9() { line-height: 5 * @rootFontSize; }
-.mixin-lh-10() { line-height: 5.5 * @rootFontSize; }
+.mixin-lh-2() { line-height: 1.25 * @rootFontSize; }
+.mixin-lh-3() { line-height: 1.5 * @rootFontSize; }
+.mixin-lh-4() { line-height: 1.75 * @rootFontSize; }
+.mixin-lh-5() { line-height: 2 * @rootFontSize; }
+.mixin-lh-6() { line-height: 2.25 * @rootFontSize; }
+.mixin-lh-7() { line-height: 2.5 * @rootFontSize; }
+.mixin-lh-8() { line-height: 2.75 * @rootFontSize; }
+.mixin-lh-9() { line-height: 3 * @rootFontSize; }
+.mixin-lh-10() { line-height: 3.25 * @rootFontSize; }
 
 // letter spacings
 // ===============

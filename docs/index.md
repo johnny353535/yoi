@@ -14,10 +14,10 @@ title: Index
         <img class="h-20 w-20 d-block m--m-t-neg-10 m-lr-auto" src="{{ site.github.url }}/assets/img/logo-yoi-large.svg" />
         <h1 class="hidden">Yoi</h1>
         <div class="m--w-40 w-25 m-lr-auto">
-            <p class="fs-4 lh-6 m-t-10 m-b-4 c-base-15">Yoi &mdash; A flexible front-end library, controlled by a simple yet powerful HTML-interface.</p>
+            <p class="fs-6 lh-8 m-t-10 m-b-4 c-base-15">Yoi &mdash; A flexible front-end library, controlled by a simple yet powerful HTML-interface.</p>
             <p class="m-t-4">
                 <a class="btn btn--subtle btn--large m-b-4 m--m-0" href="{{ site.github.url }}/start/">Read the Docs</a>
-                <span class="fs-2 c-base-15 m-r-3 only-s--hidden">or</span>
+                <span class="fs-3 c-base-15 m-r-3 only-s--hidden">or</span>
                 <a class="btn btn--primary btn--large" href="#build" yoi-action="ScrollTo:#build;">Learn More</a>
             </p>
         </div>
@@ -31,10 +31,10 @@ title: Index
     <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 p-r-6">
-                <h2 class="fs-9">Build</h2>
+                <h2 class="fs-xl">Build</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">Chose from a vast array of ready-made <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/components/">components</a> to create beautiful responsive websites.</p>
+                <p class="c-base-15 fs-5 lh-8 m-t-2 m--w-40">Chose from a vast array of ready-made <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/components/">components</a> to create beautiful responsive websites.</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -69,10 +69,10 @@ title: Index
     <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 p-r-6">
-                <h2 class="fs-9">Tweak</h2>
+                <h2 class="fs-xl">Tweak</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the left? Another <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s huge collection of <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> is the cure for your OCD!</p>
+                <p class="c-base-15 fs-5 lh-8 m-t-2 m--w-40">A bit more <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/spacing.html">margin</a> to the left? Another <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/color.html">text color</a>? Yoi’s huge collection of <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/utilities/">utilities</a> is the cure for your OCD!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -90,10 +90,10 @@ title: Index
     <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 p-r-6">
-                <h2 class="fs-9">Control</h2>
+                <h2 class="fs-xl">Control</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-3 lh-5 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
+                <p class="c-base-15 fs-5 lh-8 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->
@@ -164,10 +164,10 @@ title: Index
     <div class="wrapper" yoi-scrollfx="in:fade-in; speed:slow; repeat:false;">
         <div class="flx flx-directionColumn m--flx-directionRow">
             <div class="m--w-1-3 w-1-1 p-r-6">
-                <h2 class="fs-9">Adapt</h2>
+                <h2 class="fs-xl">Adapt</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <div class="c-base-15 fs-3 lh-5 m-t-2">
+                <div class="c-base-15 fs-5 lh-8 m-t-2">
                     <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start/customizing.html">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-boilerplate">easy to customize</a> for experienced front-end developers.</p>
                 </div>
             </div>

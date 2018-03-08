@@ -1,10 +1,6 @@
 /** article.less */
 
 .article {
-    
-    // increased line-height
-    
-    line-height: 1.75;
 
     // headlines
 
@@ -19,21 +15,21 @@
     > dd, > details, > dl, > figcaption, > figure, > footer, > form, > header,
     > main, > menu, > nav, > ol, > output, > p, > pre, > section, > summary, > table,
     > ul, > video {
+        .mixin-fs-3;
         .mixin-verticalRhythm;
-        .mixin-fs-2;
     }
-    
+
     // adjacent paragraphs
-    
+
     > p + p {
         margin-top: 2rem;
     }
-    
+
     // intro (-paragraph)
-    
+
     .intro {
-        .mixin-fs-3;
-        line-height: 1.5;
+        .mixin-fs-5;
+        .mixin-lh-9;
     }
 
     // lists
@@ -71,23 +67,23 @@
         }
 
     }
-    
+
     // hints
-    
+
     > .hint {
         .mixin-verticalRhythm;
     }
-    
+
     // block quotes
-    
+
     > blockquote {
         border-left: @color-base-22 2px solid;
         font-style: italic;
         padding-left: 2.5rem;
     }
-    
+
     // code
-    
+
     > .code__example,
     > div[class*=highlighter] {
         .mixin-verticalRhythm();
