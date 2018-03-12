@@ -14,9 +14,10 @@ srcfiles:
 
 ## Display
 
-| `.d-inline`      | set element to *inline*      |
-| `.d-block`       | set element to *block*       |
-| `.d-inlineblock` | set element to *inlineblock* |
+| `.d-inline`      | set element to *display:inline*      |
+| `.d-block`       | set element to *display:block*       |
+| `.d-inlineblock` | set element to *display:inlineblock* |
+| `.d-none`        | set element to *display:none*        |
 
 ### Responsive Display
 

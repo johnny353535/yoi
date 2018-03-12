@@ -1,12 +1,13 @@
 /** layout-responsive.less */
 
 .responsive-layout(@bpPrefix) {
-    
+
     // display
 
     .@{bpPrefix}--d-inline      { .d-inline; }
     .@{bpPrefix}--d-block       { .d-block; }
     .@{bpPrefix}--d-inlineblock { .d-inlineblock; }
+    .@{bpPrefix}--d-none        { .d-none; }
 
     // position type
 
@@ -25,7 +26,7 @@
     .@{bpPrefix}--pos-tr   { .pos-tr; }
     .@{bpPrefix}--pos-br   { .pos-br; }
     .@{bpPrefix}--pos-bl   { .pos-bl; }
-    
+
     // fixed positioning
 
     .@{bpPrefix}--pos-fixed-t  { .pos-fixed-t;  }
@@ -49,7 +50,7 @@
 
     }
     .generate_pos(@responsivePositionSteps);
-    
+
     // css columns
 
     .@{bpPrefix}--cls-2,
@@ -74,7 +75,7 @@
 
     .@{bpPrefix}--fl-r { .fl-r; }
     .@{bpPrefix}--fl-l { .fl-l; }
-        
+
     .@{bpPrefix}--cl-r { .cl-r; }
     .@{bpPrefix}--cl-l { .cl-l; }
     .@{bpPrefix}--cl-b { .cl-b; }
@@ -100,7 +101,7 @@
     .@{bpPrefix}--z-8  { .z-8; }
     .@{bpPrefix}--z-9  { .z-9; }
     .@{bpPrefix}--z-10 { .z-10; }
-    
+
     // z-index 3D
 
     .@{bpPrefix}z-3d-1  { .z-3d-1; }

@@ -174,6 +174,8 @@ You can chose from **10 line heights** where `.lh-0` is zero and `.lh-10` is the
 
 ## Line Break
 
+Use this utility to control weather a block of text breaks at the end of it’s container.
+
 | `.lbr-none` | no line breaks |
 
 ### Responsive Line Break
@@ -184,6 +186,13 @@ You can chose from **10 line heights** where `.lh-0` is zero and `.lh-10` is the
 | `.l--lbr-none`      | no line breaks at breakpoint `l` and larger |
 | `.only-l--lbr-none` | no line breaks only at breakpoint `l`       |
 | `.xl--lbr-none`     | no line breaks at breakpoint `xl`           |
+
+<p class="hint hint--primary"><b>Finetune your line breaks</b> – you can set individual line breaks (<code>&#x3C;br /&#x3E;</code>) and make them respond to the currently active breakpoint by adding a <a href="utilities/layout.html#responsive-display">responsive display-utility</a> (eg. <code>.m--d-none</code>). Check out the example below:</p>
+
+```html
+<!-- example -->
+<p>This line will<br class="m--d-none" /> break after the third word when mediaquery/breakpoint »small« is active.</p>
+```
 
 ## Text Decoration
 
