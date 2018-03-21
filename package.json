@@ -8,7 +8,6 @@
     "bower": "^1.8.2",
     "browser-sync": "^2.18.8",
     "chokidar-cli": "^1.2.0",
-    "cssnano-cli": "^1.0.5",
     "less": "^2.7.2",
     "postcss-cli": "^4.1.1",
     "uglify-js": "^2.8.14"
@@ -20,10 +19,10 @@
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
     "build-jekyll": "cd docs && bundle exec jekyll build --config _config.yml",
     "build-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
-    "build-styles": "npm run styles:compile --source-map-map-inline && npm run styles:process && npm run copy-styles",
-    "styles:process": "postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css",
-    "styles:compress": "cssnano dist/css/yoi.css dist/css/yoi.css --svgo",
-    "styles:compile": "(cat src/less/yoi.less ; echo $(find src/components -name '*.less' -exec echo '@import \"./{}\";' \\;)) | lessc - dist/css/yoi.css --include-path=./src/less",
+    "build-styles": "npm run styles-compile --source-map-map-inline && npm run styles-process && npm run copy-styles",
+    "styles-process": "postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css --no-map",
+    "styles-compress": "cssnano dist/css/yoi.css dist/css/yoi.css --svgo",
+    "styles-compile": "(cat src/less/yoi.less ; echo $(find src/components -name '*.less' -exec echo '@import \"./{}\";' \\;)) | lessc - dist/css/yoi.css --include-path=./src/less",
     "clean": "npm run clean-dist && npm run clean-docs",
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/css dist/img dist/js",
     "clean-docs": "rm -rf docs/_site && mkdir docs/_site && rm -rf docs/assets && mkdir docs/assets && mkdir docs/assets/css docs/assets/img docs/assets/js",
@@ -35,12 +34,12 @@
     "publish": "npm run clean && npm run publish-scripts && npm run publish-styles && npm run copy && npm run publish-jekyll",
     "publish-jekyll": "cd docs && JEKYLL_ENV=production bundle exec jekyll build --config _config.yml",
     "publish-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --compress -o dist/js/yoi.js && npm run copy-scripts",
-    "publish-styles": "npm run styles:compile && npm run styles:process && npm run styles:compress && npm run copy-styles",
-    "serve": "npm run watch & browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify",
-    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
+    "publish-styles": "npm run styles-compile && npm run styles-process && npm run styles-compress && npm run copy-styles",
     "watch-jekyll": "chokidar 'docs/assets' 'docs/*.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' -c 'npm run build-styles'",
-    "dev": "npm run build && npm run serve"
+    "serve": "browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify",
+    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
+    "dev": "npm run build && npm run serve & npm run watch"
   }
 }
