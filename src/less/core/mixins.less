@@ -9,28 +9,28 @@
 }
 
 .mixin-hide() {
-    
+
     /**
      * visually hides an element while
      * keeping it accessible to screenreaders
      */
-    
+
     height: 1px;
     opacity: 0;
     overflow: hidden;
     padding: 0;
     position: absolute;
     width: 1px;
-    
+
 }
 
 .mixin-show() {
-    
+
     /**
      * reverts .mixin-hide()
      * https://caniuse.com/#feat=css-unset-value
      */
-    
+
     height: unset;
     opacity: unset;
     overflow: unset;
@@ -57,35 +57,35 @@
     border-radius: (@defaultBorderRadius * 1px);
 }
 
-.mixin--enable3d {
-    
+.mixin--enable3d() {
+
     /**
      *  may increase animation performance
      *  http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
      */
 
     transform: translateZ(0);
-    
+
 }
 
-.mixin--fixFlickering {
-    
+.mixin--fixFlickering() {
+
     /**
      *  may fix flickering in 3d animations/transitions
      *  http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
      */
-    
+
     backface-visibility: hidden;
     perspective: 1000;
-    
+
 }
 
 .mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '000'; @strokeColor: '000') {
-    
+
     /**
      *  SVG icons as background image
      */
-    
+
     @relativeWidth  : @width / 10 * @rootFontSize;
     @relativeHeight : @height / 10 * @rootFontSize;
     @fillColorHex   : replace(@fillColor, '#', '');
@@ -117,32 +117,34 @@
 }
 
 .mixin-tabFocus-inset() {
+
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-name: tabFocusInset;
     animation-timing-function: ease-out;
-}
 
-@keyframes tabFocus {
-    from {
-        outline-color: @focusColor;
-    } to {
-        outline-color: @color-transparent;
+    @keyframes tabFocus {
+        from {
+            outline-color: @focusColor;
+        } to {
+            outline-color: @color-transparent;
+        }
     }
-}
 
-@keyframes tabFocusInset {
-    from {
-        box-shadow:
-            inset 2px 0 0 @focusColor,
-            inset 0 2px 0 @focusColor,
-            inset -2px 0 @focusColor,
-            inset 0 -2px 0 @focusColor
-    } to {
-        box-shadow:
-            inset 2px 0 0 @color-transparent,
-            inset 0 2px 0 @color-transparent,
-            inset -2px 0 @color-transparent,
-            inset 0 -2px 0 @color-transparent
+    @keyframes tabFocusInset {
+        from {
+            box-shadow:
+                inset 2px 0 0 @focusColor,
+                inset 0 2px 0 @focusColor,
+                inset -2px 0 @focusColor,
+                inset 0 -2px 0 @focusColor
+        } to {
+            box-shadow:
+                inset 2px 0 0 @color-transparent,
+                inset 0 2px 0 @color-transparent,
+                inset -2px 0 @color-transparent,
+                inset 0 -2px 0 @color-transparent
+        }
     }
+
 }
