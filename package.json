@@ -39,7 +39,7 @@
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' -c 'npm run build-styles'",
     "serve": "browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify",
-    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
-    "dev": "npm run build && npm run serve & npm run watch"
+    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll & npm run watch",
+    "dev": "npm run build && npm run serve"
   }
 }
