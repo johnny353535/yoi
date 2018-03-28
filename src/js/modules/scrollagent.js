@@ -154,27 +154,27 @@ YOI.module.ScrollAgent = (function() {
 
             // trigger custom viewport-events
 
-            if (viewportIn) {
+            if (viewportIn && state === 'out') {
                 $targetElement.trigger('yoi-viewport-in');
                 $targetElement.data().state = 'in';
             }
 
-            if (viewportBottom) {
+            if (viewportBottom && state === 'in') {
                 $targetElement.trigger('yoi-viewport-bottom');
                 $targetElement.data().state = 'bottom';
             }
 
-            if (viewportCenter) {
+            if (viewportCenter && (state === 'top' || state === 'bottom')) {
                 $targetElement.trigger('yoi-viewport-center');
                 $targetElement.data().state = 'center';
             }
 
-            if (viewportTop) {
+            if (viewportTop && (state === 'in' || state === 'center')) {
                 $targetElement.trigger('yoi-viewport-top');
                 $targetElement.data().state = 'top';
             }
 
-            if (viewportOut) {
+            if (viewportOut && !(state === 'out')) {
                 $targetElement.trigger('yoi-viewport-out');
                 $targetElement.data().state = 'out';
             }
