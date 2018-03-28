@@ -38,8 +38,8 @@
     "watch-jekyll": "chokidar 'docs/assets' 'docs/*.md' 'docs/_includes' 'docs/_layouts' 'docs/_pages' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' -c 'npm run build-styles'",
-    "serve": "browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify",
-    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll & npm run watch",
+    "serve": "browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify & npm run watch",
+    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
     "dev": "npm run build && npm run serve"
   }
 }
