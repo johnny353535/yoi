@@ -15,18 +15,16 @@ srcfiles:
 
 ## Parameters
 
-| `in`     | The effect to apply when the element scrolls into the viewport                                                                    |
-| `center` | The effect to apply when the element is at the center of the viewport                                                             |
-| `out`    | The effect to apply when the element scrolls out of the viewport                                                                  |
+| `in`     | [The effect]({{ page.url }}.html#available-effects) to apply when the element enters the viewport                                                                          |
+| `bottom` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is completely visible inside the viewport                                                    |
+| `center` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is at the center of the viewport                                                             |
+| `top`    | [The effect]({{ page.url }}.html#available-effects) to apply when the element reaches the top edge of the viewport                                                         |
 | `speed`  | Change the duration of all effects to `slow`, `fast` or a number from 1 to 25 where 1 is the slowest and 25 the fastest.          |
 | `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
 
-### In, Center, Out
+### In, Bottom, Center, Top
 
-Each element can have up to three effects. One for `in`, `center` and `out`.
-
-For example, an effect on `in` plays when the element scrolls into the visible area of the page – no matter if you scroll up or down. `out` is the opposite (element leaves the visible area), while `center` applies the effect when the element aligns with the vertical center of the visible area. 
-
+Each element can have up to four effects. One for `in`, `bottom`, `center` and `top`. See the [table above]({{ page.url }}.html#parameters) to learn what these parameters mean.
 The following example will apply a effect `fx-fade-in` on `center`:
 
 ```html
