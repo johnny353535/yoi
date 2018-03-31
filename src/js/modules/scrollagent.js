@@ -187,17 +187,20 @@ YOI.module.ScrollAgent = (function() {
 
         /**
          *  Starts an interval on scroll and stops the interval after
-         *  scrolling. During the interval, custom scroll-events get triggerd.
-         *  Other Scripts listen to these events instead of the original scroll
+         *  scrolling. During the interval, custom scroll-events are triggered.
+         *  Other Scripts can listen to these events instead of the original scroll
          *  event to boost performance.
          *
          *  Custom events:
          *
-         *  yoi-scroll      => page started scrolling
-         *  yoi-scroll-up   => page is scrolling up
-         *  yoi-scroll-down => page is scrolling down
-         *  yoi-scroll-stop => page stopped scrolling
+         *  yoi-scroll       => page is scrolling
+         *  yoi-scroll-up    => page is scrolling up
+         *  yoi-scroll-down  => page is scrolling down
+         *  yoi-scroll-start => page started scrolling (fires only once)
+         *  yoi-scroll-stop  => page stopped scrolling (fires only once)
          */
+
+        var isScrolling = false;
 
         if (typeof window['scrollObserverInterval'] !== 'number') {
 
@@ -206,6 +209,13 @@ YOI.module.ScrollAgent = (function() {
                 // general scrolling event
 
                 $window.trigger('yoi-scroll');
+
+                // scroll start event
+
+                if (!isScrolling) {
+                    $window.trigger('yoi-scroll-start');
+                    isScrolling = true;
+                }
 
                 // scroll direction
 
@@ -227,6 +237,7 @@ YOI.module.ScrollAgent = (function() {
         YOI.setDelay('scrollObserverDelay', 250, function() {
             $window.trigger('yoi-scroll-stop');
             YOI.clearInterval('scrollObserverInterval');
+            isScrolling = false;
         });
 
     }
