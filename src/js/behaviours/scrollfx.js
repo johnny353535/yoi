@@ -31,7 +31,7 @@ YOI.behaviour.ScrollFx = (function() {
 
             // cancel if already initialized
 
-            if ($thisTargetElement.data().props.hasScrollFx) return false;
+            if ($thisTargetElement.data().props.hasScrollFx) return;
 
             // prepare & listen
 

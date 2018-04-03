@@ -35,7 +35,7 @@ YOI.behaviour.Parallax = (function() {
 
                 // cancel if already initialized
 
-                if ($this.data().props.isParallax) return false;
+                if ($this.data().props.isParallax) return;
 
                 // add parallax element to new element collection
 
