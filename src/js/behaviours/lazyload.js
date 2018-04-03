@@ -93,7 +93,7 @@ YOI.behaviour.Lazyload = (function() {
 
         // placeholder enters viewport:
 
-        $placeHolder.one('yoi-viewport-in', function() {
+        $placeHolder.one('yoi-viewport-in.lazyLoad', function() {
 
             // read the image url
 
@@ -130,7 +130,7 @@ YOI.behaviour.Lazyload = (function() {
             // inject the new image after the noscript element
 
             $newImage
-                .on('load', function() { $(this).addClass('fx-fade-in'); })
+                .on('load.yoi.lazyLoad', function() { $(this).addClass('fx-fade-in'); })
                 .attr('src', imageUrl)
                 .addClass('fx-fade-in-initial')
                 .insertAfter($noscriptElement);

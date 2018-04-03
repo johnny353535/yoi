@@ -16,7 +16,7 @@ YOI.component.ScrollProgress = (function() {
     var scrollPosition;
     var scrollProgress;
     var visibleScrollProgress;
-    
+
     // private functions
     // =================
 
@@ -53,7 +53,7 @@ YOI.component.ScrollProgress = (function() {
 
             // attach events
 
-            $window.on('load scroll resize', function() {
+            $window.on('load.yoi yoi-scroll yoi-resize', function() {
                 update();
             });
 
@@ -64,14 +64,14 @@ YOI.component.ScrollProgress = (function() {
         }
 
     }
-    
+
     function update() {
-        
+
         /**
          *  Updates the scroll progress bar track to reflect the
          *  current reading position.
          */
-        
+
         documentHeight = $document.height();
         windowHeight   = $window.height();
         totalScroll    = documentHeight - windowHeight;
@@ -79,27 +79,27 @@ YOI.component.ScrollProgress = (function() {
         scrollProgress = scrollPosition / (totalScroll / 100);
 
         // handle edge cases
-        
+
         if (scrollProgress > 100 && windowHeight > documentHeight) {
             scrollProgress = 100;
         } else if (scrollProgress < 0) {
             scrollProgress = 0;
         }
-        
+
         // update the track width
-        
+
         if (visibleScrollProgress) $scrollProgressBar.css('width', scrollProgress + '%');
-        
+
         // fire custom events
-        
+
         if (scrollProgress === 0)                        $window.trigger('yoi-scroll-0');
         if (scrollProgress > 24 && scrollProgress < 30)  $window.trigger('yoi-scroll-25');
         if (scrollProgress > 49 && scrollProgress < 55)  $window.trigger('yoi-scroll-50');
         if (scrollProgress > 74 && scrollProgress < 80)  $window.trigger('yoi-scroll-75');
         if (scrollProgress > 99)                         $window.trigger('yoi-scroll-100');
-    
+
     }
-    
+
     // public functions
     // ================
 

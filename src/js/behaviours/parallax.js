@@ -63,11 +63,11 @@ YOI.behaviour.Parallax = (function() {
             // attach events
 
             $window
-                .on('yoi-pageheight-change', function() {
+                .on('yoi-pageheight-change.parallax', function() {
                     updateParallaxEnv();
                     updateParallaxElements($parallaxElement);
                 })
-                .on('yoi-scroll', function() {
+                .on('yoi-scroll.parallax', function() {
                     updateParallaxEnv();
                     scrollParallax();
                 });
@@ -166,7 +166,7 @@ YOI.behaviour.Parallax = (function() {
 
         $('body').scrollTop(0);
 
-        $window.on('unload', function() {
+        $window.on('unload.yoi.parallax', function() {
             $window.scrollTop(0);
         });
 

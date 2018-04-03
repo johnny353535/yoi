@@ -47,7 +47,7 @@ YOI.module.ScrollAgent = (function() {
             if (!initialized) {
 
                 $window
-                    .on('load resize yoi-pageheight-change', function() {
+                    .on('load.yoi resize.yoi yoi-pageheight-change', function() {
                         update();
                     })
                     .on('yoi-scroll', function() {
@@ -65,7 +65,7 @@ YOI.module.ScrollAgent = (function() {
         // always broadcast custom scroll events:
         // yoi-scroll, yoi-scroll-up, yoi-scroll-down, yoi-scroll-stop
 
-        $window.off('scroll').on('scroll', function() {
+        $window.off('scroll.yoi').on('scroll.yoi', function() {
             broadcast();
         });
 

@@ -56,9 +56,10 @@ YOI.behaviour.Sticky = (function() {
             // ... otherwise proceed and perform the necessary dom manipulation on load,
             // then update the sticky element properties
 
-            $window.on('load', function() {
+            $window.on('load.yoi.sticky yoi-resize.sticky yoi-pageheight-change.sticky', function() {
                 manipulateDom($thisStickyElement, index);
                 updateStickyElementProps($thisStickyElement);
+                // stickObserver($thisStickyElement);
             });
 
             // set initialized
@@ -69,8 +70,8 @@ YOI.behaviour.Sticky = (function() {
 
         // start position & stick observers
 
-        if ($stickyElement) positionObserver($stickyElement);
-        if ($stickyElement) stickObserver($stickyElement);
+        if ($stickyElement) startPositionObserver($stickyElement);
+        if ($stickyElement) startStickObserver($stickyElement);
 
     }
 
@@ -208,28 +209,48 @@ YOI.behaviour.Sticky = (function() {
     function positionObserver($stickyElements) {
 
         /**
-         *  Listens to the window resize event. When the event fires, this function
+         *  Listens to the window resize and custom yoi-pageHeight-change events and
          *  updates the original $stickyElement property data.
          *
          *  @param {jQuery element} $stickyElements - the sticky element(s)
          */
 
-        $window.on('resize', function() {
+        $stickyElements.each(function(index) {
 
-            $stickyElements.each(function(index) {
+            var $stickyElement = $(this);
 
-                var $stickyElement = $(this);
+            // if the sticky element passed validation (=> validInput),
+            // do the re-positioning
 
-                // if the sticky element passed validation (=> validInput),
-                // do the re-positioning
-
-                if (validInput($stickyElement)) {
-                    updateStickyElementProps($stickyElement);
-                }
-
-            });
+            if (validInput($stickyElement)) {
+                updateStickyElementProps($stickyElement);
+            }
 
         });
+
+    }
+
+    function startPositionObserver($stickyElements) {
+
+        /**
+         *
+         *
+         */
+
+        $window.on('yoi-resize.sticky yoi-pageheight-change.sticky', function() {
+            positionObserver($stickyElements);
+        });
+
+    }
+
+    function stopPositionObserver() {
+
+        /**
+         *
+         *
+         */
+
+        $window.off('yoi-resize.sticky yoi-pageheight-change.sticky');
 
     }
 
@@ -243,91 +264,112 @@ YOI.behaviour.Sticky = (function() {
          *  @param {jQuery element} $stickyElements - the sticky element(s)
          */
 
-        $window.on('yoi-scroll', function() {
 
-            // store the scroll position
+        // store the scroll position
 
-            var scrollTop = $window.scrollTop();
+        var scrollTop = $window.scrollTop();
 
-            // observe all sticky elements
+        // observe all sticky elements
 
-            $stickyElements.each(function(index) {
+        $stickyElements.each(function(index) {
 
-                var $stickyElement             = $(this);
-                var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
-                var props                      = $stickyElement.data().props;
-                var stickyElementInitialTopPos = props.initialTopPos;
-                var stickStart                 = props.stickStart;
-                var stickStop                  = props.stickStop;
-                var topOffset                  = props.topOffset;
+            var $stickyElement             = $(this);
+            var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
+            var props                      = $stickyElement.data().props;
+            var stickyElementInitialTopPos = props.initialTopPos;
+            var stickStart                 = props.stickStart;
+            var stickStop                  = props.stickStop;
+            var topOffset                  = props.topOffset;
 
-                var cssPositionValue;
-                var cssTopValue;
-                var stickyPlaceholderDisplay;
+            var cssPositionValue;
+            var cssTopValue;
+            var stickyPlaceholderDisplay;
 
-                // proceed if the sticky element passed validation
+            // proceed if the sticky element passed validation
 
-                if (props.passedValidation) {
+            if (props.passedValidation) {
 
-                    // re-position on scroll
+                // re-position on scroll
 
-                    if (scrollTop < stickStart) {
+                if (scrollTop < stickStart) {
 
-                        // outside top boundary
+                    // outside top boundary
 
-                        cssPositionValue         = 'static';
-                        cssTopValue              = 0;
-                        stickyPlaceholderDisplay = 'none';
+                    cssPositionValue         = 'static';
+                    cssTopValue              = 0;
+                    stickyPlaceholderDisplay = 'none';
 
-                        // trigger custom event
+                    // trigger custom event
 
-                        $stickyElement.trigger('yoi-stick-stop');
+                    $stickyElement.trigger('yoi-stick-stop');
 
 
-                    } else if (scrollTop > stickStop) {
+                } else if (scrollTop > stickStop) {
 
-                        // outside bottom boundary
+                    // outside bottom boundary
 
-                        cssPositionValue         = 'absolute';
-                        cssTopValue              = stickStop - stickyElementInitialTopPos + topOffset;
-                        stickyPlaceholderDisplay = 'block';
+                    cssPositionValue         = 'absolute';
+                    cssTopValue              = stickStop - stickyElementInitialTopPos + topOffset;
+                    stickyPlaceholderDisplay = 'block';
 
-                        // trigger custom event
+                    // trigger custom event
 
-                        $stickyElement.trigger('yoi-stick-stop');
+                    $stickyElement.trigger('yoi-stick-stop');
 
-                    } else {
+                } else {
 
-                        // inside boundaries
+                    // inside boundaries
 
-                        cssPositionValue         = 'fixed';
-                        cssTopValue              = 0 + topOffset;
-                        stickyPlaceholderDisplay = 'block';
+                    cssPositionValue         = 'fixed';
+                    cssTopValue              = 0 + topOffset;
+                    stickyPlaceholderDisplay = 'block';
 
-                        // trigger custom event
+                    // trigger custom event
 
-                        $stickyElement.trigger('yoi-stick-start');
-
-                    }
-
-                    // set the css
-
-                    $stickyElement.css({
-                        'position': cssPositionValue,
-                        'top': cssTopValue,
-                        'backface-visibility': 'hidden',
-                        'z-index': 1001
-                    });
-
-                    $stickyPlaceholder.css({
-                        'display' : stickyPlaceholderDisplay
-                    });
+                    $stickyElement.trigger('yoi-stick-start');
 
                 }
 
-            });
+                // set the css
+
+                $stickyElement.css({
+                    'position': cssPositionValue,
+                    'top': cssTopValue,
+                    'backface-visibility': 'hidden',
+                    'z-index': 1001
+                });
+
+                $stickyPlaceholder.css({
+                    'display' : stickyPlaceholderDisplay
+                });
+
+            }
 
         });
+
+    }
+
+    function startStickObserver($stickyElements) {
+
+        /**
+         *
+         *
+         */
+
+        $window.on('yoi-scroll.sticky', function() {
+            stickObserver($stickyElements);
+        });
+
+    }
+
+    function stopStickObserver() {
+
+        /**
+         *
+         *
+         */
+
+        $window.off('yoi-scroll.sticky');
 
     }
 
