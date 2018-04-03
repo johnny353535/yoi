@@ -27,7 +27,7 @@ YOI.module.ScrollAgent = (function() {
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $targetElement
+        *  @param {jQuery element} $targetElement
         */
 
         var $targetElement = YOI.createCollection('scrollagent', $targetElement);

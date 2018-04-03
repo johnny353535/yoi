@@ -58,7 +58,7 @@ Set the start values for the minimum and maximum threshold:
 
 #### Unit
 
-Set the unit to any (short) string – eg. “€”, “$” or “mm”: 
+Set the unit to any (short) string – eg. “€”, “$” or “mm”:
 
 ```html
 <!-- example -->
@@ -73,11 +73,11 @@ Pick a `.rangeInput` and set the range to the provided value:
 
 ```js
 /*
- * @param {jQuery dom object} $rangeInput - the range input
- * @param {number}            absMin      - absolute min value
- * @param {number}            absMax      - absolute max value
- * @param {number}            min         - min value
- * @param {number}            max         - max value
+ * @param {jQuery element} $rangeInput - the range input
+ * @param {number}         absMin      - absolute min value
+ * @param {number}         absMax      - absolute max value
+ * @param {number}         min         - min value
+ * @param {number}         max         - max value
  */
 
 // example call
@@ -91,7 +91,7 @@ Pick a `.rangeInput` and reset the range to absolute min and absolute max values
 
 ```js
 /*
- *  @param {jQuery dom object} $rangeInput - the range input
+ *  @param {jQuery element} $rangeInput - the range input
  */
 
 // example call

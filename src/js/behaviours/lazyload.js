@@ -13,8 +13,8 @@ YOI.behaviour.Lazyload = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $lazyload
-         *  @param {object}            options
+         *  @param {jQuery element} $lazyload
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -56,7 +56,7 @@ YOI.behaviour.Lazyload = (function() {
         /**
          *  Prepares and injects lazy-loading images.
          *
-         *  @param {jQuery dom object} $noscriptElement
+         *  @param {jQuery element} $noscriptElement
          */
 
         var $placeHolder  = $('<img class="lazyLoadPlaceHolder" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />');

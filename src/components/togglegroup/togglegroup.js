@@ -16,8 +16,8 @@ YOI.component.ToggleGroup = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $toggleGroup
-         *  @param {object}            options
+         *  @param {jQuery element} $toggleGroup
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -26,15 +26,15 @@ YOI.component.ToggleGroup = (function() {
          *  @option {string} activeClassName - to highlight an "active" trigger, this
          *                                     CSS class name is added to the trigger
          */
-        
+
         var $toggleGroup = YOI.createCollection('toggle', $toggleGroup, options);
 
         if ($toggleGroup) $toggleGroup.each(function(index) {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisTrigger      = $(this);
@@ -105,9 +105,9 @@ YOI.component.ToggleGroup = (function() {
                 }
 
             }
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
@@ -119,7 +119,7 @@ YOI.component.ToggleGroup = (function() {
         /**
          *  Toggle a group, read required data from the trigger.
          *
-         *  @param {jQuery dom object} $thisTrigger - the trigger
+         *  @param {jQuery element} $thisTrigger - the trigger
          */
 
         var options           = $thisTrigger.data().options;
@@ -144,9 +144,9 @@ YOI.component.ToggleGroup = (function() {
 
         if ($thisFallBackElem !== undefined)
             $thisFallBackElem.hide();
-        
+
         // trigger custom event
-        
+
         $thisTrigger.trigger('yoi-togglegroup-change');
 
     }
@@ -156,7 +156,7 @@ YOI.component.ToggleGroup = (function() {
         /**
          *  Reset a group, read required data from the trigger.
          *
-         *  @param {jQuery dom object} $thisTrigger - the trigger
+         *  @param {jQuery element} $thisTrigger - the trigger
          */
 
         var options           = $thisTrigger.data().options;
@@ -178,9 +178,9 @@ YOI.component.ToggleGroup = (function() {
 
         if ($thisFallBackElem.length > 0)
             $thisFallBackElem.fadeIn();
-        
+
         // trigger custom event
-        
+
         $thisTrigger.trigger('yoi-togglegroup-reset');
 
     }

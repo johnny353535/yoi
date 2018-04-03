@@ -19,8 +19,8 @@ YOI.behaviour.Parallax = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $parallaxElement
-         *  @param {object}            options
+         *  @param {jQuery element} $parallaxElement
+         *  @param {object}         options
          */
 
         var $parallaxElement = YOI.createCollection('parallax', $parallaxElement, options);
@@ -122,7 +122,7 @@ YOI.behaviour.Parallax = (function() {
          *  Updates a parallax element. Initializes YOI.scrollAgent on first
          *  call, etc.
          *
-         *  @param {jQuery dom object} $parallaxElement
+         *  @param {jQuery element} $parallaxElement
          */
 
         var data = $parallaxElement.data();
@@ -148,7 +148,7 @@ YOI.behaviour.Parallax = (function() {
          *  Simple helper function to update all parallax elements
          *  in the collection $parallaxElement.
          *
-         *  @param {jQuery dom object} $parallaxElement
+         *  @param {jQuery element} $parallaxElement
          */
 
         $parallaxElement.each(function() {

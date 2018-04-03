@@ -26,8 +26,8 @@ YOI.component.PieChart = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $pieChart
-         *  @param {object}            options
+         *  @param {jQuery element} $pieChart
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -41,15 +41,15 @@ YOI.component.PieChart = (function() {
          *                               each slice of the pie chart.
          *  @option {number} size      - Sets the diameter of the pie chart SVG.
          */
-        
+
         var $pieChart = YOI.createCollection('piechart', $pieChart, options);
 
         if ($pieChart) $pieChart.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisPieChart        = $(this);
@@ -68,7 +68,7 @@ YOI.component.PieChart = (function() {
                 records   : $thisPieChartRecords.length,
                 size      : size
             };
-            
+
             var size   = $thisPieChart.data().props.size;
 
             $thisPieChartSvg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
@@ -98,7 +98,7 @@ YOI.component.PieChart = (function() {
                 $thisRecord.prepend($colorDot.clone());
 
                 // attach events to record
-                
+
                 if (highlight) {
                     $thisRecord
                         .on('mouseover', function() {
@@ -123,9 +123,9 @@ YOI.component.PieChart = (function() {
             if (palette === 'random') setRandomSliceColors($thisPieChart);
             if (palette === 'shades') setSliceShades($thisPieChart);
             if (palette === 'unique') setUniqueSliceColors($thisPieChart);
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
@@ -137,7 +137,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Calculate and set unique, complementary fill colors for each slice.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
+         *  @param {jQuery element} $thisPieChart - the pie chart
          */
 
         var $thisPaths      = $thisPieChart.find('path');
@@ -150,7 +150,7 @@ YOI.component.PieChart = (function() {
         var startRadius     = baseColor[0];
         var startSaturation = baseColor[1] + '%';
         var startLuminance  = baseColor[2] + '%';
-        
+
         for (var i = 0; i < totalSlices; i++) {
 
             var splitRadius = (360 / totalSlices) * i;
@@ -172,7 +172,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Calculate and set random rgb colors for each slice.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
+         *  @param {jQuery element} $thisPieChart - the pie chart
          */
 
         var $thisPaths   = $thisPieChart.find('path');
@@ -200,7 +200,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Pick and set colors for each slice from a fixed palette.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
+         *  @param {jQuery element} $thisPieChart - the pie chart
          */
 
         var $thisPaths   = $thisPieChart.find('path');
@@ -233,7 +233,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Calculate and set shades of a given base color for each slice.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
+         *  @param {jQuery element} $thisPieChart - the pie chart
          */
 
         var $thisPaths      = $thisPieChart.find('path');
@@ -267,8 +267,8 @@ YOI.component.PieChart = (function() {
         /**
          *  Calculate and set shades of a given base color for each slice.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
-         *  @param {number}            $thisValue    - the numeric percentage value of the data bit
+         *  @param {jQuery element} $thisPieChart - the pie chart
+         *  @param {number}         $thisValue    - the numeric percentage value of the data bit
          */
 
         // Inspired by
@@ -336,7 +336,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Highlight a single record (think "slice") of a pie chart.
          *
-         *  @param {jQuery dom object} $thisRecord - the pie chart record
+         *  @param {jQuery element} $thisRecord - the pie chart record
          */
 
         var thisIndex = $thisRecord.index();
@@ -359,7 +359,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Blink a single record (think "slice") of a pie chart.
          *
-         *  @param {jQuery dom object} $thisRecord - the pie chart record
+         *  @param {jQuery element} $thisRecord - the pie chart record
          */
 
         var thisIndex = $thisRecord.index();
@@ -376,7 +376,7 @@ YOI.component.PieChart = (function() {
         /**
          *  Remove the highlighting from all records (think "slices") of a pie chart.
          *
-         *  @param {jQuery dom object} $thisPieChart - the pie chart
+         *  @param {jQuery element} $thisPieChart - the pie chart
          */
 
         var $slices      = $thisPieChart.find('svg path');

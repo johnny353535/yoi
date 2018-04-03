@@ -10,18 +10,18 @@ YOI.component.FilterBtns = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dock
-         *  @param {object}            options
+         *  @param {jQuery element} $dock
+         *  @param {object}         options
          */
 
         var $filterBtns = YOI.createCollection('filterbtns', $filterBtns, options);
 
         if ($filterBtns) $filterBtns.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisFilterBtns = $(this);
@@ -48,15 +48,15 @@ YOI.component.FilterBtns = (function() {
                 $thisFilterBtns.find('.filterBtns__btn').each(function() {
 
                     var $thisBtn = $(this);
-                    
+
                     // set the state
-                    
+
                     if ($thisBtn.hasClass('is--active')) {
                         $thisBtn.data().state = 'on';
                     } else {
                         $thisBtn.data().state = 'off';
                     }
-                    
+
                     // add the event
 
                     $thisBtn.on('click', function(e) {
@@ -76,15 +76,15 @@ YOI.component.FilterBtns = (function() {
 
                         e.preventDefault();
                         $thisBtn.removeClass('filterBtns__btn--debounce');
-                        
+
                     });
 
                 });
 
             }
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
@@ -97,9 +97,9 @@ YOI.component.FilterBtns = (function() {
          *  Mark the button active or inactive, depending
          *  on it's current state. Show an activity message.
          *
-         *  @param  {jQuery dom object} $thisBtn - the filter button
+         *  @param  {jQuery element} $thisBtn - the filter button
          */
-        
+
         var state = $thisBtn.data().state;
 
         if (state === 'on') {
@@ -108,7 +108,7 @@ YOI.component.FilterBtns = (function() {
             $thisBtn.trigger('yoi-filterbtn-on');
             $thisBtn.data().state = 'off';
         }
-        
+
         if (state === 'off') {
             $thisBtn.addClass('is--active');
             $thisBtn.addClass('filterBtns__btn--debounce');
@@ -123,7 +123,7 @@ YOI.component.FilterBtns = (function() {
         /**
          *  Remove the button and show an activity message.
          *
-         *  @param  {jQuery dom object} $thisBtn - the filter button
+         *  @param  {jQuery element} $thisBtn - the filter button
          */
 
         $thisBtn.fadeOut('fast');

@@ -1,10 +1,10 @@
 /** popover.js */
 
 YOI.component.PopOver = (function() {
-    
+
     // private vars
     // ============
-    
+
     $document = $(document);
 
     // private functions
@@ -15,8 +15,8 @@ YOI.component.PopOver = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $popOverTrigger
-         *  @param {object}            options
+         *  @param {jQuery element} $popOverTrigger
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -27,13 +27,13 @@ YOI.component.PopOver = (function() {
          *  @option {string} on                  - ['click','dblclick','contextmenu','mouseover', 'mouseout', 'mousedown', 'mouseup', 'mouseenter', 'mouseleave'] Defines the event to show the pop-over. The default is mouseenter.
          *  @option {bool}   preventDefaultClick - If true, the trigger’s default click-event is prevented. The default is true.
          */
-        
+
         var $popOverTrigger = YOI.createCollection('popover', $popOverTrigger, options);
 
         if ($popOverTrigger) $popOverTrigger.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
 
             // reference the popover trigger
@@ -80,13 +80,13 @@ YOI.component.PopOver = (function() {
             var eventHide = 'mouseleave';
 
             // attach events to pop-over trigger
-            
+
             if (preventDefaultClick === true || preventDefaultClick === 'true') {
                 $thisPopOverTrigger.on('click', function(e) {
                     e.preventDefault();
                 });
             };
-            
+
             // attach events to pop-over trigger
 
             $thisPopOverTrigger
@@ -110,9 +110,9 @@ YOI.component.PopOver = (function() {
                 .on('mouseleave', function() {
                     hide($thisPopOverTrigger, $thisPopOver);
                 });
-                
+
             // set initialized
-        
+
             YOI.setReady($(this));
 
         });
@@ -139,8 +139,8 @@ YOI.component.PopOver = (function() {
         /**
          *  Shows a pop-over after a certain delay.
          *
-         *  @param {jQuery dom object} $thisPopOverTrigger - the element to trigger the pop-over
-         *  @param {jQuery dom object} $thisPopOver        - the pop-over
+         *  @param {jQuery element} $thisPopOverTrigger - the element to trigger the pop-over
+         *  @param {jQuery element} $thisPopOver        - the pop-over
          */
 
         YOI.setDelay('popOverShowTimeout', 100, function() {
@@ -158,9 +158,9 @@ YOI.component.PopOver = (function() {
 
             setPosition($thisPopOverTrigger, $thisPopOver);
             $thisPopOver.fadeIn(100);
-            
+
             // trigger custom event
-        
+
             $thisPopOverTrigger.trigger('yoi-popover-show');
 
         });
@@ -172,19 +172,19 @@ YOI.component.PopOver = (function() {
         /**
          *  Hides a pop-over after a certain delay.
          *
-         *  @param {jQuery dom object} $thisPopOverTrigger - the element to trigger the pop-over
-         *  @param {jQuery dom object} $thisPopOver        - the pop-over
+         *  @param {jQuery element} $thisPopOverTrigger - the element to trigger the pop-over
+         *  @param {jQuery element} $thisPopOver        - the pop-over
          */
 
         YOI.setDelay('popOverHideTimeout', 500, function() {
-            
+
             $thisPopOver.hide();
             removeToggleClass();
-            
+
             // trigger custom event
-        
+
             $thisPopOverTrigger.trigger('yoi-popover-hide');
-            
+
         });
 
     }
@@ -224,8 +224,8 @@ YOI.component.PopOver = (function() {
         /**
          *  Position the pop-over
          *
-         *  @param {jQuery dom object} $thisPopOverTrigger - the element to trigger the pop-over
-         *  @param {jQuery dom object} $thisPopOver        - the pop-over
+         *  @param {jQuery element} $thisPopOverTrigger - the element to trigger the pop-over
+         *  @param {jQuery element} $thisPopOver        - the pop-over
          */
 
         // read options
@@ -304,7 +304,7 @@ YOI.component.PopOver = (function() {
          *  popover itself is visible. This function removes the very class name from all popover triggers
          *  (= function call without parameters) or a specific one (= function call with $popover).
          *
-         *  @param  {jQuery dom object} $popOverTrigger - the pop over trigger
+         *  @param  {jQuery element} $popOverTrigger - the pop over trigger
          */
 
         if (!($popOverTrigger instanceof jQuery)) {

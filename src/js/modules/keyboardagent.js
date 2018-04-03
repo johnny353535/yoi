@@ -1,7 +1,7 @@
 /** keyboardagent.js */
 
 YOI.module.KeyboardAgent = (function() {
-    
+
     /**
      *  A wrapper for keyboard access. Triggers a custom event
      *  for each key of a curated list.
@@ -9,12 +9,12 @@ YOI.module.KeyboardAgent = (function() {
 
     // private vars
     // ============
-    
+
     var $document   = $(document);
     var initialized = false;
-    
+
     // lookup table for relevant keys
-    
+
     var keys = {
         38 : 'arrowup',
         39 : 'arrowright',
@@ -25,59 +25,59 @@ YOI.module.KeyboardAgent = (function() {
         27 : 'escape',
         9  : 'tab'
     }
-    
+
     // private functions
     // =================
-    
+
     function initialize() {
-    
+
         /**
          *  Initialize the script. Listen for key presses and
          *  trigger the corresponding custom events.
          */
-        
+
         if (!initialized) $document.on('keyup', function(e) {
-            
+
             // trigger the custom "yoi-keypressed" event
-            
+
             var keyCode = e.which;
             if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed-' + keys[keyCode]);
-            
+
         });
-        
+
         // trigger the custom "yoi-focus-change" event
-        
+
         $document.on('focusin focusout', function() {
             $document.trigger('yoi-focus-change');
         });
-        
+
         // set "initialized" flag
-        
+
         initialized = true;
-        
+
     }
-    
+
     function addTabFocus($elements) {
-        
+
         /**
          *  Adds special focus styling if element got :focus after
          *  pressing the tab key.
          *
-         *  @param {jQuery dom object} $elements
+         *  @param {jQuery element} $elements
          */
-        
+
         // add tabindex
-        
+
         $elements.attr('tabindex','0');
-    
+
         // attach tab key event
-    
+
         $document.on('yoi-keypressed-tab', function() {
-        
+
             var $activeElement = $(document.activeElement);
-        
+
             $elements.removeClass('tabFocus');
-        
+
             if ($activeElement.is($elements)) {
                 $activeElement
                     .addClass('tabFocus')
@@ -85,19 +85,19 @@ YOI.module.KeyboardAgent = (function() {
                         $activeElement.removeClass('tabFocus');
                     });
             }
-    
+
         });
-        
+
     }
-    
+
     // initialize
     // ==========
-    
+
     initialize();
-    
+
     // public functions
     // ================
-    
+
     return {
         init        : initialize,
         addTabFocus : addTabFocus

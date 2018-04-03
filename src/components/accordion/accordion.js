@@ -1,10 +1,10 @@
 /** accordion.js */
 
 YOI.component.Accordion = (function() {
-    
+
     // private vars
     // ============
-    
+
     var keyboardEventsAdded = false;
 
     // private functions
@@ -15,25 +15,25 @@ YOI.component.Accordion = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $accordion
-         *  @param {object}            options
+         *  @param {jQuery element} $accordion
+         *  @param {object}         options
          *
          *  Available options:
          *
          *  @option {bool} linked - if TRUE, only one accordion section is expanded at a time
          *                          default: FALSE
          */
-        
+
         var $accordion = YOI.createCollection('accordion', $accordion, options);
-        
+
         // if ($accordion) initializeAccordionTriggers();
 
         if ($accordion) $accordion.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisAccordion = $(this);
@@ -57,7 +57,7 @@ YOI.component.Accordion = (function() {
                     $thisSection.data().state = 'closed';
                     $thisBody.slideUp(0);
                 }
-                
+
                 if ($thisSection.hasClass('is--open')) {
                     $thisSection.data().state = 'open';
                 }
@@ -70,15 +70,15 @@ YOI.component.Accordion = (function() {
                 });
 
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
         // add keyboad events
-        
+
         if (!keyboardEventsAdded) addKeyboardEvents();
 
     }
@@ -90,22 +90,22 @@ YOI.component.Accordion = (function() {
          *  By default, accordions can toggle their sections individually and independently.
          *  In "linked" accordions, only one section can be open. all remaining sections will close.
          *
-         *  @param {jQuery dom object} $section - the accordion section
+         *  @param {jQuery element} $section - the accordion section
          */
 
         var $thisAccordion = $section.closest('.accordion');
         var $thisSection   = $section;
         var options        = $thisAccordion.data().options;
         var state          = $thisSection.data().state;
-        
+
         if (state === 'closed' && options.linked) {
             closeAllSections($thisAccordion);
         }
-        
+
         if (state === 'closed') {
             openSection($thisSection);
         }
-        
+
         if (state === 'open' && !options.linked) {
             closeSection($thisSection);
         }
@@ -117,7 +117,7 @@ YOI.component.Accordion = (function() {
         /**
          *  Open a single accordion section.
          *
-         *  @param {jQuery dom object} $section - the accordion section
+         *  @param {jQuery element} $section - the accordion section
          */
 
         var $thisSection = $section;
@@ -143,38 +143,38 @@ YOI.component.Accordion = (function() {
         /**
          *  Close a single accordion section.
          *
-         *  @param {jQuery dom object} $section - the accordion section
+         *  @param {jQuery element} $section - the accordion section
          */
-        
+
         var $thisSection = $section;
         var $thisBody    = $section.find('.accordion__body');
-        
+
         $thisSection
             .removeClass('is--open')
             .addClass('is--closed')
             .promise()
             .then(function() { $thisSection.trigger('yoi-accordion-done') });
-    
+
         $thisBody
             .stop()
             .slideUp('fast');
-        
+
         $thisSection.trigger('yoi-accordion-close');
         $thisSection.data().state = 'closed';
-        
+
     }
 
     function closeAllSections($accordion) {
-        
+
         /**
          *  If $accordion is omitted on function call, all accordion sections found
          *  in DOM are closed. Otherwise all sections of a given $accordion are closed.
          *
-         *  @param {jQuery dom object} $$accordion - the accordion
+         *  @param {jQuery element} $$accordion - the accordion
          */
-        
+
         var $targets;
-        
+
         if ($accordion === undefined) {
             $targets = $('[yoi-accordion] .accordion__section');
         } else {
@@ -188,16 +188,16 @@ YOI.component.Accordion = (function() {
     }
 
     function openAllSections($accordion) {
-        
+
         /**
          *  If $accordion is omitted on function call, all accordion sections found
          *  in DOM are opened. Otherwise all sections of a given $accordion are opened.
          *
-         *  @param {jQuery dom object} $accordion - the accordion
+         *  @param {jQuery element} $accordion - the accordion
          */
-        
+
         var $targets;
-        
+
         if ($accordion === undefined) {
             $targets = $('[yoi-accordion] .accordion__section');
         } else {
@@ -209,7 +209,7 @@ YOI.component.Accordion = (function() {
         });
 
     }
-    
+
     function addKeyboardEvents() {
 
         /**
@@ -217,27 +217,27 @@ YOI.component.Accordion = (function() {
          */
 
         if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
-            
+
             // tab key
-            
+
             YOI.module.KeyboardAgent.addTabFocus($('.accordion__header'));
-        
+
             // enter key
-        
+
             $document.on('yoi-keypressed-enter', function() {
-            
+
                 var $activeElement = $(document.activeElement);
-            
+
                 if ($activeElement.is('.accordion__header')) {
                     toggleSection($activeElement.closest('.accordion__section'));
                 }
-            
+
             });
-            
+
         }
-        
+
         // set flag
-        
+
         keyboardEventsAdded = true;
 
     }

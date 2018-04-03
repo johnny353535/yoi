@@ -10,8 +10,8 @@ YOI.component.Dock = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dock
-         *  @param {object}            options
+         *  @param {jQuery element} $dock
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -22,11 +22,11 @@ YOI.component.Dock = (function() {
         var $dock = YOI.createCollection('dock', $dock, options);
 
         if ($dock) $dock.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisDock = $(this);
@@ -50,9 +50,9 @@ YOI.component.Dock = (function() {
                     });
 
             }
-            
+
             // set initialized
-    
+
             YOI.setReady($(this));
 
         });
@@ -64,13 +64,13 @@ YOI.component.Dock = (function() {
         /**
          *  Hide the dock.
          *
-         *  @param {jQuery dom object} $thisDock - the dock
+         *  @param {jQuery element} $thisDock - the dock
          */
 
         $thisDock.addClass('is--hidden');
         $thisDock.trigger('yoi-dock-hide');
         $thisDock.data().state = 'hidden';
-        
+
     }
 
     function show($thisDock) {
@@ -78,13 +78,13 @@ YOI.component.Dock = (function() {
         /**
          *  Show the dock.
          *
-         *  @param {jQuery dom object} $thisDock - the dock
+         *  @param {jQuery element} $thisDock - the dock
          */
 
         $thisDock.removeClass('is--hidden');
         $thisDock.trigger('yoi-dock-show');
         $thisDock.data().state = 'visible';
-        
+
     }
 
     // public functions

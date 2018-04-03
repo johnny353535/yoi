@@ -10,23 +10,23 @@ YOI.component.Table = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $table
-         *  @param {object}            options
+         *  @param {jQuery element} $table
+         *  @param {object}         options
          *
          *  Available options:
          *
          *  @option {boolean} removeable - removeable table rows
          *  @option {boolean} selectable - if set to true, single table rows can be selected, if set to "multi", multiple table rows can be selected
          */
-        
+
         var $table = YOI.createCollection('table', $table, options);
-        
+
         if ($table) $table.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisTable = $(this);
@@ -44,7 +44,7 @@ YOI.component.Table = (function() {
                 // attach events
 
                 $thisTable.find('td').on('click', function(e) {
-                    
+
                     e.preventDefault();
 
                     var $thisTr = $(this).closest('tr');
@@ -79,11 +79,11 @@ YOI.component.Table = (function() {
                 });
 
             }
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
-            
+
         });
 
     }
@@ -93,7 +93,7 @@ YOI.component.Table = (function() {
         /**
          *  Select a given table row.
          *
-         *  @param {jQuery dom object} $thisTr - the table row
+         *  @param {jQuery element} $thisTr - the table row
          */
 
         var $thisTable = $thisTr.closest('table');
@@ -108,19 +108,19 @@ YOI.component.Table = (function() {
             $thisAllTr.removeClass('is--active');
             $thisTr.addClass('is--active');
         }
-        
+
         // trigger custom event
-        
+
         $thisTable.trigger('yoi-table-select');
 
     }
-    
+
     function unselectRow($thisTr) {
 
         /**
          *  Unselect a given table row.
          *
-         *  @param {jQuery dom object} $thisTr - the table row
+         *  @param {jQuery element} $thisTr - the table row
          */
 
         var $thisTable = $thisTr.closest('table');
@@ -129,9 +129,9 @@ YOI.component.Table = (function() {
         // unselect row
 
         $thisAllTr.removeClass('is--active');
-        
+
         // trigger custom event
-        
+
         $thisTable.trigger('yoi-table-unselect');
 
     }
@@ -141,7 +141,7 @@ YOI.component.Table = (function() {
         /**
          *  Remove a given table row.
          *
-         *  @param  {jQuery dom object} $thisTr - the table row
+         *  @param  {jQuery element} $thisTr - the table row
          */
 
         var $thisTable   = $thisTr.closest('table');
@@ -158,9 +158,9 @@ YOI.component.Table = (function() {
             if (tableIsEmpty) $thisTable.trigger('yoi-table-empty');
 
         });
-        
+
         // trigger custom event
-        
+
         $thisTable.trigger('yoi-table-remove');
 
     }

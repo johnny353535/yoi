@@ -10,48 +10,48 @@ YOI.component.Icon = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $icon
+         *  @param {jQuery element} $icon
          */
 
         var $icon = YOI.createCollection('icon', $icon);
-        
+
         if ($icon) $icon.each(function() {
-        
+
             // cancel if already initialized
-        
+
             if (YOI.isReady($(this))) return false;
-        
+
             // proceed
-        
+
             var $thisIcon = $(this);
             replace($thisIcon);
-        
+
             // set initialized
-        
+
             YOI.setReady($(this));
-        
+
         });
 
     }
 
     // public functions
     // ================
-    
+
     function replace($icon) {
-        
+
         /**
          *  Replace a given SVG as image or SVG as object
          *  with the actual SVG markup.
          *
-         *  @param {jQuery dom object} $icon
+         *  @param {jQuery element} $icon
          */
-        
+
         var $iconSvg;
         var iconClassNames = $icon.attr('class');
         var source         = $icon.attr('data') || $icon.attr('src');
-        
+
         if (source !== undefined) {
-            
+
             $.ajax({
                 url: source,
                 dataType: 'text',
@@ -60,9 +60,9 @@ YOI.component.Icon = (function() {
                     $icon.replaceWith($iconSvg);
                 },
             });
-        
+
         }
-        
+
     }
 
     return {

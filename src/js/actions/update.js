@@ -6,9 +6,9 @@ YOI.action.Update = function($trigger, $target, options) {
     *  Load remote content (AJAX) and inject the response data into a given
     *  element ($target) in the document.
     *
-    *  @param {jQuery dom object} $trigger - the element which triggered the script
-    *  @param {jQuery dom object} $target  - the target element
-    *  @param {object}            options
+    *  @param {jQuery element} $trigger - the element which triggered the script
+    *  @param {jQuery element} $target  - the target element
+    *  @param {object}         options
     *
     *  Available options:
     *
@@ -16,9 +16,9 @@ YOI.action.Update = function($trigger, $target, options) {
     *  @option {string} type   - optional request type ("POST" or "GET"), default: "GET"
     *  @option {string} filter - optional CSS selector to filter an element from the response markup
     */
-    
+
     if ($target instanceof jQuery) {
-    
+
         var requestType = options.type || false;
         var requestUrl  = options.url || false;
         var filter      = options.filter || '#yoi-update-src';
@@ -45,7 +45,7 @@ YOI.action.Update = function($trigger, $target, options) {
                 <p class="note__body"><b>' + localization[language].errorTitle + ':</b> ' + localization[language].errorMsg + '</p>\
             </div>\
         ');
-        
+
         var $spinner = $('<span class="spinner"></span>');
 
         // validate/set the request type
@@ -60,17 +60,17 @@ YOI.action.Update = function($trigger, $target, options) {
 
         if (requestUrl) {
             $.ajax({
-                
+
                 url   : requestUrl,
                 cache : false,
                 type  : requestType,
-                
+
                 beforeSend: function() {
                     $target
                         .append($spinner.clone())
                         .trigger('yoi-update-before');
                 },
-                
+
                 error: function() {
                     $target
                         .html($errorMsg.clone())
@@ -83,7 +83,7 @@ YOI.action.Update = function($trigger, $target, options) {
                         .html($response)
                         .trigger('yoi-update-success');
                 }
-                
+
             });
         }
 

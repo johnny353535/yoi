@@ -10,18 +10,18 @@ YOI.component.Flyout = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $flyout
-         *  @param {object}            options
+         *  @param {jQuery element} $flyout
+         *  @param {object}         options
          */
 
         var $flyout = YOI.createCollection('flyout', $flyout, options);
 
         if ($flyout) $flyout.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisFlyout   = $(this).detach();
@@ -48,9 +48,9 @@ YOI.component.Flyout = (function() {
             // direct child of the body
 
             $('body').append($thisFlyout);
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
@@ -62,15 +62,15 @@ YOI.component.Flyout = (function() {
         /**
          *  Toggle the flyout.
          *
-         *  @param  {jQuery dom object} $thisFlyout - the flyout
+         *  @param  {jQuery element} $thisFlyout - the flyout
          */
-        
+
         if ($thisFlyout.data().state == 'visible') {
             hide($thisFlyout);
         } else {
             show($thisFlyout);
         }
-        
+
     }
 
     function show($thisFlyout) {
@@ -78,16 +78,16 @@ YOI.component.Flyout = (function() {
         /**
          *  Show the flyout.
          *
-         *  @param  {jQuery dom object} $thisFlyout - the flyout
+         *  @param  {jQuery element} $thisFlyout - the flyout
          */
-        
+
         $thisFlyout
             .removeClass('flyout--hidden')
             .addClass('flyout--visible')
             .trigger('yoi-flyout-visible');
-            
+
         $thisFlyout.data().state = 'visible';
-        
+
     }
 
     function hide($thisFlyout) {
@@ -95,14 +95,14 @@ YOI.component.Flyout = (function() {
         /**
          *  Hide the flyout.
          *
-         *  @param  {jQuery dom object} $thisFlyout - the flyout
+         *  @param  {jQuery element} $thisFlyout - the flyout
          */
-        
+
         $thisFlyout
             .removeClass('flyout--visible')
             .addClass('flyout--hidden')
             .trigger('yoi-flyout-hidden');
-            
+
         $thisFlyout.data().state = 'hidden';
 
     }

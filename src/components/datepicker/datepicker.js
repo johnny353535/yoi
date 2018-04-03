@@ -4,13 +4,13 @@ YOI.component.DatePicker = (function() {
 
     // private vars
     // ============
-    
+
     var $document = $(document);
-    
+
     // localization
-    
+
     var language = YOI.locale();
-    
+
     var localization = {
         'en' : {
             'weekDays' : [
@@ -35,7 +35,7 @@ YOI.component.DatePicker = (function() {
                 'October',
                 'November',
                 'December'
-            ] 
+            ]
         },
         'de' : {
             'weekDays' : [
@@ -60,7 +60,7 @@ YOI.component.DatePicker = (function() {
                 'Oktober',
                 'November',
                 'Dezember'
-            ] 
+            ]
         }
     };
 
@@ -82,7 +82,7 @@ YOI.component.DatePicker = (function() {
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');
-    
+
     var $weekDaysHeader = $('\
         <tr>\
             <th>' + localization[language]['weekDays'][0] + '</th>\
@@ -103,8 +103,8 @@ YOI.component.DatePicker = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $datepicker
-         *  @param {object}            options
+         *  @param {jQuery element} $datepicker
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -112,21 +112,21 @@ YOI.component.DatePicker = (function() {
          *  @option {string} month - initial month (ISO 8601)
          *  @option {string} day   - initial day (ISO 8601)
          */
-        
+
         // update the current date
 
         getCurrentDate();
-        
+
         // initialize the datepickers
-        
+
         var $datepicker = YOI.createCollection('datepicker', $datepicker, options);
 
         if ($datepicker) $datepicker.each(function(index) {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // get date input & date input data
 
             var $thisDateInput = $(this);
@@ -199,9 +199,9 @@ YOI.component.DatePicker = (function() {
                             $thisDatePicker.find('.datePicker__header').text(localization[language]['monthNames'][thisDateInputProps.selectedMonth] + ' ' + thisDateInputProps.selectedYear);
 
                         });
-                        
+
                         // fire custom event
-        
+
                         $document.trigger('yoi-datepicker-hide');
 
                     });
@@ -223,19 +223,19 @@ YOI.component.DatePicker = (function() {
                     // show the date picker
 
                     $thisDatePicker.show();
-        
+
                     // fire custom event
-        
+
                     $document.trigger('yoi-datepicker-show');
 
                 });
-                
+
             // set initialized
-    
+
             YOI.setReady($(this));
 
         });
-        
+
     }
 
     function updateDatePicker($thisDatePicker, selectedYear, selectedMonth, selectedDay) {
@@ -243,10 +243,10 @@ YOI.component.DatePicker = (function() {
         /**
          *  Attach a data object to the date picker with updated values.
          *
-         *  @param {jQuery dom object} $thisDatePicker - the date picker
-         *  @param {number}            selectedYear    - the selected year
-         *  @param {number}            selectedMonth   - the selected month
-         *  @param {number}            selectedDay     - the selected day
+         *  @param {jQuery element} $thisDatePicker - the date picker
+         *  @param {number}         selectedYear    - the selected year
+         *  @param {number}         selectedMonth   - the selected month
+         *  @param {number}         selectedDay     - the selected day
          */
 
         // format the date
@@ -269,9 +269,9 @@ YOI.component.DatePicker = (function() {
         /**
          *  Attach a data object to the month table with updated values.
          *
-         *  @param {jQuery dom object} $thisMonthTable - the month table
-         *  @param {number}            year            - the optional year, falls back to current year
-         *  @param {number}            month           - the optional month, falls back to current month
+         *  @param {jQuery element} $thisMonthTable - the month table
+         *  @param {number}         year            - the optional year, falls back to current year
+         *  @param {number}         month           - the optional month, falls back to current month
          */
 
         // read the current date and time,
@@ -327,10 +327,10 @@ YOI.component.DatePicker = (function() {
          *  Attach a data object to the date input field with updated values and write
          *  the formatted date into the date input field.
          *
-         *  @param {jQuery dom object} $thisDateInput - the corrensponding input field
-         *  @param {number}            year           - the given year
-         *  @param {number}            month          - the given month
-         *  @param {number}            day            - the given day
+         *  @param {jQuery element} $thisDateInput - the corrensponding input field
+         *  @param {number}         year           - the given year
+         *  @param {number}         month          - the given month
+         *  @param {number}         day            - the given day
          */
 
         // format the date
@@ -365,10 +365,10 @@ YOI.component.DatePicker = (function() {
          *  Renders a new month table with optional parameters for year and month.
          *  If year or month are undefined, the current year or month will be used.
          *
-         *  @param  {jQuery dom object} $thisDatePicker - the corresponding date picker
-         *  @param  {number}            year            - the optional year
-         *  @param  {number}            month           - the optional month
-         *  @return {jQuery dom object} $monthTable     - the month table
+         *  @param  {jQuery element} $thisDatePicker - the corresponding date picker
+         *  @param  {number}         year            - the optional year
+         *  @param  {number}         month           - the optional month
+         *  @return {jQuery element} $monthTable     - the month table
          */
 
         // create the month table
@@ -396,7 +396,7 @@ YOI.component.DatePicker = (function() {
 
         var indexCell = 1;
         var indexDay  = 1;
-        
+
         // create the table cells and rows
 
         for (var i = 0; i < Math.ceil((thisMonthTableProps.totalDays + thisMonthTableProps.firstDay - 1) / 7); i++) {
@@ -408,40 +408,40 @@ YOI.component.DatePicker = (function() {
             // create a table cell
 
             for (var j = 0; j < 7; j++) {
-                
+
                 var $cell = $('<td></td>');
-                
+
                 // empty day
-                
+
                 if (indexCell < thisMonthTableProps.firstDay || indexDay > thisMonthTableProps.totalDays) {
                     $cell.addClass('datePicker--emptyDay');
                 }
-                
+
                 // any other day
-                
+
                 else {
                     $cell.text(indexDay);
                     indexDay++;
                 }
-                
+
                 // selected day
 
                 if (thisMonthTableProps.month === thisDatePickerProps.selectedMonth && thisMonthTableProps.year === thisDatePickerProps.selectedYear && indexDay - 1 === thisDatePickerProps.selectedDay) {
                     $cell.addClass('datePicker--selectedDay');
                 }
-                
+
                 // today
-                
+
                 if (thisMonthTableProps.month === now.month && thisMonthTableProps.year === now.year && indexDay - 1 === now.day) {
                     $cell.addClass('datePicker--today');
                 }
-                
+
                 // append the cell
 
                 $row.append($cell);
-                
+
                 // count up index var
-                
+
                 indexCell++;
 
             }
@@ -477,10 +477,10 @@ YOI.component.DatePicker = (function() {
          *  For further manipulation (eg. changing the month), only the month table
          *  gets re-rendered.
          *
-         *  @param  {number}            year            - the optional year
-         *  @param  {number}            month           - the optional month
-         *  @param  {number}            selectedDay     - the optional selected day
-         *  @return {jQuery dom object} $thisDatePicker - the date picker
+         *  @param  {number}         year            - the optional year
+         *  @param  {number}         month           - the optional month
+         *  @param  {number}         selectedDay     - the optional selected day
+         *  @return {jQuery element} $thisDatePicker - the date picker
          */
 
         // get date picker and write date picker data
@@ -514,7 +514,7 @@ YOI.component.DatePicker = (function() {
         // attach events to date picker buttons
 
         $thisDatePicker.find('[yoi-action*="Month"]').on('click', function(e) {
-            
+
             e.preventDefault();
 
             // important: get updated month table data on each click
@@ -588,10 +588,10 @@ YOI.component.DatePicker = (function() {
         /**
          *  Set a date for a month table and update all associated data objects.
          *
-         *  @param {jQuery dom object} $thisMonthTable - the corresponding month table
-         *  @param {number}            selectedYear    - the selected year
-         *  @param {number}            selectedMonth   - the selected month
-         *  @param {number}            selectedDay     - the selected day
+         *  @param {jQuery element} $thisMonthTable - the corresponding month table
+         *  @param {number}         selectedYear    - the selected year
+         *  @param {number}         selectedMonth   - the selected month
+         *  @param {number}         selectedDay     - the selected day
          */
 
         var $thisDatePicker = $thisMonthTable.closest('.datePicker');
@@ -647,7 +647,7 @@ YOI.component.DatePicker = (function() {
 
         $('.datePicker__wrapper .datePicker').hide();
         $document.trigger('yoi-datepicker-hide');
-        
+
     }
 
     function getCurrentDate() {
@@ -735,8 +735,8 @@ YOI.component.DatePicker = (function() {
          *  the input field. If the space is too low, the date picker will be
          *  placed above the date input field.
          *
-         *  @param  {jQuery dom object} $thisDatePicker - the date picker
-         *  @return {jQuery dom object} $thisDatePicker - the date picker plus positioning
+         *  @param  {jQuery element} $thisDatePicker - the date picker
+         *  @return {jQuery element} $thisDatePicker - the date picker plus positioning
          */
 
         // get the date input field

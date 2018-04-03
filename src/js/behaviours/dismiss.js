@@ -32,8 +32,8 @@ YOI.behaviour.Dismiss = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dismissableElement
-         *  @param {object}            options
+         *  @param {jQuery element} $dismissableElement
+         *  @param {object}         options
          */
 
         var $dismissableElement = YOI.createCollection('dismiss', $dismissableElement, options);
@@ -78,7 +78,7 @@ YOI.behaviour.Dismiss = (function() {
         /**
          *  Close and remove any target element.
          *
-         *  @param {jQuery dom object} $targetElement - the target element
+         *  @param {jQuery element} $targetElement - the target element
          */
 
         if (!($targetElement instanceof jQuery)) return false;

@@ -4,7 +4,7 @@ YOI.component.ImgMagnifier = (function(){
 
     // private vars
     // ============
-    
+
     var $window = $(window);
     var $cursor = $('<div class="imgMagnifier__cursor"></div>');
     var $viewer = $('<div class="imgMagnifier__viewer"></div>');
@@ -17,9 +17,9 @@ YOI.component.ImgMagnifier = (function(){
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $dock
-         *  @param {object}            options
-        
+         *  @param {jQuery element} $dock
+         *  @param {object}         options
+
          *  Available options:
          *
          *  @option {number} zoomImage - path to the identical yet larger image, if not supplied,
@@ -30,11 +30,11 @@ YOI.component.ImgMagnifier = (function(){
         var $imgMagnifier = YOI.createCollection('imgmagnifier', $imgMagnifier, options);
 
         if ($imgMagnifier) $imgMagnifier.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisImgMagnifier = $(this);
@@ -55,7 +55,7 @@ YOI.component.ImgMagnifier = (function(){
             });
 
             $window.on('load', function() {
-                
+
                 // attach mouse events
 
                 $thisImgMagnifier
@@ -68,25 +68,25 @@ YOI.component.ImgMagnifier = (function(){
                     .on('mousemove', function(e) {
                         moveMagnifier($thisImgMagnifier, e);
                     });
-                    
+
                 // attach resize event
-        
+
                 $window.on('resize', function() {
                     YOI.clearDelay('imgMagnifierResetDelay');
                     YOI.setDelay('imgMagnifierResetDelay', 500, function() {
                         reset();
                     });
                 });
-                    
+
                 // set up viewer and zoom image
-                
+
                 setViewer($thisImgMagnifier);
                 setZoomImage($thisImgMagnifier);
-                
+
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
@@ -98,7 +98,7 @@ YOI.component.ImgMagnifier = (function(){
         /**
          *  Reset one or more image magnifiers.
          *
-         *  @param {jQuery dom object} $imgMagnifier - the image magnifier(s)
+         *  @param {jQuery element} $imgMagnifier - the image magnifier(s)
          */
 
         if (!($imgMagnifier instanceof jQuery)) {
@@ -117,13 +117,13 @@ YOI.component.ImgMagnifier = (function(){
         });
 
     }
-    
+
     function destroy($imgMagnifier) {
 
         /**
          *  Remove all injected elements and detach all events.
          *
-         *  @param {jQuery dom object} $imgMagnifier - all image magnifiers
+         *  @param {jQuery element} $imgMagnifier - all image magnifiers
          */
 
         if (!($imgMagnifier instanceof jQuery)) {
@@ -149,7 +149,7 @@ YOI.component.ImgMagnifier = (function(){
          *  Load and inject the zoom image, attach events, store data inside
          *  $thisImgMagnifier data object for further calculations.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
          */
 
         var options              = $thisImgMagnifier.data().options;
@@ -206,7 +206,7 @@ YOI.component.ImgMagnifier = (function(){
          *  This factor is not fixed but calculated from the size ratio of
          *  .imgMagnifier__previewImage and .imgMagnifier__zoomImage.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
          */
 
         var $thisCursor      = $thisImgMagnifier.find('.imgMagnifier__cursor');
@@ -234,7 +234,7 @@ YOI.component.ImgMagnifier = (function(){
          *  Set the viewer size and position. The viewer
          *  always has the same size as the .imgMagnifier itself.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
          */
 
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
@@ -253,7 +253,7 @@ YOI.component.ImgMagnifier = (function(){
         /**
          *  Show the viewer after a short delay.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
          */
 
         var $thisViewer = $thisImgMagnifier.find('.imgMagnifier__viewer');
@@ -274,7 +274,7 @@ YOI.component.ImgMagnifier = (function(){
         /**
          *  Hide the viewer.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
          */
 
         YOI.clearDelay('imgMagnifierDelay');
@@ -284,9 +284,9 @@ YOI.component.ImgMagnifier = (function(){
 
         $thisViewer.fadeOut(50);
         $thisCursor.fadeOut(150);
-        
+
         $thisViewer.trigger('yoi-imgmagnifier-stop');
-        
+
     }
 
     function moveMagnifier($thisImgMagnifier, e) {
@@ -295,17 +295,17 @@ YOI.component.ImgMagnifier = (function(){
          *  Move the cursor over the preview image and move the
          *  zoom image inside the viewer accordingly.
          *
-         *  @param {jQuery dom object} $thisImgMagnifier - the image magnifier
-         *  @param {event}             e                 - the trigger event
+         *  @param {jQuery element} $thisImgMagnifier - the image magnifier
+         *  @param {event}          e                 - the trigger event
          */
 
         var $thisCursor       = $thisImgMagnifier.find('.imgMagnifier__cursor');
         var $thisZoomImage    = $thisImgMagnifier.find('.imgMagnifier__zoomImage');
         var imgMagnifierProps = $thisImgMagnifier.data().props;
         var cursorProps       = $thisCursor.data().props;
-        
+
         // calculate position
-        
+
         var yPos = (e.pageY - imgMagnifierProps.yPos - cursorProps.height / 2);
         var xPos = (e.pageX - imgMagnifierProps.xPos - cursorProps.width / 2);
 

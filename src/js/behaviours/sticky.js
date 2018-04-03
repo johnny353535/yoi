@@ -16,8 +16,8 @@ YOI.behaviour.Sticky = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $stickyElement
-         *  @param {object}            options
+         *  @param {jQuery element} $stickyElement
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -79,8 +79,8 @@ YOI.behaviour.Sticky = (function() {
         /**
          *  Perform all necessary dom manipulations and style changes.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
-         *  @param {number}            index          - the index of $stickyElement
+         *  @param {jQuery element} $stickyElement - the sticky element
+         *  @param {number}         index          - the index of $stickyElement
          */
 
         var $stickyPlaceholder        = $('<div id="stickyPlaceholder-' + index + '"></div>');
@@ -138,7 +138,7 @@ YOI.behaviour.Sticky = (function() {
          *  important data, like initial position, dimensions, etc. Adds all data to the
          *  $stickyElement props object, so that it is available for other functions.
          *
-         *  @param {jQuery dom object} $stickyElement - the sticky element
+         *  @param {jQuery element} $stickyElement - the sticky element
          */
 
         var data                          = $stickyElement.data();
@@ -189,8 +189,8 @@ YOI.behaviour.Sticky = (function() {
          *  start position value is larger than the end position value. Stuff would break.
          *  Returns true if the input is valid, false if not.
          *
-         *  @param  {jQuery dom object} $stickyElement - the sticky element
-         *  @return {bool}                             - true if data is valid, false if data is invalid
+         *  @param  {jQuery element} $stickyElement - the sticky element
+         *  @return {bool}                          - true if data is valid, false if data is invalid
          */
 
         var props      = $stickyElement.data().props;
@@ -211,7 +211,7 @@ YOI.behaviour.Sticky = (function() {
          *  Listens to the window resize event. When the event fires, this function
          *  updates the original $stickyElement property data.
          *
-         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
+         *  @param {jQuery element} $stickyElements - the sticky element(s)
          */
 
         $window.on('resize', function() {
@@ -240,7 +240,7 @@ YOI.behaviour.Sticky = (function() {
          *  observes all sticky elements and manipulates their position. If a sticky element
          *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
          *
-         *  @param {jQuery dom object} $stickyElements - the sticky element(s)
+         *  @param {jQuery element} $stickyElements - the sticky element(s)
          */
 
         $window.on('yoi-scroll', function() {

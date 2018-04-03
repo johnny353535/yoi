@@ -62,7 +62,7 @@ Use this function to add a message to the `.log`.
 
 ```js
 /**
- *  @param {jQuery dom object} $log
+ *  @param {jQuery element} $log
  *  @param {string | html}     logInput - the content, appended to the log
  */
 
@@ -77,7 +77,7 @@ Use this function to add a message to the `.log`.
 
 ```js
 /**
- *  @param {jQuery dom object} $log
+ *  @param {jQuery element} $log
  */
 
 YOI.component.Log.clear($('#myLog'));
@@ -102,25 +102,25 @@ Take a look at the code for this example to get an idea how to use the `.log`:
 
 <!-- JavaScript -->
 <script>
-    
+
     // log some messages
-    
+
     YOI.component.Log.write($('#exampleLog-1'), '<br /><span class="c-blue-15">response</span> = {<br />&nbsp;&nbsp;&nbsp;&nbsp;"key one" : <span class="c-yellow-15">"value one"</span>,<br />&nbsp;&nbsp;&nbsp;&nbsp;"key two" : <span class="c-yellow-15">"value two"</span><br />}');
     YOI.component.Log.write($('#exampleLog-1'), 'one');
     YOI.component.Log.write($('#exampleLog-1'), 'two');
     YOI.component.Log.write($('#exampleLog-1'), 'three');
-    
+
     // attach clear-funtion to #logBtn-clear
-    
+
     $('#logBtn-clear').on('click', function() {
         YOI.component.Log.clear($('#exampleLog-1'));
     });
-    
+
     // attach fill-function to #logBtn-write
-    
+
     $('#logBtn-write').on('click', function() {
         YOI.component.Log.write($('#exampleLog-1'), 'some text');
     });
-    
+
 </script>
 ```

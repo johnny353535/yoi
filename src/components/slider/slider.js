@@ -8,11 +8,11 @@ YOI.component.Slider = (function() {
     var $document           = $(document);
     var $window             = $(window);
     var keyboardEventsAdded = false;
-    
+
     // localization
-    
+
     var language = YOI.locale();
-    
+
     var localization = {
         'en' : {
             'btnLabelNext' : 'next',
@@ -23,7 +23,7 @@ YOI.component.Slider = (function() {
             'btnLabelPrev' : 'zurück'
         }
     };
-    
+
     // templates
 
     var slideControls = {
@@ -43,7 +43,7 @@ YOI.component.Slider = (function() {
                 </button>\
             </div>\
         '),
-        
+
         'pageBtns--tr': $('\
             <div class="pageBtns pageBtns--tr">\
                 <button class="pageBtns__btnPrev">\
@@ -57,7 +57,7 @@ YOI.component.Slider = (function() {
                 </button>\
             </div>\
         '),
-        
+
         'pageBtns--br': $('\
             <div class="pageBtns pageBtns--br">\
                 <button class="pageBtns__btnPrev">\
@@ -71,7 +71,7 @@ YOI.component.Slider = (function() {
                 </button>\
             </div>\
         '),
-        
+
         'pageBtns--bl': $('\
             <div class="pageBtns pageBtns--bl">\
                 <button class="pageBtns__btnPrev">\
@@ -151,12 +151,12 @@ YOI.component.Slider = (function() {
     // =================
 
     function initialize($slider, options) {
-        
+
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $slider
-         *  @param {object}            options
+         *  @param {jQuery element} $slider
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -166,13 +166,13 @@ YOI.component.Slider = (function() {
          *  @option {bool}   swipeable  - change the slide on swipe left/right
          *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
-        
+
         var $slider = YOI.createCollection('slider', $slider, options);
 
         if ($slider) $slider.each(function(sliderIndex) {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
 
             // @param {number} sliderIndex
@@ -184,18 +184,18 @@ YOI.component.Slider = (function() {
             var $thisSlides = $thisSlider.find('.slider__slide');
 
             // attach data to slider instance
-            
+
             $thisSlider.data().props = {
                 index       : sliderIndex,
                 slideIndex  : 0,
                 totalSlides : $thisSlides.length
             };
-            
+
             // reference slider instance props & options
 
             var totalSlides = $thisSlider.data().props.totalSlides;
             var options     = $thisSlider.data().options;
-            
+
             // prepare slides and adjust container to fixed height for animations
 
             if (options.transition !== undefined) {
@@ -251,10 +251,10 @@ YOI.component.Slider = (function() {
                     paginationLinks.first().addClass('is--active');
 
                     paginationLinks.on('click', function(e) {
-                        
+
                         e.preventDefault();
                         stopAutoplay($thisSlider);
-                        
+
                         var linkIndex;
 
                         if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
@@ -280,19 +280,19 @@ YOI.component.Slider = (function() {
                     showSlide($thisSlider, 'next');
                 });
             }
-            
+
             // enable auto play
 
             if (options.autoplay !== undefined) {
                 startAutoplay($thisSlider);
             }
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
         // add keyboard events
 
         if (!keyboardEventsAdded) addKeyboardEvents();
@@ -300,11 +300,11 @@ YOI.component.Slider = (function() {
     }
 
     function showSlide($thisSlider, target) {
-        
+
         /**
          *  Show a slide.
          *
-         *  @param {jQuery dom object} $thisSlider - the slider
+         *  @param {jQuery element}    $thisSlider - the slider
          *  @param {string || integer} target      - a key for the target: "next" || "prev" || any slide number
          */
 
@@ -314,7 +314,7 @@ YOI.component.Slider = (function() {
         var totalSlides        = props.totalSlides;
         var slideIndex         = props.slideIndex;
         var direction          = false;
-        
+
         if (target === 'next' || target === undefined) {
 
             // set slideIndex to next slide
@@ -357,9 +357,9 @@ YOI.component.Slider = (function() {
         // update slider data object
 
         $thisSlider.data().props.slideIndex = slideIndex;
-        
+
         // trigger custom event
-        
+
         $thisSlider.trigger('yoi-slider-change');
 
     }
@@ -369,9 +369,9 @@ YOI.component.Slider = (function() {
         /**
          *  Transition between two slides.
          *
-         *  @param {jQuery dom object} $thisSlider    - the slider
-         *  @param {number}            nextSlideIndex - the next slide index number
-         *  @param {string}            direction      - key for the direction, "<" || ">"
+         *  @param {jQuery element} $thisSlider    - the slider
+         *  @param {number}         nextSlideIndex - the next slide index number
+         *  @param {string}         direction      - key for the direction, "<" || ">"
          */
 
         var $thisSlides       = $thisSlider.find('.slider__slide');
@@ -438,19 +438,19 @@ YOI.component.Slider = (function() {
         }
 
     }
-    
+
     function startAutoplay($slider) {
-        
+
         /**
          *  Start auto play.
          *
-         *  @param {jQuery dom object} $slider
+         *  @param {jQuery element} $slider
          */
-        
+
         var options      = $slider.data().options;
         var sliderIndex  = $slider.data().props.index;
         var intervalName = 'slideAutoplay-' + sliderIndex;
-        
+
         YOI.setInterval(intervalName, options.autoplay, function() {
             showSlide($slider);
         });
@@ -458,20 +458,20 @@ YOI.component.Slider = (function() {
         // trigger custom event
 
         $slider.trigger('yoi-slider-autoplaystart');
-        
+
     }
-    
+
     function stopAutoplay($slider) {
 
         /**
          *  Stop auto play.
          *
-         *  @param {jQuery dom object} $slider
+         *  @param {jQuery element} $slider
          */
-        
+
         var sliderIndex  = $slider.data().props.index;
         var intervalName = 'slideAutoplay-' + sliderIndex;
-        
+
         YOI.clearInterval(intervalName);
 
         // trigger custom event
@@ -485,8 +485,8 @@ YOI.component.Slider = (function() {
         /**
          *  Update the pagination.
          *
-         *  @param {jQuery dom object} $thisSlider    - the slider
-         *  @param {number}            thisSlideIndex - the slide index number
+         *  @param {jQuery element} $thisSlider    - the slider
+         *  @param {number}         thisSlideIndex - the slide index number
          */
 
         // update page dots (.pageDots)
@@ -506,7 +506,7 @@ YOI.component.Slider = (function() {
         /**
          *  Adjust the height of a slider to match the height of the tallest slide.
          *
-         *  @param {jQuery dom object} $thisSlider - the slider
+         *  @param {jQuery element} $thisSlider - the slider
          */
 
         var $thisSlides        = $thisSlider.find('.slider__slide');
@@ -522,19 +522,19 @@ YOI.component.Slider = (function() {
         $thisSlidesWrapper.css({ 'height': slideHeight });
 
     }
-    
+
     function addKeyboardEvents() {
-        
+
         /**
          *  Adds keyboard events.
          */
-        
+
         if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
-            
+
             // tab key
-            
+
             YOI.module.KeyboardAgent.addTabFocus($('[yoi-slider]'));
-            
+
             // left arrow key
 
             $document.on('yoi-keypressed-arrowleft', function() {
@@ -560,11 +560,11 @@ YOI.component.Slider = (function() {
                 }
 
             });
-            
+
         }
-        
+
         // set flag
-        
+
         keyboardEventsAdded = true;
 
     }

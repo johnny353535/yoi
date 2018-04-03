@@ -10,8 +10,8 @@ YOI.component.Tabs = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $tabsMenu
-         *  @param {object}            options
+         *  @param {jQuery element} $tabsMenu
+         *  @param {object}         options
          *
          *  In general:
          *
@@ -30,52 +30,52 @@ YOI.component.Tabs = (function() {
          *    gets overwritten by the tabs page matching the hash. Additionally, the tab page
          *    gets scrolled into the viewport.
          */
-        
+
         var $tabsMenu = YOI.createCollection('tabs', $tabsMenu, options);
 
         if ($tabsMenu) $tabsMenu.each(function(){
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
-            
+
             var $thisTabsMenu = $(this);
-            
+
             // get the start tab
-            
+
             var urlTabId       = window.location.hash;
             var firstTabId     = $thisTabsMenu.find('a').first()[0].hash;
             var hashMatchesTab = $thisTabsMenu.find('a[href="' + urlTabId + '"]').length;
             var hasActiveTab   = $thisTabsMenu.has('.tabs__item.is--active').length;
             var startTabId     = hashMatchesTab ? urlTabId : firstTabId;
-            
+
             // if the hash does not match any tab and if the
             // tabs menu has an active tab already set in markup,
             // overwrite startTabId with the id of the active tab
-            
+
             if (hasActiveTab && !hashMatchesTab) {
                 startTabId = $thisTabsMenu.find('.tabs__item.is--active a').first()[0].hash;
             }
-            
+
             // switch to start tab
-            
+
             switchTo(startTabId);
-            
+
             // attach events
 
             $thisTabsMenu.find('a').on('click', function(e) {
                 e.preventDefault();
                 switchTo(this.hash);
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-    
+
     }
 
     function switchTo(thisTargetTabId) {
@@ -85,17 +85,17 @@ YOI.component.Tabs = (function() {
          *
          *  @param {string} thisTargetTabId - target tab CSS-selector (most likely an #id, e.g. "#myTab")
          */
-        
+
         var $thisTabsMenuItem  = $('a[href="' + thisTargetTabId + '"]').parent('li');
         var $thisTabsMenu      = $thisTabsMenuItem.closest('.tabs__menu');
         var $thisTabsMenuItems = $thisTabsMenu.find('li');
         var $thisTargetTab     = $(thisTargetTabId);
-        
+
         // remove '.is--active' from all related menu items,
         // hide all related tabs
 
         $thisTabsMenuItems.each(function() {
-            
+
             var $thisMenuItem = $(this);
             var tabId         = $thisMenuItem.find('a')[0].hash;
 
@@ -108,9 +108,9 @@ YOI.component.Tabs = (function() {
 
         $thisTabsMenuItem.addClass('is--active');
         $thisTargetTab.show();
-        
+
         // trigger custom event
-        
+
         $thisTabsMenu.trigger('yoi-tabs-change');
 
     }

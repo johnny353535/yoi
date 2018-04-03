@@ -5,9 +5,9 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
    /**
     *  Vertically scrolls the whole page or a scrollable container to a given target element.
     *
-    *  @param {jQuery dom object} $trigger - the element which triggered the script
-    *  @param {jQuery dom object} $target  - the target element
-    *  @param {object}            options
+    *  @param {jQuery element} $trigger - the element which triggered the script
+    *  @param {jQuery element} $target  - the target element
+    *  @param {object}         options
     *
     *  Available options:
     *
@@ -20,7 +20,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
     // scroll to anchor if target element is found
 
     if ($target instanceof jQuery) {
-        
+
         var $document            = $(document);
         var scrollRoot           = document.scrollingElement || document.documentElement;
         var $scrollContext;
@@ -38,7 +38,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
         // if the target is wrapped inside a container with
         // scroll-overflow, scroll this container. otherwise,
         // scroll the whole page.
-        
+
         if ($scrollContainer.length) {
             scrollPosY     = '+=' + $target.position().top;
             $scrollContext = $target.closest('.scr-y');
@@ -61,7 +61,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
             if (highlight === 'pulse') YOI.pulse($target);
             $document.trigger('yoi-scrollto-end');
         });
-        
+
     }
 
 };

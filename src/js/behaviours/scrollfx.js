@@ -10,8 +10,8 @@ YOI.behaviour.ScrollFx = (function() {
        /**
         *  Initialize the script.
         *
-        *  @param {jQuery dom object} $targetElement(s)
-        *  @param {object}            options
+        *  @param {jQuery element} $targetElement(s)
+        *  @param {object}         options
         *
         *  Available options:
         *
@@ -56,7 +56,7 @@ YOI.behaviour.ScrollFx = (function() {
          *  If the target element uses the internal fx (css-)classes,
          *  this method adds the corresponding initial (css-)class.
          *
-         *  @param {jQuery dom object} $targetElement - the target element
+         *  @param {jQuery element} $targetElement - the target element
          */
 
         var options  = $targetElement.data().options;
@@ -83,7 +83,7 @@ YOI.behaviour.ScrollFx = (function() {
          *  Listens to the custom events (entering or leaving viewport) and
          *  applies fx accordingly.
          *
-         *  @param {jQuery dom object} $targetElement - the target element
+         *  @param {jQuery element} $targetElement - the target element
          */
 
         var options  = $targetElement.data().options;
@@ -143,9 +143,9 @@ YOI.behaviour.ScrollFx = (function() {
         /**
          *  Applies the given fx and play it at the given speed.
          *
-         *  @param {jQuery dom object} $targetElement - the target element
-         *  @param {string}            fx             - the fx css class to apply
-         *  @param {string}            speed          - the speed css class to apply
+         *  @param {jQuery element} $targetElement - the target element
+         *  @param {string}         fx             - the fx css class to apply
+         *  @param {string}         speed          - the speed css class to apply
          */
 
         if (fx) {

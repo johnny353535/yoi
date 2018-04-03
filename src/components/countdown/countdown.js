@@ -3,9 +3,9 @@
 YOI.component.Countdown = (function() {
 
     // localization
-    
+
     var language = YOI.locale();
-    
+
     var localization = {
         'en' : {
             'days'    : 'Days',
@@ -49,8 +49,8 @@ YOI.component.Countdown = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $countdown
-         *  @param {object}            options
+         *  @param {jQuery element} $countdown
+         *  @param {object}         options
          *
          *  Available options:
          *
@@ -61,17 +61,17 @@ YOI.component.Countdown = (function() {
          *  @option {string} minute   - end minute (ISO 8601)
          *  @option {string} second   - end second (ISO 8601)
          */
-                
+
         var $countdown = YOI.createCollection('countdown', $countdown, options);
 
         if ($countdown) $countdown.each(function(index) {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
-            
+
             var $thisCountdown  = $(this);
             var options         = $thisCountdown.data().options;
             var defaultYear     = new Date().getFullYear();
@@ -86,16 +86,16 @@ YOI.component.Countdown = (function() {
             var hour            = options.hour === undefined || parseInt(options.hour) > 12 || parseInt(options.hour) < 1 ? defaultHour : parseInt(options.hour);
             var minute          = options.minute === undefined || parseInt(options.minute) > 60 || parseInt(options.minute) < 1 ? defaultMinute : parseInt(options.minute);
             var second          = options.second === undefined || parseInt(options.second) > 60 || parseInt(options.second) < 1 ? defaultSecond : parseInt(options.second);
-            
+
             // write props
-        
+
             $thisCountdown.data().props = {
                 'endTime' : getDateString(month, day, year, hour, minute, second),
                 'index'   : index
             };
-            
+
             // render the countdown
-            
+
             render($thisCountdown);
 
             // update the clock every second
@@ -103,23 +103,23 @@ YOI.component.Countdown = (function() {
             YOI.setInterval('countdownTimer-' + index, 1000, function() {
                 update($thisCountdown);
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
 
     }
-    
+
     function render($thisCountdown) {
-        
+
         /**
          *  Create and append the countdown markup.
          *
-         *  @param {jQuery dom object} $countdown
+         *  @param {jQuery element} $countdown
          */
-        
+
         var endTime             = $thisCountdown.data().props.endTime;
         var timeRemaining       = getTimeRemaining(endTime);
         var lcdCharacters       = getLcdCharactersCSSClassNames(timeRemaining);
@@ -144,49 +144,49 @@ YOI.component.Countdown = (function() {
 
             $countdownChars.append($countdownLabel);
             $thisCountdownClock.append($countdownChars);
-            
+
         }
 
         // add the countdown clock
 
         $thisCountdown.append($thisCountdownClock);
-        
+
         // accessibility: create an additional, visually hidden
         // label for screen readers
-        
+
         if ($hiddenLabel.length === 0) {
             $thisCountdown.append($('<p class="countdown__hiddenLabel"></p>'));
         }
-        
+
     }
-    
+
     function update($thisCountdown) {
-        
+
         /**
          *  Update the countdown display.
          *
-         *  @param {jQuery dom object} $countdown
+         *  @param {jQuery element} $countdown
          */
-        
+
         var endTime       = $thisCountdown.data().props.endTime;
         var index         = $thisCountdown.data().props.index;
         var timeRemaining = getTimeRemaining(endTime);
         var language      = YOI.locale();
         var $hiddenLabel  = $thisCountdown.find('.countdown__hiddenLabel');
-        
+
         // if countdown is expired, clear countdown interval and fire custom event
 
         if (timeRemaining.total <= 0) {
             YOI.clearInterval('countdownTimer-' + index);
             $thisCountdown.trigger('yoi-countdown-expire');
         }
-        
+
         // get lcd character map
 
         var lcdCharacters = getLcdCharactersCSSClassNames(timeRemaining);
-        
+
         // update the LCD characters
-        
+
         for (var i = 0; i < Object.keys(lcdCharacters).length; i++) {
 
             var unit     = Object.keys(lcdCharacters)[i];
@@ -201,7 +201,7 @@ YOI.component.Countdown = (function() {
             }
 
         }
-        
+
         // update hidden label
 
         var labelTxt = {
@@ -210,18 +210,18 @@ YOI.component.Countdown = (function() {
         };
 
         $hiddenLabel.text(labelTxt[language]);
-        
+
     }
-    
+
     function getDateString(month, day, year, hour, minute, second) {
-        
+
         /**
-         *  
          *
-         *  @param  {}  - 
-         *  @return {}  - 
+         *
+         *  @param  {}  -
+         *  @return {}  -
          */
-        
+
         var months = [
             'January',
             'February',
@@ -236,9 +236,9 @@ YOI.component.Countdown = (function() {
             'November',
             'December'
         ];
-        
+
         var endTimeIsoString = months[month - 1] + ' ' + day + ' ' + year + ' ' + hour + ':' + minute + ':' + second;
-        
+
         return endTimeIsoString;
 
     }
@@ -271,16 +271,16 @@ YOI.component.Countdown = (function() {
         };
 
     }
-    
+
     function getLcdCharactersCSSClassNames(timeRemaining) {
-        
+
         /**
          *  Returns an object with css the cass names for each LCD character.
          *
          *  @param  {object} timeRemaining - the remaining time (y/m/d/h/m/s)
          *  @return {object}               - a "lookup-table" with css class names
          */
-        
+
         return {
             'days' : [
                 'countdown--' + timeRemaining.days.charAt(0),
@@ -299,7 +299,7 @@ YOI.component.Countdown = (function() {
                 'countdown--' + timeRemaining.seconds.charAt(1)
             ]
         };
-        
+
     }
 
     function getCharacterLabel(unit) {
@@ -307,8 +307,8 @@ YOI.component.Countdown = (function() {
         /**
          *  Returns a clock label (eg. "hours") as jQuery dom element.
          *
-         *  @param  {string} unit              - "days" | "hours" | "minutes" | "seconds"
-         *  @return {jQuery dom object} $label - the label
+         *  @param  {string}         unit   - "days" | "hours" | "minutes" | "seconds"
+         *  @return {jQuery element} $label - the label
          */
 
         var $label   = $countdownCharacterLabel.clone();

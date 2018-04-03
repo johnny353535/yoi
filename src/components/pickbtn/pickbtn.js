@@ -15,18 +15,18 @@ YOI.component.PickBtn = (function() {
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery dom object} $pickBtn
-         *  @param {object}            options
+         *  @param {jQuery element} $pickBtn
+         *  @param {object}         options
          */
-        
+
         var $pickBtn = YOI.createCollection('pickBtn', $pickBtn);
 
         if ($pickBtn) $pickBtn.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisPickBtn = $(this);
@@ -47,9 +47,9 @@ YOI.component.PickBtn = (function() {
                 activate($thisPickBtn);
                 $thisPickBtn.trigger('yoi-pickbtn-change');
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });

@@ -297,8 +297,8 @@ var YOI = {
          *  Searches for custom "yoi-*" attributes inside an alement's markup
          *  and returns the value of the first matching attribute.
          *
-         *  @param  {jQuery dom object} $element
-         *  @return {string}            yoiAttributeValue - the attribute's content / value
+         *  @param  {jQuery element} $element
+         *  @return {string}         yoiAttributeValue - the attribute's content / value
          */
 
         var yoiAttributeValue;
@@ -533,9 +533,9 @@ var YOI = {
         /**
          *  Blink animation.
          *
-         *  @param  {jQuery dom object} $elem - the element to blink
-         *  @param  {number} times            - number of times the animation gets played, default is 2
-         *  @return {bool false}              - return false if elem is not a jQuery dom object
+         *  @param  {jQuery element} $elem - the element to blink
+         *  @param  {number}         times - number of times the animation gets played, default is 2
+         *  @return {bool false}           - return false if elem is not a jQuery dom object
          */
 
         // cancel if $elem is not a jQuery object
@@ -565,9 +565,9 @@ var YOI = {
         /**
          *  Pulse animation.
          *
-         *  @param  {jQuery dom object} $elem - the element to pulse
-         *  @param  {number} times            - number of times the animation gets played, default is 2
-         *  @return {bool false}              - return false if elem is not a jQuery dom object
+         *  @param  {jQuery element} $elem - the element to pulse
+         *  @param  {number}         times - number of times the animation gets played, default is 2
+         *  @return {bool false}           - return false if elem is not a jQuery dom object
          */
 
         // cancel if $elem is not a jQuery object
@@ -652,8 +652,8 @@ var YOI = {
          *  might behave. For example "autoplay:true" for a slide show.
          *  Options are attached to an $element via jQuery's data() method.
          *
-         *  @param {jQuery dom object} $element
-         *  @param {object}            options
+         *  @param {jQuery element} $element
+         *  @param {object}         options
          */
 
         // if not already present, create "options" object
@@ -687,9 +687,9 @@ var YOI = {
          *  component. For example an $element's size or position.
          *  Props are attached to an $element via jQuery's data() method.
          *
-         *  @param  {jQuery dom object}  $element
-         *  @param  {object}             props
-         *  @return {object}             props
+         *  @param  {jQuery element}  $element
+         *  @param  {object}          props
+         *  @return {object}          props
          */
 
         // if not already present, create "props" object
@@ -717,9 +717,9 @@ var YOI = {
          *  Each $element can have one state. For example "visible" or "hidden".
          *  The state is attached to an $element via jQuery's data() method.
          *
-         *  @param  {jQuery dom object}  $element
-         *  @param  {string}             state
-         *  @return {object}             state
+         *  @param  {jQuery element}  $element
+         *  @param  {string}          state
+         *  @return {object}          state
          */
 
         // if not already present, create "state" object
@@ -742,7 +742,7 @@ var YOI = {
     createCollection : function(identifier, $element, options, state, props) {
 
         /**
-         *  Create or add to a collection of jQuery objects and add options,
+         *  Create or add to a collection of jQuery elements and add options,
          *  state and props data.
          *
          *  @param  {} identifier - the string to select elements from the dom via
@@ -752,7 +752,7 @@ var YOI = {
          *  @return {} object     - the jQuery element collection
          */
 
-        // if it does not exist, create a new collection of jQuery objects
+        // if it does not exist, create a new collection of jQuery elements
 
         if (!YOI.elementCollection[identifier]) {
             YOI.elementCollection[identifier] = $([]);
@@ -812,8 +812,8 @@ var YOI = {
          *  Reads function and event type from the hook parameters and binds
          *  them to a given jQuery $element.
          *
-         *  @param {jQuery dom object} $element
-         *  @param {string}            hook
+         *  @param {jQuery element} $element
+         *  @param {string}         hook
          */
 
         // cancel if action was already bound
@@ -921,7 +921,7 @@ var YOI = {
         /**
          *  Set a "initialized" flag to a (jQuery-)element.
          *
-         *  @param {jQuery dom object} $element
+         *  @param {jQuery element} $element
          */
 
         $element.data().initialized = true;
@@ -933,7 +933,7 @@ var YOI = {
         /**
          *  Test for a "initialized" flag on a (jQuery-)element.
          *
-         *  @param  {jQuery dom object} $element
+         *  @param  {jQuery element} $element
          *  @return {bool}              state
          */
 

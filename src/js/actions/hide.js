@@ -5,25 +5,25 @@ YOI.action.Hide = function($trigger, $target, options) {
     /**
      *  Hides the target element.
      *
-     *  @param {jQuery dom object} $trigger - the element which triggered the script
-     *  @param {jQuery dom object} $target  - the target element
-     *  @param {object}            options
+     *  @param {jQuery element} $trigger - the element which triggered the script
+     *  @param {jQuery element} $target  - the target element
+     *  @param {object}         options
      *
      *  Available options:
      *
      *  @option {string} transition - Chose from the jQuery effects 'fadet' and 'slide'.
      */
-    
+
     if ($target instanceof jQuery) {
-        
+
         var fx     = options.fx || false;
         var speed  = options.speed || false;
         var remove = options.remove || false;
 
         // add fx, hide and trigger custom event
-        
+
         if (fx && speed) $target.addClass('fx-' + speed);
-        
+
         if (remove === 'true') {
             if (fx) {
                 $target
@@ -51,12 +51,12 @@ YOI.action.Hide = function($trigger, $target, options) {
 }
 
 YOI.action.Hide.init = function() {
-    
+
     /**
      *  Prepares all target elements. Adds initial styling
      *  to make CSS animations work properly.
      */
-    
+
     var selectors = '\
         [yoi-action*="Hide"],\
         [yoi-action-1*="Hide"],\
@@ -64,13 +64,13 @@ YOI.action.Hide.init = function() {
         [yoi-action-3*="Hide"],\
         [yoi-action-4*="Hide"]\
     ';
-    
+
     $(selectors).each(function() {
 
         // update options
-        
+
         YOI.updateOptions($(this));
-        
+
         // assign vars
 
         var $this          = $(this);
@@ -78,7 +78,7 @@ YOI.action.Hide.init = function() {
         var targetSelector = options.Hide;
         var fx             = options.fx || false;
         var $target;
-        
+
         // get the target element
 
         switch (targetSelector) {
@@ -91,11 +91,11 @@ YOI.action.Hide.init = function() {
             default:
                 $target = $(targetSelector);
         }
-        
+
         // prepare the target element
-        
+
         if ($target instanceof jQuery) {
-            
+
             // remove all fx-classes
 
             $target.removeClass(function (index, className) {
@@ -107,11 +107,11 @@ YOI.action.Hide.init = function() {
             if (fx) {
                 $target.addClass('fx-' + fx + '-initial').removeClass('fx-' + fx);
             }
-            
+
             // show the target element
-        
+
             $target.show();
-            
+
         }
 
     });
