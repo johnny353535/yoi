@@ -19,7 +19,7 @@ Add the Attribute `yoi-sticky` to any element. While scrolling down the page, as
 
 ```html
 <!-- example -->
-<div class="w-6 h-6 bg-primary-15 br-all" yoi-sticky="stop:300;not:small,xlarge;"></div>
+<div class="w-6 h-6 bg-primary-15 br-all" yoi-sticky="stop:300;"></div>
 ```
 
 <p class="hint hint--primary">If you provide no additional Parameter, the element sticks as long as the page can be scrolled.</p>
