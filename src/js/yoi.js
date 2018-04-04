@@ -745,11 +745,11 @@ var YOI = {
          *  Create or add to a collection of jQuery elements and add options,
          *  state and props data.
          *
-         *  @param  {} identifier - the string to select elements from the dom via
-         *                          custom yoi-{identifier} attribute
-         *  @param  {} $element   - jQuery element, optional
-         *  @param  {} options    - options, optional
-         *  @return {} object     - the jQuery element collection
+         *  @param  {string}         identifier - the string to select elements from the dom via
+         *                                        custom yoi-{identifier} attribute
+         *  @param  {jQuery element} $element   - jQuery element, optional
+         *  @param  {object}         options    - options, optional
+         *  @return {object}                    - the jQuery element collection
          */
 
         // if it does not exist, create a new collection of jQuery elements
@@ -804,27 +804,37 @@ var YOI = {
 
     },
 
-    // YOI actions
-
-    bindAction: function($element, hook) {
+    destroyCollection : function(identifier) {
 
         /**
-         *  Reads function and event type from the hook parameters and binds
+         *  Delete an element collection by setting it to undefined.
+         *
+         *  @param {string} identifier - the string to select elements from the dom via
+         */
+
+        YOI.elementCollection[identifier] = undefined;
+
+    },
+
+    // YOI actions
+
+    bindAction: function($element, yoiAction) {
+
+        /**
+         *  Reads function and event type from the yoi-action-[*] parameters and binds
          *  them to a given jQuery $element.
          *
          *  @param {jQuery element} $element
-         *  @param {string}         hook
+         *  @param {string}         yoiAction
          */
 
         // cancel if action was already bound
 
-        if ($element.data().props.hasOwnProperty(hook)) return false;
-
-        //if ($element.data().props.hasOwnProperty(hook)) return false;
+        if ($element.data().props.hasOwnProperty(yoiAction)) return false;
 
         // proceed
 
-        var params         = YOI.toObject($element.attr(hook));
+        var params         = YOI.toObject($element.attr(yoiAction));
         var action         = params['action'] || Object.keys(params)[0] || '';
         var hostObject     = action.split('.')[0] || false;
         var publicFunction = action.split('.')[1] || false;
@@ -883,7 +893,7 @@ var YOI = {
 
         // set flag: action is bound
 
-        $element.data().props[hook] = true;
+        $element.data().props[yoiAction] = true;
 
     },
 

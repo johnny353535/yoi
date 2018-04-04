@@ -47,10 +47,10 @@ YOI.module.ScrollAgent = (function() {
             if (!initialized) {
 
                 $window
-                    .on('load.yoi resize.yoi yoi-pageheight-change', function() {
+                    .on('load.yoi-scrollAgent resize.yoi-scrollAgent yoi-pageheight-change.scrollAgent', function() {
                         update();
                     })
-                    .on('yoi-scroll', function() {
+                    .on('yoi-scroll.scrollAgent', function() {
                         observe();
                     });
 
@@ -65,7 +65,7 @@ YOI.module.ScrollAgent = (function() {
         // always broadcast custom scroll events:
         // yoi-scroll, yoi-scroll-up, yoi-scroll-down, yoi-scroll-stop
 
-        $window.off('scroll.yoi').on('scroll.yoi', function() {
+        $window.off('scroll.yoi-scrollAgent').on('scroll.yoi-scrollAgent', function() {
             broadcast();
         });
 

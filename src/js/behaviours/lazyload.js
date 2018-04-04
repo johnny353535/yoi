@@ -130,7 +130,7 @@ YOI.behaviour.Lazyload = (function() {
             // inject the new image after the noscript element
 
             $newImage
-                .on('load.yoi.lazyLoad', function() { $(this).addClass('fx-fade-in'); })
+                .on('load.yoi-lazyLoad', function() { $(this).addClass('fx-fade-in'); })
                 .attr('src', imageUrl)
                 .addClass('fx-fade-in-initial')
                 .insertAfter($noscriptElement);

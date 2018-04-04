@@ -36,19 +36,19 @@ YOI.module.KeyboardAgent = (function() {
          *  trigger the corresponding custom events.
          */
 
-        if (!initialized) $document.on('keyup.yoi.keyboardAgent', function(e) {
+        if (!initialized) $document.on('keyup.yoi-keyboardAgent', function(e) {
 
             // trigger the custom "yoi-keypressed" event
 
             var keyCode = e.which;
-            if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed-' + keys[keyCode] + '.keyboardAgent');
+            if (keys[keyCode] !== undefined) $document.trigger('yoi-keypressed-' + keys[keyCode]);
 
         });
 
         // trigger the custom "yoi-focus-change" event
 
-        $document.on('focusin.yoi.keyboardAgent focusout.yoi.keyboardAgent', function() {
-            $document.trigger('yoi-focus-change.keyboardAgent');
+        $document.on('focusin.yoi-keyboardAgent focusout.yoi-keyboardAgent', function() {
+            $document.trigger('yoi-focus-change');
         });
 
         // set "initialized" flag
@@ -81,7 +81,7 @@ YOI.module.KeyboardAgent = (function() {
             if ($activeElement.is($elements)) {
                 $activeElement
                     .addClass('tabFocus')
-                    .on('blur.yoi.keyboardAgent', function() {
+                    .on('blur.yoi-keyboardAgent', function() {
                         $activeElement.removeClass('tabFocus');
                     });
             }

@@ -40,7 +40,7 @@
         {% include metamenu.html %}
         <div class="wrapper flx m-t-10">
             <nav id="menu" class="w-1-1 l--w-1-5 m-t-7 flx-2 l--flx-1">
-                {% include menu.html %}
+                <div yoi-sticky="not:small,medium;">{% include menu.html %}</div>
             </nav>
             <article class="article w-1-1 l--w-4-5 l--p-l-10 flx-1 l--flx-2">
                 {% if page.status %}

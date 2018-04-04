@@ -32,14 +32,13 @@ YOI.module.Resizeagent = (function() {
 
         // proceed, attach events
 
-        $window.on('resize.yoi.resizeAgent', function() {
+        $window.on('resize.yoi-resizeAgent', function() {
             reportResizeChange();
-            reportPageHeightChange();
+            reportBreakPointChange();
         });
 
         $document.ready(function() {
-            reportBreakPointChange();
-            reportPageHeightChange();
+            observePageHeightChange();
         });
 
         // set initialized flag
@@ -57,7 +56,7 @@ YOI.module.Resizeagent = (function() {
         YOI.clearDelay('reportResizeChangeDelay');
 
         YOI.setDelay('reportResizeChangeDelay', 250, function() {
-            $window.trigger('yoi-resize.resizeAgent');
+            $window.trigger('yoi-resize');
         });
 
     }
@@ -78,8 +77,8 @@ YOI.module.Resizeagent = (function() {
             YOI.clearDelay('reportBreakPointChangeDelay');
 
             YOI.setDelay('reportBreakPointChangeDelay', 250, function() {
-                $window.trigger('yoi-breakpoint-change.resizeAgent');
-                $window.trigger('yoi-breakpoint-' + activeBreakPoint + '.resizeAgent');
+                $window.trigger('yoi-breakpoint-change');
+                $window.trigger('yoi-breakpoint-' + activeBreakPoint);
             });
 
             // remember last breakpoint
@@ -90,7 +89,7 @@ YOI.module.Resizeagent = (function() {
 
     }
 
-    function reportPageHeightChange() {
+    function observePageHeightChange() {
 
         /**
          *  Observes the page height on an interval to
@@ -105,7 +104,7 @@ YOI.module.Resizeagent = (function() {
             currentPageHeight = $body.height();
 
             if (currentPageHeight !== lastPageHeight) {
-                $window.trigger('yoi-pageheight-change.resizeAgent');
+                $window.trigger('yoi-pageheight-change');
                 lastPageHeight = $body.height();
             }
 

@@ -166,7 +166,7 @@ YOI.behaviour.Parallax = (function() {
 
         $('body').scrollTop(0);
 
-        $window.on('unload.yoi.parallax', function() {
+        $window.on('unload.yoi-parallax', function() {
             $window.scrollTop(0);
         });
 

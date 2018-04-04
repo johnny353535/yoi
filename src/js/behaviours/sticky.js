@@ -53,13 +53,12 @@ YOI.behaviour.Sticky = (function() {
 
             if ($thisStickyElement.css('position') === 'fixed' || $stickyElement.css('transform') !== 'none') return;
 
-            // ... otherwise proceed and perform the necessary dom manipulation on load,
-            // then update the sticky element properties
+            // ... otherwise proceed and perform the necessary transformation on load,
+            // then update the sticky element's properties
 
-            $window.on('load.yoi.sticky yoi-resize.sticky yoi-pageheight-change.sticky', function() {
-                manipulateDom($thisStickyElement, index);
+            $window.on('load.yoi-sticky', function() {
+                transformStickyElement($thisStickyElement, index);
                 updateStickyElementProps($thisStickyElement);
-                // stickObserver($thisStickyElement);
             });
 
             // set initialized
@@ -70,12 +69,12 @@ YOI.behaviour.Sticky = (function() {
 
         // start position & stick observers
 
-        if ($stickyElement) startPositionObserver($stickyElement);
-        if ($stickyElement) startStickObserver($stickyElement);
+        if ($stickyElement) startPositionObserver($stickyElement); // on: yoi-breakpoint-change yoi-pageheight-change
+        if ($stickyElement) startStickObserver($stickyElement);    // on: yoi-scroll
 
     }
 
-    function manipulateDom($stickyElement, index) {
+    function transformStickyElement($stickyElement, index) {
 
         /**
          *  Perform all necessary dom manipulations and style changes.
@@ -84,11 +83,12 @@ YOI.behaviour.Sticky = (function() {
          *  @param {number}         index          - the index of $stickyElement
          */
 
-        var $stickyPlaceholder        = $('<div id="stickyPlaceholder-' + index + '"></div>');
-        var $stickyWrapper            = $('<div class="stickyWrapper"></div>');
-        var stickyElementCssPos       = $stickyElement.css('position');
-        var stickyElementCssLeft      = $stickyElement.css('left');
-        var stickyElementCssTop       = $stickyElement.css('top');
+        var $stickyPlaceholder     = $('<div id="stickyPlaceholder-' + index + '"></div>');
+        var $stickyWrapper         = $('<div class="stickyWrapper"></div>');
+        var stickyElementCssPos    = $stickyElement.css('position');
+        var stickyElementCssLeft   = $stickyElement.css('left');
+        var stickyElementCssTop    = $stickyElement.css('top');
+        var stickyElementCSSMargin = $stickyElement.css('margin');
 
         // set the $stickyElement and $stickyWrapper styles
 
@@ -97,9 +97,10 @@ YOI.behaviour.Sticky = (function() {
             // if the $stickyElement is absolutely or relatively positioned,
             // clear these properties and copy them over to $stickyWrapper
 
-            $stickyElement.css({
-                'position': 'static'
-            });
+            // we use native setProperty() on $stickyElement because we might need
+            // to override rules wich are applied with "!important"
+
+            $stickyElement[0].style.setProperty('position', 'static', 'important');
 
             $stickyWrapper.css({
                 'position': stickyElementCssPos,
@@ -120,6 +121,7 @@ YOI.behaviour.Sticky = (function() {
         // set the $stickyPlaceholder styles
 
         $stickyPlaceholder.css({
+            'margin'  : stickyElementCSSMargin,
             'width'   : $stickyElement.outerWidth(),
             'height'  : $stickyElement.outerHeight(),
             'display' : 'none'
@@ -129,6 +131,24 @@ YOI.behaviour.Sticky = (function() {
 
         $($stickyElement).wrap($stickyWrapper);
         $stickyPlaceholder.insertAfter($stickyElement);
+
+    }
+
+    function resetStickyElement($stickyElement, index) {
+
+        /**
+         *  Reset all data, CSS and dom manipulation for a given
+         *  sticky element.
+         *
+         *  @param {jQuery element} $stickyElement - the sticky element
+         *  @param {number}         index          - the index of $stickyElement
+         */
+
+        $('#stickyPlaceholder-' + index).remove();
+
+        $stickyElement.data().props = {};
+        $stickyElement.removeAttr('style');
+        $stickyElement.unwrap('.stickyWrapper');
 
     }
 
@@ -142,17 +162,20 @@ YOI.behaviour.Sticky = (function() {
          *  @param {jQuery element} $stickyElement - the sticky element
          */
 
-        var data                          = $stickyElement.data();
-        var options                       = data.options;
-        var $referenceElement             = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
-        var stickyElementHeight           = $stickyElement.outerHeight();
-        var stickyElementWidth            = $stickyElement.outerWidth();
-        var stickyElementInitialTopPos    = $stickyElement.offset().top;
-        var topOffset                     = options.start !== undefined ? parseInt(options.start) : 0;
-        var topDistance                   = options.stop !== undefined ? parseInt(options.stop) : 0;
-        var stickStart                    = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
-        var stickStop                     = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
-        var passedValidation              = validInput($stickyElement);
+        var activeBreakpoint           = YOI.currentBreakPoint();
+        var data                       = $stickyElement.data();
+        var options                    = data.options;
+        var $referenceElement          = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
+        var stickyElementHeight        = $stickyElement.outerHeight();
+        var stickyElementWidth         = $stickyElement.outerWidth();
+        var stickyElementInitialTopPos = $stickyElement.offset().top;
+        var topOffset                  = options.start !== undefined ? parseInt(options.start) : 0;
+        var topDistance                = options.stop !== undefined ? parseInt(options.stop) : 0;
+        var stickStart                 = options.start !== undefined ? stickyElementInitialTopPos - topOffset : stickyElementInitialTopPos;
+        var stickStop                  = options.stop !== undefined ? stickyElementInitialTopPos + topDistance - topOffset : $body.height();
+        var not                        = options.not !== undefined ? options.not.split(',') : false;
+        var allowedOnCurrentBreakpoint = $.inArray(activeBreakpoint, not) === -1;
+        var passedValidation           = validInput($stickyElement) && validHeight($stickyElement) && allowedOnCurrentBreakpoint;
 
         // the reference element is found in the dom
 
@@ -206,6 +229,24 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
+    function validHeight($stickyElement) {
+
+        /**
+         *  Prevents very tall elements from getting sticky.
+         *  Returns TRUE if $stickyElement is shorter and FALSE if $stickyElement
+         *  is taller than the window height.
+         *
+         *  @return {bool}
+         */
+
+        if ($stickyElement.outerHeight() > $window.height()) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
     function positionObserver($stickyElements) {
 
         /**
@@ -217,14 +258,19 @@ YOI.behaviour.Sticky = (function() {
 
         $stickyElements.each(function(index) {
 
-            var $stickyElement = $(this);
+            var $stickyElement   = $(this);
+            var passedValidation = validInput($stickyElement) && validHeight($stickyElement);
 
-            // if the sticky element passed validation (=> validInput),
-            // do the re-positioning
+            // reset & update props, if the sticky element passed validation,
+            // do the transformation
 
-            if (validInput($stickyElement)) {
-                updateStickyElementProps($stickyElement);
-            }
+            resetStickyElement($stickyElement, index);
+            if (passedValidation) transformStickyElement($stickyElement, index);
+            updateStickyElementProps($stickyElement);
+
+            // trigger one initial scroll event
+
+            $window.trigger('yoi-scroll.sticky');
 
         });
 
@@ -233,11 +279,12 @@ YOI.behaviour.Sticky = (function() {
     function startPositionObserver($stickyElements) {
 
         /**
+         *  Start the position observer.
          *
-         *
+         *  @param {jQuery element} $stickyElements - the sticky elements
          */
 
-        $window.on('yoi-resize.sticky yoi-pageheight-change.sticky', function() {
+        $window.on('yoi-breakpoint-change.sticky yoi-pageheight-change.sticky', function() {
             positionObserver($stickyElements);
         });
 
@@ -246,8 +293,7 @@ YOI.behaviour.Sticky = (function() {
     function stopPositionObserver() {
 
         /**
-         *
-         *
+         *  Stop the position observer.
          */
 
         $window.off('yoi-resize.sticky yoi-pageheight-change.sticky');
@@ -332,11 +378,15 @@ YOI.behaviour.Sticky = (function() {
 
                 // set the css
 
+                // we use native setProperty() on $stickyElement because we might need to override
+                // rules wich are applied with "!important"
+
+                $stickyElement[0].style.setProperty('position', cssPositionValue, 'important');
+
                 $stickyElement.css({
-                    'position': cssPositionValue,
-                    'top': cssTopValue,
-                    'backface-visibility': 'hidden',
-                    'z-index': 1001
+                    'top' : cssTopValue,
+                    'backface-visibility' : 'hidden',
+                    'z-index' : 1001
                 });
 
                 $stickyPlaceholder.css({
@@ -352,8 +402,9 @@ YOI.behaviour.Sticky = (function() {
     function startStickObserver($stickyElements) {
 
         /**
+         *  Start the stick observer.
          *
-         *
+         *  @param {jQuery element} $stickyElements - the sticky elements
          */
 
         $window.on('yoi-scroll.sticky', function() {
@@ -365,8 +416,7 @@ YOI.behaviour.Sticky = (function() {
     function stopStickObserver() {
 
         /**
-         *
-         *
+         *  Stop the stick observer.
          */
 
         $window.off('yoi-scroll.sticky');
