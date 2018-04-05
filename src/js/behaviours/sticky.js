@@ -21,11 +21,11 @@ YOI.behaviour.Sticky = (function() {
          *
          *  Available options:
          *
-         *  @option {number} start     - The distance between the sticky element top position and the
-         *                               viewport top border at the moment the element sticks.
+         *  @option {number} start     - The distance between the sticky element's top position and the
+         *                               viewport's top border at the moment the element sticks.
          *                               The default value is 0.
-         *  @option {number} stop      - The distance between the sticky element initial top position
-         *                               and the sticky element final top position at the moment it
+         *  @option {number} stop      - The distance between the sticky element's initial top position
+         *                               and the sticky element's final top position at the moment it
          *                               stops sticking. The default value is the body height, which results
          *                               in sticking as long as the page can be scrolled.
          *  @option {string} reference - If the value is the keyword/string "parent", the sticky
@@ -36,6 +36,11 @@ YOI.behaviour.Sticky = (function() {
          *                               it's height to define a stop position for the sticky element.
          *                               The sticky element "sticks" as long as it's bottom aligns with
          *                               the reference element's bottom.
+         *  @option {string} not       - A single string or a comma-seperated list of strings. Valid values
+         *                               are "small", "medium", "large" and "xlarge". This options tells
+         *                               the sticky element to disable it's sticky behaviour on the given
+         *                               breakpoints (eg. not:small,medium; = element won't stick on "small"
+         *                               and "medium" breakpoint).
          */
 
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
@@ -48,18 +53,16 @@ YOI.behaviour.Sticky = (function() {
 
             if ($thisStickyElement.data().props.isSticky) return;
 
-            // if the sticky already has position:fixed or
+            // if $thisStickyElement already has position:fixed or
             // any css transformation, cancel ...
 
             if ($thisStickyElement.css('position') === 'fixed' || $stickyElement.css('transform') !== 'none') return;
 
-            // ... otherwise proceed and perform the necessary transformation on load,
+            // ... otherwise proceed and perform the necessary transformation,
             // then update the sticky element's properties
 
-            $window.on('load.yoi-sticky', function() {
-                transformStickyElement($thisStickyElement, index);
-                updateStickyElementProps($thisStickyElement);
-            });
+            transformStickyElement($thisStickyElement, index);
+            updateStickyElementProps($thisStickyElement);
 
             // set initialized
 
@@ -69,15 +72,15 @@ YOI.behaviour.Sticky = (function() {
 
         // start position & stick observers
 
-        if ($stickyElement) startPositionObserver($stickyElement); // on: yoi-breakpoint-change yoi-pageheight-change
-        if ($stickyElement) startStickObserver($stickyElement);    // on: yoi-scroll
+        if ($stickyElement) startPositionObserver(); // on: yoi-breakpoint-change yoi-pageheight-change
+        if ($stickyElement) startStickObserver();    // on: yoi-scroll
 
     }
 
     function transformStickyElement($stickyElement, index) {
 
         /**
-         *  Perform all necessary dom manipulations and style changes.
+         *  Perform all necessary dom manipulation and style changes.
          *
          *  @param {jQuery element} $stickyElement - the sticky element
          *  @param {number}         index          - the index of $stickyElement
@@ -97,16 +100,16 @@ YOI.behaviour.Sticky = (function() {
             // if the $stickyElement is absolutely or relatively positioned,
             // clear these properties and copy them over to $stickyWrapper
 
-            // we use native setProperty() on $stickyElement because we might need
-            // to override rules wich are applied with "!important"
-
-            $stickyElement[0].style.setProperty('position', 'static', 'important');
-
             $stickyWrapper.css({
                 'position': stickyElementCssPos,
                 'top': stickyElementCssTop,
                 'left': stickyElementCssLeft
             });
+
+            // we use native setProperty() on $stickyElement because we might need
+            // to override position rules wich are applied with "!important"
+
+            $stickyElement[0].style.setProperty('position', 'static', 'important');
 
         } else {
 
@@ -157,7 +160,7 @@ YOI.behaviour.Sticky = (function() {
         /**
          *  Reads options from the custom data-option interface and calculates other
          *  important data, like initial position, dimensions, etc. Adds all data to the
-         *  $stickyElement props object, so that it is available for other functions.
+         *  $stickyElement props object, to make it available for further use.
          *
          *  @param {jQuery element} $stickyElement - the sticky element
          */
@@ -210,8 +213,8 @@ YOI.behaviour.Sticky = (function() {
         /**
          *  Checks the input from the custom data-option interface and decides
          *  weather it makes sense. For example it does not make sense if the
-         *  start position value is larger than the end position value. Stuff would break.
-         *  Returns true if the input is valid, false if not.
+         *  start position value is larger than the end position value.
+         *  Returns TRUE if the input is valid, FALSE if not.
          *
          *  @param  {jQuery element} $stickyElement - the sticky element
          *  @return {bool}                          - true if data is valid, false if data is invalid
@@ -234,7 +237,7 @@ YOI.behaviour.Sticky = (function() {
         /**
          *  Prevents very tall elements from getting sticky.
          *  Returns TRUE if $stickyElement is shorter and FALSE if $stickyElement
-         *  is taller than the window height.
+         *  is taller than the window/viewport.
          *
          *  @return {bool}
          */
@@ -247,16 +250,13 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function positionObserver($stickyElements) {
+    function positionObserver() {
 
         /**
-         *  Listens to the window resize and custom yoi-pageHeight-change events and
-         *  updates the original $stickyElement property data.
-         *
-         *  @param {jQuery element} $stickyElements - the sticky element(s)
+         *  Resets and updates the $stickyElement props data.
          */
 
-        $stickyElements.each(function(index) {
+        YOI.elementCollection['sticky'].each(function(index) {
 
             var $stickyElement   = $(this);
             var passedValidation = validInput($stickyElement) && validHeight($stickyElement);
@@ -276,40 +276,24 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function startPositionObserver($stickyElements) {
+    function startPositionObserver() {
 
         /**
-         *  Start the position observer.
-         *
-         *  @param {jQuery element} $stickyElements - the sticky elements
+         *  Starts the position observer.
          */
 
         $window.on('yoi-breakpoint-change.sticky yoi-pageheight-change.sticky', function() {
-            positionObserver($stickyElements);
+            positionObserver();
         });
 
     }
 
-    function stopPositionObserver() {
+    function stickObserver() {
 
         /**
-         *  Stop the position observer.
-         */
-
-        $window.off('yoi-resize.sticky yoi-pageheight-change.sticky');
-
-    }
-
-    function stickObserver($stickyElements) {
-
-        /**
-         *  Listens to the window scroll event. If the event is fired, this function
-         *  observes all sticky elements and manipulates their position. If a sticky element
+         *  Observes all sticky elements and manipulates their position. If a sticky element
          *  is inside it's "sticky boundaries", it is "set to stick", otherwise it gets "unstuck".
-         *
-         *  @param {jQuery element} $stickyElements - the sticky element(s)
          */
-
 
         // store the scroll position
 
@@ -317,7 +301,7 @@ YOI.behaviour.Sticky = (function() {
 
         // observe all sticky elements
 
-        $stickyElements.each(function(index) {
+        YOI.elementCollection['sticky'].each(function(index) {
 
             var $stickyElement             = $(this);
             var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
@@ -326,6 +310,7 @@ YOI.behaviour.Sticky = (function() {
             var stickStart                 = props.stickStart;
             var stickStop                  = props.stickStop;
             var topOffset                  = props.topOffset;
+            var passedValidation           = props.passedValidation;
 
             var cssPositionValue;
             var cssTopValue;
@@ -333,7 +318,7 @@ YOI.behaviour.Sticky = (function() {
 
             // proceed if the sticky element passed validation
 
-            if (props.passedValidation) {
+            if (passedValidation) {
 
                 // re-position on scroll
 
@@ -399,27 +384,32 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function startStickObserver($stickyElements) {
+    function startStickObserver() {
 
         /**
-         *  Start the stick observer.
-         *
-         *  @param {jQuery element} $stickyElements - the sticky elements
+         *  Starts the stick observer.
          */
 
         $window.on('yoi-scroll.sticky', function() {
-            stickObserver($stickyElements);
+            stickObserver();
         });
 
     }
 
-    function stopStickObserver() {
+    function destroy() {
 
         /**
-         *  Stop the stick observer.
+         *  Disable all sticky behaviour and reset all changes to
+         *  the document or element stylings, remove all related event listeners.
          */
 
-        $window.off('yoi-scroll.sticky');
+        $window.off('yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
+
+        YOI.elementCollection['sticky'].each(function() {
+            resetStickyElement($(this));
+        });
+
+        YOI.destroyCollection('sticky');
 
     }
 
@@ -427,7 +417,8 @@ YOI.behaviour.Sticky = (function() {
     // ================
 
     return {
-        init: initialize
+        init : initialize,
+        destroy : destroy
     };
 
 })();

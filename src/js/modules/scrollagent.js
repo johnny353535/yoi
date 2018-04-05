@@ -242,6 +242,25 @@ YOI.module.ScrollAgent = (function() {
 
     }
 
+    function ignore($targetElement) {
+
+        /**
+         *
+         *
+         */
+
+        YOI.elementCollection['scrollagent'].each(function() {
+
+            var $this = $(this);
+
+            if ($this.is($targetElement)) {
+                // remove $targetElement
+            }
+
+        });
+
+    }
+
     // public functions
     // ================
 

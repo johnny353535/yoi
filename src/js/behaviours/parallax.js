@@ -43,7 +43,7 @@ YOI.behaviour.Parallax = (function() {
 
                 // update parallax element
 
-                updateParallaxElement($this);
+                update($this);
 
                 // set initialized
 
@@ -65,7 +65,7 @@ YOI.behaviour.Parallax = (function() {
             $window
                 .on('yoi-pageheight-change.parallax', function() {
                     updateParallaxEnv();
-                    updateParallaxElements($parallaxElement);
+                    updateAll();
                 })
                 .on('yoi-scroll.parallax', function() {
                     updateParallaxEnv();
@@ -77,6 +77,58 @@ YOI.behaviour.Parallax = (function() {
             initialized = true;
 
         }
+
+    }
+
+    function update($parallaxElement) {
+
+        /**
+         *  Updates a parallax element. Initializes YOI.scrollAgent on first
+         *  call, etc.
+         *
+         *  @param {jQuery element} $parallaxElement
+         */
+
+        var data = $parallaxElement.data();
+
+        // observe element via YOI.ScrollAgent
+
+        if (!data.props.isParallax) {
+            YOI.module.ScrollAgent.init($parallaxElement);
+        }
+
+        // edge case: flag elements which are already inside the viewport
+        // on dom-ready
+
+        if (data.state !== 'out') {
+            $parallaxElement.data().props.startsInViewport = true;
+        }
+
+    }
+
+    function reset($parallaxElement) {
+
+        /**
+         *
+         *
+         */
+
+        $parallaxElement.data().props = {};
+
+    }
+
+    function updateAll() {
+
+        /**
+         *  Simple helper function to update all parallax elements
+         *  in the collection $parallaxElement.
+         *
+         *  @param {jQuery element} $parallaxElement
+         */
+
+        YOI.elementCollection['parallax'].each(function() {
+            update($(this));
+        });
 
     }
 
@@ -112,47 +164,6 @@ YOI.behaviour.Parallax = (function() {
 
             });
 
-        });
-
-    }
-
-    function updateParallaxElement($parallaxElement) {
-
-        /**
-         *  Updates a parallax element. Initializes YOI.scrollAgent on first
-         *  call, etc.
-         *
-         *  @param {jQuery element} $parallaxElement
-         */
-
-        var data = $parallaxElement.data();
-
-        // observe element via YOI.ScrollAgent
-
-        if (!data.props.isParallax) {
-            YOI.module.ScrollAgent.init($parallaxElement);
-        }
-
-        // edge case: flag elements which are already inside the viewport
-        // on dom-ready
-
-        if (data.state !== 'out') {
-            $parallaxElement.data().props.startsInViewport = true;
-        }
-
-    }
-
-    function updateParallaxElements($parallaxElement) {
-
-        /**
-         *  Simple helper function to update all parallax elements
-         *  in the collection $parallaxElement.
-         *
-         *  @param {jQuery element} $parallaxElement
-         */
-
-        $parallaxElement.each(function() {
-            updateParallaxElement($(this));
         });
 
     }
@@ -193,6 +204,17 @@ YOI.behaviour.Parallax = (function() {
          */
 
         return $window.scrollTop() + $window.height() > $(document).height() || $window.scrollTop() < 0;
+
+    }
+
+    function destroy() {
+
+        /**
+         *
+         *
+         */
+
+        $window.off('yoi-pageheight-change.parallax yoi-scroll.parallax');
 
     }
 
