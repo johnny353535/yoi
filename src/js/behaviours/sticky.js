@@ -311,7 +311,7 @@ YOI.behaviour.Sticky = (function() {
             var stickStop                  = props.stickStop;
             var topOffset                  = props.topOffset;
             var passedValidation           = props.passedValidation;
-
+            var cssWidthValue              = props.width;
             var cssPositionValue;
             var cssTopValue;
             var stickyPlaceholderDisplay;
@@ -369,6 +369,7 @@ YOI.behaviour.Sticky = (function() {
                 $stickyElement[0].style.setProperty('position', cssPositionValue, 'important');
 
                 $stickyElement.css({
+                    'width' : cssWidthValue,
                     'top' : cssTopValue,
                     'backface-visibility' : 'hidden',
                     'z-index' : 1001
