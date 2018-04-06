@@ -60,30 +60,30 @@ Add **absolute** positioning with the following utilities, placing an element to
 ```html
 <!-- example:tabs -->
 <div class="fs-0">
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-green-15 pos-t"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-green-15 pos-r"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-green-15 pos-b"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-green-15 pos-l"></div>
     </div>
 </div>
 <div class="fs-0">
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-blue-15 pos-tl"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-blue-15 pos-tr"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-blue-15 pos-br"></div>
     </div>
-    <div class="pos-relative br-all bg-gray-25 bg-gray-25 w-5 h-5 d-inlineblock m-1">
+    <div class="pos-relative br-all bg-gray-25 w-5 h-5 d-inlineblock m-1">
         <div class="w-1 h-1 bg-blue-15 pos-bl"></div>
     </div>
 </div>
