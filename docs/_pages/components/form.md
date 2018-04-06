@@ -124,7 +124,7 @@ Use the modifiers `.input--positive` and `.input--negative` to visualize input v
 
 You can use the modifiers `.input--focus`, `.input--disabled` and `.input--readonly` to add the styling for the corresponding states.
 
-<p class="hint hint--negative"><b>Chose attributes over modifiers</b>: Since the modifiers only affect styling, not behaviour, always us the correct attributes rather than state modifiers.</p>
+<p class="hint hint--negative"><b>Choose attributes over modifiers</b>: Since the modifiers only affect styling, not behaviour, always use the correct attributes rather than state modifiers.</p>
 
 ```html
 <!-- example:tabs -->
