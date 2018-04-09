@@ -9,19 +9,19 @@ permalink: start/customizing
 
 <p class="intro">Yoi offers a wide range of build-in options for customization. Tweak color values, change components and add your own styles and scripts.</p>
 
-## The Yoi Boilerplate
+## The Yoi Kit
 
-To customize Yoi, you need to download and compile it on your machine. We prepared a starter kit &mdash; [the Yoi Boilerplate](https://github.com/yoshino-digital/yoi-boilerplate) &mdash; which also offers powerful templating and a simple static page building workflow.
+To customize Yoi, you need to download and compile it on your machine. We prepared a starter repository &mdash; [the Yoi Kit](https://github.com/yoshino-digital/yoi-kit) &mdash; which also offers powerful templating and a simple static page building workflow.
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate on GitHub</a>
+    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit on GitHub</a>
 </div>
-<p class="hint hint--primary"><b>Yoi Boilerplate</b> The following documentation specifically describes how to customize Yoi via the <a href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate</a>. We highly advice using it instead of the main Yoi repository for customization.</p>
-<p class="hint"><b>Readme Files & Inline Coments</b> You will find readme files inside most directories of the Yoi Boilerplate. In addition to that, most files contain inline comments which provide useful contextual help.</p>
+<p class="hint hint--primary"><b>Yoi Kit</b> The following documentation specifically describes how to customize Yoi via the <a href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit</a>. We highly advice using it instead of the main Yoi repository for customization.</p>
+<p class="hint"><b>Readme Files & Inline Coments</b> You will find readme files inside most directories of the Yoi Kit. In addition to that, most files contain inline comments which provide useful contextual help.</p>
 
 ## Configuring and Customizing
 
-After you checked the [Yoi Boilerplate](https://github.com/yoshino-digital/yoi-boilerplate) out to your machine and executed [`npm install`](https://github.com/yoshino-digital/yoi-boilerplate#installing), you will find all config files in `src/assets/less/config/`. Use the variables in [options.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/options.less) to configure your own build of Yoi.
+After you checked the [Yoi Kit](https://github.com/yoshino-digital/yoi-kit) out to your machine and executed [`npm install`](https://github.com/yoshino-digital/yoi-kit#installing), you will find all config files in `src/assets/less/config/`. Use the variables in [options.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/options.less) to configure your own build of Yoi.
 
 <p class="tree">
 src
@@ -96,7 +96,7 @@ Use the variables in [typography.less](https://github.com/yoshino-digital/yoi/bl
 
 * Use the index files inside `/src/assets/js/` to chose the JavaScript files for [actions]({{ github.url }}/actions/), [behaviours]({{ github.url }}/behaviours/), [components]({{ github.url }}/components/) and *modules* for your project. By default, all scripts are included.
 * Use `src/assets/less/yoi-components.less` and `src/assets/less/yoi-utilities.less` to pick the [components]({{ site.github.url }}/components) and [utilities]({{ site.github.url }}/utilities) for your project. By default, all components and utilities are included.
-* The [*publish* task](https://github.com/yoshino-digital/yoi-boilerplate#publish) makes experimental use of [uncss](https://github.com/giakki/uncss) — a script that parses HTML files and removes all the CSS rules from the stylesheets that were not referenced. This may dramatically shrink the file size because it removes many unused utility classes (eg. for [spacing]({{ github.url }}/utilities/spacing.html) and [sizing]({{ github.url }}/utilities/sizing.html)).
+* The [*publish* task](https://github.com/yoshino-digital/yoi-kit#publish) makes experimental use of [uncss](https://github.com/giakki/uncss) — a script that parses HTML files and removes all the CSS rules from the stylesheets that were not referenced. This may dramatically shrink the file size because it removes many unused utility classes (eg. for [spacing]({{ github.url }}/utilities/spacing.html) and [sizing]({{ github.url }}/utilities/sizing.html)).
 
 ## Extending
 

@@ -168,7 +168,7 @@ title: Index
             </div>
             <div class="m--w-2-3 w-1-1">
                 <div class="c-base-15 fs-5 lh-8 m-t-2">
-                    <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start/customizing.html">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-boilerplate">easy to customize</a> for experienced front-end developers.</p>
+                    <p>Yoi was carefully designed to look great right out-of-the-box. However, it’s <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/start/customizing.html">well documented</a> for beginners and <a class="tdr-none hvr--tdr-underline" href="https://github.com/yoshino-digital/yoi-kit">easy to customize</a> for experienced front-end developers.</p>
                 </div>
             </div>
         </div>

@@ -34,8 +34,8 @@ Or use this JsFiddle to test Yoi right in your browser:
     <a class="btn btn--large" href="https://jsfiddle.net/0e8h8rer/17/">Try out Yoi in your browser</a>
 </div>
 
-Or use the *YOI Boilerplate* and compile a customized version on your machine:
+Or use the *YOI Kit* and compile a customized version on your machine:
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-boilerplate">Yoi Boilerplate on GitHub</a>
+    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit on GitHub</a>
 </div>
