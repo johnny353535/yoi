@@ -14,9 +14,9 @@ srcfiles:
 
 ## Utilities
 
-| `.vis-vis` | Sets any element to `visibility: visible;` |
-| `.vis-hid` | Sets any element to `visibility: hidden;`  |
-| `.hidden`  | Visually hidden, yet accessible.           |
+| `.vis-visible` | Sets any element to `visibility: visible;` |
+| `.vis-hidden`  | Sets any element to `visibility: hidden;`  |
+| `.hidden`      | Visually hidden, yet accessible.           |
 
 <p class="hint hint--negative"><b>Accessability:</b> If you want to make sure that screen readers are able to access your element, use the utility <code>.hidden</code> instead of <code>.vis-hid</code>.</p>
 
