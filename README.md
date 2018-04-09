@@ -35,7 +35,3 @@ However, as a Yoshino team member, this is how you publish your changes:
 4. Tag a new release with the new version number
 
 If you wish to learn more about using GIT and GitHub, [this website](http://rogerdudler.github.io/git-guide/) might be a valuable recource for you.
-
-## Licensing
-
-We plan to release Yoi under a Creative Commons Attribution-NonCommercial license.
