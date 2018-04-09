@@ -33,11 +33,12 @@ Use heading utilities to apply the styling of [headings](/components/headings.ht
 
 ## Font Size
 
-You can chose from **10 font size steps** where `.fs-0` is zero and `.fs-10` is the largest font size (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)). An addition, `.fs-xl` and `.fs-xxl` are available for very large type.
+You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is the largest font size (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
+
+| `.fs-0` |`.fs-1` | `.fs-2` | `.fs-3` | `.fs-4` | `.fs-5` | `.fs-6` | `.fs-7` | `.fs-8` | `.fs-9` | `.fs-10` |
 
 ```html
 <!-- example -->
-<p class="fs-0 m-b-2">Abc</p>
 <p class="fs-1 m-b-2">Abc</p>
 <p class="fs-2 m-b-2">Abc</p>
 <p class="fs-3 m-b-2">Abc</p>
@@ -48,26 +49,35 @@ You can chose from **10 font size steps** where `.fs-0` is zero and `.fs-10` is 
 <p class="fs-8 m-b-2">Abc</p>
 <p class="fs-9 m-b-2">Abc</p>
 <p class="fs-10 m-b-2">Abc</p>
+```
+
+ An addition, `.fs-s` is available for small type and `.fs-xl` and `.fs-xxl` are available for very large type.
+
+```html
+<!-- example -->
+<p class="fs-s m-b-2">Abc</p>
 <p class="fs-xl m-b-2">Abc</p>
 <p class="fs-xxl">Abc</p>
-```
+````
 
 <p class="hint hint--negative">The utility <code>.fs-0</code> sets the font size to zero.</p>
 
 ### Responsive Font Size
 
-| `.only-s--fs-[0–10]` | font size `[0–10]` only at breakpoint `s`       |
-| `.m--fs-[0–10]`      | font size `[0–10]` at breakpoint `m` and larger |
-| `.only-m--fs-[0–10]` | font size `[0–10]` only at breakpoint `m`       |
-| `.l--fs-[0–10]`      | font size `[0–10]` at breakpoint `l` and larger |
-| `.only-l--fs-[0–10]` | font size `[0–10]` only at breakpoint `l`       |
-| `.xl--fs-[0–10]`     | font size `[0–10]` at breakpoint `xl`           |
+| `.only-s--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `s`       |
+| `.m--fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `m` and larger |
+| `.only-m--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `m`       |
+| `.l--fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `l` and larger |
+| `.only-l--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `l`       |
+| `.xl--fs-[0–10/s,xl,xxl]`     | font size `[0–10/s,xl,xxl]` at breakpoint `xl`           |
 
 <p class="hint hint--negative">The utility <code>.lh-0</code> sets the line height to zero.</p>
 
 ## Line Height
 
-You can chose from **10 line heights** where `.lh-0` is zero and `.lh-10` is the largest line height (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
+You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the largest line height (learn more about [configuring and customizing Yoi](/start/customizing.html#configuring-and-customizing)).
+
+| `.lh-0` |`.lh-1` | `.lh-2` | `.lh-3` | `.lh-4` | `.lh-5` | `.lh-6` | `.lh-7` | `.lh-8` | `.lh-9` | `.lh-10` |
 
 ### Responsive Line Height
 
