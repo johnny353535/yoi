@@ -1,19 +1,30 @@
 /** visibility-responsive.less */
 
+/* uncss:ignore start */
+
+.responsive-vis(@bpPrefix) {
+    .@{bpPrefix}--vis-visible { visibility: visible !important; }
+    .@{bpPrefix}--vis-hidden  { visibility: hidden !important; }
+    .@{bpPrefix}--visible     { .mixin-show !important; }
+    .@{bpPrefix}--hidden      { .mixin-hide !important; }
+}
+
 // small
 
-@media @bp-only-s { .only-s--hidden { .mixin-hide !important; } }
+@media @bp-only-s { .responsive-vis(only-s); }
 
 // medium
 
-@media @bp-m { .m--hidden { .mixin-hide !important; } }
-@media @bp-only-m { .only-m--hidden { .mixin-hide !important; } }
+@media @bp-m { .responsive-vis(m); }
+@media @bp-only-m { .responsive-vis(only-m); }
 
 // large
 
-@media @bp-l { .l--hidden { .mixin-hide !important; } }
-@media @bp-only-l { .only-l--hidden { .mixin-hide !important; } }
+@media @bp-l { .responsive-vis(l); }
+@media @bp-only-l { .responsive-vis(only-l); }
 
 // x-large
 
-@media @bp-xl { .xl--hidden { .mixin-hide !important; } }
+@media @bp-xl { .responsive-vis(xl); }
+
+/* uncss:ignore end */
