@@ -12,12 +12,11 @@ YOI.module.ScrollAgent = (function() {
     // private vars
     // ============
 
-    var $window = $(window);
-    var $activeTargetElements;
-    var viewportHeight = $window.height();
+    var initialized      = false;
+    var $window          = $(window);
+    var viewportHeight   = $window.height();
+    var lastScrollTop    = 0;
     var currentScrollTop;
-    var lastScrollTop = 0;
-    var initialized = false;
 
     // private functions
     // =================
@@ -30,39 +29,31 @@ YOI.module.ScrollAgent = (function() {
         *  @param {jQuery element} $targetElement
         */
 
-        var $targetElement = YOI.createCollection('scrollagent', $targetElement);
+        if ($targetElement instanceof jQuery) YOI.createCollection('scrollagent', $targetElement);
 
-        if ($targetElement) {
+        // attach events
 
-            // share all target elements in a new variable
+        if (!initialized) {
 
-            $activeTargetElements = $targetElement;
+            $window
+                .on('load.yoi-scrollAgent resize.yoi-scrollAgent yoi-pageheight-change.scrollAgent', function() {
+                    update();
+                })
+                .on('yoi-scroll.scrollAgent', function() {
+                    observe();
+                });
 
-            // initially run update()
+            // set initialized flag
 
-            update();
-
-            // attach events
-
-            if (!initialized) {
-
-                $window
-                    .on('load.yoi-scrollAgent resize.yoi-scrollAgent yoi-pageheight-change.scrollAgent', function() {
-                        update();
-                    })
-                    .on('yoi-scroll.scrollAgent', function() {
-                        observe();
-                    });
-
-                // set initialized flag
-
-                initialized = true;
-
-            }
+            initialized = true;
 
         }
 
-        // always broadcast custom scroll events:
+        // initially run update()
+
+        update();
+
+        // always broadcast custom scroll events, even if initialize() got called without $targetElement:
         // yoi-scroll, yoi-scroll-up, yoi-scroll-down, yoi-scroll-stop
 
         $window.off('scroll.yoi-scrollAgent').on('scroll.yoi-scrollAgent', function() {
@@ -84,7 +75,7 @@ YOI.module.ScrollAgent = (function() {
 
         // update all target elements
 
-        $activeTargetElements.each(function() {
+        YOI.elementCollection['scrollagent'].each(function() {
 
             var $thisTargetElement = $(this);
             var thisHeight         = $thisTargetElement.outerHeight();
@@ -130,7 +121,7 @@ YOI.module.ScrollAgent = (function() {
 
         // observe all target elements
 
-        $activeTargetElements.each(function(index) {
+        YOI.elementCollection['scrollagent'].each(function(index) {
 
             var $targetElement = $(this);
             var state          = $targetElement.data().state;
@@ -238,25 +229,6 @@ YOI.module.ScrollAgent = (function() {
             $window.trigger('yoi-scroll-stop');
             YOI.clearInterval('scrollObserverInterval');
             isScrolling = false;
-        });
-
-    }
-
-    function ignore($targetElement) {
-
-        /**
-         *
-         *
-         */
-
-        YOI.elementCollection['scrollagent'].each(function() {
-
-            var $this = $(this);
-
-            if ($this.is($targetElement)) {
-                // remove $targetElement
-            }
-
         });
 
     }

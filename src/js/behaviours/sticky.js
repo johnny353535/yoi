@@ -45,35 +45,39 @@ YOI.behaviour.Sticky = (function() {
 
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
 
-        if ($stickyElement) $stickyElement.each(function(index) {
+        if ($stickyElement) {
 
-            var $thisStickyElement = $(this);
+            $stickyElement.each(function(index) {
 
-            // cancel if already initialized
+                var $thisStickyElement = $(this);
 
-            if ($thisStickyElement.data().props.isSticky) return;
+                // cancel if already initialized
 
-            // if $thisStickyElement already has position:fixed or
-            // any css transformation, cancel ...
+                if ($thisStickyElement.data().props.isSticky) return;
 
-            if ($thisStickyElement.css('position') === 'fixed' || $stickyElement.css('transform') !== 'none') return;
+                // if $thisStickyElement already has position:fixed or
+                // any css transformation, cancel ...
 
-            // ... otherwise proceed and perform the necessary transformation,
-            // then update the sticky element's properties
+                if ($thisStickyElement.css('position') === 'fixed' || $stickyElement.css('transform') !== 'none') return;
 
-            transformStickyElement($thisStickyElement, index);
-            updateStickyElementProps($thisStickyElement);
+                // ... otherwise proceed and perform the necessary transformation,
+                // then update the sticky element's properties
 
-            // set initialized
+                transformStickyElement($thisStickyElement, index);
+                updateStickyElementProps($thisStickyElement);
 
-            $thisStickyElement.data().props.isSticky = true;
+                // set initialized
 
-        });
+                $thisStickyElement.data().props.isSticky = true;
 
-        // start position & stick observers
+            });
 
-        if ($stickyElement) startPositionObserver(); // on: yoi-breakpoint-change yoi-pageheight-change
-        if ($stickyElement) startStickObserver();    // on: yoi-scroll
+            // start position & stick observers
+
+            startPositionObserver(); // on: yoi-breakpoint-change yoi-pageheight-change
+            startStickObserver();    // on: yoi-scroll
+
+        }
 
     }
 

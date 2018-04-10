@@ -5,11 +5,9 @@ YOI.behaviour.Parallax = (function() {
     // private variables
     // =================
 
-    var $window                 = $(window);
-    var $activeParallaxElements = $();
-    var currentScrollTop        = 0;
-    var defaultFactor           = 8;
-    var initialized             = false;
+    var $window          = $(window);
+    var currentScrollTop = $window.scrollTop();
+    var defaultFactor    = 8;
 
     // private functions
     // =================
@@ -27,8 +25,6 @@ YOI.behaviour.Parallax = (function() {
 
         if ($parallaxElement) {
 
-            // proceed
-
             $parallaxElement.each(function() {
 
                 var $this = $(this);
@@ -37,12 +33,9 @@ YOI.behaviour.Parallax = (function() {
 
                 if ($this.data().props.isParallax) return;
 
-                // add parallax element to new element collection
-
-                $activeParallaxElements = $activeParallaxElements.add($this);
-
                 // update parallax element
 
+                YOI.module.ScrollAgent.init($this);
                 update($this);
 
                 // set initialized
@@ -51,30 +44,19 @@ YOI.behaviour.Parallax = (function() {
 
             });
 
-            // to avoid positioning errors, always scroll the page
-            // back to top on dom-ready
+            //
 
-            resetScroll();
+            updateParallaxEnv();
+            updateAll();
+            scrollParallax();
 
-            // cancel if already initialized
+            // start parallax observer
 
-            if (initialized) return;
+            startParallaxObserver();
 
-            // attach events
+            // ///
 
-            $window
-                .on('yoi-pageheight-change.parallax', function() {
-                    updateParallaxEnv();
-                    updateAll();
-                })
-                .on('yoi-scroll.parallax', function() {
-                    updateParallaxEnv();
-                    scrollParallax();
-                });
-
-            // set initialized
-
-            initialized = true;
+            // $window.trigger('yoi-scroll.parallax');
 
         }
 
@@ -91,11 +73,11 @@ YOI.behaviour.Parallax = (function() {
 
         var data = $parallaxElement.data();
 
-        // observe element via YOI.ScrollAgent
+        // // observe element via YOI.ScrollAgent
 
-        if (!data.props.isParallax) {
-            YOI.module.ScrollAgent.init($parallaxElement);
-        }
+        // if (!data.props.isParallax) {
+        //     YOI.module.ScrollAgent.init($parallaxElement);
+        // }
 
         // edge case: flag elements which are already inside the viewport
         // on dom-ready
@@ -106,14 +88,21 @@ YOI.behaviour.Parallax = (function() {
 
     }
 
-    function reset($parallaxElement) {
+    function resetAll() {
 
         /**
          *
          *
          */
 
-        $parallaxElement.data().props = {};
+        YOI.elementCollection['parallax'].each(function() {
+
+            var $this = $(this);
+
+            $this.data().props = {};
+            $this.css('transform','none');
+
+        });
 
     }
 
@@ -129,6 +118,26 @@ YOI.behaviour.Parallax = (function() {
         YOI.elementCollection['parallax'].each(function() {
             update($(this));
         });
+
+    }
+
+    function startParallaxObserver() {
+
+        /**
+         *
+         *
+         */
+
+        $window
+            .on('yoi-breakpoint-change.parallax yoi-pageheight-change.parallax', function() {
+                scrollParallax();
+                updateParallaxEnv();
+                updateAll();
+            })
+            .on('yoi-scroll.parallax', function() {
+                updateParallaxEnv();
+                scrollParallax();
+            });
 
     }
 
@@ -148,7 +157,7 @@ YOI.behaviour.Parallax = (function() {
 
         window.requestAnimationFrame(function() {
 
-            $activeParallaxElements.each(function() {
+            YOI.elementCollection['parallax'].each(function() {
 
                 var $this               = $(this);
                 var data                = $this.data();
@@ -164,21 +173,6 @@ YOI.behaviour.Parallax = (function() {
 
             });
 
-        });
-
-    }
-
-    function resetScroll() {
-
-        /**
-         *  Scrolls the page back to top to avoid errors
-         *  with parallax scrolling.
-         */
-
-        $('body').scrollTop(0);
-
-        $window.on('unload.yoi-parallax', function() {
-            $window.scrollTop(0);
         });
 
     }
@@ -214,7 +208,10 @@ YOI.behaviour.Parallax = (function() {
          *
          */
 
-        $window.off('yoi-pageheight-change.parallax yoi-scroll.parallax');
+        $window.off('yoi-breakpoint-change.parallax yoi-pageheight-change.parallax yoi-scroll.parallax');
+        YOI.filterCollection('scrollagent', 'isParallax');
+        resetAll();
+        YOI.destroyCollection('parallax');
 
     }
 
@@ -222,7 +219,8 @@ YOI.behaviour.Parallax = (function() {
     // ================
 
     return {
-        init : initialize
+        init : initialize,
+        destroy : destroy
     };
 
 })();

@@ -20,6 +20,7 @@ Add the attribute `yoi-parallax` to an element:
 <!-- example -->
 <img src="https://source.unsplash.com/wVjd0eWNqI8/240x300" yoi-parallax />
 ```
+
 ## Parameters
 
 | `factor` | Affects the parallax scrolling speed. Use any positive or negative number. The default factor is `8`. |

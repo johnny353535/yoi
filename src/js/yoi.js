@@ -792,15 +792,38 @@ var YOI = {
 
             YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
 
-        } else {
-
-            // if the passed $element is invalid, return false
-
-            return false;
-
         }
 
         return YOI.elementCollection[identifier];
+
+    },
+
+    filterCollection : function(collectionIdentifier, filterProps) {
+
+        /**
+         *  Removes all elements with a certain prop from a YOI collection.
+         *
+         *  @param  {string} collectionIdentifier - the collection identifier
+         *  @param  {string} filterProps          - a prop as filter
+         */
+
+        var $collection = YOI.elementCollection[collectionIdentifier];
+
+        // cancel if no collection was found
+
+        if (YOI.elementCollection[collectionIdentifier] === undefined) return;
+
+        // proceed
+
+        YOI.elementCollection[collectionIdentifier] = $collection.filter(function() {
+
+            if ($(this).data().props.hasOwnProperty(filterProps)) {
+                return false;
+            } else {
+                return true;
+            }
+
+        });
 
     },
 
@@ -809,7 +832,7 @@ var YOI = {
         /**
          *  Delete an element collection by setting it to undefined.
          *
-         *  @param {string} identifier - the string to select elements from the dom via
+         *  @param {string} identifier - the collection identifier
          */
 
         YOI.elementCollection[identifier] = undefined;
