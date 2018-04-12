@@ -47,6 +47,9 @@ YOI.behaviour.Sticky = (function() {
 
         if ($stickyElement) {
 
+            // console.log($stickyElement);
+            // return;
+
             $stickyElement.each(function(index) {
 
                 var $thisStickyElement = $(this);
@@ -63,8 +66,8 @@ YOI.behaviour.Sticky = (function() {
                 // ... otherwise proceed and perform the necessary transformation,
                 // then update the sticky element's properties
 
-                transformStickyElement($thisStickyElement, index);
-                updateStickyElementProps($thisStickyElement);
+                transform($thisStickyElement, index);
+                updateProps($thisStickyElement);
 
                 // set initialized
 
@@ -81,7 +84,7 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function transformStickyElement($stickyElement, index) {
+    function transform($stickyElement, index) {
 
         /**
          *  Perform all necessary dom manipulation and style changes.
@@ -141,7 +144,7 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function resetStickyElement($stickyElement, index) {
+    function reset($stickyElement, index) {
 
         /**
          *  Reset all data, CSS and dom manipulation for a given
@@ -159,7 +162,7 @@ YOI.behaviour.Sticky = (function() {
 
     }
 
-    function updateStickyElementProps($stickyElement) {
+    function updateProps($stickyElement) {
 
         /**
          *  Reads options from the custom data-option interface and calculates other
@@ -268,9 +271,9 @@ YOI.behaviour.Sticky = (function() {
             // reset & update props, if the sticky element passed validation,
             // do the transformation
 
-            resetStickyElement($stickyElement, index);
-            if (passedValidation) transformStickyElement($stickyElement, index);
-            updateStickyElementProps($stickyElement);
+            reset($stickyElement, index);
+            if (passedValidation) transform($stickyElement, index);
+            updateProps($stickyElement);
 
             // trigger one initial scroll event
 
@@ -411,7 +414,7 @@ YOI.behaviour.Sticky = (function() {
         $window.off('yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
 
         YOI.elementCollection['sticky'].each(function() {
-            resetStickyElement($(this));
+            reset($(this));
         });
 
         YOI.destroyCollection('sticky');

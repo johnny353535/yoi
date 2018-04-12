@@ -16,7 +16,7 @@ YOI.module.ScrollAgent = (function() {
     var $window          = $(window);
     var viewportHeight   = $window.height();
     var lastScrollTop    = 0;
-    var currentScrollTop;
+    var currentScrollTop = 0;
 
     // private functions
     // =================
@@ -28,6 +28,8 @@ YOI.module.ScrollAgent = (function() {
         *
         *  @param {jQuery element} $targetElement
         */
+
+        // create a collection from all target elements
 
         if ($targetElement instanceof jQuery) YOI.createCollection('scrollagent', $targetElement);
 
@@ -49,12 +51,12 @@ YOI.module.ScrollAgent = (function() {
 
         }
 
-        // initially run update()
+        // initially run update
 
         update();
 
-        // always broadcast custom scroll events, even if initialize() got called without $targetElement:
-        // yoi-scroll, yoi-scroll-up, yoi-scroll-down, yoi-scroll-stop
+        // even if initialize() got called without $targetElement, still broadcast custom scroll events
+        // (yoi-scroll, yoi-scroll-up, yoi-scroll-down, yoi-scroll-stop)
 
         $window.off('scroll.yoi-scrollAgent').on('scroll.yoi-scrollAgent', function() {
             broadcast();
@@ -75,12 +77,14 @@ YOI.module.ScrollAgent = (function() {
 
         // update all target elements
 
-        YOI.elementCollection['scrollagent'].each(function() {
+        var $collection = YOI.elementCollection['scrollagent'] || false;
 
-            var $thisTargetElement = $(this);
-            var thisHeight         = $thisTargetElement.outerHeight();
-            var thisInitialPosY    = $thisTargetElement.offset().top;
-            var props              = $thisTargetElement.data().props;
+        if ($collection) $collection.each(function() {
+
+            var $targetElement  = $(this);
+            var thisHeight      = $targetElement.outerHeight();
+            var thisInitialPosY = $targetElement.offset().top;
+            var props           = $targetElement.data().props;
 
             // write data
 
@@ -90,10 +94,10 @@ YOI.module.ScrollAgent = (function() {
             // set the initial state
 
             if ($window.scrollTop() < thisInitialPosY && $window.height() > thisInitialPosY + 10) {
-                $thisTargetElement.data().state = 'in';
-                $thisTargetElement.trigger('yoi-viewport-in');
+                $targetElement.data().state = 'in';
+                $targetElement.trigger('yoi-viewport-in');
             } else {
-                $thisTargetElement.data().state = 'out';
+                $targetElement.data().state = 'out';
             }
 
         });
@@ -121,7 +125,9 @@ YOI.module.ScrollAgent = (function() {
 
         // observe all target elements
 
-        YOI.elementCollection['scrollagent'].each(function(index) {
+        var $collection = YOI.elementCollection['scrollagent'] || false;
+
+        if ($collection) $collection.each(function(index) {
 
             var $targetElement = $(this);
             var state          = $targetElement.data().state;

@@ -35,7 +35,7 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 | `reference` | `CSS selector` or the keyword `"parent"` - defines a reference element on the page                                 |
 | `start`     | `number` - the *offset* before a sticky element actually *sticks*, the default offset is `0`                       |
 | `stop`      | `number` - the *offset* after a sticky element no longer *sticks*                                                  |
-| `not`       | `string` of a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behaviour is disabled |
+| `not`       | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behaviour is disabled |
 
 ### Reference
 

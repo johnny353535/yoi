@@ -5,9 +5,11 @@ YOI.behaviour.Parallax = (function() {
     // private variables
     // =================
 
-    var $window          = $(window);
-    var currentScrollTop = $window.scrollTop();
-    var defaultFactor    = 8;
+    var $window           = $(window);
+    var currentScrollTop  = $window.scrollTop();
+    var viewportHeight    = $window.height();
+    var defaultFactor     = 8;
+    var observerIsRunning = false;
 
     // private functions
     // =================
@@ -19,6 +21,14 @@ YOI.behaviour.Parallax = (function() {
          *
          *  @param {jQuery element} $parallaxElement
          *  @param {object}         options
+         *
+         *  @option {string} reference	- CSS selector or the keyword "parent" - defines
+         *                                a reference element on the page
+         *  @option {number} start      - the offset before a sticky element actually sticks,
+         *                                the default offset is 0
+         *  @option {number} stop       - the offset after a sticky element no longer sticks
+         *  @option {string} not        - a comma-seperated list of strings - the breakpoints/screen-sizes
+         *                                on which sticky behaviour is disabled
          */
 
         var $parallaxElement = YOI.createCollection('parallax', $parallaxElement, options);
@@ -33,90 +43,100 @@ YOI.behaviour.Parallax = (function() {
 
                 if ($this.data().props.isParallax) return;
 
-                // update parallax element
-
-                YOI.module.ScrollAgent.init($this);
-                update($this);
-
                 // set initialized
 
                 $this.data().props.isParallax = true;
 
             });
 
-            //
-
-            updateParallaxEnv();
-            updateAll();
-            scrollParallax();
-
-            // start parallax observer
-
+            startScrollAgent();
             startParallaxObserver();
+            updateAllStartPositions();
 
-            // ///
+            $window.trigger('yoi-scroll');
 
-            // $window.trigger('yoi-scroll.parallax');
+            // run only once on first scroll - this is the case if the page loads
+            // and jumps to an anchor or gets refreshed and jumps back to it last
+            // scroll position
+
+            $window.one('yoi-scroll', function() {
+                updateAllStartPositions();
+                updateParallaxEnv();
+                transformParallax();
+            });
 
         }
 
     }
 
-    function update($parallaxElement) {
+    function startScrollAgent() {
 
         /**
-         *  Updates a parallax element. Initializes YOI.scrollAgent on first
-         *  call, etc.
+         *  Initializes the scroll agent on the collection of
+         *  sticky elements. The scroll agent observes target elements,
+         *  stores and updates their position data and fires custom events
+         *  other scripts can listen to.
+         */
+
+        YOI.module.ScrollAgent.init(YOI.elementCollection['parallax']);
+
+    }
+
+    function updateAllStartPositions() {
+
+        /**
+         *  Update all parallax elements in the collection.
+         */
+
+        YOI.elementCollection['parallax'].each(function() {
+
+            var $parallaxElement = $(this);
+            var data             = $parallaxElement.data();
+
+            // edge case: flag elements which are already inside the viewport
+
+            // $parallaxElement.data().props.startsInViewport = data.state !== 'out';
+
+            $parallaxElement.data().props.startsInViewport = data.props.initialPosY < viewportHeight;
+
+        });
+
+    }
+
+    function resetProps($parallaxElement) {
+
+        /**
+         *  Reset all properties.
          *
          *  @param {jQuery element} $parallaxElement
          */
 
-        var data = $parallaxElement.data();
+        $parallaxElement.data().props = {};
 
-        // // observe element via YOI.ScrollAgent
+    }
 
-        // if (!data.props.isParallax) {
-        //     YOI.module.ScrollAgent.init($parallaxElement);
-        // }
+    function resetTransforms($parallaxElement) {
 
-        // edge case: flag elements which are already inside the viewport
-        // on dom-ready
+        /**
+         *  Reset all CSS transforms.
+         *
+         *  @param {jQuery element} $parallaxElement
+         */
 
-        if (data.state !== 'out') {
-            $parallaxElement.data().props.startsInViewport = true;
-        }
+        $parallaxElement.css('transform','none');
 
     }
 
     function resetAll() {
 
         /**
-         *
-         *
+         *  Reset properties and CSS transforms for all sticky elements.
          */
 
         YOI.elementCollection['parallax'].each(function() {
-
             var $this = $(this);
-
-            $this.data().props = {};
-            $this.css('transform','none');
-
-        });
-
-    }
-
-    function updateAll() {
-
-        /**
-         *  Simple helper function to update all parallax elements
-         *  in the collection $parallaxElement.
-         *
-         *  @param {jQuery element} $parallaxElement
-         */
-
-        YOI.elementCollection['parallax'].each(function() {
-            update($(this));
+            resetProps($this);
+            resetTransforms($this);
         });
 
     }
@@ -124,24 +144,27 @@ YOI.behaviour.Parallax = (function() {
     function startParallaxObserver() {
 
         /**
-         *
-         *
+         *  Start the parallax observer (by attaching event listeners).
          */
+
+        if (observerIsRunning) return;
 
         $window
             .on('yoi-breakpoint-change.parallax yoi-pageheight-change.parallax', function() {
-                scrollParallax();
                 updateParallaxEnv();
-                updateAll();
+                updateAllStartPositions();
+                transformParallax();
             })
             .on('yoi-scroll.parallax', function() {
                 updateParallaxEnv();
-                scrollParallax();
+                transformParallax();
             });
+
+        observerIsRunning = true;
 
     }
 
-    function scrollParallax() {
+    function transformParallax() {
 
         /**
          *  Adds a position offset to all target elements while scrolling to
@@ -159,16 +182,30 @@ YOI.behaviour.Parallax = (function() {
 
             YOI.elementCollection['parallax'].each(function() {
 
-                var $this               = $(this);
-                var data                = $this.data();
-                var state               = data.state;
-                var initialPosY         = data.props.initialPosY;
-                var factor              = data.options.factor || defaultFactor;
-                var scrollTopInViewport = initialPosY - (currentScrollTop + viewportHeight);
-                var parallaxOffset      = data.props.startsInViewport ? parseInt(currentScrollTop / factor, 10) : parseInt(scrollTopInViewport / factor, 10);
+                var activeBreakpoint           = YOI.currentBreakPoint();
+                var $this                      = $(this);
+                var data                       = $this.data();
+                var options                    = $this.data().options;
+                var state                      = data.state;
+                var initialPosY                = data.props.initialPosY;
+                var factor                     = data.options.factor || defaultFactor;
+                var not                        = options.not !== undefined ? options.not.split(',') : false;
+                var allowedOnCurrentBreakpoint = $.inArray(activeBreakpoint, not) === -1;
+                var scrollTopInViewport        = initialPosY - (currentScrollTop + viewportHeight);
+                var parallaxOffset             = data.props.startsInViewport ? parseInt(currentScrollTop / factor, 10) * -1 : parseInt(scrollTopInViewport / factor, 10);
 
-                if (state !== 'out') {
+                // the element is in the viewport and allowed to scroll parallax
+                // on the current breakpoint - apply css transforms
+
+                if (state !== 'out' && allowedOnCurrentBreakpoint) {
                     $this.css('transform', 'translate3d(0, ' + parallaxOffset + 'px, 1px)');
+                }
+
+                // the element is not allowed to scroll parallax
+                // on the current breakpoint - reset css transforms
+
+                if (!allowedOnCurrentBreakpoint) {
+                    resetTransforms($this);
                 }
 
             });
@@ -180,7 +217,7 @@ YOI.behaviour.Parallax = (function() {
     function updateParallaxEnv() {
 
         /**
-         *  Updates shared variables.
+         *  Updates shared "scroll environment" variables.
          */
 
         currentScrollTop = $window.scrollTop();
@@ -204,14 +241,16 @@ YOI.behaviour.Parallax = (function() {
     function destroy() {
 
         /**
-         *
-         *
+         *  Disable all parallax behaviour and reset all changes to
+         *  the document or element stylings, remove all related event listeners.
          */
 
         $window.off('yoi-breakpoint-change.parallax yoi-pageheight-change.parallax yoi-scroll.parallax');
         YOI.filterCollection('scrollagent', 'isParallax');
         resetAll();
         YOI.destroyCollection('parallax');
+
+        observerIsRunning = false;
 
     }
 
