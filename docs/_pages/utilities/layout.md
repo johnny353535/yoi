@@ -180,7 +180,7 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ## Wrapper and Cover
 
-| `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing]({{ site.github.url }}start/customizing.html)) |
+| `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing]({{ site.github.url }}/start/customizing.html)) |
 | `.cover`   | sets an element to 100% viewport width and 100% viewport height                                                           |
 
 ## Columns
@@ -336,10 +336,10 @@ In the following example, we want the dark grey box (last item in markup) to ren
 
 To improve performance, Yoi sets any element with CSS transforms to 3D. This might apply to:
 
-* elements with [fx-utilities]({{ site.github.url }}utilities/fx.html)
-* elements with [parallax effect]({{ site.github.url }}behaviours/parallax.html)
-* elements with [scroll effects]({{ site.github.url }}behaviours/scrollfx.html)
-* [sticky]({{ site.github.url }}behaviours/sticky.html) elements
+* elements with [fx-utilities]({{ site.github.url }}/utilities/fx.html)
+* elements with [parallax effect]({{ site.github.url }}/behaviours/parallax.html)
+* elements with [scroll effects]({{ site.github.url }}/behaviours/scrollfx.html)
+* [sticky]({{ site.github.url }}/behaviours/sticky.html) elements
 
 | `.z-3d-1`  | 3d transform z at 1px  |
 | `.z-3d-2`  | 3d transform z at 2px  |

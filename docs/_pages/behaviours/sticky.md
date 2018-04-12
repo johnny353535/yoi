@@ -124,7 +124,7 @@ Use the parameter `not` to define one or more breakpoints on which you wish to d
 
 ## Events
 
-This behaviour fires the following [events]({{ site.github.url }}glossary) on each element it is applied to:
+This behaviour fires the following [events]({{ site.github.url }}/glossary) on each element it is applied to:
 
 | Event             | Fires …                                   |
 | ----------------- | ----------------------------------------- |

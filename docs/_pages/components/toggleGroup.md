@@ -45,7 +45,7 @@ The default event to trigger a toggle is mouseover. Sometimes it makes sense to 
 
 ## Example with click event
 
-This is basically the same thing like a [`.tab`]({{ site.github.url }}pages/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`]({{ site.github.url }}pages/components/buttons.html) and provide an *activeClassName* to mark them as active once pressed.
+This is basically the same thing like a [`.tab`]({{ site.github.url }}/pages/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`]({{ site.github.url }}/pages/components/buttons.html) and provide an *activeClassName* to mark them as active once pressed.
 
 ```html
 <!-- example -->

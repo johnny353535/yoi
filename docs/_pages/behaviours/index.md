@@ -15,7 +15,7 @@ Use a *behaviour* to make an element *behave* in a certain way depending on cert
 
 ## The Behaviour Attribute
 
-Add a [behaviour-attribute]({{ site.github.url }}glossary) to any element to activate the behaviour:
+Add a [behaviour-attribute]({{ site.github.url }}/glossary) to any element to activate the behaviour:
 
 ```html
 <div yoi-dismiss></div>
@@ -35,7 +35,7 @@ Add a [behaviour-attribute]({{ site.github.url }}glossary) to any element to act
 
 ## Parameters
 
-Behaviours may have [parameters]({{ site.github.url }}glossary) to change the default setting of a behaviour:
+Behaviours may have [parameters]({{ site.github.url }}/glossary) to change the default setting of a behaviour:
 
 ```html
 <div yoi-parallax="factor:5;">...</div>

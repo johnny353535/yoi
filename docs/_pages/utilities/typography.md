@@ -15,7 +15,7 @@ srcfiles:
 
 ## Headings
 
-Use heading utilities to apply the styling of [headings]({{ site.github.url }}components/headings.html) to other text elements.
+Use heading utilities to apply the styling of [headings]({{ site.github.url }}/components/headings.html) to other text elements.
 
 | `.h1` | `.h2` | `.h3` | `.h4` | `.h5` | `.h6` |
 
@@ -33,7 +33,7 @@ Use heading utilities to apply the styling of [headings]({{ site.github.url }}co
 
 ## Font Size
 
-You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is the largest font size (learn more about [configuring and customizing Yoi]({{ site.github.url }}start/customizing.html#configuring-and-customizing)).
+You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is the largest font size (learn more about [configuring and customizing Yoi]({{ site.github.url }}/start/customizing.html#configuring-and-customizing)).
 
 | `.fs-0` |`.fs-1` | `.fs-2` | `.fs-3` | `.fs-4` | `.fs-5` | `.fs-6` | `.fs-7` | `.fs-8` | `.fs-9` | `.fs-10` |
 
@@ -75,7 +75,7 @@ You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is 
 
 ## Line Height
 
-You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the largest line height (learn more about [configuring and customizing Yoi]({{ site.github.url }}start/customizing.html#configuring-and-customizing)).
+You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the largest line height (learn more about [configuring and customizing Yoi]({{ site.github.url }}/start/customizing.html#configuring-and-customizing)).
 
 | `.lh-0` |`.lh-1` | `.lh-2` | `.lh-3` | `.lh-4` | `.lh-5` | `.lh-6` | `.lh-7` | `.lh-8` | `.lh-9` | `.lh-10` |
 

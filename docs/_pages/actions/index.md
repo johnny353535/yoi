@@ -15,7 +15,7 @@ Use an _action_ to make *one element interact with another element*. For example
 
 ## The Action Attribute
 
-Add an [action-attribute]({{ site.github.url }}glossary) to an element to make it execute an action. You must always add at least one key/value pair: the *action name* and the *target element [selector]({{ site.github.url }}glossary)*:
+Add an [action-attribute]({{ site.github.url }}/glossary) to an element to make it execute an action. You must always add at least one key/value pair: the *action name* and the *target element [selector]({{ site.github.url }}/glossary)*:
 
 ```html
 <div yoi-action="Actionname:#id;">...</div>
@@ -55,14 +55,14 @@ Add the action _Hide_ to a `<button>` and set the target element selector to mat
 * Keys are seperated from values with a colon.
 * Each key/value-pair must end with a semicolon.
 * This is how you write a valid key/value-pair: `key:value;`.
-* If at least one value contains special characters (slashes, colons etc.), wrap **all values** in _single quotation marks_: `foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'`. 
+* If at least one value contains special characters (slashes, colons etc.), wrap **all values** in _single quotation marks_: `foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'`.
 * Values must _not include single nor double quotation marks_!
 * Write Parameters in any order you prefer.
 * Action names _start with an upper case character_.
 
 ### The Target Value
 
-Set the target value to a valid [CSS selector]({{ site.github.url }}glossary) to select the element you wish to manipulate.
+Set the target value to a valid [CSS selector]({{ site.github.url }}/glossary) to select the element you wish to manipulate.
 
 ### The Target Value _self_
 

@@ -37,7 +37,7 @@ Use the modifier `.badge--rounded` to render pill-shaped badges:
 
 ### Colors
 
-All global [color modifiers]({{ site.github.url }}theme/colors.html) are available for badges.
+All global [color modifiers]({{ site.github.url }}/theme/colors.html) are available for badges.
 
 ```html
 <!-- example -->

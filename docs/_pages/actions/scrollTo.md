@@ -85,7 +85,7 @@ Set the offset parameter to the desired distance (in px) between the viewport’
 
 ## Events
 
-This action fires the following [events]({{ site.github.url }}glossary) on each element it is applied to:
+This action fires the following [events]({{ site.github.url }}/glossary) on each element it is applied to:
 
 | `yoi-scrollto-start` | Fires after the scrolling starts. |
 | `yoi-scrollto-en`    | Fires after the scrolling ends.   |
