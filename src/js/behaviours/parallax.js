@@ -35,23 +35,17 @@ YOI.behaviour.Parallax = (function() {
 
         if ($parallaxElement) {
 
+            // flag all parallax elements as initialized
+
             $parallaxElement.each(function() {
-
-                var $this = $(this);
-
-                // cancel if already initialized
-
-                if ($this.data().props.isParallax) return;
-
-                // set initialized
-
-                $this.data().props.isParallax = true;
-
+                $(this).data().props.isParallax = true;
             });
 
             startScrollAgent();
             startParallaxObserver();
-            updateAllStartPositions();
+            updateProps();
+
+            // trigger one initial scroll
 
             $window.trigger('yoi-scroll');
 
@@ -60,7 +54,7 @@ YOI.behaviour.Parallax = (function() {
             // scroll position
 
             $window.one('yoi-scroll', function() {
-                updateAllStartPositions();
+                updateProps();
                 updateParallaxEnv();
                 transformParallax();
             });
@@ -82,22 +76,20 @@ YOI.behaviour.Parallax = (function() {
 
     }
 
-    function updateAllStartPositions() {
+    function updateProps() {
 
         /**
-         *  Update all parallax elements in the collection.
+         *  Update props of all parallax elements in the collection.
          */
 
         YOI.elementCollection['parallax'].each(function() {
 
-            var $parallaxElement = $(this);
-            var data             = $parallaxElement.data();
+            var $this = $(this);
+            var data  = $this.data();
 
-            // edge case: flag elements which are already inside the viewport
+            // flag elements which are inside the viewport before scrolling
 
-            // $parallaxElement.data().props.startsInViewport = data.state !== 'out';
-
-            $parallaxElement.data().props.startsInViewport = data.props.initialPosY < viewportHeight;
+            $this.data().props.startsInViewport = data.props.initialPosY < viewportHeight;
 
         });
 
@@ -152,7 +144,7 @@ YOI.behaviour.Parallax = (function() {
         $window
             .on('yoi-breakpoint-change.parallax yoi-pageheight-change.parallax', function() {
                 updateParallaxEnv();
-                updateAllStartPositions();
+                updateProps();
                 transformParallax();
             })
             .on('yoi-scroll.parallax', function() {
@@ -249,7 +241,6 @@ YOI.behaviour.Parallax = (function() {
         YOI.filterCollection('scrollagent', 'isParallax');
         resetAll();
         YOI.destroyCollection('parallax');
-
         observerIsRunning = false;
 
     }

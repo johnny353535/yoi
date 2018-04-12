@@ -412,11 +412,7 @@ YOI.behaviour.Sticky = (function() {
          */
 
         $window.off('yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
-
-        YOI.elementCollection['sticky'].each(function() {
-            reset($(this));
-        });
-
+        YOI.elementCollection['sticky'].each(function() { reset($(this)); });
         YOI.destroyCollection('sticky');
 
     }

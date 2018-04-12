@@ -15,12 +15,13 @@ srcfiles:
 
 ## Parameters
 
-| `in`     | [The effect]({{ page.url }}.html#available-effects) to apply when the element enters the viewport                                                                          |
-| `bottom` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is completely visible inside the viewport                                                    |
-| `center` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is at the center of the viewport                                                             |
-| `top`    | [The effect]({{ page.url }}.html#available-effects) to apply when the element reaches the top edge of the viewport                                                         |
+| `in`     | [The effect]({{ page.url }}.html#available-effects) to apply when the element enters the viewport                                 |
+| `bottom` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is completely visible inside the viewport           |
+| `center` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is at the center of the viewport                    |
+| `top`    | [The effect]({{ page.url }}.html#available-effects) to apply when the element reaches the top edge of the viewport                |
 | `speed`  | Change the duration of all effects to `slow`, `fast` or a number from 1 to 25 where 1 is the slowest and 25 the fastest.          |
 | `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
+| `not`    | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which scroll fx are disabled                      |
 
 ### In, Bottom, Center, Top
 
@@ -76,7 +77,21 @@ By default, the effects play each time on `in`, `center` or `out`. Add the param
 <div class="bg-purple-18 br-all h-10" yoi-scrollfx="center:slide-in-bottom; repeat:false;"></div>
 ```
 
-### Available Effects
+### Not
+
+Use the parameter `not` to define one or more breakpoints on which you wish to disable the scroll fx:
+
+```html
+<!-- example -->
+<div class="flx">
+    <div class="bg-purple-24 br-all h-10 w-10 m-r-2" yoi-scrollfx="center:fade-in; not:small;"></div>
+    <div class="bg-purple-24 br-all h-10 w-10" yoi-scrollfx="center:fade-in; not:xlarge;"></div>
+</div>
+```
+
+<p class="hint hint--primary"><b>Allowed values:</b> Make sure you use only the allowed values <code>small</code>, <code>medium</code>, <code>large</code> and <code>xlarge</code>.</p>
+
+## Available Effects
 
 You can use all [fx utility classes](utilities/fx.html):
 

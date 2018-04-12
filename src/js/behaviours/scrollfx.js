@@ -21,6 +21,9 @@ YOI.behaviour.ScrollFx = (function() {
         *  @option {string} top    - yoi fx css class name on viewport:top
         *  @option {string} repeat - repeats the fx each time, default is "true"
         *  @option {string} speed  - change the default speed to "slow" or "fast"
+        *  @option {string} not    - a string or a comma-seperated list of strings
+        *                            to set the breakpoints/screen-sizes on which
+        *                            scroll fx are disabled
         */
 
         var $targetElement = YOI.createCollection('scrollfx', $targetElement, options);
@@ -33,8 +36,9 @@ YOI.behaviour.ScrollFx = (function() {
 
             if ($thisTargetElement.data().props.hasScrollFx) return;
 
-            // prepare & listen
+            // proceed
 
+            resetFxClassNames($thisTargetElement);
             prepare($thisTargetElement);
             listen($thisTargetElement);
 
@@ -44,9 +48,43 @@ YOI.behaviour.ScrollFx = (function() {
 
         });
 
+        // start the breakpoint agent
+
+        startBreakpointAgent();
+
         // initialize the scroll agent
 
         YOI.module.ScrollAgent.init($targetElement, options);
+
+    }
+
+    function startBreakpointAgent() {
+
+        /**
+         *  Listen to breakpoint changes and set the
+         *  "allowedOnCurrentBreakpoint" property.
+         */
+
+         var $window = $(window);
+
+         $window.on('yoi-breakpoint-change.scrollfx', function() {
+
+            YOI.elementCollection['scrollfx'].each(function() {
+
+                var $this            = $(this);
+                var options          = $this.data().options;
+                var activeBreakpoint = YOI.currentBreakPoint();
+                var not              = options.not !== undefined ? options.not.split(',') : false;
+
+                $this.data().props.allowedOnCurrentBreakpoint = $.inArray(activeBreakpoint, not) === -1;
+
+            });
+
+        });
+
+        // trigger one initial breakpoint change event
+
+        $window.trigger('yoi-breakpoint-change');
 
     }
 
@@ -86,13 +124,13 @@ YOI.behaviour.ScrollFx = (function() {
          *  @param {jQuery element} $targetElement - the target element
          */
 
-        var options  = $targetElement.data().options;
-        var inFx     = options.in || false;
-        var bottomFx = options.bottom || false;
-        var centerFx = options.center || false;
-        var topFx    = options.top || false;
-        var speed    = options.speed || false;
-        var repeat   = options.repeat || true;
+        var options   = $targetElement.data().options;
+        var inFx      = options.in || false;
+        var bottomFx  = options.bottom || false;
+        var centerFx  = options.center || false;
+        var topFx     = options.top || false;
+        var speed     = options.speed || false;
+        var repeat    = options.repeat || true;
 
         if (repeat !== 'false') {
 
@@ -148,6 +186,11 @@ YOI.behaviour.ScrollFx = (function() {
          *  @param {string}         speed          - the speed css class to apply
          */
 
+        var props   = $targetElement.data().props;
+        var allowed = props.allowedOnCurrentBreakpoint;
+
+        if (!allowed) return;
+
         if (fx) {
             $targetElement.removeClass('fx-' + fx + '-initial');
             $targetElement.addClass('fx-' + fx);
@@ -159,11 +202,54 @@ YOI.behaviour.ScrollFx = (function() {
 
     }
 
+    function resetFxClassNames($targetElement) {
+
+        /**
+         *  Remove all fx-related class names from the target element.
+         *
+         *  @param {jQuery element} $targetElement
+         */
+
+        $targetElement.removeClass(function(index, className) {
+            return (className.match (/(^|\s)fx-\S+/g) || []).join(' ');
+        });
+
+    }
+
+    function reset($targetElement) {
+
+        /**
+         *  Reset all properties and options of the target element.
+         *
+         *  @param {jQuery element} $targetElement
+         */
+
+        $targetElement.data().props   = {};
+        $targetElement.data().options = {};
+        resetFxClassNames($targetElement);
+
+    }
+
+    function destroy() {
+
+        /**
+         *  Disable all scroll fx and reset all changes to
+         *  the document or element stylings, remove all related event listeners.
+         */
+
+        reset(YOI.elementCollection['scrollfx']);
+        YOI.filterCollection('scrollagent', 'hasScrollFx');
+        YOI.destroyCollection('scrollfx');
+        $(window).off('yoi-breakpoint-change.scrollfx');
+
+    }
+
     // public functions
     // ================
 
     return {
-        init: initialize
+        init: initialize,
+        destroy : destroy
     };
 
 })();
