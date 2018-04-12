@@ -52,7 +52,7 @@ By default, Lazyload accesses the image source from the `<img>`-tag. Use the par
 
 ### Breakpoints
 
-Use the parameters `srcSmall, srcMedium, srcLarge, srcXlarge` to load different images depending on the [active breakpoint]({{ site.github.url }}/glossary). You could load small images for small screens and larger images for larger screens. Resize the browser window and reload the page to see the example below in action:
+Use the parameters `srcSmall, srcMedium, srcLarge, srcXlarge` to load different images depending on the active breakpoint. You could load small images for small screens and larger images for larger screens. Resize the browser window and reload the page to see the example below in action:
 
 ```html
 <!-- example -->
@@ -98,7 +98,7 @@ Use the parameters `alt`, `descr` and `longdesc` to add the corresponding values
 
 ### CSS Class Names
 
-Use the parameter `cssClasses` to add any CSS class names to the image. The following example adds [Utilities]({{ site.github.url }}/glossary) for padding, background-color and slightly rounded corners:
+Use the parameter `cssClasses` to add any CSS class names to the image. The following example adds utilities for padding, background-color and slightly rounded corners:
 
 ```html
 <!-- example -->
@@ -109,4 +109,4 @@ Use the parameter `cssClasses` to add any CSS class names to the image. The foll
 
 ## Events
 
-This behaviour does not fire [custom events](glossary/). However, each image fires the standard `load` event.
+This behaviour does not fire custom events. However, each image fires the standard `load` event.

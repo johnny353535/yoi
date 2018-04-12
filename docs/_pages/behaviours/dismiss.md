@@ -24,6 +24,6 @@ Add the attribute `yoi-dismiss` to your element:
 
 ## Events
 
-This behaviour fires the following [events]({{ site.github.url }}/glossary) on each element it is applied to:
+This behaviour fires the following events on each element it is applied to:
 
 | `yoi-dismiss` | Fires after the dismissable element disappeared. |

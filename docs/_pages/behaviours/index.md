@@ -15,7 +15,7 @@ Use a *behaviour* to make an element *behave* in a certain way depending on cert
 
 ## The Behaviour Attribute
 
-Add a [behaviour-attribute]({{ site.github.url }}/glossary) to any element to activate the behaviour:
+Add a behaviour-attribute to any element to activate the behaviour:
 
 ```html
 <div yoi-dismiss></div>
@@ -35,7 +35,7 @@ Add a [behaviour-attribute]({{ site.github.url }}/glossary) to any element to ac
 
 ## Parameters
 
-Behaviours may have [parameters]({{ site.github.url }}/glossary) to change the default setting of a behaviour:
+Behaviours may have parameters to change the default setting of a behaviour:
 
 ```html
 <div yoi-parallax="factor:5;">...</div>
@@ -50,6 +50,6 @@ Behaviours may have [parameters]({{ site.github.url }}/glossary) to change the d
 * Keys are seperated from values with a colon.
 * Each key/value-pair must end with a semicolon.
 * This is how you write a valid key/value-pair: `key:value;`.
-* If at least one value contains special characters (slashes, colons etc.), wrap **all values** in _single quotation marks_: `foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'`. 
+* If at least one value contains special characters (slashes, colons etc.), wrap **all values** in _single quotation marks_: `foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'`.
 * Values must _not include single nor double quotation marks_!
 * Write Parameters in any order you prefer.

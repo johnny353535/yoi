@@ -44,7 +44,7 @@ Add the filter parameter to select elements from the response markup. If the sel
 
 ## Events
 
-This action fires the following [events]({{ site.github.url }}/glossary) on each element it is applied to:
+This action fires the following events on each element it is applied to:
 
 | `yoi-update-before`  | Fires right before the update request.       |
 | `yoi-update-error`   | Fires after an error occured.                |

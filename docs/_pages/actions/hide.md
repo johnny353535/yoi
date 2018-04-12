@@ -87,7 +87,7 @@ Use the optional parameter `remove` and set it to `true` to remove the target el
 
 ## Events
 
-This action fires the following [events]({{ site.github.url }}/glossary) on each element it is applied to:
+This action fires the following events on each element it is applied to:
 
 | `yoi-hide`   | Fires when the element is hidden.  |
 | `yoi-remove` | Fires when the element is removed. |
