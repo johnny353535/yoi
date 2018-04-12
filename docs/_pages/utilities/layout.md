@@ -207,9 +207,9 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ## Vertical Alignment
 
-| `.val-m` | vertcially align to the *middle* |
-| `.val-t` | vertcially align to the *top*    |
-| `.val-b` | vertcially align to the *bottom* |
+| `.val-m` | vertically align to the *middle* |
+| `.val-t` | vertically align to the *top*    |
+| `.val-b` | vertically align to the *bottom* |
 
 ```html
 <!-- example -->
