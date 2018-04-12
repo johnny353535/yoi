@@ -15,7 +15,7 @@ Use an _action_ to make *one element interact with another element*. For example
 
 ## The Action Attribute
 
-Add an [action-attribute](/glossary) to an element to make it execute an action. You must always add at least one key/value pair: the *action name* and the *target element [selector](/glossary)*:
+Add an [action-attribute]({{ site.github.url }}glossary) to an element to make it execute an action. You must always add at least one key/value pair: the *action name* and the *target element [selector]({{ site.github.url }}glossary)*:
 
 ```html
 <div yoi-action="Actionname:#id;">...</div>
@@ -62,7 +62,7 @@ Add the action _Hide_ to a `<button>` and set the target element selector to mat
 
 ### The Target Value
 
-Set the target value to a valid [CSS selector](/glossary) to select the element you wish to manipulate.
+Set the target value to a valid [CSS selector]({{ site.github.url }}glossary) to select the element you wish to manipulate.
 
 ### The Target Value _self_
 

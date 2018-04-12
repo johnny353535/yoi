@@ -180,7 +180,7 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ## Wrapper and Cover
 
-| `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing](/start/customizing.html)) |
+| `.wrapper` | centers an element vertically on screens larger than a given max-width (see [start/customizing]({{ site.github.url }}start/customizing.html)) |
 | `.cover`   | sets an element to 100% viewport width and 100% viewport height                                                           |
 
 ## Columns

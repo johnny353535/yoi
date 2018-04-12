@@ -72,6 +72,6 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 
 ## Events
 
-This action fires the following [events](/glossary) on each element it is applied to:
+This action fires the following [events]({{ site.github.url }}glossary) on each element it is applied to:
 
 | `yoi-show` | Fires when the element is visible. |

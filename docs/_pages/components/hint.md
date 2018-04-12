@@ -35,7 +35,7 @@ Use the modifiers `.hint--primary, .hint--positive, .hint--negative, .hint--atte
 
 ### Utilities
 
-All [utility classes](/utilities/) are available to change font sizes, spacing, etc.:
+All [utility classes]({{ site.github.url }}utilities/) are available to change font sizes, spacing, etc.:
 
 ```html
 <!-- example -->

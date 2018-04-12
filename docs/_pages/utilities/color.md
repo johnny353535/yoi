@@ -53,7 +53,7 @@ Each of the 5 default semantic colors has a particular meaning and is ideally re
     </tr>
 </table>
 
-By default, the semantic colors are mapped to unsemantic colors, eg. `negative` is mapped to `red`. When you [compile your own instance of YOI](/start/customizing.html), you can change the palettes as you wish.
+By default, the semantic colors are mapped to unsemantic colors, eg. `negative` is mapped to `red`. When you [compile your own instance of YOI]({{ site.github.url }}start/customizing.html), you can change the palettes as you wish.
 
 ### Unsemantic Colors
 

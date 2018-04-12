@@ -25,7 +25,7 @@ This is how a basic `.quotation` looks like and how you write the markup:
 
 ### Utilities
 
-All [utility classes](/utilities/) are available to change font sizes, spacing, etc. In the following example, the text-size is increased and the author of the quote is styled differently:
+All [utility classes]({{ site.github.url }}utilities/) are available to change font sizes, spacing, etc. In the following example, the text-size is increased and the author of the quote is styled differently:
 
 ```html
 <!-- example -->
@@ -35,7 +35,7 @@ All [utility classes](/utilities/) are available to change font sizes, spacing, 
 </div>
 ```
 
-In the following example, a quote is combined with an image and wrapped inside the element [.box](/components/box.html):
+In the following example, a quote is combined with an image and wrapped inside the element [.box]({{ site.github.url }}components/box.html):
 
 ```html
 <!-- example -->

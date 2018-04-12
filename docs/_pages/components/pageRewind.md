@@ -23,7 +23,7 @@ Scroll to see the element in action on this page.
 
 ### PageRewind
 
-Scroll the page back to top with the [action](/actions/) `PageRewind`:
+Scroll the page back to top with the [action]({{ site.github.url }}actions/) `PageRewind`:
 
 ```html
 <!-- example -->
