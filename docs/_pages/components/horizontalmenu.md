@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: HorizontalMenu
-permalink: components/horizontalmenu
+permalink: components/horizontalMenu
 ---
 
 # HorizontalMenu

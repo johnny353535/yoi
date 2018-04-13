@@ -1,12 +1,12 @@
 ---
 layout: base
 group: components
-title: Verticalmenu
-permalink: components/verticalmenu
+title: Vertical Menu
+permalink: components/verticalMenu
 status: draft
 ---
 
-# VerticalMenu
+# Vertical Menu
 
 <p class="intro">A simple vertical menu with up to three levels of sub menus and optional pointers on the right or left side.</p>
 

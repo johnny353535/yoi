@@ -450,7 +450,7 @@ yoi-table:select    // row got selected
 yoi-table:unselect  // row got unselected
 ```
 
-Try the example below and watch the custom events, printed to the [log element](components/log.html):
+Try the example below and watch the custom events, printed to the [log element](/{{ site.github.url }}/components/log.html):
 
 ```html
 <!-- example:tabs -->
@@ -493,9 +493,9 @@ Try the example below and watch the custom events, printed to the [log element](
     <button id="exampleButton-6" class="btn btn--large">Remove a row</button>
 </div>
 <script>
-    
+
     // log the custom events
-    
+
     $('#exampleTable-4').on('yoi-table:select', function() {
         YOI.component.Log.write($('#myLog'), 'yoi-table:select');
     });
@@ -508,9 +508,9 @@ Try the example below and watch the custom events, printed to the [log element](
     $('#exampleTable-5').on('yoi-table:empty', function() {
         YOI.component.Log.write($('#myLog'), 'yoi-table:empty');
     });
-    
+
     // bind methods to buttons on click
-    
+
     $('#exampleButton-4').on('click', function() {
         YOI.component.Table.select($('#exampleTable-4 tr').eq(1));
     });

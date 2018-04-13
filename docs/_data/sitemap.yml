@@ -31,58 +31,58 @@ components:
     - button
     - code
     - countdown
-    - datepicker
+    - datePicker
     - dock
-    - filterbtns
-    - flipbtns
+    - filterBtns
+    - flipBtns
     - flyout
     - form
     - headings
     - hint
-    - horizontalmenu
+    - horizontalMenu
     - icon
-    - imgmagnifier
+    - imgMagnifier
     - link
-    - linklist
+    - linkList
     - log
-    - maxchars
+    - maxChars
     - modal
     - note
-    - pagebtns
-    - pagedots
-    - pagerewind
+    - pageBtns
+    - pageDots
+    - pageRewind
     - pagination
-    - pickbtn
-    - piechart
-    - popover
-    - pricesticker
+    - pickBtn
+    - pieChart
+    - popOver
+    - priceSticker
     - quotation
-    - rangeinput
+    - rangeInput
     - rating
-    - ratinginput
+    - ratingInput
     - ribbon
     - ruler
-    - scrollkeys
-    - scrollprogress
+    - scrollKeys
+    - scrollProgress
     - shelf
     - slider
     - spinner
-    - stepcrumb
-    - stepmenu
+    - stepCrumb
+    - stepMenu
     - stepper
     - switch
     - table
     - tabs
     - tile
-    - togglegroup
+    - toggleGroup
     - tooltip
-    - verticalmenu
+    - verticalMenu
 behaviours:
     - index
     - dismiss
     - lazyload
     - parallax
-    - scrollfx
+    - scrollFx
     - sticky
 actions:
     - index
@@ -90,5 +90,5 @@ actions:
     - hide
     - pulse
     - show
-    - scrollto
+    - scrollTo
     - update

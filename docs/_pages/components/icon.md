@@ -72,7 +72,7 @@ The other option is writing the SVG markup inline, directly into the HTML:
 
 <p class="hint"><b>Learn more about SVG in HTML</b> The explanaintion above is simplified. If you wish to learn more, take a look at <a href="https://css-tricks.com/using-svg/">this excellent article on css-tricks.com</a>.</p>
 
-Writing the SVG markup by hand isn’t a practical solution. In most cases, you can add icons to your page by using an `<image>`-tag. However, in some cases the only option is the inline method because styling the SVG via CSS only really works this way. See the following section [Inline-SVG Helper](yoi/{{ page.url }}.html#inline-svg-helper) for a solution.
+Writing the SVG markup by hand isn’t a practical solution. In most cases, you can add icons to your page by using an `<image>`-tag. However, in some cases the only option is the inline method because styling the SVG via CSS only really works this way. See the following section [Inline-SVG Helper](/yoi/{{ page.url }}.html#inline-svg-helper) for a solution.
 
 ## JavaScript API
 

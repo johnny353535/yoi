@@ -15,7 +15,7 @@
                 {% if page.group == "actions" or page.group == "behaviours" %}
                     <a href="{{ githubSrcUrl }}/js/{{ page.group }}/{{ file }}">{{ file }}</a>
                 {% elsif page.group == "components" %}
-                    <a href="{{ githubSrcUrl }}/{{ page.permalink }}/{{ file }}">{{ file }}/</a>
+                    <a href="{{ githubSrcUrl }}/{{ page.permalink | downcase }}/{{ file }}">{{ file }}/</a>
                 {% elsif page.group == "utilities" %}
                     <a href="{{ githubSrcUrl }}/less/{{ page.group }}/{{ file }}">{{ file }}</a>
                 {% endif %}
