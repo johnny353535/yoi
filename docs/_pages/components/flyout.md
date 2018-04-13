@@ -42,7 +42,7 @@ If JavaScript is not available, the flyout is a simple box and remains at it’s
 
 ### Flyout.toggle
 
-Toggle (show/hide) a `.flyout` by using the [action](actions/) `Flyout.toggle`:
+Toggle (show/hide) a `.flyout` by using the [action]({{ site.github.url }}/actions/) `Flyout.toggle`:
 
 ```html
 <!-- example -->
@@ -51,7 +51,7 @@ Toggle (show/hide) a `.flyout` by using the [action](actions/) `Flyout.toggle`:
 
 ### Flyout.show
 
-Show a `.flyout` by using the [action](actions/) `Flyout.show`:
+Show a `.flyout` by using the [action]({{ site.github.url }}/actions/) `Flyout.show`:
 
 ```html
 <!-- example -->
@@ -60,7 +60,7 @@ Show a `.flyout` by using the [action](actions/) `Flyout.show`:
 
 ### Flyout.hide
 
-Hide a `.flyout` by using the [action](actions/) `Flyout.hide`:
+Hide a `.flyout` by using the [action]({{ site.github.url }}/actions/) `Flyout.hide`:
 
 ```html
 <!-- example -->

@@ -23,8 +23,8 @@ Add `yoi-action="Pulse:#id;"` to make an element pulse. By default, it pulses tw
 
 ## Parameters
 
-| `on`      | Optional – a valid event ([learn more](actions/index.html#the-on-parameter)). The default event is `click`. |
-| `trigger` | Optional – the trigger element to listen to ([learn more](actions/index.html#the-trigger-parameter)).       |
+| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)). The default event is `click`. |
+| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter)).       |
 | `times`   | Oprional - the number of times the animation will play. The default value is `2`.                           |
 
 ### Times
