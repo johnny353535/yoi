@@ -275,11 +275,11 @@ YOI.behaviour.Sticky = (function() {
             if (passedValidation) transform($stickyElement, index);
             updateProps($stickyElement);
 
-            // trigger one initial scroll event
-
-            $window.trigger('yoi-scroll.sticky');
-
         });
+
+        // trigger one initial scroll
+
+        $window.trigger('yoi-scroll');
 
     }
 
@@ -289,7 +289,7 @@ YOI.behaviour.Sticky = (function() {
          *  Starts the position observer.
          */
 
-        $window.on('yoi-breakpoint-change.sticky yoi-pageheight-change.sticky', function() {
+        $window.on('load.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky', function() {
             positionObserver();
         });
 
