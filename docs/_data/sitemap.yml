@@ -86,9 +86,10 @@ behaviours:
     - sticky
 actions:
     - index
-    - blink
-    - hide
-    - pulse
     - show
+    - hide
+    - resetfx
+    - blink
+    - pulse
     - scrollto
     - update

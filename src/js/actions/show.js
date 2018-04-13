@@ -11,7 +11,9 @@ YOI.action.Show = function($trigger, $target, options) {
      *
      *  Available options:
      *
-     *  @option {string} transition - Chose from two jQuery animations: 'fade' and 'slide'.
+     *  @option {string} on      - an event, the default event is "click"
+     *  @option {string} fx      - optional fx utility class to add an animation
+     *  @option {string} speed   - optional "slow" or "fast", speed for fx-animation
      */
 
     if ($target instanceof jQuery) {
