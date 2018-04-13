@@ -254,7 +254,7 @@ Create vertically grouped button blocks by adding the modifier `.btns--vertical`
 
 ## Dismiss-Button
 
-Use `.btnDismiss` to add a *dismiss* (or *close*) button. This special button hides it’s label text by default and inherits the [semantic colors](utilities/color.html#semantic-colors) of it’s parent element.
+Use `.btnDismiss` to add a *dismiss* (or *close*) button. This special button hides it’s label text by default and inherits the [semantic colors]({{ site.github.url }}/utilities/color.html#semantic-colors) of it’s parent element.
 
 <p class="hint hint--primary">Since the dismiss button is positioned absolutely, it’s parent element needs a position value other than <i>static</i> to <b>provide positioning context</b>.</p>
 

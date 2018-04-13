@@ -93,7 +93,7 @@ title: Index
                 <h2 class="fs-xl">Control</h2>
             </div>
             <div class="m--w-2-3 w-1-1">
-                <p class="c-base-15 fs-5 lh-8 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollFx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
+                <p class="c-base-15 fs-5 lh-8 m-t-2 m--w-40"><a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/parallax.html">Parallax scrolling</a>, some <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/behaviours/scrollfx.html">fancy effect</a>, <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/show.html">show</a> or <a class="tdr-none hvr--tdr-underline" href="{{ site.github.url }}/actions/hide.html">hide</a> stuff … take full control without writing a single line of JavaScript!</p>
 <div class="m-t-4" markdown="1">
 ```html
 <!-- example -->

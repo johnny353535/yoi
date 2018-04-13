@@ -69,7 +69,7 @@ The date picker works just fine with both *large* input fields.
 
 ### DatePicker.hideAll
 
-Hide all visible DatePickers on the page by using the [action](actions/) `DatePicker.hideAll`:
+Hide all visible DatePickers on the page by using the [action]({{ site.github.url }}/actions/) `DatePicker.hideAll`:
 
 ```html
 <!-- example -->

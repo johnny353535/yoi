@@ -25,7 +25,7 @@ These are all available headline styles. Please note that level 4–6 have ident
 
 ## Modification
 
-Headings do not have their own modifiers classes. Use [YOI Utility Classes](utilities/) to make modifications:
+Headings do not have their own modifiers classes. Use [YOI Utility Classes]({{ site.github.url }}/utilities/) to make modifications:
 
 ```html
 <!-- example -->

@@ -129,7 +129,7 @@ To access the current values from a `.rangeInput`, listen to the `yoi-rangeInput
 
 ## Fallback
 
-To provide a usable interface when JavaScript is not available, place the markup for your fallback (eg. form fields) inside the `.rangeInput` element. Use the [utility]({{ site.github.url }}/utilities/js_fallback.html) `.js-fallback` to hide the fallback markup when JavaScript is available:
+To provide a usable interface when JavaScript is not available, place the markup for your fallback (eg. form fields) inside the `.rangeInput` element. Use the [utility]({{ site.github.url }}/utilities/jsfallback.html) `.js-fallback` to hide the fallback markup when JavaScript is available:
 
 ```html
 <!-- example -->
