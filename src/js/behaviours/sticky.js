@@ -411,7 +411,7 @@ YOI.behaviour.Sticky = (function() {
          *  the document or element stylings, remove all related event listeners.
          */
 
-        $window.off('yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
+        $window.off('load.sticky yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
         YOI.collection['sticky'].each(function() { reset($(this)); });
         YOI.destroyCollection('sticky');
 
