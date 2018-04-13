@@ -1,7 +1,7 @@
 ---
 layout: ajax
 title: Valium
-permalink: demos/ajaxSource-1
+permalink: demos/ajaxsource-1
 sitemap: false
 ---
 

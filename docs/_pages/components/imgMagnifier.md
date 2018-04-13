@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: ImgMagnifier
-permalink: components/imgMagnifier
+permalink: components/imgmagnifier
 status: [draft, issues]
 ---
 

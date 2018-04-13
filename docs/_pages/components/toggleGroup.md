@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Toggle Group
-permalink: components/toggleGroup
+permalink: components/togglegroup
 status: draft
 ---
 

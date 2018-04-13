@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: ScrollProgress
-permalink: components/scrollProgress
+permalink: components/scrollprogress
 ---
 
 # ScrollProgress

@@ -25,11 +25,11 @@
     {% else %}
         <p>
             {% if page.group == "actions" or page.group == "behaviours" %}
-                <a href="{{ githubSrcUrl }}/js/{{ page.permalink }}.js">{{ page.permalink }}.js</a>
+                <a href="{{ githubSrcUrl }}/js/{{ page.permalink | downcase }}.js">{{ page.permalink | downcase }}.js</a>
             {% elsif page.group == "components" %}
-                <a href="{{ githubSrcUrl }}/{{ page.permalink }}/">{{ page.permalink }}/</a>
+                <a href="{{ githubSrcUrl }}/{{ page.permalink | downcase }}/">{{ page.permalink | downcase }}/</a>
             {% elsif page.group == "utilities" %}
-                <a href="{{ githubSrcUrl }}/less/{{ page.permalink }}.less">{{ page.permalink }}.less</a>
+                <a href="{{ githubSrcUrl }}/less/{{ page.permalink | downcase }}.less">{{ page.permalink | downcase }}.less</a>
             {% endif %}
         </p>
     {% endif %}

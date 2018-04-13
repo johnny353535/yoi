@@ -450,7 +450,7 @@ yoi-table:select    // row got selected
 yoi-table:unselect  // row got unselected
 ```
 
-Try the example below and watch the custom events, printed to the [log element](/{{ site.github.url }}/components/log.html):
+Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
 
 ```html
 <!-- example:tabs -->

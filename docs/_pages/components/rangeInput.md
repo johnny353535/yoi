@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: RangeInput
-permalink: components/rangeInput
+permalink: components/rangeinput
 status: [draft, issues]
 ---
 

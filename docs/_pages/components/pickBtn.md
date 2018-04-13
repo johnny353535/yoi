@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PickBtn
-permalink: components/pickBtn
+permalink: components/pickbtn
 status: draft
 ---
 

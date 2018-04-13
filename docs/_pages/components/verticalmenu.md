@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Vertical Menu
-permalink: components/verticalMenu
+permalink: components/verticalmenu
 status: draft
 ---
 

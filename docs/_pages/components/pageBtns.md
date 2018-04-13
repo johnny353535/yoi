@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PageBtns
-permalink: components/pageBtns
+permalink: components/pagebtns
 ---
 
 # PageBtns

@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Pie Chart
-permalink: components/pieChart
+permalink: components/piechart
 status: draft
 ---
 

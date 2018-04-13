@@ -2,7 +2,7 @@
 layout: base
 group: actions
 title: ScrollTo
-permalink: actions/scrollTo
+permalink: actions/scrollto
 ---
 
 # ScrollTo

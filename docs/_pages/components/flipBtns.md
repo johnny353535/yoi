@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: FlipBtns
-permalink: components/flipBtns
+permalink: components/flipbtns
 ---
 
 # FlipBtns

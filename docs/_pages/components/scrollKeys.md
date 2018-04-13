@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: ScrollKeys
-permalink: components/scrollKeys
+permalink: components/scrollkeys
 status: issues
 ---
 

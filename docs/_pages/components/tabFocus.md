@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: TabFocus
-permalink: components/tabFocus
+permalink: components/tabfocus
 status: draft
 ---
 

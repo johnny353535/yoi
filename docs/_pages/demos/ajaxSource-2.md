@@ -1,7 +1,7 @@
 ---
 layout: ajax
 title: Strychnine
-permalink: demos/ajaxSource-2
+permalink: demos/ajaxsource-2
 sitemap: false
 ---
 

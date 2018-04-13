@@ -2,7 +2,7 @@
 layout: base
 group: behaviours
 title: ScrollFx
-permalink: behaviours/scrollFx
+permalink: behaviours/scrollfx
 srcfiles:
     - scrollfx.js
     - ../modules/scrollagent.js
@@ -93,7 +93,7 @@ Use the parameter `not` to define one or more breakpoints on which you wish to d
 
 ## Available Effects
 
-You can use all [fx utility classes](utilities/fx.html):
+You can use all [fx utility classes]({{ site.github.url }}/utilities/fx.html):
 
 | `.fx-fade-in`          | fades in                 |
 | `.fx-fade-out`         | fades out                |

@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Pop-Over
-permalink: components/popOver
+permalink: components/popover
 status: draft
 ---
 

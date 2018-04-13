@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: StepMenu
-permalink: components/stepMenu
+permalink: components/stepmenu
 ---
 
 # StepMenu
