@@ -28,7 +28,7 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 
 <p class="hint hint--negative"><b>Invalid height:</b> If a sticky element is higher than the browser window, it will no stick!</p>
 
-<p class="hint hint--negative"><b>Invalid styling:</b> Elements with any CSS transformation (eg. <code>transform: translate()</code>) or top/bottom <a href="utilities/layout.html#micro-positioning">micro-position utility classes</a> (eg. <code>.pos-t-2</code> or <code>.pos-b-4</code>) do not work with this behaviour. However, absolutely or relatively positioned elements are fine.</p>
+<p class="hint hint--negative"><b>Invalid styling:</b> Elements with any CSS transformation (eg. <code>transform: translate()</code>) or top/bottom <a href="{{ site.github.url }}/utilities/layout.html#micro-positioning">micro-position utility classes</a> (eg. <code>.pos-t-2</code> or <code>.pos-b-4</code>) do not work with this behaviour. However, absolutely or relatively positioned elements are fine.</p>
 
 ## Parameters
 

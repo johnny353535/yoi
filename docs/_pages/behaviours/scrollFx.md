@@ -2,7 +2,7 @@
 layout: base
 group: behaviours
 title: ScrollFx
-permalink: behaviours/scrollfx
+permalink: behaviours/scrollFx
 srcfiles:
     - scrollfx.js
     - ../modules/scrollagent.js
@@ -15,17 +15,17 @@ srcfiles:
 
 ## Parameters
 
-| `in`     | [The effect]({{ page.url }}.html#available-effects) to apply when the element enters the viewport                                 |
-| `bottom` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is completely visible inside the viewport           |
-| `center` | [The effect]({{ page.url }}.html#available-effects) to apply when the element is at the center of the viewport                    |
-| `top`    | [The effect]({{ page.url }}.html#available-effects) to apply when the element reaches the top edge of the viewport                |
+| `in`     | [The effect](/yoi/{{ page.url }}.html#available-effects) to apply when the element enters the viewport                                 |
+| `bottom` | [The effect](/yoi/{{ page.url }}.html#available-effects) to apply when the element is completely visible inside the viewport           |
+| `center` | [The effect](/yoi/{{ page.url }}.html#available-effects) to apply when the element is at the center of the viewport                    |
+| `top`    | [The effect](/yoi/{{ page.url }}.html#available-effects) to apply when the element reaches the top edge of the viewport                |
 | `speed`  | Change the duration of all effects to `slow`, `fast` or a number from 1 to 25 where 1 is the slowest and 25 the fastest.          |
 | `repeat` | By default, the effects play each time on in/center/out. If you wish to apply them only once on in/center/out, set it to `false`. |
 | `not`    | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which scroll fx are disabled                      |
 
 ### In, Bottom, Center, Top
 
-Each element can have up to four effects. One for `in`, `bottom`, `center` and `top`. See the [table above]({{ page.url }}.html#parameters) to learn what these parameters mean.
+Each element can have up to four effects. One for `in`, `bottom`, `center` and `top`. See the [table above](/yoi/{{ page.url }}.html#parameters) to learn what these parameters mean.
 The following example will apply a effect `fx-fade-in` on `center`:
 
 ```html

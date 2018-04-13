@@ -16,14 +16,14 @@ Tis is how a basic modal looks like and how ou write the markup:
 
 ```html
 <!-- example -->
-<a class="btn btn--large" href="demos/modal.html" yoi-modal>Open demos/modal.html as Modal</a>
+<a class="btn btn--large" href="{{ site.github.url }}/demos/modal.html" yoi-modal>Open demos/modal.html as Modal</a>
 ```
 
 ## Modal Pages
 
 YOI modals are designed to be regular pages, referenced, optionally preloaded and injected into the page. Modal pages must at least have an element with the CSS-class `.modal`.
 
-The following is an example for a typical modal markup. You may want to <a href="demos/modal.html" target="_blank">open it in another browser tab</a> to 
+The following is an example for a typical modal markup. You may want to <a href="{{ site.github.url }}/demos/modal.html" target="_blank">open it in another browser tab</a> to
 
 ```html
 <!-- example -->
@@ -73,7 +73,7 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
 If you wish to reference to a modal page to show it as a modal, you need to apply the `yoi-modal` atribute to the trigger element (most likely a link).
 
 ```html
-<a class="btn btn--large" href="demos/modal.html" yoi-modal>Show Demo Modal</a>
+<a class="btn btn--large" href="{{ site.github.url }}/demos/modal.html" yoi-modal>Show Demo Modal</a>
 ```
 
 ## Generate a Simple Modal
@@ -91,7 +91,7 @@ In this most simple example, only two things are necessary: a valid link to a co
 Modal-links can have options. In fact, you may use any element to refer to a modal, as long as you provide a valid modal path:
 
 ```html
-<span yoi-modal="path:demos/modal.html;">Show Demo Modal</span>
+<span yoi-modal="path:{{ site.github.url }}/demos/modal.html;">Show Demo Modal</span>
 ```
 
 Option are written as **semicolon-seperated key/value pairs**:

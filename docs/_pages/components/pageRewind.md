@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PageRewind
-permalink: components/pagerewind
+permalink: components/pageRewind
 ---
 
 # PageRewind

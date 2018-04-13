@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PriceSticker
-permalink: components/pricesticker
+permalink: components/priceSticker
 ---
 
 # PriceSticker

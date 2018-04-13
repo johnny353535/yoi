@@ -37,7 +37,7 @@ Wrap your image inside a `<noscript>` tag and add the atribute `yoi-lazyload`:
 | `alt`        | Optional image alt text - we **recomment** to always provide alt text                               |
 | `title`      | Optional image title                                                                                |
 | `longdesc`   | Optional image long description                                                                     |
-| `cssClasses` | Optional CSS class names (eg. [utility classnames](utilities/)) for the generated `<img>`-tag       |
+| `cssClasses` | Optional CSS class names (eg. [utility classnames]({{ site.github.url }}/utilities/)) for the generated `<img>`-tag       |
 
 ### Image Source
 

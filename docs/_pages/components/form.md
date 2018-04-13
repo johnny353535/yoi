@@ -72,7 +72,7 @@ This is how a `<input type="radio">` looks like:
 
 ### Submit Buttons
 
-`<input type="submit">` elements are styled via the [button element](components/button.html):
+`<input type="submit">` elements are styled via the [button element]({{ site.github.url }}/components/button.html):
 
 ```html
 <!-- example:tabs -->

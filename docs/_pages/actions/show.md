@@ -25,14 +25,14 @@ Add `yoi-action="Show:#id;"` to show an element:
 
 ## Parameters
 
-| `on`      | Optional – a valid event ([learn more](actions/index.html#the-on-parameter)), the default event is `click` |
-| `trigger` | Optional – the trigger element to listen to ([learn more](actions/index.html#the-trigger-parameter))       |
-| `fx`      | Optional – [fx utility class](utilities/fx.html) to add an animation                                       |
+| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)), the default event is `click` |
+| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter))       |
+| `fx`      | Optional – [fx utility class]({{ site.github.url }}/utilities/fx.html) to add an animation                                       |
 | `speed`   | Optional – `slow` or `fast`, speed for fx-animation                                                        |
 
 ### Fx
 
-Use the optional `fx` parameter to add an animation. Technically you can use all [fx utility classes](utilities/fx.html) – however, only the following produce proper show-animations:
+Use the optional `fx` parameter to add an animation. Technically you can use all [fx utility classes]({{ site.github.url }}/utilities/fx.html) – however, only the following produce proper show-animations:
 
 | `.fx-fade-in`         | fades in                           |
 | `.fx-scale-up`        | grows from zero to origial size    |

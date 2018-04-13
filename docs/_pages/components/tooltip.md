@@ -25,7 +25,7 @@ This is how a basic `.toolTip` looks like and how you write the markup:
 </div>
 ```
 
-In the example above, when JavaScript is disabled, the user sees a nicely styled [note element](components/note.html). This is very flexible and gives you complete control over styling your no-JS fallback.
+In the example above, when JavaScript is disabled, the user sees a nicely styled [note element]({{ site.github.url }}/components/note.html). This is very flexible and gives you complete control over styling your no-JS fallback.
 
 <p class="hint"><b>Use any Markup:</b> You can use any markup you wish as a tooltip. The text content is always transformed into a properly styled tooltip.</p>
 <p class="hint"><b>Smart Positioning:</b> Tooltips are displayed relative to the cursor position on mouseover and adjust themselves automatically so the viewport does not cut them off.</p>

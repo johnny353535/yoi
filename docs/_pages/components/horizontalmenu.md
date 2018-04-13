@@ -49,7 +49,7 @@ Add the modifier `.horizontalMenu--expanded` to force the menu items to take up 
 
 ## Submenus
 
-Use the [popOver element](components/popover.html) to add submenus:
+Use the [popOver element]({{ site.github.url }}/components/popover.html) to add submenus:
 
 ```html
 <!-- example:tabs -->
@@ -138,7 +138,7 @@ Use the [popOver element](components/popover.html) to add submenus:
 
 ### Submenus and Accordions
 
-Add the [accordion element](components/accordion.html) to create nicely structured, collapsable submenus:
+Add the [accordion element]({{ site.github.url }}/components/accordion.html) to create nicely structured, collapsable submenus:
 
 ```html
 <!-- example:tabs -->

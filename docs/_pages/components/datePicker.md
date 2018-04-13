@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Date Picker
-permalink: components/datepicker
+permalink: components/datePicker
 status: draft
 ---
 

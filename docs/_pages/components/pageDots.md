@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PageDots
-permalink: components/pagedots
+permalink: components/pageDots
 status: draft
 ---
 

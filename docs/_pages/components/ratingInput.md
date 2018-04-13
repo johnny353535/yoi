@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: RatingInput
-permalink: components/ratinginput
+permalink: components/ratingInput
 status: draft
 ---
 

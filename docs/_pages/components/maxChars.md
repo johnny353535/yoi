@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: MaxChars
-permalink: components/maxchars
+permalink: components/maxChars
 status: draft
 ---
 

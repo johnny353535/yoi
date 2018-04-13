@@ -137,9 +137,9 @@ The first method is used in all previous examples. However, sometimes the second
 
 ## Custom Events
 
-Some of YOI’s [elements](components/) fire custom events. They follow the naming scheme `yoi-elementname-eventname` (written in lowercase). Available custom events are listet on each component’s documentation page.
+Some of YOI’s [elements]({{ site.github.url }}/components/) fire custom events. They follow the naming scheme `yoi-elementname-eventname` (written in lowercase). Available custom events are listet on each component’s documentation page.
 
-In the following example, the [switch](components/switch.html) fires the events `yoi-switch-on` and `yoi-switch-off`. The example target gets hidden on `yoi-switch-off` and becomes visible on `yoi-switch-off`:
+In the following example, the [switch]({{ site.github.url }}/components/switch.html) fires the events `yoi-switch-on` and `yoi-switch-off`. The example target gets hidden on `yoi-switch-off` and becomes visible on `yoi-switch-off`:
 
 ```html
 <!-- example -->

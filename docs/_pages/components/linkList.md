@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Link List
-permalink: components/linklist
+permalink: components/linkList
 status: draft
 ---
 

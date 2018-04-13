@@ -2,13 +2,13 @@
 layout: base
 group: components
 title: Pie Chart
-permalink: components/piechart
+permalink: components/pieChart
 status: draft
 ---
 
 # Pie Chart
 
-<p class="intro">A simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available. See also: <a href="pages/components/barChart.html">Bar Chart</a>.</p>
+<p class="intro">A simple SVG pie chart, dynamically generated on page load. It reads the data records from on simple markup which provides an elegant and meaningful fall back if JavaScript is not available.</p>
 
 ## Most Basic Example
 

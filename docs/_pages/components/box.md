@@ -77,7 +77,7 @@ Group multiple `.box` instances by wrapping them inside `<div class="boxes">`. Y
 
 ## Modification
 
-Create custom `.box` variations with [utilities](utilities/). In the following example, text-, border- and background-color is set to shades of red:
+Create custom `.box` variations with [utilities]({{ site.github.url }}/utilities/). In the following example, text-, border- and background-color is set to shades of red:
 
 ```html
 <!-- example -->

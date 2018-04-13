@@ -56,7 +56,7 @@ Utilities provide a simple, fast and consistent way to design by only writing HT
 
 ### To Add …
 
-Use utilities to *add styles*. In the following example, a [box component](components/box.html) gets a margin from the [spacing-utility](utilities/spacing.html) `.m-6`:
+Use utilities to *add styles*. In the following example, a [box component]({{ site.github.url }}/components/box.html) gets a margin from the [spacing-utility]({{ site.github.url }}/utilities/spacing.html) `.m-6`:
 
 ```html
 <!-- example -->
@@ -70,7 +70,7 @@ Use utilities to *add styles*. In the following example, a [box component](compo
 
 ### To Modify …
 
-Use utilities to *override styles*. In the following example, the [box component](components/box.html) gets a wider border with a different color via `bw-2` and `bc-red-15`:
+Use utilities to *override styles*. In the following example, the [box component]({{ site.github.url }}/components/box.html) gets a wider border with a different color via `bw-2` and `bc-red-15`:
 
 ```html
 <!-- example -->
@@ -84,7 +84,7 @@ Use utilities to *override styles*. In the following example, the [box component
 
 ### To Create …
 
-Use utilities to create new elements. The element in the following example uses many utilities for [color](utilities/color.html), [shadows](utilities/shadow.html), [typography](utilities/typography.html) and more …
+Use utilities to create new elements. The element in the following example uses many utilities for [color]({{ site.github.url }}/utilities/color.html), [shadows]({{ site.github.url }}/utilities/shadow.html), [typography]({{ site.github.url }}/utilities/typography.html) and more …
 
 ```html
 <!-- example -->

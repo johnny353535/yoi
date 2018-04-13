@@ -108,7 +108,7 @@ Define which section should start expanded/open by adding the modifier `.is--ope
 
 ### Accordion.openAll
 
-Open all accordions on the page by using the [action](actions/) `Accordion.openAll`:
+Open all accordions on the page by using the [action]({{ site.github.url }}/actions/) `Accordion.openAll`:
 
 ```html
 <!-- example -->
@@ -117,7 +117,7 @@ Open all accordions on the page by using the [action](actions/) `Accordion.openA
 
 ### Accordion.closeAll
 
-Close all accordions on the page by using the [action](actions/) `Accordion.closeAll`:
+Close all accordions on the page by using the [action]({{ site.github.url }}/actions/) `Accordion.closeAll`:
 
 ```html
 <!-- example -->
@@ -138,7 +138,7 @@ Close all accordions on the page by using the [action](actions/) `Accordion.clos
 | `yoi-accordion-open`  | An accordion section opens.  |
 | `yoi-accordion-close` | An accordion section closes. |
 
-Try the example below and watch the custom events, printed to the [log element](components/log.html):
+Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
 
 ```html
 <!-- example:tabs -->

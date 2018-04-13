@@ -9,7 +9,7 @@ permalink: utilities/fx
 
 <p class="intro">Applies CSS animations on an element.</p>
 
-<p class="hint hint--primary">These utilities are most useful in combination with the <a href="actions/show.html">Show-</a> and <a href="actions/hide.html">Hide</a>-actions, <a href="behaviours/scrollfx.html">Scollfx behaviour</a> or your own JavaScript.</p>
+<p class="hint hint--primary">These utilities are most useful in combination with the <a href="{{ site.github.url }}/actions/show.html">Show-</a> and <a href="{{ site.github.url }}/actions/hide.html">Hide</a>-actions, <a href="{{ site.github.url }}/behaviours/scrollfx.html">Scollfx behaviour</a> or your own JavaScript.</p>
 
 | `.fx-fade-in`          | fades in                             |
 | `.fx-fade-out`         | fades out                            |

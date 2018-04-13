@@ -11,7 +11,7 @@ permalink: components/shelf
 
 ## Basic Example
 
-For this example, we use thumbnail-images inside shelf items. You could use any other item instead (see [examples below]({{ page.url }}.html#variations)). This is how a basic `.shelf` might look like and how you write the markup:
+For this example, we use thumbnail-images inside shelf items. You could use any other item instead (see [examples below](yoi/{{ page.url }}.html#variations)). This is how a basic `.shelf` might look like and how you write the markup:
 
 ```html
 <!-- example -->

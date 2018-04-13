@@ -197,7 +197,7 @@ Use this utility to control weather a block of text breaks at the end of it’s 
 | `.only-l--lbr-none` | no line breaks only at breakpoint `l`       |
 | `.xl--lbr-none`     | no line breaks at breakpoint `xl`           |
 
-<p class="hint hint--primary"><b>Finetune your line breaks</b> – you can set individual line breaks (<code>&#x3C;br /&#x3E;</code>) and make them respond to the currently active breakpoint by adding a <a href="utilities/layout.html#responsive-display">responsive display-utility</a> (eg. <code>.m--d-none</code>). Check out the example below:</p>
+<p class="hint hint--primary"><b>Finetune your line breaks</b> – you can set individual line breaks (<code>&#x3C;br /&#x3E;</code>) and make them respond to the currently active breakpoint by adding a <a href="{{ site.github.url }}/utilities/layout.html#responsive-display">responsive display-utility</a> (eg. <code>.m--d-none</code>). Check out the example below:</p>
 
 ```html
 <!-- example -->

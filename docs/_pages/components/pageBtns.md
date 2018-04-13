@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: PageBtns
-permalink: components/pagebtns
+permalink: components/pageBtns
 ---
 
 # PageBtns
@@ -29,7 +29,7 @@ This is how a basic `.pageBtns` looks like and how you write the markup:
 </div>
 ```
 
-Note that the element grows with the content of it’s child-element `.pageBtns__indicator`. 
+Note that the element grows with the content of it’s child-element `.pageBtns__indicator`.
 
 ```html
 <!-- example:tabs -->

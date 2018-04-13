@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: StepCrumb
-permalink: components/stepcrumb
+permalink: components/stepCrumb
 ---
 
 # StepCrumb

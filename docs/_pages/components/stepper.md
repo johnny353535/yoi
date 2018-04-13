@@ -44,7 +44,7 @@ You can also add icons:
 </div>
 ```
 
-It’s also possible to *hide the label text and only show the icon*. Use the [utility class](utilities/visibility.html) `.is--invisible` on the element `.stepper__submit` to do so:
+It’s also possible to *hide the label text and only show the icon*. Use the [utility class]({{ site.github.url }}/utilities/visibility.html) `.is--invisible` on the element `.stepper__submit` to do so:
 
 ```html
 <!-- example -->
@@ -164,7 +164,7 @@ Pick a `.stepper` and set the value to a given input:
 | `yoi-stepper-valid`   | fired by countUp() and countDown()    |
 | `yoi-stepper-invalid` | fired by countUp() and countDown()    |
 
-Try the example below and watch the custom events, printed to the [log element](components/log.html):
+Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
 
 ```html
 <!-- example:tabs -->

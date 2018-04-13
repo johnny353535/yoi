@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: FilterBtns
-permalink: components/filterbtns
+permalink: components/filterBtns
 status: draft
 ---
 
