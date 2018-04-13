@@ -69,7 +69,7 @@ YOI.behaviour.ScrollFx = (function() {
 
          $window.on('yoi-breakpoint-change.scrollfx', function() {
 
-            YOI.elementCollection['scrollfx'].each(function() {
+            YOI.collection['scrollfx'].each(function() {
 
                 var $this            = $(this);
                 var options          = $this.data().options;
@@ -237,7 +237,7 @@ YOI.behaviour.ScrollFx = (function() {
          *  the document or element stylings, remove all related event listeners.
          */
 
-        reset(YOI.elementCollection['scrollfx']);
+        reset(YOI.collection['scrollfx']);
         YOI.filterCollection('scrollagent', 'hasScrollFx');
         YOI.destroyCollection('scrollfx');
         $(window).off('yoi-breakpoint-change.scrollfx');

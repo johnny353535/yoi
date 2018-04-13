@@ -14,39 +14,45 @@ YOI.action.Hide = function($trigger, $target, options) {
      *  @option {string} on      - an event, the default event is "click"
      *  @option {string} fx      - optional fx utility class to add an animation
      *  @option {string} speed   - optional "slow" or "fast", speed for fx-animation
+     *  @option {bool}   toggle  - optional, toggles/reverses the action on next call
      */
 
-    if ($target instanceof jQuery) {
+    if (YOI.isjQuery($target)) {
 
         var fx     = options.fx || false;
+        var toggle = options.toggle === 'true' ? true : false;
         var speed  = options.speed || false;
-        var remove = options.remove || false;
+        var remove = options.remove === 'true' ? true : false;
 
-        // add fx, hide and trigger custom event
+        // toggle/show
 
-        if (fx && speed) $target.addClass('fx-' + speed);
-
-        if (remove === 'true') {
-            if (fx) {
-                $target
-                    .addClass('fx-' + fx)
-                    .on('animationend', function() {
-                        $target.remove().trigger('yoi-remove');
-                    });
-            } else {
-                $target.remove().trigger('yoi-remove');
-            }
-        } else {
-            if (fx) {
-                $target
-                    .addClass('fx-' + fx)
-                    .on('animationend', function() {
-                        $target.hide().trigger('yoi-hide');
-                    });
-            } else {
-                $target.hide().trigger('yoi-hide');
-            }
+        if (toggle && $target.is(':hidden')) {
+            YOI.removeFx($target);
+            YOI.action.Show(false, $target, { 'fx' : YOI.reverseFx(fx), 'speed' : speed });
+            return;
         }
+
+        // hide with fx
+
+        if (fx) {
+            if (speed) $target.addClass('fx-' + speed);
+            $target.addClass('fx-' + fx + '-initial');
+            $target.addClass('fx-' + fx);
+            $target.on('animationend', function() {
+                YOI.hide($target);
+                YOI.removeFx($target);
+                $target.trigger('yoi-hide');
+                $target.off('animationend');
+                if (remove) $target.remove().trigger('yoi-remove');
+            });
+            return;
+        }
+
+        // hide without fx
+
+        YOI.hide($target)
+        $target.trigger('yoi-hide');
+        if (remove) $target.remove().trigger('yoi-remove');
 
     }
 
@@ -96,13 +102,11 @@ YOI.action.Hide.init = function() {
 
         // prepare the target element
 
-        if ($target instanceof jQuery) {
+        if (YOI.isjQuery($target)) {
 
             // remove all fx-classes
 
-            $target.removeClass(function (index, className) {
-                return (className.match (/(^|\s)fx-\S+/g) || []).join(' ');
-            });
+            YOI.removeFx($target);
 
             // add initial fx-classes
 
@@ -112,7 +116,7 @@ YOI.action.Hide.init = function() {
 
             // show the target element
 
-            $target.show();
+            YOI.show($target);
 
         }
 

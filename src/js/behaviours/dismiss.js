@@ -81,7 +81,7 @@ YOI.behaviour.Dismiss = (function() {
          *  @param {jQuery element} $targetElement - the target element
          */
 
-        if (!($targetElement instanceof jQuery)) return false;
+        if (!YOI.isjQuery($targetElement)) return false;
 
         $targetElement.fadeOut(function() {
             $targetElement.trigger('yoi-dismiss');

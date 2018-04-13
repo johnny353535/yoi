@@ -72,7 +72,7 @@ YOI.behaviour.Parallax = (function() {
          *  other scripts can listen to.
          */
 
-        YOI.module.ScrollAgent.init(YOI.elementCollection['parallax']);
+        YOI.module.ScrollAgent.init(YOI.collection['parallax']);
 
     }
 
@@ -82,7 +82,7 @@ YOI.behaviour.Parallax = (function() {
          *  Update props of all parallax elements in the collection.
          */
 
-        YOI.elementCollection['parallax'].each(function() {
+        YOI.collection['parallax'].each(function() {
 
             var $this = $(this);
             var data  = $this.data();
@@ -125,7 +125,7 @@ YOI.behaviour.Parallax = (function() {
          *  Reset properties and CSS transforms for all sticky elements.
          */
 
-        YOI.elementCollection['parallax'].each(function() {
+        YOI.collection['parallax'].each(function() {
             var $this = $(this);
             resetProps($this);
             resetTransforms($this);
@@ -172,7 +172,7 @@ YOI.behaviour.Parallax = (function() {
 
         window.requestAnimationFrame(function() {
 
-            YOI.elementCollection['parallax'].each(function() {
+            YOI.collection['parallax'].each(function() {
 
                 var activeBreakpoint           = YOI.currentBreakPoint();
                 var $this                      = $(this);

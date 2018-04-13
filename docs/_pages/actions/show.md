@@ -25,10 +25,11 @@ Add `yoi-action="Show:#id;"` to show an element:
 
 ## Parameters
 
-| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)), the default event is `click` |
-| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter))       |
-| `fx`      | Optional – [fx utility class]({{ site.github.url }}/utilities/fx.html) to add an animation                                       |
-| `speed`   | Optional – `slow` or `fast`, speed for fx-animation                                                        |
+| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)), the default event is `click`          |
+| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter))                |
+| `fx`      | Optional – [fx utility class]({{ site.github.url }}/utilities/fx.html) to add an animation                                                |
+| `speed`   | Optional – `slow` or `fast`, speed for fx-animation                                                                                       |
+| `toggle`  | Optional - if set to `true`, the action toggles the visibility of the target element on each call (shows when hidden, hides when visible) |
 
 ### Fx
 
@@ -67,6 +68,18 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 <button class="btn btn--large" yoi-action="Show:#example-4; fx:fade-in; speed:slow;">Show Slowly</button>
 <div id="example-4" class="box p-4 m-t-4">
     <p class="fs-2">This will show with a slow fade-in transition.</p>
+</div>
+```
+
+### Toggle
+
+Use the optional parameter `toggle` and set it to `true` to *toggle* the visibility: the action *shows* the target element when it’s hidden and *hides* it when it’s visible. Please note that *toggle* also applies the effects and reverses them like you would expect, eg. 'fade-in' becomes 'fade-out' while hiding.
+
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Show:#example-5; fx:fade-in; speed:slow; toggle:true;">Show/Toggle</button>
+<div id="example-5" class="box p-4 m-t-4">
+    <p class="fs-2">This will show when hidden and hide when visible.</p>
 </div>
 ```
 

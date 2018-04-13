@@ -14,21 +14,42 @@ YOI.action.Show = function($trigger, $target, options) {
      *  @option {string} on      - an event, the default event is "click"
      *  @option {string} fx      - optional fx utility class to add an animation
      *  @option {string} speed   - optional "slow" or "fast", speed for fx-animation
+     *  @option {bool}   toggle  - optional, toggles/reverses the action on next call
      */
 
-    if ($target instanceof jQuery) {
+    if (YOI.isjQuery($target)) {
 
-        var fx    = options.fx || false;
-        var speed = options.speed || false;
+        var fx     = options.fx || false;
+        var toggle = options.toggle === 'true' ? true : false;
+        var speed  = options.speed || false;
 
-        // add fx
+        // toggle/hide
 
-        if (fx) $target.addClass('fx-' + fx);
-        if (fx && speed) $target.addClass('fx-' + speed);
+        if (toggle && $target.is(':visible')) {
+            YOI.removeFx($target);
+            YOI.action.Hide(false, $target, { 'fx' : YOI.reverseFx(fx), 'speed' : speed });
+            return;
+        }
 
-        // show and trigger custom event
+        // show with fx
 
-        $target.show().trigger('yoi-show');
+        if (fx) {
+            if (speed) $target.addClass('fx-' + speed);
+            YOI.show($target);
+            $target.addClass('fx-' + fx + '-initial');
+            $target.addClass('fx-' + fx);
+            $target.on('animationend', function() {
+                YOI.removeFx($target);
+                $target.trigger('yoi-show');
+                $target.off('animationend');
+            });
+            return;
+        }
+
+        // show without fx
+
+        YOI.show($target);
+        $target.trigger('yoi-show');
 
     }
 
@@ -78,23 +99,14 @@ YOI.action.Show.init = function() {
 
         // prepare the target element
 
-        if ($target instanceof jQuery) {
-
-            // remove all fx-classes
-
-            $target.removeClass(function (index, className) {
-                return (className.match (/(^|\s)fx-\S+/g) || []).join(' ');
-            });
-
-            // add initial fx-classes
+        if (YOI.isjQuery($target)) {
 
             if (fx) {
-                $target.addClass('fx-' + fx + '-initial').removeClass('fx-' + fx);
+                YOI.removeFx($target);
+                $target.addClass('fx-' + fx + '-initial');
             }
 
-            // hide the target element
-
-            $target.hide();
+            YOI.hide($target);
 
         }
 

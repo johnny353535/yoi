@@ -17,7 +17,7 @@ YOI.action.Update = function($trigger, $target, options) {
     *  @option {string} filter - optional CSS selector to filter an element from the response markup
     */
 
-    if ($target instanceof jQuery) {
+    if (YOI.isjQuery($target)) {
 
         var requestType = options.type || false;
         var requestUrl  = options.url || false;

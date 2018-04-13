@@ -263,7 +263,7 @@ YOI.behaviour.Sticky = (function() {
          *  Resets and updates the $stickyElement props data.
          */
 
-        YOI.elementCollection['sticky'].each(function(index) {
+        YOI.collection['sticky'].each(function(index) {
 
             var $stickyElement   = $(this);
             var passedValidation = validInput($stickyElement) && validHeight($stickyElement);
@@ -308,7 +308,7 @@ YOI.behaviour.Sticky = (function() {
 
         // observe all sticky elements
 
-        YOI.elementCollection['sticky'].each(function(index) {
+        YOI.collection['sticky'].each(function(index) {
 
             var $stickyElement             = $(this);
             var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
@@ -412,7 +412,7 @@ YOI.behaviour.Sticky = (function() {
          */
 
         $window.off('yoi-scroll.sticky yoi-breakpoint-change.sticky yoi-pageheight-change.sticky');
-        YOI.elementCollection['sticky'].each(function() { reset($(this)); });
+        YOI.collection['sticky'].each(function() { reset($(this)); });
         YOI.destroyCollection('sticky');
 
     }

@@ -5,11 +5,11 @@ var YOI = {
     // create empty objects to store jQuery
     // element collections
 
-    elementCollection : {},
-    action            : {},
-    behaviour         : {},
-    component         : {},
-    module            : {},
+    collection : {},
+    action     : {},
+    behaviour  : {},
+    component  : {},
+    module     : {},
 
     // helpers
 
@@ -314,70 +314,68 @@ var YOI = {
 
     },
 
-    hide : function($target) {
+    hide : function($element) {
 
         /**
          *  Hides an element which has a Yoshino UI-Core display utility class like
          *  d-block, d-inline, d-inlineblock. The script remembers the display class and
          *  puts it back, once YOI.show() gets called.
          *
-         *  @param {number} $target - the jQuery target dom element
+         *  @param {jQuery element} $element
          */
 
-        // cancel if $target is no valid jQuery onject
+        // cancel if $element is no valid jQuery onject
 
-        if (!($target instanceof jQuery)) {
+        if (!YOI.isjQuery($element)) {
             return false;
         }
 
         // get the display utility class
 
-        if ($target.hasClass('d-block')) {
-            $target.data('displayUtilityClass', 'd-block');
-        } else if ($target.hasClass('d-inline')) {
-            $target.data('displayUtilityClass', 'd-inline');
-        } else if ($target.hasClass('d-inlineblock')) {
-            $target.data('displayUtilityClass', 'd-inlineblock');
+        if ($element.hasClass('d-block')) {
+            $element.data('displayUtilityClass', 'd-block');
+        } else if ($element.hasClass('d-inline')) {
+            $element.data('displayUtilityClass', 'd-inline');
+        } else if ($element.hasClass('d-inlineblock')) {
+            $element.data('displayUtilityClass', 'd-inlineblock');
         }
 
         // remove all display utility classes
 
-        $target.removeClass('d-block d-inline d-inlineblock');
+        $element.removeClass('d-block d-inline d-inlineblock');
 
         // hide the target
 
-        $target.hide();
+        $element.hide();
 
     },
 
-    show : function($target) {
+    show : function($element) {
 
         /**
          *  Show an element which was previously hidden by YOI.hide().
          *  Re-assigns the previously remembered Yoshino UI-Core display utility class.
          *
-         *  @param {number} $target - the jQuery target dom element
+         *  @param {jQuery element} $element
          */
 
-        // cancel if $target is no valid jQuery onject
+        // cancel if $element is no valid jQuery onject
 
-        if (!($target instanceof jQuery)) {
-            return false;
-        }
+        if (!YOI.isjQuery($element)) return false;
 
-        if (!$target.data().hasOwnProperty('displayUtilityClass')) {
+        if (!$element.data().hasOwnProperty('displayUtilityClass')) {
 
-            // if $target's data('displayUtilityClass') is undefined,
+            // if $element's data('displayUtilityClass') is undefined,
             // fall back to jQuery's $.show() method
 
-            $target.show();
+            $element.show();
 
         } else {
 
-            // if $target does have data('displayUtilityClass'),
+            // if $element does have data('displayUtilityClass'),
             // re-assign the stored utility class in order to show the target
 
-            $target.addClass($target.data('displayUtilityClass'));
+            $element.addClass($element.data('displayUtilityClass'));
 
         }
 
@@ -466,6 +464,64 @@ var YOI = {
 
     },
 
+    removeFx : function($element) {
+
+        /**
+         *  Removes all fx-utility classes from $element.
+         *
+         *  @param {jQuery element} $element
+         */
+
+        $element.removeClass(function (index, className) {
+            return (className.match(/(^|\s)fx-\S+/g) || []).join(' ');
+        });
+
+    },
+
+    reverseFx : function(fx) {
+
+        /**
+         *  Takes an fx utility class name and returns the opposite
+         *  fx utility name.
+         *
+         *  @param  {string} fx - the fx utility class name
+         *  @return {string}    - the opposite fx utility class name
+         */
+
+        var oppositeFx = {
+            'fade-in'          : 'fade-out',
+            'fade-out'         : 'fade-in',
+            'scale-up'         : 'scale-down',
+            'scale-down'       : 'scale-up',
+            'scale-up-y'       : 'scale-down-y',
+            'scale-down-y'     : 'scale-up-y',
+            'slide-in-top'     : 'slide-out-top',
+            'slide-out-top'    : 'slide-in-top',
+            'slide-in-bottom'  : 'slide-out-bottom',
+            'slide-out-bottom' : 'slide-in-bottom',
+            'slide-in-left'    : 'slide-out-left',
+            'slide-out-left'   : 'slide-in-left',
+            'slide-in-right'   : 'slide-out-right',
+            'slide-out-right'  : 'slide-in-right'
+        }
+
+        return oppositeFx[fx];
+
+    },
+
+    isjQuery : function($element) {
+
+        /**
+         *  Returns TRUE if the given $element is a proper jQuery element.
+         *
+         *  @param  {string} $element
+         *  @return {bool}
+         */
+
+        return $element instanceof jQuery;
+
+    },
+
     // global attributes
 
     environment : function(envName) {
@@ -528,19 +584,19 @@ var YOI = {
 
     // animations & fx
 
-    blink : function($elem, times) {
+    blink : function($element, times) {
 
         /**
          *  Blink animation.
          *
-         *  @param  {jQuery element} $elem - the element to blink
-         *  @param  {number}         times - number of times the animation gets played, default is 2
-         *  @return {bool false}           - return false if elem is not a jQuery dom object
+         *  @param  {jQuery element} $element - the element to blink
+         *  @param  {number}         times    - number of times the animation gets played, default is 2
+         *  @return {bool false}              - return false if elem is not a jQuery dom object
          */
 
-        // cancel if $elem is not a jQuery object
+        // cancel if $element is not a jQuery object
 
-        if (!($elem instanceof jQuery)) return false;
+        if (!YOI.isjQuery($element)) return false;
 
         // set times to default value
 
@@ -548,31 +604,31 @@ var YOI = {
 
         // stop the element animation first
 
-        $elem.stop(true, true);
+        $element.stop(true, true);
 
         // run the blink animation
 
         for (var i = 0; i < times; i++) {
-            $elem
+            $element
                 .animate({ opacity: 0 }, 100)
                 .animate({ opacity: 1 }, 100);
         }
 
     },
 
-    pulse : function($elem, times) {
+    pulse : function($element, times) {
 
         /**
          *  Pulse animation.
          *
-         *  @param  {jQuery element} $elem - the element to pulse
-         *  @param  {number}         times - number of times the animation gets played, default is 2
-         *  @return {bool false}           - return false if elem is not a jQuery dom object
+         *  @param  {jQuery element} $elementelem - the element to pulse
+         *  @param  {number}         times        - number of times the animation gets played, default is 2
+         *  @return {bool false}                  - return false if elem is not a jQuery dom object
          */
 
         // cancel if $elem is not a jQuery object
 
-        if (!($elem instanceof jQuery)) return false;
+        if (!YOI.isjQuery($element)) return false;
 
         // set times to default value
 
@@ -580,12 +636,12 @@ var YOI = {
 
         // stop the element animation first
 
-        $elem.stop(true, true);
+        $element.stop(true, true);
 
         // run the pulse animation
 
         for (var i = 0; i < times; i++) {
-            $elem
+            $element
                 .animate({ opacity: .2 }, 300)
                 .animate({ opacity:  1 }, 300);
         }
@@ -717,9 +773,9 @@ var YOI = {
          *  Each $element can have one state. For example "visible" or "hidden".
          *  The state is attached to an $element via jQuery's data() method.
          *
-         *  @param  {jQuery element}  $element
-         *  @param  {string}          state
-         *  @return {object}          state
+         *  @param  {jQuery element} $element
+         *  @param  {string}         state
+         *  @return {object}         state
          */
 
         // if not already present, create "state" object
@@ -754,24 +810,24 @@ var YOI = {
 
         // if it does not exist, create a new collection of jQuery elements
 
-        if (!YOI.elementCollection[identifier]) {
-            YOI.elementCollection[identifier] = $([]);
+        if (!YOI.collection[identifier]) {
+            YOI.collection[identifier] = $([]);
         }
 
-        if (!($element instanceof jQuery)) {
+        if (!YOI.isjQuery($element)) {
 
             // if the createCollection() is called without a valid matching jQuery element,
             // gather the matching elements from the dom
 
-            YOI.elementCollection[identifier] = $('[yoi-' + identifier + ']');
+            YOI.collection[identifier] = $('[yoi-' + identifier + ']');
 
             // if no elements are found, return false ...
 
-            if (!YOI.elementCollection[identifier].length) return false;
+            if (!YOI.collection[identifier].length) return false;
 
             // ... otherwise add data (options, state, props) to each element in the collection
 
-            YOI.elementCollection[identifier].each(function() {
+            YOI.collection[identifier].each(function() {
 
                 var $this = $(this);
 
@@ -781,7 +837,7 @@ var YOI = {
 
             });
 
-        } else if (($element instanceof jQuery) && $element.length) {
+        } else if (YOI.isjQuery($element) && $element.length) {
 
             // if the createCollection() is called with a valid matching jQuery element,
             // set it's options and add it to the element collection
@@ -790,11 +846,11 @@ var YOI = {
             YOI.updateState($element, state);
             YOI.updateProps($element, props);
 
-            YOI.elementCollection[identifier] = YOI.elementCollection[identifier].add($element);
+            YOI.collection[identifier] = YOI.collection[identifier].add($element);
 
         }
 
-        return YOI.elementCollection[identifier];
+        return YOI.collection[identifier];
 
     },
 
@@ -807,15 +863,15 @@ var YOI = {
          *  @param  {string} filterProps          - a prop as filter
          */
 
-        var $collection = YOI.elementCollection[collectionIdentifier];
+        var $collection = YOI.collection[collectionIdentifier];
 
         // cancel if no collection was found
 
-        if (YOI.elementCollection[collectionIdentifier] === undefined) return;
+        if (YOI.collection[collectionIdentifier] === undefined) return;
 
         // proceed
 
-        YOI.elementCollection[collectionIdentifier] = $collection.filter(function() {
+        YOI.collection[collectionIdentifier] = $collection.filter(function() {
 
             if ($(this).data().props.hasOwnProperty(filterProps)) {
                 return false;
@@ -835,7 +891,7 @@ var YOI = {
          *  @param {string} identifier - the collection identifier
          */
 
-        YOI.elementCollection[identifier] = undefined;
+        YOI.collection[identifier] = undefined;
 
     },
 
@@ -967,7 +1023,7 @@ var YOI = {
          *  Test for a "initialized" flag on a (jQuery-)element.
          *
          *  @param  {jQuery element} $element
-         *  @return {bool}              state
+         *  @return {bool}           state
          */
 
         var state;

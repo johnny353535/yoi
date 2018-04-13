@@ -31,7 +31,7 @@ YOI.module.ScrollAgent = (function() {
 
         // create a collection from all target elements
 
-        if ($targetElement instanceof jQuery) YOI.createCollection('scrollagent', $targetElement);
+        if (YOI.isjQuery($targetElement)) YOI.createCollection('scrollagent', $targetElement);
 
         // attach events
 
@@ -77,7 +77,7 @@ YOI.module.ScrollAgent = (function() {
 
         // update all target elements
 
-        var $collection = YOI.elementCollection['scrollagent'] || false;
+        var $collection = YOI.collection['scrollagent'] || false;
 
         if ($collection) $collection.each(function() {
 
@@ -125,7 +125,7 @@ YOI.module.ScrollAgent = (function() {
 
         // observe all target elements
 
-        var $collection = YOI.elementCollection['scrollagent'] || false;
+        var $collection = YOI.collection['scrollagent'] || false;
 
         if ($collection) $collection.each(function(index) {
 

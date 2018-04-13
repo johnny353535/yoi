@@ -19,7 +19,7 @@ YOI.action.ScrollTo = function($trigger, $target, options) {
 
     // scroll to anchor if target element is found
 
-    if ($target instanceof jQuery) {
+    if (YOI.isjQuery($target)) {
 
         var $document            = $(document);
         var scrollRoot           = document.scrollingElement || document.documentElement;

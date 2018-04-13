@@ -10,7 +10,7 @@ YOI.action.Pulse = function($trigger, $target, options) {
      *  @param {object}         options
      */
 
-    if ($target instanceof jQuery) {
+    if (YOI.isjQuery($target)) {
         YOI.pulse($target, options.times);
     }
 

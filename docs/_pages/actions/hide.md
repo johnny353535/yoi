@@ -25,11 +25,12 @@ Add `yoi-action="Hide:#id;"` to hide an element:
 
 ## Parameters
 
-| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)), the default event is `click` |
-| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter))       |
-| `fx`      | Optional – [fx utility class]({{ site.github.url }}/utilities/fx.html) to add an animation                                       |
-| `speed`   | Optional – `slow` or `fast`, speed for fx-animation                                                        |
-| `remove`  | Optional – if set to `true`, the target element is removed from the document                               |
+| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)), the default event is `click`          |
+| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter))                |
+| `fx`      | Optional – [fx utility class]({{ site.github.url }}/utilities/fx.html) to add an animation                                                |
+| `speed`   | Optional – `slow` or `fast`, speed for fx-animation                                                                                       |
+| `remove`  | Optional – if set to `true`, the target element is removed from the document                                                              |
+| `toggle`  | Optional - if set to `true`, the action toggles the visibility of the target element on each call (hiden when visible, shows when hidden) |
 
 ### Fx
 
@@ -83,7 +84,19 @@ Use the optional parameter `remove` and set it to `true` to remove the target el
 </div>
 ```
 
-<p class="hint hint--primary">With <code>remove:true;</code>, the target element will trigger the event `yoi-remove` rather than `yoi-hide`.</p>
+<p class="hint hint--primary">With <code>remove:true;</code>, the target element will also trigger the event `yoi-hide`.</p>
+
+### Toggle
+
+Use the optional parameter `toggle` and set it to `true` to *toggle* the visibility: the action *hides* the target element when it’s visible and *shows* it when it’s hidden. Please note that *toggle* also applies the effects and reverses them like you would expect, eg. 'fade-out' becomes 'fade-in' while showing.
+
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-action="Hide:#example-6; fx:fade-out; speed:slow; toggle:true;">Hide/Toggle</button>
+<div id="example-6" class="box p-4 m-t-4">
+    <p class="fs-2">This will hide when visible and show when hidden.</p>
+</div>
+```
 
 ## Events
 
