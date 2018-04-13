@@ -203,7 +203,7 @@ Use the modifiers `.stepCrumb--step1` up to `.stepCrumb--step10` to highlight th
 
 ## Markup
 
-It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated styling of this element, we recommended to explicitly disable its mouseover styles. You can do so by adding the [utility](utilities/interface.html) `.ptr-none`:
+It’s possible and sometimes perfectly suitable to use `.stepCrumb` without links. However, due to the complicated styling of this element, we recommended to explicitly disable its mouseover styles. You can do so by adding the [utility]({{ site.github.url }}/utilities/interface.html) `.ptr-none`:
 
 ```html
 <!-- example -->

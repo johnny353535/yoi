@@ -20,7 +20,7 @@ Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` in
 
 ## Icons & Buttons
 
-You can put any [icon]({{ site.github.url }}/components/icons.html) inside any kind of button. You can align them to the left or right by writing them first or last in markup:
+You can put any [icon]({{ site.github.url }}/components/icon.html) inside any kind of button. You can align them to the left or right by writing them first or last in markup:
 
 ```html
 <!-- example -->
@@ -52,7 +52,7 @@ Create an icon-only button by adding `.hidden` to the label:
 
 ## Other HTML-Elements As Button
 
-You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons]({{ site.github.url }}components/icons.html), you need a wrapper element around the button label.
+You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons]({{ site.github.url }}/components/icon.html), you need a wrapper element around the button label.
 
 ### \<a>
 

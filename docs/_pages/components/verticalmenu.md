@@ -190,7 +190,7 @@ Add optional pointers to the currently selected (`.is--active`) element. Chose f
 
 ## Advanced Usage
 
-The following example combines the `.verticalMenu` with the [toggleGroup component]({{ site.github.url }}/components/toggleGroup.html) to create a simple, *tab-able* widget.
+The following example combines the `.verticalMenu` with the [toggleGroup component]({{ site.github.url }}/components/togglegroup.html) to create a simple, *tab-able* widget.
 
 ```html
 <!-- example -->

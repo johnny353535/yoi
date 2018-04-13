@@ -9,7 +9,7 @@ status: draft
 # PageDots
 
 <p class="intro">Previous- & next-buttons with dots as page indicators.</p>
-<p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="components/slider.html">.slider</a> element.</p>
+<p class="hint"><b>Use Cases:</b> <code>.pageDots</code> are typically used in combination with the <a href="{{ site.github.url }}/components/slider.html">.slider</a> element.</p>
 
 ## Basic Example
 

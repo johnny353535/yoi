@@ -248,7 +248,7 @@ Each `.tabs__menu` fires a custom event your script can listen to:
 yoi-tabs:change // the active tabs page changed
 ```
 
-Try the example below and watch the custom events, printed to the [log element](components/log.html):
+Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
 
 ```html
 <!-- example:tabs -->

@@ -122,7 +122,7 @@ Pick a `.ratingInput` and set it to a given score (1–5):
 
 ### Fallback
 
-To provide a usable fallback when JavaScript is not available, write your fallback markup (eg. e `<select>` element) inside the `.ratingInput` element and add the [utility class](utilities/js_fallback.html) `.js-fallback`:
+To provide a usable fallback when JavaScript is not available, write your fallback markup (eg. e `<select>` element) inside the `.ratingInput` element and add the [utility class]({{ site.github.url }}/utilities/js_fallback.html) `.js-fallback`:
 
 ```html
 <!-- example -->
