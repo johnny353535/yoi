@@ -32,8 +32,8 @@ In the following example, each button calls the _action_ `Update` to load differ
 
 ## Parameters
 
-| `on`      | Optional – a valid event ([learn more](actions/index.html#the-on-parameter)). The default event is `click`.    |
-| `trigger` | Optional – the trigger element to listen to ([learn more](actions/index.html#the-trigger-parameter)).          |
+| `on`      | Optional – a valid event ([learn more]({{ site.github.url }}/actions/index.html#the-on-parameter)). The default event is `click`.    |
+| `trigger` | Optional – the trigger element to listen to ([learn more]({{ site.github.url }}/actions/index.html#the-trigger-parameter)).          |
 | `url`     | **Required** – the URL for the update request                                                                  |
 | `type`    | Optional – the request type `POST` or `GET`. The default is `GET`.                                             |
 | `filter`  | Optional – CSS selector to filter an element from the response HTML. The default selector is `#yoi-update-src` |
