@@ -27,7 +27,7 @@ Add a behaviour-attribute to any element to activate the behaviour:
 | ------------------------------------ | -------------- | -------------------------------------------------------------------------------- |
 | [Dismiss]({{ site.github.url }}/behaviours/dismiss.html)   | `yoi-dismiss`  | Adds a close-button to an element.                                               |
 | [Lazyload]({{ site.github.url }}/behaviours/lazyload.html) | `yoi-lazyload` | Loads an image only if it’s inside the viewport.                                 |
-| [Parallax](b{{ site.github.url }}/behaviours/parallax.html) | `yoi-parallax` | Adds a parallax scrolling effect to an element.                                  |
+| [Parallax]({{ site.github.url }}/behaviours/parallax.html) | `yoi-parallax` | Adds a parallax scrolling effect to an element.                                  |
 | [Scrollfx]({{ site.github.url }}/behaviours/scrollfx.html) | `yoi-scrollfx` | Adds effects or transitions to an element, responding to the scrolling position. |
 | [Sticky]({{ site.github.url }}/behaviours/sticky.html)     | `yoi-sticky`   | Makes an element *stick* when scrolled past it’s position on the page.           |
 
