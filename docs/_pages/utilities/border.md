@@ -3,6 +3,9 @@ layout: base
 group: utilities
 title: Border
 permalink: utilities/border
+srcfiles:
+    - border-base.less
+    - border-responsive.less
 ---
 
 # Border
