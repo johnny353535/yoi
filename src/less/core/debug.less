@@ -79,23 +79,38 @@ html::before when (@showGuides = true) {
 body::after when (@showBreakpoint = true) {
 
     .mixin-defaultBorderRadius;
-    background-color: @red-13;
-    bottom: 2rem;
-    color: @red-25;
+    background-color: @gray-5;
+    bottom: 1rem;
+    color: @gray-24;
     font-family: @font-mono;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     height: auto;
-    left: 2rem;
+    left: 1rem;
     line-height: 2;
     opacity: 1;
     padding: 0 1rem;
     position: fixed;
     width: auto;
-    z-index: 900;
+    z-index: 1000;
 
-    @media @bp-s  { content: 'small';  }
-    @media @bp-m  { content: 'medium'; }
-    @media @bp-l  { content: 'large';  }
-    @media @bp-xl { content: 'xlarge'; }
+    @media @bp-s {
+        color: @red-18;
+        content: 'small';
+    }
+
+    @media @bp-m {
+        color: @green-20;
+        content: 'medium';
+    }
+
+    @media @bp-l {
+        color: @yellow-20;
+        content: 'large';
+    }
+
+    @media @bp-xl {
+        color: @blue-20;
+        content: 'xlarge';
+    }
 
 }
