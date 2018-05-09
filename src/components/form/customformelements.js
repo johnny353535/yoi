@@ -4,7 +4,7 @@ YOI.component.CustomFormElements = (function() {
 
     // private vars
     // ============
-    
+
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
             $(this).find('input').trigger('change');
@@ -14,7 +14,7 @@ YOI.component.CustomFormElements = (function() {
         .on('click', function() {
             $(this).find('input').trigger('change');
         });
-        
+
     var $selectWrapper = $('<span class="select"></span>');
     var $selectIcon    = $('<span class="select__icon"></span>');
 
@@ -22,7 +22,7 @@ YOI.component.CustomFormElements = (function() {
     // =================
 
     function initialize() {
-        
+
         /**
          *  Initialize the script.
          */
@@ -35,13 +35,14 @@ YOI.component.CustomFormElements = (function() {
         var $selects     = $('select:not(.js-fallback)');
 
         // checkboxes
+        // ----------
 
         $checkBoxes.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisCheckbox    = $(this);
@@ -52,9 +53,9 @@ YOI.component.CustomFormElements = (function() {
             } else {
                 $thisCheckbox.wrap($checkBoxWrapper.clone());     // clone without events
             }
-            
+
             // attach events
-            
+
             $thisCheckbox.on({
                 'focus': function() {
                     $thisCheckbox.parent().addClass('input--focus');
@@ -64,26 +65,33 @@ YOI.component.CustomFormElements = (function() {
                     $thisCheckbox.parent().removeClass('input--focus');
                     $thisCheckbox.trigger('yoi-input-blur');
                 },
-                'change': function(e) {
-                    $thisCheckbox.parent().toggleClass('input--checked');
+                'change': function() {
+                    if ($thisCheckbox.is(':checked')) {
+                        $thisCheckbox.prop('checked', false);
+                        $thisCheckbox.parent().removeClass('input--checked');
+                    } else if (!$thisCheckbox.is(':checked')) {
+                        $thisCheckbox.prop('checked', true);
+                        $thisCheckbox.parent().addClass('input--checked');
+                    }
                     $thisCheckbox.trigger('yoi-input-change');
                 }
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
         // radio buttons
+        // -------------
 
         $radioBtns.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisRadioBtn    = $(this);
@@ -94,9 +102,9 @@ YOI.component.CustomFormElements = (function() {
             } else {
                 $thisRadioBtn.wrap($radioBtnWrapper.clone());     // clone without events
             }
-            
+
             // attach events
-            
+
             $thisRadioBtn.on({
                 'focus': function() {
                     $thisRadioBtn.parent().addClass('input--focus');
@@ -106,32 +114,34 @@ YOI.component.CustomFormElements = (function() {
                     $thisRadioBtn.parent().removeClass('input--focus');
                     $thisRadioBtn.trigger('yoi-input-blur');
                 },
-                'change': function(e) {
-                
-                    var groupName    = $thisRadioBtn.attr('name');
-                    var $groupedBtns = $('[name="' + groupName + '"]');
-
-                    $groupedBtns.parent().removeClass('input--checked');
-                    $thisRadioBtn.parent().addClass('input--checked');
+                'change': function() {
+                    $('[name="' + $thisRadioBtn.attr('name') + '"]').parent().removeClass('input--checked');
+                    if ($thisRadioBtn.is(':checked')) {
+                        $thisRadioBtn.parent().addClass('input--checked');
+                    }
+                    if (!$thisRadioBtn.is(':checked')) {
+                        $thisRadioBtn.prop('checked', true);
+                        $thisRadioBtn.parent().addClass('input--checked');
+                    }
                     $thisRadioBtn.trigger('yoi-input-change');
-                
                 }
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
         // selects
+        // -------
 
         $selects.each(function() {
-            
+
             // cancel if already initialized
-            
+
             if (YOI.isReady($(this))) return false;
-            
+
             // proceed
 
             var $thisSelect        = $(this);
@@ -150,9 +160,9 @@ YOI.component.CustomFormElements = (function() {
             // remove classNames (modifiers) from select element
 
             $thisSelect.removeAttr('class');
-            
+
             // add events
-            
+
             $thisSelect.on({
                 'focus': function() {
                     $thisSelect.parent().addClass('input--focus');
@@ -166,15 +176,15 @@ YOI.component.CustomFormElements = (function() {
                     $thisSelect.trigger('yoi-input-change');
                 }
             });
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
         // add css class names to check element wrappers
-        
+
         $checkElemns.each(function() {
 
             var thisWrapper = $(this).parent();
@@ -191,13 +201,13 @@ YOI.component.CustomFormElements = (function() {
             if ($(this).is(':checked')) {
                 thisWrapper.addClass('input--checked');
             }
-            
+
             // set initialized
-            
+
             YOI.setReady($(this));
 
         });
-        
+
     }
 
     // public functions

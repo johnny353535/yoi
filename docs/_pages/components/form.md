@@ -56,7 +56,7 @@ This is how a `<input type="checkbox">` looks like:
 
 ```html
 <!-- example:tabs -->
-<input type="checkbox" />
+<input type="checkbox" checked />
 <input type="checkbox" />
 ```
 
@@ -66,7 +66,7 @@ This is how a `<input type="radio">` looks like:
 
 ```html
 <!-- example:tabs -->
-<input name="example-1" type="radio" />
+<input name="example-1" type="radio" checked />
 <input name="example-1" type="radio" />
 ```
 
@@ -162,11 +162,11 @@ Use the modifier `.input--large` for all interactive form elements to increase s
     </select>
 </div>
 <div class="m-b-2">
-    <input type="checkbox" class="input--large" />
+    <input type="checkbox" class="input--large" checked />
     <input type="checkbox" class="input--large" />
 </div>
 <div class="m-b-2">
-    <input name="example-3" type="radio" class="input--large" />
+    <input name="example-3" type="radio" class="input--large" checked />
     <input name="example-3" type="radio" class="input--large" />
 </div>
 ```
