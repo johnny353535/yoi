@@ -7,12 +7,16 @@ YOI.component.CustomFormElements = (function() {
 
     var $checkBoxWrapper = $('<span class="checkbox"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change');
+            var $thisInput = $(this).find('input');
+            if ($thisInput.is(':disabled')) return false;
+            $thisInput.trigger('change');
         });
 
     var $radioBtnWrapper = $('<span class="radio"></span>')
         .on('click', function() {
-            $(this).find('input').trigger('change');
+            var $thisInput = $(this).find('input');
+            if ($thisInput.is(':disabled')) return false;
+            $thisInput.trigger('change');
         });
 
     var $selectWrapper = $('<span class="select"></span>');
@@ -200,6 +204,13 @@ YOI.component.CustomFormElements = (function() {
 
             if ($(this).is(':checked')) {
                 thisWrapper.addClass('input--checked');
+            }
+
+            // if the check element is disabled,
+            // add the "input--disabled" modifier
+
+            if ($(this).is(':disabled')) {
+                thisWrapper.addClass('input--disabled');
             }
 
             // set initialized
