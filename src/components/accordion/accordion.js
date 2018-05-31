@@ -98,7 +98,7 @@ YOI.component.Accordion = (function() {
         var options        = $thisAccordion.data().options;
         var state          = $thisSection.data().state;
 
-        if (state === 'closed' && options.linked) {
+        if (options.linked) {
             closeAllSections($thisAccordion);
         }
 
@@ -131,10 +131,10 @@ YOI.component.Accordion = (function() {
             .stop()
             .slideDown('fast')
             .promise()
-            .then(function() { $thisSection.trigger('yoi-accordion-done') });
-
-        $thisSection.trigger('yoi-accordion-open');
-        $thisSection.data().state = 'open';
+            .then(function() {
+                $thisSection.trigger('yoi-accordion-open');
+                $thisSection.data().state = 'open';
+            });
 
     }
 
@@ -151,17 +151,16 @@ YOI.component.Accordion = (function() {
 
         $thisSection
             .removeClass('is--open')
-            .addClass('is--closed')
-            .promise()
-            .then(function() { $thisSection.trigger('yoi-accordion-done') });
+            .addClass('is--closed');
 
         $thisBody
             .stop()
-            .slideUp('fast');
-
-        $thisSection.trigger('yoi-accordion-close');
-        $thisSection.data().state = 'closed';
-
+            .slideUp('fast')
+            .promise()
+            .then(function() {
+                $thisSection.trigger('yoi-accordion-closed');
+                $thisSection.data().state = 'closed';
+            });
     }
 
     function closeAllSections($accordion) {
@@ -170,13 +169,13 @@ YOI.component.Accordion = (function() {
          *  If $accordion is omitted on function call, all accordion sections found
          *  in DOM are closed. Otherwise all sections of a given $accordion are closed.
          *
-         *  @param {jQuery element} $$accordion - the accordion
+         *  @param {jQuery element} $accordion - the accordion
          */
 
         var $targets;
 
-        if ($accordion === undefined) {
-            $targets = $('[yoi-accordion] .accordion__section');
+        if (YOI.isjQuery($accordion)) {
+            $targets = $accordion.find('.accordion__section');
         } else {
             $targets = $('.accordion__section');
         }
