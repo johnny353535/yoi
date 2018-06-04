@@ -1041,14 +1041,8 @@ var YOI = {
     initialize : function() {
 
         /**
-         *  Initializes all YOI components, actions, behaviours, modules ...
+         *  Initializes all YOI actions, behaviours, modules, components ...
          */
-
-        // initialize all YOI components
-
-        $.each(YOI.component, function() {
-            if (this.hasOwnProperty('init')) this.init();
-        });
 
         // initialize all YOI actions
 
@@ -1065,6 +1059,12 @@ var YOI = {
         // initialize all YOI modules
 
         $.each(YOI.module, function() {
+            if (this.hasOwnProperty('init')) this.init();
+        });
+
+        // initialize all YOI components
+
+        $.each(YOI.component, function() {
             if (this.hasOwnProperty('init')) this.init();
         });
 
