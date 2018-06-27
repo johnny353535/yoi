@@ -1,3 +1,5 @@
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/yoshino-digital/yoi)
+
 # Yoi - the Yoshino Frontend Component Library
 
 Yoi (pronounced *yo-ee*) is Yoshino’s custom-built frontend component library. It enables our team to design, build and test web pages *directly in the browser*. It was made to be used by designers with basic knowledge of HTML and CSS – at its core stands a simple *HTML-based interface*.
