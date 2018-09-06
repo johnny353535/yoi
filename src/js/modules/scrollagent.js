@@ -190,18 +190,25 @@ YOI.module.ScrollAgent = (function() {
          *
          *  Custom events:
          *
-         *  yoi-scroll       => page is scrolling
-         *  yoi-scroll-up    => page is scrolling up
-         *  yoi-scroll-down  => page is scrolling down
-         *  yoi-scroll-start => page started scrolling (fires only once)
-         *  yoi-scroll-stop  => page stopped scrolling (fires only once)
+         *  yoi-scroll          => page is scrolling
+         *  yoi-scroll-up       => page is scrolling up
+         *  yoi-scroll-down     => page is scrolling down
+         *  yoi-scroll-start    => page started scrolling (fires only once)
+         *  yoi-scroll-stop     => page stopped scrolling (fires only once)
+         *  yoi-scroll-slowdown => scrolling slows down (only on browsers with eased-out scrolling)
          */
 
-        var isScrolling = false;
+        var isScrolling      = false;
+        var slowDown         = 1;
+        var currentScrollTop = 0;
 
         if (typeof window['scrollObserverInterval'] !== 'number') {
 
             YOI.setInterval('scrollObserverInterval', 10, function() {
+
+                // record current scroll position
+
+                currentScrollTop = $window.scrollTop();
 
                 // general scrolling event
 
@@ -216,10 +223,15 @@ YOI.module.ScrollAgent = (function() {
 
                 // scroll direction
 
-                var currentScrollTop = $window.scrollTop();
-
                 if (currentScrollTop < lastScrollTop) $window.trigger('yoi-scroll-up');
                 if (currentScrollTop > lastScrollTop) $window.trigger('yoi-scroll-down');
+
+                // slowdown
+
+                if (Math.abs(lastScrollTop - currentScrollTop) === 0) ++slowDown;
+                if (slowDown > 15) $window.trigger('yoi-scroll-slowdown');
+
+                // record last scroll position
 
                 lastScrollTop = currentScrollTop;
 
