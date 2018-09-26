@@ -171,6 +171,32 @@ var YOI = {
 
     },
 
+    afInterval : function(intervalTime, intervalFunction) {
+
+        /**
+         *  More performant, Animationframe-based alternative to setInterval.
+         *
+         *  @param {number}                       intervalTime     - interval time in ms
+         *  @param {string || anonymous function} intervalFunction - exact function name or anonymous function
+         */
+
+        var dateNow          = Date.now;
+        var requestAnimation = window.requestAnimationFrame;
+        var start            = dateNow();
+        var stop;
+        var tick = function() {
+            dateNow() - start < intervalTime || (start += intervalTime, intervalFunction());
+            stop || requestAnimation(tick)
+        }
+
+        requestAnimation(tick);
+
+        return {
+            clear : function() { stop = 1 }
+        }
+
+    },
+
     toObject : function(input) {
 
         /*
