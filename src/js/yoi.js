@@ -917,6 +917,7 @@ var YOI = {
          *  @param {string} identifier - the collection identifier
          */
 
+        YOI.collection[identifier].each(function() { $(this).removeData(); });
         YOI.collection[identifier] = undefined;
 
     },
