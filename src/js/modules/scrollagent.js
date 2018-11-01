@@ -5,7 +5,7 @@ YOI.module.ScrollAgent = (function() {
     /**
      *  Creates a collection of dom object that respond to their
      *  current position while scrolling. For example, a dom object
-     *  fires the cutom event 'yoi-viewport-in' when it scrolls into
+     *  fires the custom event 'yoi-viewport-in' when it scrolls into
      *  the viewport.
      */
 
