@@ -44,6 +44,14 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
 }
 
 .mixin-userSelectNone() {
