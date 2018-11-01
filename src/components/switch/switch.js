@@ -110,9 +110,10 @@ YOI.component.Switch = (function() {
         $switch.removeClass('switch--off').addClass('switch--on');
         $switch.find('input[type="checkbox"]').first().attr('checked', true);
 
-        // trigger custom event
+        // trigger custom events
 
         $switch.trigger('yoi-switch-on');
+        $switch.trigger('yoi-switch-change');
 
     }
 
@@ -129,9 +130,10 @@ YOI.component.Switch = (function() {
         $switch.removeClass('switch--on').addClass('switch--off');
         $switch.find('input[type="checkbox"]').first().attr('checked', false);
 
-        // trigger custom event
+        // trigger custom events
 
         $switch.trigger('yoi-switch-off');
+        $switch.trigger('yoi-switch-change');
 
     }
 
