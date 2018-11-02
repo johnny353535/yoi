@@ -46,10 +46,10 @@ Use the modifier `.switch--large` to render a large switch:
 
 ```html
 <!-- example -->
-<div class="switch" yoi-switch="state:on">
+<div class="switch" yoi-switch="state:on;">
     <input type="checkbox" />
 </div>
-<div class="switch" yoi-switch="showLabels:true">
+<div class="switch" yoi-switch="showLabels:true;">
     <input type="checkbox" />
 </div>
 <div class="switch" yoi-switch="showLabels:true; labelOn:yes; labelOff:no;">
@@ -77,7 +77,7 @@ Pick a switch and set it to “off”:
 
 ```html
 <!-- example:tabs -->
-<div id="exampleSwitch-2" class="switch switch--large" yoi-switch="state:on">
+<div id="exampleSwitch-2" class="switch switch--large" yoi-switch="state:on;">
     <input type="checkbox" />
 </div>
 <button class="btn btn--medium m-l-2" yoi-action="Switch.off:#exampleSwitch-2;">Switch Off</button>

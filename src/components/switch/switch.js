@@ -97,59 +97,70 @@ YOI.component.Switch = (function() {
 
     }
 
-    function setOn($switch) {
+    function setOn($switch, preventEvents) {
 
         /**
          *  Sets the switch to "on". Adds the proper CSS class name to
          *  visualize the state and sets the first checkbox found inside the
          *  switch to "checked".
          *
-         *  @param {jQuery element} $switch - the switch
+         *  @param {jQuery element} $switch       - the switch
+         *  @param {boolean}        preventEvents - prevent custom events, default: false
          */
+
+        var preventEvents = preventEvents === undefined ? false : true;
 
         $switch.removeClass('switch--off').addClass('switch--on');
         $switch.find('input[type="checkbox"]').first().attr('checked', true);
 
         // trigger custom events
 
-        $switch.trigger('yoi-switch-on');
-        $switch.trigger('yoi-switch-change');
+        if (!preventEvents) {
+            $switch.trigger('yoi-switch-on');
+            $switch.trigger('yoi-switch-change');
+        }
 
     }
 
-    function setOff($switch) {
+    function setOff($switch, preventEvents) {
 
         /**
          *  Sets the switch to "off". Adds the proper CSS class name to
          *  visualize the state and removes the "checked" attribute from
          *  the first checkbox found inside the switch.
          *
-         *  @param {jQuery element} $switch - the switch
+         *  @param {jQuery element} $switch       - the switch
+         *  @param {boolean}        preventEvents - prevent custom events, default: false
          */
+
+        var preventEvents = preventEvents === undefined ? false : true;
 
         $switch.removeClass('switch--on').addClass('switch--off');
         $switch.find('input[type="checkbox"]').first().attr('checked', false);
 
         // trigger custom events
 
-        $switch.trigger('yoi-switch-off');
-        $switch.trigger('yoi-switch-change');
+        if (!preventEvents) {
+            $switch.trigger('yoi-switch-off');
+            $switch.trigger('yoi-switch-change');
+        }
 
     }
 
-    function setToggle($switch) {
+    function setToggle($switch, preventEvents) {
 
         /**
          *  Alternates the state between "on" and "off".
          *  See setOn() and setOff() for more.
          *
          *  @param {jQuery element} $switch - the switch
+         *  @param {boolean}        preventEvents - prevent custom events, default: false
          */
 
         if ($switch.hasClass('switch--off')) {
-            setOn($switch);
+            setOn($switch, preventEvents);
         } else if ($switch.hasClass('switch--on')) {
-            setOff($switch);
+            setOff($switch, preventEvents);
         }
 
     }
