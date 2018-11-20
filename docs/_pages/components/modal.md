@@ -115,4 +115,4 @@ path:desktop/pages/modal_demo.html; cache:true; …
 ## Errors / Fallback
 
 If you reference a modal page that is either ill-formatted, isn’t a modal page or simply does not exist, the modal won’t be shown.
-Instead, if the trigger element is a link, it will fall back to it’s default behaviour (open the location provided via `href`-attribute, even if the page does not exist). If the trigger element is not a link (modal path via `yoiyoi-ons`-attribute), nothing will happen on click.
+Instead, if the trigger element is a link, it will fall back to it’s default behaviour (open the location provided via `href`-attribute, even if the page does not exist). If the trigger element is not a link (modal path via `yoi`-attribute), nothing will happen on click.
