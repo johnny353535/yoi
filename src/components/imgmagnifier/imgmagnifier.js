@@ -17,7 +17,7 @@ YOI.component.ImgMagnifier = (function(){
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery element} $dock
+         *  @param {jQuery element} $imgMagnifier
          *  @param {object}         options
 
          *  Available options:
