@@ -44,7 +44,7 @@ Set the parameter `staticPosition` to `top`, `right`, `bottom`, `left` to create
 ```html
 <!-- example -->
 <!-- trigger elements -->
-<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:top; type:attention;">top</span>
+<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:top;">top</span>
 <span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:right;">right</span>
 <span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
 <span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
