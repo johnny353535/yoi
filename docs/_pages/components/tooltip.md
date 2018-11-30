@@ -32,10 +32,11 @@ In the example above, when JavaScript is disabled, the user sees a nicely styled
 
 ## Parameters
 
-| `target`         | CSS id selector                  | The id selector of the element to convert into a tooltip.                                        |
-| `staticPosition` | `top`, `right`, `bottom`, `left` | Creates a static tooltip with a pointer at the given position, relative to it’s trigger element. |
-| `showDelay`      | time in milliseconds             | Time to delay showing the tooltip, default is 300                                                |
-| `hideDealy`      | time in milliseconds             | Time to delay hiding the tooltip, default is 200                                                 |
+| `target`         | CSS id selector                  | The id selector of the element to convert into a tooltip.                                                                    |
+| `staticPosition` | `top`, `right`, `bottom`, `left` | Creates a static tooltip with a pointer at the given position, relative to it’s trigger element.                             |
+| `showDelay`      | time in milliseconds             | Time to delay showing the tooltip, default is 300                                                                            |
+| `hideDealy`      | time in milliseconds             | Time to delay hiding the tooltip, default is 200                                                                             |
+| `generate`       | boolean true/false               | Set to `true` to generate a tooltip on the fly via JS instead of converting a dom element into a tooltip, default is `false` |
 
 ### Static Position
 
@@ -82,6 +83,17 @@ Set the parameter `hideDealy` to any number of milliseconds (eg. `hideDelay:1000
 <div id="tooltip-4">
     <p>This is a tooltip with 1 second hide-delay.</p>
 </div>
+```
+
+### generate
+
+Set the parameter `generate` to `true` and the parameter `content` to the string you wish to display, eg. `This is a tooltip`.
+
+<p class="hint hint--negative"><b>Correct Formatting:</b> If at least one value contains special characters (slashes, colons etc.), wrap <b>all values</b> in <i>single quotation marks</i>: <code>foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'</code>.</p>
+
+```html
+<!-- example -->
+<button class="btn btn--large" yoi-tooltip="generate:'true'; content:'This is a tooltip';">Generate A Simple Tooltip</button>
 ```
 
 ## Custom Events

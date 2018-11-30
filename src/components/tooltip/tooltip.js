@@ -6,8 +6,9 @@ YOI.component.Tooltip = (function() {
     // ============
 
     var defaultFadeDuration = 200;
-    var defaultShowDelay    = 300;
-    var defaultHideDelay    = 200;
+    var defaultShowDelay    = 500;
+    var defaultHideDelay    = 500;
+    var generatedToolTipId  = 1;
 
     // private functions
     // =================
@@ -43,11 +44,21 @@ YOI.component.Tooltip = (function() {
             var $thisTooltipTrigger = $(this);
             var options             = $thisTooltipTrigger.data().options;
             var staticPosition      = options.staticPosition || false;
+            var generate            = options.generate || false;
+            var content             = options.content || false;
             var hasStaticPosition   = staticPosition === 'top' || staticPosition === 'right' || staticPosition === 'bottom' || staticPosition === 'left';
 
-            // prepare the tooltip
+            if (generate !== false && content !== false) {
+                // if the generate option is true, generate a tooltip
+                // and put it in the dom
 
-            var $thisTooltip = prepareTooltip($(options.target));
+                var $thisTooltip = generateTooltip($thisTooltipTrigger, content);
+            } else {
+                // otherwise prepare a referenced element in the dom
+                // and turn it into a tooltip
+
+                var $thisTooltip = prepareTooltip($thisTooltipTrigger, $(options.target));
+            }
 
             $thisTooltipTrigger.on('mouseenter', function(e) {
                 if (hasStaticPosition) {
@@ -108,55 +119,61 @@ YOI.component.Tooltip = (function() {
 
     }
 
-    function createAndShowTooltip(id, xPos, yPos, content, fadeDuration) {
+    function generateTooltip($thisTooltipTrigger, content) {
 
         /**
-         *  Created and shows a tooltip.
+         *  Creates a tooltip and injects it into the dom.
          *
-         *  @param {string} id           - required, unique id for the created tooltip
-         *  @param {number} xPos         - required, x-position
-         *  @param {number} yPos         - required, y-position
-         *  @param {string} content      - required, content for the tooltip
-         *  @param {number} fadeDuration - optional, duration of fade-in transition in ms
-
+         *  @param  {jQuery element} $thisTooltipTrigger - the tooltip trigger element
+         *  @param  {string}         content             - the content of the created tooltip
+         *  @return {jQuery element}                     – reference to the prepared tooltip in DOM
          */
 
-        // required parameters must be set
-        // if not - cancel
+        var tooltipId             = 'yoi-tooltip-' + generatedToolTipId++;
+        var targetAlreadyPrepared = $('#' + tooltipId).length;
+        var content               = content || 'lorem ipsum';
 
-        if (!id || !xPos || !yPos || !content) return false;
+        if (!targetAlreadyPrepared) {
 
-        // cancel if tooltip is already in dom
+            // generate and inject the tooltip
+            $('<div id="' + tooltipId + '" class="tooltip">' + content +'</div>').appendTo($(document.body)).hide();
 
-        if ($('#' + id).length && $('#' + id).is('.toolTip')) return false;
+            // store the reference on the trigger element
+            // props object
 
-        // get the fade transition duration
-
-        var fadeDuration = fadeDuration || defaultFadeDuration;
-
-        // append the tooltip
-
-        $('<div id="' + id + '" class="tooltip">' + content +'</div>').appendTo($(document.body)).hide();
-
-        var $thisTooltip = $('#' + id);
-
-        // set tooltip position
-
-        $thisTooltip
-            .css({
-                'position': 'absolute',
-                'left': xPos,
-                'top': yPos
-            })
-            .fadeIn(fadeDuration)
-            .promise()
-            .then(function() {
-                $thisTooltip.trigger('yoi-tooltip-show');
+            YOI.updateProps($thisTooltipTrigger, {
+                'tooltipId' : tooltipId
             });
+
+        }
+
+        return $('#' + tooltipId);
 
     }
 
-    function prepareTooltip($thisTargetElement, tooltipType) {
+    function changeTooltipContent($thisTooltipTrigger, content) {
+
+        /**
+         *  Change the content of an existing tooltip.
+         *
+         *  @param  {jQuery element} $thisTooltipTrigger - the tooltip trigger element
+         *  @param  {string}         content             - the content of the created tooltip
+         *
+         */
+
+        var $thisToolTip = $('#' + $thisTooltipTrigger.data().props.tooltipId);
+
+        // cancel if no tooltip was found
+
+        if (!$thisToolTip.length) return false;
+
+        // change the tooltip content
+
+        $thisToolTip.html(content);
+
+    }
+
+    function prepareTooltip($thisTooltipTrigger, $thisTargetElement) {
 
         /**
          *  Turns the given target element into a proper tooltip.
@@ -164,8 +181,9 @@ YOI.component.Tooltip = (function() {
          *  Remove original target element from the DOM, clean up the content, inject it into
          *  a new tooltip-element and attach it to the DOM.
          *
-         *  @param  {jQuery element} $thisTargetElement - the target element to transform into a tooltip
-         *  @return {jQuery element}                    – reference to the prepared tooltip in DOM
+         *  @param  {jQuery element} $thisTooltipTrigger - the tooltip trigger element
+         *  @param  {jQuery element} $thisTargetElement  - the target element to transform into a tooltip
+         *  @return {jQuery element}                     – reference to the prepared tooltip in DOM
          */
 
         var targetId              = $thisTargetElement.attr('id');
@@ -179,6 +197,13 @@ YOI.component.Tooltip = (function() {
 
             $thisTargetElement.detach();
             $('<div id="' + targetId + '" class="tooltip">' + $thisTargetElement.html() +'</div>').appendTo($(document.body)).hide();
+
+            // store the reference on the trigger element
+            // props object
+
+            YOI.updateProps($thisTooltipTrigger, {
+                'tooltipId' : targetId
+            });
 
         }
 
@@ -233,7 +258,7 @@ YOI.component.Tooltip = (function() {
          *  @param {string}         position            - position keyword (top, right, bottom, left)
          */
 
-        var offset   = 15;
+        var offset   = 10;
         var options  = $thisTooltipTrigger.data().options;
         var position = options.staticPosition;
         var tooltipLeft;
@@ -333,7 +358,7 @@ YOI.component.Tooltip = (function() {
 
     return {
         init    : initialize,
-        create  : createAndShowTooltip,
+        change  : changeTooltipContent,
         show    : showWithDelay,
         hide    : hideWithDelay,
         hideAll : hideAll
