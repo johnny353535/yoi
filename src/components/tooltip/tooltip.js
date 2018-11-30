@@ -27,6 +27,7 @@ YOI.component.Tooltip = (function() {
          *                                    element which gets turned into a tooltip
          *  @option {string} staticPosition - set to 'top', 'right', 'bottom' or 'left' to create a
          *                                    static tooltip with a pointer
+         *  @option {string} fixed          - set the tooltip to position:fixed
          *  @option {number} showDelay      - time in milliseconds to delay showing the tooltip
          *  @option {number} hideDelay      - time in milliseconds to delay hiding the tooltip
          */
@@ -44,27 +45,31 @@ YOI.component.Tooltip = (function() {
             var $thisTooltipTrigger = $(this);
             var options             = $thisTooltipTrigger.data().options;
             var staticPosition      = options.staticPosition || false;
-            var generate            = options.generate || false;
             var content             = options.content || false;
+            var target              = options.target || false;
             var hasStaticPosition   = staticPosition === 'top' || staticPosition === 'right' || staticPosition === 'bottom' || staticPosition === 'left';
 
-            if (generate !== false && content !== false) {
-                // if the generate option is true, generate a tooltip
-                // and put it in the dom
+            if (!target && content !== false) {
+                // if no target is set but the content,
+                // generate the tooltip on the fly
 
                 var $thisTooltip = generateTooltip($thisTooltipTrigger, content);
-            } else {
-                // otherwise prepare a referenced element in the dom
+            } else if (target) {
+                // or prepare a referenced element in the dom
                 // and turn it into a tooltip
 
                 var $thisTooltip = prepareTooltip($thisTooltipTrigger, $(options.target));
+            } else {
+                // otherwise cancel
+
+                return false;
             }
 
             $thisTooltipTrigger.on('mouseenter', function(e) {
                 if (hasStaticPosition) {
                     setStaticPosition($thisTooltipTrigger, $thisTooltip);
                 } else {
-                    setPosition($thisTooltip, e);
+                    setPosition($thisTooltipTrigger, $thisTooltip, e);
                 }
                 hideAll();
                 hideWithDelay($thisTooltipTrigger, $thisTooltip, 'stop');
@@ -80,9 +85,9 @@ YOI.component.Tooltip = (function() {
 
             // follow moving cursor
 
-            if (staticPosition === false) {
+            if (!staticPosition) {
                 $thisTooltipTrigger.on('mousemove', function(e) {
-                    setPosition($thisTooltip, e);
+                    setPosition($thisTooltipTrigger, $thisTooltip, e);
                 });
             }
 
@@ -211,7 +216,7 @@ YOI.component.Tooltip = (function() {
 
     }
 
-    function setPosition($thisTooltip, e) {
+    function setPosition($thisTooltipTrigger, $thisTooltip, e) {
 
         /**
          *  Set the tooltip position.
@@ -230,17 +235,20 @@ YOI.component.Tooltip = (function() {
         var viewPortWidth  = $(window).width();
         var viewPortHeight = $(window).height();
         var scrollTop      = $(window).scrollTop();
+        var fixed          = $thisTooltipTrigger.data().options.fixed || false;
+        var positionType   = fixed ? 'fixed' : 'absolute';
+        var scrollOffset   = fixed ? $(window).scrollTop() : 0;
 
         // calculate position for tooltip
 
         var tooltipLeft = cursorX + tooltipWidth > viewPortWidth ? cursorX - tooltipWidth - offset + 'px' : cursorX  + 'px';
-        var tooltipTop  = cursorY + tooltipHeight + offset * 3 > scrollTop + viewPortHeight ? cursorY - tooltipHeight - offset * 2 + 'px' : cursorY + offset + 'px';
+        var tooltipTop  = cursorY + tooltipHeight + offset * 3 > scrollTop + viewPortHeight ? cursorY - tooltipHeight - scrollOffset - offset * 2 + 'px' : cursorY + offset - scrollOffset + 'px';
 
         // set position for tooltip
 
         $thisTooltip
             .css({
-                'position': 'absolute',
+                'position': positionType,
                 'left': tooltipLeft,
                 'top': tooltipTop
             });
@@ -258,28 +266,31 @@ YOI.component.Tooltip = (function() {
          *  @param {string}         position            - position keyword (top, right, bottom, left)
          */
 
-        var offset   = 10;
-        var options  = $thisTooltipTrigger.data().options;
-        var position = options.staticPosition;
+        var offset       = 10;
+        var options      = $thisTooltipTrigger.data().options;
+        var position     = options.staticPosition;
+        var fixed        = options.fixed || false;
+        var positionType = fixed ? 'fixed' : 'absolute';
+        var scrollOffset = fixed ? $(window).scrollTop() : 0;
         var tooltipLeft;
         var tooltipTop;
 
         switch (position) {
             case 'top':
                 tooltipLeft = $thisTooltipTrigger.offset().left + $thisTooltipTrigger.outerWidth() / 2 - $thisTooltip.outerWidth() / 2;
-                tooltipTop  = $thisTooltipTrigger.offset().top - $thisTooltip.outerHeight() - offset;
+                tooltipTop  = $thisTooltipTrigger.offset().top - scrollOffset - $thisTooltip.outerHeight() - offset;
                 break;
             case 'right':
                 tooltipLeft = $thisTooltipTrigger.offset().left + $thisTooltipTrigger.outerWidth() + offset;
-                tooltipTop  = $thisTooltipTrigger.offset().top + $thisTooltipTrigger.outerHeight() / 2 - $thisTooltip.outerHeight() / 2;
+                tooltipTop  = $thisTooltipTrigger.offset().top - scrollOffset + $thisTooltipTrigger.outerHeight() / 2 - $thisTooltip.outerHeight() / 2;
                 break;
             case 'bottom':
                 tooltipLeft = $thisTooltipTrigger.offset().left + $thisTooltipTrigger.outerWidth() / 2 - $thisTooltip.outerWidth() / 2;
-                tooltipTop  = $thisTooltipTrigger.offset().top + $thisTooltipTrigger.outerHeight() + offset;
+                tooltipTop  = $thisTooltipTrigger.offset().top - scrollOffset + $thisTooltipTrigger.outerHeight() + offset;
                 break;
             case 'left':
                 tooltipLeft = $thisTooltipTrigger.offset().left - $thisTooltip.outerWidth() - offset;
-                tooltipTop  = $thisTooltipTrigger.offset().top + $thisTooltipTrigger.outerHeight() / 2 - $thisTooltip.outerHeight() / 2;
+                tooltipTop  = $thisTooltipTrigger.offset().top - scrollOffset + $thisTooltipTrigger.outerHeight() / 2 - $thisTooltip.outerHeight() / 2;
                 break;
         }
 
@@ -289,7 +300,7 @@ YOI.component.Tooltip = (function() {
         $thisTooltip
             .attr('class','tooltip tooltip--' + position)
             .css({
-                'position': 'absolute',
+                'position': positionType,
                 'left': tooltipLeft,
                 'top': tooltipTop
             });
