@@ -3,18 +3,20 @@
 // block
 // =====
 
-.js .popOver {
-    .mixin-shadow-3;
-    background-clip: padding-box;
-    border: fade(@color-base-20, 30%) 1px solid;
-    position: absolute;
-    z-index: 601;
-}
-
 .popOver {
     background: @color-base-25;
     border-radius: (@defaultBorderRadius * 1px);
     border: @color-base-23 1px solid;
+    display: none;
+}
+
+.js .popOver {
+    .mixin-shadow-3;
+    background-clip: padding-box;
+    border: fade(@color-base-20, 30%) 1px solid;
+    display: block;
+    position: absolute;
+    z-index: 601;
 }
 
 // elements
