@@ -1,13 +1,19 @@
 # To Do
 
+## Components
+
+- [ ] remove a couple of very shop-centric components (pricetag, etc.)
+- [ ] add Toc
+- [ ] add horizontal menu with overflow-scroll and scroll indicators
+
 ## Implement less Plugins
 
 - [ ] https://github.com/less/less-plugin-npm-import (can be used in less' import statements, on the cli or in node scripts)
-- [ ] https://github.com/atlassian/less-plugin-inline-svg (inlines SVG images with variable support!!!)
+- [ ] https://github.com/atlassian/less-plugin-inline-svg (inlines SVG images with variable support)
 
 ## Most Urgent
 
-- [ ] add CC license
+- [x] add license
 - [ ] move away from bower
 - [ ] implement icons as svg inline icons (see above)
 - [ ] update build scripts
@@ -22,19 +28,17 @@
 - [ ] add "invert colors" option to each component
 - [ ] more constructor mixins
 - [ ] add upload to kit build process (via unix/bash script instead of node.js script)
-- [ ] add lightbox component
 - [ ] redraw & refactor icons
 
 ## Improvements
 
 - [ ] add option to enable/disable behaviors depending on current breakpoint
 - [ ] add public destroy() method to each component and behaviour
-- [ ] bring back slack webhook
 
 ## Future Roadmap
 
 - [x] gradient tool gets it's own repository
-- [ ] refactor JS (modern syntax, modules, transpile via Babel
+- [ ] refactor JS (modern syntax, modules, transpile via Babel?)
 - [ ] make markup more accessible (according to [a11y checklist](http://a11yproject.com/checklist.html))
 
 ## Notes
