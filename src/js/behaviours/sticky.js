@@ -47,9 +47,6 @@ YOI.behaviour.Sticky = (function() {
 
         if ($stickyElement) {
 
-            // console.log($stickyElement);
-            // return;
-
             $stickyElement.each(function(index) {
 
                 var $thisStickyElement = $(this);
@@ -213,6 +210,8 @@ YOI.behaviour.Sticky = (function() {
         data.props.stickStart       = stickStart;
         data.props.stickStop        = stickStop;
 
+        data.props.status           = 'unknown';
+
     }
 
     function validInput($stickyElement) {
@@ -312,6 +311,7 @@ YOI.behaviour.Sticky = (function() {
 
             var $stickyElement             = $(this);
             var $stickyPlaceholder         = $('#stickyPlaceholder-' + index);
+            var state                      = $stickyElement.data().state;
             var props                      = $stickyElement.data().props;
             var stickyElementInitialTopPos = props.initialTopPos;
             var stickStart                 = props.stickStart;
@@ -339,8 +339,13 @@ YOI.behaviour.Sticky = (function() {
 
                     // trigger custom event
 
-                    $stickyElement.trigger('yoi-stick-stop');
+                    if (props.status === 'sticky') {
+                        $stickyElement.trigger('yoi-stick-stop');
+                    }
 
+                    // save status
+
+                    props.status = 'not_sticky';
 
                 } else if (scrollTop > stickStop) {
 
@@ -352,7 +357,13 @@ YOI.behaviour.Sticky = (function() {
 
                     // trigger custom event
 
-                    $stickyElement.trigger('yoi-stick-stop');
+                    if (props.status === 'sticky') {
+                        $stickyElement.trigger('yoi-stick-stop');
+                    }
+
+                    // save status
+
+                    props.status = 'not_sticky';
 
                 } else {
 
@@ -364,7 +375,13 @@ YOI.behaviour.Sticky = (function() {
 
                     // trigger custom event
 
-                    $stickyElement.trigger('yoi-stick-start');
+                    if (props.status !== 'sticky') {
+                        $stickyElement.trigger('yoi-stick-start');
+                    }
+
+                    // save status
+
+                    props.status = 'sticky';
 
                 }
 
