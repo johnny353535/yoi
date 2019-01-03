@@ -41,6 +41,11 @@
         padding: 0 3.3rem 0 .5rem;
         width: 100%;
 
+        &::-ms-expand {
+            // hide arrow in IE
+            display: none;
+        }
+
         &:active,
         &:focus {
             border: 0;
