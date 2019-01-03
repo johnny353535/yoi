@@ -19,7 +19,9 @@ Add the Attribute `yoi-sticky` to any element. While scrolling down the page, as
 
 ```html
 <!-- example -->
-<div class="w-6 h-6 bg-primary-15 br-all" yoi-sticky="stop:300;"></div>
+<div yoi-sticky="stop:300;">
+    <div class="w-6 h-6 bg-primary-15 br-all"></div>
+</div>
 ```
 
 <p class="hint hint--primary">If you provide no additional Parameter, the element sticks as long as the page can be scrolled.</p>
@@ -32,10 +34,11 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 
 ## Parameters
 
-| `reference` | `CSS selector` or the keyword `"parent"` - defines a reference element on the page                                 |
-| `start`     | `number` - the *offset* before a sticky element actually *sticks*, the default offset is `0`                       |
-| `stop`      | `number` - the *offset* after a sticky element no longer *sticks*                                                  |
-| `not`       | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behaviour is disabled |
+| `reference`      | `CSS selector` or the keyword `”parent“` - defines a reference element on the page                                                           |
+| `start`          | `number` - the *offset* before a sticky element actually *sticks*, the default offset is `0`                                                 |
+| `stop`           | `number` - the *offset* after a sticky element no longer *sticks*                                                                            |
+| `includePadding` | `string` - `true` (default) or `false`, defines weather to include padding of a parent reference element ([learn more](behaviours/sticky.html#the-keyword-parent)) |
+| `not`            | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behaviour is disabled                           |
 
 ### Reference
 
@@ -53,7 +56,9 @@ Sticky takes the first matching element on the page and references it’s height
 <!-- example -->
 <div class="flx">
     <div class="w-8">
-        <div class="w-6 h-6 bg-primary-15 m-r-4 br-all" yoi-sticky="reference:#referenceElement-1;"></div>
+        <div yoi-sticky="reference:#referenceElement-1;">
+            <div class="w-6 h-6 bg-primary-15 m-r-4 br-all"></div>
+        </div>
     </div>
     <div class="w-1-3">
         <div class="bg-base-24 br-all h-40 w-10 p-1" id="referenceElement-1"></div>
@@ -65,12 +70,27 @@ Sticky takes the first matching element on the page and references it’s height
 
 #### The Keyword *Parent*
 
-Use `reference:parent;` to turn the sticky element’s surrounding element (= *parent element*) into it’s reference element. The sticky element sticks *inside it’s parent element* until the sticky element’s bottom reaches the parent element’s bottom. Notice how the parent element’s padding is included into the calculation:
+Use `reference:parent;` to turn the sticky element’s surrounding element (= *parent element*) into it’s reference element. The sticky element sticks *inside it’s parent element* until the sticky element’s bottom reaches the parent element’s bottom.
+
+Notice how the parent element’s padding is included into the calculation:
 
 ```html
 <!-- example -->
-<div class="br-all bg-base-24 h-30 p-2">
-    <div class="w-6 h-6 bg-primary-15 br-all" yoi-sticky="reference:parent;"></div>
+<div class="br-all bg-base-24 h-30 p-4">
+    <div yoi-sticky="reference:parent;">
+        <div class="w-6 h-6 bg-primary-15 br-all"></div>
+    </div>
+</div>
+```
+
+If you wish to exclude the parent element’s padding, add the key/value `includePadding:false`:
+
+```html
+<!-- example -->
+<div class="br-all bg-base-24 h-30 p-4">
+    <div yoi-sticky="reference:parent;includePadding:false;">
+        <div class="w-6 h-6 bg-primary-15 br-all"></div>
+    </div>
 </div>
 ```
 
@@ -82,7 +102,9 @@ The element in the following example starts to stick at 30px distance and sticks
 
 ```html
 <!-- example -->
-<div class="w-6 h-6 bg-primary-15 br-all" yoi-sticky="start:30px; stop:100;"></div>
+<div yoi-sticky="start:30px; stop:100;">
+    <div class="w-6 h-6 bg-primary-15 br-all"></div>
+</div>
 ```
 
 #### Start
@@ -114,9 +136,15 @@ Use the parameter `not` to define one or more breakpoints on which you wish to d
 ```html
 <!-- example -->
 <div class="flx">
-    <div class="w-6 h-6 bg-primary-15 br-al m-r-1" yoi-sticky="not:small;stop:300;"></div>
-    <div class="w-6 h-6 bg-primary-15 br-al m-r-1" yoi-sticky="not:xlarge;stop:300;"></div>
-    <div class="w-6 h-6 bg-primary-15 br-al m-r-1" yoi-sticky="not:small,medium;stop:300;"></div>
+    <div yoi-sticky="not:small;stop:300;">
+        <div class="w-6 h-6 bg-primary-15 br-al m-r-1"></div>
+    </div>
+    <div yoi-sticky="not:xlarge;stop:300;">
+        <div class="w-6 h-6 bg-primary-15 br-al m-r-1"></div>
+    </div>
+    <div yoi-sticky="not:small,medium;stop:300;">
+        <div class="w-6 h-6 bg-primary-15 br-al m-r-1"></div>
+    </div>
 </div>
 ```
 

@@ -21,26 +21,28 @@ YOI.behaviour.Sticky = (function() {
          *
          *  Available options:
          *
-         *  @option {number} start     - The distance between the sticky element's top position and the
-         *                               viewport's top border at the moment the element sticks.
-         *                               The default value is 0.
-         *  @option {number} stop      - The distance between the sticky element's initial top position
-         *                               and the sticky element's final top position at the moment it
-         *                               stops sticking. The default value is the body height, which results
-         *                               in sticking as long as the page can be scrolled.
-         *  @option {string} reference - If the value is the keyword/string "parent", the sticky
-         *                               element's fist parent element is referenced to control the
-         *                               sticky element.
-         *                               If the value is a jQuery-compatible CSS-selector, the script
-         *                               selects the first matching element on the page and references
-         *                               it's height to define a stop position for the sticky element.
-         *                               The sticky element "sticks" as long as it's bottom aligns with
-         *                               the reference element's bottom.
-         *  @option {string} not       - A single string or a comma-seperated list of strings. Valid values
-         *                               are "small", "medium", "large" and "xlarge". This options tells
-         *                               the sticky element to disable it's sticky behaviour on the given
-         *                               breakpoints (eg. not:small,medium; = element won't stick on "small"
-         *                               and "medium" breakpoint).
+         *  @option {number} start          - The distance between the sticky element's top position and the
+         *                                    viewport's top border at the moment the element sticks.
+         *                                    The default value is 0.
+         *  @option {number} stop           - The distance between the sticky element's initial top position
+         *                                    and the sticky element's final top position at the moment it
+         *                                    stops sticking. The default value is the body height, which results
+         *                                    in sticking as long as the page can be scrolled.
+         *  @option {string} reference      - If the value is the keyword/string "parent", the sticky
+         *                                    element's fist parent element is referenced to control the
+         *                                    sticky element.
+         *                                    If the value is a jQuery-compatible CSS-selector, the script
+         *                                    selects the first matching element on the page and references
+         *                                    it's height to define a stop position for the sticky element.
+         *                                    The sticky element "sticks" as long as it's bottom aligns with
+         *                                    the reference element's bottom.
+         *  @option {string} includePadding - Defines weather to include padding of a parent reference element, default
+         *                                    is "true".
+         *  @option {string} not            - A single string or a comma-seperated list of strings. Valid values
+         *                                    are "small", "medium", "large" and "xlarge". This options tells
+         *                                    the sticky element to disable it's sticky behaviour on the given
+         *                                    breakpoints (eg. not:small,medium; = element won't stick on "small"
+         *                                    and "medium" breakpoint).
          */
 
         var $stickyElement = YOI.createCollection('sticky', $stickyElement, options);
@@ -173,6 +175,8 @@ YOI.behaviour.Sticky = (function() {
         var data                       = $stickyElement.data();
         var options                    = data.options;
         var $referenceElement          = options.reference === 'parent' ? $stickyElement.parent().parent() : $(options.reference).first();
+        var includePadding             = options.includePadding || true;
+        var referenceElementHeight     = includePadding !== 'false' ? $referenceElement.outerHeight() : $referenceElement.outerHeight() + parseInt($referenceElement.css('padding-bottom'));
         var stickyElementHeight        = $stickyElement.outerHeight();
         var stickyElementWidth         = $stickyElement.outerWidth();
         var stickyElementInitialTopPos = $stickyElement.offset().top;
@@ -188,7 +192,7 @@ YOI.behaviour.Sticky = (function() {
 
         if ($referenceElement.length) {
             stickStart = $referenceElement.offset().top - topOffset;
-            stickStop  = stickStart + $referenceElement.outerHeight() - stickyElementHeight - topDistance;
+            stickStop  = stickStart + referenceElementHeight - stickyElementHeight - topDistance;
         }
 
         // the reference element is the parent dom object of the sticky element,
@@ -438,7 +442,8 @@ YOI.behaviour.Sticky = (function() {
     // ================
 
     return {
-        init : initialize,
+        init    : initialize,
+        update  : updateProps,
         destroy : destroy
     };
 
