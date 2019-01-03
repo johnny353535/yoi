@@ -105,10 +105,10 @@ YOI.component.Code = (function() {
                 $thisCodeWrapper.replaceWith(markup);
             }
             
-            //
+            // truncate the code blocks
             
             truncate(index);
-            
+
             // set initialized
 
             YOI.setReady($(this));
