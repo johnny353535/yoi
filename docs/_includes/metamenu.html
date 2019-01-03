@@ -10,9 +10,11 @@
             <a href="{{ site.github.url }}/start/" class="btn btn--subtle m-l-2">Documentation</a>
             <a href="{{ site.github.zip_url }}" class="btn btn--flat m-l-2">Download</a>
         {% else %}
-            <form class="pos-relative">
-                <input id="docsearch-input" class="w-18 m--w-30 input--rounded z-200" type="search" autocomplete="off" />
-            </form>
+            {% if jekyll.environment == "production" %}
+                <form class="pos-relative">
+                    <input id="docsearch-input" class="w-18 m--w-30 input--rounded z-200" type="search" autocomplete="off" />
+                </form>
+            {% endif %}
             <a href="#menu" class="btn btn--subtle m-l-2 l--hidden" yoi-action="ScrollTo:#menu;">
                 <span class="hidden">Menu</span>
                 <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-067-s" yoi-icon />

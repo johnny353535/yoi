@@ -68,7 +68,9 @@
         {% include pagefooter.html %}
         <script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
         <script src="{{ site.github.url }}/assets/js/yoi.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        {% if jekyll.environment == "production" %}
+            <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        {% endif %}
         <script>
             $(function() {
 
@@ -88,12 +90,16 @@
                 *  Documentation: https://community.algolia.com/docsearch/documentation/
                 */
 
-                docsearch({
-                    apiKey: '658ac728b2a6473d93415830d075f2bb',
-                    indexName: 'yoi',
-                    inputSelector: '#docsearch-input',
-                    debug: false
-                });
+                try {
+                    docsearch({
+                        apiKey: '658ac728b2a6473d93415830d075f2bb',
+                        indexName: 'yoi',
+                        inputSelector: '#docsearch-input',
+                        debug: false
+                    });
+                } catch {
+                    // fail silently
+                }
 
             });
         </script>
