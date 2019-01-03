@@ -4,13 +4,13 @@
   "description": "The Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
-    "bower": "^1.8.2",
-    "browser-sync": "^2.18.8",
-    "chokidar-cli": "^1.2.0",
-    "less": "^2.7.2",
-    "postcss-cli": "^4.1.1",
-    "uglify-js": "^2.8.14"
+    "autoprefixer": "^9.4.4",
+    "bower": "^1.8.4",
+    "browser-sync": "^2.26.3",
+    "chokidar-cli": "^1.2.1",
+    "less": "^3.9.0",
+    "postcss-cli": "^6.1.0",
+    "uglify-js": "^3.4.9"
   },
   "scripts": {
     "postinstall": "npm run install-jekyll && npm run install-gems && bower update",
