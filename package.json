@@ -8,6 +8,7 @@
     "bower": "^1.8.4",
     "browser-sync": "^2.26.3",
     "chokidar-cli": "^1.2.1",
+    "cssnano": "^4.1.8",
     "less": "^3.9.0",
     "postcss-cli": "^6.1.0",
     "uglify-js": "^3.4.9"
@@ -20,8 +21,8 @@
     "build-jekyll": "cd docs && bundle exec jekyll build --config _config.yml",
     "build-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
     "build-styles": "npm run styles-compile --source-map-map-inline && npm run styles-process && npm run copy-styles",
-    "styles-process": "postcss --use autoprefixer -b 'last 2 versions' dist/css/yoi.css -o dist/css/yoi.css --no-map",
-    "styles-compress": "cssnano dist/css/yoi.css dist/css/yoi.css --svgo",
+    "styles-process": "postcss -u autoprefixer -b 'last 2 versions, not dead, > 1%, ie >= 11' dist/css/yoi.css -o dist/css/yoi.css --no-map",
+    "styles-compress": "postcss -u cssnano -o dist/css/yoi.css dist/css/yoi.css --no-map",
     "styles-compile": "(cat src/less/yoi.less ; echo $(find src/components -name '*.less' -exec echo '@import \"./{}\";' \\;)) | lessc - dist/css/yoi.css --include-path=./src/less",
     "clean": "npm run clean-dist && npm run clean-docs",
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/css dist/img dist/js",
