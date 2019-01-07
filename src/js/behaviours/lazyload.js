@@ -29,6 +29,7 @@ YOI.behaviour.Lazyload = (function() {
          *  @option {string} title      - optional image title
          *  @option {string} longdesc   - optional image longdesc
          *  @option {string} cssClasses - optional css class names
+         *  @option {string} instant    - option to instantly lazy-load all images
          */
 
         var $lazyload = YOI.createCollection('lazyload', $lazyload, options);
@@ -41,7 +42,7 @@ YOI.behaviour.Lazyload = (function() {
 
             // proceed
 
-            makeLazyload($(this));
+            prepareLazyload($(this));
 
             // set initialized
 
@@ -51,7 +52,7 @@ YOI.behaviour.Lazyload = (function() {
 
     }
 
-    function makeLazyload($noscriptElement) {
+    function prepareLazyload($noscriptElement) {
 
         /**
          *  Prepares and injects lazy-loading images.
@@ -64,10 +65,8 @@ YOI.behaviour.Lazyload = (function() {
         var defaultImage  = options.src || extractImgSrcFromString($noscriptElement.html()) || false;
         var width         = options.width || false;
         var height        = options.height || false;
-        var alt           = options.alt || false;
-        var title         = options.title || false;
-        var longdesc      = options.longdesc || false;
         var cssClasses    = options.cssClasses || false;
+        var instant       = options.instant || false;
 
         // cancel if
         // - no image url was found
@@ -91,67 +90,100 @@ YOI.behaviour.Lazyload = (function() {
         if (height)     $placeHolder.attr('height', height);
         if (cssClasses) $placeHolder.addClass(cssClasses);
 
-        // placeholder enters viewport:
+        if (instant === 'true') {
 
-        $placeHolder.one('yoi-viewport-in.lazyLoad', function() {
+            // instant lazy-loading
 
-            // read the image url
+            lazyLoad($placeHolder, $noscriptElement);
 
-            var imageUrl;
+        } else {
 
-            var currentBreakPoint = YOI.currentBreakPoint();
-            var breakPointSmall   = YOI.stringContains(currentBreakPoint, 'small');
-            var breakPointMedium  = YOI.stringContains(currentBreakPoint, 'medium');
-            var breakPointLarge   = YOI.stringContains(currentBreakPoint, 'large');
-            var breakPointXlarge  = YOI.stringContains(currentBreakPoint, 'xlarge');
+            // placeholder enters viewport:
 
-            if (breakPointSmall)  imageUrl = options.srcSmall;
-            if (breakPointMedium) imageUrl = options.srcMedium;
-            if (breakPointLarge)  imageUrl = options.srcLarge;
-            if (breakPointXlarge) imageUrl = options.srcXlarge;
+            $placeHolder.one('yoi-viewport-in.lazyLoad', function() {
+                lazyLoad($(this), $noscriptElement);
+            });
 
-            // set default for image url
+        }
 
-            imageUrl = imageUrl || defaultImage;
+    }
 
-            // create a new image
+    function lazyLoad($placeHolder, $noscriptElement) {
 
-            var $newImage = $('<img />');
+        /**
+         *  Does the actual lazy-loading: Swapping the placeholder out for
+         *  the created image, applying all optional attributes to the new image.
+         * 
+         *  @param {jQuery element} $placeHolder
+         *  @param {jQuery element} $noscriptElement
+         */
 
-            // add attributes to new image
+        var options       = $noscriptElement.data().options;
+        var defaultImage  = options.src || extractImgSrcFromString($noscriptElement.html()) || false;
+        var width         = options.width || false;
+        var height        = options.height || false;
+        var alt           = options.alt || false;
+        var title         = options.title || false;
+        var longdesc      = options.longdesc || false;
+        var cssClasses    = options.cssClasses || false;
 
-            if (width)      $newImage.attr('width', width);
-            if (height)     $newImage.attr('height', height);
-            if (alt)        $newImage.attr('alt', alt);
-            if (title)      $newImage.attr('title', title);
-            if (longdesc)   $newImage.attr('longdesc', longdesc);
-            if (cssClasses) $newImage.addClass(cssClasses);
+        // read the image url
 
-            // inject the new image after the noscript element
+        var imageUrl;
 
-            $newImage
-                .on('load.yoi-lazyLoad', function() { $(this).addClass('fx-fade-in'); })
-                .attr('src', imageUrl)
-                .addClass('fx-fade-in-initial')
-                .insertAfter($noscriptElement);
+        var currentBreakPoint = YOI.currentBreakPoint();
+        var breakPointSmall   = YOI.stringContains(currentBreakPoint, 'small');
+        var breakPointMedium  = YOI.stringContains(currentBreakPoint, 'medium');
+        var breakPointLarge   = YOI.stringContains(currentBreakPoint, 'large');
+        var breakPointXlarge  = YOI.stringContains(currentBreakPoint, 'xlarge');
 
-            // to make sure timing always works well, this little hack might be necesarry
-            // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
+        if (breakPointSmall)  imageUrl = options.srcSmall;
+        if (breakPointMedium) imageUrl = options.srcMedium;
+        if (breakPointLarge)  imageUrl = options.srcLarge;
+        if (breakPointXlarge) imageUrl = options.srcXlarge;
 
-            if ($newImage[0].complete) {
-                $newImage.trigger('load');
-            }
+        // set default for image url
 
-            // reset the placeholder
+        imageUrl = imageUrl || defaultImage;
 
-            $placeHolder
-                .removeClass(cssClasses)
-                .css({
-                    'width' : 0,
-                    'height' : 0
-                });
+        // create a new image
 
-        });
+        var $newImage = $('<img />');
+
+        // add attributes to new image
+
+        if (width)      $newImage.attr('width', width);
+        if (height)     $newImage.attr('height', height);
+        if (alt)        $newImage.attr('alt', alt);
+        if (title)      $newImage.attr('title', title);
+        if (longdesc)   $newImage.attr('longdesc', longdesc);
+        if (cssClasses) $newImage.addClass(cssClasses);
+
+        // inject the new image after the noscript element
+
+        $newImage
+            .on('load.yoi-lazyLoad', function() {
+                $(this).addClass('fx-fade-in').removeClass('fx-fade-in-initial');
+            })
+            .attr('src', imageUrl)
+            .addClass('fx-fade-in-initial')
+            .insertAfter($noscriptElement);
+
+        // to make sure timing always works well, this little hack might be necessary
+        // learn more at http://mikefowler.me/2014/04/22/cached-images-load-event/
+
+        if ($newImage[0].complete) {
+            $newImage.trigger('load');
+        }
+
+        // reset the placeholder
+
+        $placeHolder
+            .removeClass(cssClasses)
+            .css({
+                'width' : 0,
+                'height' : 0
+            });
 
     }
 
