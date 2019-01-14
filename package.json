@@ -28,7 +28,7 @@
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/css dist/img dist/js",
     "clean-docs": "rm -rf docs/_site && mkdir docs/_site && rm -rf docs/assets && mkdir docs/assets && mkdir docs/assets/css docs/assets/img docs/assets/js",
     "copy": "npm run copy-favicon && npm run copy-images && npm run copy-scripts && npm run copy-styles",
-    "copy-favicon": "cp src/img/favicon.ico docs",
+    "copy-favicon": "rsync -av --exclude='readme.md' src/favicon/* docs/",
     "copy-images": "cp src/img/* dist/img && cp dist/img/* docs/assets/img",
     "copy-scripts": "cp dist/js/* docs/assets/js && cp bower_components/jquery/dist/jquery.min.js docs/assets/js",
     "copy-styles": "cp dist/css/* docs/assets/css",

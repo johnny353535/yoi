@@ -4,13 +4,21 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=1" />
-        <title>Yoi – Yoshino Frontend Component Library | {{ page.title | default: "Documentation" }}</title>
+        <title>Yoi – Yoshino’s Frontend Library | {{ page.title | default: "Documentation" }}</title>
         {% if jekyll.environment == "development" %}
             <base href="/" />
         {% endif %}
+        {# favicon #}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#eb514f" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#ffffff" />
+        {# styles #}
         <link href="{{ site.github.url }}/assets/css/yoi.css" rel="stylesheet" />
-        <link href="{{ site.github.url }}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <!-- docsearch -->
+        {# docsearch #}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         <style>
             .ds-dropdown-menu {
@@ -24,7 +32,6 @@
                 border: none !important;
             }
         </style>
-        <!-- /docsearch -->
     </head>
     {% if page.title contains "ScrollProgress" %}
         {% assign scrollProgress = "yoi-scrollprogress" %}
