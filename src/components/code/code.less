@@ -5,11 +5,12 @@
 
 code {
     .mixin-defaultBorderRadius;
+    //.mixin-fs-1;
     background: @gray-25;
     color: @purple-13;
     direction: ltr;
     font-family: @font-mono;
-    font-size: 1.4rem;
+    font-size: .94rem;
     font-style: normal;
     font-weight: normal;
     hyphens: none;
@@ -24,7 +25,7 @@ pre {
     .mixin-defaultBorderRadius;
     background: @gray-25;
     border-bottom-left-radius: 0;
-    font-size: 1.4rem;
+    font-size: .94rem;
     padding: 1rem;
 }
 
@@ -74,9 +75,9 @@ pre code {
 }
 
 .code__source--truncated::before {
-    
+
     // gradient to cut overflowing text on bottom
-    
+
     background: linear-gradient(@color-transparent, @color-white);
     height: 2.5rem;
     left: 2rem;
@@ -118,23 +119,23 @@ pre code {
 // copy button
 
 .code__copyBtn {
-    
+
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    
+
     .code__example & {
         .mixin-defaultBorderRadius;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
     }
-    
+
     .tabs__page & {
         bottom: 0;
         left: 0;
         position: absolute;
     }
-    
+
 }
 
 // expand button

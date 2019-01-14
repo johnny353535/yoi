@@ -8,8 +8,8 @@
     background: transparent;
     border-width: 2px;
     box-shadow: none;
-    line-height: 2.1rem;
-    padding: 0 0.9rem;
+    line-height: ~'calc(2rem - 4px)';
+    padding: 0 ~'calc(.75rem - 4px)';
     text-shadow: none;
 
     // interactive states
@@ -18,7 +18,7 @@
         background: transparent;
         box-shadow: none;
     }
-    
+
     &:active {
         background: transparent;
     }
@@ -29,17 +29,18 @@
 // =========
 
 .btn--outline.btn--small {
-    line-height: 1.7rem;
-    padding: 0 0.4rem;
+    line-height: ~'calc(2rem - 4px)';
+    padding: 0 ~'calc(.5rem - 4px)';
 }
 
 .btn--outline.btn--medium {
-    line-height: 2.6rem;
+    line-height: ~'calc(2.5rem - 4px)';
+    padding: 0 ~'calc(1rem - 4px)';
 }
 
 .btn--outline.btn--large {
-    line-height: 3.6rem;
-    padding: 0 1.8rem;
+    line-height: ~'calc(3rem - 4px)';
+    padding: 0 ~'calc(1.5rem - 4px)';
 }
 
 .btn.btn--outline {
@@ -127,14 +128,14 @@
         color: @txtColor;
         border-color: @borderColorHover;
     }
-    
+
     &:active {
         color: @txtColor;
         border-color: @borderColorActive;
     }
-    
+
     .icon circle, ellipse, path, polygon {
         fill: @txtColor;
     }
-    
+
 }

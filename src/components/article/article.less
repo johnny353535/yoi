@@ -6,7 +6,7 @@
 
     > h1, > h2, > h3, > h4, > h5, > h6 {
         .mixin-verticalRhythm;
-        margin-bottom: -1.5rem;
+        margin-bottom: -1.75rem;
     }
 
     // other block-level elements
@@ -15,21 +15,22 @@
     > dd, > details, > dl, > figcaption, > figure, > footer, > form, > header,
     > main, > menu, > nav, > ol, > output, > p, > pre, > section, > summary, > table,
     > ul, > video {
-        .mixin-fs-3;
+        .mixin-fs-2;
+        .mixin-lh-4;
         .mixin-verticalRhythm;
     }
 
     // adjacent paragraphs
 
     > p + p {
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 
     // intro (-paragraph)
 
     .intro {
-        .mixin-fs-5;
-        .mixin-lh-9;
+        .mixin-fs-4;
+        .mixin-lh-6;
     }
 
     // lists
@@ -37,7 +38,7 @@
     > ul:not([class]),
     > ol:not([class]) {
 
-        margin-left: 2rem;
+        margin-left: 1.25rem;
 
         li + li {
             margin-top: 1rem;
@@ -45,7 +46,7 @@
 
         ul,
         ol {
-            margin-left: 4rem;
+            margin-left: 2rem;
         }
 
     }

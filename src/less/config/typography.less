@@ -6,30 +6,26 @@
 .mixin-rootType() {
     -webkit-font-smoothing: antialiased;
     font-family: @font-sansserif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: normal;
-    line-height: 2.5rem;
+    line-height: 1.5rem;
 }
 
 // vertical rhythm
 // ===============
 
 .mixin-verticalRhythm() {
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 
 // fonts
 // =====
 
-// web font imports
-
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i&subset=latin-ext';
-
 // font families
 
 @font-mono:      'Andale Mono', monospace;
-@font-sansserif: 'Open Sans', sans-serif;
+@font-sansserif: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 @font-serif:     'Georgia', serif;
 
 // font weights
@@ -51,39 +47,39 @@
 // ========
 
 .mixin-h1() {
-    .mixin-fs-10();
-    .mixin-fw-thin();
-    .mixin-lh-10();
+    .mixin-fs-7;
+    .mixin-fw-bold;
+    .mixin-lh-9;
 }
 
 .mixin-h2() {
-    .mixin-fs-7();
-    .mixin-fw-thin();
-    .mixin-lh-8();
+    .mixin-fs-5;
+    .mixin-fw-bold;
+    .mixin-lh-7;
 }
 
 .mixin-h3() {
-    .mixin-fs-5();
-    .mixin-fw-thin();
-    .mixin-lh-6();
+    .mixin-fs-4;
+    .mixin-fw-bold;
+    .mixin-lh-6;
 }
 
 .mixin-h4() {
-    .mixin-fs-4();
-    .mixin-fw-thin();
-    .mixin-lh-4();
+    .mixin-fs-3;
+    .mixin-fw-bold;
+    .mixin-lh-5;
 }
 
 .mixin-h5() {
-    .mixin-fs-3();
-    .mixin-fw-bold();
-    .mixin-lh-3();
+    .mixin-fs-2;
+    .mixin-fw-bold;
+    .mixin-lh-4;
 }
 
 .mixin-h6() {
-    .mixin-fs-2();
-    .mixin-fw-bold();
-    .mixin-lh-2();
+    .mixin-fs-2;
+    .mixin-fw-bold;
+    .mixin-lh-4;
     color: @color-base-15;
     letter-spacing: .1rem;
     text-transform: uppercase;
@@ -92,35 +88,42 @@
 // font sizes
 // ==========
 
-.mixin-fs-0() { font-size: 0; }
-.mixin-fs-1() { font-size: 1 * @rootFontSize; }
-.mixin-fs-2() { font-size: 1.25 * @rootFontSize; }
-.mixin-fs-3() { font-size: 1.5 * @rootFontSize; }
-.mixin-fs-4() { font-size: 1.75 * @rootFontSize; }
-.mixin-fs-5() { font-size: 2 * @rootFontSize; }
-.mixin-fs-6() { font-size: 2.25 * @rootFontSize; }
-.mixin-fs-7() { font-size: 2.5 * @rootFontSize; }
-.mixin-fs-8() { font-size: 2.75 * @rootFontSize; }
-.mixin-fs-9() { font-size: 3 * @rootFontSize; }
-.mixin-fs-10() { font-size: 3.25 * @rootFontSize; }
-.mixin-fs-s() { font-size: .8 * @rootFontSize; .mixin-lh-1(); }
-.mixin-fs-xl() { font-size: 5 * @rootFontSize; line-height: 1; }
-.mixin-fs-xxl() { font-size: 15 * @rootFontSize; line-height: 1; }
+.mixin-fs-0()   { font-size: 0; }
+.mixin-fs-1()   { font-size: .75 * @rootFontSize; }
+.mixin-fs-2()   { font-size: 1 * @rootFontSize; }
+.mixin-fs-3()   { font-size: 1.25 * @rootFontSize; }
+.mixin-fs-4()   { font-size: 1.5 * @rootFontSize; }
+.mixin-fs-5()   { font-size: 1.75 * @rootFontSize; }
+.mixin-fs-6()   { font-size: 2 * @rootFontSize; }
+.mixin-fs-7()   { font-size: 2.25 * @rootFontSize; }
+.mixin-fs-8()   { font-size: 2.5 * @rootFontSize; }
+.mixin-fs-9()   { font-size: 2.75 * @rootFontSize; }
+.mixin-fs-10()  { font-size: 3 * @rootFontSize; }
 
-// line heights
-// ============
+.mixin-fs-s()   { font-size: .375 * @rootFontSize; }
+.mixin-fs-l()   { font-size: 3.5 * @rootFontSize; }
+.mixin-fs-xl()  { font-size: 4.5 * @rootFontSize; }
+.mixin-fs-xxl() { font-size: 6 * @rootFontSize; }
 
-.mixin-lh-0() { line-height: 0; }
-.mixin-lh-1() { line-height: 1 * @rootFontSize; }
-.mixin-lh-2() { line-height: 1.25 * @rootFontSize; }
-.mixin-lh-3() { line-height: 1.5 * @rootFontSize; }
-.mixin-lh-4() { line-height: 1.75 * @rootFontSize; }
-.mixin-lh-5() { line-height: 2 * @rootFontSize; }
-.mixin-lh-6() { line-height: 2.25 * @rootFontSize; }
-.mixin-lh-7() { line-height: 2.5 * @rootFontSize; }
-.mixin-lh-8() { line-height: 2.75 * @rootFontSize; }
-.mixin-lh-9() { line-height: 3 * @rootFontSize; }
+// (fixed) line heights
+// ====================
+
+.mixin-lh-0()  { line-height: 0; }
+.mixin-lh-1()  { line-height: 1 * @rootFontSize; }
+.mixin-lh-2()  { line-height: 1.25 * @rootFontSize; }
+.mixin-lh-3()  { line-height: 1.5 * @rootFontSize; }
+.mixin-lh-4()  { line-height: 1.75 * @rootFontSize; }
+.mixin-lh-5()  { line-height: 2 * @rootFontSize; }
+.mixin-lh-6()  { line-height: 2.25 * @rootFontSize; }
+.mixin-lh-7()  { line-height: 2.5 * @rootFontSize; }
+.mixin-lh-8()  { line-height: 2.75 * @rootFontSize; }
+.mixin-lh-9()  { line-height: 3 * @rootFontSize; }
 .mixin-lh-10() { line-height: 3.25 * @rootFontSize; }
+
+.mixin-lh-s()   { line-height: 1 * @rootFontSize; }
+.mixin-lh-l()   { line-height: 5 * @rootFontSize; }
+.mixin-lh-xl()  { line-height: 5 * @rootFontSize; }
+.mixin-lh-xxl() { line-height: 6.5 * @rootFontSize; }
 
 // letter spacings
 // ===============
