@@ -1,15 +1,36 @@
 /** buttonoutline.less */
 
+// specs/constants
+// ===============
+
+@button-outline-borderwidth    : 2px;
+
+@button-outline-s-lineheight   : ~'calc(@{button-s-height} - @{button-outline-borderwidth} * 2)';
+@button-outline-s-xpadding     : ~'calc(@{button-s-paddingBase} - @{button-outline-borderwidth})';
+@button-outline-s-xpull        : ~'calc((@{button-s-paddingBase} - @{button-outline-borderwidth}) * -1)';
+
+@button-outline-lineheight     : ~'calc(@{button-height} - @{button-outline-borderwidth} * 2)';
+@button-outline-xpadding       : ~'calc(@{button-paddingBase} - @{button-outline-borderwidth})';
+@button-outline-xpull          : ~'calc((@{button-paddingBase} - @{button-outline-borderwidth}) * -1)';
+
+@button-outline-l-lineheight   : ~'calc(@{button-l-height} - @{button-outline-borderwidth}} * 2)';
+@button-outline-l-xpadding     : ~'calc(@{button-l-paddingBase} - @{button-outline-borderwidth})';
+@button-outline-l-xpull        : ~'calc((@{button-l-paddingBase} - @{button-outline-borderwidth}) * -1)';
+
+@button-outline-xl-lineheight  : ~'calc(@{button-xl-height} - @{button-outline-borderwidth} * 2)';
+@button-outline-xl-xpadding    : ~'calc(@{button-xl-paddingBase} - @{button-outline-borderwidth})';
+@button-outline-xl-xpull       : ~'calc((@{button-xl-paddingBase} - @{button-outline-borderwidth}) * -1)';
+
 // base
 // ====
 
 .btn.btn--outline {
 
     background: transparent;
-    border-width: 2px;
+    border-width: @button-outline-borderwidth;
     box-shadow: none;
-    line-height: ~'calc(2rem - 4px)';
-    padding: 0 ~'calc(.75rem - 4px)';
+    line-height: @button-outline-lineheight;
+    padding: 0 @button-outline-xpadding;
     text-shadow: none;
 
     // interactive states
@@ -25,22 +46,103 @@
 
 }
 
+// elements
+// ========
+
+.btn.btn--outline {
+
+    // & > input[type="submit"] {
+    //     cursor: pointer;
+    // }
+
+    .icon {
+        top: @button-outline-borderwidth * -1;
+    }
+
+    // icon right, label left
+
+    &.btn--small .icon:last-child {
+        margin-right: @button-outline-s-xpull;
+    }
+
+    .icon:last-child {
+        margin-right: @button-outline-xpull;
+    }
+
+    &.btn--large .icon:last-child {
+        margin-right: @button-outline-l-xpull;
+    }
+
+    &.btn--xlarge .icon:last-child {
+        margin-right: @button-outline-xl-xpull;
+    }
+
+    // icon left, label right
+
+    &.btn--small .icon:first-child {
+        margin-left: @button-outline-s-xpull;
+    }
+
+    .icon:first-child {
+        margin-left: @button-outline-xpull;
+    }
+
+    &.btn--large .icon:first-child {
+        margin-left: @button-outline-l-xpull;
+    }
+
+    &.btn--xlarge .icon:first-child {
+        margin-left: @button-outline-xl-xpull;
+    }
+
+    // only icons, hidden or no label
+
+    &.btn--small .hidden + .icon,
+    &.btn--small .icon:only-child {
+        margin-left: @button-outline-s-xpull;
+        margin-right: -10px; // 4 + 6
+        left: @button-outline-borderwidth * -1;
+    }
+
+    .hidden + .icon,
+    .icon:only-child {
+        left: @button-outline-borderwidth * -1;
+        margin-left: @button-outline-xpull;
+        margin-right: -14px; // 8 + 6
+    }
+
+    &.btn--large .hidden + .icon,
+    &.btn--large .icon:only-child {
+        left: @button-outline-borderwidth * -1;
+        margin-left: @button-outline-l-xpull;
+        margin-right: -18px; // 12 + 6
+    }
+
+    &.btn--xlarge .hidden + .icon,
+    &.btn--xlarge .icon:only-child {
+        left: @button-outline-borderwidth * -1;
+        margin-left: @button-outline-xl-xpull;
+        margin-right: -26px; // 20 + 6
+    }
+
+}
+
 // modifiers
 // =========
 
 .btn--outline.btn--small {
-    line-height: ~'calc(2rem - 4px)';
-    padding: 0 ~'calc(.5rem - 4px)';
-}
-
-.btn--outline.btn--medium {
-    line-height: ~'calc(2.5rem - 4px)';
-    padding: 0 ~'calc(1rem - 4px)';
+    line-height: @button-outline-s-lineheight;
+    padding: 0 @button-outline-s-xpadding;
 }
 
 .btn--outline.btn--large {
-    line-height: ~'calc(3rem - 4px)';
-    padding: 0 ~'calc(1.5rem - 4px)';
+    line-height: @button-outline-l-lineheight;
+    padding: 0 @button-outline-l-xpadding;
+}
+
+.btn--outline.btn--xlarge {
+    line-height: @button-outline-xl-lineheight;
+    padding: 0 @button-outline-xl-xpadding;
 }
 
 .btn.btn--outline {
