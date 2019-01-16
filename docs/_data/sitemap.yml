@@ -31,7 +31,6 @@ components:
     - button
     - code
     - countdown
-    - datepicker
     - dock
     - filterbuttons
     - flipbuttons
