@@ -70101,8 +70101,10 @@ a.stepMenu__label:hover {
 .badge {
   border-radius: 2px;
   display: inline-block;
-  font: bold 1.3rem/2rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  padding: 0 1rem;
+  font: bold 1rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 0.75rem;
   text-align: center;
   text-shadow: none;
 }
@@ -70110,15 +70112,22 @@ a.badge {
   text-decoration: none;
 }
 .badge--small {
-  font: bold 1.1rem/1.5rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font: bold 0.88rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  height: 1.5rem;
+  line-height: 1.5rem;
   padding: 0 0.5rem;
 }
-.badge--medium {
-  font: bold 1.5rem/2.5rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-}
 .badge--large {
-  font: bold 2rem/3rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  padding: 0 15px;
+  font: bold 1.13rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1rem;
+}
+.badge--xlarge {
+  font: bold 1.25rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.5rem;
 }
 .badge {
   background: #ecebea;
@@ -70169,16 +70178,16 @@ a.badge--positive:hover {
   color: #44745a;
 }
 .badge--rounded {
-  border-radius: 1.1rem;
+  border-radius: 0.95rem;
 }
 .badge--small.badge--rounded {
   border-radius: 0.7rem;
 }
-.badge--medium.badge--rounded {
+.badge--large.badge--rounded {
   border-radius: 1.2rem;
 }
-.badge--large.badge--rounded {
-  border-radius: 1.5rem;
+.badge--xlarge.badge--rounded {
+  border-radius: 1.7rem;
 }
 .badges {
   font-size: 0;

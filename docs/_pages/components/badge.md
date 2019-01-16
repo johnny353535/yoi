@@ -13,14 +13,14 @@ permalink: components/badge
 
 ### Size
 
-Badges are available in four different sizes:
+Use the modifiers `.badge--small`, `.badge--large`, `.badge--xlarge` to create badges with different sizes:
 
 ```html
 <!-- example -->
 <span class="badge badge--small">21</span>
 <span class="badge">22</span>
-<span class="badge badge--medium">23</span>
-<span class="badge badge--large">24</span>
+<span class="badge badge--large">23</span>
+<span class="badge badge--xlarge">24</span>
 ```
 
 ### Style
@@ -31,8 +31,8 @@ Use the modifier `.badge--rounded` to render pill-shaped badges:
 <!-- example -->
 <span class="badge badge--small badge--rounded">21</span>
 <span class="badge badge--rounded">22</span>
-<span class="badge badge--medium badge--rounded">23</span>
-<span class="badge badge--large badge--rounded">24</span>
+<span class="badge badge--large badge--rounded">23</span>
+<span class="badge badge--xlarge badge--rounded">24</span>
 ```
 
 ### Colors
@@ -44,38 +44,38 @@ All global [color modifiers]({{ site.github.url }}/utilities/color.html) are ava
 <p class="m-b-1">
     <span class="badge badge--light badge--small badge--rounded">21</span>
     <span class="badge badge--light badge--rounded">22</span>
-    <span class="badge badge--light badge--medium badge--rounded">23</span>
-    <span class="badge badge--light badge--large badge--rounded">24</span>
+    <span class="badge badge--light badge--large badge--rounded">23</span>
+    <span class="badge badge--light badge--xlarge badge--rounded">24</span>
 </p>
 <p class="m-b-1">
     <span class="badge badge--small badge--rounded">21</span>
     <span class="badge badge--rounded">22</span>
-    <span class="badge badge--medium badge--rounded">23</span>
-    <span class="badge badge--large badge--rounded">24</span>
+    <span class="badge badge--large badge--rounded">23</span>
+    <span class="badge badge--xlarge badge--rounded">24</span>
 </p>
 <p class="m-b-1">
     <span class="badge badge--dark badge--small badge--rounded">21</span>
     <span class="badge badge--dark badge--rounded">22</span>
-    <span class="badge badge--dark badge--medium badge--rounded">23</span>
-    <span class="badge badge--dark badge--large badge--rounded">24</span>
+    <span class="badge badge--dark badge--large badge--rounded">23</span>
+    <span class="badge badge--dark badge--xlarge badge--rounded">24</span>
 </p>
 <p class="m-b-1">
     <span class="badge badge--attention badge--small badge--rounded">21</span>
     <span class="badge badge--attention badge--rounded">22</span>
-    <span class="badge badge--attention badge--medium badge--rounded">23</span>
-    <span class="badge badge--attention badge--large badge--rounded">24</span>
+    <span class="badge badge--attention badge--large badge--rounded">23</span>
+    <span class="badge badge--attention badge--xlarge badge--rounded">24</span>
 </p>
 <p class="m-b-1">
     <span class="badge badge--negative badge--small badge--rounded">21</span>
     <span class="badge badge--negative badge--rounded">22</span>
-    <span class="badge badge--negative badge--medium badge--rounded">23</span>
-    <span class="badge badge--negative badge--large badge--rounded">24</span>
+    <span class="badge badge--negative badge--large badge--rounded">23</span>
+    <span class="badge badge--negative badge--xlarge badge--rounded">24</span>
 </p>
 <p class="m-b-1">
     <span class="badge badge--positive badge--small badge--rounded">21</span>
     <span class="badge badge--positive badge--rounded">22</span>
-    <span class="badge badge--positive badge--medium badge--rounded">23</span>
-    <span class="badge badge--positive badge--large badge--rounded">24</span>
+    <span class="badge badge--positive badge--large badge--rounded">23</span>
+    <span class="badge badge--positive badge--xlarge badge--rounded">24</span>
 </p>
 ```
 
