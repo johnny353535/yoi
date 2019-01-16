@@ -43,7 +43,6 @@ components:
     - imgmagnifier
     - link
     - linklist
-    - log
     - maxchars
     - modal
     - note
@@ -63,7 +62,6 @@ components:
     - ruler
     - scrollkeys
     - scrollprogress
-    - shelf
     - slider
     - spinner
     - stepcrumb

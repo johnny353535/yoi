@@ -2281,30 +2281,6 @@ YOI.component.ImgMagnifier = function() {
     };
 }();
 
-YOI.component.Log = function() {
-    function write($log, logInput) {
-        if ($log === undefined || $log.length < 1) return false;
-        if ($log.data().memory === undefined) $log.data().memory = [];
-        $log.data().memory.unshift(logInput);
-        var $logBody = $log.find(".log__body").first();
-        var logMemory = $log.data().memory;
-        var logOutput = "";
-        $.each(logMemory, function(index, key) {
-            logOutput += '<p><span class="log__label">' + YOI.zeroPad(logMemory.length - index, 3) + "</span>" + logMemory[index] + "</p>";
-            $logBody.html(logOutput);
-        });
-    }
-    function clear($log) {
-        if ($log === undefined || $log.length < 1) return false;
-        $log.data().memory = [];
-        $log.find(".log__body").first().html("<p></p>");
-    }
-    return {
-        write: write,
-        clear: clear
-    };
-}();
-
 YOI.component.MaxChars = function() {
     var defaultMaxLength = 200;
     function initialize($inputElement, options) {
