@@ -1,14 +1,13 @@
 <div class="p-3 flx">
     <p class="flx-grow">
         <a class="tdr-none c-base-10" href="{{ site.github.url }}/">
-            <img class="h-2 val-t" src="{{ site.github.url }}/assets/img/logo-yoi.svg" />
-            <span class="fs-2 val-t m--visible hidden">Yoi Frontend Library</span>
+            <img class="h-4 val-t" src="{{ site.github.url }}/assets/img/logo-yoi.svg" />
         </a>
     </p>
     <p class="flx-grow al-r fs-0">
         {% if page.title == 'Index' %}
-            <a href="{{ site.github.url }}/start/" class="btn btn--subtle m-l-2">Documentation</a>
-            <a href="{{ site.github.zip_url }}" class="btn btn--subtle m-l-2">Github</a>
+            <a href="{{ site.github.url }}/start/" class="btn btn--small btn--subtle m-l-2">Documentation</a>
+            <a href="{{ site.github.zip_url }}" class="btn btn--small btn--subtle m-l-2">Github</a>
         {% else %}
             {% if jekyll.environment == "production" %}
                 <form class="pos-relative">

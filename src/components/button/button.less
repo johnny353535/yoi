@@ -1,7 +1,40 @@
 /** button.less */
 
-// block
-// =====
+// specs / constants
+// =================
+
+@button-borderwidth    : 1px;
+
+@button-s-fontsize     : .88rem;
+@button-s-height       : 1.5rem;
+@button-s-paddingBase  : .5rem;
+@button-s-lineheight   : ~'calc(@{button-s-height} - @{button-borderwidth} * 2)';
+@button-s-xpadding     : ~'calc(@{button-s-paddingBase} - @{button-borderwidth})';
+@button-s-xpull        : ~'calc((@{button-s-paddingBase} - @{button-borderwidth}) * -1)';
+
+@button-fontsize       : 1rem;
+@button-height         : 2rem;
+@button-paddingBase    : .75rem;
+@button-lineheight     : ~'calc(@{button-height} - @{button-borderwidth} * 2)';
+@button-xpadding       : ~'calc(@{button-paddingBase} - @{button-borderwidth})';
+@button-xpull          : ~'calc((@{button-paddingBase} - @{button-borderwidth}) * -1)';
+
+@button-l-fontsize     : 1.13rem;
+@button-l-height       : 2.5rem;
+@button-l-paddingBase  : 1rem;
+@button-l-lineheight   : ~'calc(@{button-l-height} - @{button-borderwidth} * 2)';
+@button-l-xpadding     : ~'calc(@{button-l-paddingBase} - @{button-borderwidth})';
+@button-l-xpull        : ~'calc((@{button-l-paddingBase} - @{button-borderwidth}) * -1)';
+
+@button-xl-fontsize    : 1.25rem;
+@button-xl-height      : 3rem;
+@button-xl-paddingBase : 1.5rem;
+@button-xl-lineheight  : ~'calc(@{button-xl-height} - @{button-borderwidth} * 2)';
+@button-xl-xpadding    : ~'calc(@{button-xl-paddingBase} - @{button-borderwidth})';
+@button-xl-xpull       : ~'calc((@{button-xl-paddingBase} - @{button-borderwidth}) * -1)';
+
+// block (base styles for all buttons)
+// ===================================
 
 .btn {
 
@@ -9,17 +42,17 @@
     .mixin-defaultBorderRadius;
     .mixin-userSelectNone;
     background-clip: padding-box;
-    border-width: 1px;
+    border-width: @button-borderwidth;
     border-style: solid;
     box-sizing: border-box;
     cursor: default;
     display: inline-block;
     font-family: @font-sansserif;
-    font-size: 1.2rem;
+    font-size: @button-fontsize;
     font-weight: bold;
-    height: 2.5rem;
-    line-height: 2.3rem;
-    padding: 0 1rem;
+    height: @button-height;
+    line-height: @button-lineheight;
+    padding: 0 @button-xpadding;
     position: relative;
     text-align: center;
     vertical-align: middle;
@@ -49,9 +82,6 @@
     a:link&,
     a:visited& {
         text-decoration: none;
-    }
-        
-    & > input[type="submit"] {
         cursor: pointer;
     }
 
@@ -65,7 +95,7 @@
     &.is--active {
         box-shadow: none;
     }
-    
+
     &:focus,
     &.is--focus,
     &.is--focus:hover {
@@ -78,82 +108,9 @@
         cursor: default;
         opacity: .3;
     }
-    
-    // icons
 
-    .icon {
-
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-        vertical-align: top;
-
-        svg {
-            left: 50%;
-            position: relative;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-    }
-
-    // icon right, label left
-
-    .icon:last-child {
-        margin-right: -1rem;
-    }
-
-    &.btn--small .icon:last-child {
-        margin-right: -0.4rem;
-    }
-
-    &.btn--large .icon:last-child {
-        margin-right: -1.5rem;
-    }
-
-    // icon left, label right
-
-    .icon:first-child {
-        margin-left: -1rem;
-    }
-
-    &.btn--small .icon:first-child {
-        margin-left: -0.75rem;
-    }
-
-    &.btn--large .icon:first-child {
-        margin-left: -1.5rem;
-    }
-
-    // only icons, hidden or no label
-
-    .hidden + .icon,
-    .icon:only-child {
-        margin-left: -1rem;
-        width: 2.3rem;
-    }
-
-    &.btn--small .hidden + .icon,
-    &.btn--small .icon:only-child {
-        margin-left: -.4rem;
-        width: 1.6rem;
-    }
-
-    &.btn--medium .hidden + .icon,
-    &.btn--medium .icon:only-child {
-        margin-left: -1.2rem;
-        width: 3rem;
-    }
-
-    &.btn--large .hidden + .icon,
-    &.btn--large .icon:only-child {
-        margin-right: -2rem;
-        margin-left: -2rem;
-        width: 4rem;
-    }
-    
     // standard button
-    
+
     .constr-btn(
         @bgGradientTopColor: @color-base-24,
         @bgGradientBottomColor: @color-base-23,
@@ -174,29 +131,131 @@
 
 }
 
+// elements
+// ========
+
+.btn {
+
+    // & > input[type="submit"] {
+    //     cursor: pointer;
+    // }
+
+    .icon {
+        height: @button-height;
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+        width: @button-height;
+        top: @button-borderwidth * -1;
+    }
+
+    &.btn--small .icon {
+        height: @button-s-height;
+        width: @button-s-height;
+    }
+
+    &.btn--large .icon {
+        height: @button-l-height;
+        width: @button-l-height;
+    }
+
+    &.btn--xlarge .icon {
+        height: @button-xl-height;
+        width: @button-xl-height;
+    }
+
+    // icon right, label left
+
+    &.btn--small .icon:last-child {
+        margin-right: @button-s-xpull;
+    }
+
+    .icon:last-child {
+        margin-right: @button-xpull;
+    }
+
+    &.btn--large .icon:last-child {
+        margin-right: @button-l-xpull;
+    }
+
+    &.btn--xlarge .icon:last-child {
+        margin-right: @button-xl-xpull;
+    }
+
+    // icon left, label right
+
+    &.btn--small .icon:first-child {
+        margin-left: @button-s-xpull;
+    }
+
+    .icon:first-child {
+        margin-left: @button-xpull;
+    }
+
+    &.btn--large .icon:first-child {
+        margin-left: @button-l-xpull;
+    }
+
+    &.btn--xlarge .icon:first-child {
+        margin-left: @button-xl-xpull;
+    }
+
+    // only icons, hidden or no label
+
+    &.btn--small .hidden + .icon,
+    &.btn--small .icon:only-child {
+        margin-left: @button-s-xpull;
+        margin-right: -9px; // 4 + 5
+        left: @button-borderwidth * -1;
+    }
+
+    .hidden + .icon,
+    .icon:only-child {
+        margin-left: @button-xpull;
+        margin-right: -13px; // 8 + 5
+        left: @button-borderwidth * -1;
+    }
+
+    &.btn--large .hidden + .icon,
+    &.btn--large .icon:only-child {
+        left: @button-borderwidth * -1;
+        margin-left: @button-l-xpull;
+        margin-right: -17px; // 12 + 5
+    }
+
+    &.btn--xlarge .hidden + .icon,
+    &.btn--xlarge .icon:only-child {
+        left: @button-borderwidth * -1;
+        margin-left: @button-xl-xpull;
+        margin-right: -25px; // 20 + 5
+    }
+
+}
+
 // modifiers
 // =========
 
 // size
 
 .btn--small {
-    font-size: 1.2rem;
-    line-height: 1.9rem;
-    padding: 0 0.5rem;
-    height: 2rem;
-}
-
-.btn--medium {
-    font-size: 1.2rem;
-    line-height: 2.9rem;
-    height: 3rem;
+    font-size: @button-s-fontsize;
+    height: @button-s-height;
+    line-height: @button-s-lineheight;
+    padding: 0 @button-s-xpadding;
 }
 
 .btn--large {
-    font-size: 1.5rem;
-    height: 4rem;
-    line-height: 3.8rem;
-    padding: 0 1.9rem;
+    font-size: @button-l-fontsize;
+    height: @button-l-height;
+    line-height: @button-l-lineheight;
+    padding: 0 @button-l-xpadding;
+}
+
+.btn--xlarge {
+    font-size: @button-xl-fontsize;
+    height: @button-xl-height;
+    line-height: @button-xl-lineheight;
+    padding: 0 @button-xl-xpadding;
 }
 
 // colors
@@ -325,18 +384,18 @@
 
 .btn--rounded {
 
-    border-radius: 1.2rem;
+    border-radius: 1rem;
 
     &.btn--small {
-        border-radius: 1rem;
-    }
-
-    &.btn--medium {
-        border-radius: 1.5rem;
+        border-radius: .75rem;
     }
 
     &.btn--large {
-        border-radius: 2rem;
+        border-radius: 1.25rem;
+    }
+
+    &.btn--xlarge {
+        border-radius: 1.5rem;
     }
 
 }
@@ -356,7 +415,7 @@
 
     .btn {
         border-radius: 0;
-        margin-left: -0.1rem;
+        margin-left: -1px;
     }
 
     .btn:first-child {
@@ -387,13 +446,13 @@
         border-radius: 0 (5px * @defaultBorderRadius) (5px * @defaultBorderRadius) 0;
     }
 
-    // medium, rounded
+    // large, rounded
 
-    .btn.btn--medium.btn--rounded:first-child {
+    .btn.btn--large.btn--rounded:first-child {
         border-radius: (7.5px * @defaultBorderRadius) 0 0 (7.5px * @defaultBorderRadius);
     }
 
-    .btn.btn--medium.btn--rounded:last-child {
+    .btn.btn--large.btn--rounded:last-child {
         border-radius: 0 (7.5px * @defaultBorderRadius) (7.5px * @defaultBorderRadius) 0;
     }
 
@@ -451,23 +510,23 @@
         border-radius: 0 0 1rem 1rem;
     }
 
-    // medium, rounded
-
-    .btn.btn--medium.btn--rounded:first-child {
-        border-radius: 1.5rem 1.5rem 0 0;
-    }
-
-    .btn.btn--medium.btn--rounded:last-child {
-        border-radius: 0 0 1.5rem 1.5rem;
-    }
-
     // large, rounded
 
     .btn.btn--large.btn--rounded:first-child {
-        border-radius: 2rem 2rem 0 0;
+        border-radius: 1.5rem 1.5rem 0 0;
     }
 
     .btn.btn--large.btn--rounded:last-child {
+        border-radius: 0 0 1.5rem 1.5rem;
+    }
+
+    // xlarge, rounded
+
+    .btn.btn--xlarge.btn--rounded:first-child {
+        border-radius: 2rem 2rem 0 0;
+    }
+
+    .btn.btn--xlarge.btn--rounded:last-child {
         border-radius: 0 0 2rem 2rem;
     }
 
