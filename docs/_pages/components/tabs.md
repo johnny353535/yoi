@@ -232,7 +232,7 @@ Switch to a tab:
         <p>Tab #3 Content</p>
     </div>
 </div>
-<button id="exampleButton-1" class="btn btn--large val-t m-t-2">Switch to tab #2</button>
+<button id="exampleButton-1" class="button button--large val-t m-t-2">Switch to tab #2</button>
 <script>
     $('#exampleButton-1').on('click', function() {
         YOI.component.Tabs.switchTo('#tab-8-2');

@@ -15,12 +15,12 @@ YOI.component.Slider = (function() {
 
     var localization = {
         'en' : {
-            'btnLabelNext' : 'next',
-            'btnLabelPrev' : 'previous'
+            'buttonLabelNext' : 'next',
+            'buttonLabelPrev' : 'previous'
         },
         'de' : {
-            'btnLabelNext' : 'weiter',
-            'btnLabelPrev' : 'zurück'
+            'buttonLabelNext' : 'weiter',
+            'buttonLabelPrev' : 'zurück'
         }
     };
 
@@ -28,84 +28,84 @@ YOI.component.Slider = (function() {
 
     var slideControls = {
 
-        // .pageBtns
+        // .pageButtons
 
-        'pageBtns--tl': $('\
-            <div class="pageBtns pageBtns--tl">\
-                <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'pageButtons--tl': $('\
+            <div class="pageButtons pageButtons--tl">\
+                <button class="pageButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </button>\
-                <span class="pageBtns__indicator">\
-                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                <span class="pageButtons__indicator">\
+                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>\
                 </span>\
-                <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <button class="pageButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
 
-        'pageBtns--tr': $('\
-            <div class="pageBtns pageBtns--tr">\
-                <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'pageButtons--tr': $('\
+            <div class="pageButtons pageButtons--tr">\
+                <button class="pageButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </button>\
-                <span class="pageBtns__indicator">\
-                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                <span class="pageButtons__indicator">\
+                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>\
                 </span>\
-                <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <button class="pageButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
 
-        'pageBtns--br': $('\
-            <div class="pageBtns pageBtns--br">\
-                <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'pageButtons--br': $('\
+            <div class="pageButtons pageButtons--br">\
+                <button class="pageButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </button>\
-                <span class="pageBtns__indicator">\
-                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                <span class="pageButtons__indicator">\
+                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>\
                 </span>\
-                <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <button class="pageButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
 
-        'pageBtns--bl': $('\
-            <div class="pageBtns pageBtns--bl">\
-                <button class="pageBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'pageButtons--bl': $('\
+            <div class="pageButtons pageButtons--bl">\
+                <button class="pageButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </button>\
-                <span class="pageBtns__indicator">\
-                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>\
+                <span class="pageButtons__indicator">\
+                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>\
                 </span>\
-                <button class="pageBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <button class="pageButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </button>\
             </div>\
         '),
 
-        // .flipBtns
+        // .flipButtons
 
-        'flipBtns': $('\
-            <div class="flipBtns">\
-                <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'flipButtons': $('\
+            <div class="flipButtons">\
+                <a class="flipButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </a>\
-                <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <a class="flipButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
 
-        'flipBtns--inset': $('\
-            <div class="flipBtns flipBtns--inset">\
-                <a class="flipBtns__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+        'flipButtons--inset': $('\
+            <div class="flipButtons flipButtons--inset">\
+                <a class="flipButtons__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </a>\
-                <a class="flipBtns__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <a class="flipButtons__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
@@ -114,33 +114,33 @@ YOI.component.Slider = (function() {
 
         'pageDots': $('\
             <div class="pageDots">\
-                <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                <a class="pageDots__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </a>\
-                <a class="pageDots__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <a class="pageDots__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
 
         'pageDots--dark': $('\
             <div class="pageDots pageDots--dark">\
-                <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                <a class="pageDots__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </a>\
-                <a class="pageDots__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <a class="pageDots__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </a>\
             </div>\
         '),
 
         'pageDots--subtle': $('\
             <div class="pageDots pageDots--subtle">\
-                <a class="pageDots__btnPrev">\
-                    <span class="hidden">' + localization[language]['btnLabelPrev'] + '</span>\
+                <a class="pageDots__buttonPrev">\
+                    <span class="hidden">' + localization[language]['buttonLabelPrev'] + '</span>\
                 </a>\
-                <a class="pageDots__btnNext">\
-                    <span class="hidden">' + localization[language]['btnLabelNext'] + '</span>\
+                <a class="pageDots__buttonNext">\
+                    <span class="hidden">' + localization[language]['buttonLabelNext'] + '</span>\
                 </a>\
             </div>\
         ')
@@ -162,7 +162,7 @@ YOI.component.Slider = (function() {
          *
          *  @option {number} autoplay   - interval in miliseconds to change the slides automatically
          *  @option {bool}   clickable  - click on a slide to switch to the next side
-         *  @option {string} controls   - keyword for the controls to add ["pageBtns--tl" || "pageBtns--tr" || "pageBtns--br" || "pageBtns--bl" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
+         *  @option {string} controls   - keyword for the controls to add ["pageButtons--tl" || "pageButtons--tr" || "pageButtons--br" || "pageButtons--bl" || "pageFlip" || "pageFlip--inset" || "pageDots" || "pageDots--dark" || "pageDots--subtle"]
          *  @option {bool}   swipeable  - change the slide on swipe left/right
          *  @option {string} transition - keyword for slide transition ["animate" || "fade"]
          */
@@ -219,21 +219,21 @@ YOI.component.Slider = (function() {
 
                 // attach events to prev/next buttons
 
-                $thisSlider.find('[class*="btnNext"]').on('click', function(e) {
+                $thisSlider.find('[class*="buttonNext"]').on('click', function(e) {
                     e.preventDefault();
                     stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'next');
                 });
 
-                $thisSlider.find('[class*="btnPrev"]').on('click', function(e) {
+                $thisSlider.find('[class*="buttonPrev"]').on('click', function(e) {
                     e.preventDefault();
                     stopAutoplay($thisSlider);
                     showSlide($thisSlider, 'prev');
                 });
 
-                // display total slides (.pageBtns)
+                // display total slides (.pageButtons)
 
-                $thisSlider.find('.pageBtns__totalPages').text(totalSlides);
+                $thisSlider.find('.pageButtons__totalPages').text(totalSlides);
 
                 // insert page dots (.pageDots)
 
@@ -242,12 +242,12 @@ YOI.component.Slider = (function() {
                     // add pagination
 
                     for (var i = 0; i < totalSlides; i++) {
-                        $('<a class="pageDots__dot"><span class="hidden">' + (i + 1) + '</span></a>').insertBefore($(this).find('.pageDots__btnNext'));
+                        $('<a class="pageDots__dot"><span class="hidden">' + (i + 1) + '</span></a>').insertBefore($(this).find('.pageDots__buttonNext'));
                     }
 
                     // set up pagination
 
-                    paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
+                    paginationLinks = $thisSlider.find('.pageDots a:not([class*="button"])');
                     paginationLinks.first().addClass('is--active');
 
                     paginationLinks.on('click', function(e) {
@@ -257,7 +257,7 @@ YOI.component.Slider = (function() {
 
                         var linkIndex;
 
-                        if ($thisSlider.parent().find('.pageDots__btnPrev').length) {
+                        if ($thisSlider.parent().find('.pageDots__buttonPrev').length) {
                             linkIndex = $thisSlider.index() -1;
                         } else {
                             linkIndex = $thisSlider.index();
@@ -491,13 +491,13 @@ YOI.component.Slider = (function() {
 
         // update page dots (.pageDots)
 
-        paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
+        paginationLinks = $thisSlider.find('.pageDots a:not([class*="button"])');
         paginationLinks.removeClass('is--active');
         paginationLinks.eq(thisSlideIndex).addClass('is--active');
 
-        // update page buttons (.pageBtns)
+        // update page buttons (.pageButtons)
 
-        $thisSlider.find('.pageBtns__currentPage').text(thisSlideIndex + 1);
+        $thisSlider.find('.pageButtons__currentPage').text(thisSlideIndex + 1);
 
     }
 

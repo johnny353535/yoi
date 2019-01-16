@@ -77,8 +77,8 @@ YOI.component.DatePicker = (function() {
 
     var $datePicker = $('\
         <div class="datePicker">\
-            <span class="datePicker__btnPrev" yoi-action="prevMonth"></span>\
-            <span class="datePicker__btnNext" yoi-action="nextMonth"></span>\
+            <span class="datePicker__buttonPrev" yoi-action="prevMonth"></span>\
+            <span class="datePicker__buttonNext" yoi-action="nextMonth"></span>\
             <h3 class="datePicker__header"></h3>\
         </div>\
     ');

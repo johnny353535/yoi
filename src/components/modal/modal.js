@@ -19,10 +19,10 @@ YOI.component.Modal = (function() {
 
     var localization = {
         'en' : {
-            'btnLabelClose' : 'Close'
+            'buttonLabelClose' : 'Close'
         },
         'de' : {
-            'btnLabelClose' : 'Schließen'
+            'buttonLabelClose' : 'Schließen'
         }
     };
 
@@ -36,9 +36,9 @@ YOI.component.Modal = (function() {
         <div class="modal__container" id="modalContainer"></div>\
     ');
 
-    var $modalCloseBtn = $('\
-        <button class="btnDismiss" yoi-action="closeModal">\
-            <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
+    var $modalCloseButton = $('\
+        <button class="buttonDismiss" yoi-action="closeModal">\
+            <span class="hidden">' + localization[language]['buttonLabelClose'] + '</span>\
         </button>\
     ');
 
@@ -46,8 +46,8 @@ YOI.component.Modal = (function() {
         <div class="modal">\
             <div class="modal__header">\
                 <h3 class="modal__title"></h3>\
-                <button class="btnDismiss" yoi-action="closeModal">\
-                    <span class="hidden">' + localization[language]['btnLabelClose'] + '</span>\
+                <button class="buttonDismiss" yoi-action="closeModal">\
+                    <span class="hidden">' + localization[language]['buttonLabelClose'] + '</span>\
                 </button>\
             </div>\
             <div class="modal__body"></div>\
@@ -279,7 +279,7 @@ YOI.component.Modal = (function() {
                         // prepare modal markup
 
                         $thisModal.attr('id', modalId.split('#')[1]);
-                        $thisModal.find('.modal__header').append($modalCloseBtn.clone());
+                        $thisModal.find('.modal__header').append($modalCloseButton.clone());
 
                         // append to dom & hide
 

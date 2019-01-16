@@ -78,7 +78,7 @@ This is how a `<input type="radio">` looks like:
 
 ```html
 <!-- example:tabs -->
-<span class="btn">
+<span class="button">
     <span>Submit</span>
     <input type="submit" value="Submit" />
 </span>

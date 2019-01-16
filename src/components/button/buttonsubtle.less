@@ -3,7 +3,7 @@
 // base
 // ====
 
-.btn.btn--subtle {
+.button.button--subtle {
 
     background: transparent;
     border-color: @color-transparent;
@@ -21,7 +21,7 @@
         border-color: transparent;
     }
 
-    .constr-btnSubtle(
+    .constr-buttonSubtle(
         @txtColor: @color-base-8,
         @bgColorHover: @color-base-25,
         @bgColorActive: @color-base-23
@@ -32,48 +32,48 @@
 // modifiers
 // =========
 
-.btn--subtle.btn--primary {
-    .constr-btnSubtle(
+.button--subtle.button--primary {
+    .constr-buttonSubtle(
         @txtColor: @color-primary-8,
         @bgColorHover: @color-primary-25,
         @bgColorActive: @color-primary-24
     )
 }
 
-.btn--subtle.btn--light {
-    .constr-btnSubtle(
+.button--subtle.button--light {
+    .constr-buttonSubtle(
         @txtColor: @color-white,
         @bgColorHover: fade(@color-white, 10%),
         @bgColorActive: fade(@color-white, 15%)
     )
 }
 
-.btn--subtle.btn--dark {
-    .constr-btnSubtle(
+.button--subtle.button--dark {
+    .constr-buttonSubtle(
         @txtColor: @color-base-3,
         @bgColorHover: @color-base-22,
         @bgColorActive: @color-base-19
     )
 }
 
-.btn--subtle.btn--attention {
-    .constr-btnSubtle(
+.button--subtle.button--attention {
+    .constr-buttonSubtle(
         @txtColor: @color-attention-6,
         @bgColorHover: @color-attention-22,
         @bgColorActive: @color-attention-20
     )
 }
 
-.btn--subtle.btn--negative {
-    .constr-btnSubtle(
+.button--subtle.button--negative {
+    .constr-buttonSubtle(
         @txtColor: @color-negative-6,
         @bgColorHover: @color-negative-25,
         @bgColorActive: @color-negative-23
     )
 }
 
-.btn--subtle.btn--positive {
-    .constr-btnSubtle(
+.button--subtle.button--positive {
+    .constr-buttonSubtle(
         @txtColor: @color-positive-6,
         @bgColorHover: @color-positive-23,
         @bgColorActive: @color-positive-21
@@ -83,7 +83,7 @@
 // constructor
 // ===========
 
-.constr-btnSubtle(
+.constr-buttonSubtle(
     @txtColor,
     @bgColorHover,
     @bgColorActive) {

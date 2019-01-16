@@ -67,7 +67,7 @@ Pick a `.ratingInput` and “lock” it:
 <!-- example:tabs -->
 <div id="exampleRatingInput-1" class="ratingInput" yoi-ratinginput></div>
 <p>
-    <button id="exampleButton-1" class="btn btn--medium m-t-2">Lock</button>
+    <button id="exampleButton-1" class="button button--medium m-t-2">Lock</button>
 </p>
 <script>
     $('#exampleButton-1').on('click', function() {
@@ -84,7 +84,7 @@ Pick a `.ratingInput` and “unlock” it:
 <!-- example:tabs -->
 <div id="exampleRatingInput-2" class="ratingInput ratingInput--locked" yoi-ratinginput></div>
 <p>
-    <button id="exampleButton-2" class="btn btn--medium m-t-2">Unlock</button>
+    <button id="exampleButton-2" class="button button--medium m-t-2">Unlock</button>
 </p>
 <script>
     $('#exampleButton-2').on('click', function() {
@@ -101,7 +101,7 @@ Pick a `.ratingInput` and set it to a given score (1–5):
 <!-- example:tabs -->
 <div id="exampleRatingInput-3" class="ratingInput" yoi-ratinginput></div>
 <p>
-    <button id="exampleButton-3" class="btn btn--medium m-t-2">Set Score to 3</button>
+    <button id="exampleButton-3" class="button button--medium m-t-2">Set Score to 3</button>
 </p>
 <script>
     $('#exampleButton-3').on('click', function() {

@@ -95,9 +95,9 @@ Take a look at the code for this example to get an idea how to use the `.log`:
 </div>
 
 <!-- markup for buttons -->
-<div class="btns m-t-4">
-    <button id="logBtn-write" class="btn btn--large br-tl-0">Fill the Log</button>
-    <button id="logBtn-clear" class="btn btn--large br-tr-0">Clear the Log</button>
+<div class="buttons m-t-4">
+    <button id="logButton-write" class="button button--large br-tl-0">Fill the Log</button>
+    <button id="logButton-clear" class="button button--large br-tr-0">Clear the Log</button>
 </div>
 
 <!-- JavaScript -->
@@ -110,15 +110,15 @@ Take a look at the code for this example to get an idea how to use the `.log`:
     YOI.component.Log.write($('#exampleLog-1'), 'two');
     YOI.component.Log.write($('#exampleLog-1'), 'three');
 
-    // attach clear-funtion to #logBtn-clear
+    // attach clear-funtion to #logButton-clear
 
-    $('#logBtn-clear').on('click', function() {
+    $('#logButton-clear').on('click', function() {
         YOI.component.Log.clear($('#exampleLog-1'));
     });
 
-    // attach fill-function to #logBtn-write
+    // attach fill-function to #logButton-write
 
-    $('#logBtn-write').on('click', function() {
+    $('#logButton-write').on('click', function() {
         YOI.component.Log.write($('#exampleLog-1'), 'some text');
     });
 

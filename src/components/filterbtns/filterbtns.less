@@ -1,9 +1,9 @@
-/** filterbtns.less */
+/** filterbuttons.less */
 
 // block
 // =====
 
-.filterBtns {
+.filterButtons {
     display: block;
     font-size: 0;
 }
@@ -11,7 +11,7 @@
 // elements
 // ========
 
-.filterBtns__btn {
+.filterButtons__button {
 
     background: @color-base-24;
     border-radius: 1.5rem;
@@ -44,9 +44,9 @@
 
 // dark buttons
 
-.filterBtns--dark {
+.filterButtons--dark {
 
-    .filterBtns__btn {
+    .filterButtons__button {
 
         background: @color-base-11;
         color: @color-white;
@@ -59,15 +59,15 @@
 
     }
 
-    .filterBtns__btn:hover {
+    .filterButtons__button:hover {
         background: @color-base-9;
     }
 
-    .filterBtns__btn a::after {
+    .filterButtons__button a::after {
         .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-18);
     }
 
-    .filterBtns__btn a:hover::after {
+    .filterButtons__button a:hover::after {
         .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-white);
     }
 
@@ -75,7 +75,7 @@
 
 // removeable buttons
 
-.filterBtns--removeable .filterBtns__btn {
+.filterButtons--removeable .filterButtons__button {
 
     // icon
 
@@ -106,7 +106,7 @@
 
 // icons inside buttons
 
-.filterBtns__btn {
+.filterButtons__button {
 
     a::after {
         .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-17);
@@ -128,7 +128,7 @@
 
 // active button
 
-.filterBtns__btn.is--active {
+.filterButtons__button.is--active {
 
     background: @color-positive-10;
 
@@ -152,7 +152,7 @@
 
 // debouce button class
 
-.filterBtns__btn.filterBtns__btn--debounce:hover {
+.filterButtons__button.filterButtons__button--debounce:hover {
 
     background: @color-positive-10;
 

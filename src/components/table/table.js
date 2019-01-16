@@ -63,11 +63,11 @@ YOI.component.Table = (function() {
                 // adjust table markup
 
                 $thisTable.find('tr th:last-child').after('<th></th>');
-                $thisTable.find('tr td:last-child').after('<td class="table__removeBtn"></td>');
+                $thisTable.find('tr td:last-child').after('<td class="table__removeButton"></td>');
 
                 // attach events to cells
 
-                $thisTable.find('.table__removeBtn').on('click', function(e) {
+                $thisTable.find('.table__removeButton').on('click', function(e) {
 
                     // prevent default & call remove row
 

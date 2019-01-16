@@ -105,7 +105,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                     <h3>Basic</h3>
                     <p class="m-tb-2">This affordable option is the most popular choice among our customers.</p>
                     <p class="fs-3 al-c"><b>5 €</b></p>
-                    <a class="btn btn--large btn--light al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
+                    <a class="button button--large button--light al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
             <div class="shelf__item w-1-3">
@@ -113,7 +113,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                     <h3>Professional</h3>
                     <p class="m-tb-2">The perfect option for our professional customers.</p>
                     <p class="fs-3 al-c"><b>15 €</b></p>
-                    <a class="btn btn--large btn--attention al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
+                    <a class="button button--large button--attention al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
             <div class="shelf__item w-1-3">
@@ -121,7 +121,7 @@ You could use any element or custom markup inside a `.shelf__item`. See the foll
                     <h3>Premium</h3>
                     <p class="m-tb-2">Everything you can imagine is covered by our premium plan.</p>
                     <p class="fs-3 al-c"><b>500 €</b></p>
-                    <a class="btn btn--large btn--negative al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
+                    <a class="button button--large button--negative al-c pos-l pos-r pos-b m-2" href="#">Buy</a>
                 </div>
             </div>
         </div>

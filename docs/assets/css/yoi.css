@@ -64224,7 +64224,7 @@ body {
 .note .note__body + .note__body {
   border-color: #ecebea;
 }
-.note .btnDismiss {
+.note .buttonDismiss {
   border-bottom-right-radius: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -64370,11 +64370,11 @@ body {
   display: inline-block;
   margin: 0.4rem;
 }
-.pagination__item .btn:hover {
+.pagination__item .button:hover {
   background: #ecebea;
 }
-.pagination .is--active .btn,
-.pagination .is--active .btn:hover {
+.pagination .is--active .button,
+.pagination .is--active .button:hover {
   background: #8572c0;
   color: #f6f5f4;
 }
@@ -65192,8 +65192,8 @@ a.box {
 .rating--large .rating__stars::after {
   background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=ecebea&w=76.8px&h=76.8px);
 }
-/** pagebtns.less */
-.pageBtns {
+/** pagebuttons.less */
+.pageButtons {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -65208,8 +65208,8 @@ a.box {
   text-align: center;
   text-shadow: 0 1px 0 rgba(52, 51, 50, 0.3);
 }
-.pageBtns__btnPrev,
-.pageBtns__btnNext {
+.pageButtons__buttonPrev,
+.pageButtons__buttonNext {
   border-radius: 2px;
   background: transparent;
   border: 0;
@@ -65224,12 +65224,12 @@ a.box {
   top: 0;
   width: 4rem;
 }
-.pageBtns__btnPrev:hover,
-.pageBtns__btnNext:hover {
+.pageButtons__buttonPrev:hover,
+.pageButtons__buttonNext:hover {
   background: #676665;
 }
-.pageBtns__btnPrev::after,
-.pageBtns__btnNext::after {
+.pageButtons__buttonPrev::after,
+.pageButtons__buttonNext::after {
   content: ' ';
   display: inline-block;
   height: 4rem;
@@ -65237,25 +65237,25 @@ a.box {
   top: 0;
   width: 4rem;
 }
-.pageBtns__btnPrev {
+.pageButtons__buttonPrev {
   left: 0;
 }
-.pageBtns__btnNext {
+.pageButtons__buttonNext {
   right: 0;
 }
-.pageBtns__btnPrev::after {
+.pageButtons__buttonPrev::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.pageBtns__btnNext::after {
+.pageButtons__buttonNext::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.pageBtns__indicator {
+.pageButtons__indicator {
   color: #faf9f7;
   display: inline-block;
   font: bold 1.5rem/4rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -65263,38 +65263,38 @@ a.box {
   line-height: 4rem;
   margin: 0 5rem;
 }
-.pageBtns__btnPrev.is--disabled:hover,
-.pageBtns__btnNext.is--disabled:hover {
+.pageButtons__buttonPrev.is--disabled:hover,
+.pageButtons__buttonNext.is--disabled:hover {
   background: transparent;
   cursor: default;
 }
-.pageBtns__btnPrev.is--disabled::after,
-.pageBtns__btnNext.is--disabled::after {
+.pageButtons__buttonPrev.is--disabled::after,
+.pageButtons__buttonNext.is--disabled::after {
   opacity: 0.3;
 }
-.pageBtns--tl,
-.pageBtns--tr,
-.pageBtns--br,
-.pageBtns--bl {
+.pageButtons--tl,
+.pageButtons--tr,
+.pageButtons--br,
+.pageButtons--bl {
   position: absolute;
   z-index: 20;
 }
-.pageBtns--tl {
+.pageButtons--tl {
   border-radius: 0 0 0 2px;
   left: 0;
   top: 0;
 }
-.pageBtns--tr {
+.pageButtons--tr {
   border-radius: 0 0 2px 0;
   right: 0;
   top: 0;
 }
-.pageBtns--br {
+.pageButtons--br {
   border-radius: 2px 0 0 0;
   bottom: 0;
   right: 0;
 }
-.pageBtns--bl {
+.pageButtons--bl {
   border-radius: 0 2px 0 0;
   bottom: 0;
   left: 0;
@@ -65810,12 +65810,12 @@ a.box {
   overflow: hidden;
   padding: 1rem;
 }
-/** filterbtns.less */
-.filterBtns {
+/** filterbuttons.less */
+.filterButtons {
   display: block;
   font-size: 0;
 }
-.filterBtns__btn {
+.filterButtons__button {
   background: #f6f5f4;
   border-radius: 1.5rem;
   box-sizing: border-box;
@@ -65828,59 +65828,59 @@ a.box {
   margin: 0 0.5rem 0.5rem 0;
   padding: 0 1.25rem;
 }
-.filterBtns__btn:hover {
+.filterButtons__button:hover {
   background: #ecebea;
 }
-.filterBtns__btn a,
-.filterBtns__btn a:link,
-.filterBtns__btn a:visited {
+.filterButtons__button a,
+.filterButtons__button a:link,
+.filterButtons__button a:visited {
   color: #535251;
   display: inline-block;
   text-decoration: none;
 }
-.filterBtns--dark .filterBtns__btn {
+.filterButtons--dark .filterButtons__button {
   background: #71706f;
   color: #fff;
 }
-.filterBtns--dark .filterBtns__btn a,
-.filterBtns--dark .filterBtns__btn a:link,
-.filterBtns--dark .filterBtns__btn a:visited {
+.filterButtons--dark .filterButtons__button a,
+.filterButtons--dark .filterButtons__button a:link,
+.filterButtons--dark .filterButtons__button a:visited {
   color: #fff;
 }
-.filterBtns--dark .filterBtns__btn:hover {
+.filterButtons--dark .filterButtons__button:hover {
   background: #5d5c5b;
 }
-.filterBtns--dark .filterBtns__btn a::after {
+.filterButtons--dark .filterButtons__button a::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=b9b8b7&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns--dark .filterBtns__btn a:hover::after {
+.filterButtons--dark .filterButtons__button a:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=fff&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns--removeable .filterBtns__btn a::after {
+.filterButtons--removeable .filterButtons__button a::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=b9b8b7&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns--removeable .filterBtns__btn:hover {
+.filterButtons--removeable .filterButtons__button:hover {
   background: #c83700;
 }
-.filterBtns--removeable .filterBtns__btn:hover a {
+.filterButtons--removeable .filterButtons__button:hover a {
   color: #fff;
 }
-.filterBtns--removeable .filterBtns__btn:hover a::after {
+.filterButtons--removeable .filterButtons__button:hover a::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns__btn a::after {
+.filterButtons__button a::after {
   /**
      *  SVG icons as background image
      */
@@ -65894,37 +65894,37 @@ a.box {
   vertical-align: top;
   width: 3.2rem;
 }
-.filterBtns__btn a:hover::after {
+.filterButtons__button a:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns__btn.is--active {
+.filterButtons__button.is--active {
   background: #4e7e64;
 }
-.filterBtns__btn.is--active a {
+.filterButtons__button.is--active a {
   color: #fff;
 }
-.filterBtns__btn.is--active a::after {
+.filterButtons__button.is--active a::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=c8f8de&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns__btn.is--active:hover {
+.filterButtons__button.is--active:hover {
   background: #c83700;
 }
-.filterBtns__btn.is--active:hover a::after {
+.filterButtons__button.is--active:hover a::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.filterBtns__btn.filterBtns__btn--debounce:hover {
+.filterButtons__button.filterButtons__button--debounce:hover {
   background: #4e7e64;
 }
-.filterBtns__btn.filterBtns__btn--debounce:hover a::after {
+.filterButtons__button.filterButtons__button--debounce:hover a::after {
   /**
      *  SVG icons as background image
      */
@@ -65976,34 +65976,34 @@ a.box {
   text-align: center;
   background: #faf9f7;
 }
-.datePicker__btnPrev,
-.datePicker__btnNext {
+.datePicker__buttonPrev,
+.datePicker__buttonNext {
   height: 4rem;
   position: absolute;
   top: 0;
   width: 4rem;
 }
-.datePicker__btnPrev {
+.datePicker__buttonPrev {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
   left: 0;
 }
-.datePicker__btnPrev:hover {
+.datePicker__buttonPrev:hover {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.datePicker__btnNext {
+.datePicker__buttonNext {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
   right: 0;
 }
-.datePicker__btnNext:hover {
+.datePicker__buttonNext:hover {
   /**
      *  SVG icons as background image
      */
@@ -66097,15 +66097,15 @@ a.box {
   z-index: 20;
 }
 .pageDots__dot,
-.pageDots__btnPrev,
-.pageDots__btnNext {
+.pageDots__buttonPrev,
+.pageDots__buttonNext {
   color: #d7d6d5;
   cursor: pointer;
   display: inline-block;
 }
 .pageDots__dot::after,
-.pageDots__btnPrev::after,
-.pageDots__btnNext::after {
+.pageDots__buttonPrev::after,
+.pageDots__buttonNext::after {
   content: ' ';
   display: inline-block;
   height: 2.5rem;
@@ -66115,8 +66115,8 @@ a.box {
   height: 2.5rem;
   width: 2rem;
 }
-.pageDots__btnPrev,
-.pageDots__btnNext {
+.pageDots__buttonPrev,
+.pageDots__buttonNext {
   height: 2.5rem;
   width: 3rem;
 }
@@ -66138,42 +66138,42 @@ a.box {
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=8572c0&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnPrev::after {
+.pageDots__buttonPrev::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnPrev:hover::after {
+.pageDots__buttonPrev:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnNext::after {
+.pageDots__buttonNext::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnNext:hover::after {
+.pageDots__buttonNext:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnPrev.is--disabled::after,
-.pageDots__btnNext.is--disabled::after {
+.pageDots__buttonPrev.is--disabled::after,
+.pageDots__buttonNext.is--disabled::after {
   cursor: default;
   opacity: 0.3;
 }
-.pageDots__btnPrev.is--disabled:hover::after {
+.pageDots__buttonPrev.is--disabled:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots__btnNext.is--disabled:hover::after {
+.pageDots__buttonNext.is--disabled:hover::after {
   /**
      *  SVG icons as background image
      */
@@ -66200,37 +66200,37 @@ a.box {
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=d6c8ff&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnPrev::after {
+.pageDots--dark .pageDots__buttonPrev::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnPrev:hover::after {
+.pageDots--dark .pageDots__buttonPrev:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnNext::after {
+.pageDots--dark .pageDots__buttonNext::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnNext:hover::after {
+.pageDots--dark .pageDots__buttonNext:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnPrev.is--disabled:hover::after {
+.pageDots--dark .pageDots__buttonPrev.is--disabled:hover::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.pageDots--dark .pageDots__btnNext.is--disabled:hover::after {
+.pageDots--dark .pageDots__buttonNext.is--disabled:hover::after {
   /**
      *  SVG icons as background image
      */
@@ -66239,8 +66239,8 @@ a.box {
 .pageDots--subtle {
   background: transparent;
 }
-/** pickbtn.less */
-.pickBtn {
+/** pickbutton.less */
+.pickButton {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -66264,36 +66264,36 @@ a.box {
   vertical-align: middle;
   white-space: nowrap;
 }
-.pickBtn::-webkit-search-decoration,
-.pickBtn::-webkit-search-cancel-button,
-.pickBtn::-webkit-search-results-button,
-.pickBtn::-webkit-search-results-decoration {
+.pickButton::-webkit-search-decoration,
+.pickButton::-webkit-search-cancel-button,
+.pickButton::-webkit-search-results-button,
+.pickButton::-webkit-search-results-decoration {
   display: none;
 }
-a.pickBtn {
+a.pickButton {
   text-decoration: none;
 }
-.pickBtn:hover {
+.pickButton:hover {
   background: #f6f5f4;
   border-color: #f6f5f4;
 }
-.pickBtn input {
+.pickButton input {
   margin-right: 0.5rem;
 }
-.pickBtn__label,
-.pickBtn__toggleLabel {
+.pickButton__label,
+.pickButton__toggleLabel {
   display: inline-block;
   font: bold 1.2rem/2.8rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
-.pickBtn__label {
+.pickButton__label {
   vertical-align: top;
 }
-.pickBtn__label + .pickBtn__toggleLabel {
+.pickButton__label + .pickButton__toggleLabel {
   border-left: #ecebea 1px dashed;
   margin-left: 0.5rem;
   padding-left: 0.5rem;
 }
-.pickBtn__icon {
+.pickButton__icon {
   /**
      *  SVG icons as background image
      */
@@ -66304,18 +66304,18 @@ a.pickBtn {
   vertical-align: top;
   width: 2.8rem;
 }
-.js .pickBtn.is--active,
-.js .pickBtn.is--active:hover {
+.js .pickButton.is--active,
+.js .pickButton.is--active:hover {
   background: #4e7e64;
   border-color: #4e7e64;
   color: #fff;
 }
-.js .pickBtn.is--active .pickBtn__toggleLabel,
-.js .pickBtn.is--active:hover .pickBtn__toggleLabel {
+.js .pickButton.is--active .pickButton__toggleLabel,
+.js .pickButton.is--active:hover .pickButton__toggleLabel {
   display: none;
 }
-.js .pickBtn.is--active .pickBtn__icon,
-.js .pickBtn.is--active:hover .pickBtn__icon {
+.js .pickButton.is--active .pickButton__icon,
+.js .pickButton.is--active:hover .pickButton__icon {
   display: inline-block;
 }
 /** code.less */
@@ -66404,23 +66404,23 @@ pre code {
 .code__example .tabs__page {
   position: relative;
 }
-.code__copyBtn {
+.code__copyButton {
   font-size: 12px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.code__example .code__copyBtn {
+.code__example .code__copyButton {
   border-radius: 2px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-top-left-radius: 0;
 }
-.tabs__page .code__copyBtn {
+.tabs__page .code__copyButton {
   bottom: 0;
   left: 0;
   position: absolute;
 }
-.code__expandBtn {
+.code__expandButton {
   font-size: 12px;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -66748,7 +66748,7 @@ a.slider__slide {
   line-height: 3rem;
   margin-top: 1rem;
 }
-.slider--super .pageBtns {
+.slider--super .pageButtons {
   background: transparent;
   border-radius: 0;
   bottom: 1rem;
@@ -66903,8 +66903,8 @@ a.slider__slide {
 .icon + .stepper__submit {
   padding-right: 4rem;
 }
-.stepper__btnMinus,
-.stepper__btnPlus {
+.stepper__buttonMinus,
+.stepper__buttonPlus {
   background: linear-gradient(to bottom, #aeadac, #908f8e);
   border: 0;
   box-shadow: 0 1px 0 #cdcccb inset;
@@ -66915,17 +66915,17 @@ a.slider__slide {
   width: 2.5rem;
   z-index: 2;
 }
-.stepper__btnMinus:hover,
-.stepper__btnPlus:hover {
+.stepper__buttonMinus:hover,
+.stepper__buttonPlus:hover {
   background: linear-gradient(to bottom, #a4a3a2, #868584);
   box-shadow: 0 1px 0 #c3c2c1 inset;
 }
-.stepper__btnMinus:active,
-.stepper__btnPlus:active {
+.stepper__buttonMinus:active,
+.stepper__buttonPlus:active {
   background: linear-gradient(to bottom, #71706f, #908f8e);
   box-shadow: none;
 }
-.stepper__btnMinus {
+.stepper__buttonMinus {
   border-radius: 0 0 0 2px;
   bottom: 0;
 }
@@ -66935,7 +66935,7 @@ a.slider__slide {
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
-.stepper__btnPlus {
+.stepper__buttonPlus {
   border-radius: 2px 0 0 0;
   top: 0;
 }
@@ -66981,13 +66981,13 @@ a.slider__slide {
   text-shadow: none;
   color: #535251;
 }
-.stepper--light .stepper__btnMinus,
-.stepper--light .stepper__btnPlus {
+.stepper--light .stepper__buttonMinus,
+.stepper--light .stepper__buttonPlus {
   background: transparent;
   box-shadow: none;
 }
-.stepper--light .stepper__btnMinus:hover,
-.stepper--light .stepper__btnPlus:hover {
+.stepper--light .stepper__buttonMinus:hover,
+.stepper--light .stepper__buttonPlus:hover {
   background: #f6f5f4;
 }
 .stepper--light .stepper__iconMinus {
@@ -67009,17 +67009,17 @@ a.slider__slide {
 .js .stepper--touch .stepper__input {
   margin-left: 8.6rem;
 }
-.stepper--touch .stepper__btnMinus,
-.stepper--touch .stepper__btnPlus {
+.stepper--touch .stepper__buttonMinus,
+.stepper--touch .stepper__buttonPlus {
   border-radius: 0;
   height: 3.8rem;
   top: 0;
   width: 4rem;
 }
-.stepper--touch .stepper__btnMinus {
+.stepper--touch .stepper__buttonMinus {
   left: 4.1rem;
 }
-.stepper--touch .stepper__btnPlus {
+.stepper--touch .stepper__buttonPlus {
   left: 0;
 }
 .stepper--touch .stepper__iconMinus {
@@ -67182,8 +67182,8 @@ a.tile:hover .tile__image {
             transform: rotate(360deg);
   }
 }
-/** flipbtns.less */
-.flipBtns {
+/** flipbuttons.less */
+.flipButtons {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -67193,8 +67193,8 @@ a.tile:hover .tile__image {
   width: 100%;
   z-index: 20;
 }
-.flipBtns__btnPrev,
-.flipBtns__btnNext {
+.flipButtons__buttonPrev,
+.flipButtons__buttonNext {
   box-sizing: border-box;
   background: #fff;
   border: #ecebea 1px solid;
@@ -67207,56 +67207,56 @@ a.tile:hover .tile__image {
   text-shadow: 0 1px 0 #faf9f7;
   width: 3rem;
 }
-.flipBtns__btnPrev:hover,
-.flipBtns__btnNext:hover {
+.flipButtons__buttonPrev:hover,
+.flipButtons__buttonNext:hover {
   background: #faf9f7;
 }
-.flipBtns__btnPrev::after,
-.flipBtns__btnNext::after {
+.flipButtons__buttonPrev::after,
+.flipButtons__buttonNext::after {
   content: ' ';
   height: 5rem;
   left: 0;
   position: absolute;
   width: 3.2rem;
 }
-.flipBtns__btnPrev {
+.flipButtons__buttonPrev {
   border-radius: 2px 0 0 2px;
   border-right: 0;
   left: -3rem;
 }
-.flipBtns__btnPrev::after {
+.flipButtons__buttonPrev::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.flipBtns__btnNext {
+.flipButtons__buttonNext {
   border-radius: 0 2px 2px 0;
   border-left: 0;
   right: -3rem;
 }
-.flipBtns__btnNext::after {
+.flipButtons__buttonNext::after {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.flipBtns__btnPrev.is--disabled:hover,
-.flipBtns__btnNext.is--disabled:hover {
+.flipButtons__buttonPrev.is--disabled:hover,
+.flipButtons__buttonNext.is--disabled:hover {
   background: transparent;
   cursor: default;
 }
-.flipBtns__btnPrev.is--disabled::after,
-.flipBtns__btnNext.is--disabled::after {
+.flipButtons__buttonPrev.is--disabled::after,
+.flipButtons__buttonNext.is--disabled::after {
   opacity: 0.3;
 }
-.flipBtns--inset .flipBtns__btnPrev {
+.flipButtons--inset .flipButtons__buttonPrev {
   border: #ecebea 1px solid;
   border-radius: 0 2px 2px 0;
   border-left: 0;
   left: 0;
 }
-.flipBtns--inset .flipBtns__btnNext {
+.flipButtons--inset .flipButtons__buttonNext {
   border: #ecebea 1px solid;
   border-radius: 2px 0 0 2px;
   border-right: 0;
@@ -67469,175 +67469,175 @@ h6 {
   text-transform: uppercase;
 }
 /** buttonflat.less */
-.btn.btn--flat {
+.button.button--flat {
   border-color: transparent;
   box-shadow: none;
 }
-.btn.btn--flat:hover {
+.button.button--flat:hover {
   border-color: transparent;
   box-shadow: none;
 }
-.btn.btn--flat:active,
-.btn.btn--flat.is--active {
+.button.button--flat:active,
+.button.button--flat.is--active {
   border-color: transparent;
   box-shadow: none;
 }
-.btn.btn--flat {
+.button.button--flat {
   background: #e1e0df;
   color: #535251;
 }
-a.btn.btn--flat,
-a:link.btn.btn--flat,
-a:visited.btn.btn--flat {
+a.button.button--flat,
+a:link.button.button--flat,
+a:visited.button.button--flat {
   color: #535251;
 }
-.btn.btn--flat:hover {
+.button.button--flat:hover {
   background: #d7d6d5;
 }
-.btn.btn--flat:active,
-.btn.btn--flat.is--active {
+.button.button--flat:active,
+.button.button--flat.is--active {
   background: #cdcccb;
 }
-.btn.btn--flat .icon circle,
-.btn.btn--flat ellipse,
-.btn.btn--flat path,
-.btn.btn--flat polygon {
+.button.button--flat .icon circle,
+.button.button--flat ellipse,
+.button.button--flat path,
+.button.button--flat polygon {
   fill: #535251;
 }
-.btn--flat.btn--primary {
+.button--flat.button--primary {
   background: #52408d;
   color: #fff;
 }
-a.btn--flat.btn--primary,
-a:link.btn--flat.btn--primary,
-a:visited.btn--flat.btn--primary {
+a.button--flat.button--primary,
+a:link.button--flat.button--primary,
+a:visited.button--flat.button--primary {
   color: #fff;
 }
-.btn--flat.btn--primary:hover {
+.button--flat.button--primary:hover {
   background: #483582;
 }
-.btn--flat.btn--primary:active,
-.btn--flat.btn--primary.is--active {
+.button--flat.button--primary:active,
+.button--flat.button--primary.is--active {
   background: #3e2b78;
 }
-.btn--flat.btn--primary .icon circle,
-.btn--flat.btn--primary ellipse,
-.btn--flat.btn--primary path,
-.btn--flat.btn--primary polygon {
+.button--flat.button--primary .icon circle,
+.button--flat.button--primary ellipse,
+.button--flat.button--primary path,
+.button--flat.button--primary polygon {
   fill: #fff;
 }
-.btn--flat.btn--light {
+.button--flat.button--light {
   background: #f6f5f4;
   color: #676665;
 }
-a.btn--flat.btn--light,
-a:link.btn--flat.btn--light,
-a:visited.btn--flat.btn--light {
+a.button--flat.button--light,
+a:link.button--flat.button--light,
+a:visited.button--flat.button--light {
   color: #676665;
 }
-.btn--flat.btn--light:hover {
+.button--flat.button--light:hover {
   background: #ecebea;
 }
-.btn--flat.btn--light:active,
-.btn--flat.btn--light.is--active {
+.button--flat.button--light:active,
+.button--flat.button--light.is--active {
   background: #e1e0df;
 }
-.btn--flat.btn--light .icon circle,
-.btn--flat.btn--light ellipse,
-.btn--flat.btn--light path,
-.btn--flat.btn--light polygon {
+.button--flat.button--light .icon circle,
+.button--flat.button--light ellipse,
+.button--flat.button--light path,
+.button--flat.button--light polygon {
   fill: #676665;
 }
-.btn--flat.btn--dark {
+.button--flat.button--dark {
   background: #676665;
   color: #fff;
 }
-a.btn--flat.btn--dark,
-a:link.btn--flat.btn--dark,
-a:visited.btn--flat.btn--dark {
+a.button--flat.button--dark,
+a:link.button--flat.button--dark,
+a:visited.button--flat.button--dark {
   color: #fff;
 }
-.btn--flat.btn--dark:hover {
+.button--flat.button--dark:hover {
   background: #5d5c5b;
 }
-.btn--flat.btn--dark:active,
-.btn--flat.btn--dark.is--active {
+.button--flat.button--dark:active,
+.button--flat.button--dark.is--active {
   background: #535251;
 }
-.btn--flat.btn--dark .icon circle,
-.btn--flat.btn--dark ellipse,
-.btn--flat.btn--dark path,
-.btn--flat.btn--dark polygon {
+.button--flat.button--dark .icon circle,
+.button--flat.button--dark ellipse,
+.button--flat.button--dark path,
+.button--flat.button--dark polygon {
   fill: #fff;
 }
-.btn--flat.btn--attention {
+.button--flat.button--attention {
   background: #eee8aa;
   color: #5f591b;
 }
-a.btn--flat.btn--attention,
-a:link.btn--flat.btn--attention,
-a:visited.btn--flat.btn--attention {
+a.button--flat.button--attention,
+a:link.button--flat.button--attention,
+a:visited.button--flat.button--attention {
   color: #5f591b;
 }
-.btn--flat.btn--attention:hover {
+.button--flat.button--attention:hover {
   background: #e4dea0;
 }
-.btn--flat.btn--attention:active,
-.btn--flat.btn--attention.is--active {
+.button--flat.button--attention:active,
+.button--flat.button--attention.is--active {
   background: #dad496;
 }
-.btn--flat.btn--attention .icon circle,
-.btn--flat.btn--attention ellipse,
-.btn--flat.btn--attention path,
-.btn--flat.btn--attention polygon {
+.button--flat.button--attention .icon circle,
+.button--flat.button--attention ellipse,
+.button--flat.button--attention path,
+.button--flat.button--attention polygon {
   fill: #5f591b;
 }
-.btn--flat.btn--negative {
+.button--flat.button--negative {
   background: #ff8456;
   color: #701e00;
 }
-a.btn--flat.btn--negative,
-a:link.btn--flat.btn--negative,
-a:visited.btn--flat.btn--negative {
+a.button--flat.button--negative,
+a:link.button--flat.button--negative,
+a:visited.button--flat.button--negative {
   color: #701e00;
 }
-.btn--flat.btn--negative:hover {
+.button--flat.button--negative:hover {
   background: #ff7643;
 }
-.btn--flat.btn--negative:active,
-.btn--flat.btn--negative.is--active {
+.button--flat.button--negative:active,
+.button--flat.button--negative.is--active {
   background: #ff6830;
 }
-.btn--flat.btn--negative .icon circle,
-.btn--flat.btn--negative ellipse,
-.btn--flat.btn--negative path,
-.btn--flat.btn--negative polygon {
+.button--flat.button--negative .icon circle,
+.button--flat.button--negative ellipse,
+.button--flat.button--negative path,
+.button--flat.button--negative polygon {
   fill: #701e00;
 }
-.btn--flat.btn--positive {
+.button--flat.button--positive {
   background: #a0d0b6;
   color: #25553b;
 }
-a.btn--flat.btn--positive,
-a:link.btn--flat.btn--positive,
-a:visited.btn--flat.btn--positive {
+a.button--flat.button--positive,
+a:link.button--flat.button--positive,
+a:visited.button--flat.button--positive {
   color: #25553b;
 }
-.btn--flat.btn--positive:hover {
+.button--flat.button--positive:hover {
   background: #95c5ab;
 }
-.btn--flat.btn--positive:active,
-.btn--flat.btn--positive.is--active {
+.button--flat.button--positive:active,
+.button--flat.button--positive.is--active {
   background: #8bbba1;
 }
-.btn--flat.btn--positive .icon circle,
-.btn--flat.btn--positive ellipse,
-.btn--flat.btn--positive path,
-.btn--flat.btn--positive polygon {
+.button--flat.button--positive .icon circle,
+.button--flat.button--positive ellipse,
+.button--flat.button--positive path,
+.button--flat.button--positive polygon {
   fill: #25553b;
 }
 /** button.less */
-.btn {
+.button {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -67667,13 +67667,13 @@ a:visited.btn--flat.btn--positive {
   box-shadow: 0 1px 0 #faf9f7 inset;
   color: #535251;
 }
-.btn::-webkit-search-decoration,
-.btn::-webkit-search-cancel-button,
-.btn::-webkit-search-results-button,
-.btn::-webkit-search-results-decoration {
+.button::-webkit-search-decoration,
+.button::-webkit-search-cancel-button,
+.button::-webkit-search-results-button,
+.button::-webkit-search-results-decoration {
   display: none;
 }
-.btn input[type="submit"] {
+.button input[type="submit"] {
   border: 0;
   bottom: 0;
   color: inherit;
@@ -67688,57 +67688,57 @@ a:visited.btn--flat.btn--positive {
   top: 0;
   z-index: 2;
 }
-a.btn,
-a:link.btn,
-a:visited.btn {
+a.button,
+a:link.button,
+a:visited.button {
   text-decoration: none;
   cursor: pointer;
 }
-.btn:hover {
+.button:hover {
   text-decoration: none;
 }
-.btn:active,
-.btn.is--active {
+.button:active,
+.button.is--active {
   box-shadow: none;
 }
-.btn:focus,
-.btn.is--focus,
-.btn.is--focus:hover {
+.button:focus,
+.button.is--focus,
+.button.is--focus:hover {
   box-shadow: 0 0 0 2px #bbdfff;
   border-color: #7fbbf1;
   outline: 0;
 }
-.btn.is--disabled,
-.btn.is--disabled:hover,
-.btn.is--disabled:active {
+.button.is--disabled,
+.button.is--disabled:hover,
+.button.is--disabled:active {
   cursor: default;
   opacity: 0.3;
 }
-.btn .icon svg circle,
-.btn .icon svg ellipse,
-.btn .icon svg path,
-.btn .icon svg polygon {
+.button .icon svg circle,
+.button .icon svg ellipse,
+.button .icon svg path,
+.button .icon svg polygon {
   fill: #535251;
 }
-a.btn,
-a:link.btn,
-a:visited.btn {
+a.button,
+a:link.button,
+a:visited.button {
   color: #535251;
 }
-.btn:hover {
+.button:hover {
   background: linear-gradient(to bottom, #ecebea, #e1e0df);
   border-color: #cdcccb;
   box-shadow: 0 1px 0 #f6f5f4 inset;
   color: #535251;
 }
-.btn:active,
-.btn.is--active {
+.button:active,
+.button.is--active {
   background: linear-gradient(to bottom, #d7d6d5, #e1e0df);
   border-color: #cdcccb;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #535251;
 }
-.btn .icon {
+.button .icon {
   height: 2rem;
   overflow: hidden;
   position: relative;
@@ -67746,360 +67746,360 @@ a:visited.btn {
   width: 2rem;
   top: -1px;
 }
-.btn.btn--small .icon {
+.button.button--small .icon {
   height: 1.5rem;
   width: 1.5rem;
 }
-.btn.btn--large .icon {
+.button.button--large .icon {
   height: 2.5rem;
   width: 2.5rem;
 }
-.btn.btn--xlarge .icon {
+.button.button--xlarge .icon {
   height: 3rem;
   width: 3rem;
 }
-.btn.btn--small .icon:last-child {
+.button.button--small .icon:last-child {
   margin-right: calc((0.5rem - 1px) * -1);
 }
-.btn .icon:last-child {
+.button .icon:last-child {
   margin-right: calc((0.75rem - 1px) * -1);
 }
-.btn.btn--large .icon:last-child {
+.button.button--large .icon:last-child {
   margin-right: calc((1rem - 1px) * -1);
 }
-.btn.btn--xlarge .icon:last-child {
+.button.button--xlarge .icon:last-child {
   margin-right: calc((1.5rem - 1px) * -1);
 }
-.btn.btn--small .icon:first-child {
+.button.button--small .icon:first-child {
   margin-left: calc((0.5rem - 1px) * -1);
 }
-.btn .icon:first-child {
+.button .icon:first-child {
   margin-left: calc((0.75rem - 1px) * -1);
 }
-.btn.btn--large .icon:first-child {
+.button.button--large .icon:first-child {
   margin-left: calc((1rem - 1px) * -1);
 }
-.btn.btn--xlarge .icon:first-child {
+.button.button--xlarge .icon:first-child {
   margin-left: calc((1.5rem - 1px) * -1);
 }
-.btn.btn--small .hidden + .icon,
-.btn.btn--small .icon:only-child {
+.button.button--small .hidden + .icon,
+.button.button--small .icon:only-child {
   margin-left: calc((0.5rem - 1px) * -1);
   margin-right: -9px;
   left: -1px;
 }
-.btn .hidden + .icon,
-.btn .icon:only-child {
+.button .hidden + .icon,
+.button .icon:only-child {
   margin-left: calc((0.75rem - 1px) * -1);
   margin-right: -13px;
   left: -1px;
 }
-.btn.btn--large .hidden + .icon,
-.btn.btn--large .icon:only-child {
+.button.button--large .hidden + .icon,
+.button.button--large .icon:only-child {
   left: -1px;
   margin-left: calc((1rem - 1px) * -1);
   margin-right: -17px;
 }
-.btn.btn--xlarge .hidden + .icon,
-.btn.btn--xlarge .icon:only-child {
+.button.button--xlarge .hidden + .icon,
+.button.button--xlarge .icon:only-child {
   left: -1px;
   margin-left: calc((1.5rem - 1px) * -1);
   margin-right: -25px;
 }
-.btn--small {
+.button--small {
   font-size: 0.88rem;
   height: 1.5rem;
   line-height: calc(1.5rem - 1px * 2);
   padding: 0 calc(0.5rem - 1px);
 }
-.btn--large {
+.button--large {
   font-size: 1.13rem;
   height: 2.5rem;
   line-height: calc(2.5rem - 1px * 2);
   padding: 0 calc(1rem - 1px);
 }
-.btn--xlarge {
+.button--xlarge {
   font-size: 1.25rem;
   height: 3rem;
   line-height: calc(3rem - 1px * 2);
   padding: 0 calc(1.5rem - 1px);
 }
-.btn--primary {
+.button--primary {
   background: linear-gradient(to bottom, #715eab, #5d4a97);
   border-color: #52408d;
   box-shadow: 0 1px 0 #7b68b5 inset;
   color: #fff;
 }
-.btn--primary .icon svg circle,
-.btn--primary .icon svg ellipse,
-.btn--primary .icon svg path,
-.btn--primary .icon svg polygon {
+.button--primary .icon svg circle,
+.button--primary .icon svg ellipse,
+.button--primary .icon svg path,
+.button--primary .icon svg polygon {
   fill: #fff;
 }
-a.btn--primary,
-a:link.btn--primary,
-a:visited.btn--primary {
+a.button--primary,
+a:link.button--primary,
+a:visited.button--primary {
   color: #fff;
 }
-.btn--primary:hover {
+.button--primary:hover {
   background: linear-gradient(to bottom, #5d4a97, #483582);
   border-color: #2a1764;
   box-shadow: 0 1px 0 #715eab inset;
   color: #fff;
 }
-.btn--primary:active,
-.btn--primary.is--active {
+.button--primary:active,
+.button--primary.is--active {
   background: linear-gradient(to bottom, #2a1764, #483582);
   border-color: #2a1764;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #e9e1ff;
 }
-.btn--light {
+.button--light {
   background: linear-gradient(to bottom, #faf9f7, #f6f5f4);
   border-color: #e1e0df;
   box-shadow: 0 1px 0 #fff inset;
   color: #7b7a79;
 }
-.btn--light .icon svg circle,
-.btn--light .icon svg ellipse,
-.btn--light .icon svg path,
-.btn--light .icon svg polygon {
+.button--light .icon svg circle,
+.button--light .icon svg ellipse,
+.button--light .icon svg path,
+.button--light .icon svg polygon {
   fill: #7b7a79;
 }
-a.btn--light,
-a:link.btn--light,
-a:visited.btn--light {
+a.button--light,
+a:link.button--light,
+a:visited.button--light {
   color: #5d5c5b;
 }
-.btn--light:hover {
+.button--light:hover {
   background: linear-gradient(to bottom, #f6f5f4, #ecebea);
   border-color: #d7d6d5;
   box-shadow: 0 1px 0 #fff inset;
   color: #5d5c5b;
 }
-.btn--light:active,
-.btn--light.is--active {
+.button--light:active,
+.button--light.is--active {
   background: linear-gradient(to bottom, #ecebea, #f6f5f4);
   border-color: #e1e0df;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #676665;
 }
-.btn--dark {
+.button--dark {
   background: linear-gradient(to bottom, #7b7a79, #71706f);
   border-color: #5d5c5b;
   box-shadow: 0 1px 0 #868584 inset;
   color: #fff;
 }
-.btn--dark .icon svg circle,
-.btn--dark .icon svg ellipse,
-.btn--dark .icon svg path,
-.btn--dark .icon svg polygon {
+.button--dark .icon svg circle,
+.button--dark .icon svg ellipse,
+.button--dark .icon svg path,
+.button--dark .icon svg polygon {
   fill: #fff;
 }
-a.btn--dark,
-a:link.btn--dark,
-a:visited.btn--dark {
+a.button--dark,
+a:link.button--dark,
+a:visited.button--dark {
   color: #fff;
 }
-.btn--dark:hover {
+.button--dark:hover {
   background: linear-gradient(to bottom, #868584, #535251);
   border-color: #343332;
   box-shadow: 0 1px 0 #7b7a79 inset;
   color: #fff;
 }
-.btn--dark:active,
-.btn--dark.is--active {
+.button--dark:active,
+.button--dark.is--active {
   background: linear-gradient(to bottom, #343332, #535251);
   border-color: #343332;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #faf9f7;
 }
-.btn--attention {
+.button--attention {
   background: linear-gradient(to bottom, #f8f2b4, #e4dea0);
   border-color: #dad496;
   box-shadow: 0 1px 0 #fffbd0 inset;
   color: #5f591b;
 }
-.btn--attention .icon svg circle,
-.btn--attention .icon svg ellipse,
-.btn--attention .icon svg path,
-.btn--attention .icon svg polygon {
+.button--attention .icon svg circle,
+.button--attention .icon svg ellipse,
+.button--attention .icon svg path,
+.button--attention .icon svg polygon {
   fill: #5f591b;
 }
-a.btn--attention,
-a:link.btn--attention,
-a:visited.btn--attention {
+a.button--attention,
+a:link.button--attention,
+a:visited.button--attention {
   color: #5f591b;
 }
-.btn--attention:hover {
+.button--attention:hover {
   background: linear-gradient(to bottom, #eee8aa, #e4dea0);
   border-color: #c5bf81;
   box-shadow: 0 1px 0 #fffbd0 inset;
   color: #5f591b;
 }
-.btn--attention:active,
-.btn--attention.is--active {
+.button--attention:active,
+.button--attention.is--active {
   background: linear-gradient(to bottom, #dad496, #f8f2b4);
   border-color: #c5bf81;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #746e30;
 }
-.btn--negative {
+.button--negative {
   background: linear-gradient(to bottom, #ffbba1, #ff9f7c);
   border-color: #ff9269;
   box-shadow: 0 1px 0 #ffc9b4 inset;
   color: #701e00;
 }
-.btn--negative .icon svg circle,
-.btn--negative .icon svg ellipse,
-.btn--negative .icon svg path,
-.btn--negative .icon svg polygon {
+.button--negative .icon svg circle,
+.button--negative .icon svg ellipse,
+.button--negative .icon svg path,
+.button--negative .icon svg polygon {
   fill: #701e00;
 }
-a.btn--negative,
-a:link.btn--negative,
-a:visited.btn--negative {
+a.button--negative,
+a:link.button--negative,
+a:visited.button--negative {
   color: #701e00;
 }
-.btn--negative:hover {
+.button--negative:hover {
   background: linear-gradient(to bottom, #ffad8f, #ff9269);
   border-color: #ff8456;
   box-shadow: 0 1px 0 #ffbba1 inset;
   color: #701e00;
 }
-.btn--negative:active,
-.btn--negative.is--active {
+.button--negative:active,
+.button--negative.is--active {
   background: linear-gradient(to bottom, #ff8456, #ff9f7c);
   border-color: #ff6830;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #701e00;
 }
-.btn--positive {
+.button--positive {
   background: linear-gradient(to bottom, #beeed4, #aadac0);
   border-color: #a0d0b6;
   box-shadow: 0 1px 0 #c8f8de inset;
   color: #2f5f45;
 }
-.btn--positive .icon svg circle,
-.btn--positive .icon svg ellipse,
-.btn--positive .icon svg path,
-.btn--positive .icon svg polygon {
+.button--positive .icon svg circle,
+.button--positive .icon svg ellipse,
+.button--positive .icon svg path,
+.button--positive .icon svg polygon {
   fill: #2f5f45;
 }
-a.btn--positive,
-a:link.btn--positive,
-a:visited.btn--positive {
+a.button--positive,
+a:link.button--positive,
+a:visited.button--positive {
   color: #2f5f45;
 }
-.btn--positive:hover {
+.button--positive:hover {
   background: linear-gradient(to bottom, #b4e4ca, #a0d0b6);
   border-color: #95c5ab;
   box-shadow: 0 1px 0 #beeed4 inset;
   color: #2f5f45;
 }
-.btn--positive:active,
-.btn--positive.is--active {
+.button--positive:active,
+.button--positive.is--active {
   background: linear-gradient(to bottom, #a0d0b6, #beeed4);
   border-color: #8bbba1;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0) inset;
   color: #3a6a50;
 }
-.btn--rounded {
+.button--rounded {
   border-radius: 1rem;
 }
-.btn--rounded.btn--small {
+.button--rounded.button--small {
   border-radius: 0.75rem;
 }
-.btn--rounded.btn--large {
+.button--rounded.button--large {
   border-radius: 1.25rem;
 }
-.btn--rounded.btn--xlarge {
+.button--rounded.button--xlarge {
   border-radius: 1.5rem;
 }
-.btn--clip {
+.button--clip {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.btns {
+.buttons {
   font-size: 0;
   position: relative;
 }
-.btns .btn {
+.buttons .button {
   border-radius: 0;
   margin-left: -1px;
 }
-.btns .btn:first-child {
+.buttons .button:first-child {
   border-radius: 2px 0 0 2px;
 }
-.btns .btn:last-child {
+.buttons .button:last-child {
   border-radius: 0 2px 2px 0;
 }
-.btns .btn.btn--rounded:first-child {
+.buttons .button.button--rounded:first-child {
   border-radius: 12px 0 0 12px;
 }
-.btns .btn.btn--rounded:last-child {
+.buttons .button.button--rounded:last-child {
   border-radius: 0 12px 12px 0;
 }
-.btns .btn.btn--small.btn--rounded:first-child {
+.buttons .button.button--small.button--rounded:first-child {
   border-radius: 10px 0 0 10px;
 }
-.btns .btn.btn--small.btn--rounded:last-child {
+.buttons .button.button--small.button--rounded:last-child {
   border-radius: 0 10px 10px 0;
 }
-.btns .btn.btn--large.btn--rounded:first-child {
+.buttons .button.button--large.button--rounded:first-child {
   border-radius: 15px 0 0 15px;
 }
-.btns .btn.btn--large.btn--rounded:last-child {
+.buttons .button.button--large.button--rounded:last-child {
   border-radius: 0 15px 15px 0;
 }
-.btns .btn.btn--large.btn--rounded:first-child {
+.buttons .button.button--large.button--rounded:first-child {
   border-radius: 20px 0 0 20px;
 }
-.btns .btn.btn--large.btn--rounded:last-child {
+.buttons .button.button--large.button--rounded:last-child {
   border-radius: 0 20px 20px 0;
 }
-.btns--vertical .btn {
+.buttons--vertical .button {
   display: block;
   width: 100%;
   border-top-width: 0;
   margin: 0;
 }
-.btns--vertical .btn:first-child {
+.buttons--vertical .button:first-child {
   border-top-width: 1px;
   border-radius: 2px 2px 0 0;
 }
-.btns--vertical .btn.btn--outline:first-child {
+.buttons--vertical .button.button--outline:first-child {
   border-top-width: 2px;
 }
-.btns--vertical .btn:last-child {
+.buttons--vertical .button:last-child {
   border-radius: 0 0 2px 2px;
 }
-.btns--vertical .btn.btn--rounded:first-child {
+.buttons--vertical .button.button--rounded:first-child {
   border-radius: 1.2rem 1.2rem 0 0;
 }
-.btns--vertical .btn.btn--rounded:last-child {
+.buttons--vertical .button.button--rounded:last-child {
   border-radius: 0 0 1.2rem 1.2rem;
 }
-.btns--vertical .btn.btn--small.btn--rounded:first-child {
+.buttons--vertical .button.button--small.button--rounded:first-child {
   border-radius: 1rem 1rem 0 0;
 }
-.btns--vertical .btn.btn--small.btn--rounded:last-child {
+.buttons--vertical .button.button--small.button--rounded:last-child {
   border-radius: 0 0 1rem 1rem;
 }
-.btns--vertical .btn.btn--large.btn--rounded:first-child {
+.buttons--vertical .button.button--large.button--rounded:first-child {
   border-radius: 1.5rem 1.5rem 0 0;
 }
-.btns--vertical .btn.btn--large.btn--rounded:last-child {
+.buttons--vertical .button.button--large.button--rounded:last-child {
   border-radius: 0 0 1.5rem 1.5rem;
 }
-.btns--vertical .btn.btn--xlarge.btn--rounded:first-child {
+.buttons--vertical .button.button--xlarge.button--rounded:first-child {
   border-radius: 2rem 2rem 0 0;
 }
-.btns--vertical .btn.btn--xlarge.btn--rounded:last-child {
+.buttons--vertical .button.button--xlarge.button--rounded:last-child {
   border-radius: 0 0 2rem 2rem;
 }
 /** buttondismiss.less */
-.btnDismiss {
+.buttonDismiss {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -68120,70 +68120,70 @@ a:visited.btn--positive {
   top: 0;
   width: 3.2rem;
 }
-.btnDismiss::-webkit-search-decoration,
-.btnDismiss::-webkit-search-cancel-button,
-.btnDismiss::-webkit-search-results-button,
-.btnDismiss::-webkit-search-results-decoration {
+.buttonDismiss::-webkit-search-decoration,
+.buttonDismiss::-webkit-search-cancel-button,
+.buttonDismiss::-webkit-search-results-button,
+.buttonDismiss::-webkit-search-results-decoration {
   display: none;
 }
-.btnDismiss:hover {
+.buttonDismiss:hover {
   background-color: rgba(225, 224, 223, 0.5);
 }
 /*
-    Any .btnDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
-    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--negative)
+    Any .buttonDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
+    However, the color modifier class names applied directly to .buttonDismiss (eg. buttonDismiss buttonDismiss--negative)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
 
     "Repeated occurrances of the same simple selector are allowed and do increase specificity."
     https://www.w3.org/TR/css3-selectors/#specificity
 */
-.btnDismiss.btnDismiss--negative.btnDismiss--negative,
-[class*="-negative"] .btnDismiss {
+.buttonDismiss.buttonDismiss--negative.buttonDismiss--negative,
+[class*="-negative"] .buttonDismiss {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=c83700&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.btnDismiss.btnDismiss--negative.btnDismiss--negative:hover,
-[class*="-negative"] .btnDismiss:hover {
+.buttonDismiss.buttonDismiss--negative.buttonDismiss--negative:hover,
+[class*="-negative"] .buttonDismiss:hover {
   background-color: rgba(255, 187, 161, 0.5);
 }
-.btnDismiss.btnDismiss--positive.btnDismiss--positive,
-[class*="-positive"] .btnDismiss {
+.buttonDismiss.buttonDismiss--positive.buttonDismiss--positive,
+[class*="-positive"] .buttonDismiss {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=4e7e64&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.btnDismiss.btnDismiss--positive.btnDismiss--positive:hover,
-[class*="-positive"] .btnDismiss:hover {
+.buttonDismiss.buttonDismiss--positive.buttonDismiss--positive:hover,
+[class*="-positive"] .buttonDismiss:hover {
   background-color: rgba(190, 238, 212, 0.5);
 }
-.btnDismiss.btnDismiss--attention.btnDismiss--attention,
-[class*="-attention"] .btnDismiss {
+.buttonDismiss.buttonDismiss--attention.buttonDismiss--attention,
+[class*="-attention"] .buttonDismiss {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=888244&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.btnDismiss.btnDismiss--attention.btnDismiss--attention:hover,
-[class*="-attention"] .btnDismiss:hover {
+.buttonDismiss.buttonDismiss--attention.buttonDismiss--attention:hover,
+[class*="-attention"] .buttonDismiss:hover {
   background-color: rgba(238, 232, 170, 0.5);
 }
-.btnDismiss.btnDismiss--dark.btnDismiss--dark,
-[class*="-dark"] .btnDismiss {
+.buttonDismiss.buttonDismiss--dark.buttonDismiss--dark,
+[class*="-dark"] .buttonDismiss {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=f6f5f4&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.btnDismiss.btnDismiss--dark.btnDismiss--dark:hover,
-[class*="-dark"] .btnDismiss:hover {
+.buttonDismiss.buttonDismiss--dark.buttonDismiss--dark:hover,
+[class*="-dark"] .buttonDismiss:hover {
   background-color: rgba(72, 71, 70, 0.5);
 }
 /** buttonoutline.less */
-.btn.btn--outline {
+.button.button--outline {
   background: transparent;
   border-width: 2px;
   box-shadow: none;
@@ -68191,408 +68191,408 @@ a:visited.btn--positive {
   padding: 0 calc(0.75rem - 2px);
   text-shadow: none;
 }
-.btn.btn--outline:hover {
+.button.button--outline:hover {
   background: transparent;
   box-shadow: none;
 }
-.btn.btn--outline:active {
+.button.button--outline:active {
   background: transparent;
 }
-.btn.btn--outline .icon {
+.button.button--outline .icon {
   top: -2px;
 }
-.btn.btn--outline.btn--small .icon:last-child {
+.button.button--outline.button--small .icon:last-child {
   margin-right: calc((0.5rem - 2px) * -1);
 }
-.btn.btn--outline .icon:last-child {
+.button.button--outline .icon:last-child {
   margin-right: calc((0.75rem - 2px) * -1);
 }
-.btn.btn--outline.btn--large .icon:last-child {
+.button.button--outline.button--large .icon:last-child {
   margin-right: calc((1rem - 2px) * -1);
 }
-.btn.btn--outline.btn--xlarge .icon:last-child {
+.button.button--outline.button--xlarge .icon:last-child {
   margin-right: calc((1.5rem - 2px) * -1);
 }
-.btn.btn--outline.btn--small .icon:first-child {
+.button.button--outline.button--small .icon:first-child {
   margin-left: calc((0.5rem - 2px) * -1);
 }
-.btn.btn--outline .icon:first-child {
+.button.button--outline .icon:first-child {
   margin-left: calc((0.75rem - 2px) * -1);
 }
-.btn.btn--outline.btn--large .icon:first-child {
+.button.button--outline.button--large .icon:first-child {
   margin-left: calc((1rem - 2px) * -1);
 }
-.btn.btn--outline.btn--xlarge .icon:first-child {
+.button.button--outline.button--xlarge .icon:first-child {
   margin-left: calc((1.5rem - 2px) * -1);
 }
-.btn.btn--outline.btn--small .hidden + .icon,
-.btn.btn--outline.btn--small .icon:only-child {
+.button.button--outline.button--small .hidden + .icon,
+.button.button--outline.button--small .icon:only-child {
   margin-left: calc((0.5rem - 2px) * -1);
   margin-right: -10px;
   left: -2px;
 }
-.btn.btn--outline .hidden + .icon,
-.btn.btn--outline .icon:only-child {
+.button.button--outline .hidden + .icon,
+.button.button--outline .icon:only-child {
   left: -2px;
   margin-left: calc((0.75rem - 2px) * -1);
   margin-right: -14px;
 }
-.btn.btn--outline.btn--large .hidden + .icon,
-.btn.btn--outline.btn--large .icon:only-child {
+.button.button--outline.button--large .hidden + .icon,
+.button.button--outline.button--large .icon:only-child {
   left: -2px;
   margin-left: calc((1rem - 2px) * -1);
   margin-right: -18px;
 }
-.btn.btn--outline.btn--xlarge .hidden + .icon,
-.btn.btn--outline.btn--xlarge .icon:only-child {
+.button.button--outline.button--xlarge .hidden + .icon,
+.button.button--outline.button--xlarge .icon:only-child {
   left: -2px;
   margin-left: calc((1.5rem - 2px) * -1);
   margin-right: -26px;
 }
-.btn--outline.btn--small {
+.button--outline.button--small {
   line-height: calc(1.5rem - 2px * 2);
   padding: 0 calc(0.5rem - 2px);
 }
-.btn--outline.btn--large {
+.button--outline.button--large {
   line-height: calc(2.5rem - 2px} * 2);
   padding: 0 calc(1rem - 2px);
 }
-.btn--outline.btn--xlarge {
+.button--outline.button--xlarge {
   line-height: calc(3rem - 2px * 2);
   padding: 0 calc(1.5rem - 2px);
 }
-.btn.btn--outline {
+.button.button--outline {
   border-color: #d7d6d5;
   color: #7b7a79;
 }
-a.btn.btn--outline,
-a:link.btn.btn--outline,
-a:visited.btn.btn--outline {
+a.button.button--outline,
+a:link.button.button--outline,
+a:visited.button.button--outline {
   color: #7b7a79;
 }
-.btn.btn--outline:hover {
+.button.button--outline:hover {
   color: #7b7a79;
   border-color: #c3c2c1;
 }
-.btn.btn--outline:active {
+.button.button--outline:active {
   color: #7b7a79;
   border-color: #aeadac;
 }
-.btn.btn--outline .icon circle,
-.btn.btn--outline ellipse,
-.btn.btn--outline path,
-.btn.btn--outline polygon {
+.button.button--outline .icon circle,
+.button.button--outline ellipse,
+.button.button--outline path,
+.button.button--outline polygon {
   fill: #7b7a79;
 }
-.btn--outline.btn--primary {
+.button--outline.button--primary {
   border-color: #ae9be8;
   color: #6754a1;
 }
-a.btn--outline.btn--primary,
-a:link.btn--outline.btn--primary,
-a:visited.btn--outline.btn--primary {
+a.button--outline.button--primary,
+a:link.button--outline.button--primary,
+a:visited.button--outline.button--primary {
   color: #6754a1;
 }
-.btn--outline.btn--primary:hover {
+.button--outline.button--primary:hover {
   color: #6754a1;
   border-color: #907dca;
 }
-.btn--outline.btn--primary:active {
+.button--outline.button--primary:active {
   color: #6754a1;
   border-color: #715eab;
 }
-.btn--outline.btn--primary .icon circle,
-.btn--outline.btn--primary ellipse,
-.btn--outline.btn--primary path,
-.btn--outline.btn--primary polygon {
+.button--outline.button--primary .icon circle,
+.button--outline.button--primary ellipse,
+.button--outline.button--primary path,
+.button--outline.button--primary polygon {
   fill: #6754a1;
 }
-.btn--outline.btn--light {
+.button--outline.button--light {
   border-color: rgba(255, 255, 255, 0.6);
   color: #fff;
 }
-a.btn--outline.btn--light,
-a:link.btn--outline.btn--light,
-a:visited.btn--outline.btn--light {
+a.button--outline.button--light,
+a:link.button--outline.button--light,
+a:visited.button--outline.button--light {
   color: #fff;
 }
-.btn--outline.btn--light:hover {
+.button--outline.button--light:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.8);
 }
-.btn--outline.btn--light:active {
+.button--outline.button--light:active {
   color: #fff;
   border-color: #fff;
 }
-.btn--outline.btn--light .icon circle,
-.btn--outline.btn--light ellipse,
-.btn--outline.btn--light path,
-.btn--outline.btn--light polygon {
+.button--outline.button--light .icon circle,
+.button--outline.button--light ellipse,
+.button--outline.button--light path,
+.button--outline.button--light polygon {
   fill: #fff;
 }
-.btn--outline.btn--dark {
+.button--outline.button--dark {
   border-color: #9a9998;
   color: #676665;
 }
-a.btn--outline.btn--dark,
-a:link.btn--outline.btn--dark,
-a:visited.btn--outline.btn--dark {
+a.button--outline.button--dark,
+a:link.button--outline.button--dark,
+a:visited.button--outline.button--dark {
   color: #676665;
 }
-.btn--outline.btn--dark:hover {
+.button--outline.button--dark:hover {
   color: #676665;
   border-color: #7b7a79;
 }
-.btn--outline.btn--dark:active {
+.button--outline.button--dark:active {
   color: #676665;
   border-color: #5d5c5b;
 }
-.btn--outline.btn--dark .icon circle,
-.btn--outline.btn--dark ellipse,
-.btn--outline.btn--dark path,
-.btn--outline.btn--dark polygon {
+.button--outline.button--dark .icon circle,
+.button--outline.button--dark ellipse,
+.button--outline.button--dark path,
+.button--outline.button--dark polygon {
   fill: #676665;
 }
-.btn--outline.btn--attention {
+.button--outline.button--attention {
   border-color: #bbb577;
   color: #888244;
 }
-a.btn--outline.btn--attention,
-a:link.btn--outline.btn--attention,
-a:visited.btn--outline.btn--attention {
+a.button--outline.button--attention,
+a:link.button--outline.button--attention,
+a:visited.button--outline.button--attention {
   color: #888244;
 }
-.btn--outline.btn--attention:hover {
+.button--outline.button--attention:hover {
   color: #888244;
   border-color: #9c9658;
 }
-.btn--outline.btn--attention:active {
+.button--outline.button--attention:active {
   color: #888244;
   border-color: #7e783a;
 }
-.btn--outline.btn--attention .icon circle,
-.btn--outline.btn--attention ellipse,
-.btn--outline.btn--attention path,
-.btn--outline.btn--attention polygon {
+.button--outline.button--attention .icon circle,
+.button--outline.button--attention ellipse,
+.button--outline.button--attention path,
+.button--outline.button--attention polygon {
   fill: #888244;
 }
-.btn--outline.btn--negative {
+.button--outline.button--negative {
   border-color: #ff6830;
   color: #f54300;
 }
-a.btn--outline.btn--negative,
-a:link.btn--outline.btn--negative,
-a:visited.btn--outline.btn--negative {
+a.button--outline.button--negative,
+a:link.button--outline.button--negative,
+a:visited.button--outline.button--negative {
   color: #f54300;
 }
-.btn--outline.btn--negative:hover {
+.button--outline.button--negative:hover {
   color: #f54300;
   border-color: #df3d00;
 }
-.btn--outline.btn--negative:active {
+.button--outline.button--negative:active {
   color: #f54300;
   border-color: #b23100;
 }
-.btn--outline.btn--negative .icon circle,
-.btn--outline.btn--negative ellipse,
-.btn--outline.btn--negative path,
-.btn--outline.btn--negative polygon {
+.button--outline.button--negative .icon circle,
+.button--outline.button--negative ellipse,
+.button--outline.button--negative path,
+.button--outline.button--negative polygon {
   fill: #f54300;
 }
-.btn--outline.btn--positive {
+.button--outline.button--positive {
   border-color: #95c5ab;
   color: #629278;
 }
-a.btn--outline.btn--positive,
-a:link.btn--outline.btn--positive,
-a:visited.btn--outline.btn--positive {
+a.button--outline.button--positive,
+a:link.button--outline.button--positive,
+a:visited.button--outline.button--positive {
   color: #629278;
 }
-.btn--outline.btn--positive:hover {
+.button--outline.button--positive:hover {
   color: #629278;
   border-color: #81b197;
 }
-.btn--outline.btn--positive:active {
+.button--outline.button--positive:active {
   color: #629278;
   border-color: #629278;
 }
-.btn--outline.btn--positive .icon circle,
-.btn--outline.btn--positive ellipse,
-.btn--outline.btn--positive path,
-.btn--outline.btn--positive polygon {
+.button--outline.button--positive .icon circle,
+.button--outline.button--positive ellipse,
+.button--outline.button--positive path,
+.button--outline.button--positive polygon {
   fill: #629278;
 }
 /** buttonsubtle.less */
-.btn.btn--subtle {
+.button.button--subtle {
   background: transparent;
   border-color: rgba(255, 255, 255, 0);
   box-shadow: none;
   color: #535251;
 }
-.btn.btn--subtle:hover {
+.button.button--subtle:hover {
   box-shadow: none;
   border-color: transparent;
 }
-.btn.btn--subtle:active,
-.btn.btn--subtle.is--active {
+.button.button--subtle:active,
+.button.button--subtle.is--active {
   border-color: transparent;
 }
-a.btn.btn--subtle,
-a:link.btn.btn--subtle,
-a:visited.btn.btn--subtle {
+a.button.button--subtle,
+a:link.button.button--subtle,
+a:visited.button.button--subtle {
   color: #535251;
 }
-.btn.btn--subtle:hover {
+.button.button--subtle:hover {
   background: #faf9f7;
   color: #535251;
 }
-.btn.btn--subtle:active,
-.btn.btn--subtle.is--active {
+.button.button--subtle:active,
+.button.button--subtle.is--active {
   background: #ecebea;
   color: #535251;
 }
-.btn.btn--subtle .icon circle,
-.btn.btn--subtle ellipse,
-.btn.btn--subtle path,
-.btn.btn--subtle polygon {
+.button.button--subtle .icon circle,
+.button.button--subtle ellipse,
+.button.button--subtle path,
+.button.button--subtle polygon {
   fill: #535251;
 }
-.btn--subtle.btn--primary {
+.button--subtle.button--primary {
   color: #3e2b78;
 }
-a.btn--subtle.btn--primary,
-a:link.btn--subtle.btn--primary,
-a:visited.btn--subtle.btn--primary {
+a.button--subtle.button--primary,
+a:link.button--subtle.button--primary,
+a:visited.button--subtle.button--primary {
   color: #3e2b78;
 }
-.btn--subtle.btn--primary:hover {
+.button--subtle.button--primary:hover {
   background: #e9e1ff;
   color: #3e2b78;
 }
-.btn--subtle.btn--primary:active,
-.btn--subtle.btn--primary.is--active {
+.button--subtle.button--primary:active,
+.button--subtle.button--primary.is--active {
   background: #dfd5ff;
   color: #3e2b78;
 }
-.btn--subtle.btn--primary .icon circle,
-.btn--subtle.btn--primary ellipse,
-.btn--subtle.btn--primary path,
-.btn--subtle.btn--primary polygon {
+.button--subtle.button--primary .icon circle,
+.button--subtle.button--primary ellipse,
+.button--subtle.button--primary path,
+.button--subtle.button--primary polygon {
   fill: #3e2b78;
 }
-.btn--subtle.btn--light {
+.button--subtle.button--light {
   color: #fff;
 }
-a.btn--subtle.btn--light,
-a:link.btn--subtle.btn--light,
-a:visited.btn--subtle.btn--light {
+a.button--subtle.button--light,
+a:link.button--subtle.button--light,
+a:visited.button--subtle.button--light {
   color: #fff;
 }
-.btn--subtle.btn--light:hover {
+.button--subtle.button--light:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
-.btn--subtle.btn--light:active,
-.btn--subtle.btn--light.is--active {
+.button--subtle.button--light:active,
+.button--subtle.button--light.is--active {
   background: rgba(255, 255, 255, 0.15);
   color: #fff;
 }
-.btn--subtle.btn--light .icon circle,
-.btn--subtle.btn--light ellipse,
-.btn--subtle.btn--light path,
-.btn--subtle.btn--light polygon {
+.button--subtle.button--light .icon circle,
+.button--subtle.button--light ellipse,
+.button--subtle.button--light path,
+.button--subtle.button--light polygon {
   fill: #fff;
 }
-.btn--subtle.btn--dark {
+.button--subtle.button--dark {
   color: #201f1e;
 }
-a.btn--subtle.btn--dark,
-a:link.btn--subtle.btn--dark,
-a:visited.btn--subtle.btn--dark {
+a.button--subtle.button--dark,
+a:link.button--subtle.button--dark,
+a:visited.button--subtle.button--dark {
   color: #201f1e;
 }
-.btn--subtle.btn--dark:hover {
+.button--subtle.button--dark:hover {
   background: #e1e0df;
   color: #201f1e;
 }
-.btn--subtle.btn--dark:active,
-.btn--subtle.btn--dark.is--active {
+.button--subtle.button--dark:active,
+.button--subtle.button--dark.is--active {
   background: #c3c2c1;
   color: #201f1e;
 }
-.btn--subtle.btn--dark .icon circle,
-.btn--subtle.btn--dark ellipse,
-.btn--subtle.btn--dark path,
-.btn--subtle.btn--dark polygon {
+.button--subtle.button--dark .icon circle,
+.button--subtle.button--dark ellipse,
+.button--subtle.button--dark path,
+.button--subtle.button--dark polygon {
   fill: #201f1e;
 }
-.btn--subtle.btn--attention {
+.button--subtle.button--attention {
   color: #5f591b;
 }
-a.btn--subtle.btn--attention,
-a:link.btn--subtle.btn--attention,
-a:visited.btn--subtle.btn--attention {
+a.button--subtle.button--attention,
+a:link.button--subtle.button--attention,
+a:visited.button--subtle.button--attention {
   color: #5f591b;
 }
-.btn--subtle.btn--attention:hover {
+.button--subtle.button--attention:hover {
   background: #fffbd0;
   color: #5f591b;
 }
-.btn--subtle.btn--attention:active,
-.btn--subtle.btn--attention.is--active {
+.button--subtle.button--attention:active,
+.button--subtle.button--attention.is--active {
   background: #eee8aa;
   color: #5f591b;
 }
-.btn--subtle.btn--attention .icon circle,
-.btn--subtle.btn--attention ellipse,
-.btn--subtle.btn--attention path,
-.btn--subtle.btn--attention polygon {
+.button--subtle.button--attention .icon circle,
+.button--subtle.button--attention ellipse,
+.button--subtle.button--attention path,
+.button--subtle.button--attention polygon {
   fill: #5f591b;
 }
-.btn--subtle.btn--negative {
+.button--subtle.button--negative {
   color: #701e00;
 }
-a.btn--subtle.btn--negative,
-a:link.btn--subtle.btn--negative,
-a:visited.btn--subtle.btn--negative {
+a.button--subtle.button--negative,
+a:link.button--subtle.button--negative,
+a:visited.button--subtle.button--negative {
   color: #701e00;
 }
-.btn--subtle.btn--negative:hover {
+.button--subtle.button--negative:hover {
   background: #fff2ed;
   color: #701e00;
 }
-.btn--subtle.btn--negative:active,
-.btn--subtle.btn--negative.is--active {
+.button--subtle.button--negative:active,
+.button--subtle.button--negative.is--active {
   background: #ffd6c7;
   color: #701e00;
 }
-.btn--subtle.btn--negative .icon circle,
-.btn--subtle.btn--negative ellipse,
-.btn--subtle.btn--negative path,
-.btn--subtle.btn--negative polygon {
+.button--subtle.button--negative .icon circle,
+.button--subtle.button--negative ellipse,
+.button--subtle.button--negative path,
+.button--subtle.button--negative polygon {
   fill: #701e00;
 }
-.btn--subtle.btn--positive {
+.button--subtle.button--positive {
   color: #25553b;
 }
-a.btn--subtle.btn--positive,
-a:link.btn--subtle.btn--positive,
-a:visited.btn--subtle.btn--positive {
+a.button--subtle.button--positive,
+a:link.button--subtle.button--positive,
+a:visited.button--subtle.button--positive {
   color: #25553b;
 }
-.btn--subtle.btn--positive:hover {
+.button--subtle.button--positive:hover {
   background: #d9ffea;
   color: #25553b;
 }
-.btn--subtle.btn--positive:active,
-.btn--subtle.btn--positive.is--active {
+.button--subtle.button--positive:active,
+.button--subtle.button--positive.is--active {
   background: #beeed4;
   color: #25553b;
 }
-.btn--subtle.btn--positive .icon circle,
-.btn--subtle.btn--positive ellipse,
-.btn--subtle.btn--positive path,
-.btn--subtle.btn--positive polygon {
+.button--subtle.button--positive .icon circle,
+.button--subtle.button--positive ellipse,
+.button--subtle.button--positive path,
+.button--subtle.button--positive polygon {
   fill: #25553b;
 }
 /** link.less */
@@ -68676,7 +68676,7 @@ tr:last-child td:last-child {
   background: #faf9f7;
   width: 2rem;
 }
-.table__controls .btn {
+.table__controls .button {
   display: block;
   margin: 0.5rem 0;
 }
@@ -68767,7 +68767,7 @@ tr:last-child td:last-child {
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=746e30&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
-.js table[yoi-table*="removeable"] .table__removeBtn {
+.js table[yoi-table*="removeable"] .table__removeButton {
   padding: 0;
   text-align: center;
   vertical-align: middle;
@@ -68775,7 +68775,7 @@ tr:last-child td:last-child {
   position: relative;
   cursor: pointer;
 }
-.js table[yoi-table*="removeable"] .table__removeBtn::before {
+.js table[yoi-table*="removeable"] .table__removeButton::before {
   /**
      *  SVG icons as background image
      */
@@ -68787,18 +68787,18 @@ tr:last-child td:last-child {
   top: -0.1rem;
   left: -0.1rem;
 }
-.js table[yoi-table*="removeable"] .table__removeBtn:hover::before {
+.js table[yoi-table*="removeable"] .table__removeButton:hover::before {
   /**
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ff6830&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
 .js table.table--compressed .table__checkbox,
-.js table.table--compressed .table__removeBtn {
+.js table.table--compressed .table__removeButton {
   width: 2rem;
 }
 .js table.table--compressed .table__checkbox::before,
-.js table.table--compressed .table__removeBtn::before {
+.js table.table--compressed .table__removeButton::before {
   left: -0.6rem;
   top: -0.6rem;
 }
@@ -69151,12 +69151,12 @@ a.stepMenu__label:hover {
   color: #676665;
   margin-right: 1rem;
 }
-.log .btnDismiss {
+.log .buttonDismiss {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
-.log .btnDismiss:hover {
+.log .buttonDismiss:hover {
   background-color: #343332;
 }
 .log--light {
@@ -69169,7 +69169,7 @@ a.stepMenu__label:hover {
 .log--light p:first-child::after {
   background: #9a87d4;
 }
-.log--light .btnDismiss:hover {
+.log--light .buttonDismiss:hover {
   background-color: #e1e0df;
 }
 .log--tl,
@@ -69542,7 +69542,7 @@ a.stepMenu__label:hover {
 }
 /*
     Any .icon inside a parent element with a certain color modifier "inherit" the colors of their parent.
-    However, the color modifier class names applied directly to .btnDismiss (eg. icon icon--negative)
+    However, the color modifier class names applied directly to .buttonDismiss (eg. icon icon--negative)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
 
@@ -69645,7 +69645,7 @@ a.stepMenu__label:hover {
 .modal__container .modal {
   z-index: 601;
 }
-.modal .btnDismiss {
+.modal .buttonDismiss {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;

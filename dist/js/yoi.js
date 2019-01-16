@@ -434,13 +434,13 @@ YOI.behaviour.Dismiss = function() {
     var language = YOI.locale();
     var localization = {
         en: {
-            btnLabel: "close"
+            buttonLabel: "close"
         },
         de: {
-            btnLabel: "schliessen"
+            buttonLabel: "schliessen"
         }
     };
-    var $btnDismiss = $('        <span class="btnDismiss">' + localization[language]["btnLabel"] + "</span>    ");
+    var $buttonDismiss = $('        <span class="buttonDismiss">' + localization[language]["buttonLabel"] + "</span>    ");
     function initialize($dismissableElement, options) {
         var $dismissableElement = YOI.createCollection("dismiss", $dismissableElement, options);
         if ($dismissableElement) $dismissableElement.each(function() {
@@ -449,7 +449,7 @@ YOI.behaviour.Dismiss = function() {
             var positionStatic = $thisDismissableElement.css("position") === "static";
             var options = options || $thisDismissableElement.data().options;
             if (positionStatic) $thisDismissableElement.css("position", "relative");
-            $btnDismiss.clone().on("click", function(e) {
+            $buttonDismiss.clone().on("click", function(e) {
                 e.preventDefault();
                 dismiss($(this).parent());
             }).appendTo($thisDismissableElement);
@@ -1622,9 +1622,9 @@ YOI.component.Code = function() {
                 markup += "</div>";
             }
             if (thisExample || thisExampleTabbed) {
-                markup = addCopyBtn(markup);
+                markup = addCopyButton(markup);
             } else {
-                markup = addCopyBtn($thisCodeWrapper);
+                markup = addCopyButton($thisCodeWrapper);
             }
             if (thisExample || thisExampleTabbed) {
                 $thisCodeWrapper.replaceWith(markup);
@@ -1633,22 +1633,22 @@ YOI.component.Code = function() {
             YOI.setReady($(this));
         });
     }
-    function addCopyBtn(markup) {
+    function addCopyButton(markup) {
         var copyToClipboardSupported = document.queryCommandSupported && document.queryCommandSupported("copy");
         if (!copyToClipboardSupported) return markup;
         var $markup = markup instanceof jQuery ? markup : $(markup);
-        var $copyBtn = $('<button class="code__copyBtn btn btn--subtle">Copy</button>');
+        var $copyButton = $('<button class="code__copyButton button button--subtle">Copy</button>');
         var $codeSource = $markup.find(".code__source");
         var codeHasRenderedExample = $codeSource.length ? true : false;
-        $copyBtn.on("click", function() {
-            var $code = $copyBtn.parent().find("code").first();
+        $copyButton.on("click", function() {
+            var $code = $copyButton.parent().find("code").first();
             copyToClipBoard($code);
-            YOI.blink($copyBtn);
+            YOI.blink($copyButton);
         });
         if (codeHasRenderedExample) {
-            $markup.find(".code__source").append($copyBtn);
+            $markup.find(".code__source").append($copyButton);
         } else {
-            $markup.append($copyBtn);
+            $markup.append($copyButton);
         }
         return $markup;
     }
@@ -1664,11 +1664,11 @@ YOI.component.Code = function() {
         var $thisCodeSource = $(".code__source").eq(index);
         var $thisCode = $thisCodeSource.find("code");
         if ($thisCodeSource.hasClass("tabs__page")) return false;
-        var $expandBtn = $('<button class="code__expandBtn btn btn--subtle">Expand</button>');
+        var $expandButton = $('<button class="code__expandButton button button--subtle">Expand</button>');
         var codeHeight = $thisCode.height();
         var lineHeight = $thisCode.css("line-height");
         var maxCodeHeight = parseInt(lineHeight) * 5;
-        $expandBtn.on("click", function(e) {
+        $expandButton.on("click", function(e) {
             e.preventDefault();
             var $this = $(this);
             if ($thisCode.is(".code__source--truncated")) {
@@ -1690,7 +1690,7 @@ YOI.component.Code = function() {
         if (codeHeight > maxCodeHeight) {
             $thisCode.height(maxCodeHeight);
             $thisCode.addClass("code__source--truncated");
-            $thisCodeSource.append($expandBtn);
+            $thisCodeSource.append($expandButton);
         }
     }
     return {
@@ -1851,7 +1851,7 @@ YOI.component.DatePicker = function() {
     };
     var language = typeof YOI.locale() !== "object" || YOI.locale() === undefined || YOI.locale() === "" ? "en" : YOI.locale();
     var now = {};
-    var $datePicker = $('        <div class="datePicker">            <span class="datePicker__btnPrev" yoi-action="prevMonth"></span>            <span class="datePicker__btnNext" yoi-action="nextMonth"></span>            <h3 class="datePicker__header"></h3>        </div>    ');
+    var $datePicker = $('        <div class="datePicker">            <span class="datePicker__buttonPrev" yoi-action="prevMonth"></span>            <span class="datePicker__buttonNext" yoi-action="nextMonth"></span>            <h3 class="datePicker__header"></h3>        </div>    ');
     var $weekDaysHeader = $("        <tr>            <th>" + localization[language]["weekDays"][0] + "</th>            <th>" + localization[language]["weekDays"][1] + "</th>            <th>" + localization[language]["weekDays"][2] + "</th>            <th>" + localization[language]["weekDays"][3] + "</th>            <th>" + localization[language]["weekDays"][4] + "</th>            <th>" + localization[language]["weekDays"][5] + "</th>            <th>" + localization[language]["weekDays"][6] + "</th>        </tr>    ");
     function initialize($datepicker, options) {
         getCurrentDate();
@@ -2115,59 +2115,59 @@ YOI.component.Dock = function() {
     };
 }();
 
-YOI.component.FilterBtns = function() {
-    function initialize($filterBtns, options) {
-        var $filterBtns = YOI.createCollection("filterbtns", $filterBtns, options);
-        if ($filterBtns) $filterBtns.each(function() {
+YOI.component.FilterButtons = function() {
+    function initialize($filterButtons, options) {
+        var $filterButtons = YOI.createCollection("filterbuttons", $filterButtons, options);
+        if ($filterButtons) $filterButtons.each(function() {
             if (YOI.isReady($(this))) return false;
-            var $thisFilterBtns = $(this);
-            if ($thisFilterBtns.hasClass("filterBtns--removeable")) {
-                $thisFilterBtns.find(".filterBtns__btn").each(function() {
-                    var $thisBtn = $(this);
-                    $thisBtn.on("click", function(e) {
+            var $thisFilterButtons = $(this);
+            if ($thisFilterButtons.hasClass("filterButtons--removeable")) {
+                $thisFilterButtons.find(".filterButtons__button").each(function() {
+                    var $thisButton = $(this);
+                    $thisButton.on("click", function(e) {
                         e.preventDefault();
-                        remove($thisBtn);
+                        remove($thisButton);
                     });
                 });
             } else {
-                $thisFilterBtns.find(".filterBtns__btn").each(function() {
-                    var $thisBtn = $(this);
-                    if ($thisBtn.hasClass("is--active")) {
-                        $thisBtn.data().state = "on";
+                $thisFilterButtons.find(".filterButtons__button").each(function() {
+                    var $thisButton = $(this);
+                    if ($thisButton.hasClass("is--active")) {
+                        $thisButton.data().state = "on";
                     } else {
-                        $thisBtn.data().state = "off";
+                        $thisButton.data().state = "off";
                     }
-                    $thisBtn.on("click", function(e) {
+                    $thisButton.on("click", function(e) {
                         e.preventDefault();
-                        toggle($thisBtn);
+                        toggle($thisButton);
                     });
-                    $thisBtn.on("mouseout", function(e) {
+                    $thisButton.on("mouseout", function(e) {
                         e.preventDefault();
-                        $thisBtn.removeClass("filterBtns__btn--debounce");
+                        $thisButton.removeClass("filterButtons__button--debounce");
                     });
                 });
             }
             YOI.setReady($(this));
         });
     }
-    function toggle($thisBtn) {
-        var state = $thisBtn.data().state;
+    function toggle($thisButton) {
+        var state = $thisButton.data().state;
         if (state === "on") {
-            $thisBtn.removeClass("is--active");
-            $thisBtn.removeClass("filterBtns__btn--debounce");
-            $thisBtn.trigger("yoi-filterbtn-on");
-            $thisBtn.data().state = "off";
+            $thisButton.removeClass("is--active");
+            $thisButton.removeClass("filterButtons__button--debounce");
+            $thisButton.trigger("yoi-filterbutton-on");
+            $thisButton.data().state = "off";
         }
         if (state === "off") {
-            $thisBtn.addClass("is--active");
-            $thisBtn.addClass("filterBtns__btn--debounce");
-            $thisBtn.trigger("yoi-filterbtn-off");
-            $thisBtn.data().state = "on";
+            $thisButton.addClass("is--active");
+            $thisButton.addClass("filterButtons__button--debounce");
+            $thisButton.trigger("yoi-filterbutton-off");
+            $thisButton.data().state = "on";
         }
     }
-    function remove($thisBtn) {
-        $thisBtn.fadeOut("fast");
-        $thisBtn.trigger("yoi-filterbtn-remove");
+    function remove($thisButton) {
+        $thisButton.fadeOut("fast");
+        $thisButton.trigger("yoi-filterbutton-remove");
     }
     return {
         init: initialize
@@ -2221,7 +2221,7 @@ YOI.component.CustomFormElements = function() {
         if ($thisInput.is(":disabled")) return false;
         $thisInput.trigger("change");
     });
-    var $radioBtnWrapper = $('<span class="radio"></span>').on("click", function() {
+    var $radioButtonWrapper = $('<span class="radio"></span>').on("click", function() {
         var $thisInput = $(this).find("input");
         if ($thisInput.is(":disabled")) return false;
         $thisInput.trigger("change");
@@ -2229,9 +2229,9 @@ YOI.component.CustomFormElements = function() {
     var $selectWrapper = $('<span class="select"></span>');
     var $selectIcon = $('<span class="select__icon"></span>');
     function initialize() {
-        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
         var $checkBoxes = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var $radioBtns = $('input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $radioButtons = $('input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
         var $selects = $("select:not(.js-fallback)");
         $checkBoxes.each(function() {
             if (YOI.isReady($(this))) return false;
@@ -2264,34 +2264,34 @@ YOI.component.CustomFormElements = function() {
             });
             YOI.setReady($(this));
         });
-        $radioBtns.each(function() {
+        $radioButtons.each(function() {
             if (YOI.isReady($(this))) return false;
-            var $thisRadioBtn = $(this);
-            var isWrappedInLabel = $thisRadioBtn.parents().index("label");
+            var $thisRadioButton = $(this);
+            var isWrappedInLabel = $thisRadioButton.parents().index("label");
             if (isWrappedInLabel === -1) {
-                $thisRadioBtn.wrap($radioBtnWrapper.clone(true));
+                $thisRadioButton.wrap($radioButtonWrapper.clone(true));
             } else {
-                $thisRadioBtn.wrap($radioBtnWrapper.clone());
+                $thisRadioButton.wrap($radioButtonWrapper.clone());
             }
-            $thisRadioBtn.on({
+            $thisRadioButton.on({
                 focus: function() {
-                    $thisRadioBtn.parent().addClass("input--focus");
-                    $thisRadioBtn.trigger("yoi-input-focus");
+                    $thisRadioButton.parent().addClass("input--focus");
+                    $thisRadioButton.trigger("yoi-input-focus");
                 },
                 blur: function() {
-                    $thisRadioBtn.parent().removeClass("input--focus");
-                    $thisRadioBtn.trigger("yoi-input-blur");
+                    $thisRadioButton.parent().removeClass("input--focus");
+                    $thisRadioButton.trigger("yoi-input-blur");
                 },
                 change: function() {
-                    $('[name="' + $thisRadioBtn.attr("name") + '"]').parent().removeClass("input--checked");
-                    if ($thisRadioBtn.is(":checked")) {
-                        $thisRadioBtn.parent().addClass("input--checked");
+                    $('[name="' + $thisRadioButton.attr("name") + '"]').parent().removeClass("input--checked");
+                    if ($thisRadioButton.is(":checked")) {
+                        $thisRadioButton.parent().addClass("input--checked");
                     }
-                    if (!$thisRadioBtn.is(":checked")) {
-                        $thisRadioBtn.prop("checked", true);
-                        $thisRadioBtn.parent().addClass("input--checked");
+                    if (!$thisRadioButton.is(":checked")) {
+                        $thisRadioButton.prop("checked", true);
+                        $thisRadioButton.parent().addClass("input--checked");
                     }
-                    $thisRadioBtn.trigger("yoi-input-change");
+                    $thisRadioButton.trigger("yoi-input-change");
                 }
             });
             YOI.setReady($(this));
@@ -2617,16 +2617,16 @@ YOI.component.Modal = function() {
     var language = YOI.locale();
     var localization = {
         en: {
-            btnLabelClose: "Close"
+            buttonLabelClose: "Close"
         },
         de: {
-            btnLabelClose: "Schließen"
+            buttonLabelClose: "Schließen"
         }
     };
     var $modalCover = $('        <div class="modal__cover" id="modalCover" yoi-action="closeModal"></div>    ');
     var $modalContainer = $('        <div class="modal__container" id="modalContainer"></div>    ');
-    var $modalCloseBtn = $('        <button class="btnDismiss" yoi-action="closeModal">            <span class="hidden">' + localization[language]["btnLabelClose"] + "</span>        </button>    ");
-    var $modalTemplate = $('        <div class="modal">            <div class="modal__header">                <h3 class="modal__title"></h3>                <button class="btnDismiss" yoi-action="closeModal">                    <span class="hidden">' + localization[language]["btnLabelClose"] + '</span>                </button>            </div>            <div class="modal__body"></div>        </div>    ');
+    var $modalCloseButton = $('        <button class="buttonDismiss" yoi-action="closeModal">            <span class="hidden">' + localization[language]["buttonLabelClose"] + "</span>        </button>    ");
+    var $modalTemplate = $('        <div class="modal">            <div class="modal__header">                <h3 class="modal__title"></h3>                <button class="buttonDismiss" yoi-action="closeModal">                    <span class="hidden">' + localization[language]["buttonLabelClose"] + '</span>                </button>            </div>            <div class="modal__body"></div>        </div>    ');
     function initialize($modalTrigger, options) {
         var $modalTrigger = YOI.createCollection("modal", $modalTrigger, options);
         if ($modalTrigger && !initialized) {
@@ -2709,7 +2709,7 @@ YOI.component.Modal = function() {
                     if ($thisModal.length) {
                         loadedModals.push(modalId);
                         $thisModal.attr("id", modalId.split("#")[1]);
-                        $thisModal.find(".modal__header").append($modalCloseBtn.clone());
+                        $thisModal.find(".modal__header").append($modalCloseButton.clone());
                         $("#modalContainer").append($thisModal);
                         $(modalId).hide();
                         initializeCloseTriggers(modalId);
@@ -2845,36 +2845,36 @@ YOI.component.PageRewind = function() {
     };
 }();
 
-YOI.component.PickBtn = function() {
-    var $icon = $('<span class="pickBtn__icon"></span>');
-    function initialize($pickBtn) {
-        var $pickBtn = YOI.createCollection("pickBtn", $pickBtn);
-        if ($pickBtn) $pickBtn.each(function() {
+YOI.component.PickButton = function() {
+    var $icon = $('<span class="pickButton__icon"></span>');
+    function initialize($pickButton) {
+        var $pickButton = YOI.createCollection("pickButton", $pickButton);
+        if ($pickButton) $pickButton.each(function() {
             if (YOI.isReady($(this))) return false;
-            var $thisPickBtn = $(this);
-            $thisPickBtn.find('input[type="radio"]').hide();
-            $thisPickBtn.prepend($icon.clone());
-            $thisPickBtn.find("label").on("click", function(e) {
+            var $thisPickButton = $(this);
+            $thisPickButton.find('input[type="radio"]').hide();
+            $thisPickButton.prepend($icon.clone());
+            $thisPickButton.find("label").on("click", function(e) {
                 e.preventDefault();
             });
-            $thisPickBtn.on("click", function(e) {
+            $thisPickButton.on("click", function(e) {
                 e.preventDefault();
-                activate($thisPickBtn);
-                $thisPickBtn.trigger("yoi-pickbtn-change");
+                activate($thisPickButton);
+                $thisPickButton.trigger("yoi-pickbutton-change");
             });
             YOI.setReady($(this));
         });
     }
-    function activate($thisPickBtn) {
-        var $icon = $thisPickBtn.find(".pickBtn__icon");
-        var $radioInput = $thisPickBtn.find('input[type="radio"]');
+    function activate($thisPickButton) {
+        var $icon = $thisPickButton.find(".pickButton__icon");
+        var $radioInput = $thisPickButton.find('input[type="radio"]');
         var groupName = $radioInput.attr("name");
-        $('input[name="' + groupName + '"]').closest(".pickBtn").removeClass("is--active");
+        $('input[name="' + groupName + '"]').closest(".pickButton").removeClass("is--active");
         $('input[name="' + groupName + '"]').removeAttr("checked");
         $('input[name="' + groupName + '"]').prop("checked", false);
         $radioInput.prop("checked", true);
         $radioInput.attr("checked", "checked");
-        $thisPickBtn.addClass("is--active");
+        $thisPickButton.addClass("is--active");
         YOI.blink($icon);
     }
     return {
@@ -3470,7 +3470,7 @@ YOI.component.ScrollKeys = function() {
             next: "zum nächsten Sprungmarke"
         }
     };
-    var $scrollButtons = $('        <div id="scrollButtons" class="btns sh-4 m-4">            <button class="btn btn--large">                <span class="hidden">' + localization[language].prev + '</span>                <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" yoi-icon />            </button>            <button class="btn btn--large">                <span class="hidden">' + localization[language].next + '</span>                <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" yoi-icon />            </button>        </div>    ');
+    var $scrollButtons = $('        <div id="scrollButtons" class="buttons sh-4 m-4">            <button class="button button--large">                <span class="hidden">' + localization[language].prev + '</span>                <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" yoi-icon />            </button>            <button class="button button--large">                <span class="hidden">' + localization[language].next + '</span>                <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" yoi-icon />            </button>        </div>    ');
     function initialize() {
         var enableScrollKeys = $body.is("[yoi-scrollkeys]");
         if (enableScrollKeys && !initialized) {
@@ -3484,11 +3484,11 @@ YOI.component.ScrollKeys = function() {
             $scrollButtons.addClass("pos-fixed-" + position);
             $body.append($scrollButtons);
             YOI.component.Icon.init();
-            $("#scrollButtons").find(".btn").eq(0).on("click", function(e) {
+            $("#scrollButtons").find(".button").eq(0).on("click", function(e) {
                 e.preventDefault();
                 scrollToHook("prev");
             });
-            $("#scrollButtons").find(".btn").eq(1).on("click", function(e) {
+            $("#scrollButtons").find(".button").eq(1).on("click", function(e) {
                 e.preventDefault();
                 scrollToHook("next");
             });
@@ -3509,12 +3509,12 @@ YOI.component.ScrollKeys = function() {
             $document.on("yoi-keypressed-arrowleft", function() {
                 if (YOI.noFocus()) {
                     scrollToHook("prev");
-                    highlightBtn("prev");
+                    highlightButton("prev");
                 }
             }).on("yoi-keypressed-arrowright", function() {
                 if (YOI.noFocus()) {
                     scrollToHook("next");
-                    highlightBtn("next");
+                    highlightButton("next");
                 }
             }).on("yoi-focus-change", function() {
                 if (YOI.noFocus()) {
@@ -3526,15 +3526,15 @@ YOI.component.ScrollKeys = function() {
         }
         keyboardEventsAdded = true;
     }
-    function highlightBtn(direction) {
+    function highlightButton(direction) {
         if (!direction) return false;
-        var btnIndex;
-        if (direction === "prev") btnIndex = 0;
-        if (direction === "next") btnIndex = 1;
-        var $btn = $("#scrollButtons").find(".btn").eq(btnIndex);
-        $btn.addClass("is--active");
+        var buttonIndex;
+        if (direction === "prev") buttonIndex = 0;
+        if (direction === "next") buttonIndex = 1;
+        var $button = $("#scrollButtons").find(".button").eq(buttonIndex);
+        $button.addClass("is--active");
         YOI.setDelay("highlightScrollKeyDelay", 200, function() {
-            $btn.removeClass("is--active");
+            $button.removeClass("is--active");
         });
     }
     function setCurrentHook(direction) {
@@ -3624,24 +3624,24 @@ YOI.component.Slider = function() {
     var language = YOI.locale();
     var localization = {
         en: {
-            btnLabelNext: "next",
-            btnLabelPrev: "previous"
+            buttonLabelNext: "next",
+            buttonLabelPrev: "previous"
         },
         de: {
-            btnLabelNext: "weiter",
-            btnLabelPrev: "zurück"
+            buttonLabelNext: "weiter",
+            buttonLabelPrev: "zurück"
         }
     };
     var slideControls = {
-        "pageBtns--tl": $('            <div class="pageBtns pageBtns--tl">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
-        "pageBtns--tr": $('            <div class="pageBtns pageBtns--tr">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
-        "pageBtns--br": $('            <div class="pageBtns pageBtns--br">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
-        "pageBtns--bl": $('            <div class="pageBtns pageBtns--bl">                <button class="pageBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </button>                <span class="pageBtns__indicator">                    <span class="pageBtns__currentPage">1</span> / <span class="pageBtns__totalPages">1</span>                </span>                <button class="pageBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </button>            </div>        "),
-        flipBtns: $('            <div class="flipBtns">                <a class="flipBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="flipBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
-        "flipBtns--inset": $('            <div class="flipBtns flipBtns--inset">                <a class="flipBtns__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="flipBtns__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
-        pageDots: $('            <div class="pageDots">                <a class="pageDots__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="pageDots__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
-        "pageDots--dark": $('            <div class="pageDots pageDots--dark">                <a class="pageDots__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="pageDots__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        "),
-        "pageDots--subtle": $('            <div class="pageDots pageDots--subtle">                <a class="pageDots__btnPrev">                    <span class="hidden">' + localization[language]["btnLabelPrev"] + '</span>                </a>                <a class="pageDots__btnNext">                    <span class="hidden">' + localization[language]["btnLabelNext"] + "</span>                </a>            </div>        ")
+        "pageButtons--tl": $('            <div class="pageButtons pageButtons--tl">                <button class="pageButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </button>                <span class="pageButtons__indicator">                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>                </span>                <button class="pageButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </button>            </div>        "),
+        "pageButtons--tr": $('            <div class="pageButtons pageButtons--tr">                <button class="pageButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </button>                <span class="pageButtons__indicator">                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>                </span>                <button class="pageButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </button>            </div>        "),
+        "pageButtons--br": $('            <div class="pageButtons pageButtons--br">                <button class="pageButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </button>                <span class="pageButtons__indicator">                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>                </span>                <button class="pageButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </button>            </div>        "),
+        "pageButtons--bl": $('            <div class="pageButtons pageButtons--bl">                <button class="pageButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </button>                <span class="pageButtons__indicator">                    <span class="pageButtons__currentPage">1</span> / <span class="pageButtons__totalPages">1</span>                </span>                <button class="pageButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </button>            </div>        "),
+        flipButtons: $('            <div class="flipButtons">                <a class="flipButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </a>                <a class="flipButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </a>            </div>        "),
+        "flipButtons--inset": $('            <div class="flipButtons flipButtons--inset">                <a class="flipButtons__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </a>                <a class="flipButtons__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </a>            </div>        "),
+        pageDots: $('            <div class="pageDots">                <a class="pageDots__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </a>                <a class="pageDots__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </a>            </div>        "),
+        "pageDots--dark": $('            <div class="pageDots pageDots--dark">                <a class="pageDots__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </a>                <a class="pageDots__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </a>            </div>        "),
+        "pageDots--subtle": $('            <div class="pageDots pageDots--subtle">                <a class="pageDots__buttonPrev">                    <span class="hidden">' + localization[language]["buttonLabelPrev"] + '</span>                </a>                <a class="pageDots__buttonNext">                    <span class="hidden">' + localization[language]["buttonLabelNext"] + "</span>                </a>            </div>        ")
     };
     function initialize($slider, options) {
         var $slider = YOI.createCollection("slider", $slider, options);
@@ -3665,28 +3665,28 @@ YOI.component.Slider = function() {
             if (options.control !== undefined) {
                 var thisControls = $(slideControls[options.control]).clone();
                 $thisSlider.append(thisControls);
-                $thisSlider.find('[class*="btnNext"]').on("click", function(e) {
+                $thisSlider.find('[class*="buttonNext"]').on("click", function(e) {
                     e.preventDefault();
                     stopAutoplay($thisSlider);
                     showSlide($thisSlider, "next");
                 });
-                $thisSlider.find('[class*="btnPrev"]').on("click", function(e) {
+                $thisSlider.find('[class*="buttonPrev"]').on("click", function(e) {
                     e.preventDefault();
                     stopAutoplay($thisSlider);
                     showSlide($thisSlider, "prev");
                 });
-                $thisSlider.find(".pageBtns__totalPages").text(totalSlides);
+                $thisSlider.find(".pageButtons__totalPages").text(totalSlides);
                 if (options.control.indexOf("pageDots") !== -1) {
                     for (var i = 0; i < totalSlides; i++) {
-                        $('<a class="pageDots__dot"><span class="hidden">' + (i + 1) + "</span></a>").insertBefore($(this).find(".pageDots__btnNext"));
+                        $('<a class="pageDots__dot"><span class="hidden">' + (i + 1) + "</span></a>").insertBefore($(this).find(".pageDots__buttonNext"));
                     }
-                    paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
+                    paginationLinks = $thisSlider.find('.pageDots a:not([class*="button"])');
                     paginationLinks.first().addClass("is--active");
                     paginationLinks.on("click", function(e) {
                         e.preventDefault();
                         stopAutoplay($thisSlider);
                         var linkIndex;
-                        if ($thisSlider.parent().find(".pageDots__btnPrev").length) {
+                        if ($thisSlider.parent().find(".pageDots__buttonPrev").length) {
                             linkIndex = $thisSlider.index() - 1;
                         } else {
                             linkIndex = $thisSlider.index();
@@ -3789,10 +3789,10 @@ YOI.component.Slider = function() {
         $slider.trigger("yoi-slider-autoplaystop");
     }
     function updatePagination($thisSlider, thisSlideIndex) {
-        paginationLinks = $thisSlider.find('.pageDots a:not([class*="btn"])');
+        paginationLinks = $thisSlider.find('.pageDots a:not([class*="button"])');
         paginationLinks.removeClass("is--active");
         paginationLinks.eq(thisSlideIndex).addClass("is--active");
-        $thisSlider.find(".pageBtns__currentPage").text(thisSlideIndex + 1);
+        $thisSlider.find(".pageButtons__currentPage").text(thisSlideIndex + 1);
     }
     function adjustHeight($thisSlider) {
         var $thisSlides = $thisSlider.find(".slider__slide");
@@ -3841,27 +3841,27 @@ YOI.component.Stepper = function() {
     var language = YOI.locale();
     var localization = {
         en: {
-            btnLabelMore: "more",
-            btnLabelLess: "less"
+            buttonLabelMore: "more",
+            buttonLabelLess: "less"
         },
         de: {
-            btnLabelMore: "mehr",
-            btnLabelLess: "weniger"
+            buttonLabelMore: "mehr",
+            buttonLabelLess: "weniger"
         }
     };
-    var $stepperBtns = $('        <div class="stepper__btnPlus">            <span class="stepper__iconPlus"></span>            <span class="hidden">' + localization[language]["btnLabelMore"] + '</span>        </div>        <div class="stepper__btnMinus">            <span class="stepper__iconMinus"></span>            <span class="hidden">' + localization[language]["btnLabelLess"] + "</span>        </div>    ");
+    var $stepperButtons = $('        <div class="stepper__buttonPlus">            <span class="stepper__iconPlus"></span>            <span class="hidden">' + localization[language]["buttonLabelMore"] + '</span>        </div>        <div class="stepper__buttonMinus">            <span class="stepper__iconMinus"></span>            <span class="hidden">' + localization[language]["buttonLabelLess"] + "</span>        </div>    ");
     function initialize($stepper, options) {
         var $stepper = YOI.createCollection("stepper", $stepper, options);
         if ($stepper) $stepper.each(function() {
             if (YOI.isReady($(this))) return false;
             var $thisStepper = $(this);
-            $thisStepper.prepend($stepperBtns.clone());
+            $thisStepper.prepend($stepperButtons.clone());
             var eventType = YOI.environment("mobile") ? "tap" : "click";
-            $thisStepper.find(".stepper__btnPlus").on(eventType, function(e) {
+            $thisStepper.find(".stepper__buttonPlus").on(eventType, function(e) {
                 e.preventDefault();
                 increaseItemCount($thisStepper);
             });
-            $thisStepper.find(".stepper__btnMinus").on(eventType, function(e) {
+            $thisStepper.find(".stepper__buttonMinus").on(eventType, function(e) {
                 e.preventDefault();
                 decreaseItemCount($thisStepper);
             });
@@ -4026,8 +4026,8 @@ YOI.component.Table = function() {
             }
             if (options.removeable) {
                 $thisTable.find("tr th:last-child").after("<th></th>");
-                $thisTable.find("tr td:last-child").after('<td class="table__removeBtn"></td>');
-                $thisTable.find(".table__removeBtn").on("click", function(e) {
+                $thisTable.find("tr td:last-child").after('<td class="table__removeButton"></td>');
+                $thisTable.find(".table__removeButton").on("click", function(e) {
                     e.preventDefault();
                     var $thisTr = $(this).closest("tr");
                     removeRow($thisTr);

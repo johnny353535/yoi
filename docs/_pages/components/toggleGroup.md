@@ -36,25 +36,25 @@ The default event to trigger a toggle is mouseover. Sometimes it makes sense to 
         <img class="d-blk" src="https://source.unsplash.com/jqvxcyVx2YE/180x180" />
     </div>
 </div>
-<div class="btns m-t-4">
-    <button class="btn btn--large" yoi-toggle="target:#toggleElement-1; group:toggleGroup-1;">1</button>
-    <button class="btn btn--large" yoi-toggle="target:#toggleElement-2; group:toggleGroup-1;">2</button>
-    <button class="btn btn--large" yoi-toggle="target:#toggleElement-3; group:toggleGroup-1;">3</button>
+<div class="buttons m-t-4">
+    <button class="button button--large" yoi-toggle="target:#toggleElement-1; group:toggleGroup-1;">1</button>
+    <button class="button button--large" yoi-toggle="target:#toggleElement-2; group:toggleGroup-1;">2</button>
+    <button class="button button--large" yoi-toggle="target:#toggleElement-3; group:toggleGroup-1;">3</button>
 </div>
 ```
 
 ## Example with click event
 
-This is basically the same thing like a [`.tab`]({{ site.github.url }}/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.btn`]({{ site.github.url }}/components/button.html) and provide an *activeClassName* to mark them as active once pressed.
+This is basically the same thing like a [`.tab`]({{ site.github.url }}/components/tabs.html), only you can define other events then `click` and chose any trigger element you wish. In the following example we use [`.button`]({{ site.github.url }}/components/button.html) and provide an *activeClassName* to mark them as active once pressed.
 
 ```html
 <!-- example -->
 <div class="box">
     <div class="box__body">
-        <div class="btns">
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel One</button>
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Two</button>
-            <button class="btn btn--light btn--large" yoi-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Three</button>
+        <div class="buttons">
+            <button class="button button--light button--large" yoi-toggle="target:#toggleElement-4; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel One</button>
+            <button class="button button--light button--large" yoi-toggle="target:#toggleElement-5; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Two</button>
+            <button class="button button--light button--large" yoi-toggle="target:#toggleElement-6; group:toggleGroup-2; event:click; activeClassName:is--active;">Panel Three</button>
         </div>
     </div>
     <div class="box__body" id="toggleElement-4">Panel One</div>

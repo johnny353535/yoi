@@ -73,7 +73,7 @@ Hide all visible DatePickers on the page by using the [action]({{ site.github.ur
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="DatePicker.hideAll;">Hide All DatePickers</button>
+<button class="button button--large" yoi-action="DatePicker.hideAll;">Hide All DatePickers</button>
 ```
 
 ### Custom Events

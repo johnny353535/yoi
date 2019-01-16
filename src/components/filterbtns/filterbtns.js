@@ -1,11 +1,11 @@
-/** filterbtns.js */
+/** filterbuttons.js */
 
-YOI.component.FilterBtns = (function() {
+YOI.component.FilterButtons = (function() {
 
     // private functions
     // =================
 
-    function initialize($filterBtns, options) {
+    function initialize($filterButtons, options) {
 
         /**
          *  Initialize the script.
@@ -14,9 +14,9 @@ YOI.component.FilterBtns = (function() {
          *  @param {object}         options
          */
 
-        var $filterBtns = YOI.createCollection('filterbtns', $filterBtns, options);
+        var $filterButtons = YOI.createCollection('filterbuttons', $filterButtons, options);
 
-        if ($filterBtns) $filterBtns.each(function() {
+        if ($filterButtons) $filterButtons.each(function() {
 
             // cancel if already initialized
 
@@ -24,19 +24,19 @@ YOI.component.FilterBtns = (function() {
 
             // proceed
 
-            var $thisFilterBtns = $(this);
+            var $thisFilterButtons = $(this);
 
-            if ($thisFilterBtns.hasClass('filterBtns--removeable')) {
+            if ($thisFilterButtons.hasClass('filterButtons--removeable')) {
 
                 // add events for removeable buttons
 
-                $thisFilterBtns.find('.filterBtns__btn').each(function() {
+                $thisFilterButtons.find('.filterButtons__button').each(function() {
 
-                    var $thisBtn = $(this);
+                    var $thisButton = $(this);
 
-                    $thisBtn.on('click', function(e) {
+                    $thisButton.on('click', function(e) {
                         e.preventDefault();
-                        remove($thisBtn);
+                        remove($thisButton);
                     });
 
                 });
@@ -45,26 +45,26 @@ YOI.component.FilterBtns = (function() {
 
                 // add events for regular buttons
 
-                $thisFilterBtns.find('.filterBtns__btn').each(function() {
+                $thisFilterButtons.find('.filterButtons__button').each(function() {
 
-                    var $thisBtn = $(this);
+                    var $thisButton = $(this);
 
                     // set the state
 
-                    if ($thisBtn.hasClass('is--active')) {
-                        $thisBtn.data().state = 'on';
+                    if ($thisButton.hasClass('is--active')) {
+                        $thisButton.data().state = 'on';
                     } else {
-                        $thisBtn.data().state = 'off';
+                        $thisButton.data().state = 'off';
                     }
 
                     // add the event
 
-                    $thisBtn.on('click', function(e) {
+                    $thisButton.on('click', function(e) {
                         e.preventDefault();
-                        toggle($thisBtn);
+                        toggle($thisButton);
                     });
 
-                    $thisBtn.on('mouseout', function(e) {
+                    $thisButton.on('mouseout', function(e) {
 
                         /*
                          *  If you click a button, it will immediately switch to
@@ -75,7 +75,7 @@ YOI.component.FilterBtns = (function() {
                          */
 
                         e.preventDefault();
-                        $thisBtn.removeClass('filterBtns__btn--debounce');
+                        $thisButton.removeClass('filterButtons__button--debounce');
 
                     });
 
@@ -91,43 +91,43 @@ YOI.component.FilterBtns = (function() {
 
     }
 
-    function toggle($thisBtn) {
+    function toggle($thisButton) {
 
         /**
          *  Mark the button active or inactive, depending
          *  on it's current state. Show an activity message.
          *
-         *  @param  {jQuery element} $thisBtn - the filter button
+         *  @param  {jQuery element} $thisButton - the filter button
          */
 
-        var state = $thisBtn.data().state;
+        var state = $thisButton.data().state;
 
         if (state === 'on') {
-            $thisBtn.removeClass('is--active');
-            $thisBtn.removeClass('filterBtns__btn--debounce');
-            $thisBtn.trigger('yoi-filterbtn-on');
-            $thisBtn.data().state = 'off';
+            $thisButton.removeClass('is--active');
+            $thisButton.removeClass('filterButtons__button--debounce');
+            $thisButton.trigger('yoi-filterbutton-on');
+            $thisButton.data().state = 'off';
         }
 
         if (state === 'off') {
-            $thisBtn.addClass('is--active');
-            $thisBtn.addClass('filterBtns__btn--debounce');
-            $thisBtn.trigger('yoi-filterbtn-off');
-            $thisBtn.data().state = 'on';
+            $thisButton.addClass('is--active');
+            $thisButton.addClass('filterButtons__button--debounce');
+            $thisButton.trigger('yoi-filterbutton-off');
+            $thisButton.data().state = 'on';
         }
 
     }
 
-    function remove($thisBtn) {
+    function remove($thisButton) {
 
         /**
          *  Remove the button and show an activity message.
          *
-         *  @param  {jQuery element} $thisBtn - the filter button
+         *  @param  {jQuery element} $thisButton - the filter button
          */
 
-        $thisBtn.fadeOut('fast');
-        $thisBtn.trigger('yoi-filterbtn-remove');
+        $thisButton.fadeOut('fast');
+        $thisButton.trigger('yoi-filterbutton-remove');
 
     }
 

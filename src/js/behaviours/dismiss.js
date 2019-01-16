@@ -11,17 +11,17 @@ YOI.behaviour.Dismiss = (function() {
 
     var localization = {
         'en' : {
-            'btnLabel' : 'close'
+            'buttonLabel' : 'close'
         },
         'de' : {
-            'btnLabel' : 'schliessen'
+            'buttonLabel' : 'schliessen'
         }
     };
 
     // templates
 
-    var $btnDismiss = $('\
-        <span class="btnDismiss">' + localization[language]['btnLabel'] + '</span>\
+    var $buttonDismiss = $('\
+        <span class="buttonDismiss">' + localization[language]['buttonLabel'] + '</span>\
     ');
 
     // private functions
@@ -50,14 +50,14 @@ YOI.behaviour.Dismiss = (function() {
             var positionStatic          = $thisDismissableElement.css('position') === 'static';
             var options                 = options || $thisDismissableElement.data().options;
 
-            // to correctly (absolutely) position $btnDismiss, make sure
+            // to correctly (absolutely) position $buttonDismiss, make sure
             // $thisDismissableElement provides positioning context
 
             if (positionStatic) $thisDismissableElement.css('position','relative');
 
             // attach button and events
 
-            $btnDismiss
+            $buttonDismiss
                 .clone()
                 .on('click', function(e) {
                     e.preventDefault();

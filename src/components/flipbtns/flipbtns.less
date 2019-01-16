@@ -1,9 +1,9 @@
-/** flipbtns.less */
+/** flipbuttons.less */
 
 // block
 // =====
 
-.flipBtns {
+.flipButtons {
     .mixin-userSelectNone;
     position: absolute;
     top: 50%;
@@ -14,8 +14,8 @@
 // elements
 // ========
 
-.flipBtns__btnPrev,
-.flipBtns__btnNext {
+.flipButtons__buttonPrev,
+.flipButtons__buttonNext {
 
     box-sizing: border-box;
     background: @color-white;
@@ -45,7 +45,7 @@
 
 }
 
-.flipBtns__btnPrev {
+.flipButtons__buttonPrev {
 
     border-radius: (@defaultBorderRadius * 1px) 0 0 (@defaultBorderRadius * 1px);
     border-right: 0;
@@ -57,7 +57,7 @@
 
 }
 
-.flipBtns__btnNext {
+.flipButtons__buttonNext {
 
     border-radius: 0 (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0;
     border-left: 0;
@@ -69,10 +69,10 @@
 
 }
 
-// disabled flipBtns
+// disabled flipButtons
 
-.flipBtns__btnPrev.is--disabled,
-.flipBtns__btnNext.is--disabled {
+.flipButtons__buttonPrev.is--disabled,
+.flipButtons__buttonNext.is--disabled {
     
     &:hover {
         background: transparent;
@@ -90,16 +90,16 @@
 // modifiers
 // =========
 
-&.flipBtns--inset {
+&.flipButtons--inset {
 
-    .flipBtns__btnPrev {
+    .flipButtons__buttonPrev {
         border: @color-base-23 1px solid;
         border-radius: 0 (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0;
         border-left: 0;
         left: 0;
     }
 
-    .flipBtns__btnNext {
+    .flipButtons__buttonNext {
         border: @color-base-23 1px solid;
         border-radius: (@defaultBorderRadius * 1px) 0 0 (@defaultBorderRadius * 1px);
         border-right: 0;
