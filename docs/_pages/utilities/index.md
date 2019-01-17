@@ -107,9 +107,9 @@ Some utilities feature *interactive* utilities as listed on each individual docu
 
 Some utilities feature *responsive* utilities as listed on each individual documentation page. Use the following breakpoint-prefixes:
 
-| `.only-s--[utility]` | apply the utility’s styling only at breakpoint `s`       |
-| `.m--[utility]`      | apply the utility’s styling at breakpoint `m` and larger |
-| `.only-m--[utility]` | apply the utility’s styling only at breakpoint `m`       |
-| `.l--[utility]`      | apply the utility’s styling at breakpoint `l` and larger |
-| `.only-l--[utility]` | apply the utility’s styling only at breakpoint `l`       |
-| `.xl--[utility]`     | apply the utility’s styling at breakpoint `xl`           |
+| `.only-s:[utility]` | apply the utility’s styling only at breakpoint `s`       |
+| `.m:[utility]`      | apply the utility’s styling at breakpoint `m` and larger |
+| `.only-m:[utility]` | apply the utility’s styling only at breakpoint `m`       |
+| `.l:[utility]`      | apply the utility’s styling at breakpoint `l` and larger |
+| `.only-l:[utility]` | apply the utility’s styling only at breakpoint `l`       |
+| `.xl:[utility]`     | apply the utility’s styling at breakpoint `xl`           |

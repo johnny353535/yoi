@@ -25,30 +25,30 @@ Learn more about manipulatig visibility with CSS: [Now You See Me / A List Apart
 
 ## Responsive Utilities
 
-| `.m--vis-hidden`       | Hidden on **medium and larger screens**.                          |
-| `.m--vis-visible`      | Visible on **medium and larger screens**.                         |
-| `.m--hidden`           | Visually hidden, yet accessible on **medium and larger screens**. |
-| `.m--visible`          | Visible on **medium and larger screens**.                         |
-| `.l--vis-hidden`       | Hidden on **large and larger screens**.                           |
-| `.l--vis-visible`      | Visible on **large and larger screens**.                          |
-| `.l--hidden`           | Visually hidden, yet accessible on **large and larger screens**.  |
-| `.l--visible`          | Visible on **large and larger screens**.                          |
-| `.xl--vis-hidden`      | Hidden on **extra large screens**.                                |
-| `.xl--vis-visible`     | Visible on **extra large screens**.                               |
-| `.xl--hidden`          | Visually hidden, yet accessible on **extra large screens**.       |
-| `.xl--visible`         | Visible on **extra large screens**.                               |
-| `.only-s--vis-hidden`  | Hidden on **small screens only**.                                 |
-| `.only-s--vis-visible` | Visible on **small screens only**.                                |
-| `.only-s--hidden`      | Visually hidden, yet accessible on **small screens only**         |
-| `.only-s--visible`     | Visible on **small screens only**.                                |
-| `.only-m--vis-hidden`  | Hidden on **medium screens only**.                                |
-| `.only-m--vis-visible` | Visible on **medium screens only**.                               |
-| `.only-m--hidden`      | Visually hidden, yet accessible on **medium screens only**        |
-| `.only-m--visible`     | Visible on **medium screens only**.                               |
-| `.only-l--vis-hidden`  | Hidden on **large screens only**.                                 |
-| `.only-l--vis-visible` | Visible on **large screens only**.                                |
-| `.only-l--hidden`      | Visually hidden, yet accessible on **large screens only**         |
-| `.only-l--visible`     | Visible on **large screens only**                                 |
+| `.m:vis-hidden`       | Hidden on **medium and larger screens**.                          |
+| `.m:vis-visible`      | Visible on **medium and larger screens**.                         |
+| `.m:hidden`           | Visually hidden, yet accessible on **medium and larger screens**. |
+| `.m:visible`          | Visible on **medium and larger screens**.                         |
+| `.l:vis-hidden`       | Hidden on **large and larger screens**.                           |
+| `.l:vis-visible`      | Visible on **large and larger screens**.                          |
+| `.l:hidden`           | Visually hidden, yet accessible on **large and larger screens**.  |
+| `.l:visible`          | Visible on **large and larger screens**.                          |
+| `.xl:vis-hidden`      | Hidden on **extra large screens**.                                |
+| `.xl:vis-visible`     | Visible on **extra large screens**.                               |
+| `.xl:hidden`          | Visually hidden, yet accessible on **extra large screens**.       |
+| `.xl:visible`         | Visible on **extra large screens**.                               |
+| `.only-s:vis-hidden`  | Hidden on **small screens only**.                                 |
+| `.only-s:vis-visible` | Visible on **small screens only**.                                |
+| `.only-s:hidden`      | Visually hidden, yet accessible on **small screens only**         |
+| `.only-s:visible`     | Visible on **small screens only**.                                |
+| `.only-m:vis-hidden`  | Hidden on **medium screens only**.                                |
+| `.only-m:vis-visible` | Visible on **medium screens only**.                               |
+| `.only-m:hidden`      | Visually hidden, yet accessible on **medium screens only**        |
+| `.only-m:visible`     | Visible on **medium screens only**.                               |
+| `.only-l:vis-hidden`  | Hidden on **large screens only**.                                 |
+| `.only-l:vis-visible` | Visible on **large screens only**.                                |
+| `.only-l:hidden`      | Visually hidden, yet accessible on **large screens only**         |
+| `.only-l:visible`     | Visible on **large screens only**                                 |
 
 <p class="hint hint--negative"><b>Choose the right opposite:</b> Make sure you don’t pick false opposites like <code>.vis-hidden</code> and <code>.visible</code> while creating responsive layouts. Always use <code>.visible</code> to override <code>.hidden</code> and <code>.vis-visible</code> to override <code>.vis-hidden</code>.</p>
 
@@ -61,50 +61,50 @@ Resize the browser window and watch how visibility of the colored squares in the
 <table class="table--stripped">
     <tr>
         <td class="w-2">
-            <div class="bg-blue-20 w-2 h-2 m--hidden"></div>
+            <div class="bg-blue-20 w-2 h-2 m:hidden"></div>
         </td>
         <td>
-            <code>.m--hidden</code>
+            <code>.m:hidden</code>
         </td>
     </tr>
     <tr>
         <td class="w-2">
-            <div class="bg-blue-20 w-2 h-2 l--hidden"></div>
+            <div class="bg-blue-20 w-2 h-2 l:hidden"></div>
         </td>
         <td>
-            <code>.l--hidden</code>
+            <code>.l:hidden</code>
         </td>
     </tr>
     <tr>
         <td class="w-2">
-            <div class="bg-blue-20 w-2 h-2 xl--hidden"></div>
+            <div class="bg-blue-20 w-2 h-2 xl:hidden"></div>
         </td>
         <td>
-            <code>.xl--hidden</code>
+            <code>.xl:hidden</code>
         </td>
     </tr>
     <tr>
         <td class="w-2">
-            <div class="bg-purple-20 w-2 h-2 only-s--hidden"></div>
+            <div class="bg-purple-20 w-2 h-2 only-s:hidden"></div>
         </td>
         <td>
-            <code>.only-s--hidden</code>
+            <code>.only-s:hidden</code>
         </td>
     </tr>
     <tr>
         <td class="w-2">
-            <div class="bg-purple-20 w-2 h-2 only-m--hidden"></div>
+            <div class="bg-purple-20 w-2 h-2 only-m:hidden"></div>
         </td>
         <td>
-            <code>.only-m--hidden</code>
+            <code>.only-m:hidden</code>
         </td>
     </tr>
     <tr>
         <td class="w-2">
-            <div class="bg-purple-20 w-2 h-2 only-l--hidden"></div>
+            <div class="bg-purple-20 w-2 h-2 only-l:hidden"></div>
         </td>
         <td>
-            <code>.only-l--hidden</code>
+            <code>.only-l:hidden</code>
         </td>
     </tr>
 </table>

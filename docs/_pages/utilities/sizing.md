@@ -42,12 +42,12 @@ srcfiles:
 
 ### Responsive Fractional Width
 
-| `.only-s--w-[*]` | `.w-[*]` only at breakpoint `s`       |
-| `.m--w-[*]`      | `.w-[*]` at breakpoint `m` and larger |
-| `.only-m--w-[*]` | `.w-[*]` only at breakpoint `m`       |
-| `.l--w-[*]`      | `.w-[*]` at breakpoint `l` and larger |
-| `.only-l--w-[*]` | `.w-[*]` only at breakpoint `l`       |
-| `.xl--w-[*]`     | `.w-[*]` at breakpoint `xl`           |
+| `.only-s:w-[*]` | `.w-[*]` only at breakpoint `s`       |
+| `.m:w-[*]`      | `.w-[*]` at breakpoint `m` and larger |
+| `.only-m:w-[*]` | `.w-[*]` only at breakpoint `m`       |
+| `.l:w-[*]`      | `.w-[*]` at breakpoint `l` and larger |
+| `.only-l:w-[*]` | `.w-[*]` only at breakpoint `l`       |
+| `.xl:w-[*]`     | `.w-[*]` at breakpoint `xl`           |
 
 ## Auto Width & Height
 
@@ -56,12 +56,12 @@ srcfiles:
 
 ### Responsive Auto Width & Height
 
-| `.only-s--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `s`       |
-| `.m--[w/h]-auto`      | `.[w/h]-auto` at breakpoint `m` and larger |
-| `.only-m--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `m`       |
-| `.l--[w/h]-auto`      | `.[w/h]-auto` at breakpoint `l` and larger |
-| `.only-l--[w/h]-auto` | `.[w/h]-auto` only at breakpoint `l`       |
-| `.xl--[w/h]-auto`     | `.[w/h]-auto` at breakpoint `xl`           |
+| `.only-s:[w/h]-auto` | `.[w/h]-auto` only at breakpoint `s`       |
+| `.m:[w/h]-auto`      | `.[w/h]-auto` at breakpoint `m` and larger |
+| `.only-m:[w/h]-auto` | `.[w/h]-auto` only at breakpoint `m`       |
+| `.l:[w/h]-auto`      | `.[w/h]-auto` at breakpoint `l` and larger |
+| `.only-l:[w/h]-auto` | `.[w/h]-auto` only at breakpoint `l`       |
+| `.xl:[w/h]-auto`     | `.[w/h]-auto` at breakpoint `xl`           |
 
 ## Full Width & Height
 
@@ -70,12 +70,12 @@ srcfiles:
 
 ### Responsive Full Width & Height
 
-| `.only-s--[w/h]-full` | `.[w/h]-full` only at breakpoint `s`       |
-| `.m--[w/h]-full`      | `.[w/h]-full` at breakpoint `m` and larger |
-| `.only-m--[w/h]-full` | `.[w/h]-full` only at breakpoint `m`       |
-| `.l--[w/h]-full`      | `.[w/h]-full` at breakpoint `l` and larger |
-| `.only-l--[w/h]-full` | `.[w/h]-full` only at breakpoint `l`       |
-| `.xl--[w/h]-full`     | `.[w/h]-full` at breakpoint `xl`           |
+| `.only-s:[w/h]-full` | `.[w/h]-full` only at breakpoint `s`       |
+| `.m:[w/h]-full`      | `.[w/h]-full` at breakpoint `m` and larger |
+| `.only-m:[w/h]-full` | `.[w/h]-full` only at breakpoint `m`       |
+| `.l:[w/h]-full`      | `.[w/h]-full` at breakpoint `l` and larger |
+| `.only-l:[w/h]-full` | `.[w/h]-full` only at breakpoint `l`       |
+| `.xl:[w/h]-full`     | `.[w/h]-full` at breakpoint `xl`           |
 
 ## Fixed Width & Height
 
@@ -88,12 +88,12 @@ At YOI’s default configuration, 120 fixed width and 120 fixed height steps are
 
 ### Responsive Fixed Width & Height
 
-| `.only-s--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `s`       |
-| `.m--[w/h]-[*]`      | `.[w/h]-[*]` at breakpoint `m` and larger |
-| `.only-m--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `m`       |
-| `.l--w-[w/h]-[*]`    | `.[w/h]-[*]` at breakpoint `l` and larger |
-| `.only-l--[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `l`       |
-| `.xl--[w/h]-[*]`     | `.[w/h]-[*]` at breakpoint `xl`           |
+| `.only-s:[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `s`       |
+| `.m:[w/h]-[*]`      | `.[w/h]-[*]` at breakpoint `m` and larger |
+| `.only-m:[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `m`       |
+| `.l:w-[w/h]-[*]`    | `.[w/h]-[*]` at breakpoint `l` and larger |
+| `.only-l:[w/h]-[*]` | `.[w/h]-[*]` only at breakpoint `l`       |
+| `.xl:[w/h]-[*]`     | `.[w/h]-[*]` at breakpoint `xl`           |
 
 ## Minimum & Maximum Width & Height
 
@@ -109,8 +109,8 @@ At YOI’s default configuration, 120 fixed width and 120 fixed height steps are
 ## Responsive Minimum & Maximum Width & Height
 
 | `.only-s-[w/h]-[max/min]-[*]`  | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `s`      |
-| `.m--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `m` and larger |
-| `.only-m--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `m`       |
-| `.l--[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `l` and larger |
-| `.only-l--[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `l`       |
-| `.xl--[w/h]-[max/min]-[*]`     | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `xl`           |
+| `.m:[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `m` and larger |
+| `.only-m:[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `m`       |
+| `.l:[w/h]-[max/min]-[*]`      | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `l` and larger |
+| `.only-l:[w/h]-[max/min]-[*]` | `.[w/h]-[max/min]-[full/viewport]` only at breakpoint `l`       |
+| `.xl:[w/h]-[max/min]-[*]`     | `.[w/h]-[max/min]-[full/viewport]` at breakpoint `xl`           |

@@ -30,12 +30,12 @@ All borders have the default border-color and -width.
 
 ### Responsive Border
 
-| `.only-s--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `s` |
-| `.m--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`      | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `m` and larger |
-| `.only-m--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `m`       |
-| `.l--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`      | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `l` and larger |
-| `.only-l--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `l`       |
-| `.xl--b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`     | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `xl`           |
+| `.only-s:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `s` |
+| `.m:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`      | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `m` and larger |
+| `.only-m:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `m`       |
+| `.l:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`      | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `l` and larger |
+| `.only-l:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` only at breakpoint `l`       |
+| `.xl:b-[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]`     | border `[all, t, r, b, l, 0, t-0, r-0, b-0, l-0]` at breakpoint `xl`           |
 
 ## Border Style
 
