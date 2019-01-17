@@ -16,7 +16,7 @@
     background: @color-base-25;
     border-radius: 50%;
     float: left;
-    margin-right: 4rem;
+    margin-right: 3rem;
 }
 
 // data & records
@@ -27,8 +27,8 @@
 
 .pieChart__record {
 
-    font-size: 1.3rem;
-    line-height: 3rem;
+    .mixin-fs-2;
+    .mixin-lh-4;
 
     .js & {
         cursor: pointer;
@@ -43,10 +43,10 @@
 .pieChart__dot {
     .mixin-defaultBorderRadius;
     display: inline-block;
-    height: 2rem;
-    margin-right: .7rem;
+    height: 1rem;
+    margin-right: .5rem;
     vertical-align: middle;
-    width: 2rem;
+    width: 1rem;
 }
 
 .pieChart__value {

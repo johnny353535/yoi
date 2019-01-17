@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Pagination
 permalink: components/pagination
-status: incomplete
 ---
 
 # Pagination
@@ -17,9 +16,6 @@ This is how a basic `.pagination` looks like and how you write the markup:
 ```html
 <!-- example -->
 <div class="pagination">
-    <div class="pagination__load">
-        <a class="button button--flat button--primary" href="#">Show more</a>
-    </div>
     <ul class="pagination__items">
         <li class="pagination__item">
             <a class="button button--subtle" href="#">1</a>

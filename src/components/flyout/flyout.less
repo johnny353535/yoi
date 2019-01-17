@@ -20,28 +20,17 @@
 // ========
 
 .flyout__handle {
-
+    .mixin-fs-2;
+    .mixin-fw-bold;
+    line-height: 2.5rem;
     background: @color-base-24;
     border: @color-base-20 1px solid;
     border-top: 0;
     cursor: pointer;
     display: block;
-    font: normal 2rem/3rem @font-sansserif;
-    padding: 0 1rem 0 1.5rem;
+    padding: 0 1.25rem;
     position: absolute;
-    top: 3rem;
-
-    // icon
-
-    &::after {
-        content: ' ';
-        display: inline-block;
-        height: 3.2rem;
-        margin-left: .5rem;
-        vertical-align: top;
-        width: 3.2rem;
-    }
-
+    top: 2.5rem;
 }
 
 .flyout--left .flyout__handle {
@@ -96,10 +85,6 @@
 
     .flyout--hidden {
 
-        .flyout__handle::after {
-            .mixin-icon-bg(@id: 'icon-009-s', @fillColor: @color-base-8);
-        }
-
         &.flyout--left {
             left: -25rem;
         }
@@ -115,10 +100,6 @@
         .mixin-shadow-3;
         background-clip: padding-box;
         border: fade(@color-base-20, 30%) 1px solid;
-
-        .flyout__handle::after {
-            .mixin-icon-bg(@id: 'icon-010-s', @fillColor: @color-base-8);
-        }
 
         &.flyout--left {
             left: 0;

@@ -8,9 +8,9 @@
     background: fade(@color-base-8, 70%);
     border-radius: @defaultBorderRadius * 1px;
     display: inline-block;
-    height: 4rem;
-    line-height: 4rem;
-    min-width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    min-width: 4rem;
     position: relative;
     text-align: center;
     text-shadow: 0 1px 0 fade(@color-base-5, 30%);
@@ -28,13 +28,13 @@
     color: @color-base-25;
     cursor: pointer;
     display: inline-block;
-    height: 4rem;
-    line-height: 4rem;
+    height: 2rem;
+    line-height: 2rem;
     padding: 0;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 4rem;
+    width: 2rem;
 
     &:hover {
         background: @color-base-10;
@@ -45,10 +45,10 @@
     &::after {
         content: ' ';
         display: inline-block;
-        height: 4rem;
+        height: 2rem;
         left: 0;
         top: 0;
-        width: 4rem;
+        width: 2rem;
     }
 
 }
@@ -65,30 +65,31 @@
 }
 
 .pageButtons__indicator {
+    .mixin-fs-2;
+    .mixin-fw-bold;
+    line-height: 2rem;
     color: @color-base-25;
     display: inline-block;
-    font: bold 1.5rem/4rem @font-sansserif;
-    height: 4rem;
-    line-height: 4rem;
-    margin: 0 5rem;
+    height: 2rem;
+    margin: 0 2.5rem;
 }
 
 // disabled pageButtons
 
 .pageButtons__buttonPrev.is--disabled,
 .pageButtons__buttonNext.is--disabled {
-    
+
     &:hover {
         background: transparent;
         cursor: default;
     }
-    
+
     // icons
-    
+
     &::after {
         opacity: .3;
     }
-    
+
 }
 
 // modifiers

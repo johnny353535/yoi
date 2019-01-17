@@ -5,10 +5,7 @@
 
 .pagination {
     .mixin-defaultBorderRadius;
-    background: @color-base-25;
     border: @color-base-23 1px solid;
-    height: 3.3rem;
-    margin: 1rem 0;
     position: relative;
     text-align: right;
     font-size: 0;
@@ -17,11 +14,6 @@
 // elements
 // ========
 
-.pagination__load {
-    float: left;
-    margin: .4rem;
-}
-
 .pagination__items {
     display: inline-block;
 }
@@ -29,11 +21,7 @@
 .pagination__item,
 .pagination__nav {
     display: inline-block;
-    margin: .4rem;
-}
-
-.pagination__item .button:hover {
-    background: @color-base-23;
+    margin: .25rem;
 }
 
 // modifiers
@@ -42,7 +30,9 @@
 // active item
 
 .pagination .is--active .button,
-.pagination .is--active .button:hover {
+.pagination .is--active a.button,
+.pagination .is--active .button:hover,
+.pagination .is--active a.button:hover {
     background: @color-primary-15;
     color: @color-base-24;
 }

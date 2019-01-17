@@ -27,18 +27,16 @@ The following is an example for a typical modal markup. You may want to <a href=
 
 ```html
 <!-- example -->
-<div class="h-30 p-tb-3">
-    <div class="modal">
-        <div class="modal__header">
-            <h3 class="modal__title">Demo Modal</h3>
-        </div>
-        <div class="modal__body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-        <div class="modal__footer">
-            <button class="button button--large button--dark fl-r">OK</button>
-            <span class="button button--large button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
-        </div>
+<div class="modal">
+    <div class="modal__header">
+        <h3 class="modal__title">Demo Modal</h3>
+    </div>
+    <div class="modal__body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="modal__footer">
+        <button class="button button--dark fl-r">OK</button>
+        <span class="button button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
     </div>
 </div>
 ```
@@ -49,18 +47,16 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
 
 ```html
 <!-- example -->
-<div class="h-28 p-tb-3">
-    <div class="modal modal--small">
-        <div class="modal__header">
-            <h3 class="modal__title">Small Demo Modal</h3>
-        </div>
-        <div class="modal__body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        </div>
-        <div class="modal__footer">
-            <button class="button button--large button--dark fl-r">OK</button>
-            <span class="button button--large button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
-        </div>
+<div class="modal modal--small">
+    <div class="modal__header">
+        <h3 class="modal__title">Small Demo Modal</h3>
+    </div>
+    <div class="modal__body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+    <div class="modal__footer">
+        <button class="button button--dark fl-r">OK</button>
+        <span class="button button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
     </div>
 </div>
 ```
@@ -108,11 +104,11 @@ path:desktop/pages/modal_demo.html; cache:true; …
 | path  | valid path to modal page as *string*, eg. `pages/modal_test.html` | Any element can be linked to a modal. If it's not a link or a link with a href that does not link to a modal, the modal path may be overridden by this option. |
 | cache | *boolean* true/false | If set to true, the referenced modal will preload in the background. |
 
-## Modals to External Pages
+## Modals from External Sites
 
-<p class="hint hint--negative"><b>Modals Must Not Load External Pages</b> The modals are not designed to reference external pages. Apart from the fact that <em>http:</em> breaks the option-notation, it is not desired to load external pages (and possibly injected scripts) we have no control over into our environment.</p>
+<p class="hint hint--negative"><b>Modals Must Not Load Pages from external sites</b> The modals are not designed to reference external pages. It is not a good idea to load recources pages (and possibly injected scripts) you might not have no control over.</p>
 
 ## Errors / Fallback
 
-If you reference a modal page that is either ill-formatted, isn’t a modal page or simply does not exist, the modal won’t be shown.
+If you reference a modal page that is either ill-formatted, isn’t a modal page or simply does not exist, the modal won’t show.
 Instead, if the trigger element is a link, it will fall back to it’s default behaviour (open the location provided via `href`-attribute, even if the page does not exist). If the trigger element is not a link (modal path via `yoi`-attribute), nothing will happen on click.

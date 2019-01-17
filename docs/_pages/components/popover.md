@@ -20,7 +20,7 @@ To reference a *pop-over*, add the `yoi-popover` attribute to the trigger elemen
 <!-- example -->
 <a class="button button--large" href="#examplePopOver-1" yoi-popover="target:#examplePopOver-1;" tabindex="0">Show pop-over</a>
 <div class="popOver" id="examplePopOver-1">
-    <p class="p-4 fs-2 lh-3">pop-over</p>
+    <p class="p-2 fs-2 lh-3">pop-over</p>
 </div>
 ```
 
@@ -49,7 +49,7 @@ By default, any pop-over will appear at the right side of the trigger with it’
 <!-- example -->
 <a href="#examplePopOver-3" class="button button--large" yoi-popover="target:#examplePopOver-3; pos:bl;">Show pop-over</a>
 <div class="popOver" id="examplePopOver-3">
-    <p class="p-4 fs-2 lh-3">Pop-over at bottom left</p>
+    <p class="p-2 fs-2 lh-3">Pop-over at bottom left</p>
 </div>
 ```
 
@@ -61,7 +61,7 @@ This option defines the *pop-over’s reference point* and can be one of the fou
 <!-- example -->
 <a href="#examplePopOver-4" class="button button--large" yoi-popover="target:#examplePopOver-4; ref:bl;">Show pop-over</a>
 <div class="popOver" id="examplePopOver-4">
-    <p class="p-4 fs-2 lh-3">Pop-over reference point is bottom left</p>
+    <p class="p-2 fs-2 lh-3">Pop-over reference point is bottom left</p>
 </div>
 ```
 
@@ -73,7 +73,7 @@ Use this option if the *trigger* should get an *additional css class while the p
 <!-- example -->
 <a href="#examplePopOver-9" class="button button--large" yoi-popover="target:#examplePopOver-9; toggleClass:tabFocus;">Show pop-over</a>
 <div class="popOver" id="examplePopOver-9">
-    <p class="p-4 fs-2 lh-3">You added <code>.tabFocus</code><br/>to the button element.</p>
+    <p class="p-2 fs-2 lh-3">You added <code>.tabFocus</code><br/>to the button element.</p>
 </div>
 ```
 
@@ -85,7 +85,7 @@ The default event for the trigger to show the pop-over is `mouseover`. Use this 
 <!-- example -->
 <a href="#examplePopOver-10" class="button button--large" yoi-popover="target:#examplePopOver-10; on:dblclick;">Show pop-over on double-click</a>
 <div class="popOver" id="examplePopOver-10">
-    <p class="p-4 fs-2 lh-3">Popover</p>
+    <p class="p-2 fs-2 lh-3">Popover</p>
 </div>
 ```
 

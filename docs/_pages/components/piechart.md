@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Pie Chart
 permalink: components/piechart
-status: draft
 ---
 
 # Pie Chart
