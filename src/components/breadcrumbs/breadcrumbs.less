@@ -5,11 +5,12 @@
 
 .breadcrumbs {
     .mixin-defaultBorderRadius;
-    background: @color-base-25;
+    .mixin-fs-1;
+    background: @color-white;
     border: @color-base-23 1px solid;
-    line-height: 2.5rem;
+    line-height: 1rem;
     overflow: hidden;
-    padding: 0 1.5rem 0 0;
+    padding: 0 1rem 0 0;
 }
 
 // elements
@@ -42,20 +43,25 @@
     // spacing
 
     & + .breadcrumbs__item {
-        margin-left: -2.5rem;
+        margin-left: -2rem;
     }
 
     // first breadcrumb
 
     &:first-child .breadcrumbs__label {
-        padding-left: 1.5rem;
+        padding-left: .5rem;
     }
 
     // last breadcrumb (= current page)
 
     &:last-child {
+        .mixin-fw-bold;
         z-index: 1;
-        font-weight: bold;
+    }
+
+    &:last-child a:hover,
+    &:last-child span:hover {
+        background: @color-white;
     }
 
 }
@@ -63,10 +69,10 @@
 .breadcrumbs__link {
 
     display: inline-block;
-    padding: 0 3rem 0 0;
+    padding: 0 1.5rem 0 0;
     position: relative;
     text-decoration: none;
-    
+
     &:link, &:visited,
     &:hover, &:active {
         color: @color-base-8;
@@ -75,19 +81,19 @@
     // pointy right edge
 
     &::after {
-        background: @color-base-25;
-        border-right: @color-base-22 1px solid;
-        border-top: @color-base-22 1px solid;
+        background: @color-white;
+        border-right: @color-base-23 1px solid;
+        border-top: @color-base-23 1px solid;
         box-sizing: border-box;
         content: ' ';
         display: inline-block;
-        height: 3em;
-        margin-top: -1.5em;
+        height: 2rem;
+        margin-top: -1rem;
         position: absolute;
-        right: 1.75rem;
+        right: .75rem;
         top: 50%;
         transform: rotate(45deg);
-        width: 3em;
+        width: 2rem;
         z-index: 1;
     }
 
