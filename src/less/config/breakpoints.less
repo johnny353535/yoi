@@ -15,7 +15,7 @@
 /*
     Media queries with these breakpoints kick in as soon as a certain screen
     width is reached. A larger breakpoint overrides all smaller ones.
-    Example: .m--* is active "from screen size m and up".
+    Example: .m:* is active "from screen size m and up".
 */
 
 @bp-s  : ~"only screen and (min-width: 0rem)";
@@ -27,7 +27,7 @@
 
 /*
     Media queries with these breakpoints are active only in their certain range.
-    Example: .only-m--* is active only on screens within the width range of breakpoint "m".
+    Example: .only-m:* is active only on screens within the width range of breakpoint "m".
 */
 
 @bp-only-s  : ~"only screen and (min-width: 0rem) and (max-width: @{bp-s-maxwidth})";

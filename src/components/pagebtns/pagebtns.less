@@ -1,9 +1,9 @@
-/** pagebtns.less */
+/** pagebuttons.less */
 
 // block
 // =====
 
-.pageBtns {
+.pageButtons {
     .mixin-userSelectNone;
     background: fade(@color-base-8, 70%);
     border-radius: @defaultBorderRadius * 1px;
@@ -19,8 +19,8 @@
 // elements
 // ========
 
-.pageBtns__btnPrev,
-.pageBtns__btnNext {
+.pageButtons__buttonPrev,
+.pageButtons__buttonNext {
 
     .mixin-defaultBorderRadius;
     background: transparent;
@@ -53,18 +53,18 @@
 
 }
 
-.pageBtns__btnPrev { left: 0; }
-.pageBtns__btnNext { right: 0; }
+.pageButtons__buttonPrev { left: 0; }
+.pageButtons__buttonNext { right: 0; }
 
-.pageBtns__btnPrev::after {
+.pageButtons__buttonPrev::after {
     .mixin-icon-bg(@id: 'icon-008-s', @fillColor: @color-base-25);
 }
 
-.pageBtns__btnNext::after {
+.pageButtons__buttonNext::after {
     .mixin-icon-bg(@id: 'icon-007-s', @fillColor: @color-base-25);
 }
 
-.pageBtns__indicator {
+.pageButtons__indicator {
     color: @color-base-25;
     display: inline-block;
     font: bold 1.5rem/4rem @font-sansserif;
@@ -73,10 +73,10 @@
     margin: 0 5rem;
 }
 
-// disabled pageBtns
+// disabled pageButtons
 
-.pageBtns__btnPrev.is--disabled,
-.pageBtns__btnNext.is--disabled {
+.pageButtons__buttonPrev.is--disabled,
+.pageButtons__buttonNext.is--disabled {
     
     &:hover {
         background: transparent;
@@ -94,34 +94,34 @@
 // modifiers
 // =========
 
-.pageBtns--tl,
-.pageBtns--tr,
-.pageBtns--br,
-.pageBtns--bl {
+.pageButtons--tl,
+.pageButtons--tr,
+.pageButtons--br,
+.pageButtons--bl {
     position: absolute;
     z-index: 20;
 }
 
-.pageBtns--tl {
+.pageButtons--tl {
     border-radius: 0 0 0 (@defaultBorderRadius * 1px);
     left: 0;
     top: 0;
 }
 
-.pageBtns--tr {
+.pageButtons--tr {
     border-radius: 0 0 (@defaultBorderRadius * 1px) 0;
     right: 0;
     top: 0;
 }
 
-.pageBtns--br {
+.pageButtons--br {
     border-radius: (@defaultBorderRadius * 1px) 0 0 0;
     bottom: 0;
     right: 0;
 
 }
 
-.pageBtns--bl {
+.pageButtons--bl {
     border-radius: 0 (@defaultBorderRadius * 1px) 0 0;
     bottom: 0;
     left: 0;

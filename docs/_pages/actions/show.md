@@ -15,7 +15,7 @@ Add `yoi-action="Show:#id;"` to show an element:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#example-1;">Show Instantly</button>
+<button class="button button--large" yoi-action="Show:#example-1;">Show Instantly</button>
 <div id="example-1" class="box p-4 m-t-4">
     <p class="fs-2">This will show.</p>
 </div>
@@ -45,7 +45,7 @@ Use the optional `fx` parameter to add an animation. Technically you can use all
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#example-2; fx:fade-in;">Show with Fx</button>
+<button class="button button--large" yoi-action="Show:#example-2; fx:fade-in;">Show with Fx</button>
 <div id="example-2" class="box p-4 m-t-4">
     <p class="fs-2">This will show with a fade-in transition.</p>
 </div>
@@ -57,7 +57,7 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#example-3; fx:fade-in; speed:fast;">Show Fast</button>
+<button class="button button--large" yoi-action="Show:#example-3; fx:fade-in; speed:fast;">Show Fast</button>
 <div id="example-3" class="box p-4 m-t-4">
     <p class="fs-2">This will show with a fast fade-in transition.</p>
 </div>
@@ -65,7 +65,7 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#example-4; fx:fade-in; speed:slow;">Show Slowly</button>
+<button class="button button--large" yoi-action="Show:#example-4; fx:fade-in; speed:slow;">Show Slowly</button>
 <div id="example-4" class="box p-4 m-t-4">
     <p class="fs-2">This will show with a slow fade-in transition.</p>
 </div>
@@ -77,7 +77,7 @@ Use the optional parameter `toggle` and set it to `true` to *toggle* the visibil
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Show:#example-5; fx:fade-in; speed:slow; toggle:true;">Show/Toggle</button>
+<button class="button button--large" yoi-action="Show:#example-5; fx:fade-in; speed:slow; toggle:true;">Show/Toggle</button>
 <div id="example-5" class="box p-4 m-t-4">
     <p class="fs-2">This will show when hidden and hide when visible.</p>
 </div>

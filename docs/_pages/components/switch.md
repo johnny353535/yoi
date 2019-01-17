@@ -68,7 +68,7 @@ Pick a switch and set it to “on”:
 <div id="exampleSwitch-1" class="switch switch--large" yoi-switch>
     <input type="checkbox" />
 </div>
-<button class="btn btn--medium m-l-2" yoi-action="Switch.on:#exampleSwitch-1;">Switch On</button>
+<button class="button button--medium m-l-2" yoi-action="Switch.on:#exampleSwitch-1;">Switch On</button>
 ```
 
 ### Switch.off
@@ -80,7 +80,7 @@ Pick a switch and set it to “off”:
 <div id="exampleSwitch-2" class="switch switch--large" yoi-switch="state:on;">
     <input type="checkbox" />
 </div>
-<button class="btn btn--medium m-l-2" yoi-action="Switch.off:#exampleSwitch-2;">Switch Off</button>
+<button class="button button--medium m-l-2" yoi-action="Switch.off:#exampleSwitch-2;">Switch Off</button>
 ```
 
 ### Switch.toggle
@@ -92,7 +92,7 @@ Pick a `.switch` and toggle it’s state between “on” and “off”:
 <div id="exampleSwitch-3" class="switch switch--large" yoi-switch>
     <input type="checkbox" />
 </div>
-<button class="btn btn--medium m-l-2" yoi-action="Switch.toggle:#exampleSwitch-3;">Switch Toggle</button>
+<button class="button button--medium m-l-2" yoi-action="Switch.toggle:#exampleSwitch-3;">Switch Toggle</button>
 ```
 
 ### Custom Events

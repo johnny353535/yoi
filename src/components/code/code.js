@@ -94,9 +94,9 @@ YOI.component.Code = (function() {
             // add copy button
             
             if (thisExample || thisExampleTabbed) {
-                markup = addCopyBtn(markup);
+                markup = addCopyButton(markup);
             } else {
-                markup = addCopyBtn($thisCodeWrapper);
+                markup = addCopyButton($thisCodeWrapper);
             }
             
             // inject markup
@@ -117,7 +117,7 @@ YOI.component.Code = (function() {
 
     }
     
-    function addCopyBtn(markup) {
+    function addCopyButton(markup) {
         
         /**
          *  Adds a copy-to-clipboard-button to a code example.
@@ -136,17 +136,17 @@ YOI.component.Code = (function() {
         // proceed
         
         var $markup                = markup instanceof jQuery ? markup : $(markup);
-        var $copyBtn               = $('<button class="code__copyBtn btn btn--subtle">Copy</button>');
+        var $copyButton               = $('<button class="code__copyButton button button--subtle">Copy</button>');
         var $codeSource            = $markup.find('.code__source');
         var codeHasRenderedExample = $codeSource.length ? true : false;
 
         // prepare the copy button
 
-        $copyBtn.on('click', function() {
+        $copyButton.on('click', function() {
         
             // find the code
         
-            var $code = $copyBtn.parent().find('code').first();
+            var $code = $copyButton.parent().find('code').first();
         
             // copy code to clipboard
         
@@ -154,16 +154,16 @@ YOI.component.Code = (function() {
         
             // give visual feedback to user
         
-            YOI.blink($copyBtn);
+            YOI.blink($copyButton);
             
         });
 
         // inject the copy button
 
         if (codeHasRenderedExample) {
-            $markup.find('.code__source').append($copyBtn);
+            $markup.find('.code__source').append($copyButton);
         } else {
-            $markup.append($copyBtn);
+            $markup.append($copyButton);
         }
 
         // return the processed markup
@@ -209,14 +209,14 @@ YOI.component.Code = (function() {
         
         // assign vars
         
-        var $expandBtn    = $('<button class="code__expandBtn btn btn--subtle">Expand</button>');
+        var $expandButton    = $('<button class="code__expandButton button button--subtle">Expand</button>');
         var codeHeight    = $thisCode.height();
         var lineHeight    = $thisCode.css('line-height');
         var maxCodeHeight = parseInt(lineHeight) * 5;
         
         // add events to expand button
         
-        $expandBtn.on('click', function(e) {
+        $expandButton.on('click', function(e) {
             
             e.preventDefault();
             
@@ -253,7 +253,7 @@ YOI.component.Code = (function() {
         if (codeHeight > maxCodeHeight) {
             $thisCode.height(maxCodeHeight);
             $thisCode.addClass('code__source--truncated');
-            $thisCodeSource.append($expandBtn);
+            $thisCodeSource.append($expandButton);
         }
 
     }

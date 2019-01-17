@@ -37,7 +37,7 @@ Add the action _Hide_ to a `<button>` and set the target element selector to mat
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-1;">Hide #example-1</button>
+<button class="button button--large" yoi-action="Hide:#example-1;">Hide #example-1</button>
 <div id="example-1" class="m-t-4">
     <div class="box p-4 c-gray-15 fs-2">#example-1</div>
 </div>
@@ -70,7 +70,7 @@ Use the keyword _self_ (written in lowercase) to select the very element you add
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:self;">Hide Myself</button>
+<button class="button button--large" yoi-action="Hide:self;">Hide Myself</button>
 ```
 
 ### The Target Value _parent_
@@ -81,7 +81,7 @@ Use the keyword _parent_ (written in lowercase), to select the parent (= enclosi
 <!-- example -->
 <div class="box p-4">
     <p class="fs-2 c-gray-15 m-b-2">This is the parent element of the button.</p>
-    <button class="btn btn--large" yoi-action="Hide:parent;">Hide my Parent Element</button>
+    <button class="button button--large" yoi-action="Hide:parent;">Hide my Parent Element</button>
 </div>
 ```
 
@@ -92,11 +92,11 @@ By default, every action is executed _on click_. Use the _on_ parameter to call 
 ```html
 <!-- example -->
 <p class="fs-2 c-gray-15 m-b-4">Use the buttons and the text input to make the example target blink:</p>
-<div class="btns">
-    <button class="btn btn--large" yoi-action="Blink:#example-2;">click</button>
-    <button class="btn btn--large" yoi-action="Blink:#example-2; on:dblclick;">double-click</button>
-    <button class="btn btn--large" yoi-action="Blink:#example-2; on:mouseover;">mouseover</button>
-    <button class="btn btn--large" yoi-action="Blink:#example-2; on:mouseout;">mouseout</button>
+<div class="buttons">
+    <button class="button button--large" yoi-action="Blink:#example-2;">click</button>
+    <button class="button button--large" yoi-action="Blink:#example-2; on:dblclick;">double-click</button>
+    <button class="button button--large" yoi-action="Blink:#example-2; on:mouseover;">mouseover</button>
+    <button class="button button--large" yoi-action="Blink:#example-2; on:mouseout;">mouseout</button>
 </div>
 <input class="input--large w-20 m-t-2" type="text" value="focus" yoi-action="Blink:#example-2; on:focus;" />
 <div id="example-2" class="m-t-4">
@@ -111,7 +111,7 @@ Some _actions_ implement _options_. Available options are listed on each actionâ
 ```html
 <!-- example -->
 <p class="fs-2 c-gray-15 m-b-4">Click the button to hide the target element with a slide-transition:</p>
-<button class="btn btn--large" yoi-action="Hide:#example-4; transition:slideUp;">Hide #example-4</button>
+<button class="button button--large" yoi-action="Hide:#example-4; transition:slideUp;">Hide #example-4</button>
 <div id="example-4" class="m-t-4">
     <div class="box p-4 c-gray-15 fs-2">#example-4</div>
 </div>

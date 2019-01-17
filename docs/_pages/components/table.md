@@ -375,7 +375,7 @@ Pick a `<tr>` and mark it selected:
         <td>Anorexiants</td>
     </tr>
 </table>
-<button id="exampleButton-1" class="btn btn--large val-t m-t-2">Select a row</button>
+<button id="exampleButton-1" class="button button--large val-t m-t-2">Select a row</button>
 <script>
     $('#exampleButton-1').on('click', function() {
         YOI.component.Table.select($('#exampleTable-1 tr').eq(1));
@@ -403,7 +403,7 @@ Pick a `<tr>` and remove the selection:
         <td>Anorexiants</td>
     </tr>
 </table>
-<button id="exampleButton-2" class="btn btn--large val-t m-t-2">Unselect row</button>
+<button id="exampleButton-2" class="button button--large val-t m-t-2">Unselect row</button>
 <script>
     $('#exampleButton-2').on('click', function() {
         YOI.component.Table.unselect($('#exampleTable-2 tr').eq(1));
@@ -431,7 +431,7 @@ Pick a `<tr>` and remove it:
         <td>Anorexiants</td>
     </tr>
 </table>
-<button id="exampleButton-3" class="btn btn--large val-t m-t-2">Remove a row</button>
+<button id="exampleButton-3" class="button button--large val-t m-t-2">Remove a row</button>
 <script>
     $('#exampleButton-3').on('click', function() {
         YOI.component.Table.remove($('#exampleTable-3 tr').eq(1));
@@ -487,10 +487,10 @@ Try the example below and watch the custom events, printed to the [log element](
         <td>Anorexiants</td>
     </tr>
 </table>
-<div class="btns">
-    <button id="exampleButton-4" class="btn btn--large">Select a row</button>
-    <button id="exampleButton-5" class="btn btn--large">Deselect a row</button>
-    <button id="exampleButton-6" class="btn btn--large">Remove a row</button>
+<div class="buttons">
+    <button id="exampleButton-4" class="button button--large">Select a row</button>
+    <button id="exampleButton-5" class="button button--large">Deselect a row</button>
+    <button id="exampleButton-6" class="button button--large">Remove a row</button>
 </div>
 <script>
 

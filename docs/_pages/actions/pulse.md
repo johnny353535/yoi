@@ -15,7 +15,7 @@ Add `yoi-action="Pulse:#id;"` to make an element pulse. By default, it pulses tw
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Pulse:#example-1;">Pulse</button>
+<button class="button button--large" yoi-action="Pulse:#example-1;">Pulse</button>
 <div id="example-1" class="box p-4 m-t-4 fs-2">This will pulse two times.</div>
 ```
 
@@ -33,7 +33,7 @@ Add the parameter `times` to define how many times the pulse animation plays:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Pulse:#example-2; times:4;">Pulse Four Times</button>
+<button class="button button--large" yoi-action="Pulse:#example-2; times:4;">Pulse Four Times</button>
 <div id="example-2" class="box p-4 m-t-4 fs-2">This will pulse four times.</div>
 ```
 

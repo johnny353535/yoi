@@ -21,12 +21,12 @@ srcfiles:
 
 ### Responsive Display
 
-| `.only-s--d-[*]` | `.d-[*]` only at breakpoint `s`       |
-| `.m--d-[*]`      | `.d-[*]` at breakpoint `m` and larger |
-| `.only-m--d-[*]` | `.d-[*]` only at breakpoint `m`       |
-| `.l--d-[*]`      | `.d-[*]` at breakpoint `l` and larger |
-| `.only-l--d-[*]` | `.d-[*]` only at breakpoint `l`       |
-| `.xl--d-[*]`     | `.d-[*]` at breakpoint `xl`           |
+| `.only-s:d-[*]` | `.d-[*]` only at breakpoint `s`       |
+| `.m:d-[*]`      | `.d-[*]` at breakpoint `m` and larger |
+| `.only-m:d-[*]` | `.d-[*]` only at breakpoint `m`       |
+| `.l:d-[*]`      | `.d-[*]` at breakpoint `l` and larger |
+| `.only-l:d-[*]` | `.d-[*]` only at breakpoint `l`       |
+| `.xl:d-[*]`     | `.d-[*]` at breakpoint `xl`           |
 
 ## Positioning Type
 
@@ -37,12 +37,12 @@ srcfiles:
 
 ### Responsive Positioning Type
 
-| `.only-s--pos-[*]` | `.pos-[*]` only at breakpoint `s`       |
-| `.m--pos-[*]`      | `.pos-[*]` at breakpoint `m` and larger |
-| `.only-m--pos-[*]` | `.pos-[*]` only at breakpoint `m`       |
-| `.l--pos-[*]`      | `.pos-[*]` at breakpoint `l` and larger |
-| `.only-l--pos-[*]` | `.pos-[*]` only at breakpoint `l`       |
-| `.xl--pos-[*]`     | `.pos-[*]` at breakpoint `xl`           |
+| `.only-s:pos-[*]` | `.pos-[*]` only at breakpoint `s`       |
+| `.m:pos-[*]`      | `.pos-[*]` at breakpoint `m` and larger |
+| `.only-m:pos-[*]` | `.pos-[*]` only at breakpoint `m`       |
+| `.l:pos-[*]`      | `.pos-[*]` at breakpoint `l` and larger |
+| `.only-l:pos-[*]` | `.pos-[*]` only at breakpoint `l`       |
+| `.xl:pos-[*]`     | `.pos-[*]` at breakpoint `xl`           |
 
 ## Absolute Positioning
 
@@ -91,12 +91,12 @@ Add **absolute** positioning with the following utilities, placing an element to
 
 ### Responsive Absolute Positioning
 
-| `.only-s--pos-[*]` | `.pos-[*]` only at breakpoint `s`       |
-| `.m--pos-[*]`      | `.pos-[*]` at breakpoint `m` and larger |
-| `.only-m--pos-[*]` | `.pos-[*]` only at breakpoint `m`       |
-| `.l--pos-[*]`      | `.pos-[*]` at breakpoint `l` and larger |
-| `.only-l--pos-[*]` | `.pos-[*]` only at breakpoint `l`       |
-| `.xl--pos-[*]`     | `.pos-[*]` at breakpoint `xl`           |
+| `.only-s:pos-[*]` | `.pos-[*]` only at breakpoint `s`       |
+| `.m:pos-[*]`      | `.pos-[*]` at breakpoint `m` and larger |
+| `.only-m:pos-[*]` | `.pos-[*]` only at breakpoint `m`       |
+| `.l:pos-[*]`      | `.pos-[*]` at breakpoint `l` and larger |
+| `.only-l:pos-[*]` | `.pos-[*]` only at breakpoint `l`       |
+| `.xl:pos-[*]`     | `.pos-[*]` at breakpoint `xl`           |
 
 ## Micro Positioning
 
@@ -129,12 +129,12 @@ The following example demonstrates the effect of `.pos-t-[1–10]` combined with
 
 ### Responsive Micro Positioning
 
-| `.only-s--pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `s`       |
-| `.m--pos-[*]-[1–10]`      | `.pos-[*]-[1–10]` at breakpoint `m` and larger |
-| `.only-m--pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `m`       |
-| `.l--pos-[*]-[1–10]`      | `.pos-[*]-[1–10]` at breakpoint `l` and larger |
-| `.only-l--pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `l`       |
-| `.xl--pos-[*]-[1–10]`     | `.pos-[*]-[1–10]` at breakpoint `xl`           |
+| `.only-s:pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `s`       |
+| `.m:pos-[*]-[1–10]`      | `.pos-[*]-[1–10]` at breakpoint `m` and larger |
+| `.only-m:pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `m`       |
+| `.l:pos-[*]-[1–10]`      | `.pos-[*]-[1–10]` at breakpoint `l` and larger |
+| `.only-l:pos-[*]-[1–10]` | `.pos-[*]-[1–10]` only at breakpoint `l`       |
+| `.xl:pos-[*]-[1–10]`     | `.pos-[*]-[1–10]` at breakpoint `xl`           |
 
 ## Fixed Positioning
 
@@ -151,12 +151,12 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Fixed Positioning
 
-| `.only-s--pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `s`       |
-| `.m--pos-fixed-[*]`      | `.pos-fixed-[*]` at breakpoint `m` and larger |
-| `.only-m--pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `m`       |
-| `.l--pos-fixed-[*]`      | `.pos-fixed-[*]` at breakpoint `l` and larger |
-| `.only-l--pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `l`       |
-| `.xl--pos-fixed-[*]`     | `.pos-fixed-[*]` at breakpoint `xl`           |
+| `.only-s:pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `s`       |
+| `.m:pos-fixed-[*]`      | `.pos-fixed-[*]` at breakpoint `m` and larger |
+| `.only-m:pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `m`       |
+| `.l:pos-fixed-[*]`      | `.pos-fixed-[*]` at breakpoint `l` and larger |
+| `.only-l:pos-fixed-[*]` | `.pos-fixed-[*]` only at breakpoint `l`       |
+| `.xl:pos-fixed-[*]`     | `.pos-fixed-[*]` at breakpoint `xl`           |
 
 ## Centering
 
@@ -171,12 +171,12 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Centering
 
-| `.only-s--center-[*]` | `.center-[*]` only at breakpoint `s`       |
-| `.m--center-[*]`      | `.center-[*]` at breakpoint `m` and larger |
-| `.only-m--center-[*]` | `.center-[*]` only at breakpoint `m`       |
-| `.l--center-[*]`      | `.center-[*]` at breakpoint `l` and larger |
-| `.only-l--center-[*]` | `.center-[*]` only at breakpoint `l`       |
-| `.xl--center-[*]`     | `.center-[*]` at breakpoint `xl`           |
+| `.only-s:center-[*]` | `.center-[*]` only at breakpoint `s`       |
+| `.m:center-[*]`      | `.center-[*]` at breakpoint `m` and larger |
+| `.only-m:center-[*]` | `.center-[*]` only at breakpoint `m`       |
+| `.l:center-[*]`      | `.center-[*]` at breakpoint `l` and larger |
+| `.only-l:center-[*]` | `.center-[*]` only at breakpoint `l`       |
+| `.xl:center-[*]`     | `.center-[*]` at breakpoint `xl`           |
 
 ## Wrapper and Cover
 
@@ -198,12 +198,12 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Columns
 
-| `.only-s--cls-[2–4]` | `.cls-[2–4]` only at breakpoint `s`       |
-| `.m--cls-[2–4]`      | `.cls-[2–4]` at breakpoint `m` and larger |
-| `.only-m--cls-[2–4]` | `.cls-[2–4]` only at breakpoint `m`       |
-| `.l--cls-[2–4]`      | `.cls-[2–4]` at breakpoint `l` and larger |
-| `.only-l--cls-[2–4]` | `.cls-[2–4]` only at breakpoint `l`       |
-| `.xl--cls-[2–4]`     | `.cls-[2–4]` at breakpoint `xl`           |
+| `.only-s:cls-[2–4]` | `.cls-[2–4]` only at breakpoint `s`       |
+| `.m:cls-[2–4]`      | `.cls-[2–4]` at breakpoint `m` and larger |
+| `.only-m:cls-[2–4]` | `.cls-[2–4]` only at breakpoint `m`       |
+| `.l:cls-[2–4]`      | `.cls-[2–4]` at breakpoint `l` and larger |
+| `.only-l:cls-[2–4]` | `.cls-[2–4]` only at breakpoint `l`       |
+| `.xl:cls-[2–4]`     | `.cls-[2–4]` at breakpoint `xl`           |
 
 ## Vertical Alignment
 
@@ -222,12 +222,12 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Vertical Alignment
 
-| `.only-s--val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `s`       |
-| `.m--val-[t, m, b]`      | `.val-[t, m, b]` at breakpoint `m` and larger |
-| `.only-m--val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `m`       |
-| `.l--val-[t, m, b]`      | `.val-[t, m, b]` at breakpoint `l` and larger |
-| `.only-l--val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `l`       |
-| `.xl--val-[t, m, b]`     | `.val-[t, m, b]` at breakpoint `xl`           |
+| `.only-s:val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `s`       |
+| `.m:val-[t, m, b]`      | `.val-[t, m, b]` at breakpoint `m` and larger |
+| `.only-m:val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `m`       |
+| `.l:val-[t, m, b]`      | `.val-[t, m, b]` at breakpoint `l` and larger |
+| `.only-l:val-[t, m, b]` | `.val-[t, m, b]` only at breakpoint `l`       |
+| `.xl:val-[t, m, b]`     | `.val-[t, m, b]` at breakpoint `xl`           |
 
 ## Float & Clear
 
@@ -240,26 +240,26 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Float & Clear
 
-| `.only-s--fl-[*]` | `.fl-[*]` only at breakpoint `s`       |
-| `.m--fl-[*]`      | `.fl-[*]` at breakpoint `m` and larger |
-| `.only-m--fl-[*]` | `.fl-[*]` only at breakpoint `m`       |
-| `.l--fl-[*]`      | `.fl-[*]` at breakpoint `l` and larger |
-| `.only-l--fl-[*]` | `.fl-[*]` only at breakpoint `l`       |
-| `.xl--fl-[*]`     | `.fl-[*]` at breakpoint `xl`           |
+| `.only-s:fl-[*]` | `.fl-[*]` only at breakpoint `s`       |
+| `.m:fl-[*]`      | `.fl-[*]` at breakpoint `m` and larger |
+| `.only-m:fl-[*]` | `.fl-[*]` only at breakpoint `m`       |
+| `.l:fl-[*]`      | `.fl-[*]` at breakpoint `l` and larger |
+| `.only-l:fl-[*]` | `.fl-[*]` only at breakpoint `l`       |
+| `.xl:fl-[*]`     | `.fl-[*]` at breakpoint `xl`           |
 
-| `.only-s--cl-[*]` | `.cl-[*]` only at breakpoint `s`       |
-| `.m--cl-[*]`      | `.cl-[*]` at breakpoint `m` and larger |
-| `.only-m--cl-[*]` | `.cl-[*]` only at breakpoint `m`       |
-| `.l--cl-[*]`      | `.cl-[*]` at breakpoint `l` and larger |
-| `.only-l--cl-[*]` | `.cl-[*]` only at breakpoint `l`       |
-| `.xl--cl-[*]`     | `.cl-[*]` at breakpoint `xl`           |
+| `.only-s:cl-[*]` | `.cl-[*]` only at breakpoint `s`       |
+| `.m:cl-[*]`      | `.cl-[*]` at breakpoint `m` and larger |
+| `.only-m:cl-[*]` | `.cl-[*]` only at breakpoint `m`       |
+| `.l:cl-[*]`      | `.cl-[*]` at breakpoint `l` and larger |
+| `.only-l:cl-[*]` | `.cl-[*]` only at breakpoint `l`       |
+| `.xl:cl-[*]`     | `.cl-[*]` at breakpoint `xl`           |
 
-| `.only-s--clearfix` | `.clearfix` only at breakpoint `s`       |
-| `.m--clearfix`      | `.clearfix` at breakpoint `m` and larger |
-| `.only-m--clearfix` | `.clearfix` only at breakpoint `m`       |
-| `.l--clearfix`      | `.clearfix` at breakpoint `l` and larger |
-| `.only-l--clearfix` | `.clearfix` only at breakpoint `l`       |
-| `.xl--clearfix`     | `.clearfix` at breakpoint `xl`           |
+| `.only-s:clearfix` | `.clearfix` only at breakpoint `s`       |
+| `.m:clearfix`      | `.clearfix` at breakpoint `m` and larger |
+| `.only-m:clearfix` | `.clearfix` only at breakpoint `m`       |
+| `.l:clearfix`      | `.clearfix` at breakpoint `l` and larger |
+| `.only-l:clearfix` | `.clearfix` only at breakpoint `l`       |
+| `.xl:clearfix`     | `.clearfix` at breakpoint `xl`           |
 
 ## Overflow
 
@@ -270,12 +270,12 @@ Add **fixed** positioning with the following utilities, pinning an element to on
 
 ### Responsive Overflow
 
-| `.only-s--ofl-[*]` | `.ofl-[*]` only at breakpoint `s`       |
-| `.m--ofl-[*]`      | `.ofl-[*]` at breakpoint `m` and larger |
-| `.only-m--ofl-[*]` | `.ofl-[*]` only at breakpoint `m`       |
-| `.l--ofl-[*]`      | `.ofl-[*]` at breakpoint `l` and larger |
-| `.only-l--ofl-[*]` | `.ofl-[*]` only at breakpoint `l`       |
-| `.xl--ofl-[*]`     | `.ofl-[*]` at breakpoint `xl`           |
+| `.only-s:ofl-[*]` | `.ofl-[*]` only at breakpoint `s`       |
+| `.m:ofl-[*]`      | `.ofl-[*]` at breakpoint `m` and larger |
+| `.only-m:ofl-[*]` | `.ofl-[*]` only at breakpoint `m`       |
+| `.l:ofl-[*]`      | `.ofl-[*]` at breakpoint `l` and larger |
+| `.only-l:ofl-[*]` | `.ofl-[*]` only at breakpoint `l`       |
+| `.xl:ofl-[*]`     | `.ofl-[*]` at breakpoint `xl`           |
 
 ## z-Index
 
@@ -303,12 +303,12 @@ Use these utilities to manipulate the order of overlapping, absolutely positione
 
 ### Responsive z-Index
 
-| `.only-s--z-[1–10]` | `.z-[1–10]` only at breakpoint `s`       |
-| `.m--z-[1–10]`      | `.z-[1–10]` at breakpoint `m` and larger |
-| `.only-m--z-[1–10]` | `.z-[1–10]` only at breakpoint `m`       |
-| `.l--z-[1–10]`      | `.z-[1–10]` at breakpoint `l` and larger |
-| `.only-l--z-[1–10]` | `.z-[1–10]` only at breakpoint `l`       |
-| `.xl--z-[1–10]`     | `.z-[1–10]` at breakpoint `xl`           |
+| `.only-s:z-[1–10]` | `.z-[1–10]` only at breakpoint `s`       |
+| `.m:z-[1–10]`      | `.z-[1–10]` at breakpoint `m` and larger |
+| `.only-m:z-[1–10]` | `.z-[1–10]` only at breakpoint `m`       |
+| `.l:z-[1–10]`      | `.z-[1–10]` at breakpoint `l` and larger |
+| `.only-l:z-[1–10]` | `.z-[1–10]` only at breakpoint `l`       |
+| `.xl:z-[1–10]`     | `.z-[1–10]` at breakpoint `xl`           |
 
 ## z-Index 3D
 
@@ -354,9 +354,9 @@ To improve performance, Yoi sets any element with CSS transforms to 3D. This mig
 
 ### Responsive z-Index 3D
 
-| `.only-s--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `s`       |
-| `.m--z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `m` and larger |
-| `.only-m--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `m`       |
-| `.l--z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `l` and larger |
-| `.only-l--z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `l`       |
-| `.xl--z-3d-[1–10]`     | `.z-3d-[1–10]` at breakpoint `xl`           |
+| `.only-s:z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `s`       |
+| `.m:z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `m` and larger |
+| `.only-m:z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `m`       |
+| `.l:z-3d-[1–10]`      | `.z-3d-[1–10]` at breakpoint `l` and larger |
+| `.only-l:z-3d-[1–10]` | `.z-3d-[1–10]` only at breakpoint `l`       |
+| `.xl:z-3d-[1–10]`     | `.z-3d-[1–10]` at breakpoint `xl`           |

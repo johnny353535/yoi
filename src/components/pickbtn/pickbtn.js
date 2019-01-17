@@ -1,27 +1,27 @@
-/** pickbtn.js */
+/** pickbutton.js */
 
-YOI.component.PickBtn = (function() {
+YOI.component.PickButton = (function() {
 
     // private vars
     // ============
 
-    var $icon = $('<span class="pickBtn__icon"></span>');
+    var $icon = $('<span class="pickButton__icon"></span>');
 
     // private functions
     // =================
 
-    function initialize($pickBtn) {
+    function initialize($pickButton) {
 
         /**
          *  Initialize the script.
          *
-         *  @param {jQuery element} $pickBtn
+         *  @param {jQuery element} $pickButton
          *  @param {object}         options
          */
 
-        var $pickBtn = YOI.createCollection('pickBtn', $pickBtn);
+        var $pickButton = YOI.createCollection('pickButton', $pickButton);
 
-        if ($pickBtn) $pickBtn.each(function() {
+        if ($pickButton) $pickButton.each(function() {
 
             // cancel if already initialized
 
@@ -29,23 +29,23 @@ YOI.component.PickBtn = (function() {
 
             // proceed
 
-            var $thisPickBtn = $(this);
+            var $thisPickButton = $(this);
 
-            $thisPickBtn.find('input[type="radio"]').hide();
-            $thisPickBtn.prepend($icon.clone());
+            $thisPickButton.find('input[type="radio"]').hide();
+            $thisPickButton.prepend($icon.clone());
 
             // prevent default event of <label>
 
-            $thisPickBtn.find('label').on('click', function(e) {
+            $thisPickButton.find('label').on('click', function(e) {
                 e.preventDefault();
             });
 
             // bind event to button
 
-            $thisPickBtn.on('click', function(e) {
+            $thisPickButton.on('click', function(e) {
                 e.preventDefault();
-                activate($thisPickBtn);
-                $thisPickBtn.trigger('yoi-pickbtn-change');
+                activate($thisPickButton);
+                $thisPickButton.trigger('yoi-pickbutton-change');
             });
 
             // set initialized
@@ -56,21 +56,21 @@ YOI.component.PickBtn = (function() {
 
     }
 
-    function activate($thisPickBtn) {
+    function activate($thisPickButton) {
 
         /**
          *  Switch a radio button to "active".
          *
-         *  @param  {jQuery object} $thisPickBtn - the pick-button
+         *  @param  {jQuery object} $thisPickButton - the pick-button
          */
 
-        var $icon       = $thisPickBtn.find('.pickBtn__icon');
-        var $radioInput = $thisPickBtn.find('input[type="radio"]');
+        var $icon       = $thisPickButton.find('.pickButton__icon');
+        var $radioInput = $thisPickButton.find('input[type="radio"]');
         var groupName   = $radioInput.attr('name');
 
         // reset all other buttons first
 
-        $('input[name="' + groupName + '"]').closest('.pickBtn').removeClass('is--active');
+        $('input[name="' + groupName + '"]').closest('.pickButton').removeClass('is--active');
         $('input[name="' + groupName + '"]').removeAttr('checked');
         $('input[name="' + groupName + '"]').prop('checked', false);
 
@@ -78,7 +78,7 @@ YOI.component.PickBtn = (function() {
 
         $radioInput.prop('checked', true);
         $radioInput.attr('checked', 'checked');
-        $thisPickBtn.addClass('is--active');
+        $thisPickButton.addClass('is--active');
 
         // blink the icon
 

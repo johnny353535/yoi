@@ -19,8 +19,8 @@
 // ========
 
 .pageDots__dot,
-.pageDots__btnPrev,
-.pageDots__btnNext {
+.pageDots__buttonPrev,
+.pageDots__buttonNext {
 
     color: @color-base-21;
     cursor: pointer;
@@ -42,8 +42,8 @@
     width: 2rem;
 }
 
-.pageDots__btnPrev,
-.pageDots__btnNext {
+.pageDots__buttonPrev,
+.pageDots__buttonNext {
     height: 2.5rem;
     width: 3rem;
 }
@@ -64,37 +64,37 @@
 
 // arrow-left icon
 
-.pageDots__btnPrev::after {
+.pageDots__buttonPrev::after {
     .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-15);
 }
 
-.pageDots__btnPrev:hover::after {
+.pageDots__buttonPrev:hover::after {
     .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-8);
 }
 
 // arrow-right icon
 
-.pageDots__btnNext::after {
+.pageDots__buttonNext::after {
     .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-15);
 }
 
-.pageDots__btnNext:hover::after {
+.pageDots__buttonNext:hover::after {
     .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-8);
 }
 
 // disabled
 
-.pageDots__btnPrev.is--disabled::after ,
-.pageDots__btnNext.is--disabled::after {
+.pageDots__buttonPrev.is--disabled::after ,
+.pageDots__buttonNext.is--disabled::after {
     cursor: default;
     opacity: .3;
 }
 
-.pageDots__btnPrev.is--disabled:hover::after {
+.pageDots__buttonPrev.is--disabled:hover::after {
     .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-15);
 }
 
-.pageDots__btnNext.is--disabled:hover::after {
+.pageDots__buttonNext.is--disabled:hover::after {
     .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-15);
 }
 
@@ -121,31 +121,31 @@
 
     // arrow-left icon
 
-    .pageDots__btnPrev::after {
+    .pageDots__buttonPrev::after {
         .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-17);
     }
 
-    .pageDots__btnPrev:hover::after {
+    .pageDots__buttonPrev:hover::after {
         .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-23);
     }
 
     // arrow-right icon
 
-    .pageDots__btnNext::after {
+    .pageDots__buttonNext::after {
         .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-17);
     }
 
-    .pageDots__btnNext:hover::after {
+    .pageDots__buttonNext:hover::after {
         .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-23);
     }
 
     // disabled
 
-    .pageDots__btnPrev.is--disabled:hover::after {
+    .pageDots__buttonPrev.is--disabled:hover::after {
         .mixin-icon-bg(@id: 'icon-008-s', @width: 24, @height: 24, @fillColor: @color-base-17);
     }
 
-    .pageDots__btnNext.is--disabled:hover::after {
+    .pageDots__buttonNext.is--disabled:hover::after {
         .mixin-icon-bg(@id: 'icon-007-s', @width: 24, @height: 24, @fillColor: @color-base-17);
     }
 

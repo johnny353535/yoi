@@ -12,7 +12,7 @@ status: [draft, incomplete]
 
 ```html
 <!-- example -->
-<div class="slider" yoi-slider="control:pageBtns--tr; transition:fade;">
+<div class="slider" yoi-slider="control:pageButtons--tr; transition:fade;">
     <div class="slider__slides">
         <div class="slider__slide">
             <img src="https://source.unsplash.com/g30P1zcOzXo/760x350" alt="" />

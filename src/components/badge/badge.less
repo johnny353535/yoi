@@ -7,8 +7,10 @@
 
     .mixin-defaultBorderRadius;
     display: inline-block;
-    font: bold 1.3rem/2rem @font-sansserif;
-    padding: 0 1rem;
+    font: bold 1rem @font-sansserif;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 .75rem;
     text-align: center;
     text-shadow: none;
 
@@ -24,17 +26,24 @@
 // =========
 
 .badge--small {
-    font: bold 1.1rem/1.5rem @font-sansserif;
+    font: bold .88rem @font-sansserif;
+    height: 1.5rem;
+    line-height: 1.5rem;
     padding: 0 .5rem;
 }
 
-.badge--medium {
-    font: bold 1.5rem/2.5rem @font-sansserif;
+.badge--large {
+    font: bold 1.13rem @font-sansserif;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1rem;
 }
 
-.badge--large {
-    font: bold 2rem/3rem @font-sansserif;
-    padding: 0 15px;
+.badge--xlarge {
+    font: bold 1.25rem @font-sansserif;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1.5rem;
 }
 
 .badge {
@@ -92,19 +101,19 @@
 }
 
 .badge--rounded {
-    border-radius: 1.1rem;
+    border-radius: .95rem;
 }
 
 .badge--small.badge--rounded {
     border-radius: .7rem;
 }
 
-.badge--medium.badge--rounded {
+.badge--large.badge--rounded {
     border-radius: 1.2rem;
 }
 
-.badge--large.badge--rounded {
-    border-radius: 1.5rem;
+.badge--xlarge.badge--rounded {
+    border-radius: 1.7rem;
 }
 
 // badge groups

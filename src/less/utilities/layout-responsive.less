@@ -4,116 +4,116 @@
 
     // display
 
-    .@{bpPrefix}--d-inline      { .d-inline; }
-    .@{bpPrefix}--d-block       { .d-block; }
-    .@{bpPrefix}--d-inlineblock { .d-inlineblock; }
-    .@{bpPrefix}--d-none        { .d-none; }
+    .@{bpPrefix}\:d-inline      { .d-inline; }
+    .@{bpPrefix}\:d-block       { .d-block; }
+    .@{bpPrefix}\:d-inlineblock { .d-inlineblock; }
+    .@{bpPrefix}\:d-none        { .d-none; }
 
     // position type
 
-    .@{bpPrefix}--pos-absolute { .pos-absolute; }
-    .@{bpPrefix}--pos-relative { .pos-relative; }
-    .@{bpPrefix}--pos-fixed    { .pos-fixed; }
-    .@{bpPrefix}--pos-static   { .pos-static; }
+    .@{bpPrefix}\:pos-absolute { .pos-absolute; }
+    .@{bpPrefix}\:pos-relative { .pos-relative; }
+    .@{bpPrefix}\:pos-fixed    { .pos-fixed; }
+    .@{bpPrefix}\:pos-static   { .pos-static; }
 
     // absolute positioning
 
-    .@{bpPrefix}--pos-t    { .pos-t;  }
-    .@{bpPrefix}--pos-r    { .pos-r;  }
-    .@{bpPrefix}--pos-b    { .pos-b;  }
-    .@{bpPrefix}--pos-l    { .pos-l;  }
-    .@{bpPrefix}--pos-tl   { .pos-tl; }
-    .@{bpPrefix}--pos-tr   { .pos-tr; }
-    .@{bpPrefix}--pos-br   { .pos-br; }
-    .@{bpPrefix}--pos-bl   { .pos-bl; }
+    .@{bpPrefix}\:pos-t    { .pos-t;  }
+    .@{bpPrefix}\:pos-r    { .pos-r;  }
+    .@{bpPrefix}\:pos-b    { .pos-b;  }
+    .@{bpPrefix}\:pos-l    { .pos-l;  }
+    .@{bpPrefix}\:pos-tl   { .pos-tl; }
+    .@{bpPrefix}\:pos-tr   { .pos-tr; }
+    .@{bpPrefix}\:pos-br   { .pos-br; }
+    .@{bpPrefix}\:pos-bl   { .pos-bl; }
 
     // fixed positioning
 
-    .@{bpPrefix}--pos-fixed-t  { .pos-fixed-t;  }
-    .@{bpPrefix}--pos-fixed-r  { .pos-fixed-r;  }
-    .@{bpPrefix}--pos-fixed-b  { .pos-fixed-b;  }
-    .@{bpPrefix}--pos-fixed-l  { .pos-fixed-l;  }
-    .@{bpPrefix}--pos-fixed-tl { .pos-fixed-tl; }
-    .@{bpPrefix}--pos-fixed-tr { .pos-fixed-tr; }
-    .@{bpPrefix}--pos-fixed-br { .pos-fixed-br; }
-    .@{bpPrefix}--pos-fixed-bl { .pos-fixed-bl; }
+    .@{bpPrefix}\:pos-fixed-t  { .pos-fixed-t;  }
+    .@{bpPrefix}\:pos-fixed-r  { .pos-fixed-r;  }
+    .@{bpPrefix}\:pos-fixed-b  { .pos-fixed-b;  }
+    .@{bpPrefix}\:pos-fixed-l  { .pos-fixed-l;  }
+    .@{bpPrefix}\:pos-fixed-tl { .pos-fixed-tl; }
+    .@{bpPrefix}\:pos-fixed-tr { .pos-fixed-tr; }
+    .@{bpPrefix}\:pos-fixed-br { .pos-fixed-br; }
+    .@{bpPrefix}\:pos-fixed-bl { .pos-fixed-bl; }
 
     // position utilities for micro layout fixes
 
     .generate_pos (@i) when (@i > 0) {
         .generate_pos((@i - 1));
 
-        .@{bpPrefix}--pos-t-@{i} { top: 1px * @i !important; }
-        .@{bpPrefix}--pos-r-@{i} { right: 1px * @i !important; }
-        .@{bpPrefix}--pos-b-@{i} { bottom: 1px * @i !important; }
-        .@{bpPrefix}--pos-l-@{i} { left: 1px * @i !important; }
+        .@{bpPrefix}\:pos-t-@{i} { top: 1px * @i !important; }
+        .@{bpPrefix}\:pos-r-@{i} { right: 1px * @i !important; }
+        .@{bpPrefix}\:pos-b-@{i} { bottom: 1px * @i !important; }
+        .@{bpPrefix}\:pos-l-@{i} { left: 1px * @i !important; }
 
     }
     .generate_pos(@responsivePositionSteps);
 
     // css columns
 
-    .@{bpPrefix}--cls-2,
-    .@{bpPrefix}--cls-3,
-    .@{bpPrefix}--cls-4 {
+    .@{bpPrefix}\:cls-2,
+    .@{bpPrefix}\:cls-3,
+    .@{bpPrefix}\:cls-4 {
         & > :first-child {
             margin-top: 0 !important;
         }
     }
 
-    .@{bpPrefix}--cls-2 { .cls-2; }
-    .@{bpPrefix}--cls-3 { .cls-3; }
-    .@{bpPrefix}--cls-4 { .cls-4; }
+    .@{bpPrefix}\:cls-2 { .cls-2; }
+    .@{bpPrefix}\:cls-3 { .cls-3; }
+    .@{bpPrefix}\:cls-4 { .cls-4; }
 
     // vertical alignment
 
-    .@{bpPrefix}--val-m { .val-m; }
-    .@{bpPrefix}--val-t { .val-t; }
-    .@{bpPrefix}--val-b { .val-b; }
+    .@{bpPrefix}\:val-m { .val-m; }
+    .@{bpPrefix}\:val-t { .val-t; }
+    .@{bpPrefix}\:val-b { .val-b; }
 
     // float & clear
 
-    .@{bpPrefix}--fl-r { .fl-r; }
-    .@{bpPrefix}--fl-l { .fl-l; }
+    .@{bpPrefix}\:fl-r { .fl-r; }
+    .@{bpPrefix}\:fl-l { .fl-l; }
 
-    .@{bpPrefix}--cl-r { .cl-r; }
-    .@{bpPrefix}--cl-l { .cl-l; }
-    .@{bpPrefix}--cl-b { .cl-b; }
+    .@{bpPrefix}\:cl-r { .cl-r; }
+    .@{bpPrefix}\:cl-l { .cl-l; }
+    .@{bpPrefix}\:cl-b { .cl-b; }
 
-    .@{bpPrefix}--clearfix { .mixin-clearfix !important; }
+    .@{bpPrefix}\:clearfix { .mixin-clearfix !important; }
 
     // overflow
 
-    .@{bpPrefix}--ofl-x-hidden { .ofl-x-hidden }
-    .@{bpPrefix}--ofl-y-hidden { .ofl-y-hidden; }
-    .@{bpPrefix}--ofl-hidden   { .ofl-hidden; }
-    .@{bpPrefix}--ofl-visible  { .ofl-visible; }
+    .@{bpPrefix}\:ofl-x-hidden { .ofl-x-hidden }
+    .@{bpPrefix}\:ofl-y-hidden { .ofl-y-hidden; }
+    .@{bpPrefix}\:ofl-hidden   { .ofl-hidden; }
+    .@{bpPrefix}\:ofl-visible  { .ofl-visible; }
 
     // z-index
 
-    .@{bpPrefix}--z-1  { .z-1; }
-    .@{bpPrefix}--z-2  { .z-2; }
-    .@{bpPrefix}--z-3  { .z-3; }
-    .@{bpPrefix}--z-4  { .z-4; }
-    .@{bpPrefix}--z-5  { .z-5; }
-    .@{bpPrefix}--z-6  { .z-6; }
-    .@{bpPrefix}--z-7  { .z-7; }
-    .@{bpPrefix}--z-8  { .z-8; }
-    .@{bpPrefix}--z-9  { .z-9; }
-    .@{bpPrefix}--z-10 { .z-10; }
+    .@{bpPrefix}\:z-1  { .z-1; }
+    .@{bpPrefix}\:z-2  { .z-2; }
+    .@{bpPrefix}\:z-3  { .z-3; }
+    .@{bpPrefix}\:z-4  { .z-4; }
+    .@{bpPrefix}\:z-5  { .z-5; }
+    .@{bpPrefix}\:z-6  { .z-6; }
+    .@{bpPrefix}\:z-7  { .z-7; }
+    .@{bpPrefix}\:z-8  { .z-8; }
+    .@{bpPrefix}\:z-9  { .z-9; }
+    .@{bpPrefix}\:z-10 { .z-10; }
 
     // z-index 3D
 
-    .@{bpPrefix}z-3d-1  { .z-3d-1; }
-    .@{bpPrefix}z-3d-2  { .z-3d-2; }
-    .@{bpPrefix}z-3d-3  { .z-3d-3; }
-    .@{bpPrefix}z-3d-4  { .z-3d-4; }
-    .@{bpPrefix}z-3d-5  { .z-3d-5; }
-    .@{bpPrefix}z-3d-6  { .z-3d-6; }
-    .@{bpPrefix}z-3d-7  { .z-3d-7; }
-    .@{bpPrefix}z-3d-8  { .z-3d-8; }
-    .@{bpPrefix}z-3d-9  { .z-3d-9; }
-    .@{bpPrefix}z-3d-10 { .z-3d-10; }
+    .@{bpPrefix}\:z-3d-1  { .z-3d-1; }
+    .@{bpPrefix}\:z-3d-2  { .z-3d-2; }
+    .@{bpPrefix}\:z-3d-3  { .z-3d-3; }
+    .@{bpPrefix}\:z-3d-4  { .z-3d-4; }
+    .@{bpPrefix}\:z-3d-5  { .z-3d-5; }
+    .@{bpPrefix}\:z-3d-6  { .z-3d-6; }
+    .@{bpPrefix}\:z-3d-7  { .z-3d-7; }
+    .@{bpPrefix}\:z-3d-8  { .z-3d-8; }
+    .@{bpPrefix}\:z-3d-9  { .z-3d-9; }
+    .@{bpPrefix}\:z-3d-10 { .z-3d-10; }
 
 }
 

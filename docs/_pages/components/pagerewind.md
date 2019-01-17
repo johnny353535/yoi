@@ -27,7 +27,7 @@ Scroll the page back to top with the [action]({{ site.github.url }}/actions/) `P
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="PageRewind.run;">Scroll to Top</button>
+<button class="button button--large" yoi-action="PageRewind.run;">Scroll to Top</button>
 ```
 
 ### Custom Events

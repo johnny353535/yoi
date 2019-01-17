@@ -4,65 +4,65 @@
 
     // fractional width
 
-    .@{bpPrefix}--w-1-1,
-    .@{bpPrefix}--w-1-2,
-    .@{bpPrefix}--w-1-3,
-    .@{bpPrefix}--w-1-4,
-    .@{bpPrefix}--w-1-5,
-    .@{bpPrefix}--w-1-6,
-    .@{bpPrefix}--w-2-3,
-    .@{bpPrefix}--w-2-5,
-    .@{bpPrefix}--w-3-4,
-    .@{bpPrefix}--w-3-5,
-    .@{bpPrefix}--w-4-5,
-    .@{bpPrefix}--w-auto {
+    .@{bpPrefix}\:w-1-1,
+    .@{bpPrefix}\:w-1-2,
+    .@{bpPrefix}\:w-1-3,
+    .@{bpPrefix}\:w-1-4,
+    .@{bpPrefix}\:w-1-5,
+    .@{bpPrefix}\:w-1-6,
+    .@{bpPrefix}\:w-2-3,
+    .@{bpPrefix}\:w-2-5,
+    .@{bpPrefix}\:w-3-4,
+    .@{bpPrefix}\:w-3-5,
+    .@{bpPrefix}\:w-4-5,
+    .@{bpPrefix}\:w-auto {
         box-sizing: border-box !important;
     }
 
-    .@{bpPrefix}--w-1-1 { .w-1-1; }
-    .@{bpPrefix}--w-1-2 { .w-1-2; }
-    .@{bpPrefix}--w-1-3 { .w-1-3; }
-    .@{bpPrefix}--w-1-4 { .w-1-4; }
-    .@{bpPrefix}--w-1-5 { .w-1-5; }
-    .@{bpPrefix}--w-1-6 { .w-1-6; }
-    .@{bpPrefix}--w-2-3 { .w-2-3; }
-    .@{bpPrefix}--w-2-5 { .w-2-5; }
-    .@{bpPrefix}--w-3-4 { .w-3-4; }
-    .@{bpPrefix}--w-3-5 { .w-3-5; }
-    .@{bpPrefix}--w-4-5 { .w-4-5; }
+    .@{bpPrefix}\:w-1-1 { .w-1-1; }
+    .@{bpPrefix}\:w-1-2 { .w-1-2; }
+    .@{bpPrefix}\:w-1-3 { .w-1-3; }
+    .@{bpPrefix}\:w-1-4 { .w-1-4; }
+    .@{bpPrefix}\:w-1-5 { .w-1-5; }
+    .@{bpPrefix}\:w-1-6 { .w-1-6; }
+    .@{bpPrefix}\:w-2-3 { .w-2-3; }
+    .@{bpPrefix}\:w-2-5 { .w-2-5; }
+    .@{bpPrefix}\:w-3-4 { .w-3-4; }
+    .@{bpPrefix}\:w-3-5 { .w-3-5; }
+    .@{bpPrefix}\:w-4-5 { .w-4-5; }
 
     // auto width & height
 
-    .@{bpPrefix}--w-auto { .w-auto; }
-    .@{bpPrefix}--h-auto { .h-auto; }
+    .@{bpPrefix}\:w-auto { .w-auto; }
+    .@{bpPrefix}\:h-auto { .h-auto; }
 
     // full width & height
 
-    .@{bpPrefix}--w-full { .w-full; }
-    .@{bpPrefix}--h-full { .h-full; }
+    .@{bpPrefix}\:w-full { .w-full; }
+    .@{bpPrefix}\:h-full { .h-full; }
 
     // fixed width & height
 
     .generate_width_height (@i) when (@i > 0) {
         .generate_width_height((@i - 1));
-        .@{bpPrefix}--w-@{i} { width:  @sizingMultiplicand * @i !important; }
-        .@{bpPrefix}--h-@{i} { height: @sizingMultiplicand * @i !important; }
+        .@{bpPrefix}\:w-@{i} { width:  @sizingMultiplicand * @i !important; }
+        .@{bpPrefix}\:h-@{i} { height: @sizingMultiplicand * @i !important; }
     }
     .generate_width_height(@responsiveSizingSteps);
 
-    .@{bpPrefix}--w-viewport { .w-viewport; }
-    .@{bpPrefix}--h-viewport { .h-viewport; }
+    .@{bpPrefix}\:w-viewport { .w-viewport; }
+    .@{bpPrefix}\:h-viewport { .h-viewport; }
 
     // maximum & minimum width & height
 
-    .@{bpPrefix}--w-max-full     { .w-max-full; }
-    .@{bpPrefix}--w-max-viewport { .w-max-viewport; }
-    .@{bpPrefix}--h-max-full     { .h-max-full; }
-    .@{bpPrefix}--h-max-viewport { .h-max-viewport; }
-    .@{bpPrefix}--w-min-full     { .w-min-full; }
-    .@{bpPrefix}--w-min-viewport { .w-min-viewport; }
-    .@{bpPrefix}--h-min-full     { .h-min-full; }
-    .@{bpPrefix}--h-min-viewport { .h-min-viewport; }
+    .@{bpPrefix}\:w-max-full     { .w-max-full; }
+    .@{bpPrefix}\:w-max-viewport { .w-max-viewport; }
+    .@{bpPrefix}\:h-max-full     { .h-max-full; }
+    .@{bpPrefix}\:h-max-viewport { .h-max-viewport; }
+    .@{bpPrefix}\:w-min-full     { .w-min-full; }
+    .@{bpPrefix}\:w-min-viewport { .w-min-viewport; }
+    .@{bpPrefix}\:h-min-full     { .h-min-full; }
+    .@{bpPrefix}\:h-min-viewport { .h-min-viewport; }
 
 }
 

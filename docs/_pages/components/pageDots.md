@@ -19,7 +19,7 @@ This is how a basic `.pageDots` looks like and how you write the markup:
 <!-- example -->
 <div class="box bg-gray-22 b-0 p-4">
     <div class="pageDots">
-        <a class="pageDots__btnPrev">
+        <a class="pageDots__buttonPrev">
             <span class="hidden">Previous</span>
         </a>
         <a class="pageDots__dot is--active">
@@ -31,7 +31,7 @@ This is how a basic `.pageDots` looks like and how you write the markup:
         <a class="pageDots__dot">
             <span class="hidden">3</span>
         </a>
-        <a class="pageDots__btnNext">
+        <a class="pageDots__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>
@@ -50,7 +50,7 @@ Add the modifier `.pageDots--dark` to render a dark version:
 <!-- example -->
 <div class="box bg-gray-22 b-0 p-4">
     <div class="pageDots pageDots--dark">
-        <a class="pageDots__btnPrev">
+        <a class="pageDots__buttonPrev">
             <span class="hidden">Previous</span>
         </a>
         <a class="pageDots__dot is--active">
@@ -62,7 +62,7 @@ Add the modifier `.pageDots--dark` to render a dark version:
         <a class="pageDots__dot">
             <span class="hidden">3</span>
         </a>
-        <a class="pageDots__btnNext">
+        <a class="pageDots__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>
@@ -77,7 +77,7 @@ The default `.pageDots` background is white. Add the modifier `.pageDots--subtle
 <!-- example -->
 <div class="box bg-gray-5 b-0 p-4">
     <div class="pageDots pageDots--subtle">
-        <a class="pageDots__btnPrev">
+        <a class="pageDots__buttonPrev">
             <span class="hidden">Previous</span>
         </a>
         <a class="pageDots__dot is--active">
@@ -89,7 +89,7 @@ The default `.pageDots` background is white. Add the modifier `.pageDots--subtle
         <a class="pageDots__dot">
             <span class="hidden">3</span>
         </a>
-        <a class="pageDots__btnNext">
+        <a class="pageDots__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>
@@ -98,13 +98,13 @@ The default `.pageDots` background is white. Add the modifier `.pageDots--subtle
 
 ### Disabled
 
-Use the global modifier `.is--disabled` on the child elements `.pageDots__btnPrev` or `.pageDots__btnNext` to mark them as disabled:
+Use the global modifier `.is--disabled` on the child elements `.pageDots__buttonPrev` or `.pageDots__buttonNext` to mark them as disabled:
 
 ```html
 <!-- example -->
 <div class="box bg-gray-22 b-0 p-4">
     <div class="pageDots">
-        <a class="pageDots__btnPrev is--disabled">
+        <a class="pageDots__buttonPrev is--disabled">
             <span class="hidden">Previous</span>
         </a>
         <a class="pageDots__dot is--active">
@@ -116,7 +116,7 @@ Use the global modifier `.is--disabled` on the child elements `.pageDots__btnPre
         <a class="pageDots__dot">
             <span class="hidden">3</span>
         </a>
-        <a class="pageDots__btnNext">
+        <a class="pageDots__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>

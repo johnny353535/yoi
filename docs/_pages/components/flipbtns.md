@@ -1,27 +1,27 @@
 ---
 layout: base
 group: components
-title: FlipBtns
-permalink: components/flipbtns
+title: FlipButtons
+permalink: components/flipbuttons
 ---
 
-# FlipBtns
+# FlipButtons
 
 <p class="intro">Previous- & next-buttons on the left and right side of their container.</p>
-<p class="hint hint--primary"><b>Use Cases:</b> <code>.flipBtns</code> are typically used in combination with the <a href="{{ site.github.url }}/components/slider.html">.slider</a> element.</p>
+<p class="hint hint--primary"><b>Use Cases:</b> <code>.flipButtons</code> are typically used in combination with the <a href="{{ site.github.url }}/components/slider.html">.slider</a> element.</p>
 
 ## Basic Example
 
-This is how a basic `.flipBtns` looks like and how you write the markup:
+This is how a basic `.flipButtons` looks like and how you write the markup:
 
 ```html
 <!-- example -->
 <div class="box h-15 m-lr-5">
-    <div class="flipBtns">
-        <a class="flipBtns__btnPrev">
+    <div class="flipButtons">
+        <a class="flipButtons__buttonPrev">
             <span class="hidden">Previous</span>
         </a>
-        <a class="flipBtns__btnNext">
+        <a class="flipButtons__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>
@@ -32,16 +32,16 @@ This is how a basic `.flipBtns` looks like and how you write the markup:
 
 ### Position
 
-Use the modifier `.flipBtns--inset` to place the buttons on the inside of their container:
+Use the modifier `.flipButtons--inset` to place the buttons on the inside of their container:
 
 ```html
 <!-- example -->
 <div class="box h-15">
-    <div class="flipBtns flipBtns--inset">
-        <a class="flipBtns__btnPrev">
+    <div class="flipButtons flipButtons--inset">
+        <a class="flipButtons__buttonPrev">
             <span class="hidden">Previous</span>
         </a>
-        <a class="flipBtns__btnNext">
+        <a class="flipButtons__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>
@@ -50,16 +50,16 @@ Use the modifier `.flipBtns--inset` to place the buttons on the inside of their 
 
 ### Disabled
 
-Use the global modifier `.is--disabled` on the child elements `.flipBtns__btnPrev` or `.flipBtns__btnNext` to mark them as disabled:
+Use the global modifier `.is--disabled` on the child elements `.flipButtons__buttonPrev` or `.flipButtons__buttonNext` to mark them as disabled:
 
 ```html
 <!-- example -->
 <div class="box h-15 m-lr-5">
-    <div class="flipBtns">
-        <a class="flipBtns__btnPrev is--disabled">
+    <div class="flipButtons">
+        <a class="flipButtons__buttonPrev is--disabled">
             <span class="hidden">Previous</span>
         </a>
-        <a class="flipBtns__btnNext">
+        <a class="flipButtons__buttonNext">
             <span class="hidden">Next</span>
         </a>
     </div>

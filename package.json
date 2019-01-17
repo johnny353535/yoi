@@ -1,6 +1,6 @@
 {
   "name": "yoshino-yoi",
-  "version": "0.1.61",
+  "version": "1.0.0",
   "description": "The Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
   "devDependencies": {
@@ -16,7 +16,7 @@
   "scripts": {
     "postinstall": "npm run install-jekyll && npm run install-gems && bower update",
     "install-jekyll": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll",
-    "install-gems": "cd docs && bundle install",
+    "install-gems": "cd docs && gem install bundler && bundle install",
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
     "build-jekyll": "cd docs && bundle exec jekyll build --config _config.yml",
     "build-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
