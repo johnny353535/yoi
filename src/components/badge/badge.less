@@ -39,13 +39,6 @@
     padding: 0 1rem;
 }
 
-.badge--xlarge {
-    font: bold 1.25rem @font-sansserif;
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 1.5rem;
-}
-
 .badge {
     .constr-badge(
         @txtColor: @color-base-10,
@@ -112,18 +105,14 @@
     border-radius: 1.2rem;
 }
 
-.badge--xlarge.badge--rounded {
-    border-radius: 1.7rem;
-}
-
 // badge groups
 
 .badges {
-    
+
     font-size: 0;
-    
+
     .badge {
-        
+
         border-radius: 0;
 
         &:first-child {
@@ -135,11 +124,11 @@
             border-bottom-right-radius: @defaultBorderRadius * 1px;
             border-top-right-radius: @defaultBorderRadius * 1px;
         }
-        
+
     }
-    
+
     .badge--rounded {
-        
+
         border-radius: 0;
 
         &:first-child {
@@ -151,7 +140,7 @@
             border-bottom-right-radius: @defaultBorderRadius * 1.1rem;
             border-top-right-radius: @defaultBorderRadius * 1.1rem;
         }
-        
+
     }
 
 }
