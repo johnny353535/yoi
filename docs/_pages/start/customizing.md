@@ -63,7 +63,7 @@ src
 | `@htmlBackgroundColor` | `@color-white`                 | Background color of the `html` tag                     |
 | `@bodyBackgroundColor` | `@color-white`                 | Background color of the `body` tag                     |
 | `@textColor`           | `@color-base-8`                | Global text color                                      |
-| `@focusColor`          | `@blue-22`                     | Highlight color for active elements (eg. a text input) |
+| `@focusColor`          | `@color-blue-22`               | Highlight color for active elements (eg. a text input) |
 | `@selectionColor`      | `fade(@color-primary-25, 50%)` | Highlight color for selected text                      |
 
 #### Color Palette
