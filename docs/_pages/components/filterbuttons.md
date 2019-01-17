@@ -1,8 +1,8 @@
 ---
 layout: base
 group: components
-title: FilterBtns
-permalink: components/filterbtns
+title: FilterButtons
+permalink: components/filterbuttons
 ---
 
 # FilterButtons
