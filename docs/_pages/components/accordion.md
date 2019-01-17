@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Accordion
 permalink: components/accordion
-status: [draft, issues]
 ---
 
 # Accordion
@@ -135,40 +134,3 @@ Close all accordions on the page by using the [action]({{ site.github.url }}/act
 | --------------------- | ---------------------------- |
 | `yoi-accordion-open`  | An accordion section opens.  |
 | `yoi-accordion-close` | An accordion section closes. |
-
-Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
-
-```html
-<!-- example:tabs -->
-<div id="myLog" class="log log--light m-b-4" yoi-log>
-    <div class="log__body">
-        <p>Listening</p>
-    </div>
-</div>
-<div id="myAccordion" class="accordion" yoi-accordion>
-    <div class="accordion__section">
-        <div class="accordion__header">
-            <h4>Section One</h4>
-        </div>
-        <div class="accordion__body">
-            <p>Content of section one.</p>
-        </div>
-    </div>
-    <div class="accordion__section">
-        <div class="accordion__header">
-            <h4>Section Two</h4>
-        </div>
-        <div class="accordion__body">
-            <p>Content of section two.</p>
-        </div>
-    </div>
-</div>
-<script>
-    $('#myAccordion').on('yoi-accordion-open', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-accordion-open');
-    });
-    $('#myAccordion').on('yoi-accordion-close', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-accordion-close');
-    });
-</script>
-```

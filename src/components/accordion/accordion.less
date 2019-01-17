@@ -40,18 +40,24 @@
     &:hover {
         background: @color-base-25;
     }
-    
+
     &:focus {
         box-shadow: none;
         outline: none;
     }
 
+    // titles
+
+    h1, h2, h3, h4, h5, h6 {
+        .mixin-fs-2;
+    }
+
     // icon
 
     &::after {
-        margin-top: -1.6rem;
+        margin-top: -1rem;
         position: absolute;
-        right: 0;
+        right: .5rem;
         top: 50%;
     }
 
@@ -64,8 +70,8 @@
     .is--open .accordion__header::after,
     .is--closed .accordion__header::after {
         content: ' ';
-        height: 3.2rem;
-        width: 3.2rem;
+        height: 2rem;
+        width: 2rem;
     }
 
     .is--open .accordion__header::after {
