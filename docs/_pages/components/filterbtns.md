@@ -3,7 +3,6 @@ layout: base
 group: components
 title: FilterBtns
 permalink: components/filterbtns
-status: draft
 ---
 
 # FilterBtns
@@ -70,62 +69,4 @@ By adding the modifier `.filterBtns--removeable`, the button filters turn into s
         <a href="#">Silicon</a>
     </li>
 </ul>
-```
-
-## Modifiers
-
-In addition to `.filterBtns--removeable`, a dark styling is available via `.filterBtns--dark`:
-
-```html
-<!-- example:tabs -->
-<div class="m-b-4">
-    <ul class="filterBtns filterBtns--dark" yoi-filterbtns>
-        <li class="filterBtns__btn">
-            <a href="#">Hydrogen</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Helium</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Lithium</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Beryllium</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Boron</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Carbon</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Nitrogen</a>
-        </li>
-    </ul>
-</div>
-<div>
-    <ul class="filterBtns filterBtns--dark filterBtns--removeable" yoi-filterbtns>
-        <li class="filterBtns__btn">
-            <a href="#">Oxygen</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Fluorine</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Neon</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Sodium</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Magnesium</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Aluminum</a>
-        </li>
-        <li class="filterBtns__btn">
-            <a href="#">Silicon</a>
-        </li>
-    </ul>
-</div>
 ```

@@ -13,17 +13,17 @@
 
 .filterBtns__btn {
 
+    .mixin-fs-2;
+    .mixin-fw-bold;
     background: @color-base-24;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     box-sizing: border-box;
     color: @color-base-8;
     display: inline-block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    height: 3rem;
-    line-height: 3rem;
+    height: 2rem;
+    line-height: 2rem;
     margin: 0 .5rem .5rem 0;
-    padding: 0 1.25rem;
+    padding: 0 1.5rem 0 .75rem;
 
     &:hover {
         background: @color-base-23;
@@ -41,37 +41,6 @@
 
 // modifiers
 // =========
-
-// dark buttons
-
-.filterBtns--dark {
-
-    .filterBtns__btn {
-
-        background: @color-base-11;
-        color: @color-white;
-
-        a,
-        a:link,
-        a:visited {
-            color: @color-white;
-        }
-
-    }
-
-    .filterBtns__btn:hover {
-        background: @color-base-9;
-    }
-
-    .filterBtns__btn a::after {
-        .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-18);
-    }
-
-    .filterBtns__btn a:hover::after {
-        .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-white);
-    }
-
-}
 
 // removeable buttons
 
@@ -112,12 +81,12 @@
         .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-17);
         content: ' ';
         display: inline-block;
-        height: 3rem;
+        height: 2rem;
         margin-left: -1.25rem;
         position: relative;
-        right: -1rem;
+        right: -1.25rem;
         vertical-align: top;
-        width: 3.2rem;
+        width: 2rem;
     }
 
     a:hover::after {
