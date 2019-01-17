@@ -23,16 +23,6 @@
 // elements
 // ========
 
-.countdown__title {
-    clear: both;
-    color: @color-base-25;
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: .5rem 1rem;
-    text-shadow: @color-base-5 0 -1px 0;
-}
-
 .countdown__clock {
     overflow: hidden;
 }
@@ -62,10 +52,10 @@
 .countdown__seconds {}
 
 .countdown__label {
+    .mixin-fs-2;
+    .mixin-fw-bold;
     color: @color-base-20;
     display: block;
-    font-size: 1.3rem;
-    font-weight: bold;
     position: relative;
     text-shadow: @color-base-5 0 -1px 0;
 }

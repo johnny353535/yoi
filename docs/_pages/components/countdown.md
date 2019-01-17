@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Countdown
 permalink: components/countdown
-status: draft
 ---
 
 # Countdown
@@ -20,17 +19,6 @@ This is how a basic `.countdown` looks like and how you write the markup:
 ```
 
 <p class="hint hint--negative"><b>Limitations</b> Please notice that while the countdown was <i>designed to count down to an event less than 12 months in the future</i>.</p>
-
-## Countdown With Optional Title
-
-Add an element with the css class name `countdown__title` to add an optional title.
-
-```html
-<!-- example -->
-<div class="countdown" yoi-countdown="year:{{ 'now' | date: "%Y" }}; month:12; day:31; hour:15;">
-    <p class="countdown__title">Time Until Takeoff:</p>
-</div>
-```
 
 ## Expired Countdown
 
