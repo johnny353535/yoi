@@ -34,12 +34,12 @@ srcfiles:
 
 All margin utilities listed above are also available as *responsive* utilities:
 
-| `.only-s--m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `s`       |
-| `.m--m-[*]-[1–60]`      | `.m-[*]-[1–60]` at breakpoint `m` and larger |
-| `.only-m--m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `m`       |
-| `.l--m-[*]-[1–60]`      | `.m-[*]-[1–60]` at breakpoint `l` and larger |
-| `.only-l--m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `l`       |
-| `.xl--m-[*]-[1–60]`     | `.m-[*]-[1–60]` at breakpoint `xl`           |
+| `.only-s:m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `s`       |
+| `.m:m-[*]-[1–60]`      | `.m-[*]-[1–60]` at breakpoint `m` and larger |
+| `.only-m:m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `m`       |
+| `.l:m-[*]-[1–60]`      | `.m-[*]-[1–60]` at breakpoint `l` and larger |
+| `.only-l:m-[*]-[1–60]` | `.m-[*]-[1–60]` only at breakpoint `l`       |
+| `.xl:m-[*]-[1–60]`     | `.m-[*]-[1–60]` at breakpoint `xl`           |
 
 ## Padding
 
@@ -55,9 +55,9 @@ All margin utilities listed above are also available as *responsive* utilities:
 
 All padding utilities listed above are also available as *responsive* utilities:
 
-| `.only-s--p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `s`       |
-| `.m--p-[*]-[1–60]`      | `.p-[*]-[1–60]` at breakpoint `m` and larger |
-| `.only-m--p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `m`       |
-| `.l--p-[*]-[1–60]`      | `.p-[*]-[1–60]` at breakpoint `l` and larger |
-| `.only-l--p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `l`       |
-| `.xl--p-[*]-[1–60]`     | `.p-[*]-[1–60]` at breakpoint `xl`           |
+| `.only-s:p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `s`       |
+| `.m:p-[*]-[1–60]`      | `.p-[*]-[1–60]` at breakpoint `m` and larger |
+| `.only-m:p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `m`       |
+| `.l:p-[*]-[1–60]`      | `.p-[*]-[1–60]` at breakpoint `l` and larger |
+| `.only-l:p-[*]-[1–60]` | `.p-[*]-[1–60]` only at breakpoint `l`       |
+| `.xl:p-[*]-[1–60]`     | `.p-[*]-[1–60]` at breakpoint `xl`           |

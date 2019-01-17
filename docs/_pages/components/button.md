@@ -11,11 +11,11 @@ permalink: components/button
 
 ## Basic Example
 
-Use `.btn` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. This is how the most basic button looks like and how you write the markup:
+Use `.button` to render a `<a>`, `<button>`, `<input type="submit">` or `<span>` into a styled button. This is how the most basic button looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<button class="btn">Basic Button</button>
+<button class="button">Basic Button</button>
 ```
 
 ## Icons & Buttons
@@ -26,12 +26,12 @@ You can put any [icon]({{ site.github.url }}/components/icon.html) inside any ki
 <!-- example -->
 <p>
     <!-- icon left -->
-    <button class="btn">
+    <button class="button">
         <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" yoi-icon />
         <span>Icon Left</span>
     </button>
     <!-- icon right -->
-    <button class="btn">
+    <button class="button">
         <span>Icon Right</span>
         <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" yoi-icon />
     </button>
@@ -43,7 +43,7 @@ Create an icon-only button by adding `.hidden` to the label:
 ```html
 <!-- example -->
 <!-- icon but no label -->
-<button class="btn">
+<button class="button">
     <span class="hidden">Hidden Label Text</span>
     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-006-s" yoi-icon />
 </button>
@@ -53,13 +53,13 @@ Create an icon-only button by adding `.hidden` to the label:
 
 ## Other HTML-Elements As Button
 
-You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`. However, every time you want to add [icons]({{ site.github.url }}/components/icon.html), you need a wrapper element around the button label.
+You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.button`. However, every time you want to add [icons]({{ site.github.url }}/components/icon.html), you need a wrapper element around the button label.
 
 ### \<a>
 
 ```html
 <!-- example -->
-<a class="btn m-t-1" href="#">
+<a class="button m-t-1" href="#">
     <span>Button</span>
     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s" yoi-icon />
 </a>
@@ -69,7 +69,7 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 ```html
 <!-- example -->
-<button class="btn m-t-1">
+<button class="button m-t-1">
     <span>Button</span>
     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s" yoi-icon />
 </button>
@@ -79,8 +79,8 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 ```html
 <!-- example -->
-<span class="btn m-t-1">
-    <input type="submit" value="Input-tag and .btn" />
+<span class="button m-t-1">
+    <input type="submit" value="Input-tag and .button" />
     <span>Button</span>
     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s" yoi-icon />
 </span>
@@ -90,7 +90,7 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 ```html
 <!-- example -->
-<span class="btn m-t-1">
+<span class="button m-t-1">
     <span>Button</span>
     <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-011-s" yoi-icon />
 </span>
@@ -100,112 +100,112 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.btn`
 
 ## Modifiers
 
-| Size   | `.btn--large, .btn--xlarge, .btn--small` |
-| Color  | `.btn--attention, .btn--dark, .btn--light, .btn--negative, .btn--positive, .btn--primary` |
-| Type   | `.btn--flat, .btn--rounded, .btn--subtle` |
+| Size   | `.button--large, .button--xlarge, .button--small` |
+| Color  | `.button--attention, .button--dark, .button--light, .button--negative, .button--positive, .button--primary` |
+| Type   | `.button--flat, .button--rounded, .button--subtle` |
 | State  | `.is--active, .is--disabled, .is--focus`|
-| Other  | `.btn--clip` |
+| Other  | `.button--clip` |
 
 ### Size
 
-Use the modifiers `.btn--small, .btn--large, .btn--xlarge` to create buttons with different sizes:
+Use the modifiers `.button--small, .button--large, .button--xlarge` to create buttons with different sizes:
 
 ```html
 <!-- example -->
-<button class="btn btn--small">Small Button</button>
-<button class="btn">Default Button</button>
-<button class="btn btn--large">Large Button</button>
-<button class="btn btn--xlarge">Extra Large Button</button>
+<button class="button button--small">Small Button</button>
+<button class="button">Default Button</button>
+<button class="button button--large">Large Button</button>
+<button class="button button--xlarge">Extra Large Button</button>
 ```
 
 ### Color
 
-Use the modifiers `.btn--attention, .btn--dark, .btn--light, .btn--negative, .btn--positive, .btn--primary` to create buttons with different colors:
+Use the modifiers `.button--attention, .button--dark, .button--light, .button--negative, .button--positive, .button--primary` to create buttons with different colors:
 
 ```html
 <!-- example -->
-<button class="btn btn--light">Button</button>
-<button class="btn">Button</button>
-<button class="btn btn--primary">Button</button>
-<button class="btn btn--dark">Button</button>
-<button class="btn btn--attention">Button</button>
-<button class="btn btn--negative">Button</button>
-<button class="btn btn--positive">Button</button>
+<button class="button button--light">Button</button>
+<button class="button">Button</button>
+<button class="button button--primary">Button</button>
+<button class="button button--dark">Button</button>
+<button class="button button--attention">Button</button>
+<button class="button button--negative">Button</button>
+<button class="button button--positive">Button</button>
 ```
 
 ### Type
 
-Use the modifiers `.btn--flat, .btn--rounded, .btn--subtle` to create buttons with different styles:
+Use the modifiers `.button--flat, .button--rounded, .button--subtle` to create buttons with different styles:
 
 #### Flat
 
 ```html
 <!-- example -->
-<button class="btn btn--flat btn--light">Button</button>
-<button class="btn btn--flat">Button</button>
-<button class="btn btn--flat btn--primary">Button</button>
-<button class="btn btn--flat btn--dark">Button</button>
-<button class="btn btn--flat btn--attention">Button</button>
-<button class="btn btn--flat btn--negative">Button</button>
-<button class="btn btn--flat btn--positive">Button</button>
+<button class="button button--flat button--light">Button</button>
+<button class="button button--flat">Button</button>
+<button class="button button--flat button--primary">Button</button>
+<button class="button button--flat button--dark">Button</button>
+<button class="button button--flat button--attention">Button</button>
+<button class="button button--flat button--negative">Button</button>
+<button class="button button--flat button--positive">Button</button>
 ```
 
-<p class="hint hint--negative">You can’t combine <code>.btn--flat</code> with <code>.btn--outline</code>.</p>
+<p class="hint hint--negative">You can’t combine <code>.button--flat</code> with <code>.button--outline</code>.</p>
 
 #### Outline
 
 ```html
 <!-- example -->
-<button class="btn btn--outline btn--light">Button</button>
-<button class="btn btn--outline">Button</button>
-<button class="btn btn--outline btn--primary">Button</button>
-<button class="btn btn--outline btn--dark">Button</button>
-<button class="btn btn--outline btn--attention">Button</button>
-<button class="btn btn--outline btn--negative">Button</button>
-<button class="btn btn--outline btn--positive">Button</button>
+<button class="button button--outline button--light">Button</button>
+<button class="button button--outline">Button</button>
+<button class="button button--outline button--primary">Button</button>
+<button class="button button--outline button--dark">Button</button>
+<button class="button button--outline button--attention">Button</button>
+<button class="button button--outline button--negative">Button</button>
+<button class="button button--outline button--positive">Button</button>
 ```
 
-If you combine `.btn--outline` and `.btn--light`, make sure you put the button against a dark background:
+If you combine `.button--outline` and `.button--light`, make sure you put the button against a dark background:
 
 ```html
 <!-- example -->
 <div class="p-4 bg-gray-10 br">
-    <button class="btn btn--outline btn--light">Button</button>
+    <button class="button button--outline button--light">Button</button>
 </div>
 ```
 
 #### Rounded
 
-All button styles can be combined with `.btn--rounded` to create pill-shaped buttons.
+All button styles can be combined with `.button--rounded` to create pill-shaped buttons.
 
 ```html
 <!-- example -->
-<button class="btn btn--outline btn--rounded">Button</button>
-<button class="btn btn--flat btn--rounded">Button</button>
-<button class="btn btn--rounded">Button</button>
+<button class="button button--outline button--rounded">Button</button>
+<button class="button button--flat button--rounded">Button</button>
+<button class="button button--rounded">Button</button>
 ```
 
 #### Subtle
 
-Use the modifiers `.btn--subtle` to create a button that looks like text label but changes the background color on mouseover:
+Use the modifiers `.button--subtle` to create a button that looks like text label but changes the background color on mouseover:
 
 ```html
 <!-- example -->
-<button class="btn btn--subtle btn--light">Button</button>
-<button class="btn btn--subtle">Button</button>
-<button class="btn btn--subtle btn--primary">Button</button>
-<button class="btn btn--subtle btn--dark">Button</button>
-<button class="btn btn--subtle btn--attention">Button</button>
-<button class="btn btn--subtle btn--negative">Button</button>
-<button class="btn btn--subtle btn--positive">Button</button>
+<button class="button button--subtle button--light">Button</button>
+<button class="button button--subtle">Button</button>
+<button class="button button--subtle button--primary">Button</button>
+<button class="button button--subtle button--dark">Button</button>
+<button class="button button--subtle button--attention">Button</button>
+<button class="button button--subtle button--negative">Button</button>
+<button class="button button--subtle button--positive">Button</button>
 ```
 
-If you combine `.btn--subtle` and `.btn--light`, make sure you put the button against a dark background:
+If you combine `.button--subtle` and `.button--light`, make sure you put the button against a dark background:
 
 ```html
 <!-- example -->
 <div class="p-4 bg-gray-10 br">
-    <button class="btn btn--subtle btn--light">Button</button>
+    <button class="button button--subtle button--light">Button</button>
 </div>
 ```
 
@@ -215,47 +215,47 @@ Use the modifiers `.is--disabled, .is--active, .is--focus` to set the different 
 
 ```html
 <!-- example -->
-<button class="btn is--active">Active</button>
-<button class="btn is--disabled">Disabled</button>
-<button class="btn is--focus">Focused</button>
+<button class="button is--active">Active</button>
+<button class="button is--disabled">Disabled</button>
+<button class="button is--focus">Focused</button>
 ```
 
 ### Truncate Button Labels
 
-It’s possible to chop off very long button labels by adding the modifier `.btn--clip`.
+It’s possible to chop off very long button labels by adding the modifier `.button--clip`.
 
 ```html
 <!-- example -->
-<button class="btn btn--large w-10 btn--clip">Very Long Button Label Text foo foo bar bar</button>
+<button class="button button--large w-10 button--clip">Very Long Button Label Text foo foo bar bar</button>
 ```
 
 ## Button Groups
 
-Visually group buttons by wrapping them inside a container with the class `.btns`:
+Visually group buttons by wrapping them inside a container with the class `.buttons`:
 
 ```html
 <!-- example -->
-<div class="btns">
-    <button class="btn">1</button>
-    <button class="btn">2</button>
-    <button class="btn">3</button>
+<div class="buttons">
+    <button class="button">1</button>
+    <button class="button">2</button>
+    <button class="button">3</button>
 </div>
 ```
 
-Create vertically grouped button blocks by adding the modifier `.btns--vertical`:
+Create vertically grouped button blocks by adding the modifier `.buttons--vertical`:
 
 ```html
 <!-- example -->
-<div class="btns btns--vertical">
-    <button class="btn">Aluminium</button>
-    <button class="btn">Iron</button>
-    <button class="btn">Lead</button>
+<div class="buttons buttons--vertical">
+    <button class="button">Aluminium</button>
+    <button class="button">Iron</button>
+    <button class="button">Lead</button>
 </div>
 ```
 
 ## Dismiss-Button
 
-Use `.btnDismiss` to add a *dismiss* (or *close*) button. This special button hides it’s label text by default and inherits the [semantic colors]({{ site.github.url }}/utilities/color.html#semantic-colors) of it’s parent element.
+Use `.buttonDismiss` to add a *dismiss* (or *close*) button. This special button hides it’s label text by default and inherits the [semantic colors]({{ site.github.url }}/utilities/color.html#semantic-colors) of it’s parent element.
 
 <p class="hint hint--primary">Since the dismiss button is positioned absolutely, it’s parent element needs a position value other than <i>static</i> to <b>provide positioning context</b>.</p>
 
@@ -263,7 +263,7 @@ Use `.btnDismiss` to add a *dismiss* (or *close*) button. This special button hi
 <!-- example -->
 <div class="box w-15 p-4 fs-2 c-negative-12">
     <p>Attention.</p>
-    <button class="btnDismiss">Close</button>
+    <button class="buttonDismiss">Close</button>
 </div>
 ```
 
@@ -273,7 +273,7 @@ Use [utilities]({{ site.github.url }}/utilities/) to override button styles and 
 
 ```html
 <!-- example -->
-<button class="btn btn--rounded br-tl-0 m-r-2">Straight Top Left Corner</button>
-<button class="btn c-red-15 m-r-2">Red Text Color</button>
-<button class="btn hvr--c-blue-13 m-r-2">Blue Text Color On Hover</button>
+<button class="button button--rounded br-tl-0 m-r-2">Straight Top Left Corner</button>
+<button class="button c-red-15 m-r-2">Red Text Color</button>
+<button class="button hvr--c-blue-13 m-r-2">Blue Text Color On Hover</button>
 ```

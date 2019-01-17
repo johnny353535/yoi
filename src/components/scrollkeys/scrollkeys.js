@@ -36,12 +36,12 @@ YOI.component.ScrollKeys = (function() {
     // buttons
     
     var $scrollButtons = $('\
-        <div id="scrollButtons" class="btns sh-4 m-4">\
-            <button class="btn btn--large">\
+        <div id="scrollButtons" class="buttons sh-4 m-4">\
+            <button class="button button--large">\
                 <span class="hidden">' + localization[language].prev + '</span>\
                 <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" yoi-icon />\
             </button>\
-            <button class="btn btn--large">\
+            <button class="button button--large">\
                 <span class="hidden">' + localization[language].next + '</span>\
                 <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" yoi-icon />\
             </button>\
@@ -86,12 +86,12 @@ YOI.component.ScrollKeys = (function() {
             
             // add events to scroll buttons
             
-            $('#scrollButtons').find('.btn').eq(0).on('click', function(e) {
+            $('#scrollButtons').find('.button').eq(0).on('click', function(e) {
                 e.preventDefault();
                 scrollToHook('prev');
             });
             
-            $('#scrollButtons').find('.btn').eq(1).on('click', function(e) {
+            $('#scrollButtons').find('.button').eq(1).on('click', function(e) {
                 e.preventDefault();
                 scrollToHook('next');
             });
@@ -143,13 +143,13 @@ YOI.component.ScrollKeys = (function() {
                 .on('yoi-keypressed-arrowleft', function() {
                     if (YOI.noFocus()) {
                         scrollToHook('prev');
-                        highlightBtn('prev');
+                        highlightButton('prev');
                     }
                 })
                 .on('yoi-keypressed-arrowright', function() {
                     if (YOI.noFocus()) {
                         scrollToHook('next');
-                        highlightBtn('next');
+                        highlightButton('next');
                     }
                 })
                 .on('yoi-focus-change', function() {
@@ -167,7 +167,7 @@ YOI.component.ScrollKeys = (function() {
 
     }
     
-    function highlightBtn(direction) {
+    function highlightButton(direction) {
         
         /**
          *  "Presses" the corresponding button.
@@ -181,17 +181,17 @@ YOI.component.ScrollKeys = (function() {
         
         // proceed
         
-        var btnIndex;
+        var buttonIndex;
         
-        if (direction === 'prev') btnIndex = 0;
-        if (direction === 'next') btnIndex = 1;
+        if (direction === 'prev') buttonIndex = 0;
+        if (direction === 'next') buttonIndex = 1;
         
-        var $btn = $('#scrollButtons').find('.btn').eq(btnIndex);
+        var $button = $('#scrollButtons').find('.button').eq(buttonIndex);
         
-        $btn.addClass('is--active');
+        $button.addClass('is--active');
         
         YOI.setDelay('highlightScrollKeyDelay', 200, function() {
-            $btn.removeClass('is--active');
+            $button.removeClass('is--active');
         });
         
     }

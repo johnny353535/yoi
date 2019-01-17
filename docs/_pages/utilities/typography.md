@@ -64,12 +64,12 @@ You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is 
 
 ### Responsive Font Size
 
-| `.only-s--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `s`       |
-| `.m--fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `m` and larger |
-| `.only-m--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `m`       |
-| `.l--fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `l` and larger |
-| `.only-l--fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `l`       |
-| `.xl--fs-[0–10/s,xl,xxl]`     | font size `[0–10/s,xl,xxl]` at breakpoint `xl`           |
+| `.only-s:fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `s`       |
+| `.m:fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `m` and larger |
+| `.only-m:fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `m`       |
+| `.l:fs-[0–10/s,xl,xxl]`      | font size `[0–10/s,xl,xxl]` at breakpoint `l` and larger |
+| `.only-l:fs-[0–10/s,xl,xxl]` | font size `[0–10/s,xl,xxl]` only at breakpoint `l`       |
+| `.xl:fs-[0–10/s,xl,xxl]`     | font size `[0–10/s,xl,xxl]` at breakpoint `xl`           |
 
 <p class="hint hint--negative">The utility <code>.lh-0</code> sets the line height to zero.</p>
 
@@ -81,12 +81,12 @@ You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the
 
 ### Responsive Line Height
 
-| `.only-s--lh-[0–10]` | line height `[0–10]` only at breakpoint `s`       |
-| `.m--lh-[0–10]`      | line height `[0–10]` at breakpoint `m` and larger |
-| `.only-m--lh-[0–10]` | line height `[0–10]` only at breakpoint `m`       |
-| `.l--lh-[0–10]`      | line height `[0–10]` at breakpoint `l` and larger |
-| `.only-l--lh-[0–10]` | line height `[0–10]` only at breakpoint `l`       |
-| `.xl--lh-[0–10]`     | line height `[0–10]` at breakpoint `xl`           |
+| `.only-s:lh-[0–10]` | line height `[0–10]` only at breakpoint `s`       |
+| `.m:lh-[0–10]`      | line height `[0–10]` at breakpoint `m` and larger |
+| `.only-m:lh-[0–10]` | line height `[0–10]` only at breakpoint `m`       |
+| `.l:lh-[0–10]`      | line height `[0–10]` at breakpoint `l` and larger |
+| `.only-l:lh-[0–10]` | line height `[0–10]` only at breakpoint `l`       |
+| `.xl:lh-[0–10]`     | line height `[0–10]` at breakpoint `xl`           |
 
 ## Letter Spacing
 
@@ -103,12 +103,12 @@ You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the
 
 ### Responsive Letter Spacing
 
-| `.only-s--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `s`       |
-| `.m--ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `m` and larger |
-| `.only-m--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `m`       |
-| `.l--ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `l` and larger |
-| `.only-l--ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `l`       |
-| `.xl--ls-[0–4]`     | letter spacing `[0–4]` at breakpoint `xl`           |
+| `.only-s:ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `s`       |
+| `.m:ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `m` and larger |
+| `.only-m:ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `m`       |
+| `.l:ls-[0–4]`      | letter spacing `[0–4]` at breakpoint `l` and larger |
+| `.only-l:ls-[0–4]` | letter spacing `[0–4]` only at breakpoint `l`       |
+| `.xl:ls-[0–4]`     | letter spacing `[0–4]` at breakpoint `xl`           |
 
 ## Font Family
 
@@ -175,12 +175,12 @@ You can chose from eleven line heights where `.lh-0` is zero and `.lh-10` is the
 
 ### Responsive Text Alignment
 
-| `.only-s--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `s`       |
-| `.m--al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `m` and larger |
-| `.only-m--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `m`       |
-| `.l--al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `l` and larger |
-| `.only-l--al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `l`       |
-| `.xl--al-[c, l, r]`     | text aling `[c, l, r]` at breakpoint `xl`           |
+| `.only-s:al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `s`       |
+| `.m:al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `m` and larger |
+| `.only-m:al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `m`       |
+| `.l:al-[c, l, r]`      | text aling `[c, l, r]` at breakpoint `l` and larger |
+| `.only-l:al-[c, l, r]` | text aling `[c, l, r]` only at breakpoint `l`       |
+| `.xl:al-[c, l, r]`     | text aling `[c, l, r]` at breakpoint `xl`           |
 
 ## Line Break
 
@@ -190,18 +190,18 @@ Use this utility to control weather a block of text breaks at the end of it’s 
 
 ### Responsive Line Break
 
-| `.only-s--lbr-none` | no line breaks only at breakpoint `s`       |
-| `.m--lbr-none`      | no line breaks at breakpoint `m` and larger |
-| `.only-m--lbr-none` | no line breaks only at breakpoint `m`       |
-| `.l--lbr-none`      | no line breaks at breakpoint `l` and larger |
-| `.only-l--lbr-none` | no line breaks only at breakpoint `l`       |
-| `.xl--lbr-none`     | no line breaks at breakpoint `xl`           |
+| `.only-s:lbr-none` | no line breaks only at breakpoint `s`       |
+| `.m:lbr-none`      | no line breaks at breakpoint `m` and larger |
+| `.only-m:lbr-none` | no line breaks only at breakpoint `m`       |
+| `.l:lbr-none`      | no line breaks at breakpoint `l` and larger |
+| `.only-l:lbr-none` | no line breaks only at breakpoint `l`       |
+| `.xl:lbr-none`     | no line breaks at breakpoint `xl`           |
 
-<p class="hint hint--primary"><b>Finetune your line breaks</b> – you can set individual line breaks (<code>&#x3C;br /&#x3E;</code>) and make them respond to the currently active breakpoint by adding a <a href="{{ site.github.url }}/utilities/layout.html#responsive-display">responsive display-utility</a> (eg. <code>.m--d-none</code>). Check out the example below:</p>
+<p class="hint hint--primary"><b>Finetune your line breaks</b> – you can set individual line breaks (<code>&#x3C;br /&#x3E;</code>) and make them respond to the currently active breakpoint by adding a <a href="{{ site.github.url }}/utilities/layout.html#responsive-display">responsive display-utility</a> (eg. <code>.m:d-none</code>). Check out the example below:</p>
 
 ```html
 <!-- example -->
-<p>This line will<br class="m--d-none" /> break after the third word when mediaquery/breakpoint »small« is active.</p>
+<p>This line will<br class="m:d-none" /> break after the third word when mediaquery/breakpoint »small« is active.</p>
 ```
 
 ## Text Decoration

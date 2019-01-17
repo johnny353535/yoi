@@ -1,9 +1,9 @@
-/** filterbtns.less */
+/** filterbuttons.less */
 
 // block
 // =====
 
-.filterBtns {
+.filterButtons {
     display: block;
     font-size: 0;
 }
@@ -11,7 +11,7 @@
 // elements
 // ========
 
-.filterBtns__btn {
+.filterButtons__button {
 
     .mixin-fs-2;
     .mixin-fw-bold;
@@ -44,7 +44,7 @@
 
 // removeable buttons
 
-.filterBtns--removeable .filterBtns__btn {
+.filterButtons--removeable .filterButtons__button {
 
     // icon
 
@@ -75,7 +75,7 @@
 
 // icons inside buttons
 
-.filterBtns__btn {
+.filterButtons__button {
 
     a::after {
         .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-17);
@@ -97,7 +97,7 @@
 
 // active button
 
-.filterBtns__btn.is--active {
+.filterButtons__button.is--active {
 
     background: @color-positive-10;
 
@@ -121,7 +121,7 @@
 
 // debouce button class
 
-.filterBtns__btn.filterBtns__btn--debounce:hover {
+.filterButtons__button.filterButtons__button--debounce:hover {
 
     background: @color-positive-10;
 

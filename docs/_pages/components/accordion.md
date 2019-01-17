@@ -111,7 +111,7 @@ Open all accordions on the page by using the [action]({{ site.github.url }}/acti
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Accordion.openAll;">Open All Accordions</button>
+<button class="button button--large" yoi-action="Accordion.openAll;">Open All Accordions</button>
 ```
 
 ### Accordion.closeAll
@@ -120,12 +120,12 @@ Close all accordions on the page by using the [action]({{ site.github.url }}/act
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Accordion.closeAll; on:dblclick;">Close All Accordions on Double-Click</button>
+<button class="button button--large" yoi-action="Accordion.closeAll; on:dblclick;">Close All Accordions on Double-Click</button>
 ```
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Accordion.openAll; on:dblclick;">Open All Accordions on Double-Click</button>
+<button class="button button--large" yoi-action="Accordion.openAll; on:dblclick;">Open All Accordions on Double-Click</button>
 ```
 
 ### Custom Events

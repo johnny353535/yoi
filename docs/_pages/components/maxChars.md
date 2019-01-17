@@ -88,7 +88,7 @@ When the limit is surpassed, this css-class is added to the display element (eg.
 <!-- example:tabs -->
 <input id="foo" type="text" maxlength="20" yoi-maxchars="display:#display-6; errorClass:c-red-10" />
 <p class="m-t-2" id="display-6"></p>
-<button class="btn btn--large m-t-2" id="bar">Reset</button>
+<button class="button button--large m-t-2" id="bar">Reset</button>
 <script>
     $('#bar').on('click', function() {
         YOI.component.MaxChars.reset($('#foo'));

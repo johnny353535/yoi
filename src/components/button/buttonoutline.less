@@ -24,7 +24,7 @@
 // base
 // ====
 
-.btn.btn--outline {
+.button.button--outline {
 
     background: transparent;
     border-width: @button-outline-borderwidth;
@@ -49,7 +49,7 @@
 // elements
 // ========
 
-.btn.btn--outline {
+.button.button--outline {
 
     // & > input[type="submit"] {
     //     cursor: pointer;
@@ -61,7 +61,7 @@
 
     // icon right, label left
 
-    &.btn--small .icon:last-child {
+    &.button--small .icon:last-child {
         margin-right: @button-outline-s-xpull;
     }
 
@@ -69,17 +69,17 @@
         margin-right: @button-outline-xpull;
     }
 
-    &.btn--large .icon:last-child {
+    &.button--large .icon:last-child {
         margin-right: @button-outline-l-xpull;
     }
 
-    &.btn--xlarge .icon:last-child {
+    &.button--xlarge .icon:last-child {
         margin-right: @button-outline-xl-xpull;
     }
 
     // icon left, label right
 
-    &.btn--small .icon:first-child {
+    &.button--small .icon:first-child {
         margin-left: @button-outline-s-xpull;
     }
 
@@ -87,18 +87,18 @@
         margin-left: @button-outline-xpull;
     }
 
-    &.btn--large .icon:first-child {
+    &.button--large .icon:first-child {
         margin-left: @button-outline-l-xpull;
     }
 
-    &.btn--xlarge .icon:first-child {
+    &.button--xlarge .icon:first-child {
         margin-left: @button-outline-xl-xpull;
     }
 
     // only icons, hidden or no label
 
-    &.btn--small .hidden + .icon,
-    &.btn--small .icon:only-child {
+    &.button--small .hidden + .icon,
+    &.button--small .icon:only-child {
         margin-left: @button-outline-s-xpull;
         margin-right: -10px; // 4 + 6
         left: @button-outline-borderwidth * -1;
@@ -111,15 +111,15 @@
         margin-right: -14px; // 8 + 6
     }
 
-    &.btn--large .hidden + .icon,
-    &.btn--large .icon:only-child {
+    &.button--large .hidden + .icon,
+    &.button--large .icon:only-child {
         left: @button-outline-borderwidth * -1;
         margin-left: @button-outline-l-xpull;
         margin-right: -18px; // 12 + 6
     }
 
-    &.btn--xlarge .hidden + .icon,
-    &.btn--xlarge .icon:only-child {
+    &.button--xlarge .hidden + .icon,
+    &.button--xlarge .icon:only-child {
         left: @button-outline-borderwidth * -1;
         margin-left: @button-outline-xl-xpull;
         margin-right: -26px; // 20 + 6
@@ -130,23 +130,23 @@
 // modifiers
 // =========
 
-.btn--outline.btn--small {
+.button--outline.button--small {
     line-height: @button-outline-s-lineheight;
     padding: 0 @button-outline-s-xpadding;
 }
 
-.btn--outline.btn--large {
+.button--outline.button--large {
     line-height: @button-outline-l-lineheight;
     padding: 0 @button-outline-l-xpadding;
 }
 
-.btn--outline.btn--xlarge {
+.button--outline.button--xlarge {
     line-height: @button-outline-xl-lineheight;
     padding: 0 @button-outline-xl-xpadding;
 }
 
-.btn.btn--outline {
-    .constr-btnOutline(
+.button.button--outline {
+    .constr-buttonOutline(
         @txtColor: @color-base-12,
         @borderColor: @color-base-21,
         @borderColorHover: @color-base-19,
@@ -154,8 +154,8 @@
     )
 }
 
-.btn--outline.btn--primary {
-    .constr-btnOutline(
+.button--outline.button--primary {
+    .constr-buttonOutline(
         @txtColor: @color-primary-12,
         @borderColor: @color-primary-19,
         @borderColorHover: @color-primary-16,
@@ -163,8 +163,8 @@
     )
 }
 
-.btn--outline.btn--light {
-    .constr-btnOutline(
+.button--outline.button--light {
+    .constr-buttonOutline(
         @txtColor: @color-white,
         @borderColor: fade(@color-white,60%),
         @borderColorHover: fade(@color-white,80%),
@@ -172,8 +172,8 @@
     )
 }
 
-.btn--outline.btn--dark {
-    .constr-btnOutline(
+.button--outline.button--dark {
+    .constr-buttonOutline(
         @txtColor: @color-base-10,
         @borderColor: @color-base-15,
         @borderColorHover: @color-base-12,
@@ -181,8 +181,8 @@
     )
 }
 
-.btn--outline.btn--attention {
-    .constr-btnOutline(
+.button--outline.button--attention {
+    .constr-buttonOutline(
         @txtColor: @color-attention-10,
         @borderColor: @color-attention-15,
         @borderColorHover: @color-attention-12,
@@ -190,8 +190,8 @@
     )
 }
 
-.btn--outline.btn--negative {
-    .constr-btnOutline(
+.button--outline.button--negative {
+    .constr-buttonOutline(
         @txtColor: @color-negative-12,
         @borderColor: @color-negative-15,
         @borderColorHover: @color-negative-11,
@@ -199,8 +199,8 @@
     )
 }
 
-.btn--outline.btn--positive {
-    .constr-btnOutline(
+.button--outline.button--positive {
+    .constr-buttonOutline(
         @txtColor: @color-positive-12,
         @borderColor: @color-positive-17,
         @borderColorHover: @color-positive-15,
@@ -211,7 +211,7 @@
 // constructor
 // ===========
 
-.constr-btnOutline(
+.constr-buttonOutline(
     @txtColor,
     @borderColor,
     @borderColorHover,

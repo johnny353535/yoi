@@ -101,7 +101,7 @@ Pick a `.stepper` and increase the value by 1:
 <div id="exampleStepper-1" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
-<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.countUp:#exampleStepper-1;">Count Up</button>
+<button class="button button--large val-t m-l-2" yoi-action="Stepper.countUp:#exampleStepper-1;">Count Up</button>
 ```
 
 ### Stepper.countDown
@@ -113,7 +113,7 @@ Pick a `.stepper` and decrease the value by 1:
 <div id="exampleStepper-2" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.countDown:#exampleStepper-2;">Count Down</button>
+<button class="button button--large val-t m-l-2" yoi-action="Stepper.countDown:#exampleStepper-2;">Count Down</button>
 ```
 
 ### Stepper.reset
@@ -125,7 +125,7 @@ Pick a `.stepper` and reset the value to 1:
 <div id="exampleStepper-3" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.reset:#exampleStepper-3;">Reset</button>
+<button class="button button--large val-t m-l-2" yoi-action="Stepper.reset:#exampleStepper-3;">Reset</button>
 ```
 
 ### Stepper.clear
@@ -137,7 +137,7 @@ Pick a `.stepper` and reset the value to 0:
 <div id="exampleStepper-4" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.clear:#exampleStepper-4;">Clear</button>
+<button class="button button--large val-t m-l-2" yoi-action="Stepper.clear:#exampleStepper-4;">Clear</button>
 ```
 
 ### Stepper.setTo
@@ -149,7 +149,7 @@ Pick a `.stepper` and set the value to a given input:
 <div id="exampleStepper-5" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="10" />
 </div>
-<button class="btn btn--large val-t m-l-2" yoi-action="Stepper.setTo:#exampleStepper-5, 42;">Set to 42</button>
+<button class="button button--large val-t m-l-2" yoi-action="Stepper.setTo:#exampleStepper-5, 42;">Set to 42</button>
 ```
 
 ### Custom Events
@@ -176,10 +176,10 @@ Try the example below and watch the custom events, printed to the [log element](
 <div id="myStepper" class="stepper val-t" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
-<div class="btns d-inlineblock val-t m-l-2">
-    <button id="exampleButton-6" class="btn btn--large val-t">Reset</button>
-    <button id="exampleButton-7" class="btn btn--large val-t">Clear</button>
-    <button id="exampleButton-8" class="btn btn--large val-t">Set to 42</button>
+<div class="buttons d-inlineblock val-t m-l-2">
+    <button id="exampleButton-6" class="button button--large val-t">Reset</button>
+    <button id="exampleButton-7" class="button button--large val-t">Clear</button>
+    <button id="exampleButton-8" class="button button--large val-t">Set to 42</button>
 </div>
 <script>
     $('#myStepper').on('yoi-stepper-up', function() {

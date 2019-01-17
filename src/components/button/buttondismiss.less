@@ -3,7 +3,7 @@
 // block
 // =====
 
-.btnDismiss {
+.buttonDismiss {
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
@@ -32,8 +32,8 @@
 // colors
 
 /*
-    Any .btnDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
-    However, the color modifier class names applied directly to .btnDismiss (eg. btnDismiss btnDismiss--negative)
+    Any .buttonDismiss inside a parent element with a certain color modifier "inherit" the colors of their parent.
+    However, the color modifier class names applied directly to .buttonDismiss (eg. buttonDismiss buttonDismiss--negative)
     beat the inheritance. In order to up the specificity, we repeat the modifier class name. It's actually
     not even a hack:
 
@@ -41,33 +41,33 @@
     https://www.w3.org/TR/css3-selectors/#specificity
 */
 
-.btnDismiss.btnDismiss--negative.btnDismiss--negative,
-[class*="-negative"] .btnDismiss {
-    .constr-btnDismiss(
+.buttonDismiss.buttonDismiss--negative.buttonDismiss--negative,
+[class*="-negative"] .buttonDismiss {
+    .constr-buttonDismiss(
         @iconColor: @color-negative-10,
         @bgColorHover: @color-negative-21
     );
 }
 
-.btnDismiss.btnDismiss--positive.btnDismiss--positive,
-[class*="-positive"] .btnDismiss {
-    .constr-btnDismiss(
+.buttonDismiss.buttonDismiss--positive.buttonDismiss--positive,
+[class*="-positive"] .buttonDismiss {
+    .constr-buttonDismiss(
         @iconColor: @color-positive-10,
         @bgColorHover: @color-positive-21
     );
 }
 
-.btnDismiss.btnDismiss--attention.btnDismiss--attention,
-[class*="-attention"] .btnDismiss {
-    .constr-btnDismiss(
+.buttonDismiss.buttonDismiss--attention.buttonDismiss--attention,
+[class*="-attention"] .buttonDismiss {
+    .constr-buttonDismiss(
         @iconColor: @color-attention-10,
         @bgColorHover: @color-attention-20
     );
 }
 
-.btnDismiss.btnDismiss--dark.btnDismiss--dark,
-[class*="-dark"] .btnDismiss {
-    .constr-btnDismiss(
+.buttonDismiss.buttonDismiss--dark.buttonDismiss--dark,
+[class*="-dark"] .buttonDismiss {
+    .constr-buttonDismiss(
         @iconColor: @color-base-24,
         @bgColorHover: @color-base-7
     );
@@ -76,7 +76,7 @@
 // constructor
 // ===========
 
-.constr-btnDismiss(@iconColor, @bgColorHover) {
+.constr-buttonDismiss(@iconColor, @bgColorHover) {
     
     .mixin-icon-bg(
         @id: 'icon-006-s',

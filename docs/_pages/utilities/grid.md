@@ -31,10 +31,10 @@ Create responsive layouts by using the [breakpoint-prefixes](#responsive-flexbox
 
 ```html
 <!-- example -->
-<div class="flx flx-directionColumn l--flx-directionRow">
-    <div class="flx-3 l--w-1-2 l--flx-1 p-4 c-red-10 bg-red-25"><b>1</b></div>
-    <div class="flx-1 l--w-1-4 l--flx-2 p-4 c-purple-10 bg-purple-25"><b>2</b></div>
-    <div class="flx-2 l--w-1-4 l--flx-3 p-4 c-blue-10 bg-blue-25"><b>3</b></div>
+<div class="flx flx-directionColumn l:flx-directionRow">
+    <div class="flx-3 l:w-1-2 l:flx-1 p-4 c-red-10 bg-red-25"><b>1</b></div>
+    <div class="flx-1 l:w-1-4 l:flx-2 p-4 c-purple-10 bg-purple-25"><b>2</b></div>
+    <div class="flx-2 l:w-1-4 l:flx-3 p-4 c-blue-10 bg-blue-25"><b>3</b></div>
 </div>
 ```
 
@@ -90,12 +90,12 @@ Since flexbox is a rather complex layout concept, it’s best to learn it with v
 
 You can add [breakpoint-prefixes]() to all utilities listetd above to control their behaviour according to the current breakpoint:
 
-| `.only-s--flx-[*]` | `.flx-[*]` only at breakpoint `s`       |
-| `.m--flx-[*]`      | `.flx-[*]` at breakpoint `m` and larger |
-| `.only-m--flx-[*]` | `.flx-[*]` only at breakpoint `m`       |
-| `.l--flx-[*]`      | `.flx-[*]` at breakpoint `l` and larger |
-| `.only-l--flx-[*]` | `.flx-[*]` only at breakpoint `l`       |
-| `.xl--flx-[*]`     | `.flx-[*]` at breakpoint `xl`           |
+| `.only-s:flx-[*]` | `.flx-[*]` only at breakpoint `s`       |
+| `.m:flx-[*]`      | `.flx-[*]` at breakpoint `m` and larger |
+| `.only-m:flx-[*]` | `.flx-[*]` only at breakpoint `m`       |
+| `.l:flx-[*]`      | `.flx-[*]` at breakpoint `l` and larger |
+| `.only-l:flx-[*]` | `.flx-[*]` only at breakpoint `l`       |
+| `.xl:flx-[*]`     | `.flx-[*]` at breakpoint `xl`           |
 
 ## What About CSS Grid?
 

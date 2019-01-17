@@ -14,7 +14,7 @@ permalink: start/customizing
 To customize Yoi, you need to download and compile it on your machine. We prepared a starter repository &mdash; [the Yoi Kit](https://github.com/yoshino-digital/yoi-kit) &mdash; which also offers powerful templating and a simple static page building workflow.
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit on GitHub</a>
+    <a class="button button--large" href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit on GitHub</a>
 </div>
 <p class="hint hint--primary"><b>Yoi Kit</b> The following documentation specifically describes how to customize Yoi via the <a href="https://github.com/yoshino-digital/yoi-kit">Yoi Kit</a>. We highly advice using it instead of the main Yoi repository for customization.</p>
 <p class="hint"><b>Readme Files & Inline Coments</b> You will find readme files inside most directories of the Yoi Kit. In addition to that, most files contain inline comments which provide useful contextual help.</p>
@@ -63,7 +63,7 @@ src
 | `@htmlBackgroundColor` | `@color-white`                 | Background color of the `html` tag                     |
 | `@bodyBackgroundColor` | `@color-white`                 | Background color of the `body` tag                     |
 | `@textColor`           | `@color-base-8`                | Global text color                                      |
-| `@focusColor`          | `@blue-22`                     | Highlight color for active elements (eg. a text input) |
+| `@focusColor`          | `@color-blue-22`               | Highlight color for active elements (eg. a text input) |
 | `@selectionColor`      | `fade(@color-primary-25, 50%)` | Highlight color for selected text                      |
 
 #### Color Palette
@@ -71,7 +71,7 @@ src
 Use the variables in [colors.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/colors.less) to change the color palette for your own build of Yoi. You can generate color steps (different shades of the same base color) with the [Yoi Color Gradient Tool](https://yoshino-digital.github.io/yoi-color-gradient-tool/).
 
 <div class="m-t-8">
-    <a class="btn btn--large" href="https://yoshino-digital.github.io/yoi-color-gradient-tool/">Yoi Color Gradient Tool</a>
+    <a class="button button--large" href="https://yoshino-digital.github.io/yoi-color-gradient-tool/">Yoi Color Gradient Tool</a>
 </div>
 
 ### breakpoints.less

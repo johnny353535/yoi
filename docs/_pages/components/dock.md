@@ -60,7 +60,7 @@ The following code example is creating the dock you may actually see on the left
         </li>
     </ul>
     <p class="m-t-2">
-        <button class="btn btn--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
+        <button class="button button--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
     </p>
 </div>
 ```
@@ -73,7 +73,7 @@ Call this action to hide a `.dock`:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
+<button class="button button--large" yoi-action="Dock.hide:#exampleDock;">Hide Dock</button>
 ```
  
 ### Dock.show
@@ -82,7 +82,7 @@ Call this action to show a `.dock`:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Dock.show:#exampleDock;">Show Dock</button>
+<button class="button button--large" yoi-action="Dock.show:#exampleDock;">Show Dock</button>
 ```
 
 ### Custom Events

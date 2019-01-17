@@ -15,7 +15,7 @@ Add `yoi-action="Hide:#id;"` to hide an element:
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-1;">Hide Instantly</button>
+<button class="button button--large" yoi-action="Hide:#example-1;">Hide Instantly</button>
 <div id="example-1" class="box p-4 m-t-4">
     <p class="fs-2">This will hide.</p>
 </div>
@@ -46,7 +46,7 @@ Use the optional parameter `fx` to add an animation. Technically you can use all
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-2; fx:fade-out;">Hide with Fx</button>
+<button class="button button--large" yoi-action="Hide:#example-2; fx:fade-out;">Hide with Fx</button>
 <div id="example-2" class="box p-4 m-t-4">
     <p class="fs-2">This will hide with a fade-out-transition.</p>
 </div>
@@ -58,7 +58,7 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-3; fx:fade-out; speed:fast;">Hide Fast</button>
+<button class="button button--large" yoi-action="Hide:#example-3; fx:fade-out; speed:fast;">Hide Fast</button>
 <div id="example-3" class="box p-4 m-t-4">
     <p class="fs-2">This will hide with a fast fade-out-transition.</p>
 </div>
@@ -66,7 +66,7 @@ Use the optional parameter `speed` and set it to `fast` or `slow` to control the
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-4; fx:fade-out; speed:slow;">Hide Slowly</button>
+<button class="button button--large" yoi-action="Hide:#example-4; fx:fade-out; speed:slow;">Hide Slowly</button>
 <div id="example-4" class="box p-4 m-t-4">
     <p class="fs-2">This will hide with a slow fade-out-transition.</p>
 </div>
@@ -78,7 +78,7 @@ Use the optional parameter `remove` and set it to `true` to remove the target el
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-5; remove:true;">Hide & Remove</button>
+<button class="button button--large" yoi-action="Hide:#example-5; remove:true;">Hide & Remove</button>
 <div id="example-5" class="box p-4 m-t-4">
     <p class="fs-2">This will hide and remove.</p>
 </div>
@@ -92,7 +92,7 @@ Use the optional parameter `toggle` and set it to `true` to *toggle* the visibil
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Hide:#example-6; fx:fade-out; speed:slow; toggle:true;">Hide/Toggle</button>
+<button class="button button--large" yoi-action="Hide:#example-6; fx:fade-out; speed:slow; toggle:true;">Hide/Toggle</button>
 <div id="example-6" class="box p-4 m-t-4">
     <p class="fs-2">This will hide when visible and show when hidden.</p>
 </div>

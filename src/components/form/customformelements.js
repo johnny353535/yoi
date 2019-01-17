@@ -12,7 +12,7 @@ YOI.component.CustomFormElements = (function() {
             $thisInput.trigger('change');
         });
 
-    var $radioBtnWrapper = $('<span class="radio"></span>')
+    var $radioButtonWrapper = $('<span class="radio"></span>')
         .on('click', function() {
             var $thisInput = $(this).find('input');
             if ($thisInput.is(':disabled')) return false;
@@ -33,9 +33,9 @@ YOI.component.CustomFormElements = (function() {
 
         // select custom checkboxes and radio buttons
 
-        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
         var $checkBoxes  = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var $radioBtns   = $('input[type="radio"]:not(.js-fallback, .switch *, .pickBtn *)');
+        var $radioButtons   = $('input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
         var $selects     = $('select:not(.js-fallback)');
 
         // checkboxes
@@ -90,7 +90,7 @@ YOI.component.CustomFormElements = (function() {
         // radio buttons
         // -------------
 
-        $radioBtns.each(function() {
+        $radioButtons.each(function() {
 
             // cancel if already initialized
 
@@ -98,36 +98,36 @@ YOI.component.CustomFormElements = (function() {
 
             // proceed
 
-            var $thisRadioBtn    = $(this);
-            var isWrappedInLabel = $thisRadioBtn.parents().index('label');
+            var $thisRadioButton    = $(this);
+            var isWrappedInLabel = $thisRadioButton.parents().index('label');
 
             if (isWrappedInLabel === -1) {
-                $thisRadioBtn.wrap($radioBtnWrapper.clone(true)); // clone with events
+                $thisRadioButton.wrap($radioButtonWrapper.clone(true)); // clone with events
             } else {
-                $thisRadioBtn.wrap($radioBtnWrapper.clone());     // clone without events
+                $thisRadioButton.wrap($radioButtonWrapper.clone());     // clone without events
             }
 
             // attach events
 
-            $thisRadioBtn.on({
+            $thisRadioButton.on({
                 'focus': function() {
-                    $thisRadioBtn.parent().addClass('input--focus');
-                    $thisRadioBtn.trigger('yoi-input-focus');
+                    $thisRadioButton.parent().addClass('input--focus');
+                    $thisRadioButton.trigger('yoi-input-focus');
                 },
                 'blur': function() {
-                    $thisRadioBtn.parent().removeClass('input--focus');
-                    $thisRadioBtn.trigger('yoi-input-blur');
+                    $thisRadioButton.parent().removeClass('input--focus');
+                    $thisRadioButton.trigger('yoi-input-blur');
                 },
                 'change': function() {
-                    $('[name="' + $thisRadioBtn.attr('name') + '"]').parent().removeClass('input--checked');
-                    if ($thisRadioBtn.is(':checked')) {
-                        $thisRadioBtn.parent().addClass('input--checked');
+                    $('[name="' + $thisRadioButton.attr('name') + '"]').parent().removeClass('input--checked');
+                    if ($thisRadioButton.is(':checked')) {
+                        $thisRadioButton.parent().addClass('input--checked');
                     }
-                    if (!$thisRadioBtn.is(':checked')) {
-                        $thisRadioBtn.prop('checked', true);
-                        $thisRadioBtn.parent().addClass('input--checked');
+                    if (!$thisRadioButton.is(':checked')) {
+                        $thisRadioButton.prop('checked', true);
+                        $thisRadioButton.parent().addClass('input--checked');
                     }
-                    $thisRadioBtn.trigger('yoi-input-change');
+                    $thisRadioButton.trigger('yoi-input-change');
                 }
             });
 

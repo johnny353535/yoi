@@ -20,9 +20,9 @@ This is the markup for a basic `.flyout` (you should see the rendered result on 
     <div class="flyout__body">
         <h3 class="ff-ss">This is an Example Flyout</h3>
         <p class="fs-2 lh-3 m-tb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-        <p class="btns btns--vertical">
-            <a href="#" class="btn btn--large">Advanced Chemistry</a>
-            <a href="#" class="btn btn--large">Rocket Science</a>
+        <p class="buttons buttons--vertical">
+            <a href="#" class="button button--large">Advanced Chemistry</a>
+            <a href="#" class="button button--large">Rocket Science</a>
         </p>
     </div>
 </div>
@@ -46,7 +46,7 @@ Toggle (show/hide) a `.flyout` by using the [action]({{ site.github.url }}/actio
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.toggle:#exampleFlyout;">Toggle the Flyout</button>
+<button class="button button--large" yoi-action="Flyout.toggle:#exampleFlyout;">Toggle the Flyout</button>
 ```
 
 ### Flyout.show
@@ -55,7 +55,7 @@ Show a `.flyout` by using the [action]({{ site.github.url }}/actions/) `Flyout.s
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.show:#exampleFlyout;">Show the Flyout</button>
+<button class="button button--large" yoi-action="Flyout.show:#exampleFlyout;">Show the Flyout</button>
 ```
 
 ### Flyout.hide
@@ -64,7 +64,7 @@ Hide a `.flyout` by using the [action]({{ site.github.url }}/actions/) `Flyout.h
 
 ```html
 <!-- example -->
-<button class="btn btn--large" yoi-action="Flyout.hide:#exampleFlyout;">Hide the Flyout</button>
+<button class="button button--large" yoi-action="Flyout.hide:#exampleFlyout;">Hide the Flyout</button>
 ```
 
 ### Custom Events

@@ -11,25 +11,25 @@ YOI.component.Stepper = (function() {
 
     var localization = {
         'en' : {
-            'btnLabelMore' : 'more',
-            'btnLabelLess' : 'less'
+            'buttonLabelMore' : 'more',
+            'buttonLabelLess' : 'less'
         },
         'de' : {
-            'btnLabelMore' : 'mehr',
-            'btnLabelLess' : 'weniger'
+            'buttonLabelMore' : 'mehr',
+            'buttonLabelLess' : 'weniger'
         }
     };
 
     // templates
 
-    var $stepperBtns = $('\
-        <div class="stepper__btnPlus">\
+    var $stepperButtons = $('\
+        <div class="stepper__buttonPlus">\
             <span class="stepper__iconPlus"></span>\
-            <span class="hidden">' + localization[language]['btnLabelMore'] + '</span>\
+            <span class="hidden">' + localization[language]['buttonLabelMore'] + '</span>\
         </div>\
-        <div class="stepper__btnMinus">\
+        <div class="stepper__buttonMinus">\
             <span class="stepper__iconMinus"></span>\
-            <span class="hidden">' + localization[language]['btnLabelLess'] + '</span>\
+            <span class="hidden">' + localization[language]['buttonLabelLess'] + '</span>\
         </div>\
     ');
 
@@ -57,18 +57,18 @@ YOI.component.Stepper = (function() {
 
             var $thisStepper = $(this);
 
-            $thisStepper.prepend($stepperBtns.clone());
+            $thisStepper.prepend($stepperButtons.clone());
 
             // attach events
 
             var eventType = YOI.environment('mobile') ? 'tap' : 'click';
 
-            $thisStepper.find('.stepper__btnPlus').on(eventType, function(e) {
+            $thisStepper.find('.stepper__buttonPlus').on(eventType, function(e) {
                 e.preventDefault();
                 increaseItemCount($thisStepper);
             });
 
-            $thisStepper.find('.stepper__btnMinus').on(eventType, function(e) {
+            $thisStepper.find('.stepper__buttonMinus').on(eventType, function(e) {
                 e.preventDefault();
                 decreaseItemCount($thisStepper);
             });

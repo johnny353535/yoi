@@ -36,7 +36,7 @@
 // block (base styles for all buttons)
 // ===================================
 
-.btn {
+.button {
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
@@ -111,7 +111,7 @@
 
     // standard button
 
-    .constr-btn(
+    .constr-button(
         @bgGradientTopColor: @color-base-24,
         @bgGradientBottomColor: @color-base-23,
         @borderColor: @color-base-21,
@@ -134,7 +134,7 @@
 // elements
 // ========
 
-.btn {
+.button {
 
     // & > input[type="submit"] {
     //     cursor: pointer;
@@ -149,24 +149,24 @@
         top: @button-borderwidth * -1;
     }
 
-    &.btn--small .icon {
+    &.button--small .icon {
         height: @button-s-height;
         width: @button-s-height;
     }
 
-    &.btn--large .icon {
+    &.button--large .icon {
         height: @button-l-height;
         width: @button-l-height;
     }
 
-    &.btn--xlarge .icon {
+    &.button--xlarge .icon {
         height: @button-xl-height;
         width: @button-xl-height;
     }
 
     // icon right, label left
 
-    &.btn--small .icon:last-child {
+    &.button--small .icon:last-child {
         margin-right: @button-s-xpull;
     }
 
@@ -174,17 +174,17 @@
         margin-right: @button-xpull;
     }
 
-    &.btn--large .icon:last-child {
+    &.button--large .icon:last-child {
         margin-right: @button-l-xpull;
     }
 
-    &.btn--xlarge .icon:last-child {
+    &.button--xlarge .icon:last-child {
         margin-right: @button-xl-xpull;
     }
 
     // icon left, label right
 
-    &.btn--small .icon:first-child {
+    &.button--small .icon:first-child {
         margin-left: @button-s-xpull;
     }
 
@@ -192,18 +192,18 @@
         margin-left: @button-xpull;
     }
 
-    &.btn--large .icon:first-child {
+    &.button--large .icon:first-child {
         margin-left: @button-l-xpull;
     }
 
-    &.btn--xlarge .icon:first-child {
+    &.button--xlarge .icon:first-child {
         margin-left: @button-xl-xpull;
     }
 
     // only icons, hidden or no label
 
-    &.btn--small .hidden + .icon,
-    &.btn--small .icon:only-child {
+    &.button--small .hidden + .icon,
+    &.button--small .icon:only-child {
         margin-left: @button-s-xpull;
         margin-right: -9px; // 4 + 5
         left: @button-borderwidth * -1;
@@ -216,15 +216,15 @@
         left: @button-borderwidth * -1;
     }
 
-    &.btn--large .hidden + .icon,
-    &.btn--large .icon:only-child {
+    &.button--large .hidden + .icon,
+    &.button--large .icon:only-child {
         left: @button-borderwidth * -1;
         margin-left: @button-l-xpull;
         margin-right: -17px; // 12 + 5
     }
 
-    &.btn--xlarge .hidden + .icon,
-    &.btn--xlarge .icon:only-child {
+    &.button--xlarge .hidden + .icon,
+    &.button--xlarge .icon:only-child {
         left: @button-borderwidth * -1;
         margin-left: @button-xl-xpull;
         margin-right: -25px; // 20 + 5
@@ -237,21 +237,21 @@
 
 // size
 
-.btn--small {
+.button--small {
     font-size: @button-s-fontsize;
     height: @button-s-height;
     line-height: @button-s-lineheight;
     padding: 0 @button-s-xpadding;
 }
 
-.btn--large {
+.button--large {
     font-size: @button-l-fontsize;
     height: @button-l-height;
     line-height: @button-l-lineheight;
     padding: 0 @button-l-xpadding;
 }
 
-.btn--xlarge {
+.button--xlarge {
     font-size: @button-xl-fontsize;
     height: @button-xl-height;
     line-height: @button-xl-lineheight;
@@ -260,8 +260,8 @@
 
 // colors
 
-.btn--primary {
-    .constr-btn(
+.button--primary {
+    .constr-button(
         @bgGradientTopColor: @color-primary-13,
         @bgGradientBottomColor: @color-primary-11,
         @borderColor: @color-primary-10,
@@ -280,8 +280,8 @@
     );
 }
 
-.btn--light {
-    .constr-btn(
+.button--light {
+    .constr-button(
         @bgGradientTopColor: @color-base-25,
         @bgGradientBottomColor: @color-base-24,
         @borderColor: @color-base-22,
@@ -300,8 +300,8 @@
     );
 }
 
-.btn--dark {
-    .constr-btn(
+.button--dark {
+    .constr-button(
         @bgGradientTopColor: @color-base-12,
         @bgGradientBottomColor: @color-base-11,
         @borderColor: @color-base-9,
@@ -320,8 +320,8 @@
     );
 }
 
-.btn--attention {
-    .constr-btn(
+.button--attention {
+    .constr-button(
         @bgGradientTopColor: @color-attention-21,
         @bgGradientBottomColor: @color-attention-19,
         @borderColor: @color-attention-18,
@@ -340,8 +340,8 @@
     );
 }
 
-.btn--negative {
-    .constr-btn(
+.button--negative {
+    .constr-button(
         @bgGradientTopColor: @color-negative-21,
         @bgGradientBottomColor: @color-negative-19,
         @borderColor: @color-negative-18,
@@ -360,8 +360,8 @@
     );
 }
 
-.btn--positive {
-    .constr-btn(
+.button--positive {
+    .constr-button(
         @bgGradientTopColor: @color-positive-21,
         @bgGradientBottomColor: @color-positive-19,
         @borderColor: @color-positive-18,
@@ -382,25 +382,25 @@
 
 // style
 
-.btn--rounded {
+.button--rounded {
 
     border-radius: 1rem;
 
-    &.btn--small {
+    &.button--small {
         border-radius: .75rem;
     }
 
-    &.btn--large {
+    &.button--large {
         border-radius: 1.25rem;
     }
 
-    &.btn--xlarge {
+    &.button--xlarge {
         border-radius: 1.5rem;
     }
 
 }
 
-.btn--clip {
+.button--clip {
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -408,125 +408,125 @@
 // grouped buttons
 // ===============
 
-.btns {
+.buttons {
 
     font-size: 0;
     position: relative;
 
-    .btn {
+    .button {
         border-radius: 0;
         margin-left: -1px;
     }
 
-    .btn:first-child {
+    .button:first-child {
         border-radius: (1px * @defaultBorderRadius) 0 0 (1px * @defaultBorderRadius);
     }
 
-    .btn:last-child {
+    .button:last-child {
         border-radius: 0 (1px * @defaultBorderRadius) (1px * @defaultBorderRadius) 0;
     }
 
     // standard, rounded
 
-    .btn.btn--rounded:first-child {
+    .button.button--rounded:first-child {
         border-radius: (6px * @defaultBorderRadius) 0 0 (6px * @defaultBorderRadius);
     }
 
-    .btn.btn--rounded:last-child {
+    .button.button--rounded:last-child {
         border-radius: 0 (6px * @defaultBorderRadius) (6px * @defaultBorderRadius) 0;
     }
 
     // small, rounded
 
-    .btn.btn--small.btn--rounded:first-child {
+    .button.button--small.button--rounded:first-child {
         border-radius: (5px * @defaultBorderRadius) 0 0 (5px * @defaultBorderRadius);
     }
 
-    .btn.btn--small.btn--rounded:last-child {
+    .button.button--small.button--rounded:last-child {
         border-radius: 0 (5px * @defaultBorderRadius) (5px * @defaultBorderRadius) 0;
     }
 
     // large, rounded
 
-    .btn.btn--large.btn--rounded:first-child {
+    .button.button--large.button--rounded:first-child {
         border-radius: (7.5px * @defaultBorderRadius) 0 0 (7.5px * @defaultBorderRadius);
     }
 
-    .btn.btn--large.btn--rounded:last-child {
+    .button.button--large.button--rounded:last-child {
         border-radius: 0 (7.5px * @defaultBorderRadius) (7.5px * @defaultBorderRadius) 0;
     }
 
     // large, rounded
 
-    .btn.btn--large.btn--rounded:first-child {
+    .button.button--large.button--rounded:first-child {
         border-radius: (10px * @defaultBorderRadius) 0 0 (10px * @defaultBorderRadius);
     }
 
-    .btn.btn--large.btn--rounded:last-child {
+    .button.button--large.button--rounded:last-child {
         border-radius: 0 (10px * @defaultBorderRadius) (10px * @defaultBorderRadius) 0;
     }
 
 }
 
-.btns--vertical {
+.buttons--vertical {
 
-    .btn {
+    .button {
         display: block;
         width: 100%;
         border-top-width: 0;
         margin: 0;
     }
 
-    .btn:first-child {
+    .button:first-child {
         border-top-width: 1px;
         border-radius: 2px 2px 0 0;
     }
 
-    .btn.btn--outline:first-child {
+    .button.button--outline:first-child {
         border-top-width: 2px;
     }
 
-    .btn:last-child {
+    .button:last-child {
         border-radius: 0 0 2px 2px;
     }
 
     // standard, rounded
 
-    .btn.btn--rounded:first-child {
+    .button.button--rounded:first-child {
         border-radius: 1.2rem 1.2rem 0 0;
     }
 
-    .btn.btn--rounded:last-child {
+    .button.button--rounded:last-child {
         border-radius: 0 0 1.2rem 1.2rem;
     }
 
     // small, rounded
 
-    .btn.btn--small.btn--rounded:first-child {
+    .button.button--small.button--rounded:first-child {
         border-radius: 1rem 1rem 0 0;
     }
 
-    .btn.btn--small.btn--rounded:last-child {
+    .button.button--small.button--rounded:last-child {
         border-radius: 0 0 1rem 1rem;
     }
 
     // large, rounded
 
-    .btn.btn--large.btn--rounded:first-child {
+    .button.button--large.button--rounded:first-child {
         border-radius: 1.5rem 1.5rem 0 0;
     }
 
-    .btn.btn--large.btn--rounded:last-child {
+    .button.button--large.button--rounded:last-child {
         border-radius: 0 0 1.5rem 1.5rem;
     }
 
     // xlarge, rounded
 
-    .btn.btn--xlarge.btn--rounded:first-child {
+    .button.button--xlarge.button--rounded:first-child {
         border-radius: 2rem 2rem 0 0;
     }
 
-    .btn.btn--xlarge.btn--rounded:last-child {
+    .button.button--xlarge.button--rounded:last-child {
         border-radius: 0 0 2rem 2rem;
     }
 
@@ -535,7 +535,7 @@
 // constructor
 // ===========
 
-.constr-btn (
+.constr-button (
     @bgGradientTopColor,
     @bgGradientBottomColor,
     @borderColor,

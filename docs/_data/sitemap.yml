@@ -31,10 +31,9 @@ components:
     - button
     - code
     - countdown
-    - datepicker
     - dock
-    - filterbtns
-    - flipbtns
+    - filterbuttons
+    - flipbuttons
     - flyout
     - form
     - headings
@@ -44,15 +43,14 @@ components:
     - imgmagnifier
     - link
     - linklist
-    - log
     - maxchars
     - modal
     - note
-    - pagebtns
+    - pagebuttons
     - pagedots
     - pagerewind
     - pagination
-    - pickbtn
+    - pickbutton
     - piechart
     - popover
     - pricesticker
@@ -64,7 +62,6 @@ components:
     - ruler
     - scrollkeys
     - scrollprogress
-    - shelf
     - slider
     - spinner
     - stepcrumb

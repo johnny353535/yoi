@@ -4,22 +4,22 @@
 // ======
 
 img:not([alt]) when (@debugImages = true) {
-    outline: 2px @red-15 solid !important;
+    outline: 2px @color-red-15 solid !important;
     outline-style: inset !important;
 }
 
 img[alt=""] when (@debugImages = true) {
-    outline: 2px @red-15 solid !important;
+    outline: 2px @color-red-15 solid !important;
     outline-style: inset !important;
 }
 
 img:not([title]) when (@debugImages = true) {
-    outline: 2px @red-15 solid !important;
+    outline: 2px @color-red-15 solid !important;
     outline-style: inset !important;
 }
 
 img[title=""] when (@debugImages = true) {
-    outline: 2px @red-15 solid !important;
+    outline: 2px @color-red-15 solid !important;
     outline-style: inset !important;
 }
 
@@ -79,9 +79,9 @@ html::before when (@showGuides = true) {
 body::after when (@showBreakpoint = true) {
 
     .mixin-defaultBorderRadius;
-    background-color: @gray-5;
+    background-color: @color-gray-5;
     bottom: 1rem;
-    color: @gray-24;
+    color: @color-gray-24;
     font-family: @font-mono;
     font-size: 1.25rem;
     height: auto;
@@ -94,22 +94,22 @@ body::after when (@showBreakpoint = true) {
     z-index: 1000;
 
     @media @bp-s {
-        color: @red-18;
+        color: @color-red-18;
         content: 'small';
     }
 
     @media @bp-m {
-        color: @green-20;
+        color: @color-green-20;
         content: 'medium';
     }
 
     @media @bp-l {
-        color: @yellow-20;
+        color: @color-yellow-20;
         content: 'large';
     }
 
     @media @bp-xl {
-        color: @blue-20;
+        color: @color-blue-20;
         content: 'xlarge';
     }
 

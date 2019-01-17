@@ -1,9 +1,9 @@
-/** pickbtn.less */
+/** pickbutton.less */
 
 // block
 // =====
 
-.pickBtn {
+.pickButton {
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
@@ -41,23 +41,23 @@
 // elements
 // ========
 
-.pickBtn__label,
-.pickBtn__toggleLabel {
+.pickButton__label,
+.pickButton__toggleLabel {
     display: inline-block;
     font: bold 1.2rem/2.8rem @font-sansserif;
 }
 
-.pickBtn__label {
+.pickButton__label {
     vertical-align: top;
 }
 
-.pickBtn__label + .pickBtn__toggleLabel {
+.pickButton__label + .pickButton__toggleLabel {
     border-left: @color-base-23 1px dashed;
     margin-left: .5rem;
     padding-left: .5rem;
 }
 
-.pickBtn__icon {
+.pickButton__icon {
     .mixin-icon-bg(@id: 'icon-011-s', @fillColor: 'fff');
     display: none;
     height: 2.8rem;
@@ -69,18 +69,18 @@
 // modifiers
 // =========
 
-.js .pickBtn.is--active,
-.js .pickBtn.is--active:hover {
+.js .pickButton.is--active,
+.js .pickButton.is--active:hover {
 
     background: @color-positive-10;
     border-color: @color-positive-10;
     color: @color-white;
 
-    .pickBtn__toggleLabel {
+    .pickButton__toggleLabel {
         display: none;
     }
 
-    .pickBtn__icon {
+    .pickButton__icon {
         display: inline-block;
     }
 
