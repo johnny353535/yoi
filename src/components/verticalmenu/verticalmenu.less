@@ -14,10 +14,10 @@
 
 .verticalMenu__item {
 
+    .mixin-fs-2;
+    .mixin-fw-bold;
     border-top: @color-base-23 1px solid;
     margin: 0;
-    font-weight: bold;
-    font-size: 1.3rem;
 
     &:first-child {
         border: 0;
@@ -60,8 +60,8 @@
 }
 
 .verticalMenu .verticalMenu .verticalMenu__item {
+    .mixin-fw-normal;
     border: 0;
-    font-weight: normal;
 }
 
 // nesting-level 3
@@ -96,49 +96,8 @@
     .verticalMenu__link:link,
     .verticalMenu__link:visited,
     .verticalMenu__link:hover {
+        .mixin-fw-bold;
         background: @color-base-8;
-        color: @color-white;
-        font-weight: bold;
-    }
-
-}
-
-// an active verticalMenu item can display a pointer
-// to the left or right
-
-.verticalMenu--pointLeft .is--active::after,
-.verticalMenu--pointRight .is--active::after {
-    background: @color-base-8;
-    content: ' ';
-    display: block;
-    height: 1rem;
-    position: absolute;
-    top: 50%;
-    transform-origin: center;
-    width: 1rem;
-}
-
-.verticalMenu--pointLeft .is--active::after {
-    left: 0;
-    transform: translate(-50% ,-50%) rotate(45deg);
-}
-
-.verticalMenu--pointRight .is--active::after {
-    right: 0;
-    transform: translate(50% ,-50%) rotate(45deg);
-}
-
-.verticalMenu--pointLeft .verticalMenu__link,
-.verticalMenu--pointRight .verticalMenu__link {
-
-    &,
-    &:active,
-    &:link,
-    &:visited {
-        color: @textColor;
-    }
-    
-    &.is--active {
         color: @color-white;
     }
 

@@ -36,7 +36,7 @@ This is how a basic `.linkList` looks like and how you write the markup:
 
 ### Active List Item
 
-Add this modifier to a `<li class="linkList__item">` element inside the link list to mark it as _selected_:
+Add the modifier `is--active` to a `<li class="linkList__item">` element inside the link list to mark it as _selected_:
 
 ```html
 <!-- example -->
