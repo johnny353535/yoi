@@ -13,11 +13,12 @@
 
 .horizontalMenu__menu {
 
+    .mixin-fs-2;
     border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
     border: @color-base-23 1px solid;
     border-bottom: 0;
     box-sizing: border-box;
-    height: 5rem;
+    height: 3rem;
     position: relative;
     width: 100%;
     z-index: 100;
@@ -37,10 +38,9 @@
         border-right: 1px @color-base-23 solid;
         color: @color-base-10;
         display: block;
-        font-size: 1.5rem;
         font-weight: bold;
-        height: 4.9rem;
-        line-height: 4.9rem;
+        height: ~'calc(3rem - 1px)';
+        line-height: ~'calc(3rem - 1px)';
         padding: 0 1rem;
         text-align: center;
         text-decoration: none;
