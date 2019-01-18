@@ -1,0 +1,27 @@
+/** icons.less */
+
+.mixin-icon-chevron-down(@size: 24, @stroke: 2, @color: #000000) { background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='@{size}' height='@{size}' fill='none' stroke='@{color}' stroke-width='@{stroke}' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center; }
+.mixin-icon-chevron-up(@size: 24, @stroke: 2, @color: #000000) { background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='@{size}' height='@{size}' fill='none' stroke='@{color}' stroke-width='@{stroke}' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center; }
+.mixin-icon-minus(@size: 24, @stroke: 2, @color: #000000) { background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='@{size}' height='@{size}' fill='none' stroke='@{color}' stroke-width='@{stroke}' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center; }
+.mixin-icon-plus(@size: 24, @stroke: 2, @color: #000000) { background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='@{size}' height='@{size}' fill='none' stroke='@{color}' stroke-width='@{stroke}' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center; }
+.mixin-icon-x(@size: 24, @stroke: 2, @color: #000000) { background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='@{size}' height='@{size}' fill='none' stroke='@{color}' stroke-width='@{stroke}' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center; }
+
+/*
+    Add from Aristander:
+
+    .mixin-icon-arrow-down
+    .mixin-icon-arrow-left
+    .mixin-icon-arrow-right
+    .mixin-icon-arrow-up
+    .mixin-icon-checkmark
+    .mixin-icon-chevron-left
+    .mixin-icon-chevron-right
+
+    Please notice
+    =============
+
+    * you can copy any of the existing mixins above to make a new one
+    * you only need to replace the inner content of the SVG tag, nothing else
+    * make sure to change the double-quotes (") to single quotes (')
+    * replace the up/down triangles with up/down chevrons (eg. for accordion) – looks lighter and nicer imho
+*/
