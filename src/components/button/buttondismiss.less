@@ -7,7 +7,7 @@
 
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
-    .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-base-8, @width: 32, @height: 32);
+    .mixin-icon-x(@color: @color-base-15);
     border: 0;
     cursor: pointer;
     display: inline-block;
@@ -78,13 +78,7 @@
 
 .constr-buttonDismiss(@iconColor, @bgColorHover) {
 
-    .mixin-icon-bg(
-        @id: 'icon-006-s',
-        @fillColor:
-        @iconColor,
-        @width: 32,
-        @height: 32
-    );
+    .mixin-icon-x(@color: @iconColor);
 
     &:hover {
         background-color: fade(@bgColorHover, 50%);
