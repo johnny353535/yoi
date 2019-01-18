@@ -23,12 +23,12 @@ YOI.component.Stepper = (function() {
     // templates
 
     var $stepperButtons = $('\
-        <div class="stepper__buttonPlus">\
-            <span class="stepper__iconPlus"></span>\
+        <div class="stepper__buttonUp">\
+            <span class="stepper__iconUp"></span>\
             <span class="hidden">' + localization[language]['buttonLabelMore'] + '</span>\
         </div>\
-        <div class="stepper__buttonMinus">\
-            <span class="stepper__iconMinus"></span>\
+        <div class="stepper__buttonDown">\
+            <span class="stepper__iconDown"></span>\
             <span class="hidden">' + localization[language]['buttonLabelLess'] + '</span>\
         </div>\
     ');
@@ -57,18 +57,24 @@ YOI.component.Stepper = (function() {
 
             var $thisStepper = $(this);
 
+            // save initial value
+
+            $thisStepper.data().props.initialValue = $thisStepper.find('.stepper__input')[0].value || 1;
+
+            // add elements
+
             $thisStepper.prepend($stepperButtons.clone());
 
             // attach events
 
             var eventType = YOI.environment('mobile') ? 'tap' : 'click';
 
-            $thisStepper.find('.stepper__buttonPlus').on(eventType, function(e) {
+            $thisStepper.find('.stepper__buttonUp').on(eventType, function(e) {
                 e.preventDefault();
                 increaseItemCount($thisStepper);
             });
 
-            $thisStepper.find('.stepper__buttonMinus').on(eventType, function(e) {
+            $thisStepper.find('.stepper__buttonDown').on(eventType, function(e) {
                 e.preventDefault();
                 decreaseItemCount($thisStepper);
             });
@@ -143,7 +149,7 @@ YOI.component.Stepper = (function() {
          *  @param {jQuery element} $stepper - the stepper
          */
 
-        setItemCount($stepper, 1);
+        setItemCount($stepper, $stepper.data().props.initialValue);
 
         // remove error formatting
 
@@ -207,7 +213,7 @@ YOI.component.Stepper = (function() {
          *  @param {jQuery element} $stepper - the stepper
          */
 
-        var inputVal  = $stepper.find('.stepper__input')[0].value;
+        var inputVal = $stepper.find('.stepper__input')[0].value;
 
         if (YOI.isNumber(inputVal)) {
 
@@ -271,8 +277,7 @@ YOI.component.Stepper = (function() {
         countUp   : increaseItemCount,
         countDown : decreaseItemCount,
         reset     : resetItemCount,
-        clear     : clearItemCount,
-        setTo     : setItemCount
+        clear     : clearItemCount
     };
 
 })();

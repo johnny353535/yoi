@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Stepper
 permalink: components/stepper
-status: draft
 ---
 
 # Stepper
@@ -21,7 +20,7 @@ This is how a basic `.stepper` looks like and how you write the markup:
 </div>
 ```
 
-### Submit-Button and Icons
+### Submit-Button
 
 You can add a submit button to any `.stepper`:
 
@@ -33,40 +32,7 @@ You can add a submit button to any `.stepper`:
 </div>
 ```
 
-You can also add icons:
-
-```html
-<!-- example -->
-<div class="stepper" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <span class="icon"></span>
-    <input class="stepper__submit" type="submit" value="Add to Cart" />
-</div>
-```
-
-It’s also possible to *hide the label text and only show the icon*. Use the [utility class]({{ site.github.url }}/utilities/visibility.html) `.is--invisible` on the element `.stepper__submit` to do so:
-
-```html
-<!-- example -->
-<div class="stepper" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-    <img class="icon" src="http://cdn.yoshino.digital/svg.php?id=icon-026" yoi-icon />
-    <input class="stepper__submit is--invisible" type="submit" value="Add to Cart" />
-</div>
-```
-
 ## Modifiers
-
-### Light
-
-Add the modifier `.stepper--light` to render a *lighter*, more subtle version:
-
-```html
-<!-- example -->
-<div class="stepper stepper--light" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-</div>
-```
 
 ### Large / Touch-friendly
 
@@ -75,17 +41,6 @@ Add the modifier `.stepper--touch` to render a version with larger, *touch-frien
 ```html
 <!-- example -->
 <div class="stepper stepper--touch" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-</div>
-```
-
-### Combining Modifiers
-
-As you’d expect, you can combine the modifiers to render a *light* and *touch-friendly* stepper:
-
-```html
-<!-- example -->
-<div class="stepper stepper--light stepper--touch" yoi-stepper>
     <input class="stepper__input" type="text" maxlength="3" value="1" />
 </div>
 ```
@@ -118,12 +73,12 @@ Pick a `.stepper` and decrease the value by 1:
 
 ### Stepper.reset
 
-Pick a `.stepper` and reset the value to 1:
+Pick a `.stepper` and reset it to it’s initial value:
 
 ```html
 <!-- example:tabs -->
 <div id="exampleStepper-3" class="stepper val-t" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="10" />
+    <input class="stepper__input" type="text" maxlength="3" value="666" />
 </div>
 <button class="button button--large val-t m-l-2" yoi-action="Stepper.reset:#exampleStepper-3;">Reset</button>
 ```
@@ -140,18 +95,6 @@ Pick a `.stepper` and reset the value to 0:
 <button class="button button--large val-t m-l-2" yoi-action="Stepper.clear:#exampleStepper-4;">Clear</button>
 ```
 
-### Stepper.setTo
-
-Pick a `.stepper` and set the value to a given input:
-
-```html
-<!-- example:tabs -->
-<div id="exampleStepper-5" class="stepper val-t" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="10" />
-</div>
-<button class="button button--large val-t m-l-2" yoi-action="Stepper.setTo:#exampleStepper-5, 42;">Set to 42</button>
-```
-
 ### Custom Events
 
 | event name            | fires when …                          |
@@ -163,54 +106,3 @@ Pick a `.stepper` and set the value to a given input:
 | `yoi-stepper-change`  | fired by reset(), clear() and setTo() |
 | `yoi-stepper-valid`   | fired by countUp() and countDown()    |
 | `yoi-stepper-invalid` | fired by countUp() and countDown()    |
-
-Try the example below and watch the custom events, printed to the [log element]({{ site.github.url }}/components/log.html):
-
-```html
-<!-- example:tabs -->
-<div id="myLog" class="log log--light m-b-4" yoi-log>
-    <div class="log__body">
-        <p>Listening</p>
-    </div>
-</div>
-<div id="myStepper" class="stepper val-t" yoi-stepper>
-    <input class="stepper__input" type="text" maxlength="3" value="1" />
-</div>
-<div class="buttons d-inlineblock val-t m-l-2">
-    <button id="exampleButton-6" class="button button--large val-t">Reset</button>
-    <button id="exampleButton-7" class="button button--large val-t">Clear</button>
-    <button id="exampleButton-8" class="button button--large val-t">Set to 42</button>
-</div>
-<script>
-    $('#myStepper').on('yoi-stepper-up', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-up');
-    });
-    $('#myStepper').on('yoi-stepper-down', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-down');
-    });
-    $('#myStepper').on('yoi-stepper-reset', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-reset');
-    });
-    $('#myStepper').on('yoi-stepper-change', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-change');
-    });
-    $('#myStepper').on('yoi-stepper-clear', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-clear');
-    });
-    $('#myStepper').on('yoi-stepper-valid', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-valid');
-    });
-    $('#myStepper').on('yoi-stepper-invalid', function() {
-        YOI.component.Log.write($('#myLog'), 'yoi-stepper-invalid');
-    });
-    $('#exampleButton-6').on('click', function() {
-        YOI.component.Stepper.reset($('#myStepper'));
-    });
-    $('#exampleButton-7').on('click', function() {
-        YOI.component.Stepper.clear($('#myStepper'));
-    });
-    $('#exampleButton-8').on('click', function() {
-        YOI.component.Stepper.setTo($('#myStepper'), 42);
-    });
-</script>
-```
