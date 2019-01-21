@@ -1,0 +1,136 @@
+/** textinputs.less */
+
+// blocks
+// ======
+
+// all text inputs
+
+.input,
+.textarea {
+    .mixin-clearAppearance;
+    .mixin-defaultBorderRadius;
+    background: @color-white;
+    border: @color-base-20 1px solid;
+    box-shadow: 0 1px 0 @color-base-24 inset;
+    box-sizing: border-box;
+    color: @color-base-8;
+    display: inline-block;
+    font: normal 1.3rem/2.5rem @font-sansserif;
+    height: 2.5rem;
+    padding: 0 .5rem;
+    transition: all 100ms ease-in-out;
+    width: 100%;
+}
+
+
+// textarea
+
+.textarea {
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    line-height: 2rem;
+    max-width: 100%;
+    min-height: 10rem;
+    padding: .5rem;
+    resize: vertical;
+}
+
+// modifiers
+// =========
+
+// size
+
+.input.input--large {
+    font-size: 1.5rem;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem;
+}
+
+.textarea.input--large {
+    font-size: 1.5rem;
+    height: auto;
+    line-height: 2rem;
+    padding: 1rem;
+}
+
+// style
+
+.input.input--rounded {
+    border-radius: 1.25rem;
+}
+
+.input.input--large.input--rounded {
+    border-radius: 2rem;
+}
+
+// validation
+
+.input,
+.textarea {
+
+    // negative
+
+    &.is--negative,
+    .is--negative & {
+        border-color: @color-negative-15;
+        color: @color-negative-8;
+    }
+
+    // positive
+
+    &.is--positive,
+    .is--positive & {
+        border-color: @color-positive-15;
+        color: @color-positive-8;
+    }
+
+}
+
+// interactive states
+
+.input,
+.textarea {
+
+    &.is--focus,
+    &:focus {
+        .mixin-defaultFocus;
+        background-color: @color-white;
+        color: @color-base-8;
+    }
+
+    &.is--disabled,
+    &[disabled] {
+        background-color: @color-white;
+        border: @color-base-20 1px solid;
+        color: @color-base-8;
+        cursor: default;
+        opacity: .5;
+    }
+
+    &.is--disabled {
+        color: @color-base-17;
+    }
+
+    &.is--readonly,
+    &[readonly] {
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        cursor: default;
+    }
+
+    &[required] {}
+
+}
+
+// placeholders
+
+::-webkit-input-placeholder                 { color: @color-base-8; }
+.is--negative::-webkit-input-placeholder    { color: @color-negative-8; }
+.is--positive::-webkit-input-placeholder    { color: @color-positive-8; }
+
+:-moz-placeholder                           { color: @color-base-8; }
+.is--negative::-moz-input-placeholder       { color: @color-negative-8; }
+.is--positive::-moz-input-placeholder       { color: @color-positive-8; }

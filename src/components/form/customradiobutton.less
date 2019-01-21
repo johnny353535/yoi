@@ -1,91 +1,91 @@
-/** customradiobutton.less */
+// /** customradiobutton.less */
 
-// block
-// =====
+// // block
+// // =====
 
-.radio {
+// .radio {
 
-    background: @color-white;
-    border-radius: 50%;
-    border: @color-base-20 1px solid;
-    box-shadow: 0 1px 0 @color-base-24 inset;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-block;
-    height: 1.6rem;
-    margin: 0 .5rem 0 0;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    position: relative;
-    top: -.1rem;
-    vertical-align: top;
-    width: 1.6rem;
+//     background: @color-white;
+//     border-radius: 50%;
+//     border: @color-base-20 1px solid;
+//     box-shadow: 0 1px 0 @color-base-24 inset;
+//     box-sizing: border-box;
+//     cursor: pointer;
+//     display: inline-block;
+//     height: 1.6rem;
+//     margin: 0 .5rem 0 0;
+//     overflow: hidden;
+//     padding: 0;
+//     position: relative;
+//     position: relative;
+//     top: -.1rem;
+//     vertical-align: top;
+//     width: 1.6rem;
 
-    // inner input element
+//     // inner input element
 
-    input {
-        left: -5rem;
-        opacity: 0;
-        position: absolute;
-    }
+//     input {
+//         left: -5rem;
+//         opacity: 0;
+//         position: absolute;
+//     }
 
-}
+// }
 
-// modifiers
-// =========
+// // modifiers
+// // =========
 
-// size
+// // size
 
-.radio.input--large {
-    height: 3rem;
-    width: 3rem;
-}
+// .radio.input--large {
+//     height: 3rem;
+//     width: 3rem;
+// }
 
-// validation
+// // validation
 
-.radio.input--negative {
-    border-color: @color-negative-15;
-    color: @color-negative-8;
-}
+// .radio.input--negative {
+//     border-color: @color-negative-15;
+//     color: @color-negative-8;
+// }
 
-.radio.input--positive {
-    border-color: @color-positive-15;
-    color: @color-positive-8;
-}
+// .radio.input--positive {
+//     border-color: @color-positive-15;
+//     color: @color-positive-8;
+// }
 
-// interactive states
+// // interactive states
 
-.radio.input--checked {
+// .radio.input--checked {
 
-    // icon regular
+//     // icon regular
 
-    &::after {
-        .mixin-icon-bg(@id: 'icon-079-s', @width: 16, @height: 16, @fillColor: @color-base-8);
-        content: ' ';
-        left: 0;
-        top: 0;
-        height: 1.4rem;
-        position: absolute;
-        width: 1.4rem;
-    }
+//     &::after {
+//         .mixin-icon-bg(@id: 'icon-079-s', @width: 16, @height: 16, @fillColor: @color-base-8);
+//         content: ' ';
+//         left: 0;
+//         top: 0;
+//         height: 1.4rem;
+//         position: absolute;
+//         width: 1.4rem;
+//     }
 
-    // icon large
+//     // icon large
 
-    &.input--large::after {
-        .mixin-icon-bg(@id: 'icon-079', @width: 24, @height: 24, @fillColor: @color-base-8);
-        height: 2.8rem;
-        left: 0;
-        top: 0;
-        width: 2.8rem;
-    }
+//     &.input--large::after {
+//         .mixin-icon-bg(@id: 'icon-079', @width: 24, @height: 24, @fillColor: @color-base-8);
+//         height: 2.8rem;
+//         left: 0;
+//         top: 0;
+//         width: 2.8rem;
+//     }
 
-}
+// }
 
-.radio.input--focus {
-    .mixin-defaultFocus;
-}
+// .radio.input--focus {
+//     .mixin-defaultFocus;
+// }
 
-.radio.input--disabled {
-    .mixin-disabled;
-}
+// .radio.input--disabled {
+//     .mixin-disabled;
+// }
