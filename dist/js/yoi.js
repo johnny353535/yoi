@@ -2028,129 +2028,6 @@ YOI.component.Flyout = function() {
     };
 }();
 
-YOI.component.CustomFormElements = function() {
-    var $checkBoxWrapper = $('<span class="checkbox"></span>').on("click", function() {
-        var $thisInput = $(this).find("input");
-        if ($thisInput.is(":disabled")) return false;
-        $thisInput.trigger("change");
-    });
-    var $radioButtonWrapper = $('<span class="radio"></span>').on("click", function() {
-        var $thisInput = $(this).find("input");
-        if ($thisInput.is(":disabled")) return false;
-        $thisInput.trigger("change");
-    });
-    var $selectWrapper = $('<span class="select"></span>');
-    var $selectIcon = $('<span class="select__icon"></span>');
-    function initialize() {
-        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
-        var $checkBoxes = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var $radioButtons = $('input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
-        var $selects = $("select:not(.js-fallback)");
-        $checkBoxes.each(function() {
-            if (YOI.isReady($(this))) return false;
-            var $thisCheckbox = $(this);
-            var isWrappedInLabel = $thisCheckbox.parents().index("label");
-            if (isWrappedInLabel === -1) {
-                $thisCheckbox.wrap($checkBoxWrapper.clone(true));
-            } else {
-                $thisCheckbox.wrap($checkBoxWrapper.clone());
-            }
-            $thisCheckbox.on({
-                focus: function() {
-                    $thisCheckbox.parent().addClass("input--focus");
-                    $thisCheckbox.trigger("yoi-input-focus");
-                },
-                blur: function() {
-                    $thisCheckbox.parent().removeClass("input--focus");
-                    $thisCheckbox.trigger("yoi-input-blur");
-                },
-                change: function() {
-                    if ($thisCheckbox.is(":checked")) {
-                        $thisCheckbox.prop("checked", false);
-                        $thisCheckbox.parent().removeClass("input--checked");
-                    } else if (!$thisCheckbox.is(":checked")) {
-                        $thisCheckbox.prop("checked", true);
-                        $thisCheckbox.parent().addClass("input--checked");
-                    }
-                    $thisCheckbox.trigger("yoi-input-change");
-                }
-            });
-            YOI.setReady($(this));
-        });
-        $radioButtons.each(function() {
-            if (YOI.isReady($(this))) return false;
-            var $thisRadioButton = $(this);
-            var isWrappedInLabel = $thisRadioButton.parents().index("label");
-            if (isWrappedInLabel === -1) {
-                $thisRadioButton.wrap($radioButtonWrapper.clone(true));
-            } else {
-                $thisRadioButton.wrap($radioButtonWrapper.clone());
-            }
-            $thisRadioButton.on({
-                focus: function() {
-                    $thisRadioButton.parent().addClass("input--focus");
-                    $thisRadioButton.trigger("yoi-input-focus");
-                },
-                blur: function() {
-                    $thisRadioButton.parent().removeClass("input--focus");
-                    $thisRadioButton.trigger("yoi-input-blur");
-                },
-                change: function() {
-                    $('[name="' + $thisRadioButton.attr("name") + '"]').parent().removeClass("input--checked");
-                    if ($thisRadioButton.is(":checked")) {
-                        $thisRadioButton.parent().addClass("input--checked");
-                    }
-                    if (!$thisRadioButton.is(":checked")) {
-                        $thisRadioButton.prop("checked", true);
-                        $thisRadioButton.parent().addClass("input--checked");
-                    }
-                    $thisRadioButton.trigger("yoi-input-change");
-                }
-            });
-            YOI.setReady($(this));
-        });
-        $selects.each(function() {
-            if (YOI.isReady($(this))) return false;
-            var $thisSelect = $(this);
-            var $thisSelectWrapper = $selectWrapper.clone();
-            var $thisSelectIcon = $selectIcon.clone();
-            $thisSelectWrapper.addClass($thisSelect.attr("class"));
-            $thisSelect.wrap($thisSelectWrapper);
-            $thisSelect.parent().append($thisSelectIcon);
-            $thisSelect.removeAttr("class");
-            $thisSelect.on({
-                focus: function() {
-                    $thisSelect.parent().addClass("input--focus");
-                    $thisSelect.trigger("yoi-input-focus");
-                },
-                blur: function() {
-                    $thisSelect.parent().removeClass("input--focus");
-                    $thisSelect.trigger("yoi-input-blur");
-                },
-                change: function() {
-                    $thisSelect.trigger("yoi-input-change");
-                }
-            });
-            YOI.setReady($(this));
-        });
-        $checkElemns.each(function() {
-            var thisWrapper = $(this).parent();
-            thisWrapper.addClass($(this).attr("class"));
-            $(this).removeAttr("class");
-            if ($(this).is(":checked")) {
-                thisWrapper.addClass("input--checked");
-            }
-            if ($(this).is(":disabled")) {
-                thisWrapper.addClass("input--disabled");
-            }
-            YOI.setReady($(this));
-        });
-    }
-    return {
-        init: initialize
-    };
-}();
-
 YOI.component.Icon = function() {
     function initialize($icon) {
         var $icon = YOI.createCollection("icon", $icon);
@@ -2952,6 +2829,61 @@ YOI.component.PopOver = function() {
     return {
         init: initialize,
         hideAll: hideAll
+    };
+}();
+
+YOI.component.RadioButton = function() {
+    var $radioBtnWrapper = $('<span class="radioButton"></span>').on("click", function() {
+        var $thisInput = $(this).find("input");
+        if ($thisInput.is(":disabled")) return false;
+        $thisInput.trigger("change");
+    });
+    function initialize($radioBtn, options) {
+        var $radioBtn = YOI.createCollection("radiobutton", $radioBtn, options);
+        if ($radioBtn) $radioBtn.each(function() {
+            if (YOI.isReady($(this))) return false;
+            var $thisRadioBtn = $(this);
+            var isWrappedInLabel = $thisRadioBtn.parents().index("label");
+            if (isWrappedInLabel === -1) {
+                $thisRadioBtn.wrap($radioBtnWrapper.clone(true));
+            } else {
+                $thisRadioBtn.wrap($radioBtnWrapper.clone());
+            }
+            var thisWrapper = $(this).parent();
+            thisWrapper.addClass($(this).attr("class"));
+            $(this).removeAttr("class");
+            if ($(this).is(":checked")) {
+                thisWrapper.addClass("is--checked");
+            }
+            if ($(this).is(":disabled")) {
+                thisWrapper.addClass("is--disabled");
+            }
+            $thisRadioBtn.on({
+                focus: function() {
+                    $thisRadioBtn.parent().addClass("is--focus");
+                    $thisRadioBtn.trigger("yoi-input-focus");
+                },
+                blur: function() {
+                    $thisRadioBtn.parent().removeClass("is--focus");
+                    $thisRadioBtn.trigger("yoi-input-blur");
+                },
+                change: function() {
+                    $('[name="' + $thisRadioBtn.attr("name") + '"]').parent().removeClass("is--checked");
+                    if ($thisRadioBtn.is(":checked")) {
+                        $thisRadioBtn.parent().addClass("is--checked");
+                    }
+                    if (!$thisRadioBtn.is(":checked")) {
+                        $thisRadioBtn.prop("checked", true);
+                        $thisRadioBtn.parent().addClass("is--checked");
+                    }
+                    $thisRadioBtn.trigger("yoi-input-change");
+                }
+            });
+            YOI.setReady($(this));
+        });
+    }
+    return {
+        init: initialize
     };
 }();
 

@@ -1,231 +1,231 @@
-/** customformelements.js */
+// /** customformelements.js */
 
-YOI.component.CustomFormElements = (function() {
+// YOI.component.CustomFormElements = (function() {
 
-    // private vars
-    // ============
+//     // private vars
+//     // ============
 
-    var $checkBoxWrapper = $('<span class="checkbox"></span>')
-        .on('click', function() {
-            var $thisInput = $(this).find('input');
-            if ($thisInput.is(':disabled')) return false;
-            $thisInput.trigger('change');
-        });
+//     var $checkBoxWrapper = $('<span class="checkbox"></span>')
+//         .on('click', function() {
+//             var $thisInput = $(this).find('input');
+//             if ($thisInput.is(':disabled')) return false;
+//             $thisInput.trigger('change');
+//         });
 
-    var $radioButtonWrapper = $('<span class="radio"></span>')
-        .on('click', function() {
-            var $thisInput = $(this).find('input');
-            if ($thisInput.is(':disabled')) return false;
-            $thisInput.trigger('change');
-        });
+//     var $radioButtonWrapper = $('<span class="radio"></span>')
+//         .on('click', function() {
+//             var $thisInput = $(this).find('input');
+//             if ($thisInput.is(':disabled')) return false;
+//             $thisInput.trigger('change');
+//         });
 
-    var $selectWrapper = $('<span class="select"></span>');
-    var $selectIcon    = $('<span class="select__icon"></span>');
+//     var $selectWrapper = $('<span class="select"></span>');
+//     var $selectIcon    = $('<span class="select__icon"></span>');
 
-    // private functions
-    // =================
-
-    function initialize() {
-
-        /**
-         *  Initialize the script.
-         */
-
-        // select custom checkboxes and radio buttons
-
-        var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
-        var $checkBoxes  = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
-        var $radioButtons   = $('input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
-        var $selects     = $('select:not(.js-fallback)');
+//     // private functions
+//     // =================
+
+//     function initialize() {
+
+//         /**
+//          *  Initialize the script.
+//          */
+
+//         // select custom checkboxes and radio buttons
+
+//         var $checkElemns = $('input[type="checkbox"]:not(.js-fallback, .switch *), input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
+//         var $checkBoxes  = $('input[type="checkbox"]:not(.js-fallback, .switch *)');
+//         var $radioButtons   = $('input[type="radio"]:not(.js-fallback, .switch *, .pickButton *)');
+//         var $selects     = $('select:not(.js-fallback)');
 
-        // checkboxes
-        // ----------
+//         // checkboxes
+//         // ----------
 
-        $checkBoxes.each(function() {
+//         $checkBoxes.each(function() {
 
-            // cancel if already initialized
+//             // cancel if already initialized
 
-            if (YOI.isReady($(this))) return false;
+//             if (YOI.isReady($(this))) return false;
 
-            // proceed
+//             // proceed
 
-            var $thisCheckbox    = $(this);
-            var isWrappedInLabel = $thisCheckbox.parents().index('label');
+//             var $thisCheckbox    = $(this);
+//             var isWrappedInLabel = $thisCheckbox.parents().index('label');
 
-            if (isWrappedInLabel === -1) {
-                $thisCheckbox.wrap($checkBoxWrapper.clone(true)); // clone with events
-            } else {
-                $thisCheckbox.wrap($checkBoxWrapper.clone());     // clone without events
-            }
+//             if (isWrappedInLabel === -1) {
+//                 $thisCheckbox.wrap($checkBoxWrapper.clone(true)); // clone with events
+//             } else {
+//                 $thisCheckbox.wrap($checkBoxWrapper.clone());     // clone without events
+//             }
 
-            // attach events
+//             // attach events
 
-            $thisCheckbox.on({
-                'focus': function() {
-                    $thisCheckbox.parent().addClass('input--focus');
-                    $thisCheckbox.trigger('yoi-input-focus');
-                },
-                'blur': function() {
-                    $thisCheckbox.parent().removeClass('input--focus');
-                    $thisCheckbox.trigger('yoi-input-blur');
-                },
-                'change': function() {
-                    if ($thisCheckbox.is(':checked')) {
-                        $thisCheckbox.prop('checked', false);
-                        $thisCheckbox.parent().removeClass('input--checked');
-                    } else if (!$thisCheckbox.is(':checked')) {
-                        $thisCheckbox.prop('checked', true);
-                        $thisCheckbox.parent().addClass('input--checked');
-                    }
-                    $thisCheckbox.trigger('yoi-input-change');
-                }
-            });
+//             $thisCheckbox.on({
+//                 'focus': function() {
+//                     $thisCheckbox.parent().addClass('input--focus');
+//                     $thisCheckbox.trigger('yoi-input-focus');
+//                 },
+//                 'blur': function() {
+//                     $thisCheckbox.parent().removeClass('input--focus');
+//                     $thisCheckbox.trigger('yoi-input-blur');
+//                 },
+//                 'change': function() {
+//                     if ($thisCheckbox.is(':checked')) {
+//                         $thisCheckbox.prop('checked', false);
+//                         $thisCheckbox.parent().removeClass('input--checked');
+//                     } else if (!$thisCheckbox.is(':checked')) {
+//                         $thisCheckbox.prop('checked', true);
+//                         $thisCheckbox.parent().addClass('input--checked');
+//                     }
+//                     $thisCheckbox.trigger('yoi-input-change');
+//                 }
+//             });
 
-            // set initialized
+//             // set initialized
 
-            YOI.setReady($(this));
+//             YOI.setReady($(this));
 
-        });
+//         });
 
-        // radio buttons
-        // -------------
+//         // radio buttons
+//         // -------------
 
-        $radioButtons.each(function() {
+//         $radioButtons.each(function() {
 
-            // cancel if already initialized
+//             // cancel if already initialized
 
-            if (YOI.isReady($(this))) return false;
+//             if (YOI.isReady($(this))) return false;
 
-            // proceed
+//             // proceed
 
-            var $thisRadioButton    = $(this);
-            var isWrappedInLabel = $thisRadioButton.parents().index('label');
+//             var $thisRadioButton    = $(this);
+//             var isWrappedInLabel = $thisRadioButton.parents().index('label');
 
-            if (isWrappedInLabel === -1) {
-                $thisRadioButton.wrap($radioButtonWrapper.clone(true)); // clone with events
-            } else {
-                $thisRadioButton.wrap($radioButtonWrapper.clone());     // clone without events
-            }
+//             if (isWrappedInLabel === -1) {
+//                 $thisRadioButton.wrap($radioButtonWrapper.clone(true)); // clone with events
+//             } else {
+//                 $thisRadioButton.wrap($radioButtonWrapper.clone());     // clone without events
+//             }
 
-            // attach events
+//             // attach events
 
-            $thisRadioButton.on({
-                'focus': function() {
-                    $thisRadioButton.parent().addClass('input--focus');
-                    $thisRadioButton.trigger('yoi-input-focus');
-                },
-                'blur': function() {
-                    $thisRadioButton.parent().removeClass('input--focus');
-                    $thisRadioButton.trigger('yoi-input-blur');
-                },
-                'change': function() {
-                    $('[name="' + $thisRadioButton.attr('name') + '"]').parent().removeClass('input--checked');
-                    if ($thisRadioButton.is(':checked')) {
-                        $thisRadioButton.parent().addClass('input--checked');
-                    }
-                    if (!$thisRadioButton.is(':checked')) {
-                        $thisRadioButton.prop('checked', true);
-                        $thisRadioButton.parent().addClass('input--checked');
-                    }
-                    $thisRadioButton.trigger('yoi-input-change');
-                }
-            });
+//             $thisRadioButton.on({
+//                 'focus': function() {
+//                     $thisRadioButton.parent().addClass('input--focus');
+//                     $thisRadioButton.trigger('yoi-input-focus');
+//                 },
+//                 'blur': function() {
+//                     $thisRadioButton.parent().removeClass('input--focus');
+//                     $thisRadioButton.trigger('yoi-input-blur');
+//                 },
+//                 'change': function() {
+//                     $('[name="' + $thisRadioButton.attr('name') + '"]').parent().removeClass('input--checked');
+//                     if ($thisRadioButton.is(':checked')) {
+//                         $thisRadioButton.parent().addClass('input--checked');
+//                     }
+//                     if (!$thisRadioButton.is(':checked')) {
+//                         $thisRadioButton.prop('checked', true);
+//                         $thisRadioButton.parent().addClass('input--checked');
+//                     }
+//                     $thisRadioButton.trigger('yoi-input-change');
+//                 }
+//             });
 
-            // set initialized
+//             // set initialized
 
-            YOI.setReady($(this));
+//             YOI.setReady($(this));
 
-        });
+//         });
 
-        // selects
-        // -------
+//         // selects
+//         // -------
 
-        $selects.each(function() {
+//         $selects.each(function() {
 
-            // cancel if already initialized
+//             // cancel if already initialized
 
-            if (YOI.isReady($(this))) return false;
+//             if (YOI.isReady($(this))) return false;
 
-            // proceed
+//             // proceed
 
-            var $thisSelect        = $(this);
-            var $thisSelectWrapper = $selectWrapper.clone();
-            var $thisSelectIcon    = $selectIcon.clone();
+//             var $thisSelect        = $(this);
+//             var $thisSelectWrapper = $selectWrapper.clone();
+//             var $thisSelectIcon    = $selectIcon.clone();
 
-            // prepare wrapper, keep modifiers
+//             // prepare wrapper, keep modifiers
 
-            $thisSelectWrapper.addClass($thisSelect.attr('class'));
+//             $thisSelectWrapper.addClass($thisSelect.attr('class'));
 
-            // inject elements
+//             // inject elements
 
-            $thisSelect.wrap($thisSelectWrapper);
-            $thisSelect.parent().append($thisSelectIcon);
+//             $thisSelect.wrap($thisSelectWrapper);
+//             $thisSelect.parent().append($thisSelectIcon);
 
-            // remove classNames (modifiers) from select element
+//             // remove classNames (modifiers) from select element
 
-            $thisSelect.removeAttr('class');
+//             $thisSelect.removeAttr('class');
 
-            // add events
+//             // add events
 
-            $thisSelect.on({
-                'focus': function() {
-                    $thisSelect.parent().addClass('input--focus');
-                    $thisSelect.trigger('yoi-input-focus');
-                },
-                'blur': function() {
-                    $thisSelect.parent().removeClass('input--focus');
-                    $thisSelect.trigger('yoi-input-blur');
-                },
-                'change': function() {
-                    $thisSelect.trigger('yoi-input-change');
-                }
-            });
+//             $thisSelect.on({
+//                 'focus': function() {
+//                     $thisSelect.parent().addClass('input--focus');
+//                     $thisSelect.trigger('yoi-input-focus');
+//                 },
+//                 'blur': function() {
+//                     $thisSelect.parent().removeClass('input--focus');
+//                     $thisSelect.trigger('yoi-input-blur');
+//                 },
+//                 'change': function() {
+//                     $thisSelect.trigger('yoi-input-change');
+//                 }
+//             });
 
-            // set initialized
+//             // set initialized
 
-            YOI.setReady($(this));
+//             YOI.setReady($(this));
 
-        });
+//         });
 
-        // add css class names to check element wrappers
+//         // add css class names to check element wrappers
 
-        $checkElemns.each(function() {
+//         $checkElemns.each(function() {
 
-            var thisWrapper = $(this).parent();
+//             var thisWrapper = $(this).parent();
 
-            // move class names from an checkbox/radio-button/select
-            // element to it's wrapper
+//             // move class names from an checkbox/radio-button/select
+//             // element to it's wrapper
 
-            thisWrapper.addClass($(this).attr('class'));
-            $(this).removeAttr('class');
+//             thisWrapper.addClass($(this).attr('class'));
+//             $(this).removeAttr('class');
 
-            // if the check element is already checked,
-            // add the "input--checked" modifier
+//             // if the check element is already checked,
+//             // add the "input--checked" modifier
 
-            if ($(this).is(':checked')) {
-                thisWrapper.addClass('input--checked');
-            }
+//             if ($(this).is(':checked')) {
+//                 thisWrapper.addClass('input--checked');
+//             }
 
-            // if the check element is disabled,
-            // add the "input--disabled" modifier
+//             // if the check element is disabled,
+//             // add the "input--disabled" modifier
 
-            if ($(this).is(':disabled')) {
-                thisWrapper.addClass('input--disabled');
-            }
+//             if ($(this).is(':disabled')) {
+//                 thisWrapper.addClass('input--disabled');
+//             }
 
-            // set initialized
+//             // set initialized
 
-            YOI.setReady($(this));
+//             YOI.setReady($(this));
 
-        });
+//         });
 
-    }
+//     }
 
-    // public functions
-    // ================
+//     // public functions
+//     // ================
 
-    return {
-        init : initialize
-    };
+//     return {
+//         init : initialize
+//     };
 
-})();
+// })();

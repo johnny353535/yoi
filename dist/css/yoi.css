@@ -65299,19 +65299,19 @@ a.box {
   opacity: 0;
   position: absolute;
 }
-.radioButton.input--large {
+.radioButton--large {
   height: 3rem;
   width: 3rem;
 }
-.radioButton.input--negative {
+.radioButton.is--negative {
   border-color: #ff6830;
   color: #9c2b00;
 }
-.radioButton.input--positive {
+.radioButton.is--positive {
   border-color: #81b197;
   color: #3a6a50;
 }
-.radioButton.input--checked::after {
+.radioButton.is--checked::after {
   /**
      *  SVG icons as background image
      */
@@ -65323,7 +65323,7 @@ a.box {
   position: absolute;
   width: 1.4rem;
 }
-.radioButton.input--checked.input--large::after {
+.radioButton.is--checked.radioButton--large::after {
   /**
      *  SVG icons as background image
      */
@@ -65333,12 +65333,12 @@ a.box {
   top: 0;
   width: 2.8rem;
 }
-.radioButton.input--focus {
+.radioButton.is--focus {
   box-shadow: 0 0 0 2px #bbdfff;
   border-color: #7fbbf1;
   outline: 0;
 }
-.radioButton.input--disabled {
+.radioButton.is--disabled {
   cursor: default;
   opacity: 0.5;
 }

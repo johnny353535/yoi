@@ -5,7 +5,7 @@ title: Checkbox
 permalink: components/checkbox
 ---
 
-# Checkboxes
+# Checkbox
 
 ## Basic Example
 
@@ -34,7 +34,7 @@ Use the modifiers `.is--positive` and `.is--negative` to visualize input validat
 
 ### Size
 
-Use the modifier `.checkbox--large` for all interactive form elements to increase size:
+Use the modifier `.checkbox--large` to render a large checkbox:
 
 ```html
 <!-- example:tabs -->
