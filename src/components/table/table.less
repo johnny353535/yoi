@@ -202,7 +202,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         // square icon = empty checkbox
 
         &::before {
-            .mixin-icon-bg(@id: 'icon-063-s', @fillColor: @color-base-23);
+            .mixin-icon-checkmark(@color: @color-base-23);
             content: ' ';
             height: 3.2rem;
             left: -.1rem;
@@ -235,7 +235,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         // checkmark icon = ticked checkbox
 
         .table__checkbox::before {
-            .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-attention-8);
+            .mixin-icon-checkmark(@color: @color-attention-8);
         }
 
     }
@@ -260,7 +260,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         // x icon
 
         &::before {
-            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-base-20);
+            .mixin-icon-x(@color: @color-base-20);
             content: ' ';
             height: 3.2rem;
             width: 3.2rem;
@@ -270,7 +270,7 @@ tr:last-child td:last-child  { border-radius: 0 0 (@defaultBorderRadius * 1px) 0
         }
 
         &:hover::before {
-            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-15);
+            .mixin-icon-x(@color: @color-negative-15);
         }
 
     }

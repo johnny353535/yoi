@@ -411,6 +411,16 @@ body::after {
   }
 }
 /** colors.less */
+/** icons.less */
+/*
+    Please notice
+    =============
+
+    * you can copy any of the existing mixins above to make a new one
+    * you only need to replace the inner content of the SVG tag, nothing else
+    * make sure to change the double-quotes (") to single quotes (')
+    * replace the up/down triangles with up/down chevrons (eg. for accordion) – looks lighter and nicer imho
+*/
 /** options.less */
 /** typography.less */
 /** debug.less */
@@ -62948,7 +62958,7 @@ body {
   line-height: 28px !important;
 }
 .h6 {
-  font-size: 16px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
   line-height: 28px !important;
   color: #9a9998 !important;
@@ -64112,10 +64122,7 @@ body {
   color: #535251;
 }
 .tabs__menu--checkmarks .tabs__item.is--active .tabs__link:before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=81b197&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#81b197' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   content: ' ';
   display: inline-block;
   height: 3.2rem;
@@ -64182,7 +64189,7 @@ body {
 /** hint.less */
 .hint {
   border-left: #cdcccb 2px solid;
-  padding-left: 1.75rem;
+  padding-left: 1rem;
 }
 .hint--primary {
   border-color: #b9a6f3;
@@ -64229,19 +64236,9 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.note .icon {
-  left: 1rem;
-  position: absolute;
-  top: 0.75rem;
-}
-.note .icon ~ .note__headline,
-.note .icon ~ .note__body {
-  padding-left: 4.5rem;
-}
 .note__headline {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 24px;
   margin: 0 0 0.5rem 0;
 }
 .note__body p:first-child {
@@ -64261,9 +64258,6 @@ body {
   border-top-width: 1px;
   margin-top: 1rem;
   padding-top: 1rem;
-}
-.note--large .note__body {
-  font-size: 1.5rem;
 }
 .note--attention {
   background: #fffbd0;
@@ -64350,17 +64344,10 @@ body {
 /** pagination.less */
 .pagination {
   border-radius: 2px;
-  background: #faf9f7;
   border: #ecebea 1px solid;
-  height: 3.3rem;
-  margin: 1rem 0;
   position: relative;
   text-align: right;
   font-size: 0;
-}
-.pagination__load {
-  float: left;
-  margin: 0.4rem;
 }
 .pagination__items {
   display: inline-block;
@@ -64368,13 +64355,12 @@ body {
 .pagination__item,
 .pagination__nav {
   display: inline-block;
-  margin: 0.4rem;
-}
-.pagination__item .button:hover {
-  background: #ecebea;
+  margin: 0.25rem;
 }
 .pagination .is--active .button,
-.pagination .is--active .button:hover {
+.pagination .is--active a.button,
+.pagination .is--active .button:hover,
+.pagination .is--active a.button:hover {
   background: #8572c0;
   color: #f6f5f4;
 }
@@ -64413,22 +64399,16 @@ body {
   color: #3a6a50;
 }
 .checkbox.input--checked::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   content: ' ';
   left: 0;
   top: 0;
-  height: 1.3rem;
+  height: 1.4rem;
   position: absolute;
-  width: 1.3rem;
+  width: 1.4rem;
 }
 .checkbox.input--checked.input--large::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   width: 2.8rem;
   height: 2.8rem;
 }
@@ -64507,10 +64487,7 @@ label[for] {
   outline: 0;
 }
 .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#868584' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
   border-left: #ecebea 1px solid;
   height: 100%;
   pointer-events: none;
@@ -64528,10 +64505,7 @@ label[for] {
   padding: 0 6rem 0 1rem;
 }
 .select.input--large .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#868584' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
   width: 4rem;
 }
 .select.input--negative {
@@ -64611,21 +64585,18 @@ textarea::-webkit-search-results-decoration {
   display: none;
 }
 input[type="search"] {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: -0.4rem;
-  background-position-y: -0.35rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat center center;
+  background-position-x: 0.4rem;
+  background-position-y: 0.45rem;
   padding-left: 2.5rem;
 }
 input[type="search"]:focus {
   background-position-x: -3rem;
-  background-position-y: -0.35rem;
+  background-position-y: 0.45rem;
   padding-left: 0.5rem;
 }
 input[type="search"].input--rounded {
-  background-position-x: -0.35rem;
+  background-position-x: 0.6rem;
   padding-left: 2.75rem;
 }
 input[type="search"].input--rounded:focus {
@@ -64633,12 +64604,9 @@ input[type="search"].input--rounded:focus {
   padding-left: 1rem;
 }
 input[type="search"].input--large {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: 0.25rem;
-  background-position-y: 0.25rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat center center;
+  background-position-x: 0.9rem;
+  background-position-y: 0.95rem;
   padding-left: 4rem;
 }
 input[type="search"].input--large:focus {
@@ -64646,7 +64614,7 @@ input[type="search"].input--large:focus {
   padding-left: 1rem;
 }
 input[type="search"].input--large.input--rounded {
-  background-position-x: 0.6rem;
+  background-position-x: 1.1rem;
   padding-left: 4.5rem;
 }
 input[type="search"].input--large.input--rounded:focus {
@@ -65017,181 +64985,6 @@ a.box {
 .box__body + .box__body {
   border-top: #ecebea 1px solid;
 }
-/** rating.less */
-.rating {
-  display: inline-block;
-  text-align: left;
-  text-indent: -1px;
-}
-.rating__stars {
-  display: inline-block;
-  font-size: 0;
-  height: 3.2rem;
-  position: relative;
-  width: 16rem;
-  vertical-align: middle;
-}
-.rating__stars::before,
-.rating__stars::after {
-  background-position: 0 0;
-  background-repeat: repeat-x;
-  bottom: 0;
-  content: ' ';
-  position: absolute;
-  top: 0;
-}
-.rating__stars::before {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=eac310&w=51.2px&h=51.2px);
-  left: 0;
-}
-.rating__stars::after {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=ecebea&w=51.2px&h=51.2px);
-  right: 0;
-}
-.rating__stars::after {
-  width: 16rem;
-}
-.rating--1 .rating__stars::before {
-  width: 3.2rem;
-}
-.rating--1 .rating__stars::after {
-  width: 12.8rem;
-}
-.rating--1.rating--small .rating__stars::before {
-  width: 1.8rem;
-}
-.rating--1.rating--small .rating__stars::after {
-  width: 7.2rem;
-}
-.rating--1.rating--medium .rating__stars::before {
-  width: 2.4rem;
-}
-.rating--1.rating--medium .rating__stars::after {
-  width: 9.6rem;
-}
-.rating--1.rating--large .rating__stars::before {
-  width: 4.8rem;
-}
-.rating--1.rating--large .rating__stars::after {
-  width: 19.2rem;
-}
-.rating--2 .rating__stars::before {
-  width: 6.4rem;
-}
-.rating--2 .rating__stars::after {
-  width: 9.6rem;
-}
-.rating--2.rating--small .rating__stars::before {
-  width: 3.6rem;
-}
-.rating--2.rating--small .rating__stars::after {
-  width: 5.4rem;
-}
-.rating--2.rating--medium .rating__stars::before {
-  width: 4.8rem;
-}
-.rating--2.rating--medium .rating__stars::after {
-  width: 7.2rem;
-}
-.rating--2.rating--large .rating__stars::before {
-  width: 9.6rem;
-}
-.rating--2.rating--large .rating__stars::after {
-  width: 14.4rem;
-}
-.rating--3 .rating__stars::before {
-  width: 9.6rem;
-}
-.rating--3 .rating__stars::after {
-  width: 6.4rem;
-}
-.rating--3.rating--small .rating__stars::before {
-  width: 5.4rem;
-}
-.rating--3.rating--small .rating__stars::after {
-  width: 3.6rem;
-}
-.rating--3.rating--medium .rating__stars::before {
-  width: 7.2rem;
-}
-.rating--3.rating--medium .rating__stars::after {
-  width: 4.8rem;
-}
-.rating--3.rating--large .rating__stars::before {
-  width: 14.4rem;
-}
-.rating--3.rating--large .rating__stars::after {
-  width: 9.6rem;
-}
-.rating--4 .rating__stars::before {
-  width: 12.8rem;
-}
-.rating--4 .rating__stars::after {
-  width: 3.2rem;
-}
-.rating--4.rating--small .rating__stars::before {
-  width: 7.2rem;
-}
-.rating--4.rating--small .rating__stars::after {
-  width: 1.8rem;
-}
-.rating--4.rating--medium .rating__stars::before {
-  width: 9.6rem;
-}
-.rating--4.rating--medium .rating__stars::after {
-  width: 2.4rem;
-}
-.rating--4.rating--large .rating__stars::before {
-  width: 19.2rem;
-}
-.rating--4.rating--large .rating__stars::after {
-  width: 4.8rem;
-}
-.rating--5 .rating__stars::after {
-  display: none;
-}
-.rating--5 .rating__stars::before {
-  width: 16rem;
-}
-.rating--5.rating--small .rating__stars::before {
-  width: 9rem;
-}
-.rating--5.rating--medium .rating__stars::before {
-  width: 12rem;
-}
-.rating--5.rating--large .rating__stars::before {
-  width: 24rem;
-}
-.rating--small .rating__stars {
-  height: 1.9rem;
-  width: 9.5rem;
-}
-.rating--small .rating__stars::before {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=eac310&w=30.4px&h=30.4px);
-}
-.rating--small .rating__stars::after {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=ecebea&w=30.4px&h=30.4px);
-}
-.rating--medium .rating__stars {
-  height: 2.4rem;
-  width: 12rem;
-}
-.rating--medium .rating__stars::before {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=eac310&w=38.4px&h=38.4px);
-}
-.rating--medium .rating__stars::after {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=ecebea&w=38.4px&h=38.4px);
-}
-.rating--large .rating__stars {
-  height: 4.8rem;
-  width: 24rem;
-}
-.rating--large .rating__stars::before {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=eac310&w=76.8px&h=76.8px);
-}
-.rating--large .rating__stars::after {
-  background-image: url(http://cdn.yoshino.digital/svg.php?id=icon-039&f=ecebea&w=76.8px&h=76.8px);
-}
 /** pagebuttons.less */
 .pageButtons {
   -moz-user-select: none;
@@ -65201,9 +64994,9 @@ a.box {
   background: rgba(83, 82, 81, 0.7);
   border-radius: 2px;
   display: inline-block;
-  height: 4rem;
-  line-height: 4rem;
-  min-width: 8rem;
+  height: 2rem;
+  line-height: 2rem;
+  min-width: 4rem;
   position: relative;
   text-align: center;
   text-shadow: 0 1px 0 rgba(52, 51, 50, 0.3);
@@ -65216,13 +65009,13 @@ a.box {
   color: #faf9f7;
   cursor: pointer;
   display: inline-block;
-  height: 4rem;
-  line-height: 4rem;
+  height: 2rem;
+  line-height: 2rem;
   padding: 0;
   position: absolute;
   text-align: center;
   top: 0;
-  width: 4rem;
+  width: 2rem;
 }
 .pageButtons__buttonPrev:hover,
 .pageButtons__buttonNext:hover {
@@ -65232,10 +65025,10 @@ a.box {
 .pageButtons__buttonNext::after {
   content: ' ';
   display: inline-block;
-  height: 4rem;
+  height: 2rem;
   left: 0;
   top: 0;
-  width: 4rem;
+  width: 2rem;
 }
 .pageButtons__buttonPrev {
   left: 0;
@@ -65244,24 +65037,19 @@ a.box {
   right: 0;
 }
 .pageButtons__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#faf9f7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageButtons__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#faf9f7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageButtons__indicator {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2rem;
   color: #faf9f7;
   display: inline-block;
-  font: bold 1.5rem/4rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  height: 4rem;
-  line-height: 4rem;
-  margin: 0 5rem;
+  height: 2rem;
+  margin: 0 2.5rem;
 }
 .pageButtons__buttonPrev.is--disabled:hover,
 .pageButtons__buttonNext.is--disabled:hover {
@@ -65465,15 +65253,6 @@ a.box {
   padding: 1rem;
   color: #faf9f7;
 }
-.countdown__title {
-  clear: both;
-  color: #faf9f7;
-  display: block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  text-shadow: #343332 0 -1px 0;
-}
 .countdown__clock {
   overflow: hidden;
 }
@@ -65495,10 +65274,10 @@ a.box {
   margin-left: 2px;
 }
 .countdown__label {
+  font-size: 16px;
+  font-weight: 600;
   color: #cdcccb;
   display: block;
-  font-size: 1.3rem;
-  font-weight: bold;
   position: relative;
   text-shadow: #343332 0 -1px 0;
 }
@@ -65779,29 +65558,31 @@ a.box {
   box-shadow: none;
   outline: none;
 }
+.accordion__header h1,
+.accordion__header h2,
+.accordion__header h3,
+.accordion__header h4,
+.accordion__header h5,
+.accordion__header h6 {
+  font-size: 16px;
+}
 .accordion__header::after {
-  margin-top: -1.6rem;
+  margin-top: -1rem;
   position: absolute;
-  right: 0;
+  right: 0.5rem;
   top: 50%;
 }
 .js .is--open .accordion__header::after,
 .js .is--closed .accordion__header::after {
   content: ' ';
-  height: 3.2rem;
-  width: 3.2rem;
+  height: 2rem;
+  width: 2rem;
 }
 .js .is--open .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#e1e0df' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
 }
 .js .is--closed .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#e1e0df' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
 }
 .accordion__body {
   background: rgba(250, 249, 247, 0.5);
@@ -65810,126 +65591,6 @@ a.box {
   overflow: hidden;
   padding: 1rem;
 }
-/** filterbuttons.less */
-.filterButtons {
-  display: block;
-  font-size: 0;
-}
-.filterButtons__button {
-  background: #f6f5f4;
-  border-radius: 1.5rem;
-  box-sizing: border-box;
-  color: #535251;
-  display: inline-block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  height: 3rem;
-  line-height: 3rem;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 0 1.25rem;
-}
-.filterButtons__button:hover {
-  background: #ecebea;
-}
-.filterButtons__button a,
-.filterButtons__button a:link,
-.filterButtons__button a:visited {
-  color: #535251;
-  display: inline-block;
-  text-decoration: none;
-}
-.filterButtons--dark .filterButtons__button {
-  background: #71706f;
-  color: #fff;
-}
-.filterButtons--dark .filterButtons__button a,
-.filterButtons--dark .filterButtons__button a:link,
-.filterButtons--dark .filterButtons__button a:visited {
-  color: #fff;
-}
-.filterButtons--dark .filterButtons__button:hover {
-  background: #5d5c5b;
-}
-.filterButtons--dark .filterButtons__button a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=b9b8b7&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons--dark .filterButtons__button a:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=fff&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons--removeable .filterButtons__button a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=b9b8b7&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons--removeable .filterButtons__button:hover {
-  background: #c83700;
-}
-.filterButtons--removeable .filterButtons__button:hover a {
-  color: #fff;
-}
-.filterButtons--removeable .filterButtons__button:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons__button a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=aeadac&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  content: ' ';
-  display: inline-block;
-  height: 3rem;
-  margin-left: -1.25rem;
-  position: relative;
-  right: -1rem;
-  vertical-align: top;
-  width: 3.2rem;
-}
-.filterButtons__button a:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons__button.is--active {
-  background: #4e7e64;
-}
-.filterButtons__button.is--active a {
-  color: #fff;
-}
-.filterButtons__button.is--active a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=c8f8de&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons__button.is--active:hover {
-  background: #c83700;
-}
-.filterButtons__button.is--active:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.filterButtons__button.filterButtons__button--debounce:hover {
-  background: #4e7e64;
-}
-.filterButtons__button.filterButtons__button--debounce:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=c8f8de&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
 /** pagedots.less */
 .pageDots {
   -moz-user-select: none;
@@ -65937,10 +65598,10 @@ a.box {
   -webkit-user-select: none;
   user-select: none;
   background: #fff;
-  border-radius: 1.2rem;
+  border-radius: 0.75rem;
   display: inline-block;
   font-size: 0;
-  height: 2.5rem;
+  height: 1.5rem;
   margin: 0 auto;
   text-align: center;
   z-index: 20;
@@ -65957,17 +65618,17 @@ a.box {
 .pageDots__buttonNext::after {
   content: ' ';
   display: inline-block;
-  height: 2.5rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 .pageDots__dot {
-  height: 2.5rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 .pageDots__buttonPrev,
 .pageDots__buttonNext {
-  height: 2.5rem;
-  width: 3rem;
+  height: 1.5rem;
+  width: 2rem;
 }
 .pageDots__dot::after {
   /**
@@ -65988,28 +65649,16 @@ a.box {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=8572c0&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
 .pageDots__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonPrev:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonPrev.is--disabled::after,
 .pageDots__buttonNext.is--disabled::after {
@@ -66017,16 +65666,10 @@ a.box {
   opacity: 0.3;
 }
 .pageDots__buttonPrev.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark {
   background: #535251;
@@ -66050,122 +65693,25 @@ a.box {
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=d6c8ff&s=000&w=38.4px&h=38.4px) center center no-repeat;
 }
 .pageDots--dark .pageDots__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonPrev:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonPrev.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--subtle {
   background: transparent;
-}
-/** pickbutton.less */
-.pickButton {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 2px;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #faf9f7;
-  border: #ecebea 1px solid;
-  box-sizing: border-box;
-  color: #676665;
-  cursor: pointer;
-  display: inline-block;
-  height: 3rem;
-  min-width: 3.4rem;
-  padding: 0 1rem;
-  position: relative;
-  text-align: left;
-  text-overflow: clip;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.pickButton::-webkit-search-decoration,
-.pickButton::-webkit-search-cancel-button,
-.pickButton::-webkit-search-results-button,
-.pickButton::-webkit-search-results-decoration {
-  display: none;
-}
-a.pickButton {
-  text-decoration: none;
-}
-.pickButton:hover {
-  background: #f6f5f4;
-  border-color: #f6f5f4;
-}
-.pickButton input {
-  margin-right: 0.5rem;
-}
-.pickButton__label,
-.pickButton__toggleLabel {
-  display: inline-block;
-  font: bold 1.2rem/2.8rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-}
-.pickButton__label {
-  vertical-align: top;
-}
-.pickButton__label + .pickButton__toggleLabel {
-  border-left: #ecebea 1px dashed;
-  margin-left: 0.5rem;
-  padding-left: 0.5rem;
-}
-.pickButton__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=fff&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  display: none;
-  height: 2.8rem;
-  margin-left: -1rem;
-  vertical-align: top;
-  width: 2.8rem;
-}
-.js .pickButton.is--active,
-.js .pickButton.is--active:hover {
-  background: #4e7e64;
-  border-color: #4e7e64;
-  color: #fff;
-}
-.js .pickButton.is--active .pickButton__toggleLabel,
-.js .pickButton.is--active:hover .pickButton__toggleLabel {
-  display: none;
-}
-.js .pickButton.is--active .pickButton__icon,
-.js .pickButton.is--active:hover .pickButton__icon {
-  display: inline-block;
 }
 /** code.less */
 code {
@@ -66608,63 +66154,6 @@ a.slider__slide {
   width: 26rem;
   z-index: 2;
 }
-/** pricesticker.less */
-.priceSticker {
-  border-radius: 2px;
-  background: #ff6830;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  color: #fff;
-  display: inline-block;
-  font-size: 3rem;
-  height: 4rem;
-  position: relative;
-  text-shadow: none;
-  white-space: nowrap;
-}
-.priceSticker:before,
-.priceSticker:after {
-  background: #ff6830;
-  border-radius: 1.5rem;
-  content: ' ';
-  display: block;
-  height: 70%;
-  position: absolute;
-  top: 15%;
-  -webkit-transform: scaleX(0.5);
-          transform: scaleX(0.5);
-  width: 4rem;
-}
-.priceSticker:before {
-  left: -1.7rem;
-}
-.priceSticker:after {
-  right: -1.7rem;
-}
-.priceSticker__content {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 4rem;
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-}
-.priceSticker__content sup {
-  font-size: 1rem;
-  line-height: 1rem;
-  position: relative;
-  top: -1.5remx;
-}
-.priceSticker--rotLeft {
-  -webkit-transform: rotate(5deg);
-          transform: rotate(5deg);
-}
-.priceSticker--rotRight {
-  -webkit-transform: rotate(-5deg);
-          transform: rotate(-5deg);
-}
 /** stepper.less */
 .stepper {
   -moz-user-select: none;
@@ -66672,39 +66161,23 @@ a.slider__slide {
   -webkit-user-select: none;
   user-select: none;
   border-radius: 2px;
-  background: linear-gradient(to bottom, #7b7a79, #676665);
-  border: #535251 1px solid;
+  background: linear-gradient(to bottom, #7b7a79, #71706f);
+  border: #5d5c5b 1px solid;
   box-shadow: 0 1px 0 #868584 inset;
   box-sizing: border-box;
   color: #faf9f7;
   display: inline-block;
   font-size: 0;
-  height: 4rem;
+  height: 2.5rem;
   margin: 0;
   position: relative;
 }
 .stepper:hover {
-  background: linear-gradient(to bottom, #676665, #535251);
+  background: linear-gradient(to bottom, #868584, #535251);
   border-color: #343332;
 }
-.stepper .icon {
-  -webkit-filter: drop-shadow(0 -1px 0 #676665);
-          filter: drop-shadow(0 -1px 0 #676665);
-  margin: 0.3rem 0.5rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.stepper .icon circle,
-.stepper .icon ellipse,
-.stepper .icon path,
-.stepper .icon polygon {
-  fill: #fff;
-}
-.stepper__iconMinus,
-.stepper__iconPlus {
-  -webkit-filter: drop-shadow(0 -1px 0 #676665);
-          filter: drop-shadow(0 -1px 0 #676665);
+.stepper__iconDown,
+.stepper__iconUp {
   height: 100%;
   left: 0;
   position: absolute;
@@ -66713,33 +66186,35 @@ a.slider__slide {
   width: 100%;
 }
 .stepper__input.stepper__input {
+  font-size: 20px;
   border: 0;
   display: inline-block;
-  font-size: 2rem;
-  height: 3.2rem;
-  margin: 0.3rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0.2rem;
   outline: 0;
   padding: 0;
   text-align: center;
   vertical-align: top;
-  width: 6rem;
+  width: 3.75rem;
 }
 .js .stepper__input {
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 .stepper__submit {
+  font-size: 16px;
+  font-weight: 600;
   background: transparent;
   border: 0;
   box-sizing: border-box;
   color: #faf9f7;
   cursor: pointer;
   display: inline-block;
-  font: bold 1.5rem/3.8rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  line-height: 2.25rem;
   outline: 0;
-  padding: 0 1.5rem 0 1rem;
+  padding: 0 1rem 0 0.5rem;
   position: relative;
   text-align: center;
-  text-shadow: 0 -1px 0 #484746;
   vertical-align: top;
   z-index: 2;
 }
@@ -66747,153 +66222,64 @@ a.slider__slide {
   opacity: 0;
   overflow: hidden;
   padding: 0;
-  width: 4rem;
+  width: 1.5rem;
 }
 .icon + .stepper__submit {
-  padding-right: 4rem;
+  padding-right: 2rem;
 }
-.stepper__buttonMinus,
-.stepper__buttonPlus {
-  background: linear-gradient(to bottom, #aeadac, #908f8e);
+.stepper__buttonDown,
+.stepper__buttonUp {
   border: 0;
-  box-shadow: 0 1px 0 #cdcccb inset;
   cursor: pointer;
-  height: 1.9rem;
+  height: 1.19rem;
   left: 0;
   position: absolute;
-  width: 2.5rem;
+  width: 1.75rem;
   z-index: 2;
 }
-.stepper__buttonMinus:hover,
-.stepper__buttonPlus:hover {
-  background: linear-gradient(to bottom, #a4a3a2, #868584);
-  box-shadow: 0 1px 0 #c3c2c1 inset;
+.stepper__buttonDown:hover,
+.stepper__buttonUp:hover {
+  background: #a4a3a2;
 }
-.stepper__buttonMinus:active,
-.stepper__buttonPlus:active {
-  background: linear-gradient(to bottom, #71706f, #908f8e);
-  box-shadow: none;
+.stepper__buttonDown:active,
+.stepper__buttonUp:active {
+  background: #a4a3a2;
 }
-.stepper__buttonMinus {
+.stepper__buttonDown {
   border-radius: 0 0 0 2px;
   bottom: 0;
 }
-.stepper__iconMinus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
+.stepper__iconDown {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
 }
-.stepper__buttonPlus {
+.stepper__buttonUp {
   border-radius: 2px 0 0 0;
   top: 0;
 }
-.stepper__iconPlus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
-}
-.stepper--light {
-  background: #fff;
-  border-color: #ecebea;
-  box-shadow: none;
-}
-.stepper--light:hover {
-  background: #fff;
-  border-color: #e1e0df;
-}
-.stepper--light .icon {
-  -webkit-filter: none;
-          filter: none;
-}
-.stepper--light .icon circle,
-.stepper--light .icon ellipse,
-.stepper--light .icon path,
-.stepper--light .icon polygon {
-  fill: #535251;
-}
-.stepper--light .stepper__icon {
-  -webkit-filter: none;
-          filter: none;
-}
-.stepper--light .stepper__input {
-  background: #f6f5f4;
-  box-shadow: none;
-}
-.stepper--light .stepper__input.stepper__input,
-.stepper--light .stepper__input.stepper__input:hover,
-.stepper--light .stepper__input.stepper__input:focus {
-  box-shadow: none;
-}
-.stepper--light .stepper__submit {
-  text-shadow: none;
-  color: #535251;
-}
-.stepper--light .stepper__buttonMinus,
-.stepper--light .stepper__buttonPlus {
-  background: transparent;
-  box-shadow: none;
-}
-.stepper--light .stepper__buttonMinus:hover,
-.stepper--light .stepper__buttonPlus:hover {
-  background: #f6f5f4;
-}
-.stepper--light .stepper__iconMinus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=676665&s=000&w=38.4px&h=38.4px) center center no-repeat;
-}
-.stepper--light .stepper__iconPlus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=676665&s=000&w=38.4px&h=38.4px) center center no-repeat;
-}
-.stepper--touch .stepper__input.stepper__input {
-  width: 4.5rem;
-  height: 3.2rem;
+.stepper__iconUp {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
 }
 .js .stepper--touch .stepper__input {
-  margin-left: 8.6rem;
+  margin-left: 5.25rem;
 }
-.stepper--touch .stepper__buttonMinus,
-.stepper--touch .stepper__buttonPlus {
+.stepper--touch .stepper__buttonDown,
+.stepper--touch .stepper__buttonUp {
   border-radius: 0;
-  height: 3.8rem;
+  height: calc(2.5rem - 2px);
   top: 0;
-  width: 4rem;
+  width: 2.5rem;
 }
-.stepper--touch .stepper__buttonMinus {
-  left: 4.1rem;
+.stepper--touch .stepper__buttonDown {
+  left: 2.5rem;
 }
-.stepper--touch .stepper__buttonPlus {
+.stepper--touch .stepper__buttonUp {
   left: 0;
 }
-.stepper--touch .stepper__iconMinus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
+.stepper--touch .stepper__iconDown {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
 }
-.stepper--touch .stepper__iconPlus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.stepper--touch.stepper--light .stepper__iconMinus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=676665&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.stepper--touch.stepper--light .stepper__iconPlus {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=676665&s=000&w=51.2px&h=51.2px) center center no-repeat;
+.stepper--touch .stepper__iconUp {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
 }
 /** tile.less */
 .tile {
@@ -67031,86 +66417,6 @@ a.tile:hover .tile__image {
             transform: rotate(360deg);
   }
 }
-/** flipbuttons.less */
-.flipButtons {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  z-index: 20;
-}
-.flipButtons__buttonPrev,
-.flipButtons__buttonNext {
-  box-sizing: border-box;
-  background: #fff;
-  border: #ecebea 1px solid;
-  color: #535251;
-  cursor: pointer;
-  display: block;
-  height: 5rem;
-  margin-top: -2.5rem;
-  position: absolute;
-  text-shadow: 0 1px 0 #faf9f7;
-  width: 3rem;
-}
-.flipButtons__buttonPrev:hover,
-.flipButtons__buttonNext:hover {
-  background: #faf9f7;
-}
-.flipButtons__buttonPrev::after,
-.flipButtons__buttonNext::after {
-  content: ' ';
-  height: 5rem;
-  left: 0;
-  position: absolute;
-  width: 3.2rem;
-}
-.flipButtons__buttonPrev {
-  border-radius: 2px 0 0 2px;
-  border-right: 0;
-  left: -3rem;
-}
-.flipButtons__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.flipButtons__buttonNext {
-  border-radius: 0 2px 2px 0;
-  border-left: 0;
-  right: -3rem;
-}
-.flipButtons__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.flipButtons__buttonPrev.is--disabled:hover,
-.flipButtons__buttonNext.is--disabled:hover {
-  background: transparent;
-  cursor: default;
-}
-.flipButtons__buttonPrev.is--disabled::after,
-.flipButtons__buttonNext.is--disabled::after {
-  opacity: 0.3;
-}
-.flipButtons--inset .flipButtons__buttonPrev {
-  border: #ecebea 1px solid;
-  border-radius: 0 2px 2px 0;
-  border-left: 0;
-  left: 0;
-}
-.flipButtons--inset .flipButtons__buttonNext {
-  border: #ecebea 1px solid;
-  border-radius: 2px 0 0 2px;
-  border-right: 0;
-  right: 0;
-}
 /** piechart.less */
 .pieChart {
   overflow: hidden;
@@ -67119,14 +66425,14 @@ a.tile:hover .tile__image {
   background: #faf9f7;
   border-radius: 50%;
   float: left;
-  margin-right: 4rem;
+  margin-right: 3rem;
 }
 .pieChart__data {
   float: left;
 }
 .pieChart__record {
-  font-size: 1.3rem;
-  line-height: 3rem;
+  font-size: 16px;
+  line-height: 28px;
 }
 .js .pieChart__record {
   cursor: pointer;
@@ -67137,10 +66443,10 @@ a.tile:hover .tile__image {
 .pieChart__dot {
   border-radius: 2px;
   display: inline-block;
-  height: 2rem;
-  margin-right: 0.7rem;
+  height: 1rem;
+  margin-right: 0.5rem;
   vertical-align: middle;
-  width: 2rem;
+  width: 1rem;
 }
 .pieChart__value {
   vertical-align: middle;
@@ -67149,74 +66455,18 @@ a.tile:hover .tile__image {
   font-weight: bold;
   vertical-align: middle;
 }
-/** ribbon.less */
-.ribbon {
-  display: block;
-  left: -20rem;
-  pointer-events: none;
-  position: absolute;
-  right: auto;
-  top: 3rem;
-  width: 50rem;
-}
-.ribbon__label {
-  display: block;
-  font: bold 1.5rem/3rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  text-align: center;
-  white-space: nowrap;
-}
-.ribbon .ribbon__label,
-.ribbon--left .ribbon__label {
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.ribbon--right .ribbon__label {
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.ribbon--right {
-  left: auto;
-  right: -20rem;
-}
-.ribbon .ribbon__label {
-  color: #535251;
-  background: #ecebea;
-}
-.ribbon.ribbon--attention .ribbon__label {
-  color: #746e30;
-  background: #fffbd0;
-}
-.ribbon.ribbon--dark .ribbon__label {
-  color: #fff;
-  background: #676665;
-}
-.ribbon.ribbon--light .ribbon__label {
-  color: #71706f;
-  background: #faf9f7;
-}
-.ribbon.ribbon--negative .ribbon__label {
-  color: #fff;
-  background: #ff6830;
-}
-.ribbon.ribbon--positive .ribbon__label {
-  color: #fff;
-  background: #6d9d83;
-}
 /** horizontalmenu.less */
 .horizontalMenu {
   background: #fff;
   height: 5rem;
 }
 .horizontalMenu__menu {
+  font-size: 16px;
   border-radius: 2px 2px 0 0;
   border: #ecebea 1px solid;
   border-bottom: 0;
   box-sizing: border-box;
-  height: 5rem;
+  height: 3rem;
   position: relative;
   width: 100%;
   z-index: 100;
@@ -67234,10 +66484,9 @@ a.tile:hover .tile__image {
   border-right: 1px #ecebea solid;
   color: #676665;
   display: block;
-  font-size: 1.5rem;
   font-weight: bold;
-  height: 4.9rem;
-  line-height: 4.9rem;
+  height: calc(3rem - 1px);
+  line-height: calc(3rem - 1px);
   padding: 0 1rem;
   text-align: center;
   text-decoration: none;
@@ -67310,7 +66559,7 @@ h5 {
   line-height: 28px;
 }
 h6 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 28px;
   color: #9a9998;
@@ -67953,21 +67202,18 @@ a:visited.button--positive {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 2px;
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
   border: 0;
   cursor: pointer;
   display: inline-block;
   font-size: 0;
-  height: 3.2rem;
+  height: 2rem;
   overflow: hidden;
   position: absolute;
   right: 0;
   text-color: transparent;
   top: 0;
-  width: 3.2rem;
+  width: 2rem;
 }
 .buttonDismiss::-webkit-search-decoration,
 .buttonDismiss::-webkit-search-cancel-button,
@@ -67989,10 +67235,7 @@ a:visited.button--positive {
 */
 .buttonDismiss.buttonDismiss--negative.buttonDismiss--negative,
 [class*="-negative"] .buttonDismiss {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=c83700&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#c83700' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .buttonDismiss.buttonDismiss--negative.buttonDismiss--negative:hover,
 [class*="-negative"] .buttonDismiss:hover {
@@ -68000,10 +67243,7 @@ a:visited.button--positive {
 }
 .buttonDismiss.buttonDismiss--positive.buttonDismiss--positive,
 [class*="-positive"] .buttonDismiss {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=4e7e64&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#4e7e64' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .buttonDismiss.buttonDismiss--positive.buttonDismiss--positive:hover,
 [class*="-positive"] .buttonDismiss:hover {
@@ -68011,10 +67251,7 @@ a:visited.button--positive {
 }
 .buttonDismiss.buttonDismiss--attention.buttonDismiss--attention,
 [class*="-attention"] .buttonDismiss {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=888244&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#888244' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .buttonDismiss.buttonDismiss--attention.buttonDismiss--attention:hover,
 [class*="-attention"] .buttonDismiss:hover {
@@ -68022,10 +67259,7 @@ a:visited.button--positive {
 }
 .buttonDismiss.buttonDismiss--dark.buttonDismiss--dark,
 [class*="-dark"] .buttonDismiss {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=f6f5f4&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#f6f5f4' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .buttonDismiss.buttonDismiss--dark.buttonDismiss--dark:hover,
 [class*="-dark"] .buttonDismiss:hover {
@@ -68587,10 +67821,7 @@ tr:last-child td:last-child {
   position: relative;
 }
 .js table[yoi-table*="selectable"] .table__checkbox::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-063-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   content: ' ';
   height: 3.2rem;
   left: -0.1rem;
@@ -68611,10 +67842,7 @@ tr:last-child td:last-child {
   color: #746e30;
 }
 .js table[yoi-table*="selectable"] .is--active .table__checkbox::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=746e30&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#746e30' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
 }
 .js table[yoi-table*="removeable"] .table__removeButton {
   padding: 0;
@@ -68625,10 +67853,7 @@ tr:last-child td:last-child {
   cursor: pointer;
 }
 .js table[yoi-table*="removeable"] .table__removeButton::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
   content: ' ';
   height: 3.2rem;
   width: 3.2rem;
@@ -68637,10 +67862,7 @@ tr:last-child td:last-child {
   left: -0.1rem;
 }
 .js table[yoi-table*="removeable"] .table__removeButton:hover::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ff6830&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ff6830' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .js table.table--compressed .table__checkbox,
 .js table.table--compressed .table__removeButton {
@@ -68790,6 +68012,155 @@ a.stepMenu__label:hover {
   position: absolute;
   top: 0;
   width: 0;
+}
+/** flipbuttons.less */
+.flipButtons {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 20;
+}
+.flipButtons__buttonPrev,
+.flipButtons__buttonNext {
+  box-sizing: border-box;
+  background: #fff;
+  border: #ecebea 1px solid;
+  color: #535251;
+  cursor: pointer;
+  display: block;
+  height: 3rem;
+  margin-top: -1.5rem;
+  position: absolute;
+  text-shadow: 0 1px 0 #faf9f7;
+  width: 2rem;
+}
+.flipButtons__buttonPrev:hover,
+.flipButtons__buttonNext:hover {
+  background: #faf9f7;
+}
+.flipButtons__buttonPrev::after,
+.flipButtons__buttonNext::after {
+  content: ' ';
+  height: calc(3rem - 2px);
+  left: 0;
+  position: absolute;
+  width: 2rem;
+}
+.flipButtons__buttonPrev {
+  border-radius: 2px 0 0 2px;
+  border-right: 0;
+  left: -2rem;
+}
+.flipButtons__buttonPrev::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
+}
+.flipButtons__buttonNext {
+  border-radius: 0 2px 2px 0;
+  border-left: 0;
+  right: -2rem;
+}
+.flipButtons__buttonNext::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
+}
+.flipButtons__buttonPrev.is--disabled:hover,
+.flipButtons__buttonNext.is--disabled:hover {
+  background: transparent;
+  cursor: default;
+}
+.flipButtons__buttonPrev.is--disabled::after,
+.flipButtons__buttonNext.is--disabled::after {
+  opacity: 0.3;
+}
+.flipButtons--inset .flipButtons__buttonPrev {
+  border: #ecebea 1px solid;
+  border-radius: 0 2px 2px 0;
+  border-left: 0;
+  left: 0;
+}
+.flipButtons--inset .flipButtons__buttonNext {
+  border: #ecebea 1px solid;
+  border-radius: 2px 0 0 2px;
+  border-right: 0;
+  right: 0;
+}
+/** filterbuttons.less */
+.filterButtons {
+  display: block;
+  font-size: 0;
+}
+.filterButtons__button {
+  font-size: 16px;
+  font-weight: 600;
+  background: #f6f5f4;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #535251;
+  display: inline-block;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0 1.5rem 0 0.75rem;
+}
+.filterButtons__button:hover {
+  background: #ecebea;
+}
+.filterButtons__button a,
+.filterButtons__button a:link,
+.filterButtons__button a:visited {
+  color: #535251;
+  display: inline-block;
+  text-decoration: none;
+}
+.filterButtons--removeable .filterButtons__button a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#b9b8b7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
+}
+.filterButtons--removeable .filterButtons__button:hover {
+  background: #c83700;
+}
+.filterButtons--removeable .filterButtons__button:hover a {
+  color: #fff;
+}
+.filterButtons--removeable .filterButtons__button:hover a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ffc9b4' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
+}
+.filterButtons__button a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center;
+  content: ' ';
+  display: inline-block;
+  height: 2rem;
+  margin-left: -1.25rem;
+  position: relative;
+  right: -1.25rem;
+  vertical-align: top;
+  width: 2rem;
+}
+.filterButtons__button a:hover::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center;
+}
+.filterButtons__button.is--active {
+  background: #4e7e64;
+}
+.filterButtons__button.is--active a {
+  color: #fff;
+}
+.filterButtons__button.is--active a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#c8f8de' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
+}
+.filterButtons__button.is--active:hover {
+  background: #c83700;
+}
+.filterButtons__button.is--active:hover a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ffc9b4' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
+}
+.filterButtons__button.filterButtons__button--debounce:hover {
+  background: #4e7e64;
+}
+.filterButtons__button.filterButtons__button--debounce:hover a::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#c8f8de' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
 }
 /** switch.less */
 .js .switch {
@@ -68962,10 +68333,10 @@ a.stepMenu__label:hover {
   list-style: none;
 }
 .verticalMenu__item {
+  font-size: 16px;
+  font-weight: 600;
   border-top: #ecebea 1px solid;
   margin: 0;
-  font-weight: bold;
-  font-size: 1.3rem;
 }
 .verticalMenu__item:first-child {
   border: 0;
@@ -68991,8 +68362,8 @@ a.stepMenu__label:hover {
   border-radius: 0;
 }
 .verticalMenu .verticalMenu .verticalMenu__item {
+  font-weight: 400;
   border: 0;
-  font-weight: normal;
 }
 .verticalMenu .verticalMenu .verticalMenu {
   padding-left: 2rem;
@@ -69012,44 +68383,8 @@ a.stepMenu__label:hover {
 .verticalMenu .is--active .verticalMenu__link:link,
 .verticalMenu .is--active .verticalMenu__link:visited,
 .verticalMenu .is--active .verticalMenu__link:hover {
+  font-weight: 600;
   background: #535251;
-  color: #fff;
-  font-weight: bold;
-}
-.verticalMenu--pointLeft .is--active::after,
-.verticalMenu--pointRight .is--active::after {
-  background: #535251;
-  content: ' ';
-  display: block;
-  height: 1rem;
-  position: absolute;
-  top: 50%;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  width: 1rem;
-}
-.verticalMenu--pointLeft .is--active::after {
-  left: 0;
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-          transform: translate(-50%, -50%) rotate(45deg);
-}
-.verticalMenu--pointRight .is--active::after {
-  right: 0;
-  -webkit-transform: translate(50%, -50%) rotate(45deg);
-          transform: translate(50%, -50%) rotate(45deg);
-}
-.verticalMenu--pointLeft .verticalMenu__link,
-.verticalMenu--pointRight .verticalMenu__link,
-.verticalMenu--pointLeft .verticalMenu__link:active,
-.verticalMenu--pointRight .verticalMenu__link:active,
-.verticalMenu--pointLeft .verticalMenu__link:link,
-.verticalMenu--pointRight .verticalMenu__link:link,
-.verticalMenu--pointLeft .verticalMenu__link:visited,
-.verticalMenu--pointRight .verticalMenu__link:visited {
-  color: #535251;
-}
-.verticalMenu--pointLeft .verticalMenu__link.is--active,
-.verticalMenu--pointRight .verticalMenu__link.is--active {
   color: #fff;
 }
 /** linklist.less */
@@ -69261,32 +68596,31 @@ a.stepMenu__label:hover {
   box-sizing: border-box;
   position: relative;
   text-align: left;
-  width: 60rem;
+  width: 37.5rem;
 }
 .modal__container .modal {
   box-shadow: 0 15px 50px 0 rgba(154, 153, 152, 0.2);
   border: 0;
   left: 50%;
-  margin-left: -30rem;
+  margin-left: -18.75rem;
   position: absolute;
 }
 .modal__header {
   border-bottom: #f6f5f4 1px solid;
   border-radius: 2px 2px 0 0;
-  margin: 0 0 1rem 0;
-  padding: 0 1rem;
+  margin: 0 0 0.5rem 0;
+  padding: 0 0.5rem;
 }
 .modal__title {
+  font-size: 16px;
+  font-weight: 600;
   color: #535251;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 4.5rem;
+  line-height: 2.5rem;
 }
 .modal__body {
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  padding: 0 1rem;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 0.5rem;
 }
 .modal__body::after {
   content: "";
@@ -69298,8 +68632,8 @@ a.stepMenu__label:hover {
 }
 .modal__footer {
   border-top: #f6f5f4 1px solid;
-  margin-top: 1rem;
-  padding: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
   overflow: hidden;
 }
 .modal__footer::after {
@@ -69321,30 +68655,31 @@ a.stepMenu__label:hover {
 }
 .modal .buttonDismiss {
   position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+  right: 0.25rem;
+  top: 0.25rem;
 }
 .modal--small {
-  width: 30rem;
+  width: 18.75rem;
 }
 .modal__container .modal--small {
-  margin-left: -15rem;
+  margin-left: -9.38rem;
 }
 .modal--simple .modal__title {
   display: none;
 }
 .modal--simple .modal__body {
   border: 0;
-  padding: 3rem;
+  padding: 2rem;
 }
 /** breadcrumbs.less */
 .breadcrumbs {
   border-radius: 2px;
-  background: #faf9f7;
+  font-size: 12px;
+  background: #fff;
   border: #ecebea 1px solid;
-  line-height: 2.5rem;
+  line-height: 1rem;
   overflow: hidden;
-  padding: 0 1.5rem 0 0;
+  padding: 0 1rem 0 0;
 }
 .breadcrumbs__item {
   display: inline-block;
@@ -69364,18 +68699,22 @@ a.stepMenu__label:hover {
   background: #f6f5f4;
 }
 .breadcrumbs__item + .breadcrumbs__item {
-  margin-left: -2.5rem;
+  margin-left: -2rem;
 }
 .breadcrumbs__item:first-child .breadcrumbs__label {
-  padding-left: 1.5rem;
+  padding-left: 0.5rem;
 }
 .breadcrumbs__item:last-child {
+  font-weight: 600;
   z-index: 1;
-  font-weight: bold;
+}
+.breadcrumbs__item:last-child a:hover,
+.breadcrumbs__item:last-child span:hover {
+  background: #fff;
 }
 .breadcrumbs__link {
   display: inline-block;
-  padding: 0 3rem 0 0;
+  padding: 0 1.5rem 0 0;
   position: relative;
   text-decoration: none;
 }
@@ -69386,20 +68725,20 @@ a.stepMenu__label:hover {
   color: #535251;
 }
 .breadcrumbs__link::after {
-  background: #faf9f7;
-  border-right: #e1e0df 1px solid;
-  border-top: #e1e0df 1px solid;
+  background: #fff;
+  border-right: #ecebea 1px solid;
+  border-top: #ecebea 1px solid;
   box-sizing: border-box;
   content: ' ';
   display: inline-block;
-  height: 3em;
-  margin-top: -1.5em;
+  height: 2rem;
+  margin-top: -1rem;
   position: absolute;
-  right: 1.75rem;
+  right: 0.75rem;
   top: 50%;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  width: 3em;
+  width: 2rem;
   z-index: 1;
 }
 .breadcrumbs__label {
@@ -69420,23 +68759,20 @@ a.stepMenu__label:hover {
   box-sizing: border-box;
   color: #9a9998;
   display: block;
-  height: 5rem;
+  height: 3.5rem;
   left: 50%;
-  margin-left: -5rem;
+  margin-left: -3rem;
   position: fixed;
   text-align: right;
   transition: bottom 500ms ease-out;
-  width: 10rem;
+  width: 6rem;
   z-index: 101;
 }
 .pageRewind:hover {
   background: #faf9f7;
 }
 .pageRewind::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-010-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
   content: ' ';
   display: block;
   height: 100%;
@@ -69445,176 +68781,6 @@ a.stepMenu__label:hover {
 }
 .pageRewind.is--hidden {
   bottom: -8rem;
-}
-/** ratinginput.less */
-.noJs .ratingInput {
-  display: none;
-}
-.ratingInput {
-  border-radius: 2px;
-  background: #fff;
-  border: #cdcccb 1px solid;
-  box-shadow: 0 1px 0 #f6f5f4 inset;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  height: 2.5rem;
-}
-.ratingInput__select {
-  display: inline-block;
-  margin: 0;
-  padding: 0 0.5rem;
-}
-.ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  width: 2rem;
-  height: 2.3rem;
-  display: inline-block;
-}
-.ratingInput--rated-1 .ratingInput__star:nth-child(1) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-1:hover .ratingInput__star:nth-child(1) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=343332&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-2 .ratingInput__star:nth-child(-n + 2) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-2:hover .ratingInput__star:nth-child(-n + 2) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=343332&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-3 .ratingInput__star:nth-child(-n + 3) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-3:hover .ratingInput__star:nth-child(-n + 3) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=343332&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-4 .ratingInput__star:nth-child(-n + 4) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-4:hover .ratingInput__star:nth-child(-n + 4) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=343332&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-5 .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--rated-5:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=343332&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  cursor: default;
-}
-.ratingInput--locked .ratingInput__star {
-  color: transparent;
-}
-.ratingInput--locked.ratingInput--rated-1 .ratingInput__star,
-.ratingInput--locked.ratingInput--rated-1:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=eac310&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-1 .ratingInput__star:nth-child(n + 2),
-.ratingInput--locked.ratingInput--rated-1:hover .ratingInput__star:nth-child(n + 2) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-2 .ratingInput__star,
-.ratingInput--locked.ratingInput--rated-2:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=eac310&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-2 .ratingInput__star:nth-child(n + 3),
-.ratingInput--locked.ratingInput--rated-2:hover .ratingInput__star:nth-child(n + 3) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-3 .ratingInput__star,
-.ratingInput--locked.ratingInput--rated-3:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=eac310&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-3 .ratingInput__star:nth-child(n + 4),
-.ratingInput--locked.ratingInput--rated-3:hover .ratingInput__star:nth-child(n + 4) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-4 .ratingInput__star,
-.ratingInput--locked.ratingInput--rated-4:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=eac310&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-4 .ratingInput__star:nth-child(n + 5),
-.ratingInput--locked.ratingInput--rated-4:hover .ratingInput__star:nth-child(n + 5) {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--locked.ratingInput--rated-5 .ratingInput__star,
-.ratingInput--locked.ratingInput--rated-5:hover .ratingInput__star {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-039-s&f=eac310&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.ratingInput--large {
-  height: 4rem;
-}
-.ratingInput--large .ratingInput__select {
-  padding: 0 1rem;
-}
-.ratingInput--large .ratingInput__star {
-  height: 3.8rem;
-  width: 2.5rem;
 }
 /** flyout.less */
 .flyout {
@@ -69630,23 +68796,17 @@ a.stepMenu__label:hover {
   width: 25rem;
 }
 .flyout__handle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2.5rem;
   background: #f6f5f4;
   border: #cdcccb 1px solid;
   border-top: 0;
   cursor: pointer;
   display: block;
-  font: normal 2rem/3rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  padding: 0 1rem 0 1.5rem;
+  padding: 0 1.25rem;
   position: absolute;
-  top: 3rem;
-}
-.flyout__handle::after {
-  content: ' ';
-  display: inline-block;
-  height: 3.2rem;
-  margin-left: 0.5rem;
-  vertical-align: top;
-  width: 3.2rem;
+  top: 2.5rem;
 }
 .flyout--left .flyout__handle {
   -webkit-transform-origin: right top;
@@ -69683,12 +68843,6 @@ a.stepMenu__label:hover {
 .js .flyout--right {
   border-radius: 2px 0 0 2px;
 }
-.js .flyout--hidden .flyout__handle::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-009-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
 .js .flyout--hidden.flyout--left {
   left: -25rem;
 }
@@ -69699,12 +68853,6 @@ a.stepMenu__label:hover {
   box-shadow: 0 10px 30px rgba(154, 153, 152, 0.25);
   background-clip: padding-box;
   border: rgba(205, 204, 203, 0.3) 1px solid;
-}
-.js .flyout--visible .flyout__handle::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-010-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
 }
 .js .flyout--visible.flyout--left {
   left: 0;
@@ -69746,10 +68894,7 @@ a.stepMenu__label:hover {
   left: -26rem;
 }
 .dock--left::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
   left: -0.2rem;
   right: auto;
 }
@@ -69761,10 +68906,7 @@ a.stepMenu__label:hover {
   right: -26rem;
 }
 .dock--right::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
   left: auto;
   right: -0.2rem;
 }
@@ -69796,12 +68938,6 @@ a.badge {
   height: 2.5rem;
   line-height: 2.5rem;
   padding: 0 1rem;
-}
-.badge--xlarge {
-  font: bold 1.25rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1.5rem;
 }
 .badge {
   background: #ecebea;
@@ -69860,9 +68996,6 @@ a.badge--positive:hover {
 .badge--large.badge--rounded {
   border-radius: 1.2rem;
 }
-.badge--xlarge.badge--rounded {
-  border-radius: 1.7rem;
-}
 .badges {
   font-size: 0;
 }
@@ -69890,13 +69023,13 @@ a.badge--positive:hover {
 }
 /** rangeinput.less */
 .rangeInput label {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .rangeInput input[type="text"] {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .rangeInput input[type="submit"] {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   text-align: center;
   width: 100%;
 }
@@ -69906,14 +69039,14 @@ a.badge--positive:hover {
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
-  height: 4.5rem;
+  height: 3rem;
   position: relative;
 }
 .js .rangeInput .rangeInput__track {
   border-radius: 2px;
   background: #f6f5f4;
-  bottom: 1rem;
-  height: 0.4rem;
+  bottom: 0.5rem;
+  height: 0.25rem;
   left: 0;
   overflow: hidden;
   position: absolute;
@@ -69922,7 +69055,7 @@ a.badge--positive:hover {
 }
 .js .rangeInput .rangeInput__range {
   background: #676665;
-  height: 0.4rem;
+  height: 0.25rem;
   left: 0;
   position: absolute;
   right: 0;
@@ -69935,13 +69068,13 @@ a.badge--positive:hover {
 .js .rangeInput .rangeInput__knob {
   background: #676665;
   border-radius: 50%;
-  bottom: 0.1rem;
+  bottom: 0;
   box-sizing: border-box;
   cursor: ew-resize;
-  height: 2rem;
+  height: 1.5rem;
   position: absolute;
   transition: left 200ms ease-out;
-  width: 2rem;
+  width: 1.5rem;
   z-index: 2;
 }
 .js .rangeInput.is--active .rangeInput__knob {

@@ -2580,43 +2580,6 @@ YOI.component.PageRewind = function() {
     };
 }();
 
-YOI.component.PickButton = function() {
-    var $icon = $('<span class="pickButton__icon"></span>');
-    function initialize($pickButton) {
-        var $pickButton = YOI.createCollection("pickButton", $pickButton);
-        if ($pickButton) $pickButton.each(function() {
-            if (YOI.isReady($(this))) return false;
-            var $thisPickButton = $(this);
-            $thisPickButton.find('input[type="radio"]').hide();
-            $thisPickButton.prepend($icon.clone());
-            $thisPickButton.find("label").on("click", function(e) {
-                e.preventDefault();
-            });
-            $thisPickButton.on("click", function(e) {
-                e.preventDefault();
-                activate($thisPickButton);
-                $thisPickButton.trigger("yoi-pickbutton-change");
-            });
-            YOI.setReady($(this));
-        });
-    }
-    function activate($thisPickButton) {
-        var $icon = $thisPickButton.find(".pickButton__icon");
-        var $radioInput = $thisPickButton.find('input[type="radio"]');
-        var groupName = $radioInput.attr("name");
-        $('input[name="' + groupName + '"]').closest(".pickButton").removeClass("is--active");
-        $('input[name="' + groupName + '"]').removeAttr("checked");
-        $('input[name="' + groupName + '"]').prop("checked", false);
-        $radioInput.prop("checked", true);
-        $radioInput.attr("checked", "checked");
-        $thisPickButton.addClass("is--active");
-        YOI.blink($icon);
-    }
-    return {
-        init: initialize
-    };
-}();
-
 YOI.component.PieChart = function() {
     var $colorDot = $('<span class="pieChart__dot"></span>');
     var fixedPalette = [ "#ff9269", "#df3d00", "#5d4a97", "#417db3", "#629278", "#e4dea0", "#89c5fb", "#676665" ];
@@ -3120,70 +3083,6 @@ YOI.component.RangeInput = function() {
     };
 }();
 
-YOI.component.RatingInput = function() {
-    var $ratingSelect = $('        <span class="ratingInput__select">            <span class="ratingInput__star"></span>            <span class="ratingInput__star"></span>            <span class="ratingInput__star"></span>            <span class="ratingInput__star"></span>            <span class="ratingInput__star"></span>        </span>    ');
-    function initialize($ratingInput, options) {
-        var $ratingInput = YOI.createCollection("ratinginput", $ratingInput, options);
-        if ($ratingInput) $ratingInput.each(function() {
-            if (YOI.isReady($(this))) return false;
-            var $thisRatingInput = $(this);
-            var $thisRatingSelect = $ratingSelect.clone();
-            var $thisRatingStars = $thisRatingSelect.find(".ratingInput__star");
-            setScore($thisRatingInput);
-            if ($thisRatingInput.hasClass("ratingInput--locked")) {
-                $thisRatingInput.data().state = "locked";
-            }
-            $thisRatingStars.on("mouseover", function() {
-                setScore($thisRatingInput, $(this).index() + 1);
-            }).on("click", function() {
-                submitScore($thisRatingInput);
-                lock($thisRatingInput);
-            });
-            $thisRatingInput.append($thisRatingSelect);
-            YOI.setReady($(this));
-        });
-    }
-    function lock($ratingInput) {
-        $ratingInput.addClass("ratingInput--locked");
-        $ratingInput.data().state = "locked";
-        $ratingInput.trigger("yoi-rating-lock");
-    }
-    function unlock($ratingInput) {
-        $ratingInput.removeClass("ratingInput--locked");
-        $ratingInput.data().state = "unlocked";
-        $ratingInput.trigger("yoi-rating-unlock");
-    }
-    function setScore($ratingInput, score) {
-        var options = $ratingInput.data().options;
-        var state = $ratingInput.data().state;
-        var score = score || options.score || getScoreFromModifier($ratingInput) || 0;
-        if (state !== "locked") {
-            $ratingInput.data().options.score = score;
-            $ratingInput.removeClass("ratingInput--rated-1 ratingInput--rated-2 ratingInput--rated-3 ratingInput--rated-4 ratingInput--rated-5");
-            $ratingInput.addClass("ratingInput--rated-" + score);
-            $ratingInput.trigger("yoi-rating-change");
-        }
-    }
-    function getScoreFromModifier($ratingInput) {
-        var score = null;
-        if ($ratingInput.hasClass("ratingInput--rated-1")) score = 1;
-        if ($ratingInput.hasClass("ratingInput--rated-2")) score = 2;
-        if ($ratingInput.hasClass("ratingInput--rated-3")) score = 3;
-        if ($ratingInput.hasClass("ratingInput--rated-4")) score = 4;
-        if ($ratingInput.hasClass("ratingInput--rated-5")) score = 5;
-        return score;
-    }
-    function submitScore($ratingInput) {
-        $ratingInput.trigger("yoi-rating-submit");
-    }
-    return {
-        init: initialize,
-        lock: lock,
-        unlock: unlock,
-        set: setScore
-    };
-}();
-
 YOI.component.ScrollKeys = function() {
     var initialized = false;
     var keyboardEventsAdded = false;
@@ -3584,19 +3483,20 @@ YOI.component.Stepper = function() {
             buttonLabelLess: "weniger"
         }
     };
-    var $stepperButtons = $('        <div class="stepper__buttonPlus">            <span class="stepper__iconPlus"></span>            <span class="hidden">' + localization[language]["buttonLabelMore"] + '</span>        </div>        <div class="stepper__buttonMinus">            <span class="stepper__iconMinus"></span>            <span class="hidden">' + localization[language]["buttonLabelLess"] + "</span>        </div>    ");
+    var $stepperButtons = $('        <div class="stepper__buttonUp">            <span class="stepper__iconUp"></span>            <span class="hidden">' + localization[language]["buttonLabelMore"] + '</span>        </div>        <div class="stepper__buttonDown">            <span class="stepper__iconDown"></span>            <span class="hidden">' + localization[language]["buttonLabelLess"] + "</span>        </div>    ");
     function initialize($stepper, options) {
         var $stepper = YOI.createCollection("stepper", $stepper, options);
         if ($stepper) $stepper.each(function() {
             if (YOI.isReady($(this))) return false;
             var $thisStepper = $(this);
+            $thisStepper.data().props.initialValue = $thisStepper.find(".stepper__input")[0].value || 1;
             $thisStepper.prepend($stepperButtons.clone());
             var eventType = YOI.environment("mobile") ? "tap" : "click";
-            $thisStepper.find(".stepper__buttonPlus").on(eventType, function(e) {
+            $thisStepper.find(".stepper__buttonUp").on(eventType, function(e) {
                 e.preventDefault();
                 increaseItemCount($thisStepper);
             });
-            $thisStepper.find(".stepper__buttonMinus").on(eventType, function(e) {
+            $thisStepper.find(".stepper__buttonDown").on(eventType, function(e) {
                 e.preventDefault();
                 decreaseItemCount($thisStepper);
             });
@@ -3627,7 +3527,7 @@ YOI.component.Stepper = function() {
         $stepper.trigger("yoi-stepper-down");
     }
     function resetItemCount($stepper) {
-        setItemCount($stepper, 1);
+        setItemCount($stepper, $stepper.data().props.initialValue);
         removeErrorFormatting($stepper);
         $stepper.trigger("yoi-stepper-reset");
     }
@@ -3668,8 +3568,7 @@ YOI.component.Stepper = function() {
         countUp: increaseItemCount,
         countDown: decreaseItemCount,
         reset: resetItemCount,
-        clear: clearItemCount,
-        setTo: setItemCount
+        clear: clearItemCount
     };
 }();
 
