@@ -12,15 +12,13 @@
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    height: 1.6rem;
+    height: 1.5rem;
     margin: 0 .5rem 0 0;
     overflow: hidden;
     padding: 0;
     position: relative;
-    position: relative;
-    top: -.1rem;
     vertical-align: top;
-    width: 1.6rem;
+    width: 1.5rem;
 
     // inner input element
 
@@ -38,8 +36,8 @@
 // size
 
 .radioButton--large {
-    height: 3rem;
-    width: 3rem;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 // validation
@@ -61,23 +59,23 @@
     // icon regular
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-079-s', @width: 16, @height: 16, @fillColor: @color-base-8);
+        background: @color-base-8;
+        border-radius: 50%;
         content: ' ';
-        left: 0;
-        top: 0;
-        height: 1.4rem;
+        display: block;
+        height: 1rem;
+        left: 50%;
         position: absolute;
-        width: 1.4rem;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1rem;
     }
 
     // icon large
 
     &.radioButton--large::after {
-        .mixin-icon-bg(@id: 'icon-079', @width: 24, @height: 24, @fillColor: @color-base-8);
-        height: 2.8rem;
-        left: 0;
-        top: 0;
-        width: 2.8rem;
+        height: 1.5rem;
+        width: 1.5rem;
     }
 
 }

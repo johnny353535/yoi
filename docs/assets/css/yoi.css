@@ -64895,14 +64895,13 @@ a.box {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  height: 1.6rem;
+  height: 1.5rem;
   margin: 0 0.5rem 0 0;
   overflow: hidden;
   padding: 0;
   position: relative;
-  top: -0.1rem;
   vertical-align: top;
-  width: 1.6rem;
+  width: 1.5rem;
 }
 .radioButton input {
   left: -5rem;
@@ -64910,8 +64909,8 @@ a.box {
   position: absolute;
 }
 .radioButton--large {
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 .radioButton.is--negative {
   border-color: #ff6830;
@@ -64922,26 +64921,21 @@ a.box {
   color: #3a6a50;
 }
 .radioButton.is--checked::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=535251&s=000&w=25.6px&h=25.6px) center center no-repeat;
+  background: #535251;
+  border-radius: 50%;
   content: ' ';
-  left: 0;
-  top: 0;
-  height: 1.4rem;
+  display: block;
+  height: 1rem;
+  left: 50%;
   position: absolute;
-  width: 1.4rem;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
 }
 .radioButton.is--checked.radioButton--large::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
-  height: 2.8rem;
-  left: 0;
-  top: 0;
-  width: 2.8rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 .radioButton.is--focus {
   box-shadow: 0 0 0 2px #bbdfff;
@@ -65233,83 +65227,6 @@ a.box {
 .countdown--0:first-child .countdown__character__dots {
   fill: transparent;
 }
-/** accordion.less */
-.accordion {
-  border-radius: 2px;
-  border: #e1e0df 1px solid;
-  box-sizing: border-box;
-}
-.accordion::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.accordion :last-child.is--closed > .accordion__header,
-.accordion :last-child > .accordion__body {
-  border: 0;
-}
-.accordion__section {
-  margin: 0;
-}
-.accordion__header {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  background: #fff;
-  border-bottom: #e1e0df 1px solid;
-  cursor: pointer;
-  margin: 0;
-  min-height: 2rem;
-  padding: 0.5rem 3rem 0.5rem 1rem;
-  position: relative;
-}
-.accordion__header:hover {
-  background: #faf9f7;
-}
-.accordion__header:focus {
-  box-shadow: none;
-  outline: none;
-}
-.accordion__header h1,
-.accordion__header h2,
-.accordion__header h3,
-.accordion__header h4,
-.accordion__header h5,
-.accordion__header h6 {
-  font-size: 16px;
-}
-.accordion__header::after {
-  margin-top: -1rem;
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-}
-.js .is--open .accordion__header::after,
-.js .is--closed .accordion__header::after {
-  content: ' ';
-  height: 2rem;
-  width: 2rem;
-}
-.js .is--open .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.js .is--closed .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
-}
-.accordion__body {
-  background: rgba(250, 249, 247, 0.5);
-  border-bottom: #e1e0df 1px solid;
-  margin: 0;
-  overflow: hidden;
-  padding: 1rem;
-}
 /** textinputs.less */
 .input,
 .textarea {
@@ -65443,6 +65360,83 @@ a.box {
 }
 .is--positive::-moz-input-placeholder {
   color: #3a6a50;
+}
+/** accordion.less */
+.accordion {
+  border-radius: 2px;
+  border: #e1e0df 1px solid;
+  box-sizing: border-box;
+}
+.accordion::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.accordion :last-child.is--closed > .accordion__header,
+.accordion :last-child > .accordion__body {
+  border: 0;
+}
+.accordion__section {
+  margin: 0;
+}
+.accordion__header {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background: #fff;
+  border-bottom: #e1e0df 1px solid;
+  cursor: pointer;
+  margin: 0;
+  min-height: 2rem;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  position: relative;
+}
+.accordion__header:hover {
+  background: #faf9f7;
+}
+.accordion__header:focus {
+  box-shadow: none;
+  outline: none;
+}
+.accordion__header h1,
+.accordion__header h2,
+.accordion__header h3,
+.accordion__header h4,
+.accordion__header h5,
+.accordion__header h6 {
+  font-size: 16px;
+}
+.accordion__header::after {
+  margin-top: -1rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+}
+.js .is--open .accordion__header::after,
+.js .is--closed .accordion__header::after {
+  content: ' ';
+  height: 2rem;
+  width: 2rem;
+}
+.js .is--open .accordion__header::after {
+  /**
+     *  SVG icons as background image
+     */
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+}
+.js .is--closed .accordion__header::after {
+  /**
+     *  SVG icons as background image
+     */
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+}
+.accordion__body {
+  background: rgba(250, 249, 247, 0.5);
+  border-bottom: #e1e0df 1px solid;
+  margin: 0;
+  overflow: hidden;
+  padding: 1rem;
 }
 /** pagedots.less */
 .pageDots {

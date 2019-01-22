@@ -12,7 +12,7 @@ permalink: components/radiobutton
 This is how a `<input type="radio">` looks like:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <input name="example-1" type="radio" checked yoi-radiobutton />
 <input name="example-1" type="radio" yoi-radiobutton />
 <input name="example-1" type="radio" disabled yoi-radiobutton />
@@ -22,7 +22,7 @@ This is how a `<input type="radio">` looks like:
 
 ### Validation
 
-Use the modifiers `.is--positive` and `.is--negative` to visualize input validation:
+Use the modifiers `.is--positive` and `.is--negative` to visualize radiobutton validation:
 
 ```html
 <!-- example:tabs -->
