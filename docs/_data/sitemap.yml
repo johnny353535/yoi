@@ -72,7 +72,7 @@ components:
     - switch
     - table
     - tabs
-    - textinput
+    - input
     - tile
     - togglegroup
     - tooltip

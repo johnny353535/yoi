@@ -2,7 +2,7 @@
 layout: base
 group: components
 title: Text Input & Textarea
-permalink: components/textinput
+permalink: components/input
 ---
 
 # Text Input & Textarea
@@ -25,7 +25,7 @@ This is how an `.input` and `.textarea` look like:
 
 ### Validation
 
-Use the modifiers `.is--positive` and `.is--negative` to visualize textinput validation:
+Use the modifiers `.is--positive` and `.is--negative` to visualize input validation:
 
 ```html
 <!-- example:tabs -->
@@ -64,7 +64,7 @@ You can use the modifiers `.is--focus`, `.is--disabled` and `.is--readonly` to a
 
 ### Size
 
-Use the modifiers `.input--large` or `input--small` to create textinputs with different sizes:
+Use the modifiers `.input--large` or `input--small` to create inputs with different sizes:
 
 ```html
 <!-- example:tabs -->
