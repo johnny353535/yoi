@@ -50,14 +50,14 @@ This is how a basic `.tabs` and `.tabs__menu.` looks and how you write the marku
 
 ## Modifiers
 
-### Fixed Layout
+### Grow
 
-By default, all tabs take up the same with, like cells within in table row. Use the modifier `.tabs__menu--loose` to create tabs that are only as wide as their containing text:
+Add the modifier `.tabs__menu--grow` to make all tabs take up the same with and use 100% of the available width:
 
 ```html
 <!-- example -->
 <div class="tabs">
-    <div class="tabs__menu tabs__menu--loose" yoi-tabs>
+    <div class="tabs__menu tabs__menu--grow" yoi-tabs>
         <ul class="tabs__items">
             <li class="tabs__item">
                 <a class="tabs__link" href="#tab-1-1-b">Tab #1-b</a>
@@ -150,7 +150,7 @@ Add the modifier `.tabs__menu--arrows` to the `.tabs__menu` to use an alternativ
 
 ```html
 <!-- example -->
-<div class="tabs__menu tabs__menu--arrows tabs__menu--large" yoi-tabs>
+<div class="tabs__menu tabs__menu--arrows" yoi-tabs>
     <ul class="tabs__items">
         <li class="tabs__item">
             <a class="tabs__link" href="#tab-3a-1">Tab #1</a>
@@ -170,32 +170,6 @@ Add the modifier `.tabs__menu--arrows` to the `.tabs__menu` to use an alternativ
 <div class="tabs__page" id="tab-3a-2">Tab #2 Content</div>
 <div class="tabs__page" id="tab-3a-3">Tab #3 Content</div>
 <div class="tabs__page" id="tab-3a-4">Tab #4 Content</div>
-```
-
-### Check Marks
-
-Add the modifier `.tabs__menu--checkmarks` to the `.tabs__menu` to display a check mark on each active tab link:
-
-```html
-<!-- example -->
-<div class="tabs">
-    <div class="tabs__menu tabs__menu--checkmarks tabs__menu--large" yoi-tabs>
-        <ul class="tabs__items">
-            <li class="tabs__item">
-                <a class="tabs__link" href="#tab-6-1">Tab 1</a>
-            </li>
-            <li class="tabs__item">
-                <a class="tabs__link" href="#tab-6-2">Tab 2</a>
-            </li>
-            <li class="tabs__item">
-                <a class="tabs__link" href="#tab-6-3">Tab 3</a>
-            </li>
-        </ul>
-    </div>
-    <div class="tabs__page" id="tab-6-1">Tab 1</div>
-    <div class="tabs__page" id="tab-6-2">Tab 2</div>
-    <div class="tabs__page" id="tab-6-3">Tab 3</div>
-</div>
 ```
 
 ## JavaScript-API
@@ -240,7 +214,7 @@ Switch to a tab:
 </script>
 ```
 
-### Custom Events
+### Events
 
 Each `.tabs__menu` fires a custom event your script can listen to:
 
