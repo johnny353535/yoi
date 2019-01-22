@@ -88,20 +88,6 @@
 
 }
 
-.mixin-icon-bg(@id; @width: 32; @height: 32; @fillColor: '000'; @strokeColor: '000') {
-
-    /**
-     *  SVG icons as background image
-     */
-
-    @relativeWidth  : @width / 10 * @rootFontSize;
-    @relativeHeight : @height / 10 * @rootFontSize;
-    @fillColorHex   : replace(@fillColor, '#', '');
-    @strokeColorHex : replace(@strokeColor, '#', '');
-    background: transparent url(~'http://@{cdnDomain}/svg.php?id=@{id}&f=@{fillColorHex}&s=@{strokeColorHex}&w=@{relativeWidth}&h=@{relativeHeight}') center center no-repeat;
-
-}
-
 // accessabilty
 
 .mixin-disabled() {

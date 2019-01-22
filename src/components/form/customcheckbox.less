@@ -59,19 +59,19 @@
     // icon regular
 
     &::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @width: 21, @height: 21, @fillColor: @color-base-8);
+        .mixin-icon-checkmark(@color: @color-base-8);
         content: ' ';
         left: 0;
         top: 0;
-        height: 1.3rem;
+        height: 1.4rem;
         position: absolute;
-        width: 1.3rem;
+        width: 1.4rem;
     }
 
     // icon large
 
     &.input--large::after {
-        .mixin-icon-bg(@id: 'icon-011', @width: 21, @height: 21, @fillColor: @color-base-8);
+        .mixin-icon-checkmark(@size: 32, @color: @color-base-8);
         width: 2.8rem;
         height: 2.8rem;
     }

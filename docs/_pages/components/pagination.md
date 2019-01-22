@@ -37,11 +37,11 @@ This is how a basic `.pagination` looks like and how you write the markup:
         <div class="buttons">
             <a class="button button--subtle" href="#">
                 <span class="hidden">previous page</span>
-                <img src="http://cdn.yoshino.digital/svg.php?id=icon-008-s" class="icon" yoi-icon />
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </a>
             <a class="button button--subtle" href="#">
                 <span class="hidden">next page</span>
-                <img src="http://cdn.yoshino.digital/svg.php?id=icon-007-s" class="icon" yoi-icon />
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </a>
         </div>
     </div>
