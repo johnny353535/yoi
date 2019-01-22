@@ -557,8 +557,16 @@
     box-shadow: 0 1px 0 @highlightColor inset;
     color: @txtColor;
 
-    .icon {
-        svg circle, svg ellipse, svg path, svg polygon { fill: @txtColor; }
+    .icon svg {
+        circle,
+        ellipse,
+        line,
+        path,
+        polygon,
+        polyline {
+            fill: @txtColor;
+            stroke: @txtColor
+        }
     }
 
     a&,
