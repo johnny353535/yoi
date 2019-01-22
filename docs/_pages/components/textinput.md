@@ -5,11 +5,11 @@ title: Text Input & Textarea
 permalink: components/textinput
 ---
 
-### Text Input & Textarea
+# Text Input & Textarea
 
 ## Basic Example
 
-This is how a `<input type="text">` and `<textarea>` looks like:
+This is how a basic `.input` and `.textarea` looks like and how you write the markup::
 
 ```html
 <!-- example -->
@@ -25,7 +25,7 @@ This is how a `<input type="text">` and `<textarea>` looks like:
 
 ### Validation
 
-Use the modifiers `.is--positive` and `.is--negative` to visualize input validation:
+Use the modifiers `.is--positive` and `.is--negative` to visualize textinput validation:
 
 ```html
 <!-- example:tabs -->
@@ -64,11 +64,17 @@ You can use the modifiers `.is--focus`, `.is--disabled` and `.is--readonly` to a
 
 ### Size
 
-Use the modifier `.input--large` to render a large textinput:
+Use the modifiers `.input--large` or `input--small` to create textinputs with different sizes:
 
 ```html
 <!-- example:tabs -->
 <div class="m-b-2">
-    <input class="input input--large" type="text" value="some text" />
+    <input class="input input--small" type="text" value="small textinput" />
+</div>
+<div class="m-b-2">
+    <input class="input" type="text" value="default textinput" />
+</div>
+<div class="m-b-2">
+    <input class="input input--large" type="text" value="large textinput" />
 </div>
 ```

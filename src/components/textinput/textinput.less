@@ -15,9 +15,10 @@
     box-sizing: border-box;
     color: @color-base-8;
     display: inline-block;
-    font: normal 1.3rem/2.5rem @font-sansserif;
-    height: 2.5rem;
-    padding: 0 .5rem;
+    font: normal 1rem @font-sansserif;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 .75rem;
     transition: all 100ms ease-in-out;
     width: 100%;
 }
@@ -29,10 +30,9 @@
     box-sizing: border-box;
     display: block;
     height: auto;
-    line-height: 2rem;
     max-width: 100%;
     min-height: 10rem;
-    padding: .5rem;
+    padding: .75rem;
     resize: vertical;
 }
 
@@ -41,28 +41,42 @@
 
 // size
 
+.input.input--small {
+    font-size: .88rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 .5rem;
+}
+
 .input.input--large {
-    font-size: 1.5rem;
-    height: 4rem;
-    line-height: 4rem;
+    font-size: 1.13rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
     padding: 0 1rem;
 }
 
-.textarea.input--large {
-    font-size: 1.5rem;
+.textarea.input--small {
+    font-size: .88rem;
     height: auto;
-    line-height: 2rem;
-    padding: 1rem;
+    line-height: 1.5rem;
+    padding: 0 .5rem;
+}
+
+.textarea.input--large {
+    font-size: 1.13rem;
+    height: auto;
+    line-height: 2.5rem;
+    padding: 0 1rem;
 }
 
 // style
 
 .input.input--rounded {
-    border-radius: 1.25rem;
+    border-radius: 1rem;
 }
 
 .input.input--large.input--rounded {
-    border-radius: 2rem;
+    border-radius: 1.25rem;
 }
 
 // validation
