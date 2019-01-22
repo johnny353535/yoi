@@ -3,7 +3,6 @@ layout: base
 group: components
 title: Tabs
 permalink: components/tabs
-status: draft
 ---
 
 # Tabs
@@ -20,33 +19,61 @@ This is how a basic `.tabs` and `.tabs__menu.` looks and how you write the marku
     <div class="tabs__menu" yoi-tabs>
         <ul class="tabs__items">
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-1-a">Tab #1-a</a>
+                <a class="tabs__link" href="#tab-1-1-a">Tab #1</a>
             </li>
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-2-a">Tab #2-a</a>
+                <a class="tabs__link" href="#tab-1-2-a">Tab #2</a>
             </li>
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-3-a">Tab #3-a</a>
+                <a class="tabs__link" href="#tab-1-3-a">Tab #3</a>
             </li>
         </ul>
     </div>
     <div id="tab-1-1-a" class="tabs__page">
-        <p>Tab #1-a Content</p>
+        <p>Tab #1 Content</p>
     </div>
     <div id="tab-1-2-a" class="tabs__page">
-        <p>Tab #2-a Content</p>
+        <p>Tab #2 Content</p>
     </div>
     <div id="tab-1-3-a" class="tabs__page">
-        <p>Tab #3-a Content</p>
+        <p>Tab #3 Content</p>
     </div>
 </div>
 ```
 
-<p class="hint hint--negative"><b>Use IDs:</b> Make sure to add an id to each <code>.tabs__page</code> that you reference via the `.tabs__menu`.</p>
+<p class="hint hint--negative"><b>Use IDs:</b> Make sure to add an id to each <code>.tabs__page</code> that you reference via the <code>.tabs__menu</code>.</p>
 
 ### Set the Start Tab
 
-...
+Add the modifier `is--acive` to the menu item you wish to start with:
+
+```html
+<!-- example -->
+<div class="tabs" >
+    <div class="tabs__menu" yoi-tabs>
+        <ul class="tabs__items">
+            <li class="tabs__item">
+                <a class="tabs__link" href="#tab-1-1-b">Tab #1</a>
+            </li>
+            <li class="tabs__item">
+                <a class="tabs__link" href="#tab-1-2-b">Tab #2</a>
+            </li>
+            <li class="tabs__item is--active">
+                <a class="tabs__link" href="#tab-1-3-b">Tab #3</a>
+            </li>
+        </ul>
+    </div>
+    <div id="tab-1-1-b" class="tabs__page">
+        <p>Tab #1 Content</p>
+    </div>
+    <div id="tab-1-2-b" class="tabs__page">
+        <p>Tab #2 Content</p>
+    </div>
+    <div id="tab-1-3-b" class="tabs__page">
+        <p>Tab #3 Content</p>
+    </div>
+</div>
+```
 
 ## Modifiers
 
@@ -60,24 +87,24 @@ Add the modifier `.tabs__menu--grow` to make all tabs take up the same with and 
     <div class="tabs__menu tabs__menu--grow" yoi-tabs>
         <ul class="tabs__items">
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-1-b">Tab #1-b</a>
+                <a class="tabs__link" href="#tab-1-1-c">Tab #1</a>
             </li>
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-2-b">Tab #2-b</a>
+                <a class="tabs__link" href="#tab-1-2-c">Tab #2</a>
             </li>
             <li class="tabs__item">
-                <a class="tabs__link" href="#tab-1-3-b">Tab #3-b</a>
+                <a class="tabs__link" href="#tab-1-3-c">Tab #3</a>
             </li>
         </ul>
     </div>
-    <div id="tab-1-1-b" class="tabs__page">
-        <p>Tab #1-b Content</p>
+    <div id="tab-1-1-c" class="tabs__page">
+        <p>Tab #1 Content</p>
     </div>
-    <div id="tab-1-2-b" class="tabs__page">
-        <p>Tab #2-b Content</p>
+    <div id="tab-1-2-c" class="tabs__page">
+        <p>Tab #2 Content</p>
     </div>
-    <div id="tab-1-3-b" class="tabs__page">
-        <p>Tab #3-b Content</p>
+    <div id="tab-1-3-c" class="tabs__page">
+        <p>Tab #3 Content</p>
     </div>
 </div>
 ```
