@@ -9,7 +9,7 @@ permalink: components/checkbox
 
 ## Basic Example
 
-This is how a `<input type="checkbox">` looks like:
+This is how a `<input type="checkbox">` looks like and how your write the markup:
 
 ```html
 <!-- example -->

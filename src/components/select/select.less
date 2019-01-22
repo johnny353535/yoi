@@ -1,0 +1,134 @@
+/** customselect.less */
+
+// block
+// =====
+
+.select {
+
+    .mixin-defaultBorderRadius;
+    .mixin-userSelectNone;
+    background-clip: padding-box;
+    background: @color-white;
+    border: @color-base-21 1px solid;
+    box-shadow: 0 1px 0 @color-base-25 inset;
+    box-sizing: border-box;
+    color: @color-base-8;
+    cursor: pointer;
+    display: inline-block;
+    font-family: @font-sansserif;
+    font-size: 1rem;
+    font-weight: normal;
+    height: 2rem;
+    line-height: 2rem;
+    position: relative;
+    text-align: left;
+    transition: all 100ms ease-in-out;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+
+    // inner select element
+
+    select {
+
+        .mixin-clearAppearance;
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        color: inherit;
+        cursor: pointer;
+        display: inline-block;
+        left: 0;
+        padding: 0 0 0 .75rem;
+        width: 100%;
+
+        &::-ms-expand {
+            // hide arrow in IE
+            display: none;
+        }
+
+        &:active,
+        &:focus {
+            border: 0;
+            box-shadow: none;
+            outline: 0;
+        }
+
+    }
+
+}
+
+// elements
+// ========
+
+.select__icon {
+    .mixin-icon-bg(@id: 'icon-002-s', @width: 24, @height: 24, @fillColor: @color-base-13);
+    border-left: @color-base-23 1px solid;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2rem;
+}
+
+// modifiers
+// =========
+
+// size
+
+.select--small {
+
+    font-size: .88rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+
+    select {
+        padding: 0 0 0 .5rem;
+    }
+
+    .select__icon {
+        .mixin-icon-bg(@id: 'icon-002-s', @width: 16, @height: 16, @fillColor: @color-base-13);
+        width: 1.5rem;
+    }
+
+}
+
+.select--large {
+
+    font-size: 1.13rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+
+    select {
+        padding: 0 0 0 1rem;
+    }
+
+    .select__icon {
+        .mixin-icon-bg(@id: 'icon-002-s', @width: 32, @height: 32, @fillColor: @color-base-13);
+        width: 2.5rem;
+    }
+
+}
+
+// validation
+
+.select.is--negative {
+    border-color: @color-negative-15;
+    color: @color-negative-8;
+}
+
+.select.is--positive {
+    border-color: @color-positive-15;
+    color: @color-positive-8;
+}
+
+// interactive states
+
+.select.is--focus {
+    .mixin-defaultFocus;
+}
+
+.select.is--disabled {
+    .mixin-disabled;
+}

@@ -3237,6 +3237,46 @@ YOI.component.ScrollProgress = function() {
     };
 }();
 
+YOI.component.Select = function() {
+    var $selectWrapper = $('<span class="select"></span>');
+    var $selectIcon = $('<span class="select__icon"></span>');
+    function initialize($select, options) {
+        var $select = YOI.createCollection("select", $select, options);
+        if ($select) $select.each(function() {
+            if (YOI.isReady($(this))) return false;
+            var $thisSelect = $(this);
+            var $thisSelectWrapper = $selectWrapper.clone();
+            var $thisSelectIcon = $selectIcon.clone();
+            var options = $thisSelect.data().options;
+            var cssClasses = options.cssClasses || false;
+            $thisSelectWrapper.addClass($thisSelect.attr("class"));
+            if (cssClasses) {
+                $thisSelectWrapper.addClass(cssClasses);
+            }
+            $thisSelect.wrap($thisSelectWrapper);
+            $thisSelect.parent().append($thisSelectIcon);
+            $thisSelect.removeAttr("class");
+            $thisSelect.on({
+                focus: function() {
+                    $thisSelect.parent().addClass("is--focus");
+                    $thisSelect.trigger("yoi-input-focus");
+                },
+                blur: function() {
+                    $thisSelect.parent().removeClass("is--focus");
+                    $thisSelect.trigger("yoi-input-blur");
+                },
+                change: function() {
+                    $thisSelect.trigger("yoi-input-change");
+                }
+            });
+            YOI.setReady($(this));
+        });
+    }
+    return {
+        init: initialize
+    };
+}();
+
 YOI.component.Slider = function() {
     var $document = $(document);
     var $window = $(window);

@@ -9,7 +9,7 @@ permalink: components/radiobutton
 
 ## Basic Example
 
-This is how a `<input type="radio">` looks like:
+This is how a `<input type="radio">` looks like and how your write the markup:
 
 ```html
 <!-- example -->
