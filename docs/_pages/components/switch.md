@@ -26,10 +26,18 @@ This is how a basic `.switch` looks like and how you write the markup:
 
 ### Size
 
-Use the modifier `.switch--large` to render a large switch:
+Use the modifiers `.switch--small` and `.switch--large` to create small or large switches:
 
 ```html
 <!-- example -->
+<div class="switch switch--small m-r-2" yoi-switch>
+    <input type="checkbox" />
+</div>
+
+<div class="switch m-r-2" yoi-switch>
+    <input type="checkbox" />
+</div>
+
 <div class="switch switch--large" yoi-switch>
     <input type="checkbox" />
 </div>
@@ -39,21 +47,49 @@ Use the modifier `.switch--large` to render a large switch:
 
 | Key | Value | Description |
 | - | - | - |
-| state      | "on"/"off" | a keyword to set the switch to "on" or "off" |
-| showLabels | true / false | if "true", labels are added |
-| labelOn    | string, maximum 4 characters | text for the "on" label (default: labelOnTxt[language]) |
-| labelOff   | string, maximum 4 character | text for the "off" label (default: labelOffTxt[language]) |
+| state      | `on`, `off` | a keyword to initialize the switch as "on" or "off" |
+| showLabels | `true`, `false` | if "true", labels are added |
+| labelOn    | `string`, 4 characters | text for the "on" label |
+| labelOff   | `string`, 4 characters | text for the "off" label |
+
+### Labels
+
+Add `showLabels:true;` to add labels. By default they read `on` and `off`. Add `labelOn:xxxx;` and `labelOff:xxxx;` to add custom label text. Please note the fixed width – limit your label text to four characters.
 
 ```html
 <!-- example -->
-<div class="switch" yoi-switch="state:on;">
-    <input type="checkbox" />
+<div class="m-b-2">
+    <div class="switch switch--small" yoi-switch="state:on;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch switch--small" yoi-switch="showLabels:true;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch switch--small" yoi-switch="showLabels:true; labelOn:1; labelOff:0;">
+        <input type="checkbox" />
+    </div>
 </div>
-<div class="switch" yoi-switch="showLabels:true;">
-    <input type="checkbox" />
+<div class="m-b-2">
+    <div class="switch" yoi-switch="state:on;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch" yoi-switch="showLabels:true;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch" yoi-switch="showLabels:true; labelOn:1; labelOff:0;">
+        <input type="checkbox" />
+    </div>
 </div>
-<div class="switch" yoi-switch="showLabels:true; labelOn:yes; labelOff:no;">
-    <input type="checkbox" />
+<div>
+    <div class="switch switch--large" yoi-switch="state:on;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch switch--large" yoi-switch="showLabels:true;">
+        <input type="checkbox" />
+    </div>
+    <div class="switch switch--large" yoi-switch="showLabels:true; labelOn:1; labelOff:0;">
+        <input type="checkbox" />
+    </div>
 </div>
 ```
 
