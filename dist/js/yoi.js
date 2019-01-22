@@ -3237,6 +3237,43 @@ YOI.component.ScrollProgress = function() {
     };
 }();
 
+YOI.component.SearchInput = function() {
+    var $searchInputWrapper = $('<span class="searchInput"></span>');
+    function initialize($searchInput, options) {
+        var $searchInput = YOI.createCollection("searchinput", $searchInput, options);
+        if ($searchInput) $searchInput.each(function() {
+            if (YOI.isReady($(this))) return false;
+            var $thisSearchInput = $(this);
+            var $thisSearchInputWrapper = $searchInputWrapper.clone();
+            var options = $thisSearchInput.data().options;
+            var cssClasses = options.cssClasses || false;
+            $thisSearchInputWrapper.addClass($thisSearchInput.attr("class"));
+            if (cssClasses) {
+                $thisSearchInputWrapper.addClass(cssClasses);
+            }
+            $thisSearchInput.wrap($thisSearchInputWrapper);
+            $thisSearchInput.removeAttr("class");
+            $thisSearchInput.on({
+                focus: function() {
+                    $thisSearchInput.parent().addClass("is--focus");
+                    $thisSearchInput.trigger("yoi-input-focus");
+                },
+                blur: function() {
+                    $thisSearchInput.parent().removeClass("is--focus");
+                    $thisSearchInput.trigger("yoi-input-blur");
+                },
+                change: function() {
+                    $thisSearchInput.trigger("yoi-input-change");
+                }
+            });
+            YOI.setReady($(this));
+        });
+    }
+    return {
+        init: initialize
+    };
+}();
+
 YOI.component.Select = function() {
     var $selectWrapper = $('<span class="select"></span>');
     var $selectIcon = $('<span class="select__icon"></span>');

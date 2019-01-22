@@ -64786,7 +64786,7 @@ a.box {
   text-decoration: none;
   width: auto;
 }
-/** customradiobutton.less */
+/** radiobutton.less */
 .radioButton {
   background: #fff;
   border-radius: 50%;
@@ -65129,7 +65129,8 @@ a.box {
 }
 /** textinputs.less */
 .input,
-.textarea {
+.textarea,
+.searchInput input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -65496,7 +65497,7 @@ a.box {
 .pageDots--subtle {
   background: transparent;
 }
-/** customcheckbox.less */
+/** checkbox.less */
 .checkbox {
   border-radius: 2px;
   background: #fff;
@@ -66377,6 +66378,81 @@ a.tile:hover .tile__image {
 .popOver__wrapper {
   display: inline-block;
   position: relative;
+}
+/** searchinput.less */
+/*
+    Please note: this is a wrapper
+    around a plain input type="search".
+    It get added via JavaScript.
+*/
+.searchInput input {
+  /**
+     *  SVG icons as background image
+     */
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background-position-x: -0.4rem;
+  padding-left: 2.25rem;
+}
+.searchInput input:focus {
+  background-position-x: -4rem;
+  padding-left: 0.75rem;
+}
+.searchInput input::-webkit-input-placeholder {
+  color: #ecebea;
+  opacity: 1;
+}
+.searchInput input:-ms-input-placeholder {
+  color: #ecebea;
+  opacity: 1;
+}
+.searchInput input::-ms-input-placeholder {
+  color: #ecebea;
+  opacity: 1;
+}
+.searchInput input::placeholder {
+  color: #ecebea;
+  opacity: 1;
+}
+.searchInput--rounded input {
+  border-radius: 1.25rem;
+  padding-left: 2.5rem;
+}
+.searchInput--rounded input:focus {
+  background-position-x: -4rem;
+  padding-left: 1rem;
+}
+.searchInput--small input {
+  /**
+     *  SVG icons as background image
+     */
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background-position-x: -0.4rem;
+  background-size: 2.5rem;
+  font-size: 0.88rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  padding-left: 2rem;
+}
+.searchInput--small input:focus {
+  background-position-x: -4rem;
+  padding-left: 0.5rem;
+}
+.searchInput--large input {
+  /**
+     *  SVG icons as background image
+     */
+  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background-position-x: 0.15rem;
+  background-position-y: 0.15rem;
+  background-size: 2rem;
+  font-size: 1.13rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding-left: 2.5rem;
+}
+.searchInput--large input:focus {
+  background-position-x: -4rem;
+  padding-left: 1rem;
 }
 /** headings.less */
 h1 {
@@ -68313,7 +68389,7 @@ a.stepMenu__label:hover {
   top: 0;
   width: 2px;
 }
-/** customselect.less */
+/** select.less */
 .select {
   border-radius: 2px;
   -moz-user-select: none;
