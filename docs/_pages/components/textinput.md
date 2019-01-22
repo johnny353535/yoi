@@ -9,7 +9,7 @@ permalink: components/textinput
 
 ## Basic Example
 
-This is how a basic `.input` and `.textarea` looks like and how you write the markup::
+This is how an `.input` and `.textarea` look like:
 
 ```html
 <!-- example -->

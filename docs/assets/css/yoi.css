@@ -65625,8 +65625,8 @@ a.box {
   position: absolute;
 }
 .checkbox--large {
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 .checkbox.is--negative {
   border-color: #ff6830;
@@ -65653,8 +65653,8 @@ a.box {
      *  SVG icons as background image
      */
   background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 .checkbox.is--focus {
   box-shadow: 0 0 0 2px #bbdfff;

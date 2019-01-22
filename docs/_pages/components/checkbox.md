@@ -9,10 +9,10 @@ permalink: components/checkbox
 
 ## Basic Example
 
-This is how a `<input type="checkbox">` looks like:
+This is how a `.checkbox` looks like:
 
 ```html
-<!-- example:tabs -->
+<!-- example -->
 <input type="checkbox" checked yoi-checkbox />
 <input type="checkbox" yoi-checkbox />
 <input type="checkbox" disabled yoi-checkbox />
@@ -22,7 +22,7 @@ This is how a `<input type="checkbox">` looks like:
 
 ### Validation
 
-Use the modifiers `.is--positive` and `.is--negative` to visualize input validation:
+Use the modifiers `.is--positive` and `.is--negative` to visualize checkbox validation:
 
 ```html
 <!-- example:tabs -->
