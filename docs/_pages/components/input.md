@@ -9,7 +9,7 @@ permalink: components/input
 
 ## Basic Example
 
-This is how an `.input` and `.textarea` look like:
+This is how `.input` and `.textarea` look like:
 
 ```html
 <!-- example -->
@@ -32,7 +32,7 @@ Use the modifiers `.is--positive` and `.is--negative` to visualize input validat
 <div class="m-b-2">
     <input class="input is--positive" type="text" value="some text" />
 </div>
-<div class="m-b-2">
+<div>
     <input class="input is--negative" type="text" value="some text" />
 </div>
 ```
@@ -74,7 +74,7 @@ Use the modifiers `.input--large` or `input--small` to create inputs with differ
 <div class="m-b-2">
     <input class="input" type="text" value="default textinput" />
 </div>
-<div class="m-b-2">
+<div>
     <input class="input input--large" type="text" value="large textinput" />
 </div>
 ```

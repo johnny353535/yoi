@@ -9,7 +9,7 @@ permalink: components/checkbox
 
 ## Basic Example
 
-This is how a `<input type="checkbox">` looks like and how your write the markup:
+This is how a `<input type="checkbox">` looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -26,7 +26,7 @@ Use the modifiers `.is--positive` and `.is--negative` to visualize checkbox vali
 
 ```html
 <!-- example:tabs -->
-<div class="m-b-2">
+<div>
     <input type="checkbox" class="is--negative" yoi-checkbox />
     <input type="checkbox" class="is--positive" yoi-checkbox />
 </div>
@@ -38,7 +38,7 @@ Use the modifier `.checkbox--large` to render a large checkbox:
 
 ```html
 <!-- example:tabs -->
-<div class="m-b-2">
+<div>
     <input type="checkbox" class="checkbox--large" checked yoi-checkbox />
     <input type="checkbox" class="checkbox--large" yoi-checkbox />
     <input type="checkbox" class="checkbox--large" disabled yoi-checkbox />

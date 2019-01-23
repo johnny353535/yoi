@@ -9,7 +9,7 @@ permalink: components/radiobutton
 
 ## Basic Example
 
-This is how a `<input type="radio">` looks like and how your write the markup:
+This is how a `<input type="radio">` looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -38,7 +38,7 @@ Use the modifier `.radioButton--large` to render a large radio button:
 
 ```html
 <!-- example:tabs -->
-<div class="m-b-2">
+<div>
     <input name="example-3" type="radio" class="radioButton--large" checked yoi-radiobutton />
     <input name="example-3" type="radio" class="radioButton--large" yoi-radiobutton />
     <input name="example-3" type="radio" class="radioButton--large" disabled yoi-radiobutton />

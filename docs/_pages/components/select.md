@@ -9,7 +9,7 @@ permalink: components/select
 
 ## Basic Example
 
-This is how a `<select>` looks like and how your write the markup:
+This is how a `<select>` looks like and how you write the markup:
 
 ```html
 <!-- example -->
@@ -35,7 +35,7 @@ Use the modifiers `.is--positive` and `.is--negative` to visualize select valida
         <option>Calcium</option>
     </select>
 </div>
-<div class="m-b-2">
+<div>
     <select class="is--negative" yoi-select>
         <option>Dysprosium</option>
         <option>Aluminium</option>
@@ -64,7 +64,7 @@ Use the modifiers `.select--large` or `select--small` to create selects with dif
         <option>Calcium</option>
     </select>
 </div>
-<div class="m-b-2">
+<div>
     <select class="select--large" yoi-select>
         <option>Dysprosium</option>
         <option>Aluminium</option>

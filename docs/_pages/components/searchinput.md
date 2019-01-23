@@ -9,12 +9,11 @@ permalink: components/searchinput
 
 ## Basic Example
 
-This is how `<input type="search">` looks like and how your write the markup:
+This is how `<input type="search">` looks like and how you write the markup:
 
 ```html
 <!-- example -->
 <input type="search" yoi-searchinput />
-
 ```
 
 ## Modifiers
@@ -23,12 +22,12 @@ This is how `<input type="search">` looks like and how your write the markup:
 
 ```html
 <!-- example:tabs -->
-<p class="m-b-2">
+<div class="m-b-2">
     <input class="searchInput--rounded" type="search" yoi-searchinput />
-</p>
-<p>
+</div>
+<div>
     <input class="searchInput--large searchInput--rounded" type="search" yoi-searchinput />
-<p>
+<div>
 ```
 
 ### Size
@@ -37,13 +36,13 @@ Use the modifiers `.searchInput--large` or `searchInput--small` to create search
 
 ```html
 <!-- example:tabs -->
-<p class="m-b-2">
+<div class="m-b-2">
     <input class="searchInput--small" type="search" yoi-searchinput />
-</p>
-<p class="m-b-2">
+</div>
+<div class="m-b-2">
     <input type="search" yoi-searchinput />
-</p>
-<p>
+</div>
+<div>
     <input class="searchInput--large" type="search" yoi-searchinput />
-</p>
+</div>
 ```
