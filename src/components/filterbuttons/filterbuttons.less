@@ -49,7 +49,7 @@
     // icon
 
     a::after {
-        .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-base-18);
+        .mixin-icon-x(@color: @color-base-18);
     }
 
     &:hover {
@@ -63,7 +63,7 @@
         // icon
 
         a::after {
-            .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-22);
+            .mixin-icon-x(@color: @color-negative-22);
         }
 
     }
@@ -78,7 +78,7 @@
 .filterButtons__button {
 
     a::after {
-        .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-17);
+        .mixin-icon-plus(@color: @color-base-17);
         content: ' ';
         display: inline-block;
         height: 2rem;
@@ -90,7 +90,7 @@
     }
 
     a:hover::after {
-        .mixin-icon-bg(@id: 'icon-004-s', @fillColor: @color-base-8);
+        .mixin-icon-plus(@color: @color-base-8);
     }
 
 }
@@ -106,7 +106,7 @@
     }
 
     a::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-positive-22);
+        .mixin-icon-checkmark(@color: @color-positive-22);
     }
 
     &:hover {
@@ -114,7 +114,7 @@
     }
 
     &:hover a::after {
-        .mixin-icon-bg(@id: 'icon-006-s', @fillColor: @color-negative-22);
+        .mixin-icon-x(@color: @color-negative-22);
     }
 
 }
@@ -126,7 +126,7 @@
     background: @color-positive-10;
 
     a::after {
-        .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-positive-22);
+        .mixin-icon-checkmark(@color: @color-positive-22);
     }
 
 }

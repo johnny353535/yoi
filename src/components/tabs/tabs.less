@@ -1,5 +1,6 @@
 /** tabs.less */
 
+
 // block
 // =====
 
@@ -16,7 +17,7 @@
 
 .tabs__page {
     background: @color-white;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .tabs__menu {
@@ -25,29 +26,19 @@
     border: 0;
     border-bottom: @color-base-23 1px solid;
     color: @color-base-8;
-    display: table;
     position: relative;
-    table-layout: fixed;
     width: 100%;
 }
 
 .tabs__items {
-    list-style: none;
-    display: table-row;
+    display: flex;
+    width: 100%;
 }
 
-
 .tabs__item {
-
-    display: table-cell;
     border-right: @color-base-23 1px solid;
     position: relative;
-    vertical-align: bottom;
-
-    &:last-child {
-        border-right: 0;
-    }
-
+    list-style: none;
 }
 
 .tabs__item.is--active {
@@ -72,12 +63,13 @@
 
 .tabs__link {
 
+    .mixin-fs-2;
+    .mixin-fw-bold;
+    box-sizing: border-box;
     display: block;
-    font-family: @font-sansserif;
-    font-size: 1.3rem;
-    font-weight: bold;
-    line-height: 1.5rem;
-    padding: 1rem;
+    height: 2rem;
+    line-height: 1rem;
+    padding: .5rem .75rem;
     text-align: center;
 
     &:active,
@@ -91,22 +83,6 @@
         background-color: @color-white;
     }
 
-    // svg images inside tabs link
-
-    svg {
-
-        border: transparent 2px solid;
-        display: block;
-        height: 56px;
-        margin: 0 auto 5px auto;
-        width: 56px;
-
-        * {
-            fill: @color-base-10;
-        }
-
-    }
-
 }
 
 // modifiers
@@ -114,19 +90,14 @@
 
 // fixed layout: all tabs have the same width
 
-.tabs__menu--loose {
-
-    font-size: 0;
-
-    .tabs__items {
-        display: block;
-    }
-
+.tabs__menu--grow {
     .tabs__item {
-        border-right: @color-base-23 1px solid;
-        display: inline-block;
+        flex-grow: 1;
     }
 
+    .tabs__item:last-child {
+        border-right: 0;
+    }
 }
 
 // large tabs menu
@@ -134,8 +105,11 @@
 .tabs__menu--large {
 
     .tabs__link {
-        font-size: 1.5rem;
-        padding: 1.5rem 1rem;
+        .mixin-fs-3;
+        box-sizing: border-box;
+        height: 2.5rem;
+        line-height: 1.5rem;
+        padding: .5rem .75rem;
     }
 
 }
@@ -169,20 +143,11 @@
         color: @color-base-8;
     }
 
-}
-
-// checkmark for highlighting active tabs links
-
-.tabs__menu--checkmarks {
-
-    .tabs__item.is--active .tabs__link:before {
-        .mixin-icon-bg(@id: 'icon-011-s', @fillColor: @color-positive-15);
-        content: ' ';
-        display: inline-block;
-        height: 3.2rem;
-        margin: -1.5rem 0;
-        vertical-align: middle;
-        width: 3.2rem;
+    .is--active .tabs__link {
+        padding-left: ~'calc(.75rem - 1px)';
+        padding-right: ~'calc(.75rem - 1px)';
+        position: relative;
+        top: -1px;
     }
 
 }
@@ -207,13 +172,7 @@
     }
 
     .tabs__link {
-
         color: @color-base-13;
-
-        circle, ellipse, path, polygon {
-            fill: @color-base-13;
-        }
-
     }
 
     .tabs__item.is--active,
@@ -225,24 +184,22 @@
         .tabs__link {
             color: @color-base-8;
         }
-
-        circle, ellipse, path, polygon {
-            fill: @color-base-8;
-        }
-
     }
 
     .tabs__item.is--active::after {
+
+        // pointer
+
         background: transparent;
         border-color: transparent transparent @color-base-10 transparent;
         border-style: solid;
-        border-width: 0 1rem 1rem 1rem;
-        bottom: -1rem;
+        border-width: 0 .5rem .5rem .5rem;
+        bottom: -.5rem;
         content: ' ';
         display: block;
         height: 0;
         left: 50%;
-        margin-left: -1rem;
+        margin-left: -.5rem;
         position: absolute;
         transform: rotate(180deg);
         width: 0;

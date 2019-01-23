@@ -7,3 +7,6 @@ docs/Gemfile.lock
 node_modules
 .vscode/launch.json
 .vscode/settings.json
+dist/css/yoi.css
+docs/assets/css/yoi.css
+docs/assets/css/yoi.css
