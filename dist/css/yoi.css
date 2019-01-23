@@ -413,16 +413,6 @@ body::after {
 /** colors.less */
 /** icons.less */
 /*
-    Add from Aristander:
-
-    .mixin-icon-arrow-down
-    .mixin-icon-arrow-left
-    .mixin-icon-arrow-right
-    .mixin-icon-arrow-up
-    .mixin-icon-checkmark
-    .mixin-icon-chevron-left
-    .mixin-icon-chevron-right
-
     Please notice
     =============
 
@@ -64027,7 +64017,7 @@ body {
 }
 .tabs__page {
   background: #fff;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 .tabs__menu {
   background: #faf9f7;
@@ -64035,23 +64025,17 @@ body {
   border: 0;
   border-bottom: #ecebea 1px solid;
   color: #535251;
-  display: table;
   position: relative;
-  table-layout: fixed;
   width: 100%;
 }
 .tabs__items {
-  list-style: none;
-  display: table-row;
+  display: flex;
+  width: 100%;
 }
 .tabs__item {
-  display: table-cell;
   border-right: #ecebea 1px solid;
   position: relative;
-  vertical-align: bottom;
-}
-.tabs__item:last-child {
-  border-right: 0;
+  list-style: none;
 }
 .tabs__item.is--active {
   background: #fff;
@@ -64067,12 +64051,13 @@ body {
   z-index: 10;
 }
 .tabs__link {
+  font-size: 16px;
+  font-weight: 600;
+  box-sizing: border-box;
   display: block;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-  padding: 1rem;
+  height: 2rem;
+  line-height: 1rem;
+  padding: 0.5rem 0.75rem;
   text-align: center;
 }
 .tabs__link:active,
@@ -64084,29 +64069,18 @@ body {
 .tabs__link:hover {
   background-color: #fff;
 }
-.tabs__link svg {
-  border: transparent 2px solid;
-  display: block;
-  height: 56px;
-  margin: 0 auto 5px auto;
-  width: 56px;
+.tabs__menu--grow .tabs__item {
+  flex-grow: 1;
 }
-.tabs__link svg * {
-  fill: #676665;
-}
-.tabs__menu--loose {
-  font-size: 0;
-}
-.tabs__menu--loose .tabs__items {
-  display: block;
-}
-.tabs__menu--loose .tabs__item {
-  border-right: #ecebea 1px solid;
-  display: inline-block;
+.tabs__menu--grow .tabs__item:last-child {
+  border-right: 0;
 }
 .tabs__menu--large .tabs__link {
-  font-size: 1.5rem;
-  padding: 1.5rem 1rem;
+  font-size: 20px;
+  box-sizing: border-box;
+  height: 2.5rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 0.75rem;
 }
 .tabs__menu--subtle {
   background: transparent;
@@ -64131,17 +64105,11 @@ body {
   box-shadow: none;
   color: #535251;
 }
-.tabs__menu--checkmarks .tabs__item.is--active .tabs__link:before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=81b197&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  content: ' ';
-  display: inline-block;
-  height: 3.2rem;
-  margin: -1.5rem 0;
-  vertical-align: middle;
-  width: 3.2rem;
+.tabs__menu--subtle .is--active .tabs__link {
+  padding-left: calc(.75rem - 1px);
+  padding-right: calc(.75rem - 1px);
+  position: relative;
+  top: -1px;
 }
 .tabs__menu--arrows {
   background: #fff;
@@ -64158,12 +64126,6 @@ body {
 .tabs__menu--arrows .tabs__link {
   color: #868584;
 }
-.tabs__menu--arrows .tabs__link circle,
-.tabs__menu--arrows .tabs__link ellipse,
-.tabs__menu--arrows .tabs__link path,
-.tabs__menu--arrows .tabs__link polygon {
-  fill: #868584;
-}
 .tabs__menu--arrows .tabs__item.is--active,
 .tabs__menu--arrows .tabs__item.is--active:hover {
   background: transparent;
@@ -64173,27 +64135,17 @@ body {
 .tabs__menu--arrows .tabs__item.is--active:hover .tabs__link {
   color: #535251;
 }
-.tabs__menu--arrows .tabs__item.is--active circle,
-.tabs__menu--arrows .tabs__item.is--active:hover circle,
-.tabs__menu--arrows .tabs__item.is--active ellipse,
-.tabs__menu--arrows .tabs__item.is--active:hover ellipse,
-.tabs__menu--arrows .tabs__item.is--active path,
-.tabs__menu--arrows .tabs__item.is--active:hover path,
-.tabs__menu--arrows .tabs__item.is--active polygon,
-.tabs__menu--arrows .tabs__item.is--active:hover polygon {
-  fill: #535251;
-}
 .tabs__menu--arrows .tabs__item.is--active::after {
   background: transparent;
   border-color: transparent transparent #676665 transparent;
   border-style: solid;
-  border-width: 0 1rem 1rem 1rem;
-  bottom: -1rem;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  bottom: -0.5rem;
   content: ' ';
   display: block;
   height: 0;
   left: 50%;
-  margin-left: -1rem;
+  margin-left: -0.5rem;
   position: absolute;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -64377,69 +64329,6 @@ body {
   background: #8572c0;
   color: #f6f5f4;
 }
-/** customcheckbox.less */
-.checkbox {
-  border-radius: 2px;
-  background: #fff;
-  border: #cdcccb 1px solid;
-  box-shadow: 0 1px 0 #f6f5f4 inset;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  height: 1.5rem;
-  margin: 0 0.5rem 0 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  vertical-align: top;
-  width: 1.5rem;
-}
-.checkbox input {
-  left: -5rem;
-  opacity: 0;
-  position: absolute;
-}
-.checkbox.input--large {
-  height: 3rem;
-  width: 3rem;
-}
-.checkbox.input--negative {
-  border-color: #ff6830;
-  color: #9c2b00;
-}
-.checkbox.input--positive {
-  border-color: #81b197;
-  color: #3a6a50;
-}
-.checkbox.input--checked::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
-  content: ' ';
-  left: 0;
-  top: 0;
-  height: 1.3rem;
-  position: absolute;
-  width: 1.3rem;
-}
-.checkbox.input--checked.input--large::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
-  width: 2.8rem;
-  height: 2.8rem;
-}
-.checkbox.input--focus {
-  box-shadow: 0 0 0 2px #bbdfff;
-  border-color: #7fbbf1;
-  outline: 0;
-}
-.checkbox.input--disabled {
-  cursor: default;
-  opacity: 0.5;
-}
 /** form.less */
 form {
   border: 0;
@@ -64449,433 +64338,6 @@ fieldset {
 }
 label[for] {
   cursor: pointer;
-}
-/** customselect.less */
-.select {
-  border-radius: 2px;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  background-clip: padding-box;
-  background: #fff;
-  border: #d7d6d5 1px solid;
-  box-shadow: 0 1px 0 #faf9f7 inset;
-  box-sizing: border-box;
-  color: #535251;
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.2rem;
-  font-weight: normal;
-  height: 2.5rem;
-  line-height: 2.3rem;
-  position: relative;
-  text-align: left;
-  transition: all 100ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.select select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  background: transparent;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  display: inline-block;
-  left: 0;
-  padding: 0 3.3rem 0 0.5rem;
-  width: 100%;
-}
-.select select::-webkit-search-decoration,
-.select select::-webkit-search-cancel-button,
-.select select::-webkit-search-results-button,
-.select select::-webkit-search-results-decoration {
-  display: none;
-}
-.select select::-ms-expand {
-  display: none;
-}
-.select select:active,
-.select select:focus {
-  border: 0;
-  box-shadow: none;
-  outline: 0;
-}
-.select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=38.4px&h=38.4px) center center no-repeat;
-  border-left: #ecebea 1px solid;
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 2.3rem;
-}
-.select.input--large {
-  font-size: 1.5rem;
-  height: 4rem;
-  line-height: 3.8rem;
-}
-.select.input--large select {
-  padding: 0 6rem 0 1rem;
-}
-.select.input--large .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  width: 4rem;
-}
-.select.input--negative {
-  border-color: #ff6830;
-  color: #9c2b00;
-}
-.select.input--positive {
-  border-color: #81b197;
-  color: #3a6a50;
-}
-.select.input--focus {
-  box-shadow: 0 0 0 2px #bbdfff;
-  border-color: #7fbbf1;
-  outline: 0;
-}
-.select.input--disabled {
-  cursor: default;
-  opacity: 0.5;
-}
-/** textinputs.less */
-input[type="date"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
-textarea {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 2px;
-  background: #fff;
-  border: #cdcccb 1px solid;
-  box-shadow: 0 1px 0 #f6f5f4 inset;
-  box-sizing: border-box;
-  color: #535251;
-  display: inline-block;
-  font: normal 1.3rem/2.5rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  height: 2.5rem;
-  padding: 0 0.5rem;
-  transition: all 100ms ease-in-out;
-  width: 100%;
-}
-input[type="date"]::-webkit-search-decoration,
-input[type="email"]::-webkit-search-decoration,
-input[type="password"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-decoration,
-input[type="tel"]::-webkit-search-decoration,
-input[type="text"]::-webkit-search-decoration,
-input[type="url"]::-webkit-search-decoration,
-textarea::-webkit-search-decoration,
-input[type="date"]::-webkit-search-cancel-button,
-input[type="email"]::-webkit-search-cancel-button,
-input[type="password"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="tel"]::-webkit-search-cancel-button,
-input[type="text"]::-webkit-search-cancel-button,
-input[type="url"]::-webkit-search-cancel-button,
-textarea::-webkit-search-cancel-button,
-input[type="date"]::-webkit-search-results-button,
-input[type="email"]::-webkit-search-results-button,
-input[type="password"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="tel"]::-webkit-search-results-button,
-input[type="text"]::-webkit-search-results-button,
-input[type="url"]::-webkit-search-results-button,
-textarea::-webkit-search-results-button,
-input[type="date"]::-webkit-search-results-decoration,
-input[type="email"]::-webkit-search-results-decoration,
-input[type="password"]::-webkit-search-results-decoration,
-input[type="search"]::-webkit-search-results-decoration,
-input[type="tel"]::-webkit-search-results-decoration,
-input[type="text"]::-webkit-search-results-decoration,
-input[type="url"]::-webkit-search-results-decoration,
-textarea::-webkit-search-results-decoration {
-  display: none;
-}
-input[type="search"] {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: -0.4rem;
-  background-position-y: -0.35rem;
-  padding-left: 2.5rem;
-}
-input[type="search"]:focus {
-  background-position-x: -3rem;
-  background-position-y: -0.35rem;
-  padding-left: 0.5rem;
-}
-input[type="search"].input--rounded {
-  background-position-x: -0.35rem;
-  padding-left: 2.75rem;
-}
-input[type="search"].input--rounded:focus {
-  background-position-x: -3rem;
-  padding-left: 1rem;
-}
-input[type="search"].input--large {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: 0.25rem;
-  background-position-y: 0.25rem;
-  padding-left: 4rem;
-}
-input[type="search"].input--large:focus {
-  background-position-x: -4rem;
-  padding-left: 1rem;
-}
-input[type="search"].input--large.input--rounded {
-  background-position-x: 0.6rem;
-  padding-left: 4.5rem;
-}
-input[type="search"].input--large.input--rounded:focus {
-  background-position-x: -4rem;
-  padding-left: 1.25rem;
-}
-textarea {
-  box-sizing: border-box;
-  display: block;
-  height: auto;
-  line-height: 2rem;
-  max-width: 100%;
-  min-height: 10rem;
-  padding: 0.5rem;
-  resize: vertical;
-}
-input.input--large {
-  font-size: 1.5rem;
-  height: 4rem;
-  line-height: 4rem;
-  padding: 0 1rem;
-}
-textarea.input--large {
-  font-size: 1.5rem;
-  height: auto;
-  line-height: 2rem;
-  padding: 1rem;
-}
-input.input--rounded {
-  border-radius: 1.25rem;
-}
-input.input--large.input--rounded {
-  border-radius: 2rem;
-}
-input[type="date"].input--negative,
-input[type="email"].input--negative,
-input[type="password"].input--negative,
-input[type="search"].input--negative,
-input[type="tel"].input--negative,
-input[type="text"].input--negative,
-input[type="url"].input--negative,
-textarea.input--negative,
-.input--negative input[type="date"],
-.input--negative input[type="email"],
-.input--negative input[type="password"],
-.input--negative input[type="search"],
-.input--negative input[type="tel"],
-.input--negative input[type="text"],
-.input--negative input[type="url"],
-.input--negative textarea {
-  border-color: #ff6830;
-  color: #9c2b00;
-}
-input[type="date"].input--positive,
-input[type="email"].input--positive,
-input[type="password"].input--positive,
-input[type="search"].input--positive,
-input[type="tel"].input--positive,
-input[type="text"].input--positive,
-input[type="url"].input--positive,
-textarea.input--positive,
-.input--positive input[type="date"],
-.input--positive input[type="email"],
-.input--positive input[type="password"],
-.input--positive input[type="search"],
-.input--positive input[type="tel"],
-.input--positive input[type="text"],
-.input--positive input[type="url"],
-.input--positive textarea {
-  border-color: #81b197;
-  color: #3a6a50;
-}
-input[type="date"].input--focus,
-input[type="email"].input--focus,
-input[type="password"].input--focus,
-input[type="search"].input--focus,
-input[type="tel"].input--focus,
-input[type="text"].input--focus,
-input[type="url"].input--focus,
-textarea.input--focus,
-input[type="date"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="url"]:focus,
-textarea:focus {
-  box-shadow: 0 0 0 2px #bbdfff;
-  border-color: #7fbbf1;
-  outline: 0;
-  background-color: #fff;
-  color: #535251;
-}
-input[type="date"].input--disabled,
-input[type="email"].input--disabled,
-input[type="password"].input--disabled,
-input[type="search"].input--disabled,
-input[type="tel"].input--disabled,
-input[type="text"].input--disabled,
-input[type="url"].input--disabled,
-textarea.input--disabled,
-input[type="date"][disabled],
-input[type="email"][disabled],
-input[type="password"][disabled],
-input[type="search"][disabled],
-input[type="tel"][disabled],
-input[type="text"][disabled],
-input[type="url"][disabled],
-textarea[disabled] {
-  background-color: #fff;
-  border: #cdcccb 1px solid;
-  color: #535251;
-  cursor: default;
-  opacity: 0.5;
-}
-input[type="date"].input--disabled,
-input[type="email"].input--disabled,
-input[type="password"].input--disabled,
-input[type="search"].input--disabled,
-input[type="tel"].input--disabled,
-input[type="text"].input--disabled,
-input[type="url"].input--disabled,
-textarea.input--disabled {
-  color: #aeadac;
-}
-input[type="date"].input--readonly,
-input[type="email"].input--readonly,
-input[type="password"].input--readonly,
-input[type="search"].input--readonly,
-input[type="tel"].input--readonly,
-input[type="text"].input--readonly,
-input[type="url"].input--readonly,
-textarea.input--readonly,
-input[type="date"][readonly],
-input[type="email"][readonly],
-input[type="password"][readonly],
-input[type="search"][readonly],
-input[type="tel"][readonly],
-input[type="text"][readonly],
-input[type="url"][readonly],
-textarea[readonly] {
-  background-color: transparent;
-  border: 0;
-  box-shadow: none;
-  cursor: default;
-}
-::-webkit-input-placeholder {
-  color: #535251;
-}
-.input--negative::-webkit-input-placeholder {
-  color: #9c2b00;
-}
-.input--positive::-webkit-input-placeholder {
-  color: #3a6a50;
-}
-:-moz-placeholder {
-  color: #535251;
-}
-.input--negative::-moz-input-placeholder {
-  color: #9c2b00;
-}
-.input--positive::-moz-input-placeholder {
-  color: #3a6a50;
-}
-/** customradiobutton.less */
-.radio {
-  background: #fff;
-  border-radius: 50%;
-  border: #cdcccb 1px solid;
-  box-shadow: 0 1px 0 #f6f5f4 inset;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: inline-block;
-  height: 1.6rem;
-  margin: 0 0.5rem 0 0;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  top: -0.1rem;
-  vertical-align: top;
-  width: 1.6rem;
-}
-.radio input {
-  left: -5rem;
-  opacity: 0;
-  position: absolute;
-}
-.radio.input--large {
-  height: 3rem;
-  width: 3rem;
-}
-.radio.input--negative {
-  border-color: #ff6830;
-  color: #9c2b00;
-}
-.radio.input--positive {
-  border-color: #81b197;
-  color: #3a6a50;
-}
-.radio.input--checked::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=535251&s=000&w=25.6px&h=25.6px) center center no-repeat;
-  content: ' ';
-  left: 0;
-  top: 0;
-  height: 1.4rem;
-  position: absolute;
-  width: 1.4rem;
-}
-.radio.input--checked.input--large::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
-  height: 2.8rem;
-  left: 0;
-  top: 0;
-  width: 2.8rem;
-}
-.radio.input--focus {
-  box-shadow: 0 0 0 2px #bbdfff;
-  border-color: #7fbbf1;
-  outline: 0;
-}
-.radio.input--disabled {
-  cursor: default;
-  opacity: 0.5;
 }
 /** tooltip.less */
 .tooltip {
@@ -65068,16 +64530,10 @@ a.box {
   right: 0;
 }
 .pageButtons__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#faf9f7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageButtons__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=faf9f7&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#faf9f7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageButtons__indicator {
   font-size: 16px;
@@ -65811,16 +65267,10 @@ a.box {
   width: 2rem;
 }
 .js .is--open .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-003-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#e1e0df' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
 }
 .js .is--closed .accordion__header::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=e1e0df&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#e1e0df' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
 }
 .accordion__body {
   background: rgba(250, 249, 247, 0.5);
@@ -65841,6 +65291,7 @@ a.box {
   font-size: 0;
   height: 1.5rem;
   margin: 0 auto;
+  position: relative;
   text-align: center;
   z-index: 20;
 }
@@ -65868,47 +65319,38 @@ a.box {
   height: 1.5rem;
   width: 2rem;
 }
+.pageDots__dot::after,
+.pageDots__dot:hover::after,
+.pageDots__dot.is--active::after {
+  border-radius: 50%;
+  content: ' ';
+  display: block;
+  height: 1rem;
+  margin-left: 0.25rem;
+  position: absolute;
+  top: 0.25rem;
+  width: 1rem;
+}
 .pageDots__dot::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=e1e0df&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #e1e0df;
 }
 .pageDots__dot:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #aeadac;
 }
 .pageDots__dot.is--active::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=8572c0&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #8572c0;
 }
 .pageDots__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonPrev:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonPrev.is--disabled::after,
 .pageDots__buttonNext.is--disabled::after {
@@ -65916,73 +65358,40 @@ a.box {
   opacity: 0.3;
 }
 .pageDots__buttonPrev.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots__buttonNext.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=9a9998&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#9a9998' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark {
   background: #535251;
 }
 .pageDots--dark .pageDots__dot::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=7b7a79&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #7b7a79;
 }
 .pageDots--dark .pageDots__dot:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=b9b8b7&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #b9b8b7;
 }
 .pageDots--dark .pageDots__dot.is--active::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-079-s&f=d6c8ff&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: #d6c8ff;
 }
 .pageDots--dark .pageDots__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonPrev:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=ecebea&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonPrev.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--dark .pageDots__buttonNext.is--disabled:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=aeadac&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .pageDots--subtle {
   background: transparent;
@@ -66022,24 +65431,18 @@ a.box {
   color: #3a6a50;
 }
 .checkbox.is--checked::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   content: ' ';
   left: 0;
   top: 0;
-  height: 1.3rem;
+  height: 1.4rem;
   position: absolute;
-  width: 1.3rem;
+  width: 1.4rem;
 }
 .checkbox.is--checked.checkbox--large::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011&f=535251&s=000&w=33.6px&h=33.6px) center center no-repeat;
-  width: 2.4rem;
-  height: 2.4rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .checkbox.is--focus {
   box-shadow: 0 0 0 2px #bbdfff;
@@ -66876,11 +66279,8 @@ a.tile:hover .tile__image {
     It get added via JavaScript.
 */
 .searchInput input {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: -0.4rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat center center;
+  background-position-x: 0.25rem;
   padding-left: 2.25rem;
 }
 .searchInput input:focus {
@@ -66905,6 +66305,7 @@ a.tile:hover .tile__image {
 }
 .searchInput--rounded input {
   border-radius: 1.25rem;
+  background-position-x: 0.25rem;
   padding-left: 2.5rem;
 }
 .searchInput--rounded input:focus {
@@ -66912,12 +66313,8 @@ a.tile:hover .tile__image {
   padding-left: 1rem;
 }
 .searchInput--small input {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: -0.4rem;
-  background-size: 2.5rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat center center;
+  background-position-x: 0.25rem;
   font-size: 0.88rem;
   height: 1.5rem;
   line-height: 1.5rem;
@@ -66928,13 +66325,8 @@ a.tile:hover .tile__image {
   padding-left: 0.5rem;
 }
 .searchInput--large input {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-012&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
-  background-position-x: 0.15rem;
-  background-position-y: 0.15rem;
-  background-size: 2rem;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat center center;
+  background-position-x: 0.25rem;
   font-size: 1.13rem;
   height: 2.5rem;
   line-height: 2.5rem;
@@ -67226,9 +66618,12 @@ a:visited.button {
 }
 .button .icon svg circle,
 .button .icon svg ellipse,
+.button .icon svg line,
 .button .icon svg path,
-.button .icon svg polygon {
+.button .icon svg polygon,
+.button .icon svg polyline {
   fill: #535251;
+  stroke: #535251;
 }
 a.button,
 a:link.button,
@@ -67342,9 +66737,12 @@ a:visited.button {
 }
 .button--primary .icon svg circle,
 .button--primary .icon svg ellipse,
+.button--primary .icon svg line,
 .button--primary .icon svg path,
-.button--primary .icon svg polygon {
+.button--primary .icon svg polygon,
+.button--primary .icon svg polyline {
   fill: #fff;
+  stroke: #fff;
 }
 a.button--primary,
 a:link.button--primary,
@@ -67372,9 +66770,12 @@ a:visited.button--primary {
 }
 .button--light .icon svg circle,
 .button--light .icon svg ellipse,
+.button--light .icon svg line,
 .button--light .icon svg path,
-.button--light .icon svg polygon {
+.button--light .icon svg polygon,
+.button--light .icon svg polyline {
   fill: #7b7a79;
+  stroke: #7b7a79;
 }
 a.button--light,
 a:link.button--light,
@@ -67402,9 +66803,12 @@ a:visited.button--light {
 }
 .button--dark .icon svg circle,
 .button--dark .icon svg ellipse,
+.button--dark .icon svg line,
 .button--dark .icon svg path,
-.button--dark .icon svg polygon {
+.button--dark .icon svg polygon,
+.button--dark .icon svg polyline {
   fill: #fff;
+  stroke: #fff;
 }
 a.button--dark,
 a:link.button--dark,
@@ -67432,9 +66836,12 @@ a:visited.button--dark {
 }
 .button--attention .icon svg circle,
 .button--attention .icon svg ellipse,
+.button--attention .icon svg line,
 .button--attention .icon svg path,
-.button--attention .icon svg polygon {
+.button--attention .icon svg polygon,
+.button--attention .icon svg polyline {
   fill: #5f591b;
+  stroke: #5f591b;
 }
 a.button--attention,
 a:link.button--attention,
@@ -67462,9 +66869,12 @@ a:visited.button--attention {
 }
 .button--negative .icon svg circle,
 .button--negative .icon svg ellipse,
+.button--negative .icon svg line,
 .button--negative .icon svg path,
-.button--negative .icon svg polygon {
+.button--negative .icon svg polygon,
+.button--negative .icon svg polyline {
   fill: #701e00;
+  stroke: #701e00;
 }
 a.button--negative,
 a:link.button--negative,
@@ -67492,9 +66902,12 @@ a:visited.button--negative {
 }
 .button--positive .icon svg circle,
 .button--positive .icon svg ellipse,
+.button--positive .icon svg line,
 .button--positive .icon svg path,
-.button--positive .icon svg polygon {
+.button--positive .icon svg polygon,
+.button--positive .icon svg polyline {
   fill: #2f5f45;
+  stroke: #2f5f45;
 }
 a.button--positive,
 a:link.button--positive,
@@ -68233,10 +67646,7 @@ tr:last-child td:last-child {
   position: relative;
 }
 .js table[yoi-table*="selectable"] .table__checkbox::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-063-s&f=ecebea&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ecebea' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
   content: ' ';
   height: 3.2rem;
   left: -0.1rem;
@@ -68257,10 +67667,7 @@ tr:last-child td:last-child {
   color: #746e30;
 }
 .js table[yoi-table*="selectable"] .is--active .table__checkbox::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=746e30&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#746e30' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
 }
 .js table[yoi-table*="removeable"] .table__removeButton {
   padding: 0;
@@ -68271,10 +67678,7 @@ tr:last-child td:last-child {
   cursor: pointer;
 }
 .js table[yoi-table*="removeable"] .table__removeButton::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=cdcccb&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#cdcccb' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
   content: ' ';
   height: 3.2rem;
   width: 3.2rem;
@@ -68283,10 +67687,7 @@ tr:last-child td:last-child {
   left: -0.1rem;
 }
 .js table[yoi-table*="removeable"] .table__removeButton:hover::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ff6830&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ff6830' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .js table.table--compressed .table__checkbox,
 .js table.table--compressed .table__removeButton {
@@ -68480,10 +67881,7 @@ a.stepMenu__label:hover {
   left: -2rem;
 }
 .flipButtons__buttonPrev::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
 }
 .flipButtons__buttonNext {
   border-radius: 0 2px 2px 0;
@@ -68491,10 +67889,7 @@ a.stepMenu__label:hover {
   right: -2rem;
 }
 .flipButtons__buttonNext::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
 }
 .flipButtons__buttonPrev.is--disabled:hover,
 .flipButtons__buttonNext.is--disabled:hover {
@@ -68546,10 +67941,7 @@ a.stepMenu__label:hover {
   text-decoration: none;
 }
 .filterButtons--removeable .filterButtons__button a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=b9b8b7&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#b9b8b7' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .filterButtons--removeable .filterButtons__button:hover {
   background: #c83700;
@@ -68558,16 +67950,10 @@ a.stepMenu__label:hover {
   color: #fff;
 }
 .filterButtons--removeable .filterButtons__button:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ffc9b4' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .filterButtons__button a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=aeadac&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#aeadac' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center;
   content: ' ';
   display: inline-block;
   height: 2rem;
@@ -68578,10 +67964,7 @@ a.stepMenu__label:hover {
   width: 2rem;
 }
 .filterButtons__button a:hover::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-004-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>") no-repeat center center;
 }
 .filterButtons__button.is--active {
   background: #4e7e64;
@@ -68590,28 +67973,19 @@ a.stepMenu__label:hover {
   color: #fff;
 }
 .filterButtons__button.is--active a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=c8f8de&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#c8f8de' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
 }
 .filterButtons__button.is--active:hover {
   background: #c83700;
 }
 .filterButtons__button.is--active:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-006-s&f=ffc9b4&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#ffc9b4' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><line x1='18' y1='6' x2='6' y2='18'/><line x1='6' y1='6' x2='18' y2='18'/></svg>") no-repeat center center;
 }
 .filterButtons__button.filterButtons__button--debounce:hover {
   background: #4e7e64;
 }
 .filterButtons__button.filterButtons__button--debounce:hover a::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-011-s&f=c8f8de&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#c8f8de' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='20 6 9 17 4 12'></polyline></svg>") no-repeat center center;
 }
 /** switch.less */
 .js .switch {
@@ -68630,7 +68004,7 @@ a.stepMenu__label:hover {
   overflow: hidden;
   position: relative;
   vertical-align: middle;
-  width: 3.5rem;
+  width: calc(2rem * 2 - 4px);
 }
 .js .switch::-webkit-search-decoration,
 .js .switch::-webkit-search-cancel-button,
@@ -68648,13 +68022,13 @@ a.stepMenu__label:hover {
   border-radius: 50%;
   content: ' ';
   display: block;
-  height: 1.6rem;
+  height: calc(2rem - 4px);
   overflow: hidden;
   position: absolute;
   text-indent: -999px;
-  top: 0.2rem;
+  top: 2px;
   transition: left 60ms ease-in;
-  width: 1.6rem;
+  width: calc(2rem - 4px);
 }
 .js .switch__labelOn,
 .js .switch__labelOff {
@@ -68662,25 +68036,27 @@ a.stepMenu__label:hover {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  font-weight: 600;
+  font-size: 16px;
   display: block;
-  font: bold 1.1rem/1.9rem 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  line-height: 2rem;
   position: absolute;
   text-transform: uppercase;
   top: 0;
 }
 .js .switch__labelOn {
   color: #ffffff;
-  left: 0.8rem;
+  left: 8px;
 }
 .js .switch__labelOff {
   color: #faf9f7;
-  right: 0.8rem;
+  right: 8px;
 }
 .js .switch--on {
   background: #81b197;
 }
 .js .switch--on .switch__knob {
-  left: 1.7rem;
+  left: calc(2rem - 2px);
 }
 .js .switch--on .switch__labelOn {
   display: block;
@@ -68692,7 +68068,7 @@ a.stepMenu__label:hover {
   background: #a4a3a2;
 }
 .js .switch--off .switch__knob {
-  left: 0.2rem;
+  left: 2px;
 }
 .js .switch--off .switch__labelOn {
   display: none;
@@ -68701,42 +68077,56 @@ a.stepMenu__label:hover {
   display: block;
 }
 .js .switch--labeled {
-  width: 6rem;
+  width: 5rem;
 }
 .js .switch--labeled.switch--on .switch__knob {
-  left: 4.2rem;
+  left: calc(5rem - 2rem + 2px);
+}
+.js .switch--small {
+  border-radius: 0.75rem;
+  height: 1.5rem;
+  width: calc(1.5rem * 2 - 4px);
+}
+.js .switch--small .switch__knob {
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+}
+.js .switch--small .switch__labelOn,
+.js .switch--small .switch__labelOff {
+  font-size: 12px;
+  line-height: 1.5rem;
+}
+.js .switch--small.switch--on .switch__knob {
+  left: calc(1.5rem - 2px);
+}
+.js .switch--small.switch--labeled {
+  width: 4rem;
+}
+.js .switch--small.switch--labeled.switch--on .switch__knob {
+  left: calc(4rem - 1.5rem + 2px);
 }
 .js .switch--large {
-  border-radius: 1.5rem;
-  height: 3rem;
-  width: 5.5rem;
+  border-radius: 1.25rem;
+  height: 2.5rem;
+  width: calc(2.5rem * 2 - 4px);
 }
 .js .switch--large .switch__knob {
-  height: 2.6rem;
-  top: 0.2rem;
-  width: 2.6rem;
+  height: calc(2.5rem - 4px);
+  width: calc(2.5rem - 4px);
 }
 .js .switch--large .switch__labelOn,
 .js .switch--large .switch__labelOff {
-  line-height: 3rem;
-}
-.js .switch--large .switch__labelOn {
-  left: 1.2rem;
-}
-.js .switch--large .switch__labelOff {
-  right: 1.2rem;
+  font-size: 20px;
+  line-height: 2.5rem;
 }
 .js .switch--large.switch--on .switch__knob {
-  left: 2.7rem;
-}
-.js .switch--large.switch--off .switch__knob {
-  left: 0.2rem;
+  left: calc(2.5rem - 2px);
 }
 .js .switch--large.switch--labeled {
-  width: 7.5rem;
+  width: 6rem;
 }
 .js .switch--large.switch--labeled.switch--on .switch__knob {
-  left: 4.7rem;
+  left: calc(6rem - 2.5rem + 2px);
 }
 /** imgmagnifier.less */
 .imgMagnifier {
@@ -68936,10 +68326,7 @@ a.stepMenu__label:hover {
   outline: 0;
 }
 .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='#868584' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
   border-left: #ecebea 1px solid;
   height: 100%;
   pointer-events: none;
@@ -68957,10 +68344,7 @@ a.stepMenu__label:hover {
   padding: 0 0 0 0.5rem;
 }
 .select--small .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=25.6px&h=25.6px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='#868584' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
   width: 1.5rem;
 }
 .select--large {
@@ -68972,10 +68356,7 @@ a.stepMenu__label:hover {
   padding: 0 0 0 1rem;
 }
 .select--large .select__icon {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-002-s&f=868584&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#868584' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='6 9 12 15 18 9'></polyline></svg>") no-repeat center center;
   width: 2.5rem;
 }
 .select.is--negative {
@@ -69129,31 +68510,43 @@ a.stepMenu__label:hover {
 .icon.icon--attention.icon--attention circle,
 [class*="--attention"] .icon ellipse,
 .icon.icon--attention.icon--attention ellipse,
+[class*="--attention"] .icon line,
+.icon.icon--attention.icon--attention line,
 [class*="--attention"] .icon path,
 .icon.icon--attention.icon--attention path,
 [class*="--attention"] .icon polygon,
-.icon.icon--attention.icon--attention polygon {
-  fill: #746e30;
+.icon.icon--attention.icon--attention polygon,
+[class*="--attention"] .icon polyline,
+.icon.icon--attention.icon--attention polyline {
+  stroke: #746e30;
 }
 [class*="--positive"] .icon circle,
 .icon.icon--positive.icon--positive circle,
 [class*="--positive"] .icon ellipse,
 .icon.icon--positive.icon--positive ellipse,
+[class*="--positive"] .icon line,
+.icon.icon--positive.icon--positive line,
 [class*="--positive"] .icon path,
 .icon.icon--positive.icon--positive path,
 [class*="--positive"] .icon polygon,
-.icon.icon--positive.icon--positive polygon {
-  fill: #3a6a50;
+.icon.icon--positive.icon--positive polygon,
+[class*="--positive"] .icon polyline,
+.icon.icon--positive.icon--positive polyline {
+  stroke: #3a6a50;
 }
 [class*="--negative"] .icon circle,
 .icon.icon--negative.icon--negative circle,
 [class*="--negative"] .icon ellipse,
 .icon.icon--negative.icon--negative ellipse,
+[class*="--negative"] .icon line,
+.icon.icon--negative.icon--negative line,
 [class*="--negative"] .icon path,
 .icon.icon--negative.icon--negative path,
 [class*="--negative"] .icon polygon,
-.icon.icon--negative.icon--negative polygon {
-  fill: #9c2b00;
+.icon.icon--negative.icon--negative polygon,
+[class*="--negative"] .icon polyline,
+.icon.icon--negative.icon--negative polyline {
+  stroke: #9c2b00;
 }
 /** modal.less */
 .modal {
@@ -69339,10 +68732,7 @@ a.stepMenu__label:hover {
   background: #faf9f7;
 }
 .pageRewind::after {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-010-s&f=535251&s=000&w=51.2px&h=51.2px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='18 15 12 9 6 15'></polyline></svg>") no-repeat center center;
   content: ' ';
   display: block;
   height: 100%;
@@ -69464,10 +68854,7 @@ a.stepMenu__label:hover {
   left: -26rem;
 }
 .dock--left::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-007-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='15 18 9 12 15 6'></polyline></svg>") no-repeat center center;
   left: -0.2rem;
   right: auto;
 }
@@ -69479,10 +68866,7 @@ a.stepMenu__label:hover {
   right: -26rem;
 }
 .dock--right::before {
-  /**
-     *  SVG icons as background image
-     */
-  background: transparent url(http://cdn.yoshino.digital/svg.php?id=icon-008-s&f=535251&s=000&w=38.4px&h=38.4px) center center no-repeat;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='#535251' stroke-width='2' viewBox='0 0 24 24' preserveAspectRatio='xMidYMid'><polyline points='9 18 15 12 9 6'></polyline></svg>") no-repeat center center;
   left: auto;
   right: -0.2rem;
 }
