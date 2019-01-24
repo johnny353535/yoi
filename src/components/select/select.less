@@ -1,4 +1,4 @@
-/** customselect.less */
+/** select.less */
 
 // block
 // =====
@@ -16,15 +16,16 @@
     cursor: pointer;
     display: inline-block;
     font-family: @font-sansserif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: normal;
-    height: 2.5rem;
-    line-height: 2.3rem;
+    height: 2rem;
+    line-height: 2rem;
     position: relative;
     text-align: left;
     transition: all 100ms ease-in-out;
     vertical-align: middle;
     white-space: nowrap;
+    width: 100%;
 
     // inner select element
 
@@ -38,7 +39,7 @@
         cursor: pointer;
         display: inline-block;
         left: 0;
-        padding: 0 3.3rem 0 .5rem;
+        padding: 0 0 0 .75rem;
         width: 100%;
 
         &::-ms-expand {
@@ -68,7 +69,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 2.3rem;
+    width: 2rem;
 }
 
 // modifiers
@@ -76,41 +77,57 @@
 
 // size
 
-.select.input--large {
+.select--small {
 
-    font-size: 1.5rem;
-    height: 4rem;
-    line-height: 3.8rem;
+    font-size: .88rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
 
     select {
-        padding: 0 6rem 0 1rem;
+        padding: 0 0 0 .5rem;
+    }
+
+    .select__icon {
+        .mixin-icon-chevron-down(@size: 16, @color: @color-base-13);
+        width: 1.5rem;
+    }
+}
+
+.select--large {
+
+    font-size: 1.13rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+
+    select {
+        padding: 0 0 0 1rem;
     }
 
     .select__icon {
         .mixin-icon-chevron-down(@size: 32, @color: @color-base-13);
-        width: 4rem;
+        width: 2.5rem;
     }
 
 }
 
 // validation
 
-.select.input--negative {
+.select.is--negative {
     border-color: @color-negative-15;
     color: @color-negative-8;
 }
 
-.select.input--positive {
+.select.is--positive {
     border-color: @color-positive-15;
     color: @color-positive-8;
 }
 
 // interactive states
 
-.select.input--focus {
+.select.is--focus {
     .mixin-defaultFocus;
 }
 
-.select.input--disabled {
+.select.is--disabled {
     .mixin-disabled;
 }

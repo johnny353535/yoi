@@ -1,4 +1,4 @@
-/** customcheckbox.less */
+/** checkbox.less */
 
 // block
 // =====
@@ -35,26 +35,26 @@
 
 // size
 
-.checkbox.input--large {
-    height: 3rem;
-    width: 3rem;
+.checkbox--large {
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 // validation
 
-.checkbox.input--negative {
+.checkbox.is--negative {
     border-color: @color-negative-15;
     color: @color-negative-8;
 }
 
-.checkbox.input--positive {
+.checkbox.is--positive {
     border-color: @color-positive-15;
     color: @color-positive-8;
 }
 
 // interactive states
 
-.checkbox.input--checked {
+.checkbox.is--checked {
 
     // icon regular
 
@@ -70,18 +70,18 @@
 
     // icon large
 
-    &.input--large::after {
+    &.checkbox--large::after {
         .mixin-icon-checkmark(@size: 32, @color: @color-base-8);
-        width: 2.8rem;
-        height: 2.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
 }
 
-.checkbox.input--focus {
+.checkbox.is--focus {
     .mixin-defaultFocus;
 }
 
-.checkbox.input--disabled {
+.checkbox.is--disabled {
     .mixin-disabled;
 }

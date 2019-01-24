@@ -1,9 +1,9 @@
-/** customradiobutton.less */
+/** radiobutton.less */
 
 // block
 // =====
 
-.radio {
+.radioButton {
 
     background: @color-white;
     border-radius: 50%;
@@ -12,14 +12,13 @@
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    height: 1.6rem;
+    height: 1.5rem;
     margin: 0 .5rem 0 0;
     overflow: hidden;
     padding: 0;
     position: relative;
-    top: -.1rem;
     vertical-align: top;
-    width: 1.6rem;
+    width: 1.5rem;
 
     // inner input element
 
@@ -36,26 +35,26 @@
 
 // size
 
-.radio.input--large {
-    height: 3rem;
-    width: 3rem;
+.radioButton--large {
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 // validation
 
-.radio.input--negative {
+.radioButton.is--negative {
     border-color: @color-negative-15;
     color: @color-negative-8;
 }
 
-.radio.input--positive {
+.radioButton.is--positive {
     border-color: @color-positive-15;
     color: @color-positive-8;
 }
 
 // interactive states
 
-.radio.input--checked {
+.radioButton.is--checked {
 
     // icon regular
 
@@ -74,17 +73,17 @@
 
     // icon large
 
-    &.input--large::after {
-        height: 1.4rem;
-        width: 1.4rem;
+    &.radioButton--large::after {
+        height: 1.5rem;
+        width: 1.5rem;
     }
 
 }
 
-.radio.input--focus {
+.radioButton.is--focus {
     .mixin-defaultFocus;
 }
 
-.radio.input--disabled {
+.radioButton.is--disabled {
     .mixin-disabled;
 }

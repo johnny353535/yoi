@@ -29,6 +29,7 @@ components:
     - box
     - breadcrumbs
     - button
+    - checkbox
     - code
     - countdown
     - dock
@@ -55,6 +56,7 @@ components:
     - popover
     - pricesticker
     - quotation
+    - radiobutton
     - rangeinput
     - rating
     - ratinginput
@@ -62,6 +64,8 @@ components:
     - ruler
     - scrollkeys
     - scrollprogress
+    - searchinput
+    - select
     - slider
     - spinner
     - stepcrumb
@@ -70,6 +74,7 @@ components:
     - switch
     - table
     - tabs
+    - input
     - tile
     - togglegroup
     - tooltip
