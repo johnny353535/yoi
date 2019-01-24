@@ -51,8 +51,7 @@ src
 | `@spacingMultiplicand`      | 0.5rem              | Multiplicand for margin & padding utility classes. Example for 0.5rem: `.p-3` = 3 &times; `@spacingMultiplicand` = produces 1.5rem padding.                           |
 | `@positionSteps`            | 10                  | Number of steps for [*micro-positioning* utility classes]({{ site.github.url }}/utilities/layout.html#micro-positioning), multiplicand: 1px.                               |
 | `@responsivePositionSteps`  | 10                  | Number of steps for [responsive *micro-positioning* utility classes]({{ site.github.url }}/utilities/layout.html#responsive-micro-positioning), multiplicand: 1px.         |
-| `@defaultAnimationDuration` | 200ms               | Default css animation duration in milliseconds.                                                                                                                       |
-| `@cdnDomain`                | cdn.yoshino.digital | Source for external images, for example Yoi’s [SVG icons]({{ site.github.url }}/components/icon.html).                                                                     |
+| `@defaultAnimationDuration` | 200ms               | Default css animation duration in milliseconds.                                                                                                                       |                                                              |
 
 ### colors.less
 
