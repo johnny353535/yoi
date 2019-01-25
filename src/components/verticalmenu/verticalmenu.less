@@ -85,20 +85,13 @@
 // modifiers
 // =========
 
-// active verticalMenu items
-// (can be either a .verticalMenu__item or .verticalMenu__link)
-
-.verticalMenu .is--active {
-
-    position: relative;
-
-    &,
-    .verticalMenu__link:link,
-    .verticalMenu__link:visited,
-    .verticalMenu__link:hover {
-        .mixin-fw-bold;
-        background: @color-base-8;
-        color: @color-white;
-    }
-
+.is--active .verticalMenu__link::before {
+    background: @color-primary-15;
+    content: ' ';
+    width: 2px;
+    left: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
 }

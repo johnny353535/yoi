@@ -19,13 +19,13 @@ This is how a basic `.verticalMenu` looks like and how you write the markup:
 <!-- example -->
 <ul class="verticalMenu">
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Kontrolllösungen</a>
+        <a class="verticalMenu__link" href="#">Metalloids</a>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Lanzetten</a>
+        <a class="verticalMenu__link" href="#">Alkali Metals</a>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Messgeräte &amp; Zubehör</a>
+        <a class="verticalMenu__link" href="#">Other Metals</a>
     </li>
 </ul>
 ```
@@ -40,34 +40,34 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
 <!-- example -->
 <ul class="verticalMenu">
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Blutzuckermessung</a>
+        <a class="verticalMenu__link" href="#">Metalloids</a>
         <ul class="verticalMenu">
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Kontrolllösungen</a>
+                <a class="verticalMenu__link" href="#">Boron</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Lanzetten</a>
+                <a class="verticalMenu__link" href="#">Silicon</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Messgeräte &amp; Zubehör</a>
+                <a class="verticalMenu__link" href="#">Germanium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Stechhilfen</a>
+                <a class="verticalMenu__link" href="#">Arsenic</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Teststreifen</a>
+                <a class="verticalMenu__link" href="#">Antimony</a>
                 <ul class="verticalMenu">
                     <li class="verticalMenu__item">
-                        <a class="verticalMenu__link" href="#">kleine Teststreifen</a>
+                        <a class="verticalMenu__link" href="#">Classification</a>
                     </li>
                     <li class="verticalMenu__item">
-                        <a class="verticalMenu__link" href="#">große Teststreifen</a>
+                        <a class="verticalMenu__link" href="#">Information</a>
                         <ul class="verticalMenu">
                             <li class="verticalMenu__item">
-                                <a class="verticalMenu__link" href="#">grün</a>
+                                <a class="verticalMenu__link" href="#">Properties</a>
                             </li>
                             <li class="verticalMenu__item">
-                                <a class="verticalMenu__link" href="#">blau</a>
+                                <a class="verticalMenu__link" href="#">Appearance</a>
                             </li>
                         </ul>
                     </li>
@@ -76,45 +76,52 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
         </ul>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Diabetikerbedarf</a>
+        <a class="verticalMenu__link" href="#">Alkali Metals</a>
         <ul class="verticalMenu">
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Diabetikervitamine</a>
+                <a class="verticalMenu__link" href="#">Lithium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Fußpflege</a>
+                <a class="verticalMenu__link" href="#">Sodium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Hautpflege</a>
+                <a class="verticalMenu__link" href="#">Potassium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Polyneuropathie</a>
+                <a class="verticalMenu__link" href="#">Rubidium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Süßungsmittel</a>
+                <a class="verticalMenu__link" href="#">Cesium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Unterzuckerung</a>
+                <a class="verticalMenu__link" href="#">Francium</a>
             </li>
-            <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Wundversorgung</a>
-            </li>
+
         </ul>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Insulininjektion</a>
+        <a class="verticalMenu__link" href="#">Other Metals</a>
         <ul class="verticalMenu">
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Desinfektion</a>
+                <a class="verticalMenu__link" href="#">Aluminium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Insulinpens</a>
+                <a class="verticalMenu__link" href="#">Gallium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Insulinspritzen</a>
+                <a class="verticalMenu__link" href="#">Indium</a>
             </li>
             <li class="verticalMenu__item">
-                <a class="verticalMenu__link" href="#">Penkanülen</a>
+                <a class="verticalMenu__link" href="#">Tin</a>
+            </li>
+            <li class="verticalMenu__item">
+                <a class="verticalMenu__link" href="#">Thallium</a>
+            </li>
+            <li class="verticalMenu__item">
+                <a class="verticalMenu__link" href="#">Lead</a>
+            </li>
+            <li class="verticalMenu__item">
+                <a class="verticalMenu__link" href="#">Bismuth</a>
             </li>
         </ul>
     </li>
@@ -125,20 +132,19 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
 
 ### Active Menu Item
 
-Add the modifier `is--active` to a `<li class="verticalMenu__item">` or `<a class="verticalMenu__link">` element inside the lmenu to mark it as _selected_:
-
+Add the modifier `is--active` to the active `<li class="verticalMenu__item">`:
 
 ```html
 <!-- example -->
 <ul class="verticalMenu">
     <li class="verticalMenu__item is--active">
-        <a class="verticalMenu__link" href="#">Kontrolllösungen</a>
+        <a class="verticalMenu__link" href="#">Metalloids</a>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Lanzetten</a>
+        <a class="verticalMenu__link" href="#">Alkali Metals</a>
     </li>
     <li class="verticalMenu__item">
-        <a class="verticalMenu__link" href="#">Messgeräte &amp; Zubehör</a>
+        <a class="verticalMenu__link" href="#">Other Metals</a>
     </li>
 </ul>
 ```
