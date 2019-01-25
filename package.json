@@ -6,7 +6,6 @@
   "devDependencies": {
     "autoprefixer": "^9.4.4",
     "bower": "^1.8.4",
-    "browser-sync": "^2.26.3",
     "chokidar-cli": "^1.2.1",
     "cssnano": "^4.1.8",
     "less": "^3.9.0",
@@ -18,7 +17,7 @@
     "install-jekyll": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll",
     "install-gems": "cd docs && gem install bundler && bundle install",
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
-    "build-jekyll": "npm run copy-docs && cd docs && bundle exec jekyll build --config _config.yml",
+    "build-jekyll": "npm run copy-docs && cd docs && bundle exec jekyll serve --config _config.yml --open",
     "build-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --source-map-inline --beautify -o dist/js/yoi.js && npm run copy-scripts",
     "build-styles": "npm run styles-compile --source-map-map-inline && npm run styles-process && npm run copy-styles",
     "styles-process": "postcss -u autoprefixer -b 'last 2 versions, not dead, > 1%, ie >= 11' dist/css/yoi.css -o dist/css/yoi.css --no-map",
@@ -37,11 +36,10 @@
     "publish-jekyll": "npm run copy-docs && cd docs && JEKYLL_ENV=production bundle exec jekyll build --config _config.yml",
     "publish-scripts": "uglifyjs src/js/yoi.js src/js/behaviours/*.js src/js/actions/*.js src/js/modules/*.js src/components/**/*.js --compress -o dist/js/yoi.js && npm run copy-scripts",
     "publish-styles": "npm run styles-compile && npm run styles-process && npm run styles-compress && npm run copy-styles",
-    "watch-jekyll": "chokidar 'docs/assets' 'docs/index.md' 'docs/_data' 'docs/_includes' 'docs/_layouts' 'docs/_pages/actions' 'docs/_pages/behaviours' 'docs/_pages/demos' 'docs/_pages/start' 'docs/_pages/utilities' 'src/components/**/*.md' -c 'cd docs && npm run build-jekyll && browser-sync reload'",
+    "watch-docs": "chokidar 'src/components/**/*.md' -c 'npm run copy-docs'",
     "watch-scripts": "chokidar 'src/js/**/*' 'src/components/**/*.js' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/less/**/*' 'src/components/**/*.less' -c 'npm run build-styles'",
-    "serve": "browser-sync start --server 'docs/_site' --cors --no-inject-changes --no-notify & npm run watch",
-    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-jekyll",
-    "dev": "npm run build && npm run serve"
+    "watch": "npm run watch-styles & npm run watch-scripts & npm run watch-docs",
+    "dev": "npm run build & npm run watch"
   }
 }
