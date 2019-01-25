@@ -21,6 +21,21 @@ utilities:
     - transition
     - typography
     - visibility
+behaviours:
+    - index
+    - dismiss
+    - lazyload
+    - parallax
+    - scrollfx
+    - sticky
+actions:
+    - index
+    - show
+    - hide
+    - blink
+    - pulse
+    - scrollto
+    - update
 components:
     - index
     - accordion
@@ -65,18 +80,3 @@ components:
     - input
     - tooltip
     - verticalmenu
-behaviours:
-    - index
-    - dismiss
-    - lazyload
-    - parallax
-    - scrollfx
-    - sticky
-actions:
-    - index
-    - show
-    - hide
-    - blink
-    - pulse
-    - scrollto
-    - update

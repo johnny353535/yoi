@@ -12,6 +12,7 @@ baseurl: ""
 markdown: kramdown
 include: ['_pages']
 exclude: ['Gemfile','Gemfile.lock']
+incremental: true
 
 # Github
 
