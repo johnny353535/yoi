@@ -1,15 +1,15 @@
-<ul class="linkList linkList--large bg-transparent b-0 br-0">
+<ul class="verticalMenu bg-transparent b-0 br-0">
     {% for group in site.data.sitemap %}
-        <li class="linkList__item">
-            <a class="linkList__link fw-bold" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
+        <li class="verticalMenu__item">
+            <a class="verticalMenu__link" href="{{ site.github.url }}/{{ group.first }}/">{{ group.first | capitalize }}</a>
         </li>
         {% if page.group == group.first %}
             {% for thisPage in site.data.sitemap[page.group] %}
                 {% assign menuLabel = thisPage | capitalize %}
                 {% assign currentPage = page.url | split: '/' | last | remove: ' ' %}
                 {% assign pageName = thisPage | remove: " " %}
-                <li class="linkList__item {% if (currentPage == pageName) or (currentPage == page.group and thisPage == "index") %}is--active{% endif %}">
-                    <a class="linkList__link tt-cp" href="{{ site.github.url }}/{{ page.group }}/{{ pageName }}.html">{% if pageName == "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}</a>
+                <li class="verticalMenu__item {% if (currentPage == pageName) or (currentPage == page.group and thisPage == "index") %}is--active{% endif %}">
+                    <a class="verticalMenu__link fw-normal" href="{{ site.github.url }}/{{ page.group }}/{{ pageName }}.html">{% if pageName == "index" %}Introduction{% else %}{{ menuLabel }}{% endif %}</a>
                 </li>
             {% endfor %}
         {% endif %}
