@@ -4,82 +4,73 @@
 // =====
 
 .horizontalMenu {
+    .mixin-fs-2;
     background: @color-white;
-    height: 5rem;
+    border-radius: @defaultBorderRadius * 1px;
+    border: @color-base-23 1px solid;
+    box-sizing: border-box;
+    display: flex;
+    height: 3rem;
+    list-style: none;
 }
 
 // elements
 // ========
 
-.horizontalMenu__menu {
-
+.horizontalMenu__item {
     .mixin-fs-2;
-    border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
-    border: @color-base-23 1px solid;
-    border-bottom: 0;
-    box-sizing: border-box;
-    height: 3rem;
+    .mixin-fw-bold;
+    border-right: 1px @color-base-23 solid;
+    margin: 0;
     position: relative;
-    width: 100%;
-    z-index: 100;
+}
 
-    &,
-    ul {
-        list-style: none;
-    }
+.horizontalMenu__link {
 
-    li {
-        float: left;
-    }
+    color: @color-base-10;
+    display: block;
+    font-weight: bold;
+    height: ~'calc(3rem - 2px)';
+    line-height: ~'calc(3rem - 2px)';
+    padding: 0 1rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
 
-    a,
-    a:link,
-    a:visited {
-        border-right: 1px @color-base-23 solid;
-        color: @color-base-10;
-        display: block;
-        font-weight: bold;
-        height: ~'calc(3rem - 1px)';
-        line-height: ~'calc(3rem - 1px)';
-        padding: 0 1rem;
-        text-align: center;
+    &:active,
+    &:link,
+    &:visited {
+        color: @textColor;
         text-decoration: none;
     }
 
-    a:hover,
-    a.is--active,
-    a.is--active:hover {
+    &:hover {
         background: @color-base-25;
     }
 
-    a:active,
-    a.is--active:active {
-        background: @color-base-24;
-    }
-
-}
-
-.horizontalMenu__icon {
-    margin: 0 -1rem;
 }
 
 // modifiers
 // =========
 
-.horizontalMenu--expand .horizontalMenu__menu {
+.horizontalMenu--grow {
 
-    // Sets all buttons to the same width so
-    // they fill the whole menu width:
-
-    display: table;
-
-    li {
-        display: table-cell;
-        float: none;
+    .horizontalMenu__item {
+        flex-grow: 1;
     }
 
-    li:last-child a {
-        border: 0;
+    .horizontalMenu__item:last-child {
+        border-right: 0;
     }
 
+}
+
+.is--active .horizontalMenu__link::before {
+    background: @color-primary-15;
+    content: ' ';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
