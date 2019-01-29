@@ -21,7 +21,7 @@
     width: 2rem;
 
     &:hover {
-        background-color: fade(@color-base-22, 50%);
+        .mixin-icon-x(@color: @color-base-10);
     }
 
 }
@@ -45,7 +45,7 @@
 [class*="-negative"] .buttonDismiss {
     .constr-buttonDismiss(
         @iconColor: @color-negative-10,
-        @bgColorHover: @color-negative-21
+        @iconColorHover: @color-negative-5
     );
 }
 
@@ -53,7 +53,7 @@
 [class*="-positive"] .buttonDismiss {
     .constr-buttonDismiss(
         @iconColor: @color-positive-10,
-        @bgColorHover: @color-positive-21
+        @iconColorHover: @color-positive-5
     );
 }
 
@@ -61,27 +61,27 @@
 [class*="-attention"] .buttonDismiss {
     .constr-buttonDismiss(
         @iconColor: @color-attention-10,
-        @bgColorHover: @color-attention-20
+        @iconColorHover: @color-attention-5
     );
 }
 
 .buttonDismiss.buttonDismiss--dark.buttonDismiss--dark,
 [class*="-dark"] .buttonDismiss {
     .constr-buttonDismiss(
-        @iconColor: @color-base-24,
-        @bgColorHover: @color-base-7
+        @iconColor: @color-base-23,
+        @iconColorHover: @color-white
     );
 }
 
 // constructor
 // ===========
 
-.constr-buttonDismiss(@iconColor, @bgColorHover) {
+.constr-buttonDismiss(@iconColor, @iconColorHover) {
 
     .mixin-icon-x(@color: @iconColor);
 
     &:hover {
-        background-color: fade(@bgColorHover, 50%);
+        .mixin-icon-x(@color: @iconColorHover);
     }
 
 }
