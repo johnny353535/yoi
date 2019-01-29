@@ -5,11 +5,11 @@ title: Text Input & Textarea
 permalink: components/input
 ---
 
-# Text Input & Textarea
+# Input
 
 ## Basic Example
 
-This is how `.input` and `.textarea` look like:
+This is how `.input` (on `<input>` and `<textarea>`) look like:
 
 ```html
 <!-- example -->
@@ -17,7 +17,7 @@ This is how `.input` and `.textarea` look like:
     <input class="input" type="text" />
 </div>
 <div>
-    <textarea class="textarea"></textarea>
+    <textarea class="input"></textarea>
 </div>
 ```
 
@@ -39,23 +39,17 @@ Use the modifiers `.is--positive` and `.is--negative` to visualize input validat
 
 ### State
 
-You can use the modifiers `.is--focus`, `.is--disabled` and `.is--readonly` to add the styling for the corresponding states.
+Inputs are styled accordingly to their attributes `disabled`, `focus` and `readonly`.
 
-<p class="hint hint--negative"><b>Choose attributes over modifiers</b>: Since the modifiers only affect styling, not behaviour, always use the correct attributes rather than state modifiers.</p>
+<p class="hint hint--negative">While you could also use modifier classes for styling (<code>.input--disabled, input--focus, .input--readonly</code>) in most cases you should not do so since they only affect styling – not behavior!</p>
 
 ```html
 <!-- example:tabs -->
 <div class="m-b-2">
-    <input class="input is--focus" type="text" value="modifier .is--focus" />
-</div>
-<div class="m-b-2">
-    <input class="input is--disabled" type="text" value="modifier .is--disabled" />
+    <input class="input is--focus" type="text" value="attribute focus" focus />
 </div>
 <div class="m-b-2">
     <input class="input" type="text" value="attribute disabled" disabled />
-</div>
-<div class="m-b-2">
-    <input class="input is--readonly" type="text" value="modifier .is--readonly" />
 </div>
 <div>
     <input class="input" type="text" value="attribute readonly" readonly />

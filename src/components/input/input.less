@@ -5,8 +5,7 @@
 
 // all text inputs
 
-.input,
-.textarea {
+.input {
     .mixin-clearAppearance;
     .mixin-defaultBorderRadius;
     background: @color-white;
@@ -18,7 +17,7 @@
     font: normal 1rem @font-sansserif;
     height: 2rem;
     line-height: 2rem;
-    padding: 0 .75rem;
+    padding: 0 .5rem;
     transition: all 100ms ease-in-out;
     width: 100%;
 }
@@ -26,13 +25,11 @@
 
 // textarea
 
-.textarea {
-    box-sizing: border-box;
+textarea.input {
     display: block;
     height: auto;
     max-width: 100%;
     min-height: 10rem;
-    padding: .75rem;
     resize: vertical;
 }
 
@@ -45,28 +42,14 @@
     font-size: .88rem;
     height: 1.5rem;
     line-height: 1.5rem;
-    padding: 0 .5rem;
+    padding: 0 .25rem;
 }
 
 .input.input--large {
     font-size: 1.13rem;
     height: 2.5rem;
     line-height: 2.5rem;
-    padding: 0 1rem;
-}
-
-.textarea.input--small {
-    font-size: .88rem;
-    height: auto;
-    line-height: 1.5rem;
-    padding: 0 .5rem;
-}
-
-.textarea.input--large {
-    font-size: 1.13rem;
-    height: auto;
-    line-height: 2.5rem;
-    padding: 0 1rem;
+    padding: 0 .75rem;
 }
 
 // style
