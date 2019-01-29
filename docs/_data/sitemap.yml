@@ -46,13 +46,13 @@ components:
     - checkbox
     - code
     - flipbuttons
-    - flyout
     - form
     - headings
     - hint
     - horizontalmenu
     - icon
     - imgmagnifier
+    - input
     - link
     - maxchars
     - modal
@@ -77,6 +77,5 @@ components:
     - switch
     - table
     - tabs
-    - input
     - tooltip
     - verticalmenu
