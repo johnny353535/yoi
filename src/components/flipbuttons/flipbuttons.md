@@ -16,7 +16,7 @@ This is how a basic `.flipButtons` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<div class="box h-15 m-lr-5">
+<div class="box h-10 m-lr-5">
     <div class="flipButtons">
         <a class="flipButtons__buttonPrev">
             <span class="hidden">Previous</span>
@@ -36,7 +36,7 @@ Use the modifier `.flipButtons--inset` to place the buttons on the inside of the
 
 ```html
 <!-- example -->
-<div class="box h-15">
+<div class="box h-10">
     <div class="flipButtons flipButtons--inset">
         <a class="flipButtons__buttonPrev">
             <span class="hidden">Previous</span>
@@ -54,7 +54,7 @@ Use the global modifier `.is--disabled` on the child elements `.flipButtons__but
 
 ```html
 <!-- example -->
-<div class="box h-15 m-lr-5">
+<div class="box h-10 m-lr-5">
     <div class="flipButtons">
         <a class="flipButtons__buttonPrev is--disabled">
             <span class="hidden">Previous</span>
