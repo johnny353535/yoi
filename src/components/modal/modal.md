@@ -28,14 +28,12 @@ The following is an example for a typical modal markup. You may want to <a href=
 ```html
 <!-- example -->
 <div class="modal">
-    <div class="modal__header">
-        <h3 class="modal__title">Demo Modal</h3>
-    </div>
+    <div class="modal__header">Demo Modal</div>
     <div class="modal__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     <div class="modal__footer">
-        <button class="button button--dark fl-r">OK</button>
+        <button class="button button--dark button--flat fl-r">Do Something</button>
         <span class="button button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
     </div>
 </div>
@@ -48,14 +46,12 @@ There is only one modifier available: `.modal--small`. It affects the modal widt
 ```html
 <!-- example -->
 <div class="modal modal--small">
-    <div class="modal__header">
-        <h3 class="modal__title">Small Demo Modal</h3>
-    </div>
+    <div class="modal__header">Small Demo Modal</div>
     <div class="modal__body">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
     </div>
     <div class="modal__footer">
-        <button class="button button--dark fl-r">OK</button>
+        <button class="button button--dark button--flat fl-r">Do Something</button>
         <span class="button button--light button--flat fl-r m-r-1" yoi-action="closeModal">Cancel</span>
     </div>
 </div>
@@ -72,15 +68,17 @@ If you wish to reference to a modal page to show it as a modal, you need to appl
 <a class="button button--large" href="{{ site.github.url }}/demos/modal.html" yoi-modal>Show Demo Modal</a>
 ```
 
+In this most simple example, only two things are necessary: a valid link to a correctly formatted modal page and the `yoi-modal`-atribute.
+
 ## Generate a Simple Modal
+
+Use the option `generate:true` to generate modals on the fly (instead of referring modal pages). Add title and body text with `title:` and `body:` like in the following example:
 
 ```html
 <!-- example -->
 <button class="button button--large" yoi-modal="generate:true; title:Generated Modal; body:This is a generated modal. Lorem ipsum dolor sit amet, consectetur adipisicing.; modifiers:modal--small;">Generate Small Modal With Title</button>
 <button class="button button--large" yoi-modal="generate:true; body:This is a generated modal without title. Lorem ipsum dolor sit amet, consectetur adipisicing.; modifiers:modal--small;">Generate Small Modal</button>
 ```
-
-In this most simple example, only two things are necessary: a valid link to a correctly formatted modal page and the `yoi-modal`-atribute.
 
 ## Options
 

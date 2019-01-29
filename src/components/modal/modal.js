@@ -44,12 +44,10 @@ YOI.component.Modal = (function() {
 
     var $modalTemplate = $('\
         <div class="modal">\
-            <div class="modal__header">\
-                <h3 class="modal__title"></h3>\
-                <button class="buttonDismiss" yoi-action="closeModal">\
-                    <span class="hidden">' + localization[language]['buttonLabelClose'] + '</span>\
-                </button>\
-            </div>\
+            <button class="buttonDismiss" yoi-action="closeModal">\
+                <span class="hidden">' + localization[language]['buttonLabelClose'] + '</span>\
+            </button>\
+            <div class="modal__header"></div>\
             <div class="modal__body"></div>\
         </div>\
     ');
@@ -206,14 +204,14 @@ YOI.component.Modal = (function() {
          *  @param {string} modifiers - optional modifiers (CSS class names)
          */
 
-        var $thisModal      = $modalTemplate.clone();
-        var $thisModalTitle = $thisModal.find('.modal__title');
-        var $thisModalBody  = $thisModal.find('.modal__body');
-        var thisModalId     = modalId.split('#')[1];
+        var $thisModal       = $modalTemplate.clone();
+        var $thisModalHeader = $thisModal.find('.modal__header');
+        var $thisModalBody   = $thisModal.find('.modal__body');
+        var thisModalId      = modalId.split('#')[1];
 
         // add title, content and id
 
-        $thisModalTitle.text(title);
+        $thisModalHeader.text(title);
         $thisModalBody.html('<p>' + body + '</p>');
         $thisModal.attr('id', thisModalId);
 
@@ -223,8 +221,10 @@ YOI.component.Modal = (function() {
             $thisModal.addClass(modifiers);
         }
 
+        // remove header
+
         if (!title) {
-            $thisModal.addClass('modal--simple');
+            $thisModal.find('.modal__header').remove();
         }
 
         // add modal to markup
@@ -279,7 +279,7 @@ YOI.component.Modal = (function() {
                         // prepare modal markup
 
                         $thisModal.attr('id', modalId.split('#')[1]);
-                        $thisModal.find('.modal__header').append($modalCloseButton.clone());
+                        $thisModal.append($modalCloseButton.clone());
 
                         // append to dom & hide
 

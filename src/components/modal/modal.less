@@ -9,6 +9,7 @@
     background: @color-white;
     border: @color-base-23 1px solid;
     box-sizing: border-box;
+    padding: 2rem;
     position: relative;
     text-align: left;
     width: 37.5rem;
@@ -27,36 +28,23 @@
 // ========
 
 .modal__header {
-    border-bottom: @color-base-24 1px solid;
-    border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
-    margin: 0 0 .5rem 0;
-    padding: 0 .5rem;
-}
-
-.modal__title {
     .mixin-fs-2;
+    .mixin-lh-2;
     .mixin-fw-bold;
     color: @color-base-8;
-    line-height: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .modal__body {
     .mixin-clearfix;
     .mixin-fs-2;
     .mixin-lh-3;
-    padding: 0 .5rem;
-}
-
-.modal__body:last-child {
-    margin-bottom: 1rem;
 }
 
 .modal__footer {
     .mixin-clearfix;
-    border-top: @color-base-24 1px solid;
-    margin-top: .5rem;
-    padding: .5rem;
     overflow: hidden;
+    margin: 2rem -1rem -1rem -1rem;
 }
 
 .modal__cover {
@@ -88,19 +76,6 @@
 
     .modal__container & {
         margin-left: -9.38rem;
-    }
-
-}
-
-.modal--simple {
-
-    .modal__title {
-        display: none;
-    }
-
-    .modal__body {
-        border: 0;
-        padding: 2rem;
     }
 
 }
