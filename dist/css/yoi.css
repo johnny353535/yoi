@@ -23409,7 +23409,7 @@ a:visited:hover {
   font-size: 16px;
   display: block;
   font-style: italic;
-  padding: 2rem 2rem 2rem 7rem;
+  padding: 2rem;
   position: relative;
   border-left: #ecebea 2px solid;
 }
@@ -23418,19 +23418,6 @@ a:visited:hover {
 }
 .quotation p + p {
   margin-top: 1.5rem;
-}
-.quotation:after {
-  color: #e1e0df;
-  content: '”';
-  display: block;
-  font-size: 10rem;
-  font-style: normal;
-  height: 5rem;
-  left: 1.75rem;
-  line-height: 8.5rem;
-  position: absolute;
-  top: 1.5rem;
-  width: 5rem;
 }
 /** radiobutton.less */
 .radioButton {
