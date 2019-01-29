@@ -7,8 +7,6 @@
     .mixin-clearfix;
     .noteConstructor;
     .mixin-defaultBorderRadius;
-    border-style: solid;
-    border-width: 1px;
     display: block;
     font-family: @font-sansserif;
     padding: 1rem;
@@ -76,7 +74,6 @@
 
 .note--attention {
     .noteConstructor(
-        @borderColor: @color-attention-19,
         @txtColor: @color-attention-10,
         @bgColor: @color-attention-22
     );
@@ -84,7 +81,6 @@
 
 .note--dark {
     .noteConstructor(
-        @borderColor: @color-transparent,
         @txtColor: @color-base-25,
         @bgColor: @color-base-10
     );
@@ -92,7 +88,6 @@
 
 .note--negative {
     .noteConstructor(
-        @borderColor: @color-negative-22,
         @txtColor: @color-negative-10,
         @bgColor: @color-negative-24
     );
@@ -106,17 +101,8 @@
 
 .note--positive {
     .noteConstructor(
-        @borderColor: @color-positive-22,
         @txtColor: @color-positive-10,
         @bgColor: @color-positive-24
-    );
-}
-
-.note--subtle {
-    .noteConstructor(
-        @borderColor: @color-transparent,
-        @txtColor: @color-gray-6,
-        @bgColor: @color-gray-23
     );
 }
 
@@ -130,7 +116,6 @@
 
     .note + .note {
         border-radius: 0;
-        border-top: 0;
     }
 
     .note:last-child {
@@ -152,18 +137,13 @@
 // constructor
 // ===========
 
-.noteConstructor(@borderColor: @color-base-23, @txtColor: @color-base-10, @bgColor: @color-base-25) {
+.noteConstructor(@txtColor: @color-base-10, @bgColor: @color-base-25) {
 
     background: @bgColor;
-    border-color: @borderColor;
     color: @txtColor;
 
     .note__headline {
         color: @txtColor;
-    }
-
-    .note__body + .note__body {
-        border-color: @borderColor;
     }
 
 }

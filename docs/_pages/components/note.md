@@ -59,12 +59,6 @@ Notes are available in **different color themes**. Weather you wish to display a
     </div>
 </div>
 
-<div class="note note--subtle m-b-1" yoi-dismiss>
-    <div class="note__body">
-        <p>.note--<strong>subtle</strong></p>
-    </div>
-</div>
-
 <div class="note note--negative m-b-1" yoi-dismiss>
     <div class="note__body">
         <p>.note--<strong>negative</strong></p>
