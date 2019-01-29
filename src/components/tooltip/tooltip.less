@@ -4,42 +4,21 @@
 // =====
 
 .tooltip {
-
-    .mixin-shadow-4;
     .mixin-defaultBorderRadius;
+    .mixin-fs-2;
+    .mixin-fw-normal;
+    .mixin-lh-3;
+    .mixin-shadow-4;
     background: @color-base-8;
+    color: @color-base-25;
     color: @color-base-25;
     display: block;
     max-width: 25rem;
-    padding: 1rem 1.5rem;
+    padding: .5rem 1rem;
     position: relative;
     text-align: left;
     white-space: normal;
     z-index: 900;
-
-    // typography inside tooltip
-
-    h1, h2, h3, h4, h5, h6, p, ul, ol {
-        color: @color-base-25;
-        font: normal 1.3rem/2rem @font-sansserif;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: bold;
-    }
-
-    ul, ol {
-        padding-left: 2rem;
-    }
-
-    li {
-        list-style: square;
-    }
-
-    *:last-child {
-        margin-bottom: 0;
-    }
-
 }
 
 .js .tooltip {

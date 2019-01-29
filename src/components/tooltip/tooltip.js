@@ -201,7 +201,7 @@ YOI.component.Tooltip = (function() {
             // prepared tooltip
 
             $thisTargetElement.detach();
-            $('<div id="' + targetId + '" class="tooltip">' + $thisTargetElement.html() +'</div>').appendTo($(document.body)).hide();
+            $('<div id="' + targetId + '" class="tooltip">' + $thisTargetElement.text() +'</div>').appendTo($(document.body)).hide();
 
             // store the reference on the trigger element
             // props object

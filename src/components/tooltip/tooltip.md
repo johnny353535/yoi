@@ -15,7 +15,7 @@ This is how a basic `.toolTip` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<div class="br-all p-4 w-10 h-10 lh-5 al-c c-blue-15 bg-blue-24" yoi-tooltip="content:This is a tooltip;">Move Cursor here</div>
+<div class="br-all p-4 c-base-15 bg-base-25" yoi-tooltip="content:This is a tooltip;">Hover for tooltip</div>
 ```
 
 <p class="hint hint--negative"><b>Correct Formatting:</b> If at least one value contains special characters (slashes, colons etc.), wrap <b>all values</b> in <i>single quotation marks</i>: <code>foo:'some//value:with_special?charactes'; bar:'12'; foobar:'abc'</code>.</p>
@@ -27,7 +27,7 @@ By default, a tooltip is generated and injected into the dom. If you are interes
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br-all p-4 w-10 h-10 lh-5 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-1;">Move Cursor here</div>
+<div class="br-all p-4 c-base-15 bg-base-25" yoi-tooltip="target:#tooltip-1;">Hover for tooltip</div>
 <!-- tooltip -->
 <div class="note m-b-2" id="tooltip-1">
     <div class="note__body">
@@ -38,8 +38,8 @@ By default, a tooltip is generated and injected into the dom. If you are interes
 
 When JavaScript is disabled, the user sees a nicely styled [note element]({{ site.github.url }}/components/note.html). This is very flexible and gives you complete control over styling your no-JS fallback.
 
-<p class="hint"><b>Use any Markup:</b> You can use any markup you wish as a tooltip. The text content is always transformed into a properly styled tooltip.</p>
-<p class="hint"><b>Smart Positioning:</b> Tooltips are displayed relative to the cursor position on mouseover and adjust themselves automatically so the viewport does not cut them off.</p>
+<p class="hint"><b>Change of Markup</b> You can turn any markup you wish into a tooltip. However, the tooltip will only use the text and drop all other tags.</p>
+<p class="hint"><b>Smart Positioning</b> Tooltips are displayed relative to the cursor position on mouseover and adjust themselves automatically so the viewport does not cut them off.</p>
 
 ## Parameters
 
@@ -57,17 +57,17 @@ Set the parameter `staticPosition` to `top`, `right`, `bottom`, `left` to create
 ```html
 <!-- example -->
 <!-- trigger elements -->
-<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:top;">top</span>
-<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:right;">right</span>
-<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
-<span class="d-inlineblock br-all p-2 c-blue-15 bg-blue-24 m-r-4" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
+<p class="p-t-2">
+    <span class="br-all p-2 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-2; staticPosition:top;">top</span>
+    <span class="br-all p-2 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-2; staticPosition:right;">right</span>
+    <span class="br-all p-2 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-2; staticPosition:bottom;">bottom</span>
+    <span class="br-all p-2 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-2; staticPosition:left;">left</span>
+</p>
 <!-- tooltip -->
 <div id="tooltip-2">
     <p>I won’t move.</p>
 </div>
 ```
-
-<p class="hint hint--negative"><b>Correct Positioning:</b> To make sure the tooltip is positioned correctly, set the trigger element to <code>display:block;</code> or <code>display:inline-block;</code>.</p>
 
 ### showDelay
 
@@ -76,7 +76,7 @@ Set the parameter `showDelay` to any number of milliseconds (eg. `showDelay:1000
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br-all p-4 w-10 h-10 lh-5 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-3; showDelay:1000;">Move Cursor here</div>
+<div class="br-all p-4 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-3; showDelay:1000;">Hover for tooltip</div>
 <!-- tooltip -->
 <div id="tooltip-3">
     <p>This is a tooltip with 1 second show-delay.</p>
@@ -90,7 +90,7 @@ Set the parameter `hideDealy` to any number of milliseconds (eg. `hideDelay:1000
 ```html
 <!-- example -->
 <!-- trigger element -->
-<div class="br-all p-4 w-10 h-10 lh-5 al-c c-blue-15 bg-blue-24" yoi-tooltip="target:#tooltip-4; hideDelay:1000;">Move Cursor here</div>
+<div class="br-all p-4 c-base-15 bg-base-24" yoi-tooltip="target:#tooltip-4; hideDelay:1000;">Hover for tooltip</div>
 <!-- tooltip -->
 <div id="tooltip-4">
     <p>This is a tooltip with 1 second hide-delay.</p>
