@@ -3,12 +3,11 @@ layout: base
 group: components
 title: Slider
 permalink: components/slider
-status: [draft, incomplete]
 ---
 
 # Slider
 
-<p class="intro">A simple slide show / carousel with keyboard bindings.</p>
+<p class="intro">A simple carousel with keyboard bindings.</p>
 
 ```html
 <!-- example -->
