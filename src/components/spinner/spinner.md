@@ -15,7 +15,7 @@ This is how a basic `.spinner` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<div class="box box--1 w-30 h-20">
+<div class="box box--1 w-10 h-10">
     <span class="spinner"></span>
 </div>
 ```
@@ -30,8 +30,8 @@ Add the modifier class `.spinner--dark` to create a spinner that looks better on
 
 ```html
 <!-- example -->
-<div class="box box--1 w-40 h-30">
+<div class="box box--1 w-10 h-10">
     <span class="spinner spinner--dark"></span>
-    <img class="d-blk" src="https://source.unsplash.com/IzYV53M52PM/398x298" />
+    <img class="d-blk" src="https://source.unsplash.com/IzYV53M52PM/160x160" />
 </div>
 ```
