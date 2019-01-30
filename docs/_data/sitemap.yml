@@ -1,7 +1,6 @@
 start:
     - index
     - setup
-    - learning
     - customizing
 utilities:
     - index
