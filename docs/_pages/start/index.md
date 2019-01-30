@@ -29,9 +29,9 @@ By adding [utility-classes]({{ site.github.url }}/utilities/) to an element, you
 
 In addition to rather simple and static elements, Yoi also features more complex and interactive elements. [Modals]({{ site.github.url }}/components/modal.html), [PopOvers]({{ site.github.url }}/components/popover.html) – all these elements are configured via custom HTML attributes. Think of this a simple key/value pairs to enable different options – eg. `yoi-modal="cache:true;"` tells the modal script to preload the content of a modal page.
 
-### Behaviours
+### Behaviors
 
-Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. Yoi has many useful [Behaviours]({{ site.github.url }}/behaviors/) already built in. You can apply and configure them on any element in you HTML via Yoi’s _attributes_ syntax.
+Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. Yoi has many useful [Behaviors]({{ site.github.url }}/behaviors/) already built in. You can apply and configure them on any element in you HTML via Yoi’s _attributes_ syntax.
 
 ### Actions
 

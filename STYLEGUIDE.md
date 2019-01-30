@@ -25,7 +25,7 @@
 
 - Add additional source files via frontmatter when applicable.
 
-## Rules for Component, Behaviour and Action Pages
+## Rules for Component, Behavior and Action Pages
 
 ### Outline
 

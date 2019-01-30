@@ -5,7 +5,7 @@ title: Introduction
 permalink: behaviors/
 ---
 
-# Behaviours
+# Behaviors
 
 <p class="intro">YOI <i>behaviors</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
 
@@ -13,7 +13,7 @@ permalink: behaviors/
 
 Use a *behavior* to make an element *behave* in a certain way depending on certain conditions. For example make an element react to it’s current position while scrolling.
 
-## The Behaviour Attribute
+## The Behavior Attribute
 
 Add a behavior-attribute to any element to activate the behavior:
 
@@ -21,9 +21,9 @@ Add a behavior-attribute to any element to activate the behavior:
 <div yoi-dismiss></div>
 ```
 
-### List of Behaviours
+### List of Behaviors
 
-| Behaviour                            | Attribute      | Description                                                                      |
+| Behavior                            | Attribute      | Description                                                                      |
 | ------------------------------------ | -------------- | -------------------------------------------------------------------------------- |
 | [Dismiss]({{ site.github.url }}/behaviors/dismiss.html)   | `yoi-dismiss`  | Adds a close-button to an element.                                               |
 | [Lazyload]({{ site.github.url }}/behaviors/lazyload.html) | `yoi-lazyload` | Loads an image only if it’s inside the viewport.                                 |
@@ -35,7 +35,7 @@ Add a behavior-attribute to any element to activate the behavior:
 
 ## Parameters
 
-Behaviours may have parameters to change the default setting of a behavior:
+Behaviors may have parameters to change the default setting of a behavior:
 
 ```html
 <div yoi-parallax="factor:5;">...</div>
