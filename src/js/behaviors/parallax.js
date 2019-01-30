@@ -1,6 +1,6 @@
 /** parallax.js */
 
-YOI.behaviour.Parallax = (function() {
+YOI.behavior.Parallax = (function() {
 
     // private variables
     // =================
@@ -28,7 +28,7 @@ YOI.behaviour.Parallax = (function() {
          *                                the default offset is 0
          *  @option {number} stop       - the offset after a sticky element no longer sticks
          *  @option {string} not        - a comma-seperated list of strings - the breakpoints/screen-sizes
-         *                                on which sticky behaviour is disabled
+         *                                on which sticky behavior is disabled
          */
 
         var $parallaxElement = YOI.createCollection('parallax', $parallaxElement, options);
@@ -233,7 +233,7 @@ YOI.behaviour.Parallax = (function() {
     function destroy() {
 
         /**
-         *  Disable all parallax behaviour and reset all changes to
+         *  Disable all parallax behavior and reset all changes to
          *  the document or element stylings, remove all related event listeners.
          */
 

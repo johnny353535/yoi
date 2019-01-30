@@ -1,8 +1,8 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: Lazyload
-permalink: behaviours/lazyload
+permalink: behaviors/lazyload
 srcfiles:
     - lazyload.js
     - ../modules/scrollagent.js
@@ -109,4 +109,4 @@ Use the parameter `cssClasses` to add any CSS class names to the image. The foll
 
 ## Events
 
-This behaviour does not fire custom events. However, each image fires the standard `load` event.
+This behavior does not fire custom events. However, each image fires the standard `load` event.

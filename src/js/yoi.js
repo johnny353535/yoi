@@ -7,7 +7,7 @@ var YOI = {
 
     collection : {},
     action     : {},
-    behaviour  : {},
+    behavior  : {},
     component  : {},
     module     : {},
 
@@ -1068,7 +1068,7 @@ var YOI = {
     initialize : function() {
 
         /**
-         *  Initializes all YOI actions, behaviours, modules, components ...
+         *  Initializes all YOI actions, behaviors, modules, components ...
          */
 
         // initialize all YOI actions
@@ -1077,9 +1077,9 @@ var YOI = {
             if (this.hasOwnProperty('init')) this.init();
         });
 
-        // initialize all YOI behaviours
+        // initialize all YOI behaviors
 
-        $.each(YOI.behaviour, function() {
+        $.each(YOI.behavior, function() {
             if (this.hasOwnProperty('init')) this.init();
         });
 

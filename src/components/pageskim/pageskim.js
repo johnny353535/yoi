@@ -138,7 +138,7 @@ YOI.component.PageSkim = (function() {
 
         if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
 
-            // disable default behaviour of
+            // disable default behavior of
             // space and arrow keys
 
             $document.on('keydown', function(e) {

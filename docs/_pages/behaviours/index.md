@@ -1,21 +1,21 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: Introduction
-permalink: behaviours/
+permalink: behaviors/
 ---
 
 # Behaviours
 
-<p class="intro">YOI <i>behaviours</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
+<p class="intro">YOI <i>behaviors</i> provide a simple CSS-like interface to add functionality to HTML elements.</p>
 
 ## Purpose
 
-Use a *behaviour* to make an element *behave* in a certain way depending on certain conditions. For example make an element react to it’s current position while scrolling.
+Use a *behavior* to make an element *behave* in a certain way depending on certain conditions. For example make an element react to it’s current position while scrolling.
 
 ## The Behaviour Attribute
 
-Add a behaviour-attribute to any element to activate the behaviour:
+Add a behavior-attribute to any element to activate the behavior:
 
 ```html
 <div yoi-dismiss></div>
@@ -25,27 +25,27 @@ Add a behaviour-attribute to any element to activate the behaviour:
 
 | Behaviour                            | Attribute      | Description                                                                      |
 | ------------------------------------ | -------------- | -------------------------------------------------------------------------------- |
-| [Dismiss]({{ site.github.url }}/behaviours/dismiss.html)   | `yoi-dismiss`  | Adds a close-button to an element.                                               |
-| [Lazyload]({{ site.github.url }}/behaviours/lazyload.html) | `yoi-lazyload` | Loads an image only if it’s inside the viewport.                                 |
-| [Parallax]({{ site.github.url }}/behaviours/parallax.html) | `yoi-parallax` | Adds a parallax scrolling effect to an element.                                  |
-| [Scrollfx]({{ site.github.url }}/behaviours/scrollfx.html) | `yoi-scrollfx` | Adds effects or transitions to an element, responding to the scrolling position. |
-| [Sticky]({{ site.github.url }}/behaviours/sticky.html)     | `yoi-sticky`   | Makes an element *stick* when scrolled past it’s position on the page.           |
+| [Dismiss]({{ site.github.url }}/behaviors/dismiss.html)   | `yoi-dismiss`  | Adds a close-button to an element.                                               |
+| [Lazyload]({{ site.github.url }}/behaviors/lazyload.html) | `yoi-lazyload` | Loads an image only if it’s inside the viewport.                                 |
+| [Parallax]({{ site.github.url }}/behaviors/parallax.html) | `yoi-parallax` | Adds a parallax scrolling effect to an element.                                  |
+| [Scrollfx]({{ site.github.url }}/behaviors/scrollfx.html) | `yoi-scrollfx` | Adds effects or transitions to an element, responding to the scrolling position. |
+| [Sticky]({{ site.github.url }}/behaviors/sticky.html)     | `yoi-sticky`   | Makes an element *stick* when scrolled past it’s position on the page.           |
 
-<p class="hint hint--negative">You can add more than one behaviour to an element. However, you cannot add the same behaviour multiple times.</p>
+<p class="hint hint--negative">You can add more than one behavior to an element. However, you cannot add the same behavior multiple times.</p>
 
 ## Parameters
 
-Behaviours may have parameters to change the default setting of a behaviour:
+Behaviours may have parameters to change the default setting of a behavior:
 
 ```html
 <div yoi-parallax="factor:5;">...</div>
 ```
 
-<p class="hint hint--primary">Make sure you write the parameters correctly, otherwise the behaviour might not work. If you know CSS, the syntax should look familiar to you:</p>
+<p class="hint hint--primary">Make sure you write the parameters correctly, otherwise the behavior might not work. If you know CSS, the syntax should look familiar to you:</p>
 
 ### Parameter Formatting Checklist
 
-* A behaviour may accept _many parameters_.
+* A behavior may accept _many parameters_.
 * Write Parameters in key/value-pairs.
 * Keys are seperated from values with a colon.
 * Each key/value-pair must end with a semicolon.

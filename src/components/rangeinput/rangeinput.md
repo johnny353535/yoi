@@ -22,7 +22,7 @@ This is how a basic `.rangeInput` looks like and how you write the markup:
 
 ### Attributes
 
-The attribute `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
+The attribute `yoi-rangeinput` accepts parameters to control the behavior. The following options are available:
 
 | key    | description                                                                  |
 | ------ | ---------------------------------------------------------------------------- |

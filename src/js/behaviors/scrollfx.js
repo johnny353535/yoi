@@ -1,6 +1,6 @@
 /** scrollfx.js */
 
-YOI.behaviour.ScrollFx = (function() {
+YOI.behavior.ScrollFx = (function() {
 
     // private vars
     // ============

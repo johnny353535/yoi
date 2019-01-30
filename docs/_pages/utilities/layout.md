@@ -337,9 +337,9 @@ In the following example, we want the dark grey box (last item in markup) to ren
 To improve performance, Yoi sets any element with CSS transforms to 3D. This might apply to:
 
 * elements with [fx-utilities]({{ site.github.url }}/utilities/fx.html)
-* elements with [parallax effect]({{ site.github.url }}/behaviours/parallax.html)
-* elements with [scroll effects]({{ site.github.url }}/behaviours/scrollfx.html)
-* [sticky]({{ site.github.url }}/behaviours/sticky.html) elements
+* elements with [parallax effect]({{ site.github.url }}/behaviors/parallax.html)
+* elements with [scroll effects]({{ site.github.url }}/behaviors/scrollfx.html)
+* [sticky]({{ site.github.url }}/behaviors/sticky.html) elements
 
 | `.z-3d-1`  | 3d transform z at 1px  |
 | `.z-3d-2`  | 3d transform z at 2px  |

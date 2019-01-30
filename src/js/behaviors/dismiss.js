@@ -1,6 +1,6 @@
 /** dismiss.js */
 
-YOI.behaviour.Dismiss = (function() {
+YOI.behavior.Dismiss = (function() {
 
     // private vars
     // ============

@@ -1,8 +1,8 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: Dismiss
-permalink: behaviours/dismiss
+permalink: behaviors/dismiss
 ---
 
 # Dismiss
@@ -24,6 +24,6 @@ Add the attribute `yoi-dismiss` to your element:
 
 ## Events
 
-This behaviour fires the following events on each element it is applied to:
+This behavior fires the following events on each element it is applied to:
 
 | `yoi-dismiss` | Fires after the dismissable element disappeared. |

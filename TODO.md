@@ -33,7 +33,7 @@
 ## Improvements
 
 - [ ] add option to enable/disable behaviors depending on current breakpoint
-- [ ] add public destroy() method to each component and behaviour
+- [ ] add public destroy() method to each component and behavior
 
 ## Future Roadmap
 

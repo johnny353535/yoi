@@ -50,7 +50,7 @@ This is how a carefully styled text input with `yoi-maxchars` can look like and 
 
 ### Attributes
 
-The attribute `yoi-maxchars` accepts the following parameters to control the behaviour:
+The attribute `yoi-maxchars` accepts the following parameters to control the behavior:
 
 | key        | description                                                       |
 | ---------- | ----------------------------------------------------------------- |

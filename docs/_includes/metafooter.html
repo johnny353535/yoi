@@ -12,7 +12,7 @@
     {% if page.srcfiles %}
         <p>
             {% for file in page.srcfiles %}
-                {% if page.group == "actions" or page.group == "behaviours" %}
+                {% if page.group == "actions" or page.group == "behaviors" %}
                     <a href="{{ githubSrcUrl }}/js/{{ page.group }}/{{ file }}">{{ file }}</a>
                 {% elsif page.group == "components" %}
                     <a href="{{ githubSrcUrl }}/{{ page.permalink | downcase }}/{{ file }}">{{ file }}/</a>
@@ -24,7 +24,7 @@
         </p>
     {% else %}
         <p>
-            {% if page.group == "actions" or page.group == "behaviours" %}
+            {% if page.group == "actions" or page.group == "behaviors" %}
                 <a href="{{ githubSrcUrl }}/js/{{ page.permalink | downcase }}.js">{{ page.permalink | downcase }}.js</a>
             {% elsif page.group == "components" %}
                 <a href="{{ githubSrcUrl }}/{{ page.permalink | downcase }}/">{{ page.permalink | downcase }}/</a>

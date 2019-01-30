@@ -36,7 +36,7 @@ It’s also possible to leave out the link and point to the large image via the 
 
 ### Attributes
 
-The attribute `yoi-rangeinput` accepts parameters to control the behaviour. The following options are available:
+The attribute `yoi-rangeinput` accepts parameters to control the behavior. The following options are available:
 
 | key       | description                                                                                                           |
 | --------- | --------------------------------------------------------------------------------------------------------------------- |

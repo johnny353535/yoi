@@ -1,8 +1,8 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: Parallax
-permalink: behaviours/parallax
+permalink: behaviors/parallax
 srcfiles:
     - parallax.js
     - ../modules/scrollagent.js
@@ -24,7 +24,7 @@ Add the attribute `yoi-parallax` to an element:
 ## Parameters
 
 | `factor` | Affects the parallax scrolling speed. Use any positive or negative number. The default factor is `8`.                |
-| `not`    | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which parallax behaviour is disabled |
+| `not`    | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which parallax behavior is disabled |
 
 ### Factor
 
@@ -43,7 +43,7 @@ The parameter `factor` accepts any positive or negative number. You must write f
 
 ### Not
 
-Use the parameter `not` to define one or more breakpoints on which you wish to disable the parallax behaviour:
+Use the parameter `not` to define one or more breakpoints on which you wish to disable the parallax behavior:
 
 ```html
 <!-- example -->

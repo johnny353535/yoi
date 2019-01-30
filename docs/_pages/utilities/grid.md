@@ -88,7 +88,7 @@ Since flexbox is a rather complex layout concept, it’s best to learn it with v
 
 ### Responsive Flexbox
 
-You can add [breakpoint-prefixes]() to all utilities listetd above to control their behaviour according to the current breakpoint:
+You can add [breakpoint-prefixes]() to all utilities listetd above to control their behavior according to the current breakpoint:
 
 | `.only-s:flx-[*]` | `.flx-[*]` only at breakpoint `s`       |
 | `.m:flx-[*]`      | `.flx-[*]` at breakpoint `m` and larger |

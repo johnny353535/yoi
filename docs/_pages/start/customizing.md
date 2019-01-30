@@ -93,7 +93,7 @@ Use the variables in [typography.less](https://github.com/yoshino-digital/yoi/bl
 
 <p class="hint hint--negative">By default configuration, Yoi has a rather massive file size &mdash; more than 4mb. This is way to much for any website to reasonably perform. Make sure that you only pick the parts you need before you publish your project.</p>
 
-* Use the index files inside `/src/assets/js/` to chose the JavaScript files for [actions]({{ site.github.url }}/actions/), [behaviours]({{ site.github.url }}/behaviours/), [components]({{ site.github.url }}/components/) and *modules* for your project. By default, all scripts are included.
+* Use the index files inside `/src/assets/js/` to chose the JavaScript files for [actions]({{ site.github.url }}/actions/), [behaviors]({{ site.github.url }}/behaviors/), [components]({{ site.github.url }}/components/) and *modules* for your project. By default, all scripts are included.
 * Use `src/assets/less/yoi-components.less` and `src/assets/less/yoi-utilities.less` to pick the [components]({{ site.github.url }}//components) and [utilities]({{ site.github.url }}//utilities) for your project. By default, all components and utilities are included.
 * The [*publish* task](https://github.com/yoshino-digital/yoi-kit#publish) makes experimental use of [uncss](https://github.com/giakki/uncss) — a script that parses HTML files and removes all the CSS rules from the stylesheets that were not referenced. This may dramatically shrink the file size because it removes many unused utility classes (eg. for [spacing]({{ site.github.url }}/utilities/spacing.html) and [sizing]({{ site.github.url }}/utilities/sizing.html)).
 

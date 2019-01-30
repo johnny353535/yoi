@@ -1,8 +1,8 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: Sticky
-permalink: behaviours/sticky
+permalink: behaviors/sticky
 srcfiles:
     - sticky.js
     - ../modules/scrollagent.js
@@ -30,15 +30,15 @@ In the example above, `yoi-sticky="stop:300;"` makes the sticky element stick as
 
 <p class="hint hint--negative"><b>Invalid height:</b> If a sticky element is higher than the browser window, it will no stick!</p>
 
-<p class="hint hint--negative"><b>Invalid styling:</b> Elements with any CSS transformation (eg. <code>transform: translate()</code>) or top/bottom <a href="{{ site.github.url }}/utilities/layout.html#micro-positioning">micro-position utility classes</a> (eg. <code>.pos-t-2</code> or <code>.pos-b-4</code>) do not work with this behaviour. However, absolutely or relatively positioned elements are fine.</p>
+<p class="hint hint--negative"><b>Invalid styling:</b> Elements with any CSS transformation (eg. <code>transform: translate()</code>) or top/bottom <a href="{{ site.github.url }}/utilities/layout.html#micro-positioning">micro-position utility classes</a> (eg. <code>.pos-t-2</code> or <code>.pos-b-4</code>) do not work with this behavior. However, absolutely or relatively positioned elements are fine.</p>
 
 ## Parameters
 
 | `reference`      | `CSS selector` or the keyword `”parent“` - defines a reference element on the page                                                           |
 | `start`          | `number` - the *offset* before a sticky element actually *sticks*, the default offset is `0`                                                 |
 | `stop`           | `number` - the *offset* after a sticky element no longer *sticks*                                                                            |
-| `includePadding` | `string` - `true` (default) or `false`, defines weather to include padding of a parent reference element ([learn more](behaviours/sticky.html#the-keyword-parent)) |
-| `not`            | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behaviour is disabled                           |
+| `includePadding` | `string` - `true` (default) or `false`, defines weather to include padding of a parent reference element ([learn more](behaviors/sticky.html#the-keyword-parent)) |
+| `not`            | `string` or a comma-seperated list of strings - the breakpoints/screen-sizes on which sticky behavior is disabled                           |
 
 ### Reference
 
@@ -96,7 +96,7 @@ If you wish to exclude the parent element’s padding, add the key/value `includ
 
 ### Start & Stop
 
-If you don’t define values for the parameters `start` and `stop`, the sticky element will start to stick as soon as it reaches the upper viewport border. It will stick as long as the page can be scrolled. Provide values for the `start` and `stop` parameters to control this behaviour.
+If you don’t define values for the parameters `start` and `stop`, the sticky element will start to stick as soon as it reaches the upper viewport border. It will stick as long as the page can be scrolled. Provide values for the `start` and `stop` parameters to control this behavior.
 
 The element in the following example starts to stick at 30px distance and sticks for 100px:
 
@@ -131,7 +131,7 @@ The default value for `start` is `0`. The default value for `stop` is the `<body
 
 ### Not
 
-Use the parameter `not` to define one or more breakpoints on which you wish to disable the sticky behaviour:
+Use the parameter `not` to define one or more breakpoints on which you wish to disable the sticky behavior:
 
 ```html
 <!-- example -->
@@ -152,7 +152,7 @@ Use the parameter `not` to define one or more breakpoints on which you wish to d
 
 ## Events
 
-This behaviour fires the following events on each element it is applied to:
+This behavior fires the following events on each element it is applied to:
 
 | Event             | Fires …                                   |
 | ----------------- | ----------------------------------------- |

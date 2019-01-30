@@ -31,7 +31,7 @@ In addition to rather simple and static elements, Yoi also features more complex
 
 ### Behaviours
 
-Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. Yoi has many useful [Behaviours]({{ site.github.url }}/behaviours/) already built in. You can apply and configure them on any element in you HTML via Yoi’s _attributes_ syntax.
+Sometimes you wish to fade-in an element on the page as soon as it entered the viewport or make another element stick to the top edge of the screen once you scrolled past it. Yoi has many useful [Behaviours]({{ site.github.url }}/behaviors/) already built in. You can apply and configure them on any element in you HTML via Yoi’s _attributes_ syntax.
 
 ### Actions
 

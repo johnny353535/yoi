@@ -91,7 +91,7 @@ The default event for the trigger to show the pop-over is `mouseover`. Use this 
 
 ### preventDefaultClick
 
-By default, the trigger element’s default click-event (eg. if you use `<a href="...">`) won’t fire. To override this behaviour, set this parameter to `false`.
+By default, the trigger element’s default click-event (eg. if you use `<a href="...">`) won’t fire. To override this behavior, set this parameter to `false`.
 
 ## Custom Events
 

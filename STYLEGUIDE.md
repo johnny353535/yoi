@@ -9,7 +9,7 @@
 - Write in second person and address the reader directly.
 - Use imperative language, eg.: *use this component to achieve x*.
 - Put conditional clauses before instructions, not after.
-- Always link proprietary terms (eg. *behaviour*) to the glossary page.
+- Always link proprietary terms (eg. *behavior*) to the glossary page.
 - Be consistent with the (technical) terms you use.
 - Start each page with a precise headline, followed by a brief summary/introduction paragraph.
 

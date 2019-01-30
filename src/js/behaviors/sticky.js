@@ -1,6 +1,6 @@
 /** sticky.js */
 
-YOI.behaviour.Sticky = (function() {
+YOI.behavior.Sticky = (function() {
 
     // private vars
     // ============
@@ -40,7 +40,7 @@ YOI.behaviour.Sticky = (function() {
          *                                    is "true".
          *  @option {string} not            - A single string or a comma-seperated list of strings. Valid values
          *                                    are "small", "medium", "large" and "xlarge". This options tells
-         *                                    the sticky element to disable it's sticky behaviour on the given
+         *                                    the sticky element to disable it's sticky behavior on the given
          *                                    breakpoints (eg. not:small,medium; = element won't stick on "small"
          *                                    and "medium" breakpoint).
          */
@@ -428,7 +428,7 @@ YOI.behaviour.Sticky = (function() {
     function destroy() {
 
         /**
-         *  Disable all sticky behaviour and reset all changes to
+         *  Disable all sticky behavior and reset all changes to
          *  the document or element stylings, remove all related event listeners.
          */
 

@@ -1,8 +1,8 @@
 ---
 layout: base
-group: behaviours
+group: behaviors
 title: ScrollFx
-permalink: behaviours/scrollfx
+permalink: behaviors/scrollfx
 srcfiles:
     - scrollfx.js
     - ../modules/scrollagent.js
