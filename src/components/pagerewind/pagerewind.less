@@ -5,11 +5,12 @@
 
 .pageRewind {
 
-    .mixin-shadow-3;
-    background: @color-base-24;
-    border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
-    border: @color-base-22 1px solid;
+    .mixin-shadow-4;
+    .mixin-userSelectNone;
+    background: @color-white;
+    border: @color-base-23 1px solid;
     border-bottom: 0;
+    border-radius: (@defaultBorderRadius * 1px) (@defaultBorderRadius * 1px) 0 0;
     bottom: -.5rem;
     box-sizing: border-box;
     color: @color-base-15;
@@ -24,7 +25,9 @@
     z-index: 101;
 
     &:hover {
-        background: @color-base-25;
+        background-color: @color-base-25;
+        transition-duration: 150ms;
+        bottom: 0;
     }
 
     // icon

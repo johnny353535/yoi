@@ -1,4 +1,4 @@
-/** scrollprogress.js */
+/** pageprogress.js */
 
 YOI.component.ScrollProgress = (function() {
 
@@ -9,12 +9,12 @@ YOI.component.ScrollProgress = (function() {
     var $document           = $(document)
     var $body               = $('body');
     var initialized         = false;
-    var $scrollProgressBar;
+    var $pageProgressBar;
     var documentHeight;
     var windowHeight;
     var totalScroll;
     var scrollPosition;
-    var scrollProgress;
+    var pageProgress;
     var visibleScrollProgress;
 
     // private functions
@@ -26,13 +26,13 @@ YOI.component.ScrollProgress = (function() {
         *  Initialize the script.
         */
 
-        var enableScrollProgress = $body.is('[yoi-scrollprogress]');
+        var enableScrollProgress = $body.is('[yoi-pageprogress]');
 
         if (enableScrollProgress && !initialized) {
 
             // get options
 
-            var options           = YOI.toObject($body.attr('yoi-scrollprogress'));
+            var options           = YOI.toObject($body.attr('yoi-pageprogress'));
             visibleScrollProgress = YOI.toBoolean(options.visible);
 
             if (visibleScrollProgress) {
@@ -40,14 +40,14 @@ YOI.component.ScrollProgress = (function() {
                 // create, append and reference the
                 // scroll progress bar
 
-                $scrollProgressBar = $('\
-                    <div class="scrollProgress">\
-                        <div class="scrollProgress__track"></div>\
+                $pageProgressBar = $('\
+                    <div class="pageProgress">\
+                        <div class="pageProgress__track"></div>\
                     </div>\
                 ');
 
-                $body.append($scrollProgressBar);
-                $scrollProgressBar = $('.scrollProgress__track').first();
+                $body.append($pageProgressBar);
+                $pageProgressBar = $('.pageProgress__track').first();
 
             }
 
@@ -76,27 +76,27 @@ YOI.component.ScrollProgress = (function() {
         windowHeight   = $window.height();
         totalScroll    = documentHeight - windowHeight;
         scrollPosition = $('body').scrollTop();
-        scrollProgress = scrollPosition / (totalScroll / 100);
+        pageProgress = scrollPosition / (totalScroll / 100);
 
         // handle edge cases
 
-        if (scrollProgress > 100 && windowHeight > documentHeight) {
-            scrollProgress = 100;
-        } else if (scrollProgress < 0) {
-            scrollProgress = 0;
+        if (pageProgress > 100 && windowHeight > documentHeight) {
+            pageProgress = 100;
+        } else if (pageProgress < 0) {
+            pageProgress = 0;
         }
 
         // update the track width
 
-        if (visibleScrollProgress) $scrollProgressBar.css('width', scrollProgress + '%');
+        if (visibleScrollProgress) $pageProgressBar.css('width', pageProgress + '%');
 
         // fire custom events
 
-        if (scrollProgress === 0)                        $window.trigger('yoi-scroll-0');
-        if (scrollProgress > 24 && scrollProgress < 30)  $window.trigger('yoi-scroll-25');
-        if (scrollProgress > 49 && scrollProgress < 55)  $window.trigger('yoi-scroll-50');
-        if (scrollProgress > 74 && scrollProgress < 80)  $window.trigger('yoi-scroll-75');
-        if (scrollProgress > 99)                         $window.trigger('yoi-scroll-100');
+        if (pageProgress === 0)                        $window.trigger('yoi-scroll-0');
+        if (pageProgress > 24 && pageProgress < 30)  $window.trigger('yoi-scroll-25');
+        if (pageProgress > 49 && pageProgress < 55)  $window.trigger('yoi-scroll-50');
+        if (pageProgress > 74 && pageProgress < 80)  $window.trigger('yoi-scroll-75');
+        if (pageProgress > 99)                         $window.trigger('yoi-scroll-100');
 
     }
 

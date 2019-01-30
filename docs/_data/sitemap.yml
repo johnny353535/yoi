@@ -59,15 +59,15 @@ components:
     - note
     - pagebuttons
     - pagedots
+    - pageprogress
     - pagerewind
+    - pageskim
     - pagination
     - popover
     - quotation
     - radiobutton
     - rangeinput
     - ruler
-    - scrollkeys
-    - scrollprogress
     - searchinput
     - select
     - slider

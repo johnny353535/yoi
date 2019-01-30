@@ -1,6 +1,6 @@
 /** scrollkeys.js */
 
-YOI.component.ScrollKeys = (function() {
+YOI.component.PageSkim = (function() {
 
     // private vars
     // ============
@@ -35,16 +35,14 @@ YOI.component.ScrollKeys = (function() {
 
     // buttons
 
-    var $scrollButtons = $('\
-        <div id="scrollButtons" class="buttons buttons--vertical sh-4 m-4">\
-            <button class="button button--large">\
+    var $pageSkim = $('\
+        <div id="pageSkim" class="pageSkim">\
+            <a class="pageSkim__btnPrev">\
                 <span class="hidden">' + localization[language].prev + '</span>\
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="18 15 12 9 6 15"></polyline></svg>\
-            </button>\
-            <button class="button button--large">\
+            </a>\
+            <a class="pageSkim__btnNext">\
                 <span class="hidden">' + localization[language].next + '</span>\
-                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="6 9 12 15 18 9"></polyline></svg>\
-            </button>\
+            </a>\
         </div>\
     ');
 
@@ -57,11 +55,11 @@ YOI.component.ScrollKeys = (function() {
         *  Initialize the script.
         */
 
-        var enableScrollKeys = $body.is('[yoi-scrollkeys]');
+        var enablePageSkim = $body.is('[yoi-pageskim]');
 
-        if (enableScrollKeys && !initialized) {
+        if (enablePageSkim && !initialized) {
 
-            var options  = YOI.toObject($body.attr('yoi-scrollkeys'));
+            var options  = YOI.toObject($body.attr('yoi-pageskim'));
             var position = options.position || 'br';
             offset       = options.offset || offset;
             $hooks       = $(options.hooks).length ? $(options.hooks) : $hooks;
@@ -77,8 +75,8 @@ YOI.component.ScrollKeys = (function() {
 
             // inject the buttons & add position
 
-            $scrollButtons.addClass('pos-fixed-' + position);
-            $body.append($scrollButtons);
+            $pageSkim.addClass('pos-fixed-' + position);
+            $body.append($pageSkim);
 
             // init the icons
 
@@ -86,12 +84,12 @@ YOI.component.ScrollKeys = (function() {
 
             // add events to scroll buttons
 
-            $('#scrollButtons').find('.button').eq(0).on('click', function(e) {
+            $('#pageSkim').find('.pageSkim__btnPrev').on('click', function(e) {
                 e.preventDefault();
                 scrollToHook('prev');
             });
 
-            $('#scrollButtons').find('.button').eq(1).on('click', function(e) {
+            $('#pageSkim').find('.pageSkim__btnNext').on('click', function(e) {
                 e.preventDefault();
                 scrollToHook('next');
             });
@@ -127,7 +125,7 @@ YOI.component.ScrollKeys = (function() {
                 scrollTop : $hooks.eq(currentHook).offset().top - offset
             }, scrollSpeed)
         ).done(function(){
-            $document.trigger('yoi-scrollKeys-' + direction);
+            $document.trigger('yoi-pageskim-' + direction);
         });
 
     }
@@ -135,18 +133,30 @@ YOI.component.ScrollKeys = (function() {
     function addKeyboardEvents() {
 
         /**
-         *  Adds keyboard events.
+         *  Add keyboard events.
          */
 
         if (YOI.foundModule('KeyboardAgent') && !keyboardEventsAdded) {
+
+            // disable default behaviour of
+            // space and arrow keys
+
+            $document.on('keydown', function(e) {
+                if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+                    e.preventDefault();
+                }
+            });
+
+            // space and arrow keys
+
             $document
-                .on('yoi-keypressed-arrowleft', function() {
+                .on('yoi-keypressed-arrowup yoi-keypressed-arrowleft', function() {
                     if (YOI.noFocus()) {
                         scrollToHook('prev');
                         highlightButton('prev');
                     }
                 })
-                .on('yoi-keypressed-arrowright', function() {
+                .on('yoi-keypressed-arrowdown yoi-keypressed-arrowright yoi-keypressed-space', function() {
                     if (YOI.noFocus()) {
                         scrollToHook('next');
                         highlightButton('next');
@@ -154,9 +164,9 @@ YOI.component.ScrollKeys = (function() {
                 })
                 .on('yoi-focus-change', function() {
                     if (YOI.noFocus()) {
-                        $scrollButtons.stop().fadeIn();
+                        $pageSkim.stop().fadeIn();
                     } else {
-                        $scrollButtons.stop().fadeOut();
+                        $pageSkim.stop().fadeOut();
                     }
                 });
         }
@@ -181,12 +191,10 @@ YOI.component.ScrollKeys = (function() {
 
         // proceed
 
-        var buttonIndex;
+        var $button;
 
-        if (direction === 'prev') buttonIndex = 0;
-        if (direction === 'next') buttonIndex = 1;
-
-        var $button = $('#scrollButtons').find('.button').eq(buttonIndex);
+        if (direction === 'prev') $button = $('#pageSkim').find('.pageSkim__btnPrev');
+        if (direction === 'next') $button = $('#pageSkim').find('.pageSkim__btnNext');
 
         $button.addClass('is--active');
 

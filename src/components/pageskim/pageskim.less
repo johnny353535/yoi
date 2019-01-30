@@ -1,0 +1,50 @@
+/** pageskim.less */
+
+// block
+// =====
+
+.pageSkim {
+    .mixin-defaultBorderRadius;
+    .mixin-shadow-4;
+    .mixin-userSelectNone;
+    border: @color-base-23 1px solid;
+    height: 5rem;
+    margin: 2.5rem;
+    width: 2.5rem;
+}
+
+// elements
+// ========
+
+.pageSkim__btnPrev,
+.pageSkim__btnNext {
+
+    .mixin-userSelectNone;
+    background-color: fade(@color-base-10,10%);
+    box-sizing: border-box;
+    display: block;
+    font-family: @font-sansserif;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @color-base-25;
+    }
+
+}
+
+.pageSkim__btnPrev {
+    .mixin-icon-chevron-up(@size: 32, @color: @color-base-8);
+}
+
+.pageSkim__btnNext {
+    .mixin-icon-chevron-down(@size: 32, @color: @color-base-8);
+}
+
+// modifiers
+// =========
+
+.pageSkim .is--active {
+    background-color: @color-base-24;
+}

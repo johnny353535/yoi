@@ -1,20 +1,20 @@
 ---
 layout: base
 group: components
-title: ScrollKeys
-permalink: components/scrollkeys
+title: PageSkim
+permalink: components/pageskim
 ---
 
-# ScrollKeys
+# PageSkim
 
 <p class="intro">Buttons (with keyboard bindings) to scroll the page back and forth between <i>jump marks</i>.</p>
 
 ## Usage
 
-Add `.scrollKeys` to any page by adding the attribute `yoi-scrollkeys` to the `<body>` element:
+Add the attribute `yoi-scrollkeys` to the `<body>` element to enable page skim:
 
 ```html
-<body yoi-scrollkeys> … </body>
+<body yoi-pageskim> … </body>
 ```
 
 Scroll to see the element in action on this page.
