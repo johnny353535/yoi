@@ -3,7 +3,6 @@ layout: base
 group: start
 title: Setup
 permalink: start/setup
-status: draft
 ---
 
 # Setup

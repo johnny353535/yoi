@@ -3,12 +3,12 @@ layout: base
 group: components
 title: Vertical Menu
 permalink: components/verticalmenu
-status: draft
+status: complete
 ---
 
 # Vertical Menu
 
-<p class="intro">A simple vertical menu with up to three levels of sub menus and optional pointers on the right or left side.</p>
+<p class="intro">A simple vertical menu with up to who levels of submenus.</p>
 
 ## Basic Example
 
@@ -30,11 +30,10 @@ This is how a basic `.verticalMenu` looks like and how you write the markup:
 </ul>
 ```
 
-## Sub Menus
+## Submenus
 
-A `.verticalMenu` instance may have up to three levels of nested sub verticalMenus. See the folowing example.
+A `.verticalMenu` instance may have up to two levels of submenus:
 
-<p class="hint hint--primary"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
 
 ```html
 <!-- example -->
@@ -128,11 +127,13 @@ A `.verticalMenu` instance may have up to three levels of nested sub verticalMen
 </ul>
 ```
 
+<p class="hint hint--primary"><b>Limited Nesting</b> In order to not break the layout, please make sure you only nest up to three levels deep, like in the following example.</p>
+
 ## Modifiers
 
 ### Active Menu Item
 
-Add the modifier `is--active` to the active `<li class="verticalMenu__item">`:
+Add the modifier `is--active` to mark an active menu item:
 
 ```html
 <!-- example -->

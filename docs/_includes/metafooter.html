@@ -35,7 +35,20 @@
     {% endif %}
 {% endif %}
 <div class="b-t m-t-8 p-t-4 al-r">
-    <a class="button button--small button--subtle" href="https://github.com/yoshino-digital/yoi/edit/master/docs/_pages/{{ page.permalink }}{% if page.title == "Introduction" %}index{% endif %}.md">
+    {% if page.status %}
+        {% for status in page.status %}
+            {% if status == 'complete' %}
+                <span class="badge badge--small badge--positive val-t">{{ status }}</span>
+            {% endif %}
+            {% if status == 'issues' %}
+                <span class="badge badge--small badge--negative val-t">{{ status }}</span>
+            {% endif %}
+            {% if status == 'incomplete' %}
+                <span class="badge badge--small val-t">{{ status }}</span>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <a class="button button--small button--subtle val-t" href="https://github.com/yoshino-digital/yoi/edit/master/docs/_pages/{{ page.permalink }}{% if page.title == "Introduction" %}index{% endif %}.md">
         <span>Edit this page</span>
     </a>
 </div>
