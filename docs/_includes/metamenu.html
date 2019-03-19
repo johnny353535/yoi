@@ -6,9 +6,6 @@
     </p>
     <p class="flx-grow al-r fs-0">
         {% if page.title == 'Index' %}
-            <a href="{{ site.github.url }}/start/" class="button button--small button--subtle m-l-2">Documentation</a>
-            <a href="https://github.com/yoshino-digital/yoi" class="button button--small button--subtle m-l-2">Github</a>
-            {% comment %}{{ site.github.zip_url }}{% endcomment %}
         {% else %}
             {% if jekyll.environment == "production" %}
                 <form class="pos-relative">
@@ -22,3 +19,4 @@
         {% endif %}
     </p>
 </div>
+

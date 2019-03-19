@@ -31,11 +31,11 @@ srcfiles:
 
 ### Interactive Box Shadow
 
-Add the prefix `hvr--` to each box-shadow utility to apply the styling on *mouseover*:
+Add the prefix `hvr:` to each box-shadow utility to apply the styling on *mouseover*:
 
 ```html
 <!-- example -->
-<div class="box p-5 hvr--sh-4">mouseover for example</div>
+<div class="box p-5 hvr:sh-4">mouseover for example</div>
 ```
 
 ## Text Shadow

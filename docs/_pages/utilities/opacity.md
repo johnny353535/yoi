@@ -28,9 +28,9 @@ srcfiles:
 
 ## Interactive Opacity
 
-Add the prefix `hvr--` to each opacity utility to apply the styling on *mouseover*:
+Add the prefix `hvr:` to each opacity utility to apply the styling on *mouseover*:
 
 ```html
 <!-- example -->
-<div class="box p-5 hvr--op-5">mouseover for example</div>
+<div class="box p-5 hvr:op-5">mouseover for example</div>
 ```

@@ -61,7 +61,7 @@ Sticky takes the first matching element on the page and references it’s height
         </div>
     </div>
     <div class="w-1-3">
-        <div class="bg-base-24 br-all h-40 w-10 p-1" id="referenceElement-1"></div>
+        <div class="bg-base-24 br-all w-10 p-1" style="height:400px;" id="referenceElement-1"></div>
     </div>
 </div>
 ```
@@ -76,7 +76,7 @@ Notice how the parent element’s padding is included into the calculation:
 
 ```html
 <!-- example -->
-<div class="br-all bg-base-24 h-30 p-4">
+<div class="br-all bg-base-24 p-4" style="height:400px;">
     <div yoi-sticky="reference:parent;">
         <div class="w-6 h-6 bg-primary-15 br-all"></div>
     </div>
@@ -87,7 +87,7 @@ If you wish to exclude the parent element’s padding, add the key/value `includ
 
 ```html
 <!-- example -->
-<div class="br-all bg-base-24 h-30 p-4">
+<div class="br-all bg-base-24 p-4" style="height:400px;">
     <div yoi-sticky="reference:parent;includePadding:false;">
         <div class="w-6 h-6 bg-primary-15 br-all"></div>
     </div>

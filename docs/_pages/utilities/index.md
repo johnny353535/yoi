@@ -88,9 +88,9 @@ Use utilities to create new elements. The element in the following example uses 
 
 ```html
 <!-- example -->
-<div class="bg-base-25 br-all w-20 h-30 tdr-none p-b-10 m-2 c-primary-14 sh-3 ofl-hidden hvr--bg-white hvr--c-primary-10 hvr--sh-4 tween" href="#">
-    <img class="d-block" src="https://source.unsplash.com/-rWjydNhATw/200x165">
-    <div class="p-3">
+<div class="bg-white br-all m:w-1-2 tdr-none m-2 c-primary-10 sh-2 ofl-hidden hvr:sh-4 trn" href="#">
+    <img class="d-block w-1-1" src="https://source.unsplash.com/-rWjydNhATw/600x300">
+    <div class="p-3 p-lr-4">
         <h4 class="m-b-1">Running Like a Pro</h4>
         <p class="fs-2 lh-3">These 10 secret tricks will turn you into a successful runner.</p>
     </div>
@@ -101,7 +101,7 @@ Use utilities to create new elements. The element in the following example uses 
 
 Some utilities feature *interactive* utilities as listed on each individual documentation page.
 
-| `.hvr--[utility]` | apply the utility’s styling on *mouseover* |
+| `.hvr:[utility]` | apply the utility’s styling on *mouseover* |
 
 ## Responsive Utilities (breakpoint-prefixes)
 

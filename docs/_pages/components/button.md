@@ -275,5 +275,5 @@ Use [utilities]({{ site.github.url }}/utilities/) to override button styles and 
 <!-- example -->
 <button class="button button--rounded br-tl-0 m-r-2">Straight Top Left Corner</button>
 <button class="button c-red-15 m-r-2">Red Text Color</button>
-<button class="button hvr--c-blue-13 m-r-2">Blue Text Color On Hover</button>
+<button class="button hvr:c-blue-13 m-r-2">Blue Text Color On Hover</button>
 ```

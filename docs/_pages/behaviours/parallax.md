@@ -58,7 +58,7 @@ Wrap a parallax element (eg. an image) inside a container element with hidden ov
 
 ```html
 <!-- example -->
-<div class="box ofl-hidden h-40">
+<div class="box ofl-hidden" style="height:450px">
     <img src="https://source.unsplash.com/WLUHO9A_xik/700x700" yoi-parallax="factor:4;" />
 </div>
 ```

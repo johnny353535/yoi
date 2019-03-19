@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "The Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize-css": "^2.3.1"
+  },
   "devDependencies": {
     "autoprefixer": "^9.4.4",
-    "bower": "^1.8.4",
     "chokidar-cli": "^1.2.1",
     "cssnano": "^4.1.8",
     "less": "^3.9.0",
@@ -13,7 +16,7 @@
     "uglify-js": "^3.4.9"
   },
   "scripts": {
-    "postinstall": "npm run install-jekyll && npm run install-gems && bower update",
+    "postinstall": "npm run install-jekyll && npm run install-gems",
     "install-jekyll": "gem install --user-install --bindir ~/bin --no-document --pre --verbose jekyll",
     "install-gems": "cd docs && gem install bundler && bundle install",
     "build": "npm run clean && npm run build-scripts && npm run build-styles && npm run copy && npm run build-jekyll",
@@ -29,7 +32,7 @@
     "copy": "npm run copy-favicon && npm run copy-images && npm run copy-scripts && npm run copy-styles",
     "copy-favicon": "rsync -av --exclude='readme.md' src/favicon/* docs/",
     "copy-images": "cp src/img/* dist/img && cp dist/img/* docs/assets/img",
-    "copy-scripts": "cp dist/js/* docs/assets/js && cp bower_components/jquery/dist/jquery.min.js docs/assets/js",
+    "copy-scripts": "cp dist/js/* docs/assets/js && cp node_modules/jquery/dist/jquery.min.js docs/assets/js",
     "copy-styles": "cp dist/css/* docs/assets/css",
     "copy-docs": "cp src/components/**/*.md docs/_pages/components",
     "publish": "npm run clean && npm run publish-scripts && npm run publish-styles && npm run copy && npm run publish-jekyll",

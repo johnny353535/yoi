@@ -163,9 +163,9 @@ By default, each color has 25 shades, ranging from 1 (darkest) to 25 (lightest):
 
 ## Interactive Color
 
-Add the prefix `hvr--` to each color utility to apply the styling on *mouseover*:
+Add the prefix `hvr:` to each color utility to apply the styling on *mouseover*:
 
 ```html
 <!-- example -->
-<div class="box p-5 hvr--bg-purple-25 hvr--bc-purple-24 hvr--c-purple-13">mouseover for example</div>
+<div class="box p-5 hvr:bg-purple-25 hvr:bc-purple-24 hvr:c-purple-13">mouseover for example</div>
 ```

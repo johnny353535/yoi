@@ -28,8 +28,8 @@ You can use this utility to improve legibility on text overlays. The following e
 
 ```html
 <!-- example -->
-<div class="br-all w-20 tdr-none m-2 pos-relative grd-b sh-4 ofl-hidden" href="#">
-    <img class="d-block" src="https://source.unsplash.com/J1PYZQ07y0o/200x200" />
-    <h3 class="p-3 pos-bl w-1-1 z-2 c-white">A Bridge, Fog and Water</h3>
+<div class="br-all tdr-none m-2 pos-relative grd-b sh-4 ofl-hidden" href="#">
+    <img class="d-block" src="https://source.unsplash.com/9Z1KRIfpBTM/900x200" />
+    <h3 class="p-3 pos-bl w-1-1 z-2 c-white">A nice picture of a plant</h3>
 </div>
 ```

@@ -56,7 +56,7 @@ You can chose from eleven font size steps where `.fs-0` is zero and `.fs-10` is 
 ```html
 <!-- example -->
 <p class="fs-s m-b-2">Abc</p>
-<p class="fs-xl m-b-2">Abc</p>
+<p class="fs-xl m-b-6">Abc</p>
 <p class="fs-xxl">Abc</p>
 ````
 
@@ -217,13 +217,13 @@ Use this utility to control weather a block of text breaks at the end of it’s 
 
 ### Interactive Text Decoration
 
-| `hvr--none` | no text decoration on *mouseover* |
-| `hvr--none` | underlined text on *mouseover*    |
+| `hvr:tdr-none`      | no text decoration on *mouseover* |
+| `hvr:tdr-underline` | underlined text on *mouseover*    |
 
 ```html
 <!-- example -->
-<p class="hvr--tdr-none m-b-2">no text decoration on <i>mouseover</i></p>
-<p class="hvr--tdr-underline">underlined text on <i>mouseover</i></p>
+<p class="hvr:tdr-none m-b-2"><a href="#" class="tdr-none">no text decoration on <i>mouseover</i></p>
+<p class="hvr:tdr-underline">underlined text on <i>mouseover</i></p>
 ```
 
 ## List Style

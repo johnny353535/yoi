@@ -43,11 +43,11 @@ src
 | `@rootFontSize`             | 10px                | Yoi sets all font sizes in *rem*. Example: 1.5rem = 1.5 &times; `@rootFontSize` (eg. 10px) = 15px                                                                     |
 | `@maximumPageWrapperWidth`  | 100rem              | The maximum width of the `.wrapper` [layout utility]({{ site.github.url }}/utilities/layout.html#wrapper-and-cover).                                                       |
 | `@defaultBorderRadius`      | 2                   | The default border-radius for all components. Multiplicand: 1px. Example: 2 produces a border-radius of 2px.                                                          |
-| `@sizingSteps`              | 60                  | Number of steps for [width & height utility classes]({{ site.github.url }}/utilities/sizing.html). Example: 60 produces 60 fixed width & height utilities.                 |
-| `@responsiveSizingSteps`    | 60                  | Nuber of steps for responsive [width & height utility classes]({{ site.github.url }}/utilities/sizing.html). See above.                                                    |
+| `@sizingSteps`              | 10                  | Number of steps for [width & height utility classes]({{ site.github.url }}/utilities/sizing.html). Example: 10 produces 10 fixed width & height utilities.                 |
+| `@responsiveSizingSteps`    | 10                  | Nuber of steps for responsive [width & height utility classes]({{ site.github.url }}/utilities/sizing.html). See above.                                                    |
 | `@sizingMultiplicand`       | 1rem                | Multiplicand for width & height utility classes. Example for 1rem: `.w-10` = 10 &times; `@sizingMultiplicand` (eg. 1rem) = fixed width of 10rem.                      |
-| `@spacingSteps`             | 60                  | Number of steps for [margin & padding utility classes]({{ site.github.url }}/utilities/spacing.html). Example: 60 produces 60 margin & padding utilities.                  |
-| `@responsiveSpacingSteps`   | 60                  | Number of steps for responsive [margin & padding utility classes]({{ site.github.url }}/utilities/spacing.html). See above.                                                |
+| `@spacingSteps`             | 10                  | Number of steps for [margin & padding utility classes]({{ site.github.url }}/utilities/spacing.html). Example: 10 produces 10 margin & padding utilities.                  |
+| `@responsiveSpacingSteps`   | 10                  | Number of steps for responsive [margin & padding utility classes]({{ site.github.url }}/utilities/spacing.html). See above.                                                |
 | `@spacingMultiplicand`      | 0.5rem              | Multiplicand for margin & padding utility classes. Example for 0.5rem: `.p-3` = 3 &times; `@spacingMultiplicand` = produces 1.5rem padding.                           |
 | `@positionSteps`            | 10                  | Number of steps for [*micro-positioning* utility classes]({{ site.github.url }}/utilities/layout.html#micro-positioning), multiplicand: 1px.                               |
 | `@responsivePositionSteps`  | 10                  | Number of steps for [responsive *micro-positioning* utility classes]({{ site.github.url }}/utilities/layout.html#responsive-micro-positioning), multiplicand: 1px.         |
@@ -64,6 +64,7 @@ src
 | `@textColor`           | `@color-base-8`                | Global text color                                      |
 | `@focusColor`          | `@color-blue-22`               | Highlight color for active elements (eg. a text input) |
 | `@selectionColor`      | `fade(@color-primary-25, 50%)` | Highlight color for selected text                      |
+| `@linkColor'           | `@color-primary-12`            | Link color                                             |
 
 #### Color Palette
 
@@ -80,7 +81,7 @@ Yoi comes with a set of media queries to target different screen sizes. In [brea
 | Variable          | Default value |
 | ----------------- | ------------- |
 | `@bp-m-minwidth`  | 650px         |
-| `@bp-l-minwidth`  | 960px         |
+| `@bp-l-minwidth`  | 910px         |
 | `@bp-xl-minwidth` | 1220px        |
 
 Take a look at the comments in [breakpoints.less](https://github.com/yoshino-digital/yoi/blob/master/src/less/config/breakpoints.less) for more detailed information.
