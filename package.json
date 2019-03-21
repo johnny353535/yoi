@@ -2,7 +2,7 @@
   "name": "yoshino-yoi",
   "version": "1.0.0",
   "description": "The Yoshino frontend component library.",
-  "author": "yoshino.digital dev team",
+  "author": "reimar servas",
   "dependencies": {
     "jquery": "^3.3.1",
     "normalize-css": "^2.3.1"
