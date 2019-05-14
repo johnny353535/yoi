@@ -34,9 +34,16 @@ pre code {
 // code example
 
 .code__example {
-    .mixin-defaultBorderRadius;
     background: @color-white;
-    border: @color-gray-23 1px solid;
+    border-bottom: @color-gray-23 1px solid;
+    border-top: @color-gray-23 1px solid;
+    margin: 0 -2rem;
+
+    @media @bp-m {
+        .mixin-defaultBorderRadius;
+        border: @color-gray-23 1px solid;
+        margin: 0;
+    }
 }
 
 .code__example pre code {
