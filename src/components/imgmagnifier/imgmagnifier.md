@@ -49,8 +49,8 @@ I you wish to create an `.imgMagnifier` without the link, you need to provide th
 
 ```html
 <!-- example -->
-<div class="imgMagnifier" yoi-imgmagnifier="zoomImage:'https://source.unsplash.com/bnYXiSr-Dss/2000x2000';">
-    <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/bnYXiSr-Dss/300x300" alt="" />
+<div class="imgMagnifier" yoi-imgmagnifier="zoomImage:'https://source.unsplash.com/6BPd7r3erSk/2000x2000';">
+    <img class="imgMagnifier__previewImage" src="https://source.unsplash.com/6BPd7r3erSk/300x300" alt="" />
 </div>
 ```
 
