@@ -80,7 +80,7 @@ Use one of the modifiers `.pageButtons--tl, .pageButtons--tr, .pageButtons--br, 
 
 ```html
 <!-- example:tabs -->
-<div class="box h-15 m-b-2">
+<div class="box h-10 m-b-2">
     <div class="pageButtons pageButtons--tl">
         <button class="pageButtons__buttonPrev">
             <span class="hidden">Previous</span>
@@ -94,7 +94,7 @@ Use one of the modifiers `.pageButtons--tl, .pageButtons--tr, .pageButtons--br, 
     </div>
 </div>
 
-<div class="box h-15 m-b-2">
+<div class="box h-10 m-b-2">
     <div class="pageButtons pageButtons--tr">
         <button class="pageButtons__buttonPrev">
             <span class="hidden">Previous</span>
@@ -108,7 +108,7 @@ Use one of the modifiers `.pageButtons--tl, .pageButtons--tr, .pageButtons--br, 
     </div>
 </div>
 
-<div class="box h-15 m-b-2">
+<div class="box h-10 m-b-2">
     <div class="pageButtons pageButtons--br">
         <button class="pageButtons__buttonPrev">
             <span class="hidden">Previous</span>
@@ -122,7 +122,7 @@ Use one of the modifiers `.pageButtons--tl, .pageButtons--tr, .pageButtons--br, 
     </div>
 </div>
 
-<div class="box h-15 m-b-2">
+<div class="box h-10 m-b-2">
     <div class="pageButtons pageButtons--bl">
         <button class="pageButtons__buttonPrev">
             <span class="hidden">Previous</span>
