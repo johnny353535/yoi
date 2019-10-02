@@ -1,25 +1,15 @@
 /** icon.less */
 
-// TODO:
-// * use inline svg for icons
-// * add mixins for all icons
-// * manipulate them with variables
-// https://stackoverflow.com/questions/10768451/inline-svg-in-css
-
 // block
 // =====
 
 .icon {
-
     display: inline-block;
-    width: 2rem;
+    fill: none;
     height: 2rem;
-
-    svg {
-        width: 2rem;
-        height: 2rem;
-    }
-
+    stroke-width: 2px;
+    stroke: currentColor;
+    width: 2rem;
 }
 
 // modifiers
@@ -28,39 +18,26 @@
 // size
 
 .icon--small {
-
     width: 1.5rem;
     height: 1.5rem;
-
-    svg {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
 }
 
 .icon--large {
-
     width: 3rem;
     height: 3rem;
-
-    svg {
-        width: 3rem;
-        height: 3rem;
-    }
-
 }
 
 .icon--xlarge {
-
     width: 4rem;
     height: 4rem;
+}
 
-    svg {
-        width: 4rem;
-        height: 4rem;
-    }
+.icon--thin {
+    stroke-width: 1px;
+}
 
+.icon--bold {
+    stroke-width: 4px;
 }
 
 // color
@@ -77,36 +54,15 @@
 
 [class*="--attention"] .icon,
 .icon.icon--attention.icon--attention {
-    circle,
-    ellipse,
-    line,
-    path,
-    polygon,
-    polyline {
-        stroke: @color-attention-8;
-    }
+    stroke: @color-attention-8;
 }
 
 [class*="--positive"] .icon,
 .icon.icon--positive.icon--positive {
-    circle,
-    ellipse,
-    line,
-    path,
-    polygon,
-    polyline {
-        stroke: @color-positive-8;
-    }
+    stroke: @color-positive-8;
 }
 
 [class*="--negative"] .icon,
 .icon.icon--negative.icon--negative {
-    circle,
-    ellipse,
-    line,
-    path,
-    polygon,
-    polyline {
-        stroke: @color-negative-8;
-    }
+    stroke: @color-negative-8;
 }
