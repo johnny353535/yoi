@@ -15,7 +15,7 @@ This is how a basic `.icon` looks like and how you write the markup:
 
 ```html
 <!-- example -->
-<img class="icon" src="/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
 ```
 ## Modifiers
 
@@ -25,9 +25,9 @@ Render icons in different sizes with the modifiers `.icon--small, .icon--large, 
 
 ```html
 <!-- example -->
-<img class="icon icon--small" src="/assets/img/icon-arrow-up.svg" yoi-icon />
-<img class="icon icon--large" src="/assets/img/icon-arrow-up.svg" yoi-icon />
-<img class="icon icon--xlarge" src="/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--small" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--large" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--xlarge" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
 ```
 
 ### Weight
@@ -36,8 +36,8 @@ Render icons in different weights with the modifiers `.icon--thin` and `.icon--b
 
 ```html
 <!-- example -->
-<img class="icon icon--thin" src="/assets/img/icon-arrow-up.svg" yoi-icon />
-<img class="icon icon--bold" src="/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--thin" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--bold" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
 ```
 
 ### Color
@@ -46,9 +46,9 @@ Render icons in different semantic colors with the modifiers `.icon--attention, 
 
 ```html
 <!-- example -->
-<img class="icon icon--attention" src="/assets/img/icon-arrow-up.svg" yoi-icon />
-<img class="icon icon--positive" src="/assets/img/icon-arrow-up.svg" yoi-icon />
-<img class="icon icon--negative" src="/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--attention" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--positive" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--negative" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
 ```
 
 ## SVG and HTML
@@ -57,10 +57,10 @@ Generally speaking, there are two different ways to display SVG graphics on a we
 
 ```html
 <!-- SVG as image -->
-<img class="icon" src="/assets/img/icon-arrow-up.svg" />
+<img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" />
 
 <!-- SVG as object -->
-<object class="icon" type="image/svg+xml" data="/assets/img/icon-arrow-up.svg">
+<object class="icon" type="image/svg+xml" data="{{ site.github.url }}/assets/img/icon-arrow-up.svg">
 ```
 
 The other option is writing the SVG markup inline, directly into the HTML:
@@ -80,7 +80,7 @@ If you need to embed SVG markup directly, add the attribute `yoi-icon` to your `
 
 ```html
 <!-- example -->
-<img class="icon icon--xlarge" src="/assets/img/icon-arrow-up.svg" yoi-icon />
+<img class="icon icon--xlarge" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon />
 ```
 
 ## List of Available Icons
@@ -92,54 +92,54 @@ If you need to embed SVG markup directly, add the attribute `yoi-icon` to your `
     </tr>
     <tr>
         <td>icon-arrow-down</td>
-        <td><img class="icon" src="/assets/img/icon-arrow-down.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-down.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-arrow-left</td>
-        <td><img class="icon" src="/assets/img/icon-arrow-left.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-left.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-arrow-right</td>
-        <td><img class="icon" src="/assets/img/icon-arrow-right.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-right.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-arrow-up</td>
-        <td><img class="icon" src="/assets/img/icon-arrow-up.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-arrow-up.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-checkmark</td>
-        <td><img class="icon" src="/assets/img/icon-checkmark.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-checkmark.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-chevron-down</td>
-        <td><img class="icon" src="/assets/img/icon-chevron-down.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-chevron-down.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-chevron-left</td>
-        <td><img class="icon" src="/assets/img/icon-chevron-left.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-chevron-left.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-chevron-right</td>
-        <td><img class="icon" src="/assets/img/icon-chevron-right.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-chevron-right.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-chevron-up</td>
-        <td><img class="icon" src="/assets/img/icon-chevron-up.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-chevron-up.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-minus</td>
-        <td><img class="icon" src="/assets/img/icon-minus.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-minus.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-plus</td>
-        <td><img class="icon" src="/assets/img/icon-plus.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-plus.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-spyglass</td>
-        <td><img class="icon" src="/assets/img/icon-spyglass.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-spyglass.svg" yoi-icon /></td>
     </tr>
     <tr>
         <td>icon-x</td>
-        <td><img class="icon" src="/assets/img/icon-x.svg" yoi-icon /></td>
+        <td><img class="icon" src="{{ site.github.url }}/assets/img/icon-x.svg" yoi-icon /></td>
     </tr>
 </table>
