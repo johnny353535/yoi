@@ -27,13 +27,13 @@ You can put any [icon]({{ site.github.url }}/components/icon.html) inside any ki
 <p>
     <!-- icon left -->
     <button class="button">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="15 18 9 12 15 6"></polyline></svg>
         <span>Icon Left</span>
     </button>
     <!-- icon right -->
     <button class="button">
         <span>Icon Right</span>
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
 </p>
 ```
@@ -45,7 +45,7 @@ Create an icon-only button by adding `.hidden` to the label:
 <!-- icon but no label -->
 <button class="button">
     <span class="hidden">Hidden Label Text</span>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
 </button>
 ```
 
@@ -61,7 +61,6 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.butt
 <!-- example -->
 <a class="button m-t-1" href="#">
     <span>Button</span>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="20 6 9 17 4 12"></polyline></svg>
 </a>
 ```
 
@@ -71,7 +70,6 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.butt
 <!-- example -->
 <button class="button m-t-1">
     <span>Button</span>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="20 6 9 17 4 12"></polyline></svg>
 </button>
 ```
 
@@ -82,7 +80,6 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.butt
 <span class="button m-t-1">
     <input type="submit" value="Input-tag and .button" />
     <span>Button</span>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="20 6 9 17 4 12"></polyline></svg>
 </span>
 ```
 
@@ -92,7 +89,6 @@ You can use any `<a>`, `<button>`, `<input type="submit">` or `<span>` as `.butt
 <!-- example -->
 <span class="button m-t-1">
     <span>Button</span>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" stroke="#000000" stroke-width="2px" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid"><polyline points="20 6 9 17 4 12"></polyline></svg>
 </span>
 ```
 

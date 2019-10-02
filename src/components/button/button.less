@@ -136,10 +136,6 @@
 
 .button {
 
-    // & > input[type="submit"] {
-    //     cursor: pointer;
-    // }
-
     .icon {
         height: @button-height;
         overflow: hidden;
@@ -556,16 +552,17 @@
     border-color: @borderColor;
     box-shadow: 0 1px 0 @highlightColor inset;
     color: @txtColor;
-
-    .icon svg {
+    
+    .icon {
         circle,
         ellipse,
         line,
         path,
         polygon,
         polyline {
-            fill: @txtColor;
-            stroke: @txtColor
+            stroke-width: 2px;
+            stroke: @txtColor;
+            fill: none;
         }
     }
 
