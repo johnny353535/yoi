@@ -16,7 +16,7 @@ Add `yoi-action="ScrollTo:#id"` to smoothly scroll to the target element:
 ```html
 <!-- example -->
 <a class="button button--large" href="#example-1" yoi-action="ScrollTo:#example-1;">Scroll to #example-1</a>
-<div class="m-t-20">
+<div class="m-t-10">
     <div id="example-1" class="w-30 al-c p-8 br-all bg-purple-15 c-purple-24 fs-2">#example-1</div>
 </div>
 ```
@@ -33,20 +33,20 @@ If the target element is inside a scrollable container element, instead of scrol
 <a class="button button--large" href="#example-3" yoi-action="ScrollTo:#example-3;">Scroll to #example-3</a>
 ```
 
-<div class="m-t-4 h-40 p-4 br-all b-all bc-base-22 pos-relative scr-y">
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div id="example-2" class="w-25 al-c p-8 m-b-2 br-all bg-yellow-20 c-yellow-8 fs-2">#example-2</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div class="w-25 al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
-    <div id="example-3" class="w-25 al-c p-8 m-b-2 br-all bg-yellow-20 c-yellow-8 fs-2">#example-3</div>
+<div class="m-t-4 h-50 p-4 br-all b-all bc-base-22 pos-relative scr-y">
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div id="example-2" class="al-c p-8 m-b-2 br-all bg-yellow-20 c-yellow-8 fs-2">#example-2</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div class="al-c p-8 m-b-2 br-all bg-base-24 c-base-12 fs-2">Placeholder</div>
+    <div id="example-3" class="al-c p-8 m-b-2 br-all bg-yellow-20 c-yellow-8 fs-2">#example-3</div>
 </div>
 
 ## Parameters
@@ -64,7 +64,7 @@ Set the highlight parameter to one of the two available highlight animation type
 <!-- example -->
 <a class="button button--large" href="#example-4" yoi-action="ScrollTo:#example-4; highlight:blink;">Scroll to #example-4 and blink</a>
 <a class="button button--large" href="#example-5" yoi-action="ScrollTo:#example-5; highlight:pulse;">Scroll to #example-5 and pulse</a>
-<div class="m-t-20">
+<div class="m-t-10">
     <div id="example-4" class="w-30 al-c p-8 m-b-4 br-all bg-green-15 c-green-24 fs-2">#example-4</div>
     <div id="example-5" class="w-30 al-c p-8 br-all bg-red-17 c-red-24 fs-2">#example-5</div>
 </div>
