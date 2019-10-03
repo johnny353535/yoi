@@ -10,8 +10,6 @@ YOI.action.Blink = function($trigger, $target, options) {
      *  @param {object}         options
      */
 
-
-
     if (YOI.isjQuery($target)) {
         YOI.blink($target, options.times);
     }

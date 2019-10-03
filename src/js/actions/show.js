@@ -62,15 +62,7 @@ YOI.action.Show.init = function() {
      *  to make CSS animations work properly.
      */
 
-    var selectors = '\
-        [yoi-action*="Show"],\
-        [yoi-action-1*="Show"],\
-        [yoi-action-2*="Show"],\
-        [yoi-action-3*="Show"],\
-        [yoi-action-4*="Show"]\
-    ';
-
-    $(selectors).each(function() {
+    $('[yoi-action*="Show"]').each(function() {
 
         // update options
 

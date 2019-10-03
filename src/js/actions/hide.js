@@ -35,7 +35,6 @@ YOI.action.Hide = function($trigger, $target, options) {
         // hide with fx
 
         if (fx) {
-            if (speed) $target.addClass('fx-' + speed);
             $target.addClass('fx-' + fx + '-initial');
             $target.addClass('fx-' + fx);
             $target.on('animationend', function() {
@@ -65,15 +64,7 @@ YOI.action.Hide.init = function() {
      *  to make CSS animations work properly.
      */
 
-    var selectors = '\
-        [yoi-action*="Hide"],\
-        [yoi-action-1*="Hide"],\
-        [yoi-action-2*="Hide"],\
-        [yoi-action-3*="Hide"],\
-        [yoi-action-4*="Hide"]\
-    ';
-
-    $(selectors).each(function() {
+    $('[yoi-action*="Hide"]').each(function() {
 
         // update options
 
