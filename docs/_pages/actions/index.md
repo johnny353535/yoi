@@ -21,15 +21,7 @@ Add an action-attribute to an element to make it execute an action. You must alw
 <div yoi-action="Actionname:#id;">...</div>
 ```
 
-### Multiple Actions
-
-You can add up to five actions to a single element. Each actions needs a unique, numbered action attribute:
-
-```html
-<div yoi-action="..." yoi-action-1="..." yoi-action-2="..." yoi-action-3="..." yoi-action-4="..."></div>
-```
-
-<p class="hint hint--primary"><b>Actions are Limited</b> Try to use a maximum of two actions per element. If you need more complex interactivity, it’s much better to write your own JavaScript.</p>
+<p class="hint hint--negative"><b>Actions are limited!</b> You can only use one action per element. If you need more complex interactivity, it’s much better to write your own JavaScript.</p>
 
 ## Example
 
@@ -98,7 +90,7 @@ By default, every action is executed _on click_. Use the _on_ parameter to call 
     <button class="button button--large" yoi-action="Blink:#example-2; on:mouseover;">mouseover</button>
     <button class="button button--large" yoi-action="Blink:#example-2; on:mouseout;">mouseout</button>
 </div>
-<input class="input--large w-20 m-t-2" type="text" value="focus" yoi-action="Blink:#example-2; on:focus;" />
+<input class="input input--large w-20 m-t-2" type="text" value="focus" yoi-action="Blink:#example-2; on:focus;" />
 <div id="example-2" class="m-t-4">
     <div class="box p-4 c-gray-15 fs-2">#example-2</div>
 </div>
@@ -110,8 +102,8 @@ Some _actions_ implement _options_. Available options are listed on each action�
 
 ```html
 <!-- example -->
-<p class="fs-2 c-gray-15 m-b-4">Click the button to hide the target element with a slide-transition:</p>
-<button class="button button--large" yoi-action="Hide:#example-4; transition:slideUp;">Hide #example-4</button>
+<p class="fs-2 c-gray-15 m-b-4">Click the button to hide the target element with a fade-out transition:</p>
+<button class="button button--large" yoi-action="Hide:#example-4; fx:fade-out;">Hide #example-4</button>
 <div id="example-4" class="m-t-4">
     <div class="box p-4 c-gray-15 fs-2">#example-4</div>
 </div>
@@ -128,25 +120,10 @@ The first method is used in all previous examples. However, sometimes the second
 
 ```html
 <!-- example -->
-<p class="fs-2 c-gray-15 m-b-4">An example element will <i>listen</i> to the <code>yoi-switch-on</code> and <code>yoi-switch-off</code> events and show or hide itself accordingly:</p>
+<p class="fs-2 c-gray-15 m-b-4">An example element will <i>listen</i> to the <code>yoi-switch-on</code> and <code>yoi-switch-off</code> events and hide itself accordingly:</p>
 <div id="exampleTrigger-1" class="switch switch--large" yoi-switch></div>
-<div class="m-t-4" yoi-action-1="Show:self; on:yoi-switch-on; trigger:#exampleTrigger-1;" yoi-action-2="Hide:self; on:yoi-switch-off; trigger:#exampleTrigger-1;" >
+<div class="m-t-4" yoi-action="Hide:self; on:yoi-switch-on; trigger:#exampleTrigger-1;">
     <div class="box p-4 c-gray-15 fs-2">Hello.</div>
-</div>
-```
-
-## Custom Events
-
-Some of YOI’s [elements]({{ site.github.url }}/components/) fire custom events. They follow the naming scheme `yoi-elementname-eventname` (written in lowercase). Available custom events are listet on each component’s documentation page.
-
-In the following example, the [switch]({{ site.github.url }}/components/switch.html) fires the events `yoi-switch-on` and `yoi-switch-off`. The example target gets hidden on `yoi-switch-off` and becomes visible on `yoi-switch-off`:
-
-```html
-<!-- example -->
-<p class="fs-2 c-gray-15 m-b-4">Use the switch to show or hide the example target:</p>
-<div class="switch switch--large" yoi-switch yoi-action-1="Show:#example-3; on:yoi-switch-on;" yoi-action-2="Hide:#example-3; on:yoi-switch-off;"></div>
-<div id="example-3" class="m-t-4">
-    <div class="box p-4 c-gray-15 fs-2">#example-3</div>
 </div>
 ```
 
