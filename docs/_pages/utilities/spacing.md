@@ -43,13 +43,13 @@ All margin utilities listed above are also available as *responsive* utilities:
 
 ## Padding
 
-| `.p-[1–10]`    | .5rem &times; [1–10] padding on all sides      |
-| `.p-t-[1–10]`  | .5rem &times; [1–10] padding on top            |
-| `.p-r-[1–10]`  | .5rem &times; [1–10] padding on right          |
-| `.p-b-[1–10]`  | .5rem &times; [1–10] padding on bottom         |
-| `.p-l-[1–10]`  | .5rem &times; [1–10] padding on left           |
-| `.p-tb-[1–10]` | .5rem &times; [1–10] padding on top and bottom |
-| `.p-lr-[1–10]` | .5rem &times; [1–10] padding on left and right |
+| `.p-[1–10]`    | `.5rem &times; [1–10]` padding on all sides      |
+| `.p-t-[1–10]`  | `.5rem &times; [1–10]` padding on top            |
+| `.p-r-[1–10]`  | `.5rem &times; [1–10]` padding on right          |
+| `.p-b-[1–10]`  | `.5rem &times; [1–10]` padding on bottom         |
+| `.p-l-[1–10]`  | `.5rem &times; [1–10]` padding on left           |
+| `.p-tb-[1–10]` | `.5rem &times; [1–10]` padding on top and bottom |
+| `.p-lr-[1–10]` | `.5rem &times; [1–10]` padding on left and right |
 
 ### Responsive Padding
 

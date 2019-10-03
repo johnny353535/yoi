@@ -79,10 +79,10 @@ srcfiles:
 
 ## Fixed Width & Height
 
-At YOI’s default configuration, 120 fixed width and 120 fixed height steps are available. Read the step number as multiplicant of 1rem – thus `.w-15` translates to 1rem &times; 15 = 15rem. *rem* is a mesurement unit relative to the font size of the `<html>` element. By default, Yoi’s root font size is 10px. So `.w-15` = 1rem (1 &times; 10px) &times; 15 = 150px;
+At YOI’s default configuration, 50 fixed width and 50 fixed height steps are available. Read the step number as multiplicant of .5rem – thus `.w-10` translates to .5rem &times; 10 = 5rem. *rem* is a mesurement unit relative to the font size of the `<html>` element. By default, Yoi’s root font size is 8px. So `.w-10` = 5rem (15 &times; 8px) &times; 10 = 80px;
 
-| `.w-[1–10]`   | fixed width between 1 (.5rem &times; 1) and 10 (.5rem &times; 120)  |
-| `.h-[1–10]`   | fixed height between 1 (.5rem &times; 1) and 10 (.5rem &times; 120) |
+| `.w-[1–10]`   | fixed width between 1 (.5rem &times; 1) and 50 (.5rem &times; 50)  |
+| `.h-[1–10]`   | fixed height between 1 (.5rem &times; 1) and 50 (.5rem &times; 50) |
 | `.w-viewport` | fixed with of 1vw (viewport width)                                 |
 | `.h-viewport` | fixed height of 1vh (viewport height)                              |
 
