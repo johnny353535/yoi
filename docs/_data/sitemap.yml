@@ -34,7 +34,6 @@ actions:
     - blink
     - pulse
     - scrollto
-    - update
 components:
     - index
     - accordion
@@ -65,9 +64,7 @@ components:
     - popover
     - quotation
     - radiobutton
-    - rangeinput
     - ruler
-    - searchinput
     - select
     - slider
     - spinner
