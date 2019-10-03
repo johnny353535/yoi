@@ -8,7 +8,7 @@ status: [draft, issues]
 
 # ImgMagnifier
 
-<p class="intro">Magnifyer function for any image.</p>
+<p class="intro">Magnifier function for any image.</p>
 
 ## Basic Example
 
@@ -22,6 +22,7 @@ This is how a basic `.imgMagnifier` looks like and how you write the markup:
     </a>
 </div>
 ```
+
 The magnify region is the same size than the original image and is always placed on the right side next to it.
 
 <p class="hint hint--negative"><b>For Desktop only:</b> <code>.imgMagnifier</code> was designed for desktop browsers with a mouse a input device.</p>

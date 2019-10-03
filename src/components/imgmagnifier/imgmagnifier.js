@@ -54,7 +54,7 @@ YOI.component.ImgMagnifier = (function(){
                 e.preventDefault();
             });
 
-            $window.on('load', function() {
+            $thisImgMagnifier.find('img').on('load', function() {
 
                 // attach mouse events
 
