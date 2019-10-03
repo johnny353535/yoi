@@ -9,6 +9,7 @@ YOI.component.PageSkim = (function() {
     var keyboardEventsAdded = false;
     var $window             = $(window);
     var $body               = $('body');
+    var scrollRoot          = document.scrollingElement || document.documentElement;
     var currentHook         = -1;
     var totalHooks;
 
@@ -121,7 +122,7 @@ YOI.component.PageSkim = (function() {
         // do the scrolling
 
         $.when(
-            $body.stop().animate({
+            $(scrollRoot).stop().animate({
                 scrollTop : $hooks.eq(currentHook).offset().top - offset
             }, scrollSpeed)
         ).done(function(){
@@ -244,7 +245,7 @@ YOI.component.PageSkim = (function() {
             // and return it's index
 
             $hooks.each(function(index) {
-                if ($(this).offset().top + offset > $body.scrollTop()) {
+                if ($(this).offset().top + offset > $window.scrollTop()) {
                     currentHook = index;
                     return false;
                 }
@@ -253,7 +254,7 @@ YOI.component.PageSkim = (function() {
             // if the page is not scrolled past the first hook,
             // reset currentHook
 
-            if ($body.scrollTop() < $hooks.eq(0).offset().top - offset) {
+            if ($window.scrollTop() < $hooks.eq(0).offset().top - offset) {
                 currentHook = -1;
             }
 
